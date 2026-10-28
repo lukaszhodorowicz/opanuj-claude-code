@@ -1,0 +1,163 @@
+/* Wygląd nauczyciela przy ćwiczeniu: postać i dymek na jasnej limonce z grubą granatową ramką (inny kolor niż strona i okna ćwiczeń) oraz sygnał przy każdej zmianie tekstu: błysk tła i kiwnięcie postaci, mocniejsze przy nowym poleceniu (.sygnal-polecenie), słabsze przy kolejnym kroku (.sygnal-krok); przy ograniczonym ruchu zostaje sam błysk koloru. Klasy nadaje strona/nauczyciel.js. */
+.nauczyciel {
+  --dymek-tlo: var(--zakreslacz); /* kolor dymka w spoczynku: granat na nim ma kontrast ok. 15,8:1 */
+  --dymek-blysk: var(--limonka); /* kolor tła w chwili zmiany tekstu: granat na nim ma kontrast ok. 12,2:1 */
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+@media (min-width: 760px) {
+  .nauczyciel {
+    min-height: 80px; /* dwie linie dymka: okna pod spodem nie skaczą przy zmianie tekstu */
+  }
+}
+.postac {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--dymek-tlo);
+  border: 3px solid var(--granat);
+  color: var(--granat);
+}
+.postac svg {
+  width: 34px;
+  height: 34px;
+}
+.dymek {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 760px;
+  background: var(--dymek-tlo);
+  color: var(--granat);
+  border: 3px solid var(--granat);
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 3px 0 var(--granat);
+  padding: 8px 16px 9px;
+  font: 500 16.5px/1.5 var(--sans);
+}
+.dymek p {
+  display: inline;
+  margin: 0;
+}
+/* znaczek „o którym oknie mowa”: limonka na granacie, kontrast ok. 12,2:1 */
+.o-oknie {
+  display: inline-block;
+  font: 700 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--granat);
+  color: var(--limonka);
+  border-radius: 999px;
+  padding: 5px 9px;
+  margin-right: 8px;
+  vertical-align: 2px;
+}
+.o-oknie::after {
+  content: " ↓";
+}
+
+/* sygnał zmiany tekstu: dymek błyska limonką i po obwodzie świeci pierścień; postać kiwa głową */
+.nauczyciel.sygnal-krok .dymek {
+  animation: dymek-krok 0.8s ease-out;
+}
+.nauczyciel.sygnal-polecenie .dymek {
+  animation: dymek-polecenie 1s ease-out;
+}
+.nauczyciel.sygnal-krok .postac {
+  animation: postac-krok 0.45s ease-out;
+}
+.nauczyciel.sygnal-polecenie .postac {
+  animation: postac-polecenie 0.7s ease-out;
+}
+@keyframes dymek-krok {
+  0% {
+    background-color: var(--dymek-blysk);
+    box-shadow: 0 3px 0 var(--granat), 0 0 0 0 rgba(163, 230, 53, 0.8);
+    transform: translateY(4px);
+  }
+  25% {
+    transform: none;
+    box-shadow: 0 3px 0 var(--granat), 0 0 0 6px rgba(163, 230, 53, 0.55);
+  }
+  40% {
+    background-color: var(--dymek-blysk);
+  }
+  100% {
+    background-color: var(--dymek-tlo);
+    box-shadow: 0 3px 0 var(--granat), 0 0 0 10px rgba(163, 230, 53, 0);
+    transform: none;
+  }
+}
+@keyframes dymek-polecenie {
+  0% {
+    background-color: var(--dymek-blysk);
+    box-shadow: 0 3px 0 var(--granat), 0 0 0 0 rgba(163, 230, 53, 0.9);
+    transform: translateY(8px) scale(1.03);
+  }
+  20% {
+    transform: none;
+    box-shadow: 0 3px 0 var(--granat), 0 0 0 9px rgba(163, 230, 53, 0.7);
+  }
+  55% {
+    background-color: var(--dymek-blysk);
+  }
+  100% {
+    background-color: var(--dymek-tlo);
+    box-shadow: 0 3px 0 var(--granat), 0 0 0 16px rgba(163, 230, 53, 0);
+    transform: none;
+  }
+}
+@keyframes postac-krok {
+  40% {
+    transform: rotate(-9deg);
+  }
+}
+@keyframes postac-polecenie {
+  25% {
+    transform: rotate(-16deg) scale(1.12);
+  }
+  55% {
+    transform: rotate(10deg) scale(1.06);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+}
+
+/* ograniczony ruch: sam błysk koloru, bez kiwania, przesunięcia, powiększenia i pierścienia */
+@keyframes dymek-kolor-krok {
+  0%,
+  40% {
+    background-color: var(--dymek-blysk);
+  }
+}
+@keyframes dymek-kolor-polecenie {
+  0%,
+  55% {
+    background-color: var(--dymek-blysk);
+  }
+}
+/* Reguła w styl-strona.css skraca przy ograniczonym ruchu każdą animację do 0,01 ms; błysk koloru nie jest ruchem, więc czas dymka zostaje (!important wygrywa z nią swoim selektorem klasowym). */
+@media (prefers-reduced-motion: reduce) {
+  .nauczyciel.sygnal-krok .dymek {
+    animation-name: dymek-kolor-krok;
+    animation-duration: 0.8s !important;
+  }
+  .nauczyciel.sygnal-polecenie .dymek {
+    animation-name: dymek-kolor-polecenie;
+    animation-duration: 1s !important;
+  }
+  .nauczyciel.sygnal-krok .postac,
+  .nauczyciel.sygnal-polecenie .postac {
+    animation: none;
+  }
+}
+
+/* Przewiewny układ lekcji (D-2026-10-28-03) */
+.cwiczenie .nauczyciel {
+  margin-bottom: 20px;
+}

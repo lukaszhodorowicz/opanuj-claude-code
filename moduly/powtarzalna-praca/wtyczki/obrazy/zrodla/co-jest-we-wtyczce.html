@@ -1,0 +1,230 @@
+<!doctype html>
+<!-- Rysunek R7 „Co jest we wtyczce” do lekcji wtyczki: folder wtyczki z pięcioma składnikami (manifest, skille, agenci, hooki, serwery MCP), przy każdym, co robi; skille i agenci to instrukcje w rozmowie, hooki i serwery MCP to kod na Twoim komputerze (zakreślacz). Źródło PNG obrazy/co-jest-we-wtyczce.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co jest we wtyczce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku R1 modułu strona */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      svg {
+        display: block;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .os {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 16px;
+      }
+
+      /* ===== Legenda ===== */
+      .legenda {
+        display: flex;
+        gap: 22px;
+        justify-content: flex-end;
+        margin-bottom: 12px;
+        font: 800 20px/1.2 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .legenda span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .legenda i {
+        width: 26px;
+        height: 18px;
+        border-radius: 5px;
+      }
+      .legenda .ins i {
+        background: var(--papier-2);
+        border: 3px solid var(--grafit);
+      }
+      .legenda .kod i {
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+      }
+
+      /* ===== Siatka: folder | strzałka | co robi ===== */
+      .siatka {
+        display: grid;
+        grid-template-columns: 236px 40px 412px;
+        grid-template-rows: auto repeat(5, auto);
+        row-gap: 6px;
+      }
+      /* tło teczki i tła grup to osobne elementy siatki pod wierszami */
+      .teczka {
+        grid-column: 1;
+        grid-row: 1 / 7;
+        border: 4px solid var(--granat);
+        border-radius: 16px;
+        background: var(--papier-2);
+      }
+      .grupa {
+        grid-column: 3;
+        border-radius: 16px;
+      }
+      .grupa.ins {
+        grid-row: 3 / 5;
+        background: var(--papier-2);
+        border: 3px solid var(--grafit);
+      }
+      .grupa.kod {
+        grid-row: 5 / 7;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 4px var(--limonka);
+      }
+      .tytul {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 14px 4px;
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .tytul svg {
+        width: 30px;
+        height: 24px;
+        flex: none;
+      }
+      .sklad {
+        grid-column: 1;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 8px 12px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .sklad code {
+        display: block;
+        margin-top: 4px;
+        font: 700 17px/1.25 var(--mono);
+        letter-spacing: 0;
+        color: var(--grafit);
+      }
+      .strzalka {
+        grid-column: 2;
+        align-self: center;
+        justify-self: center;
+      }
+      .strzalka svg {
+        width: 34px;
+        height: 22px;
+      }
+      .robi {
+        grid-column: 3;
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        margin: 8px 12px;
+        padding: 9px 14px;
+        border-radius: 12px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        font: 700 20px/1.3 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .robi code {
+        font: 700 17px/1.3 var(--mono);
+        letter-spacing: 0;
+      }
+      .r2 { grid-row: 2; }
+      .r3 { grid-row: 3; }
+      .r4 { grid-row: 4; }
+      .r5 { grid-row: 5; }
+      .r6 { grid-row: 6; }
+      /* górny i dolny odstęp w grupach, żeby ramka grupy nie dotykała pól */
+      .r3.robi, .r3.sklad, .r5.robi, .r5.sklad { margin-top: 14px; }
+      .r4.robi, .r4.sklad, .r6.robi, .r6.sklad { margin-bottom: 14px; }
+      .wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat, #0e1422); }
+      .wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Folder wtyczki z pięcioma składnikami i tym, co każdy robi. Manifest .claude-plugin/plugin.json: nazwa wtyczki, może też wersja i opis. Skille skills/…/SKILL.md: skill /nazwa-wtyczki:nazwa-skilla; Claude bierze go, gdy pasuje, albo uruchamiasz go z listy. Agenci: subagent, któremu Claude może przekazać pracę (moduł 9). Hooki: polecenia uruchamiane w określonych momentach pracy, np. po każdej edycji (moduł 7). Serwery MCP: narzędzia dla Claude; serwer może działać jako program na Twoim komputerze (moduł 5). Skille i agenci to instrukcje w rozmowie, hooki i serwery MCP to kod na Twoim komputerze."
+    >
+      <p class="wniosek">Wtyczka to paczka: <mark>instrukcje dla Claude i kod na Twoim komputerze</mark>.</p>
+      <div class="os">
+        <div class="legenda">
+          <span class="ins"><i></i>Instrukcje dla Claude w rozmowie</span>
+          <span class="kod"><i></i>Kod, który działa na Twoim komputerze</span>
+        </div>
+        <div class="siatka">
+          <div class="teczka"></div>
+          <div class="grupa ins"></div>
+          <div class="grupa kod"></div>
+
+          <div class="tytul">
+            <svg viewBox="0 0 30 24" aria-hidden="true"><path d="M2 4 Q2 2 4 2 H11 L14 6 H26 Q28 6 28 8 V20 Q28 22 26 22 H4 Q2 22 2 20 Z" fill="none" stroke="#0e1422" stroke-width="3" stroke-linejoin="round"/></svg>
+            <span>Folder wtyczki</span>
+          </div>
+
+          <div class="sklad r2">Manifest</div>
+          <div class="strzalka r2"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M3 11 H30 M21 3 L31 11 L21 19" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="robi r2"><span>Podaje nazwę wtyczki, czasem też wersję i opis.</span></div>
+
+          <div class="sklad r3">Skille</div>
+          <div class="strzalka r3"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M3 11 H30 M21 3 L31 11 L21 19" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="robi r3"><span>Claude bierze skill, gdy pasuje do zadania, albo uruchamiasz go z&nbsp;listy.</span></div>
+
+          <div class="sklad r4">Agenci</div>
+          <div class="strzalka r4"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M3 11 H30 M21 3 L31 11 L21 19" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="robi r4"><span>Opisy subagentów, którym Claude może przekazać pracę (moduł&nbsp;9).</span></div>
+
+          <div class="sklad r5">Hooki</div>
+          <div class="strzalka r5"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M3 11 H30 M21 3 L31 11 L21 19" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="robi r5"><span>Polecenia uruchamiane w&nbsp;określonych chwilach pracy, na przykład po każdej edycji (moduł&nbsp;7).</span></div>
+
+          <div class="sklad r6">Serwery MCP</div>
+          <div class="strzalka r6"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M3 11 H30 M21 3 L31 11 L21 19" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="robi r6"><span>Dają Claude narzędzia. Serwer może działać jako program na Twoim komputerze (moduł&nbsp;5).</span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

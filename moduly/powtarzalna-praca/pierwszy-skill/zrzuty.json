@@ -1,0 +1,120 @@
+{
+  "cw1-przed-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-zgoda-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-po-zgodzie-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-plik-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-plik": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-przed-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-nazwa-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-slowa-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-nazwa": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-slowa": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw1-po-przebiegu": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-po-przebiegu": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

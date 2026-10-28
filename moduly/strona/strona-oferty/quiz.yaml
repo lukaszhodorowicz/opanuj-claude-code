@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prowadzisz szkolenia dla firm. Chcesz, żeby Claude zrobił stronę oferty z plików cennik.txt i opinie-klientow.txt, które leżą w folderze. Jak w prośbie dodajesz te pliki do rozmowy?"
+    odpowiedzi:
+      - "Wklejasz do prośby całą treść obu plików, bo Claude nie czyta plików z folderu."
+      - "Wpisujesz @ i nazwę pliku, na przykład @cennik.txt."
+      - "Otwierasz każdy plik w panelu pliku, bo Claude widzi tylko pliki otwarte w panelach."
+    poprawna: 1
+    wyjasnienie: "Znak @ przed nazwą dodaje plik do rozmowy."
+    fakt: aplikacja-at-dodaje-plik-do-rozmowy
+
+  - pytanie: "Claude zapisał stronę oferty w pliku oferta-szkolenia.html. Pracujesz na swoim komputerze (w aplikacji: This computer) i klikasz ścieżkę tego pliku w odpowiedzi Claude. Co się dzieje?"
+    odpowiedzi:
+      - "Nic, bo pliku HTML nie otworzysz w aplikacji, tylko w osobnej przeglądarce."
+      - "Claude wkleja do rozmowy cały kod strony do przeczytania."
+      - "Plik otwiera się w panelu Browser."
+    poprawna: 2
+    wyjasnienie: "W sesji lokalnej (w aplikacji: This computer, w dokumentacji: Local) kliknięcie ścieżki pliku HTML w rozmowie otwiera go w panelu Browser."
+    fakt: aplikacja-klik-sciezki-do-pdf-html-wideo-otwiera-panel-browser
+
+  - pytanie: "Pracujesz w trybie Accept edits. Prosisz Claude o stronę oferty w nowym pliku oferta-szkolenia.html w folderze. Co robi Claude?"
+    odpowiedzi:
+      - "Zapisuje nowy plik w folderze i nie czeka na Twoją zgodę."
+      - "Czeka na Twoją zgodę, bo nowy plik zapisuje dopiero po zatwierdzeniu."
+      - "Wkleja kod strony do rozmowy, a plik w folderze musisz założyć sam."
+    poprawna: 0
+    wyjasnienie: "W trybie Accept edits Claude stosuje zmiany w plikach i nie czeka na Twoją zgodę."
+    fakt: aplikacja-accept-edits-auto-bez-czekania-na-zgode
+
+  - pytanie: "Strona oferty leży już w pliku oferta-szkolenia.html, a cena szkolenia wzrosła. Pracujesz w trybie Accept edits i prosisz Claude o wpisanie nowej ceny w tym pliku. Co robi Claude?"
+    odpowiedzi:
+      - "Pokazuje proponowaną zmianę i czeka, aż ją zatwierdzisz."
+      - "Zmienia cenę w pliku oferta-szkolenia.html."
+      - "Podaje nową cenę tylko w rozmowie, a plik strony zostawia bez zmian."
+    poprawna: 1
+    wyjasnienie: "W trybach Auto i Accept edits Claude stosuje zmiany w plikach."
+    fakt: aplikacja-auto-i-accept-edits-stosuja-zmiany

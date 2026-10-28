@@ -1,0 +1,222 @@
+<!doctype html>
+<!-- Rysunek R6 „Plik subagenta” do lekcji wlasny-subagent: plik korektora (nagłówek między liniami --- z czterema polami, pod nim instrukcja) i dwa miejsca zapisu (.claude/agents w projekcie, ~/.claude/agents dla wszystkich projektów); zakreślacz tylko na linii description. Źródło PNG obrazy/plik-subagenta.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Plik subagenta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w R1 gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --pasek: #d6d9cd;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys {
+        padding: 20px 16px 22px;
+        display: grid;
+        grid-template-columns: 438px 1fr;
+        column-gap: 22px;
+        align-items: start;
+      }
+
+      /* ===== Lewa część: kartka pliku ===== */
+      .plik {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .plik-glowa {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 54px;
+        padding: 0 14px;
+        background: var(--granat);
+        color: var(--biel);
+        font: 700 19px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .plik-glowa svg { width: 24px; height: 24px; flex: none; color: var(--limonka); }
+      .tresc { padding: 12px 14px 16px; }
+      .kod {
+        font: 500 19px/1.2 var(--mono);
+        white-space: nowrap;
+        padding: 5px 8px;
+        margin: 0 -8px;
+        border-radius: 8px;
+      }
+      .kod b { font-weight: 700; }
+      .kod.kreski { color: var(--grafit); font-weight: 700; }
+      .kod.ten {
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+      }
+      .dopisek {
+        display: flex;
+        gap: 6px;
+        margin: 2px 0 10px 4px;
+        color: var(--grafit);
+        font: 700 17px/1.25 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .dopisek svg { width: 18px; height: 18px; flex: none; margin-top: 1px; }
+      .dopisek em { font-style: normal; color: var(--granat); }
+      .instrukcja { margin: 8px 0 4px; }
+      .instrukcja i {
+        display: block;
+        height: 11px;
+        border-radius: 6px;
+        background: var(--pasek);
+        margin-bottom: 9px;
+      }
+
+      /* ===== Prawa część: dwa miejsca ===== */
+      .miejsca { display: flex; flex-direction: column; gap: 14px; }
+      .napis {
+        margin: 0 0 8px 2px;
+        font: 800 25px/1.12 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .teczka {
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 10px 10px 10px;
+      }
+      .teczka-glowa {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin: 0 0 8px 2px;
+        font: 700 17px/1.2 var(--mono);
+        white-space: nowrap;
+      }
+      .teczka-glowa svg { width: 22px; height: 22px; flex: none; }
+      .wewn {
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 12px;
+        padding: 8px 8px 8px;
+      }
+      .wewn .teczka-glowa { margin-bottom: 7px; }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 44px;
+        padding: 0 9px;
+        background: var(--papier);
+        border: 2px solid var(--granat);
+        border-radius: 10px;
+        font: 700 17px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .karta svg { width: 22px; height: 22px; flex: none; }
+      .wygrywa {
+        margin-top: 4px;
+        padding: 12px 12px 13px;
+        border-top: 3px dashed var(--grafit);
+        color: var(--grafit);
+        font: 800 20px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        grid-column: 1 / -1;
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans, "Plus Jakarta Sans", system-ui, sans-serif);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+        color: var(--granat, #0e1422);
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz, #d9f99d) 52%, var(--zakreslacz, #d9f99d) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Plik korektora: nagłówek między liniami --- z nazwą, opisem, narzędziami i modelem, pod nim instrukcja. Plik w .claude/agents/ działa w tym projekcie, w ~/.claude/agents/ we wszystkich Twoich projektach. Gdy ta sama nazwa jest w obu miejscach, wygrywa plik z projektu.">
+      <h1 class="teza">Po <mark>opisie w&nbsp;pliku</mark> Claude decyduje, kiedy przekazać zadanie subagentowi</h1>
+      <!-- Lewa część: plik -->
+      <div class="plik">
+        <div class="plik-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          .claude/agents/korektor.md
+        </div>
+        <div class="tresc">
+          <div class="kod kreski">---</div>
+          <div class="kod"><b>name:</b> korektor</div>
+          <div class="dopisek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v8a4 4 0 0 0 4 4h9"/><path d="M15 12l4 4-4 4"/></svg><span><em>nazwa:</em> po niej wołasz subagenta (pole wymagane)</span></div>
+          <div class="kod ten"><b>description:</b> Poprawia newslettery…</div>
+          <div class="dopisek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v8a4 4 0 0 0 4 4h9"/><path d="M15 12l4 4-4 4"/></svg><span><em>opis:</em> po nim Claude decyduje, kiedy przekazać zadanie (pole wymagane)</span></div>
+          <div class="kod"><b>tools:</b> Read, Edit</div>
+          <div class="dopisek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v8a4 4 0 0 0 4 4h9"/><path d="M15 12l4 4-4 4"/></svg><span><em>narzędzia:</em> tylko ich subagent może używać; tu Read czyta pliki, a&nbsp;Edit robi punktowe zmiany</span></div>
+          <div class="kod"><b>model:</b> sonnet</div>
+          <div class="dopisek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v8a4 4 0 0 0 4 4h9"/><path d="M15 12l4 4-4 4"/></svg><span><em>model:</em> między innymi sonnet, opus, haiku, fable albo inherit, czyli ten sam model co rozmowa</span></div>
+          <div class="kod kreski">---</div>
+          <div class="instrukcja">
+            <i style="width: 100%"></i>
+            <i style="width: 90%"></i>
+            <i style="width: 62%"></i>
+          </div>
+          <div class="dopisek" style="margin-bottom: 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v8a4 4 0 0 0 4 4h9"/><path d="M15 12l4 4-4 4"/></svg><span><em>instrukcja:</em> z niej subagent wie, jak pracować</span></div>
+        </div>
+      </div>
+
+      <!-- Prawa część: dwa miejsca -->
+      <div class="miejsca">
+        <div>
+          <p class="napis">ten projekt</p>
+          <div class="teczka">
+            <div class="teczka-glowa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              Piekarnia-teksty
+            </div>
+            <div class="wewn">
+              <div class="teczka-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                .claude/agents
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                korektor.md
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="napis">wszystkie Twoje projekty (folder domowy)</p>
+          <div class="teczka">
+            <div class="teczka-glowa" style="margin-bottom: 0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              ~/.claude/agents
+            </div>
+          </div>
+        </div>
+        <div class="wygrywa">Gdy ta sama nazwa jest w&nbsp;obu miejscach, wygrywa plik z&nbsp;projektu.</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+/* Wygląd folderu każdej rozmowy w symulatorze aplikacji (strona/aplikacja-sesje-foldery.js): nagłówek grupy folderu w pasku bocznym (mały szary tekst z nazwą teczki, zrzut gh102731) i kontrolka folderu w rzędzie pod polem (zrzut gh102210), która znika, gdy rozmowa ma już pierwszą prośbę. Elementy bez skutku mają kursor zwykły; „rękę” dostaje tylko element, w który kursant ma kliknąć (.apl-cel). */
+
+/* nagłówek grupy: nazwa teczki nad wierszami jej rozmów; lista ma odstęp 12 px, więc nagłówek dostaje własny nad sobą, żeby grupy się oddzielały */
+.apl-bok-sesje > .apl-grupa-folderu {
+  margin-top: 6px;
+  color: var(--a-szary);
+  font: 500 12px/1.4 var(--a-sans);
+}
+.apl-grupa-folderu span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* kontrolka folderu: przycisk wyglądający jak pozostałe elementy rzędu; bez kroku nic nie robi */
+.apl-chip.apl-chip-folder {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: default;
+}
+.apl-chip.apl-chip-folder.apl-cel {
+  cursor: pointer;
+}
+/* rozmowa z pierwszą prośbą nie ma kontrolki folderu */
+.apl-okno.apl-bez-folderu .apl-chip-folder {
+  display: none;
+}
+/* krótkie mignięcie napisu po zmianie teczki */
+.apl-chip-folder.mignij span {
+  animation: apl-folder-mignij 0.7s ease-out;
+}
+@keyframes apl-folder-mignij {
+  0% {
+    background: #3d4d6b;
+    color: #ffffff;
+  }
+  100% {
+    background: transparent;
+    color: inherit;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-chip-folder.mignij span {
+    animation: none;
+  }
+}

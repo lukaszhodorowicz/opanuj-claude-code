@@ -1,0 +1,136 @@
+<!doctype html>
+<!-- Rysunek R2 „Sześć sekund” do lekcji powiadomienie-gdy-czeka: oś czasu 0, 3, 6 s; górny tor (odpowiedź w 3 s, hook nie rusza), dolny tor (około 6 s czekania, hook rusza, zakreślacz) i dopisek, że w aplikacji pisanie nie przesuwa sześciu sekund. Źródło PNG obrazy/szesc-sekund.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Sześć sekund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .ramka {
+        padding: 20px 22px 22px;
+      }
+      /* plansza: współrzędne x liczone od lewej krawędzi planszy; 0 s = 40 px, 3 s = 340 px, 6 s = 620 px */
+      .plansza {
+        position: relative;
+        height: 376px;
+      }
+      .plansza > svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .etykieta {
+        position: absolute;
+        font: 700 22px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .etykieta b {
+        font-weight: 800;
+      }
+      .start {
+        left: 0;
+        top: 0;
+        font: 800 25px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .gora {
+        left: 372px;
+        top: 90px;
+        width: 300px;
+      }
+      .dol {
+        right: 12px;
+        top: 178px;
+        padding: 8px 14px;
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+        border-radius: 12px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      .sek {
+        position: absolute;
+        top: 352px;
+        width: 60px;
+        margin-left: -30px;
+        text-align: center;
+        font: 800 22px/1 var(--sans);
+      }
+      .pod-osia {
+        margin: 14px 0 0;
+        padding-top: 14px;
+        border-top: 2px dashed var(--kreska);
+        text-align: center;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza code {
+        font-size: 0.86em;
+        margin: 0 0.12em;
+        letter-spacing: -0.04em;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Oś czasu od 0 do 6 sekund. W chwili 0 Claude pyta o zgodę. Górny tor: odpowiadasz w 3 sekundy, hook nie rusza. Dolny tor: po około 6 sekundach czekania hook rusza. W aplikacji pisanie nie przesuwa tych sześciu sekund.">
+      <h1 class="teza">Hook z&nbsp;<code>permission_prompt</code> rusza dopiero, gdy pytanie o&nbsp;zgodę <mark>czeka około 6&nbsp;sekund</mark></h1>
+      <div class="ramka">
+        <div class="plansza">
+          <svg viewBox="0 0 676 376" aria-hidden="true">
+            <!-- prowadnice podziałki -->
+            <g stroke="#e2e4da" stroke-width="2" stroke-dasharray="6 6">
+              <path d="M340 70V330"/>
+              <path d="M620 70V330"/>
+            </g>
+            <!-- start: pionowa kreska od pytania do obu torów -->
+            <path d="M40 46V250" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+            <!-- górny tor: 0 → 3 s, klik -->
+            <path d="M40 120H340" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="40" cy="120" r="10" fill="#0e1422"/>
+            <circle cx="340" cy="120" r="13" fill="#ffffff" stroke="#0e1422" stroke-width="4"/>
+            <!-- kursor klikający w 3 s -->
+            <path d="M346 126 L346 156 L354 148 L360 162 L366 159 L360 145 L371 145 Z" fill="#0e1422" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+            <!-- dolny tor: 0 → 6 s, brak kliku -->
+            <path d="M40 250H620" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="40" cy="250" r="10" fill="#0e1422"/>
+            <circle cx="620" cy="250" r="17" fill="#d9f99d" stroke="#a3e635" stroke-width="5"/>
+            <circle cx="620" cy="250" r="7" fill="#0e1422"/>
+            <!-- oś czasu z podziałką -->
+            <path d="M40 330H640" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+            <path d="M628 320l14 10-14 10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <g stroke="#0e1422" stroke-width="4" stroke-linecap="round">
+              <path d="M40 320V340"/><path d="M340 320V340"/><path d="M620 320V340"/>
+            </g>
+          </svg>
+          <div class="etykieta start">Claude pyta o zgodę</div>
+          <div class="etykieta gora">Gdy odpowiesz przed upływem 6&nbsp;s,<br /><b>hook nie rusza</b></div>
+          <div class="etykieta dol">Po około 6&nbsp;s czekania hook rusza</div>
+          <div class="sek" style="left: 40px">0 s</div>
+          <div class="sek" style="left: 340px">3 s</div>
+          <div class="sek" style="left: 620px">6 s</div>
+        </div>
+        <p class="dopisek pod-osia">Gdy w&nbsp;tym czasie piszesz w&nbsp;aplikacji, hook nie rusza później.</p>
+      </div>
+    </div>
+  </body>
+</html>

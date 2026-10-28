@@ -1,0 +1,264 @@
+<!doctype html>
+<!-- Rysunek R2 „Opis zawsze w rozmowie, treść przy użyciu” do lekcji gotowe-skille: od początku rozmowy Claude ma listę nazw i opisów skilli; po Twojej wiadomości bierze skill sam, gdy zadanie pasuje do opisu, albo uruchamia go /nazwa na początku wiadomości; dopiero wtedy pełna treść skilla wchodzi do rozmowy. Źródło PNG obrazy/opis-zawsze-tresc-przy-uzyciu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Opis zawsze, treść przy użyciu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku R1 modułu strona */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+        /* wnętrze ramki ma 688 px: lista 230, odstęp 26, dwie gałęzie po 209 z odstępem 14;
+           współrzędne osi i rozgałęzienia w SVG liczą się od tych samych kolumn */
+        --kolumny: 230px 26px 209px 14px 209px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      svg {
+        display: block;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .os {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 16px;
+      }
+      .siatka {
+        display: grid;
+        grid-template-columns: var(--kolumny);
+        /* wiersz 3 (dwie drogi) ma stałą wysokość, więc nadmiar wysokości karty listy idzie w strzałki pod nimi */
+        grid-template-rows: auto auto 104px;
+      }
+
+      /* ===== 1. Oś rozmowy z dwoma znacznikami ===== */
+      .znacznik {
+        padding-bottom: 8px;
+        text-align: center;
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .znacznik.a {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .znacznik.b {
+        grid-row: 1;
+        grid-column: 3 / 6;
+      }
+      .cala {
+        grid-row: 2;
+        grid-column: 1 / -1;
+      }
+
+      /* ===== 2. Karta listy ===== */
+      .karta {
+        grid-column: 1;
+        grid-row: 3 / 5;
+        align-self: start;
+        padding: 12px 12px 14px;
+        border-radius: 16px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+      .karta b {
+        display: block;
+        margin-bottom: 10px;
+        font: 800 23px/1.2 var(--sans);
+        text-wrap: balance;
+        letter-spacing: -0.02em;
+      }
+      .wiersz {
+        margin-top: 8px;
+        padding: 6px 12px;
+        border-radius: 9px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        font: 700 22px/1.25 var(--sans);
+      }
+
+      /* ===== 3. Gałęzie po Twojej wiadomości ===== */
+      .wiadomosc {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: var(--papier-2);
+        border: 2px solid var(--granat);
+        text-align: center;
+        font: 800 22px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .wiadomosc span {
+        text-wrap: balance;
+      }
+      .wiadomosc code {
+        font: 700 22px/1.25 var(--mono);
+        letter-spacing: 0;
+      }
+      .krok {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        text-align: center;
+        font: 800 22px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      /* strzałka w dół: linia rośnie na wysokość wiersza siatki */
+      .w-dol {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 36px;
+        padding: 4px 0;
+      }
+      .w-dol::before {
+        content: "";
+        flex: 1;
+        width: 4px;
+        border-radius: 2px;
+        background: var(--granat);
+      }
+      .w-dol svg {
+        width: 24px;
+        height: 14px;
+        margin-top: -12px;
+      }
+      .L {
+        grid-column: 3;
+      }
+      .R {
+        grid-column: 5;
+      }
+
+      /* ===== 4. Szara notka z boku porównania ===== */
+      .notka {
+        grid-column: 1;
+        grid-row: 5;
+        align-self: center;
+        position: relative;
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        color: var(--grafit);
+        font: 800 22px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .notka::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -28px;
+        width: 26px;
+        border-top: 4px dashed var(--grafit);
+      }
+
+      /* ===== 5. Pełna treść skilla: zakreślacz ===== */
+      .tresc {
+        grid-column: 3 / 6;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 4px var(--limonka);
+        text-align: center;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      .wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat, #0e1422); }
+      .wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Oś jednej rozmowy od lewej do prawej. Początek rozmowy: lista z nazwami i opisami skilli, na przykład xlsx: opis, pdf: opis. Twoja wiadomość rozgałęzia się. Zwykłe słowa: Claude porównuje zadanie z opisami; gdy pasuje, Claude sam bierze skill. Opis mętny albo podobny do innego: Claude może wziąć zły skill albo pominąć dobry. /nazwa na początku wiadomości: skill rusza od razu. Obie drogi kończą się tym samym: pełna treść skilla wchodzi do rozmowy."
+    >
+      <p class="wniosek">Na starcie Claude zna tylko opisy skilli, a <mark>pełną treść czyta przy użyciu</mark>.</p>
+      <div class="os">
+        <div class="siatka">
+          <!-- 1. Oś -->
+          <div class="znacznik a">Początek rozmowy</div>
+          <div class="znacznik b">Twoja wiadomość</div>
+          <div class="cala">
+            <svg width="688" height="56" viewBox="0 0 688 56" aria-hidden="true">
+              <path d="M8 15 H678 M667 5 L679 15 L667 25" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- od znacznika 1 w dół do karty listy -->
+              <path d="M115 28 V52 M106 43 L115 53 L124 43" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- od znacznika 2: rozgałęzienie na dwie drogi -->
+              <path d="M472 28 V36 H360 V52 M351 43 L360 53 L369 43 M472 36 H583 V52 M574 43 L583 53 L592 43" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="115" cy="15" r="11" fill="#ffffff" stroke="#0e1422" stroke-width="4"/>
+              <circle cx="472" cy="15" r="11" fill="#ffffff" stroke="#0e1422" stroke-width="4"/>
+            </svg>
+          </div>
+
+          <!-- 2. Lista na początku rozmowy -->
+          <div class="karta">
+            <b>Lista nazw i opisów skilli</b>
+            <div class="wiersz">xlsx: opis</div>
+            <div class="wiersz">pdf: opis</div>
+            <div class="wiersz">…</div>
+          </div>
+
+          <!-- 3. Dwie drogi -->
+          <div class="wiadomosc L" style="grid-row: 3">Piszesz zwykłymi słowami.</div>
+          <div class="wiadomosc R" style="grid-row: 3"><span>Wpisujesz <code>/nazwa</code> na początku.</span></div>
+
+          <div class="w-dol L" style="grid-row: 4"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M3 2 L12 12 L21 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="w-dol R" style="grid-row: 4 / 7"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M3 2 L12 12 L21 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+          <div class="krok L" style="grid-row: 5">Claude porównuje zadanie z&nbsp;opisami.</div>
+          <div class="w-dol L" style="grid-row: 6"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M3 2 L12 12 L21 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="krok L" style="grid-row: 7">Gdy opis pasuje, Claude sam bierze skill.</div>
+          <div class="krok R" style="grid-row: 7">Skill rusza od&nbsp;razu.</div>
+
+          <!-- 4. Notka -->
+          <div class="notka">Gdy opis jest mętny albo podobny do innego, Claude może wziąć zły skill albo pominąć dobry.</div>
+
+          <div class="w-dol L" style="grid-row: 8"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M3 2 L12 12 L21 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="w-dol R" style="grid-row: 8"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M3 2 L12 12 L21 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+          <!-- 5. Pełna treść -->
+          <div class="tresc" style="grid-row: 9">Pełna treść skilla wchodzi do rozmowy.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

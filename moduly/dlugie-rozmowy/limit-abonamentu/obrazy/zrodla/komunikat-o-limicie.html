@@ -1,0 +1,186 @@
+<!doctype html>
+<!-- Rysunek R3 „Komunikat o limicie: co dalej” do lekcji limit-abonamentu: trzy karty (limit sesji albo tygodniowy, limit jednej rodziny modeli zakreślony jako jedyny, przy którym pomaga zmiana modelu, ostrzeżenie o kontekście), pod nimi pasek o oknie zużycia. Źródło PNG obrazy/komunikat-o-limicie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Komunikat o limicie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w nowa-czy-ta-sama/obrazy/zrodla/rozmowa-rosnie-trzy-drogi.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 24px;
+      }
+
+      /* ===== Trzy karty ===== */
+      .karty {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 16px;
+      }
+      .karta {
+        padding: 16px 14px 18px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 16px;
+      }
+      .karta.ta {
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+      }
+      .karta svg {
+        display: block;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 10px;
+      }
+      .karta h3 {
+        margin: 0 0 12px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid var(--granat);
+        font: 800 23px/1.18 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .karta ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .karta li {
+        display: flex;
+        gap: 9px;
+        font: 700 20px/1.22 var(--sans);
+      }
+      .karta li::before {
+        content: "";
+        flex: none;
+        width: 8px;
+        height: 8px;
+        margin-top: 0.5em;
+        border-radius: 50%;
+        background: var(--granat);
+      }
+
+      /* ===== Pasek pod kartami ===== */
+      .pasek {
+        margin-top: 26px;
+        padding-top: 18px;
+        border-top: 3px solid var(--granat);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .pasek p {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin: 0;
+        font: 800 23px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pasek p.drugi {
+        font-weight: 700;
+        font-size: 21px;
+        letter-spacing: 0;
+        color: var(--grafit);
+      }
+      .pasek svg {
+        flex: none;
+        width: 30px;
+        height: 30px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 18px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Komunikat o limicie: dwa rodzaje limitu i jedno ostrzeżenie, które limitem nie jest. Limit sesji albo limit tygodniowy: To okres, w którym liczy się zużycie abonamentu, wspólny dla wszystkich modeli.; Zmiana modelu nie przywróci dostępu.; Według dokumentacji komunikat podaje, kiedy okno się odnowi.; Kredyty na zużycie pozwalają pracować dalej. Limit jednej rodziny modeli, zaznaczony, jedyny przypadek, w którym pomaga zmiana modelu: Zmień model na taki spoza tej rodziny.; Model zmienisz w wyborze modelu, także w trakcie rozmowy. Ostrzeżenie o kontekście: To nie jest limit zużycia.; streść rozmowę albo zacznij nową, lekcje 1 i 2. Limit sesji liczy zużycie całego abonamentu ze wszystkich rozmów, a nie jednej rozmowy. Na abonamentach Team i Enterprise limit liczy się w oknie pięciogodzinnym i tygodniowym, wspólnie z czatem Claude i z Cowork."
+    >
+      <h1 class="teza">Z&nbsp;tych trzech komunikatów zmiana modelu pomaga <mark>tylko przy limicie jednej rodziny modeli</mark></h1>
+      <div class="karty">
+        <div class="karta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9" /></svg>
+          <h3>Limit sesji albo limit tygodniowy</h3>
+          <ul>
+            <li>To okres, w&nbsp;którym liczy się zużycie abonamentu, wspólny dla wszystkich modeli.</li>
+            <li>Zmiana modelu nie przywróci dostępu.</li>
+            <li>Według dokumentacji komunikat podaje, kiedy okno się odnowi.</li>
+            <li>Kredyty na zużycie pozwalają pracować dalej.</li>
+          </ul>
+        </div>
+        <div class="karta ta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4" /></svg>
+          <h3>Limit jednej rodziny modeli</h3>
+          <ul>
+            <li>Zmień model na taki spoza tej rodziny.</li>
+            <li>Model zmienisz w wyborze modelu, także w trakcie rozmowy.</li>
+          </ul>
+        </div>
+        <div class="karta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z" /><path d="M12 10v5M12 18v.5" /></svg>
+          <h3>Ostrzeżenie o&nbsp;kontekście</h3>
+          <ul>
+            <li>To nie jest limit zużycia.</li>
+            <li>Streść rozmowę albo zacznij nową. Uczą tego lekcje&nbsp;1&nbsp;i&nbsp;2.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pasek">
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+          <span>Limit sesji liczy zużycie całego abonamentu ze wszystkich rozmów, a&nbsp;nie jednej rozmowy.</span>
+        </p>
+        <p class="drugi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20a6.5 6.5 0 0 1 13 0" /><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6" /></svg>
+          <span>Na abonamentach Team i&nbsp;Enterprise limit liczy się w oknie pięciogodzinnym i tygodniowym, wspólnie z czatem Claude i z Cowork.</span>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

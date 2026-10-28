@@ -1,0 +1,262 @@
+/* Wygląd symulatora aplikacji Claude, pasek boczny z rozmowami: wiersze listy z przyciskiem ⋮ po najechaniu, menu rozmowy i menu Group and sort (ciemna karta jak menu trybów), nagłówek listy z ikoną i dymkiem, tytuł rozmowy w pasku tytułu, widok listy rozmów z zakładkami, lista na telefonie. Układ ze zrzutów z sieci: materialy/zrzuty-aplikacji/pasek-boczny-sesje/. Elementy bez skutku mają kursor zwykły i nie zmieniają wyglądu po najechaniu; kursor „ręka” dostaje tylko element, w który kursant ma kliknąć (.apl-cel). */
+
+/* wiersz listy: te same odstępy co podświetlony pasek otwartej rozmowy (.apl-sesja), żeby podświetlenie nie przesuwało listy */
+.apl-wiersz {
+  position: relative;
+  margin: -6px -8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+.apl-wiersz.apl-cel {
+  cursor: pointer;
+}
+.apl-wiersz.zwija {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition:
+    opacity 0.2s ease-in,
+    transform 0.2s ease-in;
+  pointer-events: none;
+}
+/* przycisk ⋮ przy prawej krawędzi wiersza: widoczny po najechaniu, przy otwartym menu i jako cel kroku (na telefonie nie ma najechania) */
+.apl-wiersz .apl-wiersz-menu {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: #b5b5b5;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+}
+.apl-wiersz:hover .apl-wiersz-menu,
+.apl-wiersz.menu-otwarte .apl-wiersz-menu,
+.apl-wiersz .apl-wiersz-menu.apl-cel {
+  opacity: 1;
+  visibility: visible;
+}
+.apl-wiersz .apl-wiersz-menu.apl-cel {
+  cursor: pointer;
+}
+.apl-wiersz-menu svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* nagłówek listy: szary pasek, po najechaniu ikona Group and sort (dymek nad ikoną, bo pod nią stoi menu i znacznik kursu) */
+.apl-sesje-naglowek {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: -8px -8px;
+  padding: 8px;
+}
+.apl-sesje-naglowek > .apl-szkic {
+  width: 40%;
+  height: 6px;
+  background: #333333;
+}
+.apl-sesje-naglowek .apl-grupa {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 24px;
+  height: 22px;
+  margin-top: -11px;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+}
+.apl-sesje-naglowek:hover .apl-grupa,
+.apl-sesje-naglowek.menu-otwarte .apl-grupa,
+.apl-sesje-naglowek .apl-grupa.apl-cel {
+  opacity: 1;
+  visibility: visible;
+}
+.apl-sesje-naglowek .apl-grupa.apl-cel {
+  cursor: pointer;
+}
+.apl-grupa svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-sesje-naglowek .apl-grupa .apl-dymek {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+.apl-sesje-naglowek .apl-grupa.apl-cel > .apl-dymek {
+  display: block;
+}
+
+/* rząd ze znacznikiem pod wierszem albo nagłówkiem sięga trochę poza listę w prawo (do krawędzi paska): przyciski stoją przy prawej krawędzi, a znacznik nie może wyjść poza swój rząd, więc bez tego stałby za daleko od przycisku */
+.apl-bok-sesje > .apl-tag-rzad {
+  margin-right: -14px;
+}
+
+/* menu rozmowy i menu Group and sort: ciemna karta pod wierszem albo nagłówkiem, przy prawej krawędzi paska; szare pozycje bez skutku, jedna pozycja z napisem */
+.apl-menu-sesji,
+.apl-menu-grupy {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  z-index: 7;
+  min-width: 158px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-menu-szara {
+  padding: 11px 12px;
+  cursor: default;
+}
+.apl-menu-szara .apl-szkic {
+  height: 7px;
+}
+.apl-menu-linia {
+  height: 1px;
+  margin: 4px 6px;
+  background: #3f3f3f;
+}
+.apl-menu-sesji .apl-menu-poz,
+.apl-menu-grupy .apl-menu-poz {
+  cursor: default;
+}
+.apl-menu-sesji .apl-menu-poz.apl-cel,
+.apl-menu-grupy .apl-menu-poz.apl-cel {
+  cursor: pointer;
+}
+.apl-menu-sesji .apl-tag-rzad,
+.apl-menu-grupy .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+
+/* „+ New” jako cel kroku: ręka i rząd ze znacznikiem pod nim (rząd w liście nie ma tła ani odstępów pozycji) */
+.apl-bok-lista li.apl-bok-nowa.apl-cel {
+  cursor: pointer;
+}
+.apl-bok-lista li.apl-tag-rzad {
+  display: flex;
+  padding: 0 0 2px;
+  background: none;
+}
+
+/* tytuł rozmowy w pasku tytułu: nazwa nadana przez kursanta (bez nazwy zostaje szary pasek); nie jest klikalny */
+.apl-pasek .apl-tytul {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 500 14px/1.4 var(--a-sans);
+  color: var(--a-tekst);
+}
+
+/* widok listy rozmów po View all: w miejscu rozmowy i pola wiadomości; nagłówek jako szary pasek, dwie zakładki, szare wiersze */
+.apl-okno.widok-listy .apl-uklad {
+  display: none;
+}
+.apl-sesje-widok {
+  flex: 1;
+  min-width: 0;
+  padding: 22px 22px 18px;
+  animation: apl-wjazd 0.35s ease-out;
+}
+.apl-sesje-widok[hidden] {
+  display: none;
+}
+.apl-sesje-tytul .apl-szkic {
+  height: 14px;
+  border-radius: 6px;
+}
+.apl-sesje-zakladki {
+  display: flex;
+  gap: 6px;
+  margin: 18px 0 10px;
+}
+.apl-sesje-zakl {
+  display: inline-flex;
+  align-items: center;
+  min-width: 72px;
+  height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 9px;
+  background: none;
+  color: var(--a-szary);
+  font: 500 14px/1 var(--a-sans);
+  cursor: default;
+}
+.apl-sesje-zakl.wybrana {
+  background: #2f2f2f;
+  color: var(--a-tekst);
+}
+.apl-sesje-zakl .apl-szkic {
+  width: 44px;
+}
+.apl-sesje-zakl.apl-cel {
+  cursor: pointer;
+}
+.apl-sesje-wiersze {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.apl-sesje-wiersze li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--a-kreska);
+  cursor: default;
+}
+.apl-sesje-wiersze li > .apl-szkic:first-child {
+  height: 9px;
+}
+.apl-sesje-czas {
+  width: 14%;
+  height: 7px;
+}
+
+/* podgląd w tekście lekcji: okno bez pola wiadomości nie potrzebuje pełnej wysokości */
+.apl-podglad .apl-okno {
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-menu-sesji,
+  .apl-menu-grupy,
+  .apl-sesje-widok {
+    animation: none;
+  }
+  .apl-wiersz.zwija {
+    transition: none;
+  }
+}
+/* telefon: lista rozmów zostaje nad rozmową razem z „+ New” (ćwiczenie w niej klika); reszta paska bocznego jest zwinięta */
+@media (max-width: 720px) {
+  .apl-okno.apl-sesje .apl-bok .apl-bok-sesje {
+    display: flex;
+  }
+  .apl-okno .apl-bok .apl-bok-lista li.apl-tag-rzad {
+    display: flex;
+  }
+  .apl-sesje-widok {
+    padding: 16px 14px;
+    border-top: 1px solid var(--a-kreska);
+  }
+}

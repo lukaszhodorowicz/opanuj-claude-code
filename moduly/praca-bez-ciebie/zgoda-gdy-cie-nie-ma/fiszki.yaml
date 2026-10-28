@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co robi przebieg zadania w trybie Manual, gdy potrzebuje narzędzia, na które nie ma zgody?"
+    tyl: "Staje i czeka, dopóki nie zatwierdzisz użycia tego narzędzia."
+    fakt: zgoda-bez-ciebie-manual-przebieg-stoi
+
+  - przod: "Co Claude robi bez pytania w trybie Manual?"
+    tyl: "Tylko czyta pliki w folderze."
+    fakt: tryb-manual-bez-pytania-tylko-odczyt
+
+  - przod: "Gdzie odpowiadasz na pytanie o zgodę z przebiegu zadania?"
+    tyl: "W sesji przebiegu."
+    fakt: harmonogram-sesja-przebiegu-co-widac
+
+  - przod: "Czy strażnik trybu Auto ocenia zmiany plików w folderze?"
+    tyl: "Nie. Odczyty i zmiany plików w folderze przechodzą bez oceny strażnika, poza zapisami w chronionych folderach i plikach."
+    fakt: auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora
+
+  - przod: "Co robi strażnik trybu Auto z ryzykownym działaniem przebiegu?"
+    tyl: "Blokuje je, zamiast pytać Ciebie."
+    fakt: auto-aplikacja-klasyfikator-blokuje-ryzykowne
+
+  - przod: "Czy na liście domyślnych blokad strażnika trybu Auto jest kasowanie plików?"
+    tyl: "Tak, między innymi nieodwracalne niszczenie plików, które istniały przed sesją."
+    fakt: auto-blokuje-niszczenie-plikow

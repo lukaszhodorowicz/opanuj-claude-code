@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co dokumentacja radzi opisać w zleceniu: wynik czy kroki?"
+    tyl: "Wynik. Powiedz, czego chcesz, i pozwól Claude znaleźć pliki."
+    fakt: zlecenie-opisz-wynik-nie-kroki
+
+  - przod: "Co wpisujesz w polu wiadomości, żeby dodać plik z folderu do kontekstu rozmowy?"
+    tyl: "@ i nazwę pliku."
+    fakt: aplikacja-at-dodaje-plik-do-rozmowy
+
+  - przod: "Co dokumentacja radzi nazwać w zleceniu, żeby odpowiedź Claude pasowała do tego, jak jej użyjesz?"
+    tyl: "Format, długość albo odbiorcę."
+    fakt: zlecenie-nazwij-format-dlugosc-odbiorce
+
+  - przod: "Co robi Claude, gdy sprawdzian w zleceniu ma tylko dwa wyniki: zdany albo niezdany?"
+    tyl: "Powtarza: robi pracę → przeprowadza sprawdzian → czyta wynik → poprawia, aż praca zda sprawdzian."
+    fakt: zlecenie-sprawdzian-z-wynikiem-zamyka-petle
+
+  - przod: "O co możesz poprosić Claude, żeby nie wierzyć mu na słowo, że się udało?"
+    tyl: "O pokazanie dowodu zamiast zapewniania o sukcesie. Dowodem mogą być na przykład dwie sumy do porównania."
+    fakt: zlecenie-popros-o-dowod-zamiast-zapewnienia
+
+  - przod: "Co radzi dokumentacja, gdy w jednej rozmowie poprawiasz to samo więcej niż dwa razy?"
+    tyl: "Otworzyć nową rozmowę i napisać w niej lepsze zlecenie, z wnioskami z poprzednich prób."
+    fakt: zlecenie-po-dwoch-poprawkach-czysta-sesja-z-lepszym-poleceniem

@@ -1,0 +1,182 @@
+{
+  "lekcja": "wtyczki",
+  "folder_startowy": [
+    "oferta-szkolenie-sprzedaz.txt",
+    "cennik-2026.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Otwórz przeglądarkę wtyczek",
+      "opis": "Rozmowa w folderze Szkolenia-oferty. Otworzysz przeglądarkę wtyczek przyciskiem + obok pola wiadomości.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem i patrz na przycisk + obok pola wiadomości.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkolenia-oferty",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam ofertę szkolenia ze sprzedaży i cennik na 2026."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "dodaj",
+          "etykieta": "Otwórz przeglądarkę wtyczek",
+          "opis": "Przycisk +, potem Plugins i Browse plugins.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Menu przycisku + ma też pozycję do wtyczek. Kliknij Plugins (wtyczki).",
+              "fakt": "aplikacja-plugins-browse-albo-manage-plugins"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Plugins",
+              "fakt": "aplikacja-plugins-browse-albo-manage-plugins"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyło się drugie menu. Kliknij Browse plugins (przeglądaj wtyczki).",
+              "fakt": "aplikacja-plugins-browse-albo-manage-plugins"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse plugins",
+              "fakt": "aplikacja-add-plugins-otwiera-przegladarke-wtyczek"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To przeglądarka wtyczek. Pokazuje wtyczki z Twoich katalogów, czyli spisów wtyczek.",
+              "fakt": "aplikacja-przegladarka-wtyczek-z-twoich-katalogow"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Twoje katalogi mogą być inne niż tutaj, więc u siebie możesz zobaczyć inne wtyczki.",
+              "fakt": "aplikacja-przegladarka-wtyczek-z-twoich-katalogow"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Dalej znajdujesz wtyczkę i ją wybierasz. To zrobisz już u siebie.",
+              "fakt": "aplikacja-instalacja-znajdz-i-wybierz-wtyczke"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Skill z wtyczki na liście poleceń",
+      "opis": "Wtyczka jest już zainstalowana i włączona. Jej skill wybierzesz z listy poleceń i dopiszesz po nim zadanie.",
+      "nauczyciel_start": "Wtyczka jest już zainstalowana i włączona. Kliknij polecenie nad oknem i patrz na pole wiadomości.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkolenia-oferty",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Firma Nowak pyta o szkolenie ze sprzedaży dla 8 osób."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "oferta-nowak.txt"
+      ],
+      "drogi": [
+        {
+          "id": "skill-wtyczki",
+          "etykieta": "Wybierz skill z wtyczki",
+          "opis": "Znak / otwiera listę, a na niej są też skille wtyczek.",
+          "kroki": [
+            {
+              "typ": "ukosnik",
+              "fakt": "skill-aplikacja-menu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na liście są też skille z zainstalowanych wtyczek. Kliknij zaznaczony wiersz.",
+              "fakt": "skill-lista-polecen-co-na-liscie"
+            },
+            {
+              "typ": "klik",
+              "cel": "wiersz",
+              "bez_napisu": true,
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skill stoi podświetlony w polu. Zadanie dopisuje się po nim.",
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "przygotuj ofertę dla firmy Nowak na 8 osób z plików oferta-szkolenie-sprzedaz.txt i cennik-2026.txt i zapisz ją w oferta-nowak.txt",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "oferta-szkolenie-sprzedaz.txt",
+                "cennik-2026.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skorzystałem ze skilla z zainstalowanej wtyczki. Ofertę dla firmy Nowak zapisałem w oferta-nowak.txt.",
+              "plik": "oferta-nowak.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze przybył tylko wynik. Pliki wtyczki leżą poza nim, w ~/.claude/plugins/. Kliknij ścieżkę oferta-nowak.txt.",
+              "fakt": "wtyczka-pliki-w-claude-plugins"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-nowak.txt",
+              "linijki": [
+                "Oferta dla firmy Nowak: szkolenie Skuteczna sprzedaż",
+                "Uczestnicy: 8 osób",
+                "Czas: 2 dni po 6 godzin",
+                "Cena: 8 × 1 200 zł = 9 600 zł netto",
+                "Termin: do ustalenia"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skill z wtyczki wybierasz z listy jak każdy inny i dopisujesz po nim zadanie.",
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

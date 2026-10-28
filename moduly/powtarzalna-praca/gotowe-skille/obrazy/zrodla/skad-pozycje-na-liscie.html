@@ -1,0 +1,263 @@
+<!doctype html>
+<!-- Rysunek R1 „Skąd biorą się pozycje na liście” do lekcji gotowe-skille: do listy poleceń i skilli nad polem wiadomości prowadzą polecenia wbudowane, Twoje skille, skille projektu i skille wtyczek; skille z konta claude.ai prowadzą do rozmowy, nie do listy. Źródło PNG obrazy/skad-pozycje-na-liscie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Skąd pozycje na liście</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku R1 modułu strona */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* okno aplikacji jak w ćwiczeniu */
+        --okno: #1b1b1d;
+        --okno-pole: #2f2f33;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+        /* źródła po bokach, strzałki w odstępach, lista pośrodku */
+        --kolumny: 1fr 40px 150px 40px 1fr;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      svg {
+        display: block;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+
+      /* ===== Legenda: dwa kolory kreski ===== */
+      .legenda {
+        display: flex;
+        gap: 28px;
+        margin: 0 0 16px 4px;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .legenda span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .legenda svg {
+        width: 46px;
+        height: 12px;
+      }
+      .legenda .polecenie {
+        color: var(--grafit);
+      }
+
+      /* ===== Źródła listy i lista pośrodku ===== */
+      .zrodla {
+        display: grid;
+        grid-template-columns: var(--kolumny);
+        grid-template-rows: auto auto;
+        row-gap: 14px;
+      }
+      .pole {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 12px;
+        border-radius: 16px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+      .pole b {
+        font: 800 23px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pole span {
+        color: var(--grafit);
+        font: 700 22px/1.25 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .pole code {
+        font: 700 21px/1.3 var(--mono);
+        color: var(--granat);
+      }
+      .pole.polecenie {
+        border: 4px dashed var(--grafit);
+      }
+      .pole.polecenie b {
+        color: var(--grafit);
+      }
+      .strzalka-bok {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .strzalka-bok svg {
+        width: 40px;
+        height: 24px;
+      }
+      .lista {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        border-radius: 14px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 4px var(--limonka);
+        text-align: center;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== Pole wiadomości pod listą ===== */
+      .okno {
+        width: 392px;
+        margin: 14px auto 0;
+        padding: 14px;
+        border-radius: 18px;
+        background: var(--okno);
+      }
+      .wpis {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 9px 12px;
+        border-radius: 16px;
+        border: 2px solid var(--okno-kreska);
+        background: var(--okno-pole);
+        color: var(--okno-tekst);
+      }
+      .plus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        flex: none;
+        border-radius: 10px;
+        background: #3d3d42;
+        font: 700 26px/1 var(--sans);
+      }
+      .znak {
+        font: 700 26px/1 var(--mono);
+      }
+      .znak i {
+        display: inline-block;
+        width: 2px;
+        height: 26px;
+        margin-left: 3px;
+        vertical-align: -4px;
+        background: var(--okno-tekst);
+      }
+      .menu {
+        display: flex;
+        align-items: flex-start;
+        margin: 0 0 0 30px;
+      }
+      .menu svg {
+        width: 40px;
+        height: 36px;
+        flex: none;
+      }
+      .menu span {
+        margin-top: 14px;
+        padding: 7px 14px;
+        border-radius: 10px;
+        border: 2px solid var(--okno-kreska);
+        background: var(--okno-pole);
+        color: var(--okno-tekst);
+        font: 700 22px/1.2 var(--sans);
+      }
+
+      /* ===== Skille z konta: osobna droga do rozmowy ===== */
+      .konto {
+        display: grid;
+        grid-template-columns: 1fr 60px 1fr;
+        margin-top: 30px;
+      }
+      .rozmowa {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background: var(--papier-2);
+        border: 4px solid var(--granat);
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat, #0e1422); }
+      .wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Lista poleceń i skilli nad polem wiadomości; listę otwiera znak / w polu albo przycisk + i pozycja Slash commands. Do listy prowadzą strzałki z czterech pól: polecenia wbudowane, które zwykle wykonują stałą czynność; Twoje skille z Twojego komputera, katalog ~/.claude/skills/; skille projektu z katalogu .claude/skills/ w projekcie; skille wtyczek o nazwie /wtyczka:skill, lekcja 4.4. Osobno skille z konta claude.ai, na przykład pdf i xlsx: strzałka z nich prowadzi do rozmowy, w której Claude sięga sam, gdy skill pasuje."
+    >
+      <p class="wniosek">Na liście poleceń są <mark>polecenia wbudowane i skille z trzech miejsc</mark>.</p>
+      <!-- Legenda -->
+      <div class="legenda">
+        <span class="polecenie"><svg viewBox="0 0 46 12" aria-hidden="true"><path d="M2 6 H44" stroke="#475569" stroke-width="4" stroke-dasharray="9 6" stroke-linecap="round"/></svg>polecenie</span>
+        <span><svg viewBox="0 0 46 12" aria-hidden="true"><path d="M2 6 H44" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/></svg>skill</span>
+      </div>
+
+      <!-- Cztery źródła listy -->
+      <div class="zrodla">
+        <div class="pole polecenie"><b>Polecenia wbudowane</b><span>Zwykle wykonują stałą czynność.</span></div>
+        <div class="strzalka-bok"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M3 12 H36 M26 3 L37 12 L26 21" fill="none" stroke="#475569" stroke-width="4" stroke-dasharray="8 5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="lista">Lista poleceń i&nbsp;skilli</div>
+        <div class="strzalka-bok"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M37 12 H4 M14 3 L3 12 L14 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pole"><b>Twoje skille</b><span>Leżą w folderze <code>~/.claude/skills/</code>.</span></div>
+
+        <div class="pole"><b>Skille projektu</b><span>Leżą w folderze projektu.</span></div>
+        <div class="strzalka-bok"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M3 12 H36 M26 3 L37 12 L26 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="strzalka-bok" style="grid-column: 4"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M37 12 H4 M14 3 L3 12 L14 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pole"><b>Skille wtyczek</b><span>Mają nazwę <code>/nazwa-wtyczki:nazwa-skilla</code>.</span></div>
+      </div>
+
+      <!-- Pole wiadomości: znak / albo + i Slash commands -->
+      <div class="okno">
+        <div class="wpis">
+          <span class="plus">+</span>
+          <span class="znak">/<i></i></span>
+        </div>
+        <div class="menu">
+          <svg viewBox="0 0 40 36" aria-hidden="true"><path d="M8 0 V26 H34 M26 18 L35 26 L26 34" fill="none" stroke="#e6e3dc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Slash commands</span>
+        </div>
+      </div>
+
+      <!-- Skille z konta claude.ai: do rozmowy, nie do listy -->
+      <div class="konto">
+        <div class="pole"><b>Skille z konta claude.ai</b><span>Na przykład pdf i xlsx.</span></div>
+        <div class="strzalka-bok"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M3 12 H36 M26 3 L37 12 L26 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="rozmowa">W rozmowie Claude sam sięga po skill, gdy pasuje do zadania.</div>
+      </div>
+    </div>
+  </body>
+</html>

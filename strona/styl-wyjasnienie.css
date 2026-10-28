@@ -1,0 +1,128 @@
+/* Odwracana karta „wyjaśnienie / schemat”: przód to rysunek obrazkowy, tył to schemat, nad kartą stały przycisk odwracania (narzedzia/strona_wyjasnienie.py, strona/wyjasnienie.js). */
+.odwrot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.odwrot-przycisk {
+  order: -1;
+}
+.odwrot-w {
+  display: grid;
+  cursor: pointer;
+  outline: none;
+  border-radius: 14px;
+  transition:
+    transform 0.6s cubic-bezier(0.3, 0.7, 0.2, 1),
+    box-shadow 0.2s;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 0 0 2px #0e1422,
+    6px 6px 0 #0e1422;
+}
+.odwrot-w:hover {
+  box-shadow:
+    0 0 0 2px #0e1422,
+    9px 9px 0 #a3e635;
+}
+.odwrot-w:focus-visible {
+  box-shadow:
+    0 0 0 4px #a3e635,
+    6px 6px 0 #0e1422;
+}
+.odwrot.odwrocona .odwrot-w {
+  transform: rotateY(180deg);
+}
+.odwrot-strona {
+  grid-area: 1 / 1;
+  position: relative;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #f6f6f1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.odwrot-strona img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.odwrot-tyl {
+  transform: rotateY(180deg);
+}
+/* Wysokość karty to wysokość strony, która jest teraz widoczna: strona z tyłu leży na wierzchu pierwszej (absolute) i nie rozciąga karty.
+   Przy obrocie wysokość zmienia się skokiem; strony nie przycinamy (overflow na karcie spłaszczyłby obrót 3D). */
+.odwrot-w {
+  position: relative;
+}
+.odwrot:not(.odwrocona) .odwrot-tyl,
+.odwrot.odwrocona .odwrot-przod {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.odwrot-znak {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #0e1422;
+  color: #fff;
+  font: 800 12px/1 "Plus Jakarta Sans", system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.odwrot-przycisk {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 18px;
+  border: 2px solid #0e1422;
+  border-radius: 12px;
+  background: #a3e635;
+  color: #0e1422;
+  font: 800 17px/1.2 "Plus Jakarta Sans", system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #0e1422;
+  transition:
+    transform 0.12s,
+    box-shadow 0.12s;
+}
+.odwrot-przycisk:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 #0e1422;
+}
+.odwrot-przycisk:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #0e1422;
+}
+.odwrot-przycisk svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+.odwrot .na-tyl {
+  display: none;
+}
+.odwrot.odwrocona .na-tyl {
+  display: inline;
+}
+.odwrot.odwrocona .na-przod {
+  display: none;
+}
+.odwrot.odwrocona .odwrot-przycisk {
+  background: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .odwrot-w {
+    transition: none;
+  }
+}

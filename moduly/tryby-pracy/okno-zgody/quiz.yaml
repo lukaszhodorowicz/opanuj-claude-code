@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Manual. Prosisz Claude: „Policz sumę faktur z września i wpisz ją do zestawienia dla księgowej”. Widzisz kartę zgody z nową kwotą, ale jeszcze nic nie klikasz. Co jest teraz w pliku zestawienia?"
+    odpowiedzi:
+      - "Nowa kwota. Claude już ją zapisał, a karta zgody tylko pokazuje, co zrobił."
+      - "Nowa kwota, bo prośba „wpisz ją” była już Twoją zgodą na zmianę pliku."
+      - "Stara treść, bez nowej kwoty. Kwota trafi do pliku, gdy zatwierdzisz zmianę."
+    poprawna: 2
+    wyjasnienie: "W trybie Manual Claude proponuje każdą zmianę i czeka, aż ją zatwierdzisz. Dopiero wtedy zmiana trafia do pliku."
+    fakt: tryb-manual-aplikacja-czeka-na-zatwierdzenie
+
+  - pytanie: "Pracujesz w trybie Manual. Prosisz Claude o łączną liczbę kliknięć z dwóch raportów kampanii. Oba raporty leżą w folderze, w którym pracujesz. Czy Claude zapyta o zgodę, zanim je otworzy?"
+    odpowiedzi:
+      - "Tak. W trybie Manual Claude pyta przed każdym działaniem, także przed czytaniem pliku."
+      - "Nie. Pliki w folderze, w którym pracujesz, czyta bez pytania."
+      - "Tak, ale tylko przy pierwszym raporcie. Drugi przeczyta już bez pytania."
+    poprawna: 1
+    wyjasnienie: "W trybie Manual Claude czyta bez pytania o zgodę pliki w folderze, w którym pracujesz, i w folderach dodatkowych."
+    fakt: odczyty-w-folderze-roboczym-bez-zgody-w-manual
+
+  - pytanie: "Wybierasz w przełączniku tryb Accept edits (przyjmowanie zmian). W tej samej rozmowie prosisz Claude: „Wpisz sumę za październik do zestawienia dla księgowej”. Co zobaczysz po odpowiedzi Claude?"
+    odpowiedzi:
+      - "Bez karty zgody. Na karcie Changes pojawią się liczby linijek, na przykład +1 -1."
+      - "Kartę zgody jak w trybie Manual, bo każdą zmianę w pliku i tak zatwierdzasz ptaszkiem."
+      - "Kartę zgody, bo nowy tryb zacznie działać dopiero w następnej rozmowie z Claude."
+    poprawna: 0
+    wyjasnienie: "W trybie Accept edits Claude sam wprowadza zmiany w plikach i nie czeka na Twoją zgodę. Od razu pojawiają się liczby linijek, na przykład +1 -1. Kliknij je, żeby obejrzeć zmianę."
+    fakt: aplikacja-accept-edits-auto-bez-czekania-na-zgode
+
+  - pytanie: "Poprawiasz z Claude cennik w ofercie dla klienta. Pracujesz w trybie Manual i każdą zmianę zatwierdzasz na karcie zgody. Chcesz, żeby Claude zmieniał plik bez karty zgody. Co robisz w aplikacji?"
+    odpowiedzi:
+      - "Naciskasz Shift+Tab, aż zobaczysz nazwę Accept edits."
+      - "Piszesz Claude w wiadomości: „Nie pytaj mnie o zgodę przy zmianach”."
+      - "Klikasz przełącznik trybu i wybierasz Accept edits."
+    poprawna: 2
+    wyjasnienie: "W aplikacji tryb wybierasz w przełączniku trybu. Tryb ustala, co Claude może zrobić bez pytania."
+    fakt: aplikacja-tryb-wybierasz-w-przelaczniku

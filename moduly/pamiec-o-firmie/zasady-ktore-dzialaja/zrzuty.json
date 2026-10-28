@@ -1,0 +1,173 @@
+{
+  "cw1-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-czyta-claude-md": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 2000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-cel": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-ogolne-plik": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-ogolne": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-popraw": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 80000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-cel": {
+    "szer": 375,
+    "wys": 1600,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-375-ogolne": {
+    "szer": 375,
+    "wys": 2400,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-popraw": {
+    "szer": 375,
+    "wys": 2400,
+    "budzet": 80000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-czyta-claude-md": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 2000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-cel": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-nowa": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-wyroznij-ogloszenie": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 50000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-wyroznij": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 80000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-nowa": {
+    "szer": 375,
+    "wys": 2400,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-wyroznij": {
+    "szer": 375,
+    "wys": 2400,
+    "budzet": 80000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "podglad-375": {
+    "szer": 375,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw2"
+  }
+}

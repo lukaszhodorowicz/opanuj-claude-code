@@ -1,0 +1,272 @@
+{
+  "lekcja": "kontekst-rozmowy",
+  "folder_startowy": [
+    "rozdzial-01.txt",
+    "rozdzial-02.txt",
+    "rozdzial-03.txt",
+    "rozdzial-04.txt",
+    "rozdzial-05.txt",
+    "rozdzial-06.txt",
+    "rozdzial-07.txt",
+    "rozdzial-08.txt",
+    "rozdzial-09.txt",
+    "rozdzial-10.txt",
+    "uwagi-autora.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zobacz, ile miejsca zajęła rozmowa, i zwolnij je",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Patrz na kartę Context w panelu obok rozmowy.",
+      "nauczyciel_start": "Na karcie Context w panelu obok rozmowy widać procent. Kliknij polecenie nad oknem ćwiczenia i patrz, jak się zmienia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Redakcja-ebook",
+        "tryb": "Accept edits",
+        "panel": "widoczny",
+        "kontekst": 6,
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj uwagi-autora.txt i wypisz zasady zapisu."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Autor chce zapisu „Planer Pro”. Termin oddania to 15 grudnia 2026."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "lista-poprawek.txt"
+      ],
+      "drogi": [
+        {
+          "id": "czytaj-i-streszczaj",
+          "etykieta": "Przeczytaj rozdziały i streść rozmowę",
+          "opis": "Claude czyta dziesięć rozdziałów. Potem streszczasz rozmowę poleceniem /compact i prosisz o kolejną rzecz.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj wszystkie rozdziały i zapisz w pliku lista-poprawek.txt każde miejsce, w którym nazwa produktu wygląda inaczej, niż chce autor.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2600,
+              "czyta": [
+                "rozdzial-01.txt",
+                "rozdzial-02.txt",
+                "rozdzial-03.txt",
+                "rozdzial-04.txt",
+                "rozdzial-05.txt",
+                "rozdzial-06.txt",
+                "rozdzial-07.txt",
+                "rozdzial-08.txt",
+                "rozdzial-09.txt",
+                "rozdzial-10.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem 23 poprawki w pliku lista-poprawek.txt.",
+              "plik": "lista-poprawek.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "kontekst",
+              "procent": 71,
+              "fakt": "kontekst-kazdy-przeczytany-plik-dodaje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Dziesięć rozdziałów zajęło dużo miejsca, więc procent na karcie Context urósł. Kliknij nagłówek tej karty.",
+              "fakt": "aplikacja-karta-context-procent-w-naglowku"
+            },
+            {
+              "typ": "klik",
+              "cel": "context"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otwarta karta dzieli to miejsce na kategorie. Ich nazwy zobaczysz w swojej aplikacji.",
+              "fakt": "aplikacja-karta-context-procent-w-naglowku"
+            },
+            {
+              "typ": "komenda",
+              "tekst": "/compact",
+              "fakt": "aplikacja-compact-skraca-rozmowe-wczesniej"
+            },
+            {
+              "typ": "kontekst",
+              "procent": 19,
+              "fakt": "aplikacja-compact-skraca-rozmowe-wczesniej"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Polecenie /compact streściło rozmowę i zwolniło miejsce. Procent na karcie spadł.",
+              "fakt": "aplikacja-compact-skraca-rozmowe-wczesniej"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Posortuj listę poprawek według rozdziałów.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Posortowałem poprawki w pliku lista-poprawek.txt od rozdziału 1 do 10.",
+              "plik": "lista-poprawek.txt",
+              "fakt": "claude-code-przy-limicie-kontekstu-streszcza-rozmowe"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę pliku lista-poprawek.txt w odpowiedzi Claude. Otworzysz listę i sprawdzisz, czy jest posortowana.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "lista-poprawek.txt",
+              "linijki": [
+                "Rozdział 1: „planer pro” → „Planer Pro” (2 razy)",
+                "Rozdział 2: „PlanerPro” → „Planer Pro” (3 razy)",
+                "Rozdział 3: „Planer PRO” → „Planer Pro”",
+                "Rozdział 4: „planer pro” → „Planer Pro” (4 razy)",
+                "Rozdział 5: „PlanerPro” → „Planer Pro” (2 razy)",
+                "Rozdział 6: „Planer PRO” → „Planer Pro” (3 razy)",
+                "Rozdział 7: „planer pro” → „Planer Pro”",
+                "Rozdział 8: „PlanerPro” → „Planer Pro” (2 razy)",
+                "Rozdział 9: „Planer PRO” → „Planer Pro” (3 razy)",
+                "Rozdział 10: „planer pro” → „Planer Pro” (2 razy)"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Twoje prośby zostały w streszczeniu, więc Claude dalej pracuje nad tą samą listą.",
+              "fakt": "claude-code-przy-limicie-kontekstu-streszcza-rozmowe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Zapytaj z boku",
+      "opis": "Ta sama redakcja e-booka, lista poprawek jest już gotowa. Panel z kartą Context jest tu schowany, bo patrzysz na rozmowę.",
+      "nauczyciel_start": "Chcesz sprawdzić termin oddania tak, żeby pytanie nie trafiło do rozmowy. Kliknij polecenie nad oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Redakcja-ebook",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj uwagi-autora.txt i wypisz zasady zapisu."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Autor chce zapisu „Planer Pro”. Termin oddania to 15 grudnia 2026."
+          },
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj wszystkie rozdziały i zapisz w pliku lista-poprawek.txt każde miejsce, w którym nazwa produktu wygląda inaczej, niż chce autor."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem 23 poprawki w pliku lista-poprawek.txt."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "lista-poprawek.txt"
+      ],
+      "drogi": [
+        {
+          "id": "z-boku",
+          "etykieta": "Zadaj pytanie z boku",
+          "opis": "Pytasz o termin oddania w osobnym panelu, a potem wracasz do głównej rozmowy.",
+          "kroki": [
+            {
+              "typ": "komenda",
+              "tekst": "/btw",
+              "fakt": "aplikacja-btw-otwiera-boczna-rozmowe"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Obok rozmowy otworzył się panel pytania z boku. Odpowiedź zostanie w tym panelu.",
+              "fakt": "aplikacja-pytanie-z-boku-nic-nie-wraca-do-rozmowy"
+            },
+            {
+              "typ": "z_boku",
+              "pytanie": "Jaki termin oddania podał autor w uwagach?",
+              "odpowiedz": "W uwagach autora: 15 grudnia 2026.",
+              "fakt": "aplikacja-btw-otwiera-boczna-rozmowe"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude odpowiedział z tego, co już jest w rozmowie. Zamknij panel pytania z boku krzyżykiem.",
+              "fakt": "aplikacja-btw-otwiera-boczna-rozmowe"
+            },
+            {
+              "typ": "klik",
+              "cel": "zamknij-z-boku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W głównej rozmowie nie przybyło ani pytania, ani odpowiedzi.",
+              "fakt": "aplikacja-pytanie-z-boku-nic-nie-wraca-do-rozmowy"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz na górze listy poprawek: termin oddania 15 grudnia 2026.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopisałem termin na górze pliku lista-poprawek.txt.",
+              "plik": "lista-poprawek.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "lista-poprawek.txt",
+              "linijki": [
+                "Termin oddania: 15 grudnia 2026",
+                "Rozdział 1: „planer pro” → „Planer Pro” (2 razy)",
+                "Rozdział 2: „PlanerPro” → „Planer Pro” (3 razy)",
+                "Rozdział 3: „Planer PRO” → „Planer Pro”",
+                "Rozdział 4: „planer pro” → „Planer Pro” (4 razy)",
+                "Rozdział 5: „PlanerPro” → „Planer Pro” (2 razy)",
+                "Rozdział 6: „Planer PRO” → „Planer Pro” (3 razy)",
+                "Rozdział 7: „planer pro” → „Planer Pro”",
+                "Rozdział 8: „PlanerPro” → „Planer Pro” (2 razy)",
+                "Rozdział 9: „Planer PRO” → „Planer Pro” (3 razy)",
+                "Rozdział 10: „planer pro” → „Planer Pro” (2 razy)"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Główna rozmowa toczy się dalej, jakby pytania z boku nie było.",
+              "fakt": "aplikacja-pytanie-z-boku-zamknij-i-wracasz"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

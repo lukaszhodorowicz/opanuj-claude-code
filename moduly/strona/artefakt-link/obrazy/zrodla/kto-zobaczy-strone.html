@@ -1,0 +1,149 @@
+<!doctype html>
+<!-- Rysunek R2 „Kto zobaczy stronę i co” do lekcji artefakt-link: trzy widownie (tylko Ty, organizacja, każdy z linkiem), logowanie, podpis autora, wybór wersji w Share. Bez okna Share. Źródło PNG obrazy/kto-zobaczy-strone.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Kto zobaczy stronę</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .tabela {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.3fr;
+        gap: 0 12px;
+      }
+      .kol-glowa {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 14px 14px;
+        border-radius: 16px 16px 0 0;
+        background: var(--granat);
+        color: var(--biel);
+      }
+      .kol-glowa svg {
+        width: 34px;
+        height: 34px;
+        color: var(--limonka);
+      }
+      .kol-glowa b {
+        font: 800 27px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .kol-glowa span {
+        color: var(--szary-na-granacie);
+        font: 700 20px/1.2 var(--sans);
+      }
+      .wiersz-nazwa {
+        grid-column: 1 / -1;
+        margin: 0;
+        padding: 18px 4px 8px;
+        color: var(--grafit);
+        font: 800 22px/1.1 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .wiersz-nazwa.pierwszy {
+        padding-top: 16px;
+      }
+      .kom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        min-height: 72px;
+        padding: 12px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 12px;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .kom small {
+        color: var(--grafit);
+        font: 700 19px/1.25 var(--sans);
+        letter-spacing: 0;
+      }
+      .kom .napis {
+        padding: 8px 9px;
+        border-radius: 8px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        font: 700 19px/1.25 var(--mono);
+        letter-spacing: 0;
+      }
+      .kom.puste {
+        border-style: dashed;
+        border-color: var(--grafit);
+        color: var(--grafit);
+      }
+      .pod-kolumna {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 16px 2px 0;
+        padding: 4px 0 4px 14px;
+        border-left: 4px solid var(--granat);
+        font: 700 21px/1.25 var(--sans);
+      }
+      .pod-kolumna svg {
+        flex: none;
+        width: 30px;
+        height: 30px;
+      }
+      .wersja {
+        grid-column: 1 / -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Trzy widownie artefaktu. Tylko Ty: tak jest zaraz po publikacji. Osoby z Twojej organizacji na planach Team i Enterprise logują się do claude.ai jako członkowie organizacji i widzą Twoje imię. Każdy z linkiem otwiera stronę bez logowania; gość bez logowania albo spoza organizacji widzi zamiast Twojego imienia napis Content is user-generated and unverified. Którą wersję widzą inni, wybierasz w Share. Na Team i Enterprise publiczne udostępnianie włącza Owner.">
+      <p class="wniosek">Zaraz po publikacji <mark>stronę widzisz tylko Ty</mark>. Komu ją pokażesz, wybierasz w Share.</p>
+      <div class="tabela">
+        <div class="kol-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          <b>Tylko Ty</b>
+          <span>zaraz po publikacji</span>
+        </div>
+        <div class="kol-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.9.3 5 2.6 5 5.8"/></svg>
+          <b>Twoja organizacja</b>
+          <span>na planach Team i Enterprise</span>
+        </div>
+        <div class="kol-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+          <b>Każdy z linkiem</b>
+          <span>publiczny link</span>
+        </div>
+
+        <p class="wiersz-nazwa pierwszy">Logowanie do claude.ai</p>
+        <div class="kom">Tak, na Twoje konto.</div>
+        <div class="kom">Tak, jako członek organizacji.</div>
+        <div class="kom">Nie trzeba.</div>
+
+        <p class="wiersz-nazwa">Co widać w miejscu autora</p>
+        <div class="kom puste">Nikt inny nie widzi strony.</div>
+        <div class="kom">Twoje imię</div>
+        <div class="kom">
+          <small>Gość bez logowania albo spoza organizacji widzi napis:</small>
+          <span class="napis">Content is <span style="white-space: nowrap">user-generated</span> and unverified.</span>
+          <small>(treść od użytkownika, niesprawdzona)</small>
+        </div>
+
+        <p class="wiersz-nazwa">Którą wersję widzą inni</p>
+        <div class="kom wersja">Tę, którą wybierzesz w Share.</div>
+
+        <p class="pod-kolumna">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+          <span>Na planach Team i Enterprise publiczne udostępnianie włącza Owner, czyli właściciel organizacji.</span>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

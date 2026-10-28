@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Gdzie działa hook zapisany w pliku .claude/settings.json folderu projektu?"
+    tyl: "Tylko w tym projekcie."
+    fakt: hook-miejsce-folder-albo-komputer
+
+  - przod: "Jak usunąć hook zapisany w pliku ustawień?"
+    tyl: "Usunąć jego wpis z tego pliku."
+    fakt: hook-usun-wpis-z-pliku
+
+  - przod: "Co robi \"disableAllHooks\": true w pliku ustawień?"
+    tyl: "Chwilowo wyłącza wszystkie hooki bez usuwania ich wpisów."
+    fakt: disableallhooks-wylacza-wszystkie-bez-usuwania
+
+  - przod: "Czy da się wyłączyć jeden hook i zostawić go w pliku ustawień?"
+    tyl: "Nie. Możesz usunąć jego wpis albo wyłączyć wszystkie hooki naraz."
+    fakt: hook-nie-wylaczysz-pojedynczego
+
+  - przod: "Czy w trybie Accept edits Claude pyta o zgodę na przeczytanie .claude/settings.json?"
+    tyl: "Nie. W trybie Accept edits Claude czyta pliki bez pytania o zgodę."
+    fakt: accept-edits-odczyty-bez-pytania
+
+  - przod: "Dlaczego zmiana pliku w folderze .claude wymaga zgody także w trybie Accept edits?"
+    tyl: "Folder .claude jest chroniony. W trybach Manual i Accept edits zapis w nim wymaga Twojej zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja

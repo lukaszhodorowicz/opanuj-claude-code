@@ -1,0 +1,299 @@
+<!doctype html>
+<!-- Rysunek R2 „Rozmowa rośnie: trzy drogi” do lekcji nowa-czy-ta-sama: z długiej rozmowy trzy drogi (/compact, + New, powrót do starej w pasku bocznym), droga + New zakreślona; pod spodem zasada na stałe w CLAUDE.md. Źródło PNG obrazy/rozmowa-rosnie-trzy-drogi.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Rozmowa rośnie: trzy drogi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w kontekst-rozmowy/obrazy/zrodla/po-streszczeniu.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        padding: 20px 16px 24px;
+      }
+      #strzalki {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      /* ===== Punkt startu: długa rozmowa ===== */
+      .start {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: max-content;
+        margin: 0 auto;
+        padding: 12px 22px 12px 12px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        font: 800 26px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      /* miniatura długiej rozmowy: uproszczone okno, gęste dymki */
+      .mini {
+        flex: none;
+        width: 74px;
+        height: 70px;
+        background: var(--okno);
+        border-radius: 10px;
+        padding: 14px 7px 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        overflow: hidden;
+      }
+      .mini i {
+        display: block;
+        height: 8px;
+        border-radius: 4px;
+        flex: none;
+      }
+      .mini .t {
+        align-self: flex-end;
+        width: 62%;
+        background: var(--okno-tekst);
+      }
+      .mini .c {
+        width: 82%;
+        background: var(--okno-kreska);
+      }
+
+      /* ===== Trzy drogi ===== */
+      .drogi {
+        margin-top: 64px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 18px;
+      }
+      .droga {
+        display: flex;
+        flex-direction: column;
+      }
+      .kiedy {
+        flex: 1;
+        margin: 0 2px;
+        font: 800 22px/1.22 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .co {
+        margin-top: 58px;
+        height: 176px;
+        padding: 14px 14px 16px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 16px;
+        font: 700 21px/1.25 var(--sans);
+      }
+      .co code {
+        display: block;
+        margin-bottom: 6px;
+        font: 700 23px/1.1 var(--mono);
+      }
+      .co small {
+        display: block;
+        margin-top: 8px;
+        color: var(--grafit);
+        font: 700 19px/1.2 var(--sans);
+      }
+      /* jedyne zakreślenie limonką: + New */
+      .co.ta {
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+      }
+      .przycisk {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 8px;
+        padding: 6px 12px;
+        background: var(--okno-pasek);
+        border-radius: 10px;
+        color: var(--okno-tekst);
+        font: 700 22px/1 var(--sans);
+      }
+      .bok {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .bok-pasek {
+        width: 60px;
+        padding: 6px 6px;
+        background: var(--okno);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .bok-pasek i {
+        display: block;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--okno-kreska);
+      }
+      .bok-pasek i.wybrana {
+        background: var(--okno-tekst);
+      }
+
+      /* ===== Zasada na stałe ===== */
+      .zasada {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px 10px;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 3px solid var(--granat);
+        font: 800 25px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .zasada .na {
+        flex: none;
+        width: 30px;
+        height: 30px;
+      }
+      .zasada code {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font: 700 24px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .zasada code svg {
+        width: 26px;
+        height: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Rozmowa urosła albo zmieniasz zadanie. Trzy drogi. Ta sama praca, brakuje miejsca: /compact, streść rozmowę i pracuj dalej w tej samej rozmowie (lekcja 1). Zmieniasz pracę albo poprawiasz to samo więcej niż dwa razy: + New, zacznij nową rozmowę z lepszym poleceniem (ta droga zaznaczona). Potrzebujesz ustaleń ze starej rozmowy: wróć do starej rozmowy, kliknij ją w pasku bocznym. Pod spodem: zasadę, która ma działać w każdej rozmowie, zapisz w pliku CLAUDE.md."
+    >
+      <svg id="strzalki" aria-hidden="true"></svg>
+
+      <div class="start" id="start">
+        <div class="mini" aria-hidden="true">
+          <i class="t"></i><i class="c"></i><i class="t"></i><i class="c"></i><i class="t"></i><i class="c"></i>
+        </div>
+        <span>Rozmowa urosła albo<br />zmieniasz zadanie</span>
+      </div>
+
+      <div class="drogi">
+        <div class="droga">
+          <p class="kiedy">Ta sama praca, brakuje miejsca</p>
+          <div class="co">
+            <code>/compact</code>
+            Streść rozmowę i&nbsp;pracuj dalej w&nbsp;tej samej rozmowie.
+            <small>lekcja 1</small>
+          </div>
+        </div>
+        <div class="droga">
+          <p class="kiedy">Zmieniasz pracę albo poprawiasz to samo więcej niż dwa razy</p>
+          <div class="co ta">
+            <span class="przycisk">+ New</span><br />
+            Zacznij nową rozmowę z lepszym poleceniem.
+          </div>
+        </div>
+        <div class="droga">
+          <p class="kiedy">Potrzebujesz ustaleń ze starej rozmowy</p>
+          <div class="co">
+            <div class="bok" aria-hidden="true">
+              <div class="bok-pasek"><i></i><i class="wybrana"></i><i></i><i></i></div>
+            </div>
+            Wróć do starej rozmowy: kliknij ją w&nbsp;pasku bocznym.
+          </div>
+        </div>
+      </div>
+
+      <p class="zasada">
+        <span>Zasadę, która ma działać w&nbsp;każdej rozmowie, zapisz w&nbsp;pliku</span>
+        <code><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" /></svg>CLAUDE.md</code>
+      </p>
+    </div>
+    <script>
+      (async () => {
+        await document.fonts.ready;
+        const rys = document.querySelector(".rys").getBoundingClientRect();
+        const svg = document.getElementById("strzalki");
+        const r = (el) => {
+          const b = el.getBoundingClientRect();
+          return { l: b.left - rys.left, r: b.right - rys.left, t: b.top - rys.top, b: b.bottom - rys.top };
+        };
+        const ns = "http://www.w3.org/2000/svg";
+        const kreska = (d) => {
+          const p = document.createElementNS(ns, "path");
+          p.setAttribute("d", d);
+          p.setAttribute("fill", "none");
+          p.setAttribute("stroke", "#0e1422");
+          p.setAttribute("stroke-width", "4");
+          p.setAttribute("stroke-linecap", "round");
+          p.setAttribute("stroke-linejoin", "round");
+          svg.appendChild(p);
+        };
+        const wDol = (x, y1, y2) => {
+          kreska(`M${x} ${y1} V${y2}`);
+          kreska(`M${x - 11} ${y2 - 12} L${x} ${y2} L${x + 11} ${y2 - 12}`);
+        };
+        /* ze startu rozgałęzienie do trzech dróg */
+        const st = r(document.getElementById("start"));
+        const xs = (st.l + st.r) / 2;
+        const drogi = [...document.querySelectorAll(".droga")];
+        const yRozw = st.b + 26;
+        kreska(`M${xs} ${st.b + 4} V${yRozw}`);
+        const xy = drogi.map((d) => {
+          const k = r(d.querySelector(".kiedy"));
+          return [(k.l + k.r) / 2, k.t];
+        });
+        kreska(`M${xy[0][0]} ${yRozw} H${xy[2][0]}`);
+        xy.forEach(([x, y]) => wDol(x, yRozw, y - 8));
+        /* od warunku do drogi */
+        drogi.forEach((d) => {
+          const co = r(d.querySelector(".co"));
+          const x = (co.l + co.r) / 2;
+          wDol(x, co.t - 46, co.t - 8);
+        });
+      })();
+    </script>
+  </body>
+</html>

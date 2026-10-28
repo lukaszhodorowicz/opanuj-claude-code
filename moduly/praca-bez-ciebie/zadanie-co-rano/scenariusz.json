@@ -1,0 +1,258 @@
+{
+  "lekcja": "zadanie-co-rano",
+  "folder_glowny": "Stolarnia-zamowienia",
+  "folder_startowy": [
+    "jak-podsumowac.txt",
+    "zamowienia-pazdziernik.csv",
+    "dostawy-plyt.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Poproś o zadanie co rano",
+      "opis": "Ćwiczenie odbywa się w zakładce Code aplikacji Claude. Pierwsze polecenie to prośba w rozmowie, a drugie pokazuje, jak takie samo zadanie ustawić formularzem. Po prośbie patrz na folder pod oknem.",
+      "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem. Jedna prośba ustawi zadanie, które co rano zrobi podsumowanie za Ciebie.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Stolarnia-zamowienia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam zamówienia, dostawy płyt i opis, jak robię poranne podsumowanie."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Widzę trzy pliki. Napisz, co mam z nimi zrobić."
+          }
+        ],
+        "harmonogram": {
+          "nazwa": "Poranne podsumowanie",
+          "polecenie": "Zrób podsumowanie poranka według jak-podsumowac.txt i zapisz je w teczce poranek jako plik z datą. Jeśli zaczniesz po 10:00, napisz na górze, że jest spóźnione.",
+          "pora": "07:30",
+          "czestotliwosc": "Daily",
+          "folder": "Stolarnia-zamowienia"
+        }
+      },
+      "nowe_pliki": [
+        "poranek/2026-10-26.txt"
+      ],
+      "drogi": [
+        {
+          "id": "zadanie",
+          "etykieta": "Poproś o podsumowanie co rano",
+          "opis": "Claude zrobi dzisiejsze podsumowanie i ustawi zadanie na kolejne poranki.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Codziennie o 7:30 zrób podsumowanie poranka według jak-podsumowac.txt i zapisz je w teczce poranek jako plik z datą. Jeśli zaczniesz po 10:00, napisz na górze, że jest spóźnione. Dziś zrób je od razu.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "jak-podsumowac.txt",
+                "zamowienia-pazdziernik.csv",
+                "dostawy-plyt.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem dzisiejsze podsumowanie w poranek/2026-10-26.txt. Ustawiłem też zadanie z harmonogramu o nazwie poranne-podsumowanie. Będzie ruszać codziennie o 7:30.",
+              "plik": "poranek/2026-10-26.txt",
+              "fakt": "harmonogram-prosba-tworzy-zadanie"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze jest nowa teczka poranek. Kliknij ścieżkę pliku w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "poranek/2026-10-26.txt",
+              "linijki": [
+                "Poranek: poniedziałek, 26.10.2026",
+                "Pomiar: Kowalscy, szafa wnękowa, 10:00",
+                "Montaż: dziś brak",
+                "Dostawa płyt: dziś 12 płyt dębowych 18 mm (Hurtownia Lipa)",
+                "Odbiór w tym tygodniu: Wiśniewska, komoda dębowa, piątek 30.10",
+                "Nie zapomnij: jutro 9:00 montaż kuchni u Nowaków"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Dziś podsumowanie zrobił Claude w tej rozmowie. Od jutra rano zadanie ruszy samo, w nowej sesji.",
+              "fakt": "harmonogram-sprawdza-co-minute-nowa-sesja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zadanie na Twoim komputerze rusza tylko wtedy, gdy aplikacja jest otwarta, a komputer nie śpi.",
+              "fakt": "harmonogram-lokalne-tylko-przy-otwartej-aplikacji"
+            }
+          ]
+        },
+        {
+          "id": "formularz",
+          "etykieta": "Ustaw takie samo zadanie formularzem",
+          "opis": "Przejdziesz od pozycji Scheduled w pasku bocznym aż do pierwszego przebiegu zadania.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "W pasku bocznym jest pozycja Scheduled. Kliknij ją.",
+              "fakt": "harmonogram-formularz-otwierasz-scheduled"
+            },
+            {
+              "typ": "klik",
+              "cel": "scheduled"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To strona Scheduled tasks. Kliknij New task, a otworzy się okno nowego zadania.",
+              "fakt": "harmonogram-new-task-rozne-ekrany"
+            },
+            {
+              "typ": "klik",
+              "cel": "new-task"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W oknie są już wpisane nazwa, pod nią polecenie, a niżej termin na karcie Trigger. Kliknij Advanced settings.",
+              "fakt": "harmonogram-polecenie-pod-nazwa"
+            },
+            {
+              "typ": "klik",
+              "cel": "advanced-settings"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na karcie General, w wierszu Local folder, stoi folder Stolarnia-zamowienia. Kliknij Create.",
+              "fakt": "harmonogram-local-folder-wymagany"
+            },
+            {
+              "typ": "klik",
+              "cel": "create"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się strona zadania. Run now uruchomi je od razu, bez czekania na 7:30. Kliknij Run now.",
+              "fakt": "harmonogram-run-now"
+            },
+            {
+              "typ": "klik",
+              "cel": "run-now"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W History pojawił się pierwszy przebieg.",
+              "fakt": "harmonogram-sesja-przebiegu-w-history"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Sprawdź następnego ranka, co zrobiło zadanie",
+      "opis": "Jest wtorek. Wracasz do tej samej rozmowy co wczoraj. Na stronie zadania widać, że zadanie poranne-podsumowanie pracuje na tym komputerze, w folderze Stolarnia-zamowienia. W teczce poranek pod oknem leżą już dwa podsumowania.",
+      "nauczyciel_start": "Jest wtorek, 10:45. Laptop był zamknięty całą noc i cały ranek, aż do 10:40. Kliknij polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Stolarnia-zamowienia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "poranek/2026-10-26.txt",
+          "poranek/2026-10-27.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Codziennie o 7:30 zrób podsumowanie poranka według jak-podsumowac.txt i zapisz je w teczce poranek jako plik z datą. Jeśli zaczniesz po 10:00, napisz na górze, że jest spóźnione. Dziś zrób je od razu."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem dzisiejsze podsumowanie w poranek/2026-10-26.txt. Ustawiłem też zadanie z harmonogramu o nazwie poranne-podsumowanie. Będzie ruszać codziennie o 7:30.",
+            "fakt": "harmonogram-prosba-tworzy-zadanie"
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "rano",
+          "etykieta": "Sprawdź zadanie i wstrzymaj je na wyjazd",
+          "opis": "Najpierw pytasz o swoje zadania i otwierasz dzisiejsze podsumowanie. Potem wstrzymujesz zadanie na tydzień targów.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Pokaż moje zadania z harmonogramu. Co dziś zapisało poranne podsumowanie?",
+              "fakt": "harmonogram-prosba-lista-edycja-pauza"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "poranek/2026-10-27.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Masz jedno zadanie: poranne-podsumowanie, codziennie o 7:30, włączone. Dzisiejsze podsumowanie leży w poranek/2026-10-27.txt i zaczyna się od dopisku, że jest spóźnione.",
+              "plik": "poranek/2026-10-27.txt",
+              "bez_zmiany": true
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "poranek/2026-10-27.txt",
+              "linijki": [
+                "Podsumowanie spóźnione: zaczęte po 10:00",
+                "Poranek: wtorek, 27.10.2026",
+                "Montaż: Nowakowie, zabudowa kuchni, 9:00",
+                "Pomiar: dziś brak",
+                "Dostawa płyt: jutro 6 płyt MDF 19 mm (Hurtownia Lipa)",
+                "Odbiór w tym tygodniu: Wiśniewska, komoda dębowa, piątek 30.10",
+                "Nie zapomnij: czwartek 15:00 pomiar u Zielińskich"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "O 7:30 komputer spał, więc przebieg przepadł. Po otwarciu klapy zadanie ruszyło raz i dopisało na górze, że podsumowanie jest spóźnione.",
+              "fakt": "harmonogram-przebieg-nadrabiajacy"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Od jutra jestem tydzień na targach meblowych. Wstrzymaj poranne podsumowanie.",
+              "fakt": "harmonogram-prosba-lista-edycja-pauza"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Wstrzymałem zadanie poranne-podsumowanie. Nie ruszy, dopóki go nie wznowisz."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wstrzymane zadanie nie ruszy, ale nie znika.",
+              "fakt": "harmonogram-status-active-paused"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Po powrocie poproś Claude, żeby je wznowił.",
+              "fakt": "harmonogram-termin-poza-plikiem"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

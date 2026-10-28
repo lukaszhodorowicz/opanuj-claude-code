@@ -1,0 +1,253 @@
+{
+  "lekcja": "dobre-zlecenie",
+  "folder_startowy": [
+    "wyniki-kampanii.csv",
+    "raport-wrzesien.txt",
+    "notatki-ze-spotkania.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Jedno zdanie czy zlecenie z czterech części",
+      "opis": "To samo zadanie, dwie prośby. Kliknij najpierw pierwszą, potem drugą, i porównaj oba raporty.",
+      "nauczyciel_start": "W folderze leżą pliki do raportu. Zacznij od pierwszej prośby nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Kampania-listopad",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Pracuję nad raportem z reklam za październik."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "raport-z-kampanii.txt",
+        "raport-pazdziernik.txt"
+      ],
+      "drogi": [
+        {
+          "id": "zdanie",
+          "etykieta": "Jedno zdanie",
+          "opis": "Piszesz prośbę na szybko, jednym zdaniem.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób raport z kampanii.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "wyniki-kampanii.csv"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem raport w pliku raport-z-kampanii.txt. Są w nim liczby z pliku wyników.",
+              "plik": "raport-z-kampanii.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To nowy plik. Kliknij jego ścieżkę w odpowiedzi Claude, żeby go otworzyć.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "raport-z-kampanii.txt",
+              "linijki": [
+                "Raport z kampanii, październik 2026",
+                "Wydatki: 4 000 zł",
+                "Wyświetlenia: 182 400",
+                "Kliknięcia: 3 400",
+                "CTR: 1,86%",
+                "CPC: 1,18 zł",
+                "Zamówienia: 120",
+                "Przychód: 13 150 zł",
+                "ROAS: 3,29",
+                "CPA: 33,33 zł"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Same liczby i skróty branżowe, bez wniosku. Prośba nie mówiła, dla kogo jest raport ani w jakim formacie.",
+              "fakt": "zlecenie-nazwij-format-dlugosc-odbiorce"
+            }
+          ]
+        },
+        {
+          "id": "zlecenie",
+          "etykieta": "Zlecenie z celem, materiałami, wynikiem i sprawdzianem",
+          "opis": "Piszesz zlecenie z czterech części i prosisz Claude, żeby sprawdził sumę wydatków.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób raport z reklam za październik dla klientki. Cel: klientka ma na jego podstawie zdecydować, czy zwiększyć budżet na listopad. Materiały: dane z @wyniki-kampanii.csv, układ jak w @raport-wrzesien.txt, ustalenia z @notatki-ze-spotkania.txt. Wynik: jedna strona, bez skrótów branżowych, jedna rekomendacja. Zapisz jako raport-pazdziernik.txt. Na koniec sprawdź, czy suma wydatków w raporcie zgadza się z sumą w pliku z wynikami, i pokaż obie liczby.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Patrz na karty pod oknem: Claude czyta trzy pliki wskazane po @, zanim odpowie.",
+              "fakt": "zlecenie-odwolanie-przez-at-claude-czyta-plik-przed-odpowiedzia"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Mam gotowy raport. Zanim go zapiszę, sprawdzam, czy suma wydatków zgadza się z plikiem z wynikami.",
+              "fakt": "zlecenie-sprawdzian-z-wynikiem-zamyka-petle"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "wyniki-kampanii.csv"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Suma wydatków w raporcie to 4 000 zł, w pliku z wynikami też 4 000 zł. Zgadza się. Zapisałem raport w pliku raport-pazdziernik.txt. Układ wziąłem z raportu wrześniowego, a termin decyzji z notatek.",
+              "plik": "raport-pazdziernik.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tym razem Claude pokazał dwie sumy jako dowód, o który prosiło zlecenie. Kliknij ścieżkę pliku w odpowiedzi.",
+              "fakt": "zlecenie-popros-o-dowod-zamiast-zapewnienia"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "raport-pazdziernik.txt",
+              "linijki": [
+                "Raport z reklam, październik 2026",
+                "Co się stało",
+                "Reklamy kosztowały 4 000 zł i przyniosły 120 zamówień.",
+                "Każda złotówka wydana na reklamy przyniosła 3,29 zł sprzedaży.",
+                "Najlepiej poszła kampania „Zakupy: rośliny”, najsłabiej „Marka”.",
+                "Liczby",
+                "Wydatki: 4 000 zł",
+                "Zamówienia: 120",
+                "Sprzedaż z reklam: 13 150 zł",
+                "Co dalej",
+                "Rekomendacja: dołożyć 500 zł do kampanii „Zakupy: rośliny”.",
+                "Decyzja o budżecie na listopad: do 3 listopada."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Raport ma układ z września, trzy liczby i rekomendację z terminem. Im dokładniejsze zlecenie, tym mniej poprawek: tym razem żadnej.",
+              "fakt": "zlecenie-dokladniejsze-polecenia-mniej-poprawek"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Ogólna prośba, potem doprecyzowanie",
+      "opis": "Zanim napiszesz zlecenie, chcesz się rozejrzeć w wynikach z października.",
+      "nauczyciel_start": "Tym razem nie wiesz jeszcze, czego chcesz. Kliknij prośbę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Kampania-listopad",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zanim napiszę zlecenie, chcę się rozejrzeć w wynikach."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "notatka-wnioski.txt"
+      ],
+      "drogi": [
+        {
+          "id": "rozpoznaj",
+          "etykieta": "Zapytaj ogólnie, potem doprecyzuj",
+          "opis": "Najpierw ogólne pytanie o plik, potem prośba o notatkę w pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Co ciekawego widzisz w @wyniki-kampanii.csv?",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Trzy rzeczy. Kampania „Zakupy: rośliny” dała ponad połowę sprzedaży z reklam. Kampania „Marka” wydała 400 zł i przyniosła 5 zamówień. W kampanii „Remarketing” zamówienie kosztowało najmniej: 27,27 zł.",
+              "fakt": "zlecenie-otwarte-pytanie-o-plik-wydobywa-nieznane"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ogólna prośba dała przegląd. Teraz dopisz w tej samej rozmowie, co z tego ma powstać.",
+              "fakt": "zlecenie-claude-code-to-rozmowa-poprawiasz-zamiast-zaczynac-od-nowa"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz te trzy rzeczy jako notatkę dla mnie w pliku notatka-wnioski.txt. Trzy punkty, bez skrótów branżowych.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem notatkę w pliku notatka-wnioski.txt.",
+              "plik": "notatka-wnioski.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę pliku w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "notatka-wnioski.txt",
+              "linijki": [
+                "Wnioski z października",
+                "1. Kampania „Zakupy: rośliny” dała ponad połowę sprzedaży z reklam.",
+                "2. Kampania „Marka” wydała 400 zł i przyniosła 5 zamówień.",
+                "3. W kampanii „Remarketing” zamówienie kosztowało najmniej: 27,27 zł."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zaczęło się od pytania, skończyło na pliku. Pierwsza próba nie musi być pełnym zleceniem: resztę doprecyzowujesz w tej samej rozmowie.",
+              "fakt": "zlecenie-claude-code-to-rozmowa-poprawiasz-zamiast-zaczynac-od-nowa"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

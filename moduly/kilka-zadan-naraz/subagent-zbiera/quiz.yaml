@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude: „Użyj subagenta: niech przeczyta 40 opinii klientów o kampanii i odda 5 najczęstszych uwag”. Co trafi do Twojej rozmowy?"
+    odpowiedzi:
+      - "Wszystkie 40 opinii, tak samo jak wtedy, gdy Claude czyta je sam."
+      - "Samo podsumowanie, czyli 5 najczęstszych uwag klientów."
+      - "Nic, bo subagent pracuje w osobnym oknie kontekstu i niczego nie oddaje."
+    poprawna: 1
+    wyjasnienie: "Subagent czyta opinie we własnym oknie kontekstu i oddaje samo podsumowanie."
+    fakt: subagent-poboczne-zadanie-oddaje-podsumowanie
+
+  - pytanie: "W rozmowie ustalasz, że firmę pani Nowak w raportach nazywasz „Studio Kora”. Teraz prosisz o subagenta, który przeczyta jej faktury. Co robisz, żeby subagent użył tej nazwy?"
+    odpowiedzi:
+      - "Nic, bo subagent zna całą rozmowę i nazwę już ma."
+      - "Otwierasz panel subagenta i dopisujesz mu nazwę do zadania."
+      - "Powtarzasz w prośbie do Claude nazwę „Studio Kora”."
+    poprawna: 2
+    wyjasnienie: "Zwykły subagent startuje ze świeżym oknem kontekstu i nie widzi historii Twojej rozmowy. Nazwa ustalona tylko w rozmowie do niego nie dotrze."
+    fakt: subagent-swieze-okno-bez-historii-rozmowy
+
+  - pytanie: "Claude oddał zbieranie wyników kampanii subagentowi. Chcesz w aplikacji zajrzeć, co robi subagent. Co klikasz?"
+    odpowiedzi:
+      - "Menu ⋮ na pasku tytułu, a w nim Background tasks."
+      - "Pole wiadomości, w którym wpisujesz /tasks."
+      - "Pasek boczny z listą Twoich rozmów."
+    poprawna: 0
+    wyjasnienie: "Panel zadań w tle pokazuje pracę w tle tej rozmowy, także subagentów. Otwierasz go pozycją Background tasks w menu ⋮ na pasku tytułu."
+    fakt: aplikacja-panel-zadan-w-tle-co-pokazuje
+
+  - pytanie: "Claude odpisał: „Zleciłem przeczytanie umów subagentowi. Pracuje w tle, a wynik podam, gdy skończy”. Co teraz?"
+    odpowiedzi:
+      - "Czekasz, bo do końca pracy subagenta rozmowa nie przyjmie wiadomości."
+      - "Nic: Claude poda wynik później, bez nowej prośby."
+      - "Prosisz Claude, żeby poczekał, bo inaczej wyniku nie poda."
+    poprawna: 1
+    wyjasnienie: "Wynik subagenta w tle dociera do Claude później, jako powiadomienie o zakończeniu. W sesjach aplikacji na Twoim komputerze Claude może poczekać na subagenta dopiero po wyłączeniu trybu fork, a ten tryb jest domyślnie włączony."
+    fakt: subagent-w-tle-wynik-w-pozniejszej-turze

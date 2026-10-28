@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude: „Zrób raport z kampanii.” Dostajesz same liczby i skróty branżowe, a raport ma trafić do klientki. Co dopisujesz do zlecenia?"
+    odpowiedzi:
+      - "Kroki pracy: otwórz plik z wynikami, policz sumy i zapisz raport."
+      - "Format, długość albo odbiorcę raportu."
+      - "Liczby z kampanii przepisane do prośby, bo Claude sam nie zajrzy do plików w folderze."
+    poprawna: 1
+    wyjasnienie: "Dokumentacja radzi nazwać format, długość albo odbiorcę, żeby odpowiedź pasowała do tego, jak jej użyjesz. Raport dla klientki to nasz przykład."
+    fakt: zlecenie-nazwij-format-dlugosc-odbiorce
+
+  - pytanie: "Nowy raport dla klientki ma mieć ten sam układ co raport z września, który leży w folderze. Co robisz w zleceniu?"
+    odpowiedzi:
+      - "Piszesz „układ jak ostatnio”, bo nowa rozmowa zna historię rozmowy, w której powstał raport z września."
+      - "Opisujesz układ z pamięci, bo Claude nie potrzebuje pliku ze starym raportem."
+      - "Wskazujesz raport z września po @, a Claude czyta go, zanim odpowie."
+    poprawna: 2
+    wyjasnienie: "Dokumentacja radzi wskazać plik po @ zamiast opisywać, gdzie leży. Plik wskazany po @ Claude czyta, zanim odpowie."
+    fakt: zlecenie-odwolanie-przez-at-claude-czyta-plik-przed-odpowiedzia
+
+  - pytanie: "Claude odpowiada tylko: „Zapisałem raport w pliku raport-z-kampanii.txt. Są w nim liczby z pliku wyników.” Chcesz wiedzieć, czy suma wydatków w raporcie zgadza się z sumą w pliku z wynikami, ale bez otwierania obu plików. Co dopisujesz do zlecenia?"
+    odpowiedzi:
+      - "Prośbę o porównanie sumy w raporcie z sumą w pliku i pokazanie obu liczb."
+      - "Nic. Claude po zapisaniu sam sprawdza liczby, więc „Zapisałem” znaczy, że się zgadzają."
+      - "Prośbę, żeby na końcu napisał, czy raport jest bez błędów."
+    poprawna: 0
+    wyjasnienie: "Dokumentacja radzi, żeby Claude pokazał dowód sukcesu, a nie tylko o nim zapewniał. Dwie sumy to nasz przykład dowodu."
+    fakt: zlecenie-popros-o-dowod-zamiast-zapewnienia
+
+  - pytanie: "Przed spotkaniem z klientką chcesz się rozejrzeć w wynikach kampanii z października, ale nie wiesz jeszcze, czego potrzebujesz. Jak to robisz?"
+    odpowiedzi:
+      - "Najpierw rozpisujesz cel, materiały, wynik i sprawdzian, bo bez pełnego zlecenia Claude nie zacznie."
+      - "Pytasz ogólnie o plik z wynikami, a w następnej wiadomości dopisujesz, co ma powstać."
+      - "Pytasz ogólnie, a potem piszesz od zera pełne zlecenie, bo do przeglądu nie da się nic dopisać."
+    poprawna: 1
+    wyjasnienie: "Praca z Claude Code to rozmowa: nie potrzebujesz idealnej prośby. Zaczynasz od tego, czego chcesz, a potem doprecyzowujesz w tej samej rozmowie."
+    fakt: zlecenie-claude-code-to-rozmowa-poprawiasz-zamiast-zaczynac-od-nowa

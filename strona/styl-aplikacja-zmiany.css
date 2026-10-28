@@ -1,0 +1,294 @@
+/* Wygląd symulatora aplikacji Claude, druga część: widok zmian z linijkami, otwarty plik, ścieżka w odpowiedzi, pauza Claude, znacznik kursu „kliknij tutaj”, ruch i układ na telefonie. */
+/* widok zmian: plik po pliku, usunięte linijki na czerwono, dodane na zielono; otwarty plik stoi w tym samym miejscu */
+.apl-widok-zmian,
+.apl-widok-pliku {
+  border-left: 1px solid var(--a-kreska);
+  padding: 14px 14px 18px;
+  min-width: 0;
+  animation: apl-wjazd 0.35s ease-out;
+}
+.apl-plik {
+  border: 1px solid var(--a-kreska);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.apl-plik header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  background: #222222;
+  border-bottom: 1px solid var(--a-kreska);
+  font-size: 13.5px;
+}
+.apl-plik header b {
+  font-weight: 600;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.apl-licz {
+  margin-left: auto;
+  font: 600 12.5px/1 var(--a-mono);
+}
+.apl-linijki {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  font: 400 13px/1.5 var(--a-mono);
+}
+.apl-l {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 3px 12px 3px 8px;
+}
+.apl-l.usunieta {
+  background: var(--a-minus-tlo);
+  color: #f3b0a8;
+}
+.apl-l.dodana {
+  background: var(--a-plus-tlo);
+  color: #a8e3b8;
+}
+.apl-znak {
+  flex: none;
+  width: 12px;
+  text-align: center;
+  font-weight: 700;
+}
+/* tekst linijki: spacje na początku zostają (wcięcia JSON), a długa linia nadal się zawija */
+.apl-l-tekst {
+  white-space: pre-wrap;
+}
+.apl-l.usunieta .apl-znak {
+  color: var(--a-minus);
+}
+.apl-l.dodana .apl-znak {
+  color: var(--a-plus);
+}
+/* drogi: okno bez panelu szczegółów, plik otwiera się obok rozmowy */
+.apl-okno.bez-panelu .apl-uklad {
+  grid-template-columns: minmax(0, 1fr);
+}
+.apl-okno.plik-otwarty .apl-uklad {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+.apl-plik-tresc .apl-l {
+  padding-left: 4px;
+}
+/* ścieżka pliku w odpowiedzi Claude: klik otwiera plik */
+.apl-sciezka {
+  position: relative;
+  display: inline;
+  border: 1px solid #454545;
+  border-radius: 6px;
+  background: #2b2b2b;
+  color: var(--a-tekst);
+  font: 500 0.92em/1.4 var(--a-mono);
+  padding: 0 5px;
+  cursor: pointer;
+}
+.apl-sciezka:hover {
+  background: #363636;
+}
+/* ścieżka jest blokiem w linii (łamie się wewnątrz po / i -) i nie zajmuje całej linii: zostaje miejsce na kropkę albo przecinek po niej, który inaczej spadłby sam do nowej linii */
+.apl-sciezka {
+  max-width: calc(100% - 1.8em);
+}
+.apl-claude {
+  flex-direction: column;
+}
+.apl-tag.apl-tag-pod {
+  position: relative;
+  left: var(--tag-x, 18px); /* środek ścieżki, liczy go aplikacja.js na odpowiedzi */
+  right: auto;
+  bottom: auto;
+  margin: 4px 0 0;
+  transform: translateX(-50%);
+}
+.apl-tag.apl-tag-pod::after {
+  top: auto;
+  bottom: 100%;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  border-top-color: transparent;
+  border-bottom-color: var(--granat);
+}
+/* pauza, gdy Claude pracuje: same kropki, bez napisu */
+.apl-mysli {
+  display: flex;
+  gap: 5px;
+  padding: 6px 0;
+}
+.apl-mysli i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6c6c6c;
+  animation: apl-kropka 1s ease-in-out infinite;
+}
+.apl-mysli i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.apl-mysli i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.apl-pole-tekst.pisze {
+  height: auto;
+  border-left: 0;
+  color: var(--a-tekst);
+  animation: none;
+}
+.apl-pole-tekst.pisze::after {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 1.1em;
+  margin-left: 1px;
+  vertical-align: -0.18em;
+  background: var(--a-tekst);
+}
+/* podgląd pliku w tekście lekcji: ten sam wygląd co plik w oknie */
+.podglad.apl-podglad {
+  background: var(--a-tlo);
+  color: var(--a-tekst);
+  font: 400 14px/1.5 var(--a-sans);
+  border-radius: 14px;
+  padding: 10px;
+}
+/* ikony poza oknem aplikacji (plik, strona, widok artefaktu); okno w podglądzie ma własne rozmiary ikon z reguł okna (strzałki paska bocznego 16 px), więc ta reguła do niego nie sięga */
+.apl-podglad > svg,
+.apl-podglad > :where(:not(.apl-okno)) svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+/* pasek boczny w podglądzie: .kolumna ul li::before (zielony kwadrat wypunktowania) nie dotyczy pozycji okna */
+.apl-podglad .apl-bok-lista li::before {
+  content: none;
+}
+/* lista paska bocznego w podglądzie nie dziedziczy stylu list z .kolumna (margines, rozmiar i interlinia): odstępy jak w oknie symulatora */
+.apl-podglad .apl-bok-lista {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+.apl-podglad .apl-bok-lista li {
+  margin: 0;
+}
+/* znacznik kursu na elemencie do kliknięcia: zakreślacz i granat jak w reszcie kursu */
+.apl-cel {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid var(--limonka);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px rgba(163, 230, 53, 0.28);
+  animation: apl-puls 1.4s ease-in-out 3;
+}
+.apl-tag {
+  position: absolute;
+  right: -6px;
+  bottom: calc(100% + 11px);
+  white-space: nowrap;
+  font: 700 10.5px/1 var(--mono);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--limonka);
+  background: var(--granat);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: 0 0 0 1.5px var(--limonka); /* na ciemnym oknie granat sam się nie odcina */
+  pointer-events: none;
+}
+.apl-tag::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: 100%;
+  border: 6px solid transparent;
+  border-top-color: var(--granat);
+}
+.wcisniety {
+  transform: scale(0.94);
+  transition: transform 0.12s ease;
+}
+
+@keyframes apl-puls {
+  50% {
+    box-shadow: 0 0 0 11px rgba(163, 230, 53, 0.08);
+  }
+}
+@keyframes apl-wjazd {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@keyframes apl-kropka {
+  50% {
+    opacity: 0.35;
+    transform: translateY(-2px);
+  }
+}
+@keyframes apl-kursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-cel,
+  .apl-widok-zmian,
+  .apl-widok-pliku,
+  .apl-mysli i,
+  .apl-pole-tekst {
+    animation: none;
+  }
+}
+
+/* telefon i wąskie okno: pasek boczny zwija się do górnego paska, panele idą pod rozmowę */
+@media (max-width: 720px) {
+  .apl-okno {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+  .apl-bok {
+    border-right: 0;
+    border-bottom: 1px solid var(--a-kreska);
+    padding: 9px 12px;
+  }
+  .apl-bok-lista,
+  .apl-bok-sesje,
+  .apl-bok-strzalki {
+    display: none;
+  }
+  .apl-pasek {
+    padding-left: 12px;
+  }
+  .apl-uklad,
+  .apl-okno.zmiany-otwarte .apl-uklad,
+  .apl-okno.plik-otwarty .apl-uklad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .apl-czat {
+    padding: 16px 14px 14px;
+  }
+  .apl-ty {
+    max-width: 92%;
+  }
+  .apl-panel,
+  .apl-okno.zmiany-otwarte .apl-panel {
+    display: flex;
+    border-left: 0;
+    border-top: 1px solid var(--a-kreska);
+  }
+  .apl-karta-szkic {
+    display: none;
+  }
+  .apl-widok-zmian,
+  .apl-widok-pliku {
+    border-left: 0;
+    border-top: 1px solid var(--a-kreska);
+    padding: 12px 10px 14px;
+  }
+}

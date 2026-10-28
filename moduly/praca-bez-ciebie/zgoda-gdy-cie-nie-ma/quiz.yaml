@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Zadanie z harmonogramu ma o 7:00 dopisać sprzedaż kursów z zeszłego tygodnia do raportu. O 10:00 w pliku nic nie przybyło. Zadanie ma tryb Manual. Co się stało?"
+    odpowiedzi:
+      - "Przebieg odrzucił zmianę, bo nikt jej nie zatwierdził, i się zakończył."
+      - "Przebieg stoi na pytaniu o zgodę i czeka, aż zatwierdzisz zmianę."
+      - "Aplikacja zatwierdzi zmianę sama, gdy pytanie poczeka kilka minut."
+    poprawna: 1
+    wyjasnienie: "W trybie Manual przebieg staje, gdy Claude potrzebuje narzędzia, na które zadanie nie ma zgody. Czeka, dopóki nie zatwierdzisz użycia tego narzędzia."
+    fakt: zgoda-bez-ciebie-manual-przebieg-stoi
+
+  - pytanie: "Przebieg zadania z raportem dla klienta stoi od rana na pytaniu o zgodę. Jak dokończysz tę pracę?"
+    odpowiedzi:
+      - "Zaczynasz nową rozmowę i prosisz Claude, żeby zrobił raport jeszcze raz."
+      - "Wpisujesz w polu wiadomości polecenie /permissions i tam zatwierdzasz zmianę."
+      - "Otwierasz sesję przebiegu i tam odpowiadasz na pytanie o zgodę."
+    poprawna: 2
+    wyjasnienie: "Przebieg zatwierdzasz w jego sesji, odpowiadając tam na pytanie o zgodę. Wtedy kończy pracę, którą zaczął rano."
+    fakt: zgoda-bez-ciebie-manual-przebieg-stoi
+
+  - pytanie: "Zadanie w trybie Auto uzupełniło raport kampanii. Chciało też usunąć kopię listy zapytań od klientów, ale strażnik zablokował kasowanie. Co zrobił przebieg?"
+    odpowiedzi:
+      - "Przebieg nie czekał na Ciebie. Claude dostał powód blokady, a kopia została w folderze."
+      - "Przebieg stanął i czeka, aż zatwierdzisz kasowanie w jego sesji, tak jak w trybie Manual."
+      - "Przebieg usunął kopię mimo blokady, bo w trybie Auto Claude robi wszystko bez pytania."
+    poprawna: 0
+    wyjasnienie: "Gdy strażnik zablokuje działanie, Claude dostaje powód. Zablokowane kasowanie się nie wykonuje, więc kopia zostaje w folderze."
+    fakt: auto-claude-dostaje-powod-blokady
+
+  - pytanie: "Zadanie w trybie Auto co tydzień dopisuje zamówienia do zestawienia dla księgowej. Nic na Ciebie nie czekało. Po co otwierasz sesję przebiegu?"
+    odpowiedzi:
+      - "Żeby zatwierdzić zmiany, bo bez tego nie trafią do zestawienia."
+      - "Żeby zobaczyć, co zrobił Claude, i przejrzeć zmiany."
+      - "Nie musisz, bo w trybie Auto Claude zawsze robi wszystko, o co go prosisz."
+    poprawna: 1
+    wyjasnienie: "W sesji przebiegu widzisz, co zrobił Claude, i przeglądasz zmiany. Tam też przeczytasz, czego nie zrobił."
+    fakt: harmonogram-sesja-przebiegu-co-widac

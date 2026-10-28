@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Czy Claude zawsze stosuje zasady z CLAUDE.md?"
+    tyl: "Stara się je stosować, ale nie ma gwarancji, że zastosuje każdą."
+    fakt: claude-md-bez-gwarancji-stosowania
+
+  - przod: "Kto ocenia tekst w hooku typu prompt?"
+    tyl: "Model Claude, do którego Claude Code wysyła Twoją zasadę i dane zdarzenia."
+    fakt: hook-prompt-osad-modelu
+
+  - przod: "Co robi continueOnBlock: true w hooku typu prompt na zdarzeniu PostToolUse?"
+    tyl: "Gdy model odmówi, powód wraca do Claude, a Claude pracuje dalej."
+    fakt: hook-prompt-posttooluse-continueonblock
+
+  - przod: "Kiedy rusza hook z dopasowaniem Edit|Write?"
+    tyl: "Tylko gdy Claude użyje narzędzia Edit albo Write."
+    fakt: hook-dopasowanie-edit-write
+
+  - przod: "Dlaczego zapis w folderze .claude wymaga zgody także w trybie Accept edits?"
+    tyl: "Folder .claude jest chroniony. W trybach Manual i Accept edits zapis w nim wymaga Twojej zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja
+
+  - przod: "Jakie pola ma hook typu prompt w pliku ustawień?"
+    tyl: "Obowiązkowe: type z wartością prompt i prompt z Twoją zasadą. Nieobowiązkowe: model, timeout i continueOnBlock."
+    fakt: hook-prompt-pola-pliku

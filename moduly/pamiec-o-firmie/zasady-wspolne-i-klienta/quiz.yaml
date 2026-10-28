@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Piszesz posty dla Pracowni Lipa. Rozmowę otwierasz w jej folderze. Plik CLAUDE.md w folderze Klienci nad nim mówi „bez wykrzykników”, a plik klientki „podpis: Ola”. Z których plików Claude wczytuje zasady na początku rozmowy?"
+    odpowiedzi:
+      - "Tylko z pliku klientki, bo plik bliżej folderu rozmowy zastępuje wspólny."
+      - "Tylko z pliku w folderze Klienci, bo zasady wspólne mają pierwszeństwo."
+      - "Z obu plików naraz, bo zasady z nich łączą się, a nie zastępują."
+    poprawna: 2
+    wyjasnienie: "Wszystkie znalezione pliki CLAUDE.md trafiają do kontekstu razem, a nie nadpisują się nawzajem. Dlatego post w ćwiczeniu 1 miał cechy obu plików."
+    fakt: claude-md-pliki-lacza-sie-nie-nadpisuja
+
+  - pytanie: "Rozmowa jest otwarta w folderze Klienci. Pierwszy post dla Pracowni Lipa wyszedł bez podpisu „Ola”, bo Claude pisał go z danych w prośbie. Co sprawi, że w tej samej rozmowie dojdzie plik CLAUDE.md klientki?"
+    odpowiedzi:
+      - "Prośba, żeby Claude przeczytał plik z folderu Pracownia-Lipa."
+      - "Nic, bo plik z folderu klientki wczytuje się tylko na początku rozmowy."
+      - "Przełączenie na tryb Manual (ręczny), bo w Accept edits Claude nie zagląda do jej folderu."
+    poprawna: 0
+    wyjasnienie: "Plik CLAUDE.md z folderu wewnątrz folderu rozmowy dochodzi dopiero wtedy, gdy Claude przeczyta, zapisze albo zmieni inny plik w tym folderze."
+    fakt: claude-md-podfolder-wczytany-na-zadanie
+
+  - pytanie: "Cały dzień pracujesz tylko dla Pracowni Lipa. Chcesz, żeby Claude na początku rozmowy wczytał zasady wspólne i zasady klientki, bez prośby o żaden plik. W którym folderze otwierasz rozmowę?"
+    odpowiedzi:
+      - "W folderze Klienci, bo z niego Claude widzi foldery i zasady wszystkich klientów."
+      - "W folderze Pracownia-Lipa, bo Claude wczytuje pliki z niego i z folderów nad nim."
+      - "W dowolnym folderze, bo zasady klientów Claude bierze z pliku osobistego."
+    poprawna: 1
+    wyjasnienie: "Claude wczytuje pliki CLAUDE.md z folderu, w którym pracuje, i ze wszystkich folderów nad nim. W rozmowie w folderze Pracownia-Lipa to plik klientki i plik wspólny z folderu Klienci."
+    fakt: claude-md-folder-roboczy-i-foldery-nad-nim
+
+  - pytanie: "Rozmowa jest otwarta w folderze Pracownia-Lipa. Obok leży folder Kwiaciarnia-Malwa z plikiem CLAUDE.md drugiej klientki. Czy Claude wczyta ten plik na początku rozmowy?"
+    odpowiedzi:
+      - "Nie, bo Claude wczytuje tylko plik CLAUDE.md z folderu rozmowy, bez folderów nad nim."
+      - "Tak, bo wczytuje wszystkie pliki CLAUDE.md z folderu Klienci, który leży nad oboma."
+      - "Nie, bo wczytuje pliki z folderu rozmowy i folderów nad nim, a ten leży obok."
+    poprawna: 2
+    wyjasnienie: "Claude wczytuje pliki CLAUDE.md z folderu, w którym pracuje, i ze wszystkich folderów nad nim. Folder Kwiaciarnia-Malwa nie jest ani folderem rozmowy, ani folderem nad nim."
+    fakt: claude-md-folder-roboczy-i-foldery-nad-nim

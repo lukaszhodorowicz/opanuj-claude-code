@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Codzienne podsumowanie zamówień ma się zapisywać o 7:30. W nocy laptop leżał z zamkniętą klapą, otwierasz go o 10:40. Co stanie się z dzisiejszym podsumowaniem?"
+    odpowiedzi:
+      - "Dzisiejszego podsumowania nie będzie, bo komputer przespał 7:30, a zadanie rusza tylko o swojej porze."
+      - "Zadanie rusza raz, jako przebieg nadrabiający za opuszczony termin."
+      - "Zadanie rusza tyle razy, ile terminów przespał komputer, i nadrabia każdy z nich."
+    poprawna: 1
+    wyjasnienie: "Po przebudzeniu komputera aplikacja uruchamia dokładnie jeden przebieg nadrabiający, za ostatni opuszczony termin z ostatnich 7 dni."
+    fakt: harmonogram-przebieg-nadrabiajacy
+
+  - pytanie: "Twoje zadanie na komputerze ma co rano o 7:30 zrobić zestawienie wczorajszych zamówień ze sklepu. Co musi działać o tej porze, żeby ruszyło?"
+    odpowiedzi:
+      - "Otwarta aplikacja Claude i komputer, który nie śpi."
+      - "Otwarta rozmowa, w której powstało zadanie."
+      - "Nic, bo zadanie z harmonogramu zawsze działa w chmurze."
+    poprawna: 0
+    wyjasnienie: "Zadanie na Twoim komputerze rusza tylko wtedy, gdy aplikacja jest otwarta, a komputer nie śpi."
+    fakt: harmonogram-lokalne-tylko-przy-otwartej-aplikacji
+
+  - pytanie: "Prowadzisz kampanie dla klientów i chcesz co poniedziałek rano dostać raport wyników z plików w folderze. Nie wiesz, gdzie w Twojej wersji aplikacji jest formularz zadań. Co robisz?"
+    odpowiedzi:
+      - "Czekasz z tym, aż znajdziesz formularz, bo zadanie z harmonogramu tworzy się tylko w formularzu."
+      - "Wpisujesz /loop w polu wiadomości aplikacji, bo to polecenie ustawia stały harmonogram, który działa bez Ciebie."
+      - "Piszesz w rozmowie prośbę z porą, na przykład „co poniedziałek o 8:00 zrób raport kampanii”."
+    poprawna: 2
+    wyjasnienie: "Zadanie utworzysz, opisując w dowolnej rozmowie, czego chcesz i o jakiej porze. Taka prośba tworzy zadanie, które się powtarza."
+    fakt: harmonogram-prosba-tworzy-zadanie
+
+  - pytanie: "Wyjeżdżasz na tydzień na targi. Poranne podsumowanie ma w tym czasie nie ruszać, a po powrocie działać jak wcześniej. Co robisz?"
+    odpowiedzi:
+      - "Zamykasz rozmowę, w której powstało zadanie, bo bez niej zadanie nie ruszy."
+      - "Prosisz Claude w rozmowie, żeby wstrzymał zadanie. Po powrocie je wznawiasz."
+      - "Usuwasz zadanie, a po powrocie ustawiasz je od nowa, bo zadania nie da się wstrzymać."
+    poprawna: 1
+    wyjasnienie: "W każdej rozmowie w aplikacji poprosisz Claude, żeby wypisał, utworzył, zmienił albo wstrzymał Twoje zadania."
+    fakt: harmonogram-prosba-lista-edycja-pauza

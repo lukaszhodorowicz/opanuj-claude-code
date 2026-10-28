@@ -1,0 +1,20 @@
+fiszki:
+  - przod: "Co Claude robi bez karty zgody, gdy w aplikacji włączysz tryb Accept edits?"
+    tyl: "Zmienia pliki i uruchamia typowe polecenia na plikach, na przykład mkdir, touch i mv."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - przod: "Czy w trybie Accept edits Claude pyta, zanim przeczyta plik w folderze, w którym pracujesz?"
+    tyl: "Nie. Odczyty idą w tym trybie bez pytania."
+    fakt: accept-edits-odczyty-bez-pytania
+
+  - przod: "Czy w trybie Accept edits skasowanie pliku poleceniem rm w Twoim folderze wymaga zgody?"
+    tyl: "Nie. Polecenie rm jest na liście tego trybu, więc plik znika bez pytania."
+    fakt: accept-edits-polecenia-na-plikach
+
+  - przod: "Co robi Claude w aplikacji w trybie Accept edits, gdy do zadania potrzebuje polecenia zip?"
+    tyl: "Pyta o zgodę. W tym trybie Claude nadal pyta o inne polecenia terminala niż typowe polecenia na plikach."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - przod: "Skąd w aplikacji wiesz, czy Claude poczeka na Twoją zgodę?"
+    tyl: "Z napisu na przełączniku trybu pod polem wiadomości."
+    fakt: aplikacja-tryb-pod-polem-mowi-czy-claude-czeka-na-zgode

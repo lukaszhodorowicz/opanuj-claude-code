@@ -1,0 +1,153 @@
+{
+  "cw1-menu-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 3500,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-podmenu-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 5000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-katalog-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 6000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse connectors\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-logowanie-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 7000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse connectors\"].apl-cel",
+      "#cw1 .apl-kafelek[data-nazwa=\"Google Calendar\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-koniec-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 15500,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse connectors\"].apl-cel",
+      "#cw1 .apl-kafelek[data-nazwa=\"Google Calendar\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-menu-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 3500,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-podmenu-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 5000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-katalog-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 6000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse connectors\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-logowanie-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 7000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse connectors\"].apl-cel",
+      "#cw1 .apl-kafelek[data-nazwa=\"Google Calendar\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-koniec-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 15500,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Connectors\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse connectors\"].apl-cel",
+      "#cw1 .apl-kafelek[data-nazwa=\"Google Calendar\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-mysli": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 2600,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-plan": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-plan": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

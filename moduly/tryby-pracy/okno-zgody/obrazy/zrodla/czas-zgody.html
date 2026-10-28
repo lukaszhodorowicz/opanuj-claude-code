@@ -1,0 +1,199 @@
+<!doctype html>
+<!-- Rysunek R2 „Na jak długo działa zgoda” do lekcji okno-zgody: dwie linie czasu (zgoda na zmianę pliku do końca sesji, zgoda na polecenie jako reguła w .claude/settings.local.json) i pole „Gdzie zobaczyć i usunąć”; zakreślacz tylko na pliku settings.local.json. Źródło PNG obrazy/czas-zgody.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Czas zgody</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 16px 20px; }
+      code { font: 700 17px/1.3 var(--mono); }
+
+      .karta {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 22px;
+        padding: 18px 18px 20px;
+      }
+      .karta + .karta { margin-top: 20px; }
+      .karta h3 {
+        margin: 0 0 16px;
+        font: 800 28px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .karta h3 code { font: 700 25px/1 var(--mono); }
+
+      /* ===== Linia czasu: trzy kolumny, w każdej odcinek toru i przystanek ===== */
+      .os {
+        display: grid;
+        grid-template-columns: 1fr 1.35fr 1fr;
+        column-gap: 0;
+      }
+      .tor {
+        position: relative;
+        height: 34px;
+      }
+      .tor::before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--granat);
+      }
+      .os > .tor:nth-child(1)::before { left: 50%; }
+      .os > .tor:nth-child(3)::before { right: 50%; }
+      .tor i {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        margin-left: -12px;
+        border-radius: 50%;
+        background: var(--granat);
+      }
+      .tor i.pusty { background: var(--biel); border: 4px solid var(--granat); }
+      .tor .pas {
+        position: absolute;
+        inset: 0 6px;
+        border-radius: 17px;
+        background: var(--granat);
+        color: var(--biel);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 800 19px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .przystanek {
+        padding: 12px 8px 0;
+        text-align: center;
+        font: 500 19px/1.35 var(--sans);
+      }
+      .przystanek b { font-weight: 800; }
+      .przystanek code { font-size: 16px; }
+      .dopisek {
+        margin-top: 10px;
+        font: 700 16px/1.3 var(--sans);
+        color: var(--grafit);
+      }
+      .inne {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 2px dashed var(--kreska);
+        font: 700 19px/1.3 var(--sans);
+        color: var(--grafit);
+      }
+
+      /* ===== Drzewko przy pliku ===== */
+      .drzewko {
+        margin: 12px auto 0;
+        width: fit-content;
+        padding: 10px 12px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 14px;
+        text-align: left;
+        font: 700 17px/1 var(--mono);
+      }
+      .drzewko .el {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 34px;
+        padding: 0 8px;
+        white-space: nowrap;
+      }
+      .drzewko .el svg { width: 20px; height: 20px; flex: none; }
+      .drzewko .w1 { margin-left: 22px; }
+      .drzewko .w2 { margin-left: 44px; }
+      .drzewko .ten {
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+        border-radius: 9px;
+      }
+
+      /* ===== Gdzie zobaczyć i usunąć ===== */
+      .gdzie {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 28px;
+        align-items: center;
+        gap: 18px;
+        padding: 14px 18px;
+        background: var(--papier-2);
+        border: 3px dashed var(--grafit);
+        border-radius: 16px;
+        font: 500 19px/1.35 var(--sans);
+      }
+      .gdzie strong { font: 800 21px/1.2 var(--sans); }
+
+      h1.wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat); }
+      h1.wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys">
+      <h1 class="wniosek">Zgoda na zmianę pliku działa do końca sesji, a <mark>zgoda na polecenie zostaje na stałe</mark></h1>
+      <div class="karta">
+        <h3>Zgoda na zmianę pliku</h3>
+        <div class="os">
+          <div class="tor"><i></i></div>
+          <div class="tor"><div class="pas">Działa do końca sesji</div></div>
+          <div class="tor"><i class="pusty"></i></div>
+          <div class="przystanek">Odpowiadasz <b>„nie pytaj więcej”</b>.</div>
+          <div></div>
+          <div class="przystanek">W nowej sesji Claude <b>znów pyta</b>.</div>
+        </div>
+      </div>
+
+      <div class="karta">
+        <h3>Zgoda na polecenie, np. <code>zip</code></h3>
+        <div class="os">
+          <div class="tor"><i></i></div>
+          <div class="tor"><i></i></div>
+          <div class="tor"><i></i></div>
+          <div class="przystanek">Odpowiadasz <b>„nie pytaj więcej”</b>.</div>
+          <div class="przystanek">
+            Claude Code zapisuje regułę w pliku <code>.claude/settings.local.json</code> w folderze repozytorium.
+          </div>
+          <div class="przystanek">
+            W kolejnych sesjach Claude <b>nie pyta o to polecenie</b>.
+            <div class="inne">O inne polecenia dalej pyta.</div>
+          </div>
+        </div>
+
+        <div class="gdzie">
+          <strong style="grid-column: 1 / -1">Gdzie zobaczysz i usuniesz regułę</strong>
+          <span>W terminalu służy do tego polecenie <code>/permissions</code>.</span>
+          <span>W aplikacji to polecenie nie działa. Regułę usuniesz, zmieniając plik ustawień.</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

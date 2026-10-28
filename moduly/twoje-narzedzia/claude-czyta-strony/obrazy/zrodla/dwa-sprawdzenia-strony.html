@@ -1,0 +1,405 @@
+<!doctype html>
+<!-- Rysunek R1 „Dwa sprawdzenia, zanim Claude coś zrobi na cudzej stronie” do lekcji claude-czyta-strony: prośba kursanta w jasnym dymku po prawej stronie uproszczonego okna aplikacji, trzy zapory obok siebie, każda z własnym momentem (lista domen przed wejściem na nową stronę, strażnik przy klikaniu i pisaniu z dopiskiem, karta zgody przy pierwszym działaniu na stronie, także przy wejściu), działanie w panelu Browser tylko po Allow once i Always allow. Nagłówek z wnioskiem: o karcie zgody decydujesz Ty. Ramki o zakupach i subdomenach oraz ścieżka rozszerzenia Claude in Chrome usunięte z rysunku (są w tekście lekcji). Dokumentacja nie podaje kolejności strażnika i karty, dlatego zapory stoją obok siebie, nie w łańcuchu. Zakreślacz tylko na karcie zgody. Opis: BRIEF.md, część 9. Źródło PNG obrazy/dwa-sprawdzenia-strony.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Trzy sprawdzenia na cudzej stronie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --dymek: #eeede6;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --kol: 222px;
+        --dzial: 460px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 18px 16px 20px;
+      }
+      svg.ik {
+        flex: none;
+      }
+
+      /* ===== Uproszczone okno aplikacji z dymkiem kursanta po prawej ===== */
+      .okno {
+        position: relative;
+        display: flex;
+        min-height: 112px;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .okno-bok {
+        width: 74px;
+        flex: none;
+        background: var(--papier);
+        border-right: 1.5px solid var(--kreska);
+        padding: 16px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .okno-bok i {
+        display: block;
+        height: 7px;
+        border-radius: 4px;
+        background: var(--kreska);
+      }
+      .okno-bok i:nth-child(2) {
+        width: 70%;
+      }
+      .okno-bok i:nth-child(3) {
+        width: 85%;
+      }
+      .okno-rozmowa {
+        flex: 1;
+        padding: 16px 16px 16px 24px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .dymek {
+        width: 430px;
+        background: var(--dymek);
+        color: var(--granat);
+        border: 1.5px solid var(--kreska);
+        border-radius: 18px 18px 4px 18px;
+        padding: 12px 16px 13px;
+        font: 600 20px/1.38 var(--sans);
+      }
+
+      /* ===== Trzy zapory obok siebie ===== */
+      .rys {
+        position: relative;
+      }
+      .zapory {
+        display: grid;
+        grid-template-columns: var(--kol) var(--kol) 1fr;
+        column-gap: 12px;
+        margin-top: 34px;
+        align-items: stretch;
+      }
+      .zapora {
+        display: flex;
+        flex-direction: column;
+      }
+      .moment {
+        min-height: 48px;
+        display: flex;
+        align-items: flex-end;
+        padding: 0 4px 8px;
+        color: var(--granat);
+        font: 800 15px/1.28 var(--sans);
+        letter-spacing: -0.005em;
+      }
+      .pole {
+        flex: 1;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        padding: 12px 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .pole > svg {
+        width: 34px;
+        height: 34px;
+      }
+      .pole b {
+        font: 800 18px/1.24 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pole small {
+        display: block;
+        color: var(--grafit);
+        font: 600 15px/1.3 var(--sans);
+      }
+      .notka {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 2px dashed var(--kreska);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font: 600 15px/1.3 var(--sans);
+      }
+      .notka svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .pole.karta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        box-shadow: 0 0 0 3px var(--limonka);
+        padding-right: 44px;
+      }
+      .pigulki {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        margin-top: 2px;
+      }
+      .pig {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+      }
+      .pig span {
+        display: inline-block;
+        padding: 5px 12px 6px;
+        border: 2.5px solid var(--granat);
+        border-radius: 999px;
+        background: var(--biel);
+        font: 800 16px/1 var(--sans);
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+      .pig small {
+        color: var(--granat);
+        padding-left: 4px;
+      }
+
+      /* ===== Działanie (tylko po Allow once i Always allow) ===== */
+      .dzialanie {
+        margin: 30px 0 0 auto;
+        width: var(--dzial);
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        padding: 12px 14px 13px;
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 11px;
+        align-items: center;
+      }
+      .dzialanie svg {
+        width: 34px;
+        height: 34px;
+      }
+      .dzialanie b {
+        display: block;
+        font: 800 18px/1.24 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .dzialanie small {
+        display: block;
+        margin-top: 2px;
+        color: var(--grafit);
+        font: 600 15px/1.3 var(--sans);
+      }
+      svg.kreski {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+      }
+
+      /* ===== Dwie ramki pod osią ===== */
+      .ramki {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .ramka {
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 13px 14px 15px;
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 10px;
+        align-items: start;
+      }
+      .ramka svg {
+        width: 34px;
+        height: 34px;
+      }
+      .ramka p {
+        margin: 3px 0 0;
+        font: 600 18px/1.35 var(--sans);
+      }
+
+      /* ===== Mała ścieżka rozszerzenia ===== */
+      .rozszerzenie {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 2px dashed var(--grafit);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--granat);
+      }
+      .rozszerzenie > svg {
+        width: 44px;
+        height: 44px;
+      }
+      .rozszerzenie .kreska {
+        width: 34px;
+        height: 16px;
+      }
+      .rozszerzenie div {
+        border: 1.5px solid var(--granat);
+        border-radius: 12px;
+        padding: 9px 13px 10px;
+        background: var(--biel);
+        flex: 1;
+      }
+      .rozszerzenie p {
+        margin: 0;
+        font: 700 17px/1.3 var(--sans);
+      }
+      .rozszerzenie small {
+        display: block;
+        margin-top: 3px;
+        color: var(--grafit);
+        font: 600 15px/1.3 var(--sans);
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Na cudzej stronie działają trzy sprawdzenia, a o karcie zgody decydujesz Ty. Prośba: spisz ceny przeglądów ze strony Serwisu Rowerowego Zet. Trzy zapory obok siebie, każda w swoim momencie. Przed wejściem na nową stronę działa sprawdzenie listy dozwolonych domen, w trybach innych niż Auto i Bypass permissions. Przy klikaniu i pisaniu strażnik sprawdza działanie; to ten sam strażnik co w trybie Auto i działa w każdym trybie; gdy uzna działanie za ryzykowne, dostajesz pytanie o zgodę. Przy pierwszym działaniu na stronie, nawet przy wejściu, karta zgody czeka na Twój wybór: Allow once zezwala raz i nic nie zapisuje, Always allow zapisuje zgodę dla tej strony, Deny odmawia zgody. Tylko po Allow once albo Always allow Claude działa w panelu Browser; panel nie ma Twoich zapisanych logowań."
+    >
+      <h1 class="teza">Na cudzej stronie działają trzy sprawdzenia, a&nbsp;<mark>o karcie zgody decydujesz Ty</mark></h1>
+      <!-- 1. Prośba kursanta: jasny dymek po prawej w uproszczonym oknie aplikacji -->
+      <div class="okno">
+        <div class="okno-bok"><i></i><i></i><i></i></div>
+        <div class="okno-rozmowa">
+          <div class="dymek" id="dymek">Spisz ceny przeglądów ze strony Serwisu Rowerowego Zet.</div>
+        </div>
+      </div>
+
+      <!-- 2. Trzy zapory obok siebie, każda z własnym momentem -->
+      <div class="zapory">
+        <div class="zapora">
+          <div class="moment"><span data-kreska>Przed wejściem na nową stronę</span></div>
+          <div class="pole">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="12" r="8" /><path d="M2.5 12h16M10.5 4c2.3 2.2 3.3 5 3.3 8s-1 5.8-3.3 8M10.5 4c-2.3 2.2-3.3 5-3.3 8s1 5.8 3.3 8" /><path d="M17 17.5h5.5M20 15l2.5 2.5L20 20" /></svg>
+            <b>Działa sprawdzenie listy dozwolonych domen</b>
+            <small>To sprawdzenie działa w&nbsp;trybach innych niż Auto i&nbsp;Bypass permissions.</small>
+          </div>
+        </div>
+
+        <div class="zapora">
+          <div class="moment"><span data-kreska>Przy klikaniu i&nbsp;pisaniu</span></div>
+          <div class="pole">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2.5l7 6.5-3.2.4 1.9 3.9-1.8.9-1.9-3.9L5 12.4z" /><rect x="3" y="15" width="18" height="7" rx="1.6" /><path d="M6.5 18.5h.01M9.5 18.5h5M17.5 18.5h.01" /></svg>
+            <b>Strażnik sprawdza działanie</b>
+            <small>To ten sam strażnik co w&nbsp;trybie Auto. Działa w&nbsp;każdym trybie.</small>
+            <div class="notka">
+              <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.3-7.5 9.5-4.4-1.2-7.5-4.9-7.5-9.5V6z" /><path d="M12 8.5v4M12 15.5v.01" /></svg>
+              <span>Gdy uzna działanie za ryzykowne, dostajesz pytanie o&nbsp;zgodę.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="zapora">
+          <div class="moment"><span data-kreska>Przy pierwszym działaniu na stronie, nawet przy wejściu</span></div>
+          <div class="pole karta" id="karta">
+            <b>Karta zgody czeka na Twój wybór</b>
+            <div class="pigulki">
+              <div class="pig"><span data-dalej>Allow once</span><small>zezwala raz i&nbsp;nic nie zapisuje</small></div>
+              <div class="pig"><span data-dalej>Always allow</span><small>zapisuje zgodę dla tej strony</small></div>
+              <div class="pig"><span>Deny</span><small>odmawia zgody</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Działanie: prowadzą do niego tylko Allow once i Always allow -->
+      <div class="dzialanie" id="dzialanie">
+        <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M10 4v16" /><path d="M4.5 8.5h3M4.5 11.5h3M4.5 14.5h2" /><path d="M10 8h12" /><path d="M12 6h4" /></svg>
+        <div>
+          <b>Claude działa w&nbsp;panelu Browser</b>
+          <small>Panel nie ma Twoich zapisanych logowań.</small>
+        </div>
+      </div>
+
+      <svg class="kreski" id="kreski" aria-hidden="true"></svg>
+
+    </div>
+    <script>
+      // Kreski rysowane po ułożeniu strony: z dymka do trzech zapór, z Allow once i Always allow do działania.
+      function rysuj() {
+        const rys = document.querySelector(".rys");
+        const o = rys.getBoundingClientRect();
+        const r = (el) => {
+          const b = el.getBoundingClientRect();
+          return { l: b.left - o.left, t: b.top - o.top, r: b.right - o.left, b: b.bottom - o.top, x: (b.left + b.right) / 2 - o.left, y: (b.top + b.bottom) / 2 - o.top };
+        };
+        const linie = [];
+        const grot = (x, y) => `M${x - 7} ${y - 7} L${x} ${y} L${x + 7} ${y - 7}`;
+        // z dymka w dół, poziomo nad trzy momenty, trzy strzałki
+        const okno = r(document.querySelector(".okno"));
+        const dymek = r(document.getElementById("dymek"));
+        const momenty = [...document.querySelectorAll("[data-kreska]")].map(r);
+        const szyna = okno.b + 16;
+        linie.push(`M${dymek.x} ${okno.b} V${szyna}`);
+        linie.push(`M${momenty[0].l + 18} ${szyna} H${momenty[2].l + 18}`);
+        momenty.forEach((m) => {
+          const x = m.l + 18;
+          linie.push(`M${x} ${szyna} V${m.t - 6}`, grot(x, m.t - 6));
+        });
+        // z Allow once i Always allow w prawo do szyny przy brzegu karty, potem w dół do działania
+        const karta = r(document.getElementById("karta"));
+        const dz = r(document.getElementById("dzialanie"));
+        const pig = [...document.querySelectorAll("[data-dalej]")].map(r);
+        const sx = karta.r - 22;
+        pig.forEach((p) => linie.push(`M${p.r + 4} ${p.y} H${sx - 8} q8 0 8 8`));
+        linie.push(`M${sx} ${pig[0].y + 8} V${dz.t - 3}`, grot(sx, dz.t - 3));
+        document.getElementById("kreski").innerHTML = linie
+          .map((d) => `<path d="${d}" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />`)
+          .join("");
+      }
+      document.fonts.ready.then(rysuj);
+    </script>
+  </body>
+</html>

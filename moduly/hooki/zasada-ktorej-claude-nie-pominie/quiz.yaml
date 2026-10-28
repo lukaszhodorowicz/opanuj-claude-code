@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "W folderze z ofertami kursów masz hook typu prompt z zasadą klienta: bez słów „promocja”, „rabat” i „okazja”. Claude zapisuje nową ofertę. Kto ocenia, czy tekst łamie zasadę?"
+    odpowiedzi:
+      - "Claude, który napisał ofertę, sam sprawdza swój tekst według CLAUDE.md."
+      - "Model Claude, do którego Claude Code wysyła zasadę i dane zapisu."
+      - "Skrypt, który porównuje tekst z listą zakazanych słów."
+    poprawna: 1
+    wyjasnienie: "Hook typu prompt nie uruchamia polecenia. Claude Code wysyła Twoją zasadę i dane zdarzenia do modelu Claude, a model podejmuje decyzję."
+    fakt: hook-prompt-osad-modelu
+
+  - pytanie: "Hook na zdarzeniu PostToolUse sprawdza posty dla salonu fryzjerskiego i ma ustawione continueOnBlock: true. Model odpowiada, że w poście jest słowo „okazja”. Co dzieje się dalej?"
+    odpowiedzi:
+      - "Powód wraca do Claude i Claude pracuje dalej."
+      - "Hook sam zamienia w pliku słowo „okazja” na inne."
+      - "Hook cofa zapis, a post wraca do poprzedniej wersji."
+    poprawna: 0
+    wyjasnienie: "Z continueOnBlock: true powód odmowy wraca do Claude, a Claude pracuje dalej."
+    fakt: hook-prompt-posttooluse-continueonblock
+
+  - pytanie: "Zakaz słowa „rabat” stoi w CLAUDE.md, a w folderze nie ma hooka. Prosisz Claude o mail do klientów i w mailu jest „rabat”. Dlaczego?"
+    odpowiedzi:
+      - "CLAUDE.md działa tylko w trybie Manual, a pracujesz w Accept edits."
+      - "Claude nie przeczytał CLAUDE.md, bo wczytuje go tylko na prośbę."
+      - "Claude stara się stosować CLAUDE.md, ale bez gwarancji."
+    poprawna: 2
+    wyjasnienie: "Claude czyta CLAUDE.md i stara się stosować zasady, ale nie ma gwarancji, że zastosuje każdą."
+    fakt: claude-md-bez-gwarancji-stosowania
+
+  - pytanie: "Hook w folderze z umowami klientów sprawdza zapisane umowy. W jego pliku stoi dopasowanie (matcher) Edit|Write. Po co?"
+    odpowiedzi:
+      - "Żeby hook ruszał także wtedy, gdy Claude czyta notatki."
+      - "Żeby hook ruszał tylko przy narzędziu Edit albo Write."
+      - "Żeby hook działał tylko w trybie Accept edits."
+    poprawna: 1
+    wyjasnienie: "Dopasowanie Edit|Write uruchamia hook tylko wtedy, gdy Claude użyje narzędzia Edit albo Write, a nie Bash, Read ani innego narzędzia."
+    fakt: hook-dopasowanie-edit-write

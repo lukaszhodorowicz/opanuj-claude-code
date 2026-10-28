@@ -1,0 +1,248 @@
+/* Wygląd okna terminala w symulatorze: własna paleta programu (--t-*), ekran, wiadomości w kolejce, pasek trybu, ramki planu i okna zgody. */
+:root {
+  --t-tlo: #1b1b1d;
+  --t-pasek: #2a2a2d;
+  --t-tekst: #e6e3dc;
+  --t-szary: #8d8a84;
+  --t-pomarancz: #d97757;
+  --t-zielony: #7fc28f;
+  --t-czerwony: #e5806f;
+  --t-plan: #5fb3b3;
+  --t-edycje: #b08ae0;
+  --t-auto: #e0b45a;
+  --t-ramka: #4a4a4f;
+}
+.term {
+  background: var(--t-tlo);
+  color: var(--t-tekst);
+  border-radius: 12px;
+  overflow: hidden;
+  font:
+    13.5px/1.55 ui-monospace,
+    "SF Mono",
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+.term:focus {
+  outline: 2px solid var(--t-pomarancz);
+  outline-offset: 2px;
+}
+.term-gora {
+  background: var(--t-pasek);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--t-szary);
+  font-size: 12px;
+}
+.kropki {
+  display: flex;
+  gap: 6px;
+}
+.kropki b {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: block;
+}
+.kropki b:nth-child(1) {
+  background: #ec6a5e;
+}
+.kropki b:nth-child(2) {
+  background: #f4bf4f;
+}
+.kropki b:nth-child(3) {
+  background: #61c554;
+}
+.term-tytul {
+  flex: 1;
+  text-align: center;
+}
+.term-ekran {
+  padding: 12px 14px 4px;
+  height: 340px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.term-ekran.niski {
+  height: 300px;
+}
+@media (max-width: 759px) {
+  .term-ekran {
+    height: 280px;
+  }
+}
+.term-dol {
+  padding: 0 14px 10px;
+}
+.wejscie {
+  border-top: 1px solid var(--t-ramka);
+  border-bottom: 1px solid var(--t-ramka);
+  padding: 6px 0;
+  color: var(--t-tekst);
+  min-height: 22px;
+}
+.wejscie .kursor {
+  display: inline-block;
+  width: 8px;
+  background: var(--t-tekst);
+  animation: miga 1s steps(1) infinite;
+}
+@keyframes miga {
+  50% {
+    opacity: 0;
+  }
+}
+.status {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  font-size: 12px;
+  color: var(--t-szary);
+}
+.status .tryb.plan {
+  color: var(--t-plan);
+}
+.status .tryb.edycje {
+  color: var(--t-edycje);
+}
+.status .tryb.auto {
+  color: var(--t-auto);
+}
+.status .tryb.manual {
+  color: var(--t-szary);
+}
+.status .tryb.mignij {
+  animation: mignij 0.6s ease;
+}
+@keyframes mignij {
+  0% {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.l {
+  display: block;
+}
+@keyframes wejdz {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.l.ty {
+  color: var(--t-szary);
+}
+.l.ty b {
+  color: var(--t-tekst);
+  font-weight: 400;
+  transition: color 0.5s ease;
+}
+/* wiadomość w kolejce: cała szara, dopóki Claude nie zacznie na nią odpowiadać */
+.l.ty.kolejka b {
+  color: var(--t-szary);
+}
+.l.odstep {
+  height: 8px;
+}
+.kula {
+  color: var(--t-tekst);
+}
+.kula.claude {
+  color: var(--t-tekst);
+}
+.kula.narzedzie {
+  color: var(--t-zielony);
+}
+.nazwa-narz {
+  font-weight: 700;
+}
+.wynik {
+  color: var(--t-szary);
+}
+.wynik.zmiana {
+  color: var(--t-zielony);
+}
+.wynik.uwaga {
+  color: var(--t-auto);
+}
+.kreci {
+  color: var(--t-pomarancz);
+}
+.kreci .szary {
+  color: var(--t-szary);
+}
+.ramka {
+  border: 1px solid var(--t-ramka);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 4px 0;
+  display: block;
+}
+.ramka.plan {
+  border-color: var(--t-plan);
+}
+.ramka.zgoda {
+  border-color: var(--t-pomarancz);
+}
+.ramka .tytul {
+  font-weight: 700;
+  display: block;
+}
+.ramka .plan-tresc {
+  border: 1px dashed var(--t-ramka);
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin: 6px 0;
+  display: block;
+  color: var(--t-tekst);
+}
+.ramka .szare {
+  color: var(--t-szary);
+  display: block;
+}
+.opcje {
+  display: block;
+  margin-top: 4px;
+}
+.opcja {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--t-tekst);
+  font: inherit;
+  padding: 2px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.opcja:hover:not([disabled]),
+.opcja.wybrana {
+  background: rgba(217, 119, 87, 0.18);
+  color: #fff;
+}
+.opcja[disabled] {
+  cursor: default;
+  opacity: 0.55;
+}
+.opcja .strzalka {
+  color: var(--t-pomarancz);
+}
+
+.podpowiedz-klaw {
+  color: var(--t-szary);
+  font-size: 12px;
+}

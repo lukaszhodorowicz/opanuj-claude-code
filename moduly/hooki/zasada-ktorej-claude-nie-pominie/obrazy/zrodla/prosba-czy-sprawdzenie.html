@@ -1,0 +1,209 @@
+<!doctype html>
+<!-- Uproszczona prawa kolumna (raport rozeznania, część „Na później”): bez kroku zdarzenia PostToolUse, odnogi opisane słowami zamiast ok: true / ok: false. Rysunek R1 „Prośba obok sprawdzenia” do lekcji zasada-ktorej-claude-nie-pominie: zasada w CLAUDE.md (czyta na początku rozmowy, kontekst, bez gwarancji) obok zasady w hooku (zapis, PostToolUse Edit|Write, model ocenia, ok: true / ok: false + powód, a z continueOnBlock: true pętla poprawki); zakreślacz na „Model ocenia zapis według zasady”. Źródło PNG obrazy/prosba-czy-sprawdzenie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Prośba obok sprawdzenia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .kolumny {
+        display: grid;
+        grid-template-columns: 318px 1fr;
+        column-gap: 20px;
+        align-items: stretch;
+      }
+      .kolumna {
+        display: flex;
+        flex-direction: column;
+        padding: 18px 16px 0;
+        overflow: hidden;
+      }
+      .kolumna .naglowek {
+        margin: 0 0 16px 2px;
+        font-size: 26px;
+        white-space: nowrap;
+      }
+      .kartka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 10px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 12px;
+        font: 700 20px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .kartka svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .podpis {
+        margin: auto -16px 0;
+        padding: 0 10px;
+        height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--granat);
+        color: var(--biel);
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .podpis code {
+        font-size: 21px;
+      }
+      .ocena-dane {
+        display: block;
+        margin-top: 6px;
+        font: 700 18px/1.2 var(--sans);
+        letter-spacing: -0.01em;
+        color: var(--grafit);
+      }
+      .warunek {
+        align-self: center;
+        margin: 22px 0;
+        padding: 6px 8px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 10px;
+        text-align: center;
+        font: 700 16px/1.25 var(--mono);
+      }
+      .wypelniacz {
+        flex: 1;
+        min-height: 18px;
+      }
+      /* prawa kolumna: pętla z miejscem na strzałkę powrotu */
+      .petla {
+        position: relative;
+        padding-right: 40px;
+      }
+      .odstep {
+        height: 40px;
+      }
+      .widelki {
+        height: 48px;
+      }
+      .odnogi {
+        display: grid;
+        grid-template-columns: 136px 1fr;
+        column-gap: 14px;
+        align-items: start;
+      }
+      .odnoga {
+        display: flex;
+        flex-direction: column;
+      }
+      .krok.maly {
+        padding: 10px 8px;
+        font-size: 19px;
+      }
+      .krok.maly code {
+        font-size: 18px;
+      }
+      .odnoga .odstep {
+        height: 36px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Zasada w CLAUDE.md to prośba, a zasada w hooku to sprawdzenie. Dwie kolumny. Zasada w CLAUDE.md: plik CLAUDE.md, Claude czyta zasadę na początku każdej rozmowy, traktuje ją jako kontekst, stara się ją stosować, ale bez gwarancji. Podpis: prośba. Zasada w hooku: Claude zapisuje plik, model ocenia zapis według zasady, bo dostaje zasadę i dane zapisu (zaznaczone). Dwie odnogi: zapis jest zgodny z zasadą, praca idzie dalej; zapis łamie zasadę, a przy continueOnBlock: true powód wraca do Claude, Claude poprawia i strzałka wraca do zapisu pliku. Podpis: sprawdzenie po każdym zapisie narzędziem Edit albo Write.">
+      <h1 class="teza">Zasada w&nbsp;CLAUDE.md to prośba, a&nbsp;<mark>zasada w&nbsp;hooku to sprawdzenie</mark></h1>
+      <div class="kolumny">
+        <!-- Lewa: prośba -->
+        <div class="kolumna ramka">
+          <p class="naglowek">Zasada w&nbsp;CLAUDE.md</p>
+          <div class="kartka">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            CLAUDE.md
+          </div>
+          <div class="w-dol"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="krok">Claude czyta zasadę na początku każdej rozmowy</div>
+          <div class="w-dol"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="krok">Traktuje ją jako kontekst</div>
+          <div class="w-dol"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="krok">Stara się ją stosować,<br />ale bez gwarancji</div>
+          <div class="wypelniacz"></div>
+          <div class="podpis">Prośba</div>
+        </div>
+
+        <!-- Prawa: sprawdzenie -->
+        <div class="kolumna ramka">
+          <p class="naglowek">Zasada w&nbsp;hooku</p>
+          <div class="petla">
+            <div class="krok" id="zapis">Claude zapisuje plik</div>
+            <div class="odstep"></div>
+            <div class="krok ten" id="ocena">Model ocenia zapis według zasady<span class="ocena-dane">Dostaje zasadę i&nbsp;dane zapisu.</span></div>
+            <div class="widelki"></div>
+            <div class="odnogi">
+              <div class="odnoga">
+                <div class="krok maly" id="tak">Zapis jest zgodny z&nbsp;zasadą</div>
+                <div class="odstep"></div>
+                <div class="krok maly" id="dalej">Praca idzie dalej</div>
+              </div>
+              <div class="odnoga">
+                <div class="krok maly" id="nie">Zapis łamie zasadę</div>
+                <div class="warunek" id="warunek">Przy continueOnBlock:<br />true</div>
+                <div class="krok maly" id="wraca">Powód wraca do Claude</div>
+                <div class="odstep"></div>
+                <div class="krok maly" id="poprawia">Claude poprawia</div>
+              </div>
+            </div>
+          </div>
+          <div class="wypelniacz"></div>
+          <div class="podpis"><span>Sprawdzenie po każdym zapisie<br />narzędziem <code>Edit</code> albo <code>Write</code></span></div>
+        </div>
+      </div>
+    </div>
+    <script src="strzalki.js"></script>
+    <script>
+      rysujStrzalki(".petla", (p) => {
+        const w = (a, b) => ({ punkty: [[p(a, "d")[0], p(a, "d")[1] + 4], [p(b, "g")[0], p(b, "g")[1] - 5]] });
+        const ocena = p("#ocena", "d");
+        const tak = p("#tak", "g");
+        const nie = p("#nie", "g");
+        const srodek = ocena[1] + 22;
+        const zPoprawy = p("#poprawia", "p");
+        const doZapisu = p("#zapis", "p");
+        const brzeg = zPoprawy[0] + 24;
+        return [
+          w("#zapis", "#ocena"),
+          { punkty: [[ocena[0], ocena[1] + 4], [ocena[0], srodek]], grot: false },
+          { punkty: [[tak[0], srodek], [nie[0], srodek]], grot: false },
+          { punkty: [[tak[0], srodek], [tak[0], tak[1] - 5]] },
+          { punkty: [[nie[0], srodek], [nie[0], nie[1] - 5]] },
+          w("#tak", "#dalej"),
+          { punkty: [[p("#nie", "d")[0], p("#nie", "d")[1] + 4], [p("#warunek", "g")[0], p("#warunek", "g")[1] - 4]], grot: false },
+          w("#warunek", "#wraca"),
+          w("#wraca", "#poprawia"),
+          { punkty: [[zPoprawy[0] + 4, zPoprawy[1]], [brzeg, zPoprawy[1]], [brzeg, doZapisu[1]], [doZapisu[0] + 6, doZapisu[1]]] },
+        ];
+      });
+    </script>
+  </body>
+</html>

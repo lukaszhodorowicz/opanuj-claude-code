@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="t d">
+  <title id="t">Nowe moduły kursu prosto na maila</title>
+  <desc id="d">Baner zapisu na newsletter SmartLetter: wiadomość o nowych modułach kursu Opanuj Claude Code w godzinę.</desc>
+  <rect width="1200" height="220" rx="24" fill="#0e1422"/>
+  <rect x="40" y="40" width="10" height="140" rx="5" fill="#a3e635"/>
+  <text x="80" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#ffffff">Nowe moduły kursu prosto na maila</text>
+  <text x="80" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="26" fill="#d9f99d">Zapisz się na SmartLettera: w poniedziałek rano notka i kilka newsów o AI.</text>
+  <rect x="868" y="160" width="292" height="44" rx="10" fill="#a3e635"/>
+  <text x="1014" y="190" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0e1422">Zapisz mnie →</text>
+</svg>

@@ -1,0 +1,311 @@
+{
+  "lekcja": "kilka-rozmow",
+  "folder_glowny": "Kwiaciarnia",
+  "folder_startowy": [
+    "Cennik-swieta/cennik-wience.txt",
+    "Cennik-swieta/koszty-hurtownia.csv",
+    "Posty-listopad/plan-postow.txt",
+    "Posty-listopad/zasady-instagram.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Druga rozmowa w drugim folderze",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Pod oknem widzisz folder Kwiaciarnia z dwoma folderami, a ciemna etykieta z zielonym napisem pokazuje folder otwartej rozmowy.",
+      "nauczyciel_start": "Otwarta jest rozmowa o cenniku. Kliknij polecenie nad oknem i zacznij drugą rozmowę, o postach.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Cennik-swieta",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "id": "cennik",
+        "nazwa": "Cennik wieńców",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź koszty-hurtownia.csv. Czy ceny wieńców w cennik-wience.txt jeszcze się opłacają?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Chryzantemy w hurtowni podrożały z 22 do 27 zł. Wieniec za 180 zł daje teraz mały zysk. Policzyć nowe ceny?"
+          }
+        ],
+        "sesje": [
+          {
+            "id": "hurtownia",
+            "folder": "Cennik-swieta",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Zamów u hurtowni 40 chryzantem na piątek."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Zamówienie na 40 chryzantem jest gotowe w mailu do hurtowni."
+              }
+            ]
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "Posty-listopad/posty-wience.txt"
+      ],
+      "drogi": [
+        {
+          "id": "druga",
+          "etykieta": "Zacznij rozmowę o postach w folderze Posty-listopad",
+          "opis": "Nowa rozmowa dostanie swój folder. Potem wrócisz do rozmowy o cenniku.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij + New w pasku bocznym. Tak zaczynasz nową rozmowę.",
+              "fakt": "aplikacja-nowa-sesja-new-albo-cmd-n"
+            },
+            {
+              "typ": "klik",
+              "cel": "nowa-rozmowa",
+              "fakt": "aplikacja-nowa-sesja-new-albo-cmd-n"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To nowa rozmowa. Folder wybierasz w rzędzie pod polem wiadomości, zanim wyślesz pierwszą prośbę. Klik w kontrolkę folderu zmieni Cennik-swieta na Posty-listopad.",
+              "fakt": "aplikacja-rzad-pod-polem-srodowisko-folder-tryb-model"
+            },
+            {
+              "typ": "klik",
+              "cel": "folder",
+              "folder": "Posty-listopad",
+              "fakt": "aplikacja-kontrolka-folderu-obok-selektora"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W tej rozmowie Claude będzie pracował w folderze Posty-listopad. Spójrz pod okno: ciemna etykieta z zielonym napisem pokazuje teraz ten folder.",
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Napisz trzy posty na Instagram o promocji wieńców według plan-postow.txt i zasady-instagram.txt. Zapisz je w posty-wience.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000,
+              "czyta": [
+                "Posty-listopad/plan-postow.txt",
+                "Posty-listopad/zasady-instagram.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem trzy posty w posty-wience.txt. Cena wieńca z chryzantem jest z planu: 180 zł.",
+              "plik": "posty-wience.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał posty w folderze Posty-listopad. Kliknij ścieżkę posty-wience.txt w odpowiedzi Claude, żeby otworzyć plik.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "posty-wience.txt",
+              "linijki": [
+                "Post 1 (20.10): Wieniec z chryzantem za 180 zł. Zamów do 30 października.",
+                "Post 2 (25.10): Dowieziemy wieniec na cmentarz do 10 km bez dopłaty.",
+                "Post 3 (29.10): Ostatnie dni zamówień. Wieniec z chryzantem: 180 zł. Napisz do nas."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Spójrz na pasek boczny: nowa rozmowa jest w grupie Posty-listopad. Wróć do rozmowy o cenniku: kliknij ją w grupie Cennik-swieta.",
+              "fakt": "aplikacja-pasek-boczny-grupa-folderu"
+            },
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "cennik",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rozmowa o cenniku jest taka, jak była. Ma swoją historię i swój folder, Cennik-swieta.",
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Claude czyta drugą rozmowę i wysyła do niej wiadomość",
+      "opis": "W rozmowie o cenniku Claude policzył już nową cenę wieńca. Otwarta jest rozmowa o postach, a w postach jest jeszcze stara cena.",
+      "nauczyciel_start": "Posty mają jeszcze starą cenę. Kliknij polecenie nad oknem i zapytaj o cenę z rozmowy o cenniku.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Posty-listopad",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "id": "posty",
+        "nazwa": "Posty na listopad",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Napisz trzy posty na Instagram o promocji wieńców według plan-postow.txt i zasady-instagram.txt. Zapisz je w posty-wience.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem trzy posty w posty-wience.txt. Cena wieńca z chryzantem jest z planu: 180 zł."
+          }
+        ],
+        "folder_startowy_dodatkowe": [
+          "Posty-listopad/posty-wience.txt"
+        ],
+        "sesje": [
+          {
+            "id": "cennik",
+            "folder": "Cennik-swieta",
+            "nazwa": "Cennik wieńców",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Sprawdź koszty-hurtownia.csv. Czy ceny wieńców w cennik-wience.txt jeszcze się opłacają?"
+              },
+              {
+                "kto": "claude",
+                "tekst": "Chryzantemy w hurtowni podrożały z 22 do 27 zł. Wieniec za 180 zł daje teraz mały zysk. Policzyć nowe ceny?"
+              },
+              {
+                "kto": "ty",
+                "tekst": "Tak, policz."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Nowa cena wieńca z chryzantem: 210 zł. Zapisałem ją w cennik-wience.txt."
+              }
+            ]
+          },
+          {
+            "id": "hurtownia",
+            "folder": "Cennik-swieta",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Zamów u hurtowni 40 chryzantem na piątek."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Zamówienie na 40 chryzantem jest gotowe w mailu do hurtowni."
+              }
+            ]
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "wiadomosc",
+          "etykieta": "Zapytaj o nową cenę i daj znać w rozmowie o cenniku",
+          "opis": "Claude przeczyta rozmowę o cenniku, poprawi posty i wyśle wiadomość do tamtej rozmowy.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Co ustaliła rozmowa Cennik wieńców? Jaka jest nowa cena wieńca z chryzantem?",
+              "fakt": "aplikacja-claude-czyta-inne-sesje-zwykla-prosba"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "W rozmowie Cennik wieńców jest już nowa cena: wieniec z chryzantem kosztuje 210 zł zamiast 180 zł. Twoje posty mają jeszcze starą cenę.",
+              "fakt": "aplikacja-claude-czyta-inne-sesje-zwykla-prosba"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude sprawdził, co ustaliła rozmowa o cenniku. Ceny nie musisz przepisywać z rozmowy do rozmowy.",
+              "fakt": "aplikacja-claude-czyta-inne-sesje-zwykla-prosba"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Popraw cenę w posty-wience.txt na 210 zł. Potem daj znać w rozmowie Cennik wieńców, że posty mają już nową cenę.",
+              "fakt": "aplikacja-claude-czyta-inne-sesje-zwykla-prosba"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "Posty-listopad/posty-wience.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Poprawiłem cenę w posty-wience.txt. Wysłałem do rozmowy Cennik wieńców wiadomość, że posty mają już cenę 210 zł.",
+              "plik": "posty-wience.txt",
+              "wiadomosc": {
+                "do": "cennik",
+                "tekst": "Posty na listopad mają już nową cenę wieńca z chryzantem: 210 zł. Poprawiłem plik posty-wience.txt w folderze Posty-listopad."
+              },
+              "fakt": "aplikacja-claude-czyta-inne-sesje-zwykla-prosba"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "posty-wience.txt",
+              "linijki": [
+                "Post 1 (20.10): Wieniec z chryzantem za 210 zł. Zamów do 30 października.",
+                "Post 2 (25.10): Dowieziemy wieniec na cmentarz do 10 km bez dopłaty.",
+                "Post 3 (29.10): Ostatnie dni zamówień. Wieniec z chryzantem: 210 zł. Napisz do nas."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W postach jest już nowa cena. Teraz kliknij w pasku bocznym rozmowę o cenniku. Jest w grupie Cennik-swieta.",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "cennik",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ta karta to wiadomość. Ma tytuł rozmowy, która ją wysłała: Posty na listopad.",
+              "fakt": "aplikacja-wiadomosc-karta-z-tytulem-nadawcy"
+            },
+            {
+              "typ": "klik",
+              "cel": "wiadomosc-od",
+              "fakt": "aplikacja-wiadomosc-karta-z-tytulem-nadawcy"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Strzałka otworzyła rozmowę, która wysłała wiadomość. Karta jest w rozmowie, która ją dostała. Wróć tam: kliknij rozmowę o cenniku w grupie Cennik-swieta.",
+              "fakt": "aplikacja-wiadomosc-karta-z-tytulem-nadawcy"
+            },
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "cennik",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tę kartę wysłał Claude z rozmowy o postach, na Twoją prośbę.",
+              "fakt": "aplikacja-claude-czyta-inne-sesje-zwykla-prosba"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "lekcja": "rozmowa-na-telefonie",
+  "folder_startowy": [
+    "harmonogram-dnia.txt",
+    "lista-dostawcow.txt",
+    "uklad-sali.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Wiadomość z telefonu, praca na komputerze",
+      "opis": "Ćwiczenie odbywa się w zakładce Code aplikacji Claude na komputerze w biurze. Obok leży telefon z aplikacją Claude. Rozmowa zaczęła się rano przy biurku. Klikaj polecenie, a potem miejsca ze znacznikiem, i patrz na folder pod oknem.",
+      "nauczyciel_start": "Rano ta rozmowa zaczęła się przy biurku. Teraz jesteś na sali z telefonem. Kliknij polecenie.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wesele-Kowalskich",
+        "tryb": "Accept edits",
+        "kontekst": 6,
+        "nazwa": "Wesele Kowalskich",
+        "telefon": {
+          "urzadzenie": "MacBook-Air",
+          "sesja": "Wesele Kowalskich"
+        },
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź, czy godziny w lista-dostawcow.txt pasują do harmonogram-dnia.txt. Za godzinę jadę na salę."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Pasują. Każdy dostawca przyjeżdża przed swoim punktem w harmonogramie."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "z-telefonu",
+          "etykieta": "Napisz z telefonu, z sali",
+          "opis": "Wiadomość z telefonu trafia do rozmowy na komputerze w biurze.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na karcie Environment w panelu obok rozmowy przełącznik Remote Control jest włączony. Na telefonie kliknij sesję Wesele Kowalskich.",
+              "fakt": "remote-control-aplikacja-stan-w-karcie-environment"
+            },
+            {
+              "typ": "klik",
+              "cel": "telefon-sesja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Telefon pokazuje tę samą rozmowę co komputer. Teraz napiszesz w niej z sali.",
+              "fakt": "remote-control-rozmowa-na-wszystkich-urzadzeniach"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Jestem na sali. Kierownik przesunął obiad z 15:00 na 15:30. Przesuń w harmonogramie obiad i wszystko po nim o pół godziny.",
+              "na_telefonie": true,
+              "fakt": "remote-control-rozmowa-na-wszystkich-urzadzeniach"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "harmonogram-dnia.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Poprawiłem harmonogram w harmonogram-dnia.txt. Obiad jest teraz o 15:30, pierwszy taniec o 17:30, a tort o 21:30.",
+              "plik": "harmonogram-dnia.txt",
+              "fakt": "remote-control-claude-pracuje-na-komputerze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wiadomość z telefonu widać też w oknie na komputerze. Kliknij w nim ścieżkę harmonogram-dnia.txt.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "harmonogram-dnia.txt",
+              "linijki": [
+                "14:00 Ślub w kościele św. Anny",
+                "15:30 Obiad",
+                "17:30 Pierwszy taniec",
+                "21:30 Tort"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik zmienił się tutaj, na komputerze w biurze, i leży w folderze pod oknem.",
+              "fakt": "remote-control-claude-pracuje-na-komputerze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Telefon tylko łączy się z sesją na komputerze, więc komputer musi być cały czas włączony.",
+              "fakt": "remote-control-nie-sesja-w-chmurze"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Z powrotem przy biurku",
+      "opis": "Wieczorem wracasz w aplikacji na komputerze do tej samej rozmowy co w ćwiczeniu 1. Kliknij pierwsze polecenie, a potem ścieżkę pliku wskazaną znacznikiem. Drugie polecenie zaprowadzi Cię do ustawień.",
+      "nauczyciel_start": "Wieczorem wracasz do biura. W aplikacji czeka ta sama rozmowa, razem z wiadomością z sali. Kliknij polecenie.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wesele-Kowalskich",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź, czy godziny w lista-dostawcow.txt pasują do harmonogram-dnia.txt. Za godzinę jadę na salę."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Pasują. Każdy dostawca przyjeżdża przed swoim punktem w harmonogramie."
+          },
+          {
+            "kto": "ty",
+            "tekst": "Jestem na sali. Kierownik przesunął obiad z 15:00 na 15:30. Przesuń w harmonogramie obiad i wszystko po nim o pół godziny."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Poprawiłem harmonogram w harmonogram-dnia.txt. Obiad jest teraz o 15:30, pierwszy taniec o 17:30, a tort o 21:30."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "przy-biurku",
+          "etykieta": "Napisz dalej przy biurku",
+          "opis": "Prośba trafia do tej samej rozmowy co wiadomość z sali.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Napisz SMS do dostawców z nowymi godzinami. Zapisz go w sms-do-dostawcow.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "harmonogram-dnia.txt",
+                "lista-dostawcow.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem SMS w sms-do-dostawcow.txt. Ma nowe godziny z dzisiejszej zmiany harmonogramu.",
+              "plik": "sms-do-dostawcow.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nowy plik leży w folderze na komputerze. Kliknij ścieżkę sms-do-dostawcow.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "sms-do-dostawcow.txt",
+              "linijki": [
+                "Dzień dobry, zmiana godzin na jutrzejsze wesele Kowalskich:",
+                "obiad o 15:30 zamiast o 15:00,",
+                "pierwszy taniec o 17:30,",
+                "tort o 21:30.",
+                "Proszę o potwierdzenie SMS-em.",
+                "Organizacja wesela Kowalskich"
+              ],
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W południe wiadomość do tej sesji szła z telefonu, teraz piszesz przy biurku. To jedna rozmowa.",
+              "fakt": "remote-control-zapis-synchronizuje-rozmowe"
+            }
+          ]
+        },
+        {
+          "id": "ustawienia",
+          "etykieta": "Zajrzyj do ustawienia dla nowych sesji",
+          "opis": "Otworzysz Settings > Claude Code i zajrzysz do części Remote Control.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "W ćwiczeniu Settings otwierasz kliknięciem konta na dole paska bocznego. Kliknij je, strona Claude Code będzie już wybrana."
+            },
+            {
+              "typ": "klik",
+              "cel": "ustawienia-claude-code"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W części Remote Control ustawienie Connect new sessions to Remote Control jest włączone, więc nowe sesje, które zaczynasz na tym komputerze, łączą się same.",
+              "fakt": "remote-control-aplikacja-nowe-sesje-same"
+            }
+          ]
+        }
+      ],
+      "nowe_pliki": [
+        "sms-do-dostawcow.txt"
+      ]
+    }
+  ]
+}

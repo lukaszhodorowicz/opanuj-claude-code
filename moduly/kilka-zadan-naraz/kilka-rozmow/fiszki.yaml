@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co ma każda rozmowa w zakładce Code?"
+    tyl: "Własną historię i własny folder, niezależne od innych rozmów."
+    fakt: aplikacja-kazda-rozmowa-to-sesja
+
+  - przod: "Kiedy wybierasz folder nowej rozmowy?"
+    tyl: "Zanim wyślesz pierwszą prośbę, w rzędzie pod polem wiadomości."
+    fakt: aplikacja-rzad-pod-polem-srodowisko-folder-tryb-model
+
+  - przod: "Jak wrócić do innej rozmowy?"
+    tyl: "Kliknij ją w pasku bocznym."
+    fakt: aplikacja-powrot-do-sesji-klik-w-pasku-bocznym
+
+  - przod: "Gdzie w pasku bocznym stoi rozmowa przy domyślnym grupowaniu?"
+    tyl: "W grupie swojego folderu."
+    fakt: aplikacja-pasek-boczny-grupa-folderu
+
+  - przod: "Jak poprosić Claude o ustalenia innej rozmowy?"
+    tyl: "Zwykłymi słowami, na przykład: „Co ustaliła rozmowa Cennik wieńców?”."
+    fakt: aplikacja-claude-czyta-inne-sesje-zwykla-prosba
+
+  - przod: "Jak wygląda wiadomość z innej rozmowy?"
+    tyl: "To karta z tytułem rozmowy, która ją wysłała, i z odnośnikiem do niej."
+    fakt: aplikacja-wiadomosc-karta-z-tytulem-nadawcy

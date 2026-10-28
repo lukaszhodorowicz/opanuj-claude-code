@@ -1,0 +1,241 @@
+{
+  "lekcja": "konektor-bez-pytania",
+  "folder_startowy": [
+    "zamowienie-lenart.txt",
+    "menu-lunchowe.txt",
+    "cennik-cateringu.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Ta sama prośba w trzech trybach",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Twoich plików nie zmieni i niczego nie wyśle. Tę samą prośbę wyślesz trzy razy: w trybach Manual, Accept edits i Auto. Polecenia nad oknem klikaj po kolei.",
+      "nauczyciel_start": "Ta sama prośba w trzech trybach. Zacznij od trybu Manual i patrz, czy Claude się zatrzyma: przy pliku, przy wiadomości, czy wcale.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Catering-zamowienia",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "id": "manual",
+          "etykieta": "Manual",
+          "opis": "Bez pytania idą tylko odczyty.",
+          "tryb": "Manual",
+          "fakt": "tryb-manual-bez-pytania-tylko-odczyt",
+          "etapy": [
+            {
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Wpisz do zamowienie-lenart.txt termin degustacji: czwartek 10:00. Potem wyślij pani Lenart wiadomość z tym terminem.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": ["zamowienie-lenart.txt"],
+                  "fakt": "tryb-manual-bez-pytania-tylko-odczyt"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Proponuję zmianę w pliku zamowienie-lenart.txt."
+                },
+                {
+                  "typ": "zgoda",
+                  "plik": "zamowienie-lenart.txt",
+                  "linijki": [
+                    { "tekst": "Zamówienie: lunch dla 25 osób, biuro pani Lenart" },
+                    { "tekst": "Kontakt: Anna Lenart" },
+                    { "tekst": "Termin degustacji: do ustalenia", "zmiana": "usunieta" },
+                    { "tekst": "Termin degustacji: czwartek 10:00", "zmiana": "dodana" }
+                  ],
+                  "fakt": "aplikacja-manual-podglad-i-przyciski"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Pierwsze zatrzymanie: Claude czeka na Twoją zgodę na zmianę pliku. Kliknij ptaszek na karcie zgody.",
+                  "fakt": "tryb-manual-aplikacja-czeka-na-zatwierdzenie"
+                }
+              ]
+            },
+            {
+              "etykieta": "Zatwierdź zmianę",
+              "opis": "Klikasz ptaszek na karcie zgody.",
+              "klik": "zatwierdz",
+              "fakt": "aplikacja-manual-przyciski-zatwierdzania",
+              "kroki": [
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Termin trafił do pliku dopiero teraz. Plik zamówienia w folderze pod oknem ma znacznik zmiany.",
+                  "fakt": "tryb-manual-aplikacja-czeka-na-zatwierdzenie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Wiadomość do pani Lenart wyślę przez konektor poczty. Na to potrzebuję Twojej zgody.",
+                  "fakt": "tryb-manual-bez-pytania-tylko-odczyt"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "W prawdziwej aplikacji tu odpowiadasz na pytanie o zgodę. Ćwiczenie tego pytania nie pokazuje.",
+                  "fakt": "tryb-manual-bez-pytania-tylko-odczyt"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Drugie zatrzymanie: wysłanie wiadomości. W trybie Manual Claude pyta przed zmianą pliku i przed wysyłką. Teraz kliknij Accept edits.",
+                  "fakt": "tryb-manual-bez-pytania-tylko-odczyt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "accept-edits",
+          "etykieta": "Accept edits",
+          "opis": "Bez pytania idą odczyty i zmiany plików.",
+          "tryb": "Accept edits",
+          "fakt": "accept-edits-odczyty-bez-pytania",
+          "etapy": [
+            {
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Wpisz do zamowienie-lenart.txt termin degustacji: czwartek 10:00. Potem wyślij pani Lenart wiadomość z tym terminem.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": ["zamowienie-lenart.txt"],
+                  "fakt": "accept-edits-odczyty-bez-pytania"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Wpisuję termin do zamowienie-lenart.txt."
+                },
+                {
+                  "typ": "zmiana",
+                  "pliki": [
+                    {
+                      "plik": "zamowienie-lenart.txt",
+                      "linijki": [
+                        { "tekst": "Zamówienie: lunch dla 25 osób, biuro pani Lenart" },
+                        { "tekst": "Kontakt: Anna Lenart" },
+                        { "tekst": "Termin degustacji: do ustalenia", "zmiana": "usunieta" },
+                        { "tekst": "Termin degustacji: czwartek 10:00", "zmiana": "dodana" }
+                      ]
+                    }
+                  ],
+                  "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Plik zmienił się bez pytania. Widać to po liczbach +1 -1 na karcie Changes (zmiany).",
+                  "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Wiadomość do pani Lenart wyślę przez konektor poczty. Na to potrzebuję Twojej zgody.",
+                  "fakt": "accept-edits-odczyty-bez-pytania"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "W prawdziwej aplikacji tu odpowiadasz na pytanie o zgodę. Ćwiczenie tego pytania nie pokazuje.",
+                  "fakt": "accept-edits-odczyty-bez-pytania"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Jedno zatrzymanie, przy wiadomości. Accept edits przepuszcza zmianę pliku, a wysłania wiadomości nie. Teraz kliknij Auto.",
+                  "fakt": "accept-edits-odczyty-bez-pytania"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "etykieta": "Auto",
+          "opis": "Bez pytania idzie wszystko, a strażnik sprawdza w tle.",
+          "tryb": "Auto",
+          "fakt": "auto-aplikacja-opis-trybu",
+          "etapy": [
+            {
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Wpisz do zamowienie-lenart.txt termin degustacji: czwartek 10:00. Potem wyślij pani Lenart wiadomość z tym terminem.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": ["zamowienie-lenart.txt"],
+                  "fakt": "auto-kolejnosc-odczyty-i-edycje-w-folderze"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Wpisuję termin do zamowienie-lenart.txt."
+                },
+                {
+                  "typ": "zmiana",
+                  "pliki": [
+                    {
+                      "plik": "zamowienie-lenart.txt",
+                      "linijki": [
+                        { "tekst": "Zamówienie: lunch dla 25 osób, biuro pani Lenart" },
+                        { "tekst": "Kontakt: Anna Lenart" },
+                        { "tekst": "Termin degustacji: do ustalenia", "zmiana": "usunieta" },
+                        { "tekst": "Termin degustacji: czwartek 10:00", "zmiana": "dodana" }
+                      ]
+                    }
+                  ],
+                  "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Plik zmienił się bez pytania i bez oceny strażnika.",
+                  "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+                },
+                {
+                  "typ": "mysli",
+                  "ms": 1600
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Wysłałem pani Lenart wiadomość z terminem degustacji: czwartek 10:00.",
+                  "fakt": "auto-kolejnosc-reszta-do-klasyfikatora"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Zero zatrzymań. Wysyłkę ocenił strażnik, nie Ty, i tym razem ją przepuścił.",
+                  "fakt": "auto-kolejnosc-reszta-do-klasyfikatora"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Auto nie zastępuje Twojego przeglądu wrażliwych działań.",
+                  "fakt": "auto-nie-gwarantuje-bezpieczenstwa"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

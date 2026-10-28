@@ -1,0 +1,94 @@
+{
+  "cw1-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-cel": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-zapis": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": ["#cw1 .apl-sciezka.apl-cel"],
+    "do": "cw1"
+  },
+  "cw1-375-cel": {
+    "szer": 375,
+    "wys": 1600,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-375-zapis": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": ["#cw1 .apl-sciezka.apl-cel"],
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-czyta-claude-md": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 1400,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-czyta-prosbe": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 3600,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-cel": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-nowa": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": ["#cw2 .apl-sciezka.apl-cel"],
+    "do": "cw2"
+  },
+  "cw2-375-czyta-claude-md": {
+    "szer": 375,
+    "wys": 1800,
+    "budzet": 1400,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-375-nowa": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": ["#cw2 .apl-sciezka.apl-cel"],
+    "do": "cw2"
+  },
+  "podglad-375": {
+    "szer": 375,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw2"
+  }
+}

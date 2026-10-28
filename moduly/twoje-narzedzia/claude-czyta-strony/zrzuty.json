@@ -1,0 +1,123 @@
+{
+  "cw1-karta-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-zezwol-raz-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 64000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-strona [data-cel=\"allow_once\"]:not([aria-disabled])",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-strona-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 64000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-strona [data-cel=\"allow_once\"]:not([aria-disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-odmow-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 112000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-strona [data-cel=\"allow_once\"]:not([aria-disabled])",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-zgoda-strona [data-cel=\"deny\"]:not([aria-disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-karta-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-zezwol-raz-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 64000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-strona [data-cel=\"allow_once\"]:not([aria-disabled])",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-strona-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 64000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-strona [data-cel=\"allow_once\"]:not([aria-disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-odmow-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 112000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-strona [data-cel=\"allow_once\"]:not([aria-disabled])",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-zgoda-strona [data-cel=\"deny\"]:not([aria-disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw2-karta-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 24000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-zawsze-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 112000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-zgoda-strona [data-cel=\"always_allow\"]:not([aria-disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-zawsze-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 112000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-zgoda-strona [data-cel=\"always_allow\"]:not([aria-disabled])"
+    ],
+    "do": "cw2"
+  },
+  "podglady-drog-cw1-390": {
+    "szer": 390,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "podglad-cw2-390": {
+    "szer": 390,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw2"
+  }
+}

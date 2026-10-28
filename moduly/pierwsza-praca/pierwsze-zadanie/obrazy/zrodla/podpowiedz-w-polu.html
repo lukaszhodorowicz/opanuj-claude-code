@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- Rysunek do lekcji pierwsze-zadanie (styl R1, D-2026-10-26-58): szara podpowiedź w pustym polu wiadomości, klawisz Tab wstawia ją do pola, potem można ją poprawić i wysłać Enterem. Przykład podpowiedzi to polecenie ćwiczenia 2. Źródło PNG obrazy/podpowiedz-w-polu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Podpowiedź w polu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --biel: #ffffff;
+        --a-tlo: #191919;
+        --a-pole: #2a2a2a;
+        --a-kreska: #3d3d3d;
+        --a-tekst: #eeeeee;
+        --a-podpowiedz: #7c7c7c;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 16px 22px; }
+      .wiersz { display: grid; grid-template-columns: 500px 1fr; column-gap: 0; align-items: center; }
+      .ciemne { background: var(--a-tlo); border-radius: 18px; padding: 14px; }
+      .pole {
+        background: var(--a-pole);
+        border: 1px solid var(--a-kreska);
+        border-radius: 16px;
+        padding: 16px 18px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        font: 500 22px/1.4 var(--sans);
+      }
+      .pole svg { width: 26px; height: 26px; flex: none; color: var(--a-tekst); margin-top: 3px; }
+      .szary { color: var(--a-podpowiedz); }
+      .bialy { color: var(--a-tekst); }
+      .kursor { display: inline-block; width: 2px; height: 26px; background: var(--a-tekst); vertical-align: -5px; margin-left: 2px; }
+      .prawo { position: relative; padding-left: 70px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .klawisz {
+        display: inline-flex; align-items: center; gap: 10px;
+        height: 64px; padding: 0 18px;
+        background: var(--zakreslacz);
+        border: 4px solid var(--granat);
+        border-bottom-width: 9px;
+        border-radius: 14px;
+        box-shadow: 0 0 0 4px var(--limonka);
+        font: 800 28px/1 var(--sans);
+      }
+      .klawisz svg { width: 28px; height: 28px; }
+      .opis { font: 800 25px/1.2 var(--sans); letter-spacing: -0.02em; }
+      .strzalka { position: absolute; left: 0; top: 50%; width: 66px; height: 30px; transform: translateY(-50%); overflow: visible; }
+      .miedzy { height: 70px; width: 500px; display: grid; place-items: center; }
+      .miedzy svg { width: 40px; height: 56px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Puste pole wiadomości z szarą podpowiedzią: Na podstawie opinii klientów napisz szkice tekstów do listopadowego newslettera. Klawisz Tab wstawia podpowiedź do pola. Pod spodem to samo pole z tekstem w zwykłym kolorze: teraz możesz poprawić i wysłać Enterem.">
+      <div class="wiersz">
+        <div class="ciemne" aria-hidden="true">
+          <div class="pole">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <span><span class="kursor" style="margin: 0 2px 0 0"></span><span class="szary">Na podstawie opinii klientów napisz szkice tekstów do listopadowego newslettera</span></span>
+          </div>
+        </div>
+        <div class="prawo">
+          <svg class="strzalka" viewBox="0 0 66 30" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M60 15 H10 M22 3 L8 15 L22 27" stroke="#0e1422" stroke-width="4"/></g></svg>
+          <span class="klawisz">Tab <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M12 7l5 5-5 5M20.5 6v12"/></svg></span>
+          <span class="opis">Klawisz Tab wstawia podpowiedź do pola.</span>
+        </div>
+      </div>
+      <div class="miedzy" aria-hidden="true">
+        <svg viewBox="0 0 40 56"><path d="M20 4 V50 M9 39 L20 51 L31 39" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="wiersz">
+        <div class="ciemne" aria-hidden="true">
+          <div class="pole">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <span class="bialy">Na podstawie opinii klientów napisz szkice tekstów do listopadowego newslettera<span class="kursor"></span></span>
+          </div>
+        </div>
+        <div class="prawo">
+          <span class="opis">Teraz możesz ją poprawić i&nbsp;wysłać Enterem.</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

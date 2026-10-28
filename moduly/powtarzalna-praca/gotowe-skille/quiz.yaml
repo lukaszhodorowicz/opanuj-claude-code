@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude: „Podsumuj sprzedaż z pliku sprzedaz-wrzesien.xlsx: trzy najlepsze produkty i łączny przychód”. W prośbie nie ma nazwy żadnego skilla. Claude odpisuje, że skorzystał ze skilla xlsx z Twojego konta. Dlaczego sięgnął po skill?"
+    odpowiedzi:
+      - "Bo Claude Code uruchamia skill xlsx przy każdym pliku Excel w folderze, bez względu na to, o co prosisz."
+      - "Bo w aplikacji Claude sam ładuje skille, gdy pasują do zadania, a ten pasował."
+      - "Bo wcześniej w tej rozmowie ktoś wybrał ten skill z listy poleceń i od tej chwili działa on sam."
+    poprawna: 1
+    wyjasnienie: "W aplikacji Claude ładuje skille sam, gdy pasują do zadania. Możesz też wskazać skill wprost."
+    fakt: aplikacja-skille-claude-laduje-sam-albo-wskazujesz
+
+  - pytanie: "Pracujesz w zakładce Code nad raportem sprzedaży. Chcesz przejrzeć, jakie polecenia i skille możesz uruchomić. Co robisz?"
+    odpowiedzi:
+      - "Naciskasz Shift+Tab w polu wiadomości, bo tym skrótem przełączasz się na listę poleceń."
+      - "Wpisujesz /skills i czekasz, aż to polecenie otworzy osobne okno z listą skilli."
+      - "Wpisujesz znak / w polu wiadomości albo klikasz + i wybierasz Slash commands."
+    poprawna: 2
+    wyjasnienie: "W aplikacji listę otwierasz znakiem / w polu wiadomości albo przyciskiem + i pozycją Slash commands (polecenia z ukośnikiem)."
+    fakt: skill-aplikacja-menu
+
+  - pytanie: "Chcesz porównać sprzedaż z sierpnia i września. Z listy poleceń wybierasz skill. Stoi teraz podświetlony w polu wiadomości. Co dalej?"
+    odpowiedzi:
+      - "Wpisujesz zadanie po podświetlonym skillu i wysyłasz wiadomość jak zwykle."
+      - "Czekasz bez pisania, bo skill rusza sam zaraz po kliknięciu wiersza na liście."
+      - "Usuwasz podświetlenie i wpisujesz nazwę skilla jeszcze raz, razem z zadaniem."
+    poprawna: 0
+    wyjasnienie: "Wybrana pozycja listy pojawia się w polu wiadomości podświetlona. Zadanie wpisujesz po niej i wysyłasz jak zwykle."
+    fakt: skill-wybrany-podswietlony-zadanie-po-nim
+
+  - pytanie: "Przygotowujesz w zakładce Code ofertę dla klienta. Klikasz przycisk + obok pola wiadomości i otwiera się menu. Do czego oprócz listy poleceń daje Ci dostęp ten przycisk?"
+    odpowiedzi:
+      - "Do nowej rozmowy, bo przycisk + otwiera kolejną sesję obok tej, w której pracujesz."
+      - "Do niczego więcej, bo przycisk + służy tylko do wybierania skilli z listy."
+      - "Do załączników, konektorów i wtyczek."
+    poprawna: 2
+    wyjasnienie: "Przycisk + obok pola wiadomości daje dostęp do załączników, skilli, konektorów i wtyczek."
+    fakt: aplikacja-plus-menu-skille-konektory-wtyczki

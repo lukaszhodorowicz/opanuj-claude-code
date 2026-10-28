@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "W folderze leżą trzy faktury i oferta hostingu na 2027. Chcesz zestawienie kosztów z faktur. Jak wskazać Claude faktury?"
+    odpowiedzi:
+      - "Kopiujesz treść faktur do wiadomości, bo Claude nie otwiera plików PDF."
+      - "Wpisujesz znak @ przed nazwą każdej faktury, a każda z nich trafia do rozmowy."
+      - "Piszesz wielkimi literami, że oferta to nie koszt, i nie wskazujesz plików."
+    poprawna: 1
+    wyjasnienie: "Znak @ przed nazwą pliku dodaje ten plik do rozmowy."
+    fakt: aplikacja-at-dodaje-plik-do-rozmowy
+
+  - pytanie: "Prosisz o zestawienie kosztów i nie wskazujesz żadnego pliku. Skąd Claude weźmie kwoty?"
+    odpowiedzi:
+      - "Sam przeczyta pliki z folderu rozmowy."
+      - "Znikąd, bo bez znaku @ Claude nie widzi żadnego pliku w folderze."
+      - "Tylko z plików, które wcześniej otworzysz w Finderze albo w Eksploratorze."
+    poprawna: 0
+    wyjasnienie: "Po Twojej prośbie Claude sam czyta pliki projektu."
+    fakt: aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu
+
+  - pytanie: "Claude napisał, że zapisał zestawienie kosztów w nowym pliku. Jak w aplikacji otworzysz ten plik?"
+    odpowiedzi:
+      - "Otwierasz terminal na swoim komputerze i szukasz pliku w folderze."
+      - "Prosisz Claude, żeby wkleił całą treść pliku do rozmowy."
+      - "Klikasz ścieżkę pliku w odpowiedzi Claude."
+    poprawna: 2
+    wyjasnienie: "Plik, o którym pisze Claude, otwierasz kliknięciem jego ścieżki w rozmowie."
+    fakt: aplikacja-klik-sciezki-w-rozmowie-otwiera-plik
+
+  - pytanie: "Pod polem wiadomości widać, że włączony jest tryb Accept edits (przyjmowanie zmian). Claude dopisał płatność ze zrzutu do zestawienia, a aplikacja nie zapytała o zgodę. Dlaczego?"
+    odpowiedzi:
+      - "Bo zrzut wskazany znakiem @ daje Claude zgodę na zmiany w plikach."
+      - "Bo w tym trybie aplikacja sama przyjmuje zmiany w plikach."
+      - "Bo zmiana dotyczyła jednej linijki, a o małe zmiany aplikacja nigdy nie pyta."
+    poprawna: 1
+    wyjasnienie: "W trybie Accept edits aplikacja sama przyjmuje zmiany w plikach. O inne polecenia, które Claude chce uruchomić, nadal pyta."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia

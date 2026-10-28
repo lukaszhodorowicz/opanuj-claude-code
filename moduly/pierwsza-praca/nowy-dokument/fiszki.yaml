@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak wskazać Claude plik z folderu w aplikacji?"
+    tyl: "Wpisz znak @ i nazwę pliku. Znak @ dodaje ten plik do rozmowy."
+    fakt: aplikacja-at-dodaje-plik-do-rozmowy
+
+  - przod: "Skąd Claude bierze pliki, gdy w prośbie nie wskażesz żadnego?"
+    tyl: "Sam czyta pliki projektu, czyli folderu rozmowy."
+    fakt: aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu
+
+  - przod: "Jak w aplikacji otworzyć nowy plik, o którym pisze Claude?"
+    tyl: "Kliknij ścieżkę pliku w odpowiedzi Claude."
+    fakt: aplikacja-klik-sciezki-w-rozmowie-otwiera-plik
+
+  - przod: "Czy Claude może zapisać wynik pracy, na przykład zestawienie kosztów, w nowym pliku?"
+    tyl: "Tak. Ma narzędzie, które tworzy nowe pliki."
+    fakt: claude-code-tworzy-nowe-pliki
+
+  - przod: "W jakich formatach Claude widzi obrazy, na przykład zrzuty ekranu?"
+    tyl: "PNG, JPEG, GIF i WebP. Duży zrzut może zobaczyć pomniejszony."
+    fakt: read-pokazuje-claude-obrazy-png
+
+  - przod: "Czy w trybie Accept edits (przyjmowanie zmian) aplikacja pyta o zgodę, zanim Claude zmieni plik?"
+    tyl: "Nie. Zmiany w plikach przyjmuje sama, ale o inne polecenia, które Claude chce uruchomić, nadal pyta."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia

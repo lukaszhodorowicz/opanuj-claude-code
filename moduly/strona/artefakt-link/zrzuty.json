@@ -1,0 +1,125 @@
+{
+  "cw1-przed": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-mysli": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 5000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-cel": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-strona": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-link.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-klient": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-link.apl-cel",
+      "#cw1 .apl-art-wybor[data-widok=\"klient\"]"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-cel": {
+    "szer": 390,
+    "wys": 1800,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-390-strona": {
+    "szer": 390,
+    "wys": 2800,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-link.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-klient": {
+    "szer": 390,
+    "wys": 2800,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-link.apl-cel",
+      "#cw1 .apl-art-wybor[data-widok=\"klient\"]"
+    ],
+    "do": "cw1"
+  },
+  "podglad-1280": {
+    "szer": 1280,
+    "wys": 4200,
+    "budzet": 15000
+  },
+  "podglad-390": {
+    "szer": 390,
+    "wys": 3600,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-po": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 20000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-klient": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-art-wybor[data-widok=\"klient\"]"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-po": {
+    "szer": 390,
+    "wys": 2800,
+    "budzet": 20000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw1-menu-browser": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 120000,
+    "polecenie": "cw1",
+    "droga": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  }
+}

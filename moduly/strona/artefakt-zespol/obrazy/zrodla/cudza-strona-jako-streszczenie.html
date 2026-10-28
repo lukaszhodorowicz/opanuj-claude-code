@@ -1,0 +1,254 @@
+<!doctype html>
+<!-- Rysunek R3 „Cudza strona trafia do Claude jako streszczenie” do lekcji artefakt-zespol: strona Anny z terminami i linijką-poleceniem, bramka zgody Claude Code (trzy przypadki), do Claude idzie streszczenie, polecenie zgłoszone, nie wykonane, pełne źródło w pliku na dysku. Źródło PNG obrazy/cudza-strona-jako-streszczenie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Cudza strona jako streszczenie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .tytul-kol {
+        margin: 0 0 10px 4px;
+        font: 800 25px/1.12 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .gora {
+        width: 470px;
+        margin: 0 auto;
+      }
+      .termin {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .termin svg {
+        flex: none;
+        width: 28px;
+        height: 28px;
+      }
+      .termin .szkic {
+        flex: 1;
+      }
+      .polecenie {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 12px;
+        border: 3px dashed var(--granat);
+        border-radius: 10px;
+        background: var(--papier);
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      /* bramka zgody */
+      .bramka {
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        background: var(--biel);
+        overflow: hidden;
+      }
+      .bramka-glowa {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 16px;
+        background: var(--granat);
+        color: var(--biel);
+        font: 800 25px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+      .bramka-glowa svg {
+        flex: none;
+        width: 30px;
+        height: 30px;
+        color: var(--limonka);
+      }
+      .przypadki {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.25fr;
+      }
+      .przypadki span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 12px;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+        text-align: center;
+        text-wrap: balance;
+      }
+      .przypadki span + span {
+        border-left: 3px solid var(--kreska);
+      }
+      /* rozwidlenie */
+      .dol {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        gap: 0 22px;
+      }
+      .zejscie {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 74px;
+      }
+      .zejscie::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 4px;
+        margin-left: -2px;
+        border-left: 4px solid var(--granat);
+      }
+      .zejscie svg {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 24px;
+        height: 14px;
+        margin-left: -12px;
+        overflow: visible;
+      }
+      .zejscie .etyk {
+        position: absolute;
+        left: calc(50% + 18px);
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+      }
+      .claude {
+        background: var(--okno);
+        border-radius: 16px;
+        color: var(--okno-tekst);
+        overflow: hidden;
+      }
+      .claude .panel-glowa {
+        height: 50px;
+        font-size: 22px;
+      }
+      .claude-tresc {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 14px 18px;
+      }
+      .streszczenie {
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        color: var(--granat);
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .zgloszona {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+      }
+      .zgloszona .polecenie {
+        background: #2b2b2e;
+        border-color: var(--okno-tekst);
+        color: var(--okno-tekst);
+      }
+      .zgloszona em {
+        font: 700 21px/1.2 var(--sans);
+        font-style: normal;
+        color: #c9c9c4;
+      }
+      .plik-na-dysku {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        height: 100%;
+        padding: 18px 14px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 16px;
+        text-align: center;
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .plik-na-dysku svg {
+        width: 48px;
+        height: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Strona Anny z terminami ma jedną linijkę z poleceniem dla Claude. Zanim Claude ją przeczyta, Claude Code może zapytać o zgodę: gdy strona jest innej organizacji, w trybie Plan i gdy Claude czyta ją narzędziem WebFetch w trybach Manual i Accept edits. Do Claude idzie streszczenie tego, o co pytał; linijka z poleceniem jest zgłoszona, a nie przekazana. Pełne źródło strony trafia do pliku na dysku."
+    >
+      <p class="wniosek">Z cudzej strony Claude dostaje streszczenie, <mark>a nie wpisane w nią polecenia</mark>.</p>
+      <div class="gora">
+        <p class="tytul-kol">Strona Anny z terminami</p>
+        <div class="kartka">
+          <div class="termin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            <span class="szkic" style="max-width: 78%"></span>
+          </div>
+          <div class="termin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            <span class="szkic" style="max-width: 62%"></span>
+          </div>
+          <div><span class="polecenie">polecenie dla Claude</span></div>
+          <div class="termin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            <span class="szkic" style="max-width: 70%"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="zejscie" aria-hidden="true">
+        <svg viewBox="0 0 24 14"><path d="M2 2 L12 12 L22 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="bramka">
+        <div class="bramka-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          Zanim Claude przeczyta cudzą stronę, Claude Code może zapytać Cię o&nbsp;zgodę.
+        </div>
+        
+      </div>
+
+      <div class="dol">
+        <div class="zejscie">
+          <span class="etyk">Do Claude trafia streszczenie:</span>
+          <svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2 L12 12 L22 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="zejscie" aria-hidden="true">
+          <svg viewBox="0 0 24 14"><path d="M2 2 L12 12 L22 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="claude">
+          <div class="panel-glowa"><img class="logo-claude" src="claude-icon-square.svg" alt="" />Claude</div>
+          <div class="claude-tresc">
+            <div class="streszczenie">Streszczenie tego, o co Claude pytał</div>
+            <div class="zgloszona">
+              <span class="polecenie">polecenie dla Claude</span>
+              <em>Streszczenie zgłasza tę linijkę, ale jej nie przekazuje.</em>
+            </div>
+          </div>
+        </div>
+        <div class="plik-na-dysku">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M10.5 11.5 8.5 14l2 2.5M13.5 11.5l2 2.5-2 2.5"/></svg>
+          Pełne źródło strony Claude Code zapisuje w&nbsp;pliku na dysku.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

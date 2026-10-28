@@ -1,0 +1,104 @@
+<!doctype html>
+<!-- Rysunek do lekcji pierwsze-zadanie (styl R1, D-2026-10-26-58): pętla pracy Claude w trzech etapach, poprawka wchodząca po bieżącym kroku i stop wchodzący od razu. Rysunek własny, nie kopia diagramu z dokumentacji. Źródło PNG obrazy/petla-pracy.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Pętla pracy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 16px 22px; }
+      .scena { position: relative; width: 728px; height: 476px; }
+      .scena > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+      .el { position: absolute; }
+      .dymek {
+        left: 0; top: 0; width: 250px; height: 60px;
+        background: var(--biel); border: 4px solid var(--granat); border-radius: 18px 18px 18px 4px;
+        display: grid; place-items: center;
+        font: 800 23px/1 var(--sans); letter-spacing: -0.02em;
+      }
+      .pole {
+        width: 210px; min-height: 112px;
+        background: var(--biel); border: 4px solid var(--granat); border-radius: 18px;
+        padding: 12px 14px;
+        display: flex; flex-direction: column; justify-content: center; gap: 6px;
+      }
+      .pole b { font: 800 23px/1.12 var(--sans); letter-spacing: -0.02em; }
+      .pole span { font: 600 20px/1.15 var(--sans); color: var(--grafit); }
+      .p1 { left: 140px; top: 92px; }
+      .p2 { left: 290px; top: 334px; }
+      .p3 { left: 0; top: 334px; }
+      .powtarza {
+        left: 132px; top: 228px; width: 250px;
+        text-align: center;
+        font: 800 22px/1.2 var(--sans); letter-spacing: -0.02em;
+      }
+      .powtarza { background: var(--zakreslacz); box-shadow: 0 0 0 3px var(--limonka); border-radius: 12px; padding: 8px 10px; }
+      .wejscie {
+        width: 200px;
+        background: var(--papier-2); border: 3px solid var(--granat); border-radius: 16px;
+        padding: 12px 14px;
+        font: 600 21px/1.2 var(--sans);
+      }
+      .wejscie b { display: block; font: 800 23px/1.15 var(--sans); letter-spacing: -0.02em; }
+      .w1 { left: 528px; top: 150px; }
+      .w2 { left: 528px; top: 352px; width: 200px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Twoja wiadomość uruchamia pętlę: 1. Zbiera informacje (czyta pliki), 2. Wprowadza zmiany (zapisuje plik), 3. Sprawdza wynik, i znów od 1. Pętla powtarza się, aż zadanie będzie gotowe. Poprawka wysłana Enterem wchodzi między etapami, po bieżącym kroku. Stop wchodzi od razu, w środek bieżącego etapu.">
+      <div class="scena">
+        <svg viewBox="0 0 728 452" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <!-- wiadomość -> 1 -->
+            <path d="M200 64 V86"/>
+            <path d="M188 74 L200 88 L212 74"/>
+            <!-- 1 -> 2 -->
+            <path d="M352 148 C420 148, 440 210, 440 324"/>
+            <path d="M428 312 L440 326 L452 312"/>
+            <!-- 2 -> 3 -->
+            <path d="M286 400 H214"/>
+            <path d="M226 388 L212 400 L226 412"/>
+            <!-- 3 -> 1 -->
+            <path d="M100 330 C100 210, 96 148, 132 148"/>
+            <path d="M121 136 L135 148 L121 160"/>
+            <!-- poprawka: między etapami, na strzałce 1 -> 2 -->
+            <path d="M526 254 H452" stroke-dasharray="9 8"/>
+            <path d="M464 242 L450 254 L464 266"/>
+            <!-- stop: wprost w pole 2 -->
+            <path d="M554 400 H508" stroke-width="5"/>
+            <path d="M520 388 L506 400 L520 412" stroke-width="5"/>
+          </g>
+          <circle cx="441" cy="254" r="6" fill="#0e1422"/>
+        </svg>
+        <div class="el dymek">Twoja wiadomość</div>
+        <div class="el pole p1"><b>1. Zbiera informacje</b><span>(czyta pliki)</span></div>
+        <div class="el pole p2"><b>2. Wprowadza zmiany</b><span>(zapisuje plik)</span></div>
+        <div class="el pole p3"><b>3. Sprawdza wynik</b></div>
+        <div class="el powtarza">Claude powtarza te etapy, aż zadanie będzie gotowe.</div>
+        <div class="el wejscie w1"><b>Poprawkę</b>wysłaną Enterem Claude czyta zaraz po bieżącym kroku.</div>
+        <div class="el wejscie w2"><b>Przycisk stop</b>od razu przerywa pracę Claude.</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+{
+  "lekcja": "zmiany-bez-pytania",
+  "folder_startowy": [
+    "IMG_2041.jpg",
+    "IMG_2042.jpg",
+    "IMG_2043.jpg",
+    "IMG_2043-kopia.jpg",
+    "lista-produktow.csv"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Trzy zmiany nazw, zero kart zgody",
+      "opis": "Ćwiczenie w zakładce Code aplikacji Claude. Twoich plików nie zmieni. Kliknij polecenie nad oknem i patrz na rozmowę i folder pod oknem.",
+      "nauczyciel_start": "Przełącznik pokazuje Accept edits. Kliknij polecenie i licz karty zgody.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Zdjecia-sklep",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "etykieta": "Nazwij zdjęcia według listy",
+          "opis": "Claude przeczyta listę produktów i zmieni nazwy trzech zdjęć.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Nazwij zdjęcia według pliku lista-produktow.csv.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["lista-produktow.csv"],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem listę. IMG_2041 to biały kubek. IMG_2042 to czarny kubek. IMG_2043 to szklany dzbanek. Zmieniam nazwy trzech zdjęć."
+            },
+            {
+              "typ": "folder",
+              "akcja": "zmien",
+              "plik": "IMG_2041.jpg",
+              "nazwa": "kubek-bialy.jpg",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Patrz na folder pod oknem: zdjęcie ma już nową nazwę. Karty zgody w rozmowie nie było.",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "folder",
+              "akcja": "zmien",
+              "plik": "IMG_2042.jpg",
+              "nazwa": "kubek-czarny.jpg",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "folder",
+              "akcja": "zmien",
+              "plik": "IMG_2043.jpg",
+              "nazwa": "dzbanek-szklany.jpg",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Trzy zmiany nazw, zero kart zgody. Przełącznik pokazuje Accept edits, więc Claude nie czekał na Twoją zgodę.",
+              "fakt": "aplikacja-tryb-pod-polem-mowi-czy-claude-czeka-na-zgode"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Gotowe. Nazwy IMG_2043-kopia.jpg nie zmieniłem, bo wygląda na duplikat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Kasowanie przejdzie, a pakowanie?",
+      "opis": "Folder znów ma pierwotne nazwy zdjęć. Tryb Accept edits jest włączony. Claude ma usunąć duplikat i spakować zdjęcia.",
+      "nauczyciel_start": "Claude ma usunąć duplikat i spakować zdjęcia. Patrz, przy którym kroku się zatrzyma.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Zdjecia-sklep",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "etykieta": "Usuń duplikat i spakuj zdjęcia",
+          "opis": "Claude skasuje kopię zdjęcia dzbanka, a potem spróbuje zrobić paczkę zip.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Usuń duplikat zdjęcia i spakuj wszystkie zdjęcia do jednego pliku zip dla sklepu.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["IMG_2043.jpg", "IMG_2043-kopia.jpg"],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "IMG_2043-kopia.jpg to kopia IMG_2043.jpg. Usuwam duplikat."
+            },
+            {
+              "typ": "folder",
+              "akcja": "usun",
+              "plik": "IMG_2043-kopia.jpg",
+              "fakt": "accept-edits-polecenia-na-plikach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Duplikat w folderze pod oknem jest przekreślony. Kasowanie w folderze przeszło bez karty zgody.",
+              "fakt": "accept-edits-polecenia-na-plikach"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Do spakowania użyję polecenia zip. W trybie Accept edits to polecenie wymaga Twojej zgody, więc czekam na nią.",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczki zip nie ma w folderze pod oknem. Zip nie należy do poleceń, na które ten tryb pozwala bez pytania.",
+              "fakt": "accept-edits-nadal-pytaja"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Robisz w zakładce Code zestawienie faktur za październik. Pod polem wiadomości, w wyborze, gdzie Claude pracuje, stoi Local, a obok folder Faktury-kopia. Gdzie pracuje Claude?"
+    odpowiedzi:
+      - "W chmurze Anthropic, więc faktury trzeba najpierw wkleić do rozmowy."
+      - "Na Twoim komputerze, z bezpośrednim dostępem do Twoich plików."
+      - "Local to nazwa folderu, w którym Claude zapisze zestawienie."
+    poprawna: 1
+    wyjasnienie: "Local to środowisko na Twoim komputerze. Claude ma w nim bezpośredni dostęp do Twoich plików."
+    fakt: aplikacja-local-dziala-na-twoim-komputerze
+
+  - pytanie: "Prosisz Claude o raport z październikowej kampanii w nowym pliku. Pod polem wiadomości stoi tryb Accept edits (przyjmowanie zmian). Plik pojawia się w folderze, a Claude nie pyta Cię o zgodę. Dlaczego?"
+    odpowiedzi:
+      - "Bo pracuje na kopii folderu, a na kopii Claude nigdy nie pyta o zgodę."
+      - "Bo w aplikacji Claude nigdy nie pyta o zgodę, pyta tylko w terminalu."
+      - "Bo w trybie Accept edits Claude stosuje zmiany w plikach bez czekania na zgodę."
+    poprawna: 2
+    wyjasnienie: "Tryb pod polem wiadomości mówi, czy Claude czeka na Twoją zgodę. W Accept edits stosuje zmiany w plikach od razu, a w trybie Manual czekałby na Twoje zatwierdzenie."
+    fakt: aplikacja-accept-edits-auto-bez-czekania-na-zgode
+
+  - pytanie: "Prosisz Claude o trzy posty na Black Friday, każdy w osobnym pliku. Claude zapowiada: najpierw Facebook, potem Instagram, na końcu LinkedIn. Gdy pisze post na Facebooka, wysyłasz klawiszem Enter poprawkę: „Bez LinkedIna”. Co się stanie?"
+    odpowiedzi:
+      - "Claude od razu przerwie pisanie posta na Facebooka i zacznie pracę według poprawki."
+      - "Claude skończy post na Facebooka, a potem napisze już tylko ten na Instagram."
+      - "Claude napisze wszystkie trzy posty i dopiero na końcu przeczyta poprawkę."
+    poprawna: 1
+    wyjasnienie: "Poprawka wysłana klawiszem Enter nie zatrzymuje Claude. Claude czyta ją zaraz po zakończeniu bieżącego kroku i następny krok robi już według niej."
+    fakt: aplikacja-poprawka-enter-claude-czyta-po-biezacym-kroku
+
+  - pytanie: "Claude odpowiada: „Zapisałem ofertę w pliku oferta-kowalski.txt”. Chcesz ją przeczytać, zanim wyślesz ją klientowi. Jak otworzysz ten plik w aplikacji?"
+    odpowiedzi:
+      - "Klikasz ścieżkę pliku oferta-kowalski.txt w odpowiedzi Claude."
+      - "Prosisz Claude, żeby wkleił ofertę do rozmowy, bo aplikacja nie otwiera plików."
+      - "Otwierasz terminal i wpisujesz w nim nazwę pliku."
+    poprawna: 0
+    wyjasnienie: "Plik, o którym pisze Claude, otwierasz, klikając jego ścieżkę w rozmowie."
+    fakt: aplikacja-klik-sciezki-w-rozmowie-otwiera-plik

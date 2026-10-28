@@ -1,0 +1,255 @@
+{
+  "lekcja": "model-i-wysilek",
+  "folder_startowy": [
+    "zakres-projektu.txt",
+    "stawki.txt",
+    "mail-od-klienta.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Szybki punkt wyjścia czy sprawdzona wycena",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Przejdź jedną drogę, potem drugą, i porównaj obie wyceny. Trzecia droga pokazuje, gdzie zmieniasz widok rozmowy.",
+      "nauczyciel_start": "Wybierz drogę nad oknem. W drogach z wyceną zacznij nową rozmowę i wybierz wysiłek, zanim cokolwiek napiszesz.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wycena-logo",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Sześć tygodni od podpisania umowy. Ten termin jest w pliku zakres-projektu.txt."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "wycena-zloty-klos.txt"
+      ],
+      "drogi": [
+        {
+          "id": "niski",
+          "etykieta": "Niski wysiłek",
+          "opis": "W nowej rozmowie wybierasz niski wysiłek i prosisz o wycenę.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "nowa-rozmowa",
+              "fakt": "aplikacja-nowa-sesja-new-albo-cmd-n"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otwórz wybór modelu. Stoi w prawej części rzędu pod polem wiadomości.",
+              "fakt": "aplikacja-wybor-modelu-w-rzedzie-zmiana-w-trakcie"
+            },
+            {
+              "typ": "klik",
+              "cel": "wybor-modelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To wybór modelu. Poziom wysiłku wybierasz w nim pod Effort. Kliknij Effort.",
+              "fakt": "aplikacja-wysilek-pod-effort-w-wyborze-modelu"
+            },
+            {
+              "typ": "klik",
+              "cel": "effort"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij Low, czyli niski wysiłek.",
+              "fakt": "aplikacja-wysilek-pod-effort-w-wyborze-modelu"
+            },
+            {
+              "typ": "klik",
+              "cel": "poziom",
+              "poziom": 1,
+              "notka": "niski wysiłek"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Niski wysiłek pasuje do szybkiej pracy, w której przeglądasz każdy wynik. Patrz na kropki w rozmowie i na plik.",
+              "fakt": "wysilek-low-szybkie-wymiany-szkic"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Przygotuj wycenę dla piekarni Złoty Kłos z plików zakres-projektu.txt, stawki.txt i mail-od-klienta.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 800,
+              "czyta": [
+                "zakres-projektu.txt",
+                "stawki.txt",
+                "mail-od-klienta.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wstępną wycenę w pliku wycena-zloty-klos.txt: 7 890 zł netto.",
+              "plik": "wycena-zloty-klos.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wycena-zloty-klos.txt",
+              "linijki": [
+                "Wycena: identyfikacja wizualna, piekarnia Złoty Kłos",
+                "Logo: 3 750 zł",
+                "Paleta i kroje pisma: 1 200 zł",
+                "Wizytówki i papier firmowy: 1 500 zł",
+                "Księga znaku: 1 440 zł",
+                "Razem: 7 890 zł netto"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Mail klientki prosi też o trzecią rundę poprawek i logo na szyld. Ta wycena tego nie ma: przeglądasz ją i poprawiasz.",
+              "fakt": "wysilek-w-testach-wyzszy-sprawdzal-nizszy-szybciej"
+            }
+          ]
+        },
+        {
+          "id": "wysoki",
+          "etykieta": "Wysoki wysiłek",
+          "opis": "W nowej rozmowie wybierasz wysoki wysiłek i prosisz o tę samą wycenę.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "nowa-rozmowa",
+              "fakt": "aplikacja-nowa-sesja-new-albo-cmd-n"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wybór modelu stoi w prawej części rzędu pod polem wiadomości. Otwórz go.",
+              "fakt": "aplikacja-wybor-modelu-w-rzedzie-zmiana-w-trakcie"
+            },
+            {
+              "typ": "klik",
+              "cel": "wybor-modelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wysiłek jest w tym samym menu, pod Effort. Kliknij Effort.",
+              "fakt": "aplikacja-wysilek-pod-effort-w-wyborze-modelu"
+            },
+            {
+              "typ": "klik",
+              "cel": "effort"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij High, czyli wysoki wysiłek.",
+              "fakt": "aplikacja-wysilek-pod-effort-w-wyborze-modelu"
+            },
+            {
+              "typ": "klik",
+              "cel": "poziom",
+              "poziom": 3,
+              "notka": "wysoki wysiłek"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wysoki wysiłek pasuje do pracy, w której liczy się sprawdzenie. Patrz na kropki w rozmowie i na plik.",
+              "fakt": "wysilek-high-gdy-liczy-sie-sprawdzenie"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Przygotuj wycenę dla piekarni Złoty Kłos z plików zakres-projektu.txt, stawki.txt i mail-od-klienta.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500,
+              "czyta": [
+                "zakres-projektu.txt",
+                "stawki.txt",
+                "mail-od-klienta.txt"
+              ]
+            },
+            {
+              "typ": "mysli",
+              "ms": 1500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wycenę w pliku wycena-zloty-klos.txt: 8 490 zł netto. W mailu piekarnia prosi o trzecią rundę poprawek, więc ją doliczyłem. Szyldu nie ma w stawkach, zostawiłem go do ustalenia.",
+              "plik": "wycena-zloty-klos.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wycena-zloty-klos.txt",
+              "linijki": [
+                "Wycena: identyfikacja wizualna, piekarnia Złoty Kłos",
+                "Logo: 3 750 zł",
+                "Paleta i kroje pisma: 1 200 zł",
+                "Wizytówki i papier firmowy: 1 500 zł",
+                "Księga znaku: 1 440 zł",
+                "Trzecia runda poprawek logo (prośba z maila): 600 zł",
+                "Wersja logo na szyld: brak w stawkach, do ustalenia z klientem",
+                "Razem: 8 490 zł netto (bez szyldu)"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kropki stały dłużej, ale wycena jest dokładniejsza. Tym razem Claude doliczył trzecią rundę poprawek z maila i zaznaczył szyld.",
+              "fakt": "program-wyzszy-wysilek-dluzej-szybciej-zuzywa-limity"
+            }
+          ]
+        },
+        {
+          "id": "widok",
+          "etykieta": "Widok rozmowy",
+          "opis": "Otwierasz menu sesji i sprawdzasz, gdzie zmieniasz widok rozmowy.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Widok rozmowy zmieniasz w menu sesji. Otwiera je strzałka obok tytułu rozmowy, u góry okna. Kliknij ją.",
+              "fakt": "aplikacja-transcript-view-menu-sesji-ctrl-o"
+            },
+            {
+              "typ": "klik",
+              "cel": "strzalka-tytulu",
+              "fakt": "aplikacja-transcript-view-menu-sesji-ctrl-o"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu sesji. Kliknij Transcript view, czyli widok zapisu rozmowy.",
+              "fakt": "aplikacja-transcript-view-menu-sesji-ctrl-o"
+            },
+            {
+              "typ": "klik",
+              "cel": "transcript-view",
+              "fakt": "aplikacja-transcript-view-menu-sesji-ctrl-o"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Widok Thinking, czyli z myśleniem Claude, pojawi się na tej liście dopiero wtedy, gdy Claude w tej rozmowie myślał.",
+              "fakt": "aplikacja-widok-thinking-dopiero-po-mysleniu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten widok pokazuje myślenie Claude. Dzięki niemu śledzisz, jak Claude doszedł do wyniku, a nie tylko sam wynik.",
+              "fakt": "aplikacja-widok-thinking-pokazuje-myslenie"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

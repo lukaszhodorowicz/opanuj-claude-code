@@ -1,0 +1,334 @@
+# Słowniczek kursu: pojęcia, które czytelnik może znać słabo albo które w kursie znaczą coś węższego niż zwykle.
+# Z tego pliku generator buduje stronę słowniczka i pogrubia pierwsze wystąpienie pojęcia w każdej lekcji (D-2026-10-27-51).
+# Pola: `pojecie` (nazwa na stronie słowniczka), `odmiany` (dokładne formy z lekcji), `wyjasnienie` (1-2 zdania), `fakt`.
+# Pole `fakt` musi wskazywać id istniejące w dane/fakty.yaml; wyjaśnienie nie mówi więcej niż ten fakt. Kolejność: alfabetyczna po `pojecie`.
+# Klucz `bez_pogrubienia`: lista fraz (napisy interfejsu i nazwy programów), wewnątrz których żadna odmiana nie dostaje pogrubienia.
+# Fraza dopasowuje się jak odmiana (granice słowa, dłuższa forma wygrywa, wielkość liter się liczy, spacje elastyczne), ale trafienie w nią zostawia tekst bez zmian
+# i nie zużywa żadnego hasła. Dopisz tu nazwę, której część jest odmianą hasła, a w całości nie jest tym pojęciem (na przykład „Git” w „Git Bash”).
+
+bez_pogrubienia:
+  - "Cloud session credits"
+  - "kredyty sesji w chmurze"
+  - "Git Bash"
+  - "Accept and auto mode"
+  - "Settings Error"
+  - "Settings Warning"
+  - "System Settings"
+  - "Settings > Usage"
+  - "Settings > Connectors"
+
+pojecia:
+  - pojecie: "/goal"
+    odmiany: ["/goal", "Praca do warunku"]
+    wyjasnienie: "Polecenie, które ustawia cel z warunkiem końca. Claude pracuje dalej przez kolejne tury, aż warunek zostanie spełniony albo cel zniknie z innego powodu."
+    fakt: slowniczek-goal-praca-az-warunek-spelniony
+
+  - pojecie: "Accept edits"
+    odmiany: ["Accept edits", "przyjmowanie zmian", "akceptuj zmiany"]
+    wyjasnienie: "Tryb, w którym Claude sam tworzy i zmienia pliki w folderze rozmowy, bez pytania o zgodę. Po polsku: przyjmowanie zmian."
+    fakt: accept-edits-edycje-w-folderze-bez-pytania
+
+  - pojecie: "Agent Skills"
+    odmiany: ["Agent Skills"]
+    wyjasnienie: "Otwarty standard, czyli wspólne zasady budowy skilli. Według nich działają skille w Claude Code i korzystają z nich też inne narzędzia AI."
+    fakt: skill-standard-otwarty
+
+  - pojecie: "Allow once"
+    odmiany: ["Allow once", "zezwól raz"]
+    wyjasnienie: "Przycisk na karcie zgody, który zezwala na to jedno działanie i niczego nie zapisuje. Po polsku: zezwól raz."
+    fakt: aplikacja-browser-allow-once-bez-zapisu
+
+  - pojecie: "Always allow"
+    odmiany: ["Always allow", "zezwalaj zawsze"]
+    wyjasnienie: "Przycisk na karcie zgody w panelu Browser. Zapisuje na Twoim komputerze zgodę dla tej strony; cofniesz ją w ustawieniach aplikacji (Settings)."
+    fakt: aplikacja-browser-always-allow-zapisuje-dla-strony
+
+  - pojecie: "artefakt"
+    odmiany: ["artefakt", "Artefakt", "artefaktu", "artefakty", "Artefakty", "artefaktów", "artefaktach", "Artifact", "Artifacts"]
+    wyjasnienie: "Interaktywna strona internetowa, którą Claude Code publikuje z rozmowy pod prywatnym adresem na claude.ai. Otwierasz ją w przeglądarce, a gdy chcesz, udostępniasz ją innym."
+    fakt: slowniczek-artefakt-strona-na-claude-ai
+
+  - pojecie: "beta"
+    odmiany: ["beta"]
+    wyjasnienie: "Wersja testowa programu albo funkcji. W wersji beta jest na przykład aplikacja Claude na Linuksie."
+    fakt: aplikacja-instalatory-macos-windows-arm64-linux-beta
+
+  - pojecie: "Bypass permissions"
+    odmiany: ["Bypass permissions", "pomijanie uprawnień"]
+    wyjasnienie: "Tryb, w którym Claude działa bez pytań o zgodę, poza kilkoma wyjątkami. Dokumentacja każe go używać tylko w odizolowanych kontenerach albo maszynach wirtualnych, czyli w osobnych, zamkniętych systemach."
+    fakt: aplikacja-bypass-tylko-kontenery
+
+  - pojecie: "Claude Code"
+    odmiany: ["Claude Code"]
+    wyjasnienie: "Claude, który pracuje na plikach w folderze na Twoim komputerze. W aplikacji Claude na komputer to zakładka Code, w której zlecasz pracę i przeglądasz zmiany bez terminala."
+    fakt: aplikacja-bez-terminala
+
+  - pojecie: "Claude Design"
+    odmiany: ["Claude Design"]
+    wyjasnienie: "Szablon na koncie claude.ai, od którego Claude zaczyna artefakt z projektem wizualnym. Taki artefakt otwiera się we własnym edytorze na claude.ai."
+    fakt: slowniczek-szablony-slides-design-docs
+
+  - pojecie: "Claude Docs"
+    odmiany: ["Claude Docs"]
+    wyjasnienie: "Szablon na koncie claude.ai, od którego Claude zaczyna artefakt z dokumentem, który inni będą czytać i edytować. Taki artefakt otwiera się we własnym edytorze na claude.ai."
+    fakt: slowniczek-szablony-slides-design-docs
+
+  - pojecie: "Claude in Chrome"
+    odmiany: ["Claude in Chrome"]
+    wyjasnienie: "Rozszerzenie przeglądarki Chrome, przez które Claude korzysta z Twoich zalogowanych kont w tej przeglądarce. Dokumentacja każe go użyć zamiast panelu Browser, gdy Claude ma działać jako Ty na stronach, na których jesteś zalogowany."
+    fakt: slowniczek-claude-in-chrome-dziala-jako-ty
+
+  - pojecie: "Claude Slides"
+    odmiany: ["Claude Slides"]
+    wyjasnienie: "Szablon na koncie claude.ai, od którego Claude zaczyna artefakt z prezentacją. Taki artefakt otwiera się we własnym edytorze na claude.ai, a prezentację wyeksportujesz na przykład do PowerPointa albo PDF."
+    fakt: slowniczek-szablony-slides-design-docs
+
+  - pojecie: "CLAUDE.md"
+    odmiany: ["CLAUDE.md"]
+    wyjasnienie: "Plik ze stałymi instrukcjami dla Claude, pisany zwykłym tekstem, na przykład dla projektu albo całej firmy. Claude czyta go na początku każdej rozmowy."
+    fakt: slowniczek-claude-md-stale-instrukcje
+
+  - pojecie: "Cowork"
+    odmiany: ["Cowork"]
+    wyjasnienie: "Osobna część aplikacji Claude na komputer, obok czatu i zakładki Code."
+    fakt: aplikacja-code-to-zakladka-obok-czatu-i-cowork
+
+  - pojecie: "Customize"
+    odmiany: ["Customize"]
+    wyjasnienie: "Pozycja na pasku bocznym aplikacji, w której w jednym miejscu zarządzasz konektorami, skillami i wtyczkami. Po polsku: dostosuj."
+    fakt: aplikacja-customize-konektory-skille-wtyczki
+
+  - pojecie: "Dispatch"
+    odmiany: ["Dispatch"]
+    wyjasnienie: "Funkcja, dzięki której zlecasz pracę z telefonu, a Dispatch sam zaczyna dla Ciebie rozmowy w aplikacji Claude."
+    fakt: slowniczek-dispatch-zaczyna-sesje-z-telefonu
+
+  - pojecie: "folder rozmowy"
+    odmiany: ["folder rozmowy", "Folder rozmowy", "folderu rozmowy", "folderze rozmowy", "folderem rozmowy", "folder roboczy", "folderze roboczym", "folderem roboczym", "folderów roboczych", "Working folder", "folder projektu", "Folder projektu", "folderu projektu", "folderze projektu", "folderem projektu"]
+    wyjasnienie: "Folder na komputerze, w którym Claude pracuje w tej rozmowie i do którego plików ma dostęp od początku. Dokumentacja nazywa go folderem roboczym."
+    fakt: folder-roboczy-to-folder-uruchomienia
+
+  - pojecie: "Git"
+    odmiany: ["Git", "git", "gitem"]
+    wyjasnienie: "Program do kontroli wersji: prowadzi trwałą historię zmian w plikach i ułatwia wspólną pracę."
+    fakt: punkty-zapisu-to-szybkie-odzyskiwanie-w-sesji-nie-trwala-historia
+
+  - pojecie: "hook"
+    odmiany: ["hook", "Hook", "hooka", "Hooka", "hookiem", "hooku", "hooki", "Hooki", "hooków", "hookami", "hookach"]
+    wyjasnienie: "Polecenie, które ustawiasz sam, a Claude Code uruchamia je zawsze w określonej chwili pracy. Dzięki temu dana czynność dzieje się za każdym razem, a nie tylko wtedy, gdy Claude zdecyduje się ją wykonać."
+    fakt: slowniczek-hook-polecenie-w-chwilach-pracy
+
+  - pojecie: "karta Changes"
+    odmiany: ["karta Changes", "Karta Changes", "karcie Changes", "karty Changes"]
+    wyjasnienie: "Karta w panelu szczegółów rozmowy z liczbami zmienionych linijek, na przykład +12 -1. Kliknięcie liczb otwiera widok zmian."
+    fakt: aplikacja-widok-zmian-liczby-na-karcie-changes
+
+  - pojecie: "karta Context"
+    odmiany: ["karta Context", "Karta Context", "karty Context", "karcie Context"]
+    wyjasnienie: "Karta w panelu obok rozmowy, która w procentach pokazuje, jak pełne jest okno kontekstu. Po otwarciu pokazuje, co zajmuje to miejsce."
+    fakt: aplikacja-karta-context-procent-w-naglowku
+
+  - pojecie: "karta zgody"
+    odmiany: ["karta zgody", "Karta zgody", "karty zgody", "kartę zgody", "karcie zgody", "okno zgody", "Okno zgody", "okna zgody", "oknie zgody"]
+    wyjasnienie: "Okienko w rozmowie, w którym Claude prosi o zgodę na działanie. Pokazuje, co Claude zamierza zrobić, a pod spodem odpowiedzi do wyboru."
+    fakt: okno-zgody-pokazuje-co-claude-zamierza-i-opcje
+
+  - pojecie: "katalog wtyczek"
+    odmiany: ["Katalog wtyczek", "katalogu wtyczek", "katalogi wtyczek", "marketplace"]
+    wyjasnienie: "Spis wtyczek, z którego je instalujesz; po angielsku marketplace. Anthropic prowadzi trzy takie katalogi: oficjalny, społeczności i pokazowy."
+    fakt: slowniczek-katalogi-wtyczek-anthropic
+
+  - pojecie: "konektor"
+    odmiany: ["konektor", "Konektor", "konektora", "Konektora", "konektorem", "konektorze", "konektorowi", "konektory", "Konektory", "konektorów", "konektorami", "Konektorami", "konektorach", "connectors"]
+    wyjasnienie: "Połączenie Claude z Twoim narzędziem, na przykład kalendarzem. Po podłączeniu konektora Claude może czytać kalendarz, wysyłać wiadomości i działać w tym narzędziu wprost."
+    fakt: aplikacja-konektor-czyta-kalendarz-wysyla-wiadomosci
+
+  - pojecie: "kontekst"
+    odmiany: ["kontekstu", "kontekstem", "kontekście", "okno kontekstu", "Okno kontekstu", "okna kontekstu", "oknie kontekstu", "oknem kontekstu"]
+    wyjasnienie: "Wszystko, co Claude ma przed sobą w rozmowie, między innymi historia rozmowy, treść plików, wyniki poleceń, CLAUDE.md i wczytane skille. Mieści się to w oknie kontekstu, które w trakcie pracy się zapełnia."
+    fakt: claude-code-okno-kontekstu-co-trzyma-zapelnia-sie
+
+  - pojecie: "Local"
+    odmiany: ["Local"]
+    wyjasnienie: "Środowisko, w którym Claude pracuje na Twoim komputerze, z bezpośrednim dostępem do Twoich plików. Rozmowa w tym środowisku to sesja lokalna."
+    fakt: aplikacja-local-dziala-na-twoim-komputerze
+
+  - pojecie: "Manual"
+    odmiany: ["tryb Manual", "Tryb Manual", "trybie Manual", "trybach Manual", "Manual (ręczny)", "Manual (ręcznym)", "Manual (ręczne zatwierdzanie)", "ręczne zatwierdzanie"]
+    wyjasnienie: "Tryb, w którym Claude pyta o zgodę przed zmianą pliku i przed uruchomieniem polecenia. Widzisz podgląd zmiany i każdą przyjmujesz albo odrzucasz."
+    fakt: aplikacja-manual-podglad-i-przyciski
+
+  - pojecie: "MCP"
+    odmiany: ["MCP"]
+    wyjasnienie: "Otwarty standard łączenia AI z narzędziami. Przez niego Claude Code łączy się z zewnętrznymi narzędziami i źródłami danych, na przykład z Twoimi bazami danych."
+    fakt: slowniczek-mcp-otwarty-standard
+
+  - pojecie: "menu +"
+    odmiany: ["menu +", "Menu +", "menu plusa"]
+    wyjasnienie: "Menu przycisku + obok pola wiadomości. Dołączasz w nim pliki i sięgasz po skille, konektory i wtyczki."
+    fakt: aplikacja-plus-menu-pliki-skille-konektory-wtyczki
+
+  - pojecie: "pamięć podręczna"
+    odmiany: ["Pamięć podręczna", "pamięci podręcznej", "cache"]
+    wyjasnienie: "Zapamiętana, już przetworzona część rozmowy, dzięki której nie trzeba w każdej turze przetwarzać całej historii od nowa. Przyspiesza pracę i obniża koszt."
+    fakt: slowniczek-pamiec-podreczna-nie-przetwarza-od-nowa
+
+  - pojecie: "panel Browser"
+    odmiany: ["Browser"]
+    wyjasnienie: "Przeglądarka z kartami w aplikacji Claude, otwierana obok rozmowy. Otworzysz w niej dokumentację albo dowolną inną stronę."
+    fakt: aplikacja-browser-karty-dowolna-strona
+
+  - pojecie: "panel szczegółów"
+    odmiany: ["panel szczegółów", "Panel szczegółów", "panelu szczegółów", "Panelu szczegółów", "panelem szczegółów"]
+    wyjasnienie: "Zestaw kart obok rozmowy, który pokazuje między innymi, co rozmowa zmieniła. Pojawia się po rozpoczęciu rozmowy, gdy jest na niego dość miejsca."
+    fakt: aplikacja-panel-szczegolow-sesji-karty-obok-czatu
+
+  - pojecie: "pasek boczny"
+    odmiany: ["pasek boczny", "Pasek boczny", "pasku bocznym", "paska bocznego"]
+    wyjasnienie: "Pasek w zakładce Code z listą Twoich rozmów. Pozwala prowadzić kilka rozmów naraz."
+    fakt: aplikacja-pasek-boczny-lista-sesji
+
+  - pojecie: "pasek tytułu"
+    odmiany: ["pasek tytułu", "Pasek tytułu", "pasku tytułu", "paskiem tytułu"]
+    wyjasnienie: "Pasek z tytułem rozmowy i przyciskami paneli, na przykład Changes do widoku zmian. Nazwę przycisku zobaczysz po najechaniu myszą."
+    fakt: aplikacja-przyciski-paneli-nazwa-po-najechaniu-menu-przy-waskim-oknie
+
+  - pojecie: "pierścień zużycia"
+    odmiany: ["pierścień zużycia", "Pierścień zużycia", "Pierścień", "pierścienia"]
+    wyjasnienie: "Kółko obok wyboru modelu w aplikacji. Po kliknięciu pokazuje zużycie abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code."
+    fakt: aplikacja-pierscien-zuzycie-abonamentu
+
+  - pojecie: "plik ustawień"
+    odmiany: ["plik ustawień", "Plik ustawień", "pliku ustawień", "pliki ustawień", "plików ustawień", "plikach ustawień", "plikami ustawień"]
+    wyjasnienie: "Plik z ustawieniami Claude Code, na przykład z regułami uprawnień. W zakładce Code reguły uprawnień zmieniasz, edytując taki plik."
+    fakt: aplikacja-reguly-uprawnien-w-plikach-ustawien
+
+  - pojecie: "polecenie z ukośnikiem"
+    odmiany: ["polecenia z ukośnikiem"]
+    wyjasnienie: "Polecenie zaczynające się od znaku /, wpisywane w polu wiadomości. Steruje Claude Code w trakcie rozmowy, na przykład zmienia model albo czyści kontekst."
+    fakt: slowniczek-polecenia-steruja-claude-code
+
+  - pojecie: "przepływ"
+    odmiany: ["przepływ", "Przepływ", "przepływu", "przepływie", "przepływy", "Przepływy", "workflows"]
+    wyjasnienie: "Program (skrypt), który naraz kieruje pracą wielu subagentów. Claude pisze go do opisanego zadania, a skrypt działa w tle, gdy Ty dalej rozmawiasz."
+    fakt: slowniczek-przeplyw-skrypt-subagentow
+
+  - pojecie: "Remote Control"
+    odmiany: ["Remote Control", "zdalne sterowanie"]
+    wyjasnienie: "Funkcja, dzięki której rozmowę z Claude Code działającą na Twoim komputerze prowadzisz dalej z telefonu, tabletu albo przeglądarki."
+    fakt: slowniczek-remote-control-sesja-z-telefonu
+
+  - pojecie: "sesja"
+    odmiany: ["sesja", "Sesja", "sesji", "sesje", "Sesje", "sesją", "sesjach", "sesjami"]
+    wyjasnienie: "Tak dokumentacja nazywa rozmowę w zakładce Code. Każda sesja ma własną historię rozmowy i folder projektu, niezależne od innych sesji."
+    fakt: aplikacja-kazda-rozmowa-to-sesja
+
+  - pojecie: "sesja w chmurze"
+    odmiany: ["sesja w chmurze", "Sesja w chmurze", "sesji w chmurze", "sesje w chmurze", "sesjach w chmurze", "sesjami w chmurze", "Cloud", "chmura", "chmurze"]
+    wyjasnienie: "Rozmowa, w której Claude pracuje na komputerach w chmurze, domyślnie u Anthropic, a nie na Twoim komputerze. Trwa dalej także po zamknięciu aplikacji."
+    fakt: aplikacja-srodowiska-cloud-ssh-wsl
+
+  - pojecie: "Settings"
+    odmiany: ["okno Settings", "Settings"]
+    wyjasnienie: "Okno ustawień aplikacji Claude, po polsku ustawienia. Polecenie /config wpisane w zakładce Code otwiera w nim stronę Claude Code."
+    fakt: aplikacja-config-otwiera-settings-claude-code
+
+  - pojecie: "skill"
+    odmiany: ["skill", "Skill", "skilla", "skillu", "skillem", "skille", "Skille", "skilli", "skillami", "Skillami", "skillach"]
+    wyjasnienie: "Plik SKILL.md z instrukcjami dla Claude. Claude używa skilla sam, gdy pasuje do zadania, albo gdy wpiszesz jego nazwę po ukośniku."
+    fakt: skill-czym-jest
+
+  - pojecie: "sterowanie komputerem"
+    odmiany: ["Sterowanie komputerem", "computer use"]
+    wyjasnienie: "Funkcja, dzięki której Claude otwiera Twoje aplikacje, steruje ekranem i pracuje na komputerze tak jak Ty. Po angielsku computer use."
+    fakt: slowniczek-sterowanie-komputerem-co-robi
+
+  - pojecie: "strażnik"
+    odmiany: ["strażnik", "Strażnik", "strażnika", "Strażnika", "strażnikiem", "strażniku", "klasyfikator", "klasyfikatora"]
+    wyjasnienie: "Osobny model AI (w dokumentacji: klasyfikator), który w trybie Auto ocenia działania Claude, zanim się wykonają. Blokuje te, które wykraczają poza Twoją prośbę."
+    fakt: auto-klasyfikator-ocenia-przed-wykonaniem
+
+  - pojecie: "streszczenie rozmowy"
+    odmiany: ["streszczenie rozmowy", "streszcza rozmowę", "streszczać rozmowę", "samoczynne streszczanie"]
+    wyjasnienie: "Krótsza wersja rozmowy, która zwalnia miejsce w kontekście. Claude Code robi ją sam, a poleceniem /compact uruchomisz ją wcześniej."
+    fakt: aplikacja-compact-skraca-rozmowe-wczesniej
+
+  - pojecie: "subagent"
+    odmiany: ["subagent", "Subagent", "subagenta", "Subagenta", "subagentowi", "subagenci", "Subagenci", "subagentów", "Subagentów", "subagentom", "subagentach"]
+    wyjasnienie: "Osobny asystent AI do zadania pobocznego, na przykład przeszukania wielu plików. Pracuje we własnym kontekście i oddaje do rozmowy tylko podsumowanie."
+    fakt: slowniczek-subagent-osobny-asystent
+
+  - pojecie: "środowisko"
+    odmiany: ["wybór środowiska", "Wybór środowiska", "wyboru środowiska", "wyborze środowiska", "środowisko Local", "Środowisko Local", "środowisku Local", "selektor środowiska", "selektora środowiska"]
+    wyjasnienie: "Miejsce, w którym pracuje Claude. Wybierasz je pierwszym przyciskiem w rzędzie pod polem wiadomości."
+    fakt: aplikacja-selektor-srodowiska-pierwsza-kontrolka
+
+  - pojecie: "terminal"
+    odmiany: ["terminal", "Terminal", "terminala", "terminalu"]
+    wyjasnienie: "Okno, w którym pracujesz z komputerem, wpisując polecenia zamiast klikać przyciski. Claude Code działa też w terminalu, a aplikacja Claude na komputer działa na tym samym silniku, tylko z oknami i przyciskami."
+    fakt: aplikacja-ten-sam-silnik-co-w-terminalu
+
+  - pojecie: "token"
+    odmiany: ["tokeny", "Tokeny", "tokenów", "tokenami"]
+    wyjasnienie: "Jednostka, w której liczy się koszt pracy Claude. Im więcej kontekstu Claude przetwarza, tym więcej tokenów zużywasz."
+    fakt: slowniczek-koszt-tokenow-rosnie-z-kontekstem
+
+  - pojecie: "Transcript view"
+    odmiany: ["Transcript view", "widok zapisu"]
+    wyjasnienie: "Pozycja w menu pod strzałką obok tytułu rozmowy. Wybierasz w niej, jak aplikacja pokazuje rozmowę; widok Verbose pokazuje każdy krok Claude: wywołania narzędzi, odczyty plików i jego rozumowanie."
+    fakt: aplikacja-widok-rozmowy-transcript-view-verbose
+
+  - pojecie: "tryb Auto"
+    odmiany: ["tryb Auto", "Tryb Auto", "trybie Auto", "trybu Auto", "trybach Auto", "tryb auto", "Tryb auto", "auto mode", "tryb automatyczny"]
+    wyjasnienie: "Tryb, w którym Claude pracuje bez rutynowych pytań o zgodę. Przed działaniami takimi jak polecenia albo połączenia z siecią strażnik w tle sprawdza, czy zgadzają się z Twoją prośbą."
+    fakt: auto-aplikacja-opis-trybu
+
+  - pojecie: "tryb Plan"
+    odmiany: ["tryb Plan", "Tryb Plan", "trybie Plan", "trybu Plan", "trybem Plan", "tryb planowania", "Tryb planowania", "trybie planowania", "plan mode"]
+    wyjasnienie: "Tryb, w którym Claude proponuje podejście do zadania, nie zmieniając żadnych plików."
+    fakt: plan-aplikacja-bez-zmian-w-plikach
+
+  - pojecie: "tryb uprawnień"
+    odmiany: ["tryb uprawnień", "Tryb uprawnień", "trybu uprawnień", "trybem uprawnień", "trybie uprawnień", "tryb pracy", "Tryb pracy", "tryby pracy", "Tryby pracy"]
+    wyjasnienie: "Ustawienie w rzędzie pod polem wiadomości. Mówi, czy Claude będzie czekać na Twoją zgodę."
+    fakt: aplikacja-tryb-pod-polem-mowi-czy-claude-czeka-na-zgode
+
+  - pojecie: "tura"
+    odmiany: ["tura", "Tura", "tury", "turze", "turę", "turach", "turami"]
+    wyjasnienie: "Jedna pełna odpowiedź Claude w rozmowie. Zaczyna się, gdy wysyłasz wiadomość, a kończy, gdy Claude skończy odpowiadać, nawet jeśli po drodze wiele razy używa narzędzi."
+    fakt: slowniczek-tura-od-wiadomosci-do-konca-odpowiedzi
+
+  - pojecie: "ukryte polecenie"
+    odmiany: ["ukryte polecenie", "ukryte polecenia", "ukrytego polecenia", "ukrytym poleceniem", "ukrytymi poleceniami", "prompt injection", "wstrzyknięcie polecenia"]
+    wyjasnienie: "Złośliwy tekst, którym ktoś próbuje zmienić instrukcje asystenta AI, takiego jak Claude, albo nimi pokierować. Po angielsku prompt injection."
+    fakt: slowniczek-prompt-injection-zlosliwy-tekst
+
+  - pojecie: "wcześniejszy układ"
+    odmiany: ["wcześniejszy układ", "Wcześniejszy układ", "wcześniejszym układzie"]
+    wyjasnienie: "Wcześniejsza wersja wyglądu zakładki Code. Rozpoznasz ją po tym, że pod polem wiadomości nie ma przycisku wyboru środowiska."
+    fakt: aplikacja-wczesniejszy-uklad-brak-selektora
+
+  - pojecie: "widok zmian"
+    odmiany: ["widok zmian", "Widok zmian", "widoku zmian"]
+    wyjasnienie: "Panel, w którym przeglądasz zmiany Claude plik po pliku i możesz komentować wybrane linijki."
+    fakt: aplikacja-widok-zmian-przeglad-plik-po-pliku
+
+  - pojecie: "wtyczka"
+    odmiany: ["wtyczka", "Wtyczka", "wtyczki", "Wtyczki", "wtyczkę", "Wtyczkę", "wtyczką", "Wtyczką", "wtyczce", "wtyczek", "wtyczkom", "wtyczkami", "plugin", "plugins"]
+    wyjasnienie: "Gotowy pakiet, który dodaje do Claude Code na przykład skille, hooki albo serwery MCP. W aplikacji na komputer instalujesz go bez terminala."
+    fakt: aplikacja-wtyczki-dodaja-skille-agentow-hooki-bez-terminala
+
+  - pojecie: "wysiłek"
+    odmiany: ["wysiłek", "Wysiłek", "wysiłku", "wysiłkiem", "Effort"]
+    wyjasnienie: "Ustawienie, które steruje rozumowaniem Claude: Claude sam decyduje na każdym kroku, czy i ile myśleć. Niższy wysiłek jest szybszy i tańszy przy prostych zadaniach, a wyższy daje głębsze rozumowanie przy trudnych."
+    fakt: slowniczek-wysilek-steruje-rozumowaniem
+
+  - pojecie: "zadania w tle"
+    odmiany: ["zadania w tle", "Background tasks", "panel zadań", "Panel zadań", "panelu zadań"]
+    wyjasnienie: "Panel, który pokazuje pracę w tle bieżącej rozmowy: subagentów, polecenia w tle i przepływy. Gdy rozmowa ma pracę w tle, otwierasz go pozycją Background tasks w menu ⋮ na pasku tytułu."
+    fakt: aplikacja-panel-zadan-w-tle-co-pokazuje
+
+  - pojecie: "zadanie z harmonogramu"
+    odmiany: ["zadanie z harmonogramu", "zadania z harmonogramu", "harmonogramu", "Scheduled", "scheduled task"]
+    wyjasnienie: "Zadanie, które samo zaczyna nową rozmowę o porze i z częstotliwością, które wybierzesz. Służy do pracy, która się powtarza, na przykład porannego podsumowania kalendarza i poczty."
+    fakt: slowniczek-zadanie-zaplanowane-nowa-sesja

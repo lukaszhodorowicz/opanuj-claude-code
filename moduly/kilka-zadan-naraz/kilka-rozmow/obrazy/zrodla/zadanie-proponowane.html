@@ -1,0 +1,249 @@
+<!doctype html>
+<!-- Rysunek R3 „Zadanie, które Claude proponuje” do lekcji kilka-rozmow: karta z dwoma zadaniami w rozmowie i czterema przyciskami i tym, co robi każdy z nich. Źródło PNG obrazy/zadanie-proponowane.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Zadanie, które Claude proponuje</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w rysunku R4 okno-rozmowy-i-subagenta) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --szary: #94a3b8;
+        /* okno aplikacji, uproszczone */
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 24px;
+      }
+      .kolumny {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 12px;
+      }
+
+      /* ===== Okno rozmowy z kartą zadania ===== */
+      .okno {
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 12px 14px;
+      }
+      .okno-gora {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 2px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .odp {
+        padding: 4px 4px 14px;
+      }
+      .linia {
+        height: 10px;
+        border-radius: 5px;
+        background: var(--okno-kreska);
+      }
+      .linia + .linia {
+        margin-top: 10px;
+      }
+      .karta {
+        border-radius: 12px;
+        background: var(--okno-pasek);
+        border: 2px solid var(--okno-kreska);
+        padding: 14px 12px 12px;
+      }
+      .karta-tytul {
+        margin: 0 2px 14px;
+        color: var(--okno-tekst);
+        font: 700 22px/1.2 var(--sans);
+      }
+      .karta-glowa {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .karta-glowa .karta-tytul {
+        margin-bottom: 8px;
+      }
+      .karta-tytul.drugi {
+        margin-top: 0;
+        padding-top: 8px;
+        border-top: 2px solid var(--okno-kreska);
+        color: #b9b6ae;
+        font-size: 19px;
+      }
+      .licznik {
+        flex: none;
+        margin-top: 1px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 2px solid var(--okno-kreska);
+        color: var(--okno-tekst);
+        font: 700 17px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .przycisk {
+        height: 46px;
+        border-radius: 10px;
+        border: 2px solid var(--okno-kreska);
+        background: var(--okno);
+        color: var(--okno-tekst);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 700 20px/1 var(--sans);
+        white-space: nowrap;
+      }
+
+      /* ===== Strzałki i podpisy pod przyciskami ===== */
+      .skutki {
+        margin: 0 26px;
+      }
+      .skutek {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .skutek svg.strz {
+        width: 22px;
+        height: 46px;
+        margin: 4px 0 6px;
+        overflow: visible;
+      }
+      .skutek p {
+        margin: 0;
+        font: 700 19px/1.3 var(--sans);
+        letter-spacing: -0.01em;
+      }
+
+      /* mały pasek boczny: nowy wiersz z wcięciem pod bieżącym */
+      .maly-pasek {
+        margin-top: 12px;
+        width: 100%;
+        background: var(--okno);
+        border-radius: 12px;
+        padding: 10px 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .maly-wiersz {
+        height: 26px;
+        border-radius: 7px;
+        background: var(--okno-pasek);
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+      }
+      .maly-wiersz .linia {
+        flex: 1;
+        height: 8px;
+      }
+      .maly-wiersz.nowy {
+        margin-left: 20px;
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+      }
+      .maly-wiersz.nowy .linia {
+        background: #9bbf5a;
+      }
+
+      .dopisek {
+        margin: 24px 4px 0;
+        color: var(--grafit);
+        font: 700 19px/1.3 var(--sans);
+        text-align: center;
+      }
+      .dopisek b {
+        font-weight: 800;
+        color: var(--granat);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Karta z dwoma zadaniami: Popraw cenę wieńca w ulotce i Popraw cenę wieńca w poście, z przyciskami Start, Do it here, Options i Start all. Start zaczyna nową rozmowę, a pasek boczny pokazuje ją pod bieżącą. Do it here wysyła zadanie jako wiadomość w tej rozmowie. Options pozwala przed startem zmienić model, uprawnienia i inne ustawienia. Start all zaczyna wszystkie zadania z karty, każde w osobnej rozmowie. We wcześniejszym układzie i w rozmowach w chmurze karta nazywa się Suggested task, a Do it here jest pod strzałką obok głównego przycisku.">
+      <div class="okno">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="odp"><div class="linia" style="width: 78%"></div><div class="linia" style="width: 52%"></div></div>
+        <div class="karta">
+          <div class="karta-glowa">
+            <p class="karta-tytul">Popraw cenę wieńca w&nbsp;ulotce</p>
+          </div>
+          <p class="karta-tytul drugi">Popraw cenę wieńca w&nbsp;poście</p>
+          <div class="kolumny">
+            <div class="przycisk">Start</div>
+            <div class="przycisk">Do it here</div>
+            <div class="przycisk">Options</div>
+            <div class="przycisk">Start all</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skutki">
+        <div class="kolumny">
+          <div class="skutek">
+            <svg class="strz" viewBox="0 0 22 46" aria-hidden="true"><path d="M11 2 V42" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/><path d="M2 32 L11 43 L20 32" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>Zadanie rusza w&nbsp;nowej rozmowie. Pasek boczny pokazuje ją pod bieżącą.</p>
+            <div class="maly-pasek" aria-hidden="true">
+              <div class="maly-wiersz"><div class="linia"></div></div>
+              <div class="maly-wiersz nowy"><div class="linia"></div></div>
+            </div>
+          </div>
+          <div class="skutek">
+            <svg class="strz" viewBox="0 0 22 46" aria-hidden="true"><path d="M11 2 V42" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/><path d="M2 32 L11 43 L20 32" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>Zadanie idzie jako wiadomość w&nbsp;tej rozmowie.</p>
+          </div>
+          <div class="skutek">
+            <svg class="strz" viewBox="0 0 22 46" aria-hidden="true"><path d="M11 2 V42" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/><path d="M2 32 L11 43 L20 32" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>Przed startem możesz zmienić model, uprawnienia i&nbsp;inne ustawienia.</p>
+          </div>
+          <div class="skutek">
+            <svg class="strz" viewBox="0 0 22 46" aria-hidden="true"><path d="M11 2 V42" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/><path d="M2 32 L11 43 L20 32" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>Ruszają wszystkie zadania z&nbsp;karty, każde w&nbsp;osobnej rozmowie.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="dopisek">We wcześniejszym układzie i&nbsp;w&nbsp;rozmowach w&nbsp;chmurze karta nazywa się <b>Suggested task</b>, a&nbsp;<b>Do it here</b> jest pod strzałką obok głównego przycisku.</p>
+    </div>
+  </body>
+</html>

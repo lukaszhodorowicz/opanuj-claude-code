@@ -1,0 +1,120 @@
+{
+  "cw1-przed-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-menu-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 6500,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-przegladarka-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 12000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-po-przebiegu": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-menu": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 6500,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-przegladarka": {
+    "szer": 390,
+    "wys": 2600,
+    "budzet": 12000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-przed-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-lista-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 5000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-pasek-w-polu-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 2400,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-wiersz-wybrany.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-plik-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-wiersz-wybrany.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-plik": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-wiersz-wybrany.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-po-przebiegu": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-wiersz-wybrany.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

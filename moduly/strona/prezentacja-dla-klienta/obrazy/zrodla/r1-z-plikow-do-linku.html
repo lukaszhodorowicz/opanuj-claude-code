@@ -1,0 +1,304 @@
+<!doctype html>
+<!-- Rysunek R1 „Z plików do linku” do lekcji prezentacja-dla-klienta: pliki w folderze i prośba trafiają do Claude, który wybiera pasujący szablon i wypełnia go; prezentacja powstaje jako artefakt na claude.ai, a w rozmowie dostajesz link. Źródło PNG obrazy/r1-z-plikow-do-linku.png. Fakty: szablony-slides-design-docs-do-czego, slides-zwykla-prosba-wybiera-szablon, aplikacja-claude-czyta-pliki-projektu, artefakt-to-strona-pod-prywatnym-linkiem-na-claude-ai. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Z plików do linku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .dwa {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+      }
+      .pole {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .glowka {
+        margin: 0 0 10px 4px;
+        font: 800 27px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      /* folder z kartami plików, jak w rysunku R1 lekcji strona-oferty */
+      .folder {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 10px 10px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+      }
+      .folder-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 4px 2px;
+        font: 700 19px/1.2 var(--mono);
+      }
+      .folder-glowa svg,
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 50px;
+        padding: 0 10px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 500 20px/1 var(--mono);
+        white-space: nowrap;
+      }
+      /* prośba jako dymek wiadomości */
+      .prosba {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 16px 18px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px 18px 4px 18px;
+        font: 700 23px/1.3 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      /* łączniki: dwa wejścia schodzą się do Claude, z Claude dwa wyjścia */
+      .lacz {
+        position: relative;
+        height: 58px;
+      }
+      .lacz svg {
+        position: absolute;
+        inset: 0;
+        width: 728px;
+        height: 58px;
+        overflow: visible;
+      }
+      .lacz .napis {
+        position: absolute;
+        top: 16px;
+        font: 800 22px/1 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .claude {
+        padding: 18px 22px 20px;
+        border-radius: 18px;
+        background: var(--granat);
+        color: var(--biel);
+        text-align: center;
+      }
+      .claude b {
+        display: block;
+        font: 800 28px/1.2 var(--sans);
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+      }
+      .claude span {
+        display: block;
+        margin-top: 8px;
+        color: #cbd5e1;
+        font: 700 22px/1.3 var(--sans);
+        text-wrap: balance;
+      }
+      /* claude.ai: prezentacja jako artefakt */
+      .konto {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+      }
+      .adres {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 700 20px/1 var(--mono);
+      }
+      .adres svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .slajd {
+        aspect-ratio: 16 / 9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 18px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 10px;
+      }
+      .slajd b {
+        font: 800 22px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .slajd .szkic {
+        background: #d6d9cd;
+      }
+      .podpis-slajdu {
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .podpis-slajdu small {
+        display: block;
+        margin-top: 2px;
+        color: var(--grafit);
+        font: 700 20px/1.2 var(--sans);
+      }
+      /* rozmowa: odpowiedź Claude z linkiem */
+      .rozmowa {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 14px 16px;
+        color: var(--okno-tekst);
+      }
+      .rozmowa .gora {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 34px;
+      }
+      .rozmowa .gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .rozmowa .tresc {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+      }
+      .rozmowa p {
+        margin: 0;
+        font: 700 22px/1.3 var(--sans);
+      }
+      .link {
+        align-self: flex-start;
+        padding: 8px 12px;
+        border-radius: 9px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        color: var(--granat);
+        font: 700 21px/1.2 var(--mono);
+        white-space: nowrap;
+      }
+      .wspolny {
+        margin: 26px 0 0;
+        font-size: 25px;
+        text-wrap: balance;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="U góry trzy pliki w folderze Oferta-szkolenia-kopia i Twoja prośba o prezentację dla dyrektora sprzedaży. Obie strzałki prowadzą do Claude, który wybiera pasujący szablon z Twojego konta claude.ai i wypełnia go z Twojej prośby i z tego, co sesja już ma, tu z trzech plików. Z Claude wychodzą dwie strzałki: do prezentacji Claude Slides, która powstaje jako artefakt na claude.ai, i do odpowiedzi w rozmowie z linkiem https://claude.ai/…. Podpis: prezentacja powstaje jako artefakt na claude.ai; w rozmowie dostajesz link."
+    >
+      <div class="dwa">
+        <div class="pole">
+          <p class="glowka">Pliki w folderze</p>
+          <div class="folder">
+            <div class="folder-glowa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              Oferta-szkolenia-kopia
+            </div>
+            <div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              opis-szkolenia.txt
+            </div>
+            <div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              cennik.txt
+            </div>
+            <div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              opinie-klientow.txt
+            </div>
+          </div>
+        </div>
+        <div class="pole">
+          <p class="glowka">Twoja prośba</p>
+          <div class="prosba">„Zrób z oferty szkolenia prezentację dla dyrektora sprzedaży…”</div>
+        </div>
+      </div>
+
+      <div class="lacz" aria-hidden="true">
+        <svg viewBox="0 0 728 58">
+          <path d="M177 4 V24 H551 V4 M364 24 V52" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M352 42 L364 54 L376 42" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="claude">
+        <b>Claude wybiera pasujący szablon z Twojego konta claude.ai</b>
+        <span>i wypełnia go treścią z Twojej prośby i z tego, co sesja już ma, tutaj z trzech plików.</span>
+      </div>
+
+      <div class="lacz" aria-hidden="true">
+        <svg viewBox="0 0 728 58">
+          <path d="M364 4 V24 M177 52 V24 H551 V52" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M165 42 L177 54 L189 42 M539 42 L551 54 L563 42" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="dwa">
+        <div class="pole">
+          <p class="glowka">Na claude.ai</p>
+          <div class="konto">
+            <div class="adres">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+              claude.ai
+            </div>
+            <div class="slajd">
+              <b>Rozmowa o cenie bez przepraszania</b>
+              <span class="szkic" style="width: 78%"></span>
+              <span class="szkic" style="width: 56%"></span>
+            </div>
+            <div class="podpis-slajdu">prezentacja Claude Slides<small>artefakt</small></div>
+          </div>
+        </div>
+        <div class="pole">
+          <p class="glowka">W rozmowie</p>
+          <div class="rozmowa">
+            <div class="gora"><i></i><i></i><i></i></div>
+            <div class="tresc">
+              <p>Prezentacja jest gotowa:</p>
+              <span class="link">https://claude.ai/…</span>
+              <span class="szkic" style="width: 92%"></span>
+              <span class="szkic" style="width: 70%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="wspolny">Prezentacja powstaje jako artefakt na&nbsp;claude.ai, a w&nbsp;rozmowie dostajesz do niej link.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+{
+  "cw1-niski-nowa-rozmowa": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-niski-menu-modelu": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-niski-poziomy": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-niski-notka": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 5800,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-niski": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-wysoki-notka": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 16200,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-wysoki": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 35000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-niski-poziomy": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-niski": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-wysoki": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 35000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "podglad-375": {
+    "szer": 375,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-widok-rozmowy": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 42000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1",
+    "bez_znacznika": true,
+    "bez_luki": true
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "lekcja": "claude-md-zasady-firmy",
+  "folder_startowy": ["zapytania-klientow.txt", "cennik.txt"],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zapisz zasady studia w pliku CLAUDE.md",
+      "opis": "Claude napisał zbyt sztywną odpowiedź do klientki. Poproś o plik z zasadami studia i otwórz go.",
+      "nauczyciel_start": "Ta odpowiedź jest zbyt sztywna. Kliknij polecenie nad oknem, a zasady studia trafią do pliku CLAUDE.md.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Studio-jogi",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Odpisz na zapytanie o karnet z @zapytania-klientow.txt. Ceny są w @cennik.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Proponuję taką odpowiedź: „Szanowna Pani Marto, dziękujemy za zapytanie dotyczące karnetu. Karnet miesięczny kosztuje 189 zł, a wejście jednorazowe 45 zł. W razie dodatkowych pytań pozostajemy do Pani dyspozycji. Z poważaniem, Studio Jogi”."
+          }
+        ]
+      },
+      "nowe_pliki": ["CLAUDE.md"],
+      "drogi": [
+        {
+          "id": "zapis",
+          "etykieta": "Zapisz zasady w CLAUDE.md",
+          "opis": "Prosisz Claude o plik z czterema zasadami studia.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "To za sztywno. Zapisz w pliku CLAUDE.md zasady studia: do klientek piszę na Ty, odpowiedź ma do pięciu zdań, podpisuję się „Ania”, nie obiecuję efektów zdrowotnych.",
+              "fakt": "aplikacja-przyklad-prosby-utworz-claude-md"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem zasady studia w pliku CLAUDE.md.",
+              "plik": "CLAUDE.md",
+              "fakt": "claude-md-prosba-o-zapis"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę CLAUDE.md w odpowiedzi Claude, żeby otworzyć nowy plik.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady studia jogi",
+                "- Do klientek piszę na Ty.",
+                "- Odpowiedź ma do pięciu zdań.",
+                "- Podpisuję się: Ania.",
+                "- Nie obiecuję efektów zdrowotnych."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To zwykły plik tekstowy z czterema zasadami studia. Claude zapisał go bez pytania o zgodę, bo włączony jest tryb Accept edits.",
+              "fakt": "claude-md-zwykly-tekst-piszesz-ty"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "To samo zapytanie w nowej rozmowie",
+      "opis": "Nowa rozmowa w tym samym folderze zaczyna się od prośby o odpowiedź na to samo zapytanie o karnet. W prośbie nie ma ani słowa o tonie.",
+      "nauczyciel_start": "To nowa rozmowa w folderze Studio-jogi, z plikiem CLAUDE.md. Prośba jest wysłana. Kliknij polecenie nad oknem i patrz, które pliki zaświecą, gdy Claude zacznie pracę.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Studio-jogi",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": ["CLAUDE.md"],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Odpisz na zapytanie o karnet z @zapytania-klientow.txt. Ceny są w @cennik.txt. Odpowiedź zapisz w osobnym pliku.",
+            "fakt": "aplikacja-rozmowa-to-sesja-z-wlasna-historia"
+          }
+        ]
+      },
+      "nowe_pliki": ["odpowiedz-karnet.txt"],
+      "drogi": [
+        {
+          "id": "nowa",
+          "etykieta": "To samo zapytanie, nowa rozmowa",
+          "opis": "Claude zaczyna pracę nad prośbą. Patrz, które pliki świecą w folderze.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta plik CLAUDE.md. Patrz na jego kartę w folderze pod oknem.",
+              "fakt": "claude-md-czytany-na-start-sesji"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": ["CLAUDE.md"]
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600,
+              "czyta": ["zapytania-klientow.txt", "cennik.txt"]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem odpowiedź w pliku odpowiedz-karnet.txt.",
+              "plik": "odpowiedz-karnet.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę odpowiedz-karnet.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "odpowiedz-karnet.txt",
+              "linijki": [
+                "Cześć, Marto!",
+                "Dziękuję za wiadomość.",
+                "Karnet miesięczny kosztuje 189 zł, wejście jednorazowe 45 zł.",
+                "Ania"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tym razem odpowiedź jest na Ty, krótka i podpisana „Ania”, choć o tonie nie było mowy. Aplikacja korzysta z pliku CLAUDE.md w folderze projektu.",
+              "fakt": "aplikacja-uzywa-claude-md-z-projektu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

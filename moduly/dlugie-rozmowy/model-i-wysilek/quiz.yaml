@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Wyceniasz projekt dla klienta i chcesz, żeby Claude dokładniej sprawdził stawki. Jak w bieżącym układzie aplikacji ustawisz wyższy wysiłek?"
+    odpowiedzi:
+      - "Klikasz strzałkę obok tytułu rozmowy i wybierasz Transcript view."
+      - "Otwierasz wybór modelu i klikasz poziom pod Effort."
+      - "Przełączasz tryb pod polem wiadomości z Accept edits na Plan."
+    poprawna: 1
+    wyjasnienie: "W bieżącym układzie aplikacji poziom wysiłku wybierasz w wyborze modelu, pod Effort."
+    fakt: aplikacja-wysilek-pod-effort-w-wyborze-modelu
+
+  - pytanie: "Przygotowujesz wycenę dla piekarni na wysokim wysiłku. Trzy kropki w rozmowie stoją dłużej niż przy niskim. Czego możesz się spodziewać?"
+    odpowiedzi:
+      - "Tej samej wyceny co przy niskim, bo Claude przełączył się tylko na inny model."
+      - "Że coś się zacięło, bo wyższy wysiłek powinien dać szybszą odpowiedź."
+      - "Dokładniejszej wyceny, ale też szybszego zużycia limitów."
+    poprawna: 2
+    wyjasnienie: "Program Claude Code opisuje wysiłek tak: wyższy daje dokładniejsze odpowiedzi, ale trwa dłużej i szybciej zużywa limity."
+    fakt: program-wyzszy-wysilek-dluzej-szybciej-zuzywa-limity
+
+  - pytanie: "W ćwiczeniu tylko jedna z dwóch wycen dla piekarni doliczyła trzecią rundę poprawek, o którą klientka prosi w mailu. Która i dlaczego?"
+    odpowiedzi:
+      - "Ta z wysokiego wysiłku: ten poziom pasuje do pracy, w której liczy się sprawdzenie."
+      - "Ta z niskiego wysiłku: Claude myśli krócej, więc trzyma się dokładnie maila."
+      - "Każda mogła, bo wysiłek zmienia tylko czas odpowiedzi, a nie to, co Claude sprawdza."
+    poprawna: 0
+    wyjasnienie: "Według dokumentacji wysoki poziom pasuje do pracy, w której liczy się sprawdzenie albo prawdopodobne są nietypowe przypadki. W ćwiczeniu takim przypadkiem była prośba z maila."
+    fakt: wysilek-high-gdy-liczy-sie-sprawdzenie
+
+  - pytanie: "Chcesz porównać dwie wyceny dla klientki, każdą w nowej rozmowie i z innym wysiłkiem. Jak w aplikacji zaczniesz nową rozmowę?"
+    odpowiedzi:
+      - "Otwierasz wybór modelu i klikasz inny poziom pod Effort."
+      - "Zamykasz aplikację i uruchamiasz ją ponownie."
+      - "Klikasz + New w pasku bocznym."
+    poprawna: 2
+    wyjasnienie: "Nową rozmowę w aplikacji zaczynasz przyciskiem + New w pasku bocznym albo skrótem Cmd+N na macOS, Ctrl+N na Windows."
+    fakt: aplikacja-nowa-sesja-new-albo-cmd-n

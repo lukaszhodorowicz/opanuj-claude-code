@@ -1,0 +1,63 @@
+{
+  "cw1-karta-otwarta": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-po-streszczeniu": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-po-streszczeniu": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-panel-z-boku": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-po-zamknieciu": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-po-zamknieciu": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

@@ -1,0 +1,248 @@
+<!doctype html>
+<!-- Rysunek R1 „Skąd biorą się hooki” do lekcji jakie-hooki-dzialaja (rozszerzenie gdzie-lezy-hook.html z lekcji powiadomienie-gdy-czeka): .claude/settings.json folderu Biuro-podrozy (zakreślacz), .claude/settings.local.json, ~/.claude/settings.json i hooks/hooks.json wtyczki z klamrą „sumują się”; pod linią skill i subagent; dopisek o tym samym hooku w dwóch plikach. Źródło PNG obrazy/skad-biora-sie-hooki.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Skąd biorą się hooki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .wnetrze {
+        padding: 16px;
+      }
+      .uklad {
+        display: grid;
+        grid-template-columns: 1fr 34px 116px;
+        column-gap: 6px;
+        align-items: stretch;
+      }
+      .wiersze {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .wiersz {
+        display: grid;
+        grid-template-columns: 300px 44px 1fr;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 20px;
+        border: 4px solid transparent;
+      }
+      .wiersz.ten {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+      }
+      .drzewko {
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        padding: 6px 8px;
+        font-size: 18px;
+      }
+      .drzewko .el {
+        gap: 7px;
+        height: 34px;
+        padding: 0 4px;
+      }
+      .drzewko .w1 {
+        margin-left: 20px;
+      }
+      .drzewko .w2 {
+        margin-left: 40px;
+      }
+      .drzewko .glowa {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: -0.015em;
+      }
+      .drzewko .glowa.mono {
+        font: 700 18px/1 var(--mono);
+        letter-spacing: 0;
+      }
+      .sciezka {
+        margin: 8px 0 0;
+        text-align: center;
+        color: var(--grafit);
+        font: 700 18px/1 var(--mono);
+      }
+      .strzalka svg {
+        display: block;
+        width: 44px;
+        height: 24px;
+        overflow: visible;
+      }
+      .skutek {
+        padding-left: 8px;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .klamra svg {
+        width: 34px;
+        height: 100%;
+        display: block;
+      }
+      .suma {
+        margin: 0;
+        align-self: center;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .linia {
+        height: 0;
+        border-top: 2px solid var(--kreska);
+        margin: 16px 4px;
+      }
+      .uklad-dol {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .dopisek {
+        margin: 16px 4px 2px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Sześć wierszy. Folder Biuro-podrozy z folderem .claude i plikiem settings.json (zaznaczone): działa tylko w tym projekcie. Ten sam folder z plikiem .claude/settings.local.json: tylko dla Ciebie, w tym projekcie. Twój folder domowy z folderem .claude i plikiem settings.json, czyli ~/.claude/settings.json: działa we wszystkich Twoich projektach. Wtyczka z plikiem hooks/hooks.json: działa, gdy wtyczka jest włączona. Klamra łączy te cztery wiersze: hooki z tych miejsc sumują się. Pod linią: skill, od uruchomienia skilla do końca sesji; subagent, tylko wtedy, gdy pracuje ten subagent.">
+      <h1 class="teza">Hooki ze wszystkich miejsc <mark>działają razem</mark>, każdy w&nbsp;swoim zasięgu</h1>
+      <div class="ramka wnetrze">
+        <div class="uklad">
+          <div class="wiersze">
+            <!-- Wiersz 1: projekt, settings.json -->
+            <div class="wiersz ten">
+              <div class="drzewko">
+                <div class="el glowa mono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                  Biuro-podrozy
+                </div>
+                <div class="el w1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                  .claude
+                </div>
+                <div class="el w2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                  settings.json
+                </div>
+              </div>
+              <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="skutek">Działa tylko w&nbsp;tym projekcie</div>
+            </div>
+
+            <!-- Wiersz 2: projekt, settings.local.json -->
+            <div class="wiersz">
+              <div class="drzewko">
+                <div class="el glowa mono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                  Biuro-podrozy
+                </div>
+                <div class="el w1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                  .claude
+                </div>
+                <div class="el w2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                  settings.local.json
+                </div>
+              </div>
+              <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="skutek">Działa tylko dla Ciebie i&nbsp;tylko w&nbsp;tym projekcie</div>
+            </div>
+
+            <!-- Wiersz 3: folder domowy -->
+            <div class="wiersz">
+              <div>
+                <div class="drzewko">
+                  <div class="el glowa">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg>
+                    Twój folder domowy
+                  </div>
+                  <div class="el w1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                    .claude
+                  </div>
+                  <div class="el w2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                    settings.json
+                  </div>
+                </div>
+              </div>
+              <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="skutek">Działa we wszystkich Twoich projektach</div>
+            </div>
+
+            <!-- Wiersz 4: wtyczka -->
+            <div class="wiersz">
+              <div class="drzewko">
+                <div class="el glowa">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/></svg>
+                  Wtyczka
+                </div>
+                <div class="el w1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                  hooks/hooks.json
+                </div>
+              </div>
+              <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="skutek">Działa, gdy wtyczka jest włączona</div>
+            </div>
+          </div>
+
+          <!-- Klamra łącząca cztery wiersze -->
+          <div class="klamra">
+            <svg viewBox="0 0 44 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M6 2 Q20 2 20 10 V42 Q20 50 34 50 Q20 50 20 58 V90 Q20 98 6 98" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            </svg>
+          </div>
+          <p class="suma">Hooki z&nbsp;tych miejsc sumują się.</p>
+        </div>
+
+        <div class="linia"></div>
+
+        <div class="uklad-dol">
+          <!-- Wiersz 5: skill -->
+          <div class="wiersz">
+            <div class="drzewko">
+              <div class="el glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                Skill
+              </div>
+            </div>
+            <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="skutek">Działa od uruchomienia skilla do końca sesji</div>
+          </div>
+          <!-- Wiersz 6: subagent -->
+          <div class="wiersz">
+            <div class="drzewko">
+              <div class="el glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                Subagent
+              </div>
+            </div>
+            <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="skutek">Działa tylko wtedy, gdy pracuje ten subagent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

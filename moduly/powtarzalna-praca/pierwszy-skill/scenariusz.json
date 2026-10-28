@@ -1,0 +1,239 @@
+{
+  "lekcja": "pierwszy-skill",
+  "folder_startowy": [
+    "mail-reklamacja-zielinska.txt",
+    "mail-termin-adamski.txt",
+    "jak-odpisuje-klientom.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zapisz swoje zasady jako skill",
+      "opis": "Rozmowa w folderze Klienci-maile. Poprosisz Claude o zapisanie zasad z pliku jako skill tego folderu.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Patrz na przełącznik trybu i na folder pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klienci-maile",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam maile od klientów i zasady, według których odpisuję."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        ".claude/skills/odpowiedz-klientowi/SKILL.md"
+      ],
+      "drogi": [
+        {
+          "id": "zapisz",
+          "etykieta": "Poproś o zapisanie skilla",
+          "opis": "Prośba zwykłymi słowami: zapisz zasady jako skill tego folderu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz moje zasady z pliku jak-odpisuje-klientom.txt jako skill projektu o nazwie odpowiedz-klientowi.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "jak-odpisuje-klientom.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapiszę Twoje zasady jako skill w pliku .claude/skills/odpowiedz-klientowi/SKILL.md. Folder .claude, w którym leżą skille, jest chroniony, więc nawet w trybie Accept edits potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W trybie Accept edits Claude zapisuje zwykłe pliki bez pytania. O zapis w folderze .claude pyta. Kliknij ptaszek.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem skill w .claude/skills/odpowiedz-klientowi/SKILL.md. Uruchomisz go w nowej rozmowie w tym folderze poleceniem /odpowiedz-klientowi.",
+              "plik": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "fakt": "skill-nowy-folder-skilli-wymaga-przeladowania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pod oknem pojawił się folder .claude/skills/odpowiedz-klientowi z plikiem skilla. Kliknij ścieżkę w odpowiedzi Claude.",
+              "fakt": "skill-projektu-katalog"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "linijki": [
+                "---",
+                "name: odpowiedz-klientowi",
+                "description: Pisze szkic odpowiedzi na mail od klienta sklepu ze świecami. Użyj, gdy proszę o odpowiedź na maila albo reklamację.",
+                "---",
+                "Pierwsze zdanie odpowiada na pytanie klienta. Bez formułek.",
+                "Najwyżej 120 słów.",
+                "Gdy coś obiecujemy, podaj termin. Nie znasz go: wstaw [TERMIN?].",
+                "Oddajesz szkic do akceptacji. Niczego nie wysyłasz."
+              ],
+              "fakt": "skill-plik-ma-naglowek-i-instrukcje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Między liniami --- są nazwa i opis. Po opisie Claude rozpozna, kiedy sięgnąć po skill. Niżej Twoje zasady.",
+              "fakt": "skill-opis-decyduje"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Uruchom skill w nowej rozmowie",
+      "opis": "Nowa rozmowa w tym samym folderze. Skill z ćwiczenia 1 leży w folderze .claude.",
+      "nauczyciel_start": "To nowa rozmowa. Kliknij pierwsze polecenie nad oknem i patrz na karty pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klienci-maile",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          ".claude/skills/odpowiedz-klientowi/SKILL.md"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Rano przyszły dwa maile od klientów."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "odpowiedz-zielinska.txt",
+        "odpowiedz-adamski.txt"
+      ],
+      "drogi": [
+        {
+          "id": "nazwa",
+          "etykieta": "Wpisz nazwę skilla",
+          "opis": "Nazwa z ukośnikiem na początku wiadomości, po niej plik z mailem.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "/odpowiedz-klientowi mail-reklamacja-zielinska.txt",
+              "fakt": "skill-uruchomienie-ukosnik"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/skills/odpowiedz-klientowi/SKILL.md",
+                "mail-reklamacja-zielinska.txt"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nazwa na początku uruchomiła skill. Nazwę pliku po niej Claude dostał razem z treścią skilla.",
+              "fakt": "skill-tekst-po-nazwie-dopisany-na-koncu"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Szkic odpowiedzi dla pani Zielińskiej zapisałem w odpowiedz-zielinska.txt. Termin wysyłki oznaczyłem [TERMIN?], bo go nie znam.",
+              "plik": "odpowiedz-zielinska.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "odpowiedz-zielinska.txt",
+              "linijki": [
+                "Pani Anno, wymienimy pękniętą świecę lawendową na nową.",
+                "Nową świecę wyślemy [TERMIN?]."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pierwsze zdanie odpowiada na prośbę, a termin wpiszesz sam. Tak mówią zasady ze skilla.",
+              "fakt": "skill-plik-ma-naglowek-i-instrukcje"
+            }
+          ]
+        },
+        {
+          "id": "slowa",
+          "etykieta": "Poproś zwykłymi słowami",
+          "opis": "Prośba bez nazwy skilla. Claude porówna ją z opisem.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Odpisz na mail z pliku mail-termin-adamski.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/skills/odpowiedz-klientowi/SKILL.md",
+                "mail-termin-adamski.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skorzystałem ze skilla odpowiedz-klientowi. Szkic odpowiedzi dla pana Adamskiego zapisałem w odpowiedz-adamski.txt.",
+              "plik": "odpowiedz-adamski.txt",
+              "fakt": "aplikacja-skille-claude-laduje-sam-albo-wskazujesz"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W prośbie nie było nazwy skilla. Claude dobrał go po opisie, bo pasował do zadania.",
+              "fakt": "claude-dopasowuje-zadanie-do-opisow-skilli"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "odpowiedz-adamski.txt",
+              "linijki": [
+                "Panie Tomaszu, 50 świec na prezenty firmowe przygotujemy do [TERMIN?].",
+                "Termin potwierdzę w osobnym mailu."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten sam skill, inna droga. Nazwa daje pewność, zwykła prośba działa, gdy pasuje do opisu.",
+              "fakt": "claude-dopasowuje-zadanie-do-opisow-skilli"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

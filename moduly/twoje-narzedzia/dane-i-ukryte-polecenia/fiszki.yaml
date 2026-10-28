@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Czym jest ukryte polecenie (prompt injection)?"
+    tyl: "Zdaniem wstawionym do cudzego tekstu, które próbuje zmienić instrukcje Claude albo nimi pokierować."
+    fakt: ukryte-polecenie-definicja
+
+  - przod: "Czy w trybie Manual (ręczny) Claude pyta o zgodę, zanim przeczyta plik w folderze?"
+    tyl: "Nie. Bez pytania idą tylko odczyty."
+    fakt: tryb-manual-bez-pytania-tylko-odczyt
+
+  - przod: "Co w trybie Manual dzieje się, gdy Claude chce coś wysłać przez sieć?"
+    tyl: "Większość narzędzi, które wysyłają zapytania do sieci, domyślnie czeka na Twoją zgodę."
+    fakt: manual-zadania-sieciowe-wymagaja-zgody
+
+  - przod: "Co widzisz w aplikacji w trybie Manual, zanim Claude zmieni plik?"
+    tyl: "Podgląd zmiany. Przyjmujesz ją albo odrzucasz."
+    fakt: aplikacja-manual-podglad-i-przyciski
+
+  - przod: "Czy zgoda na jedną cudzą stronę obejmuje inną stronę?"
+    tyl: "Nie. Każda strona potrzebuje osobnej zgody, także subdomeny."
+    fakt: aplikacja-browser-osobna-zgoda-dla-kazdej-strony
+
+  - przod: "Co robi przycisk Allow once (zezwól raz) na karcie zgody przeglądarki?"
+    tyl: "Zezwala na to jedno działanie i niczego nie zapisuje."
+    fakt: aplikacja-browser-allow-once-bez-zapisu

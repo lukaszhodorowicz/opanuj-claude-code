@@ -1,0 +1,387 @@
+<!doctype html>
+<!-- Rysunek R1 „Drabina plików CLAUDE.md” do lekcji zasady-wspolne-i-klienta: trzy pliki CLAUDE.md z różnych folderów składają się w jedną listę zasad na początku rozmowy w folderze klientki, a plik z folderu obok nie wchodzi. Źródło PNG obrazy/drabina-claude-md.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Drabina plików CLAUDE.md</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku „Gdzie jest strona” (lekcja strona-oferty) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --wygaszony: #94a3b8;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        padding: 22px 16px 24px;
+      }
+      .uklad {
+        display: grid;
+        grid-template-columns: 330px 1fr 350px;
+        align-items: start;
+      }
+      .lewa {
+        grid-column: 1;
+      }
+      .prawa {
+        grid-column: 3;
+      }
+
+      /* ===== Karta pliku (lewa strona) ===== */
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 52px;
+        padding: 8px 12px;
+        background: var(--biel);
+        border: 2px solid #d3d6c8;
+        border-radius: 11px;
+        font: 700 21px/1.2 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .karta.kreski {
+        border: 2.5px dashed var(--granat);
+        background: transparent;
+      }
+      .opis {
+        margin: 6px 0 0 4px;
+        color: var(--grafit);
+        font: 700 21px/1.3 var(--sans);
+        letter-spacing: -0.01em;
+      }
+
+      /* ===== Teczka folderu: zakładka, nazwa, karty w środku ===== */
+      .teczka {
+        position: relative;
+        margin-top: 12px;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 3px 14px 14px 14px;
+        padding: 8px 10px 10px;
+      }
+      .teczka::before {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: -12px;
+        width: 56px;
+        height: 12px;
+        background: inherit;
+        border: 2px solid var(--granat);
+        border-bottom: 0;
+        border-radius: 8px 8px 0 0;
+      }
+      .teczka-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 8px 2px;
+        font: 700 21px/1.2 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      .teczka-glowa svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .teczka .karta + .karta {
+        margin-top: 8px;
+      }
+      .teczka .opis {
+        margin-bottom: 0;
+      }
+      /* plik osobisty poza drzewem folderów: osobny pas oddzielony kreską */
+      .osobisty {
+        padding-bottom: 18px;
+        border-bottom: 2px solid var(--wygaszony);
+      }
+      .klienci {
+        margin-top: 34px;
+      }
+      /* folder rozmowy: limonkowy pierścień i pigułka jak znacznik w ćwiczeniu */
+      .teczka.rozmowa {
+        margin-top: 22px;
+        padding-top: 26px;
+        background: var(--papier-2);
+        box-shadow: 0 0 0 4px var(--limonka);
+      }
+      .teczka.rozmowa::before {
+        box-shadow: 0 -4px 0 0 var(--limonka);
+      }
+      .pigulka {
+        position: absolute;
+        right: 12px;
+        top: -17px;
+        background: var(--granat);
+        color: var(--limonka);
+        border-radius: 999px;
+        padding: 5px 12px 6px;
+        font: 800 21px/1 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      /* folder obok: wyszarzony */
+      .teczka.obok {
+        margin-top: 24px;
+        background: var(--papier);
+        border-color: var(--wygaszony);
+        color: var(--grafit);
+      }
+      .teczka.obok::before {
+        border-color: var(--wygaszony);
+      }
+      .teczka.obok .karta {
+        background: var(--papier);
+        border-color: var(--kreska);
+      }
+
+      /* ===== Kartka po prawej: jedna lista zasad ===== */
+      .kartka {
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 16px;
+        padding: 14px 14px 16px;
+      }
+      .kartka h2 {
+        margin: 0 0 4px;
+        font: 800 25px/1.18 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .blok {
+        margin-top: 12px;
+        padding: 10px 12px 12px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+      }
+      .blok.kreski {
+        background: transparent;
+        border: 2.5px dashed var(--granat);
+      }
+      .blok-glowa {
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+        font: 700 21px/1.2 var(--mono);
+        letter-spacing: -0.03em;
+      }
+      .zasada {
+        margin: 6px 0 0;
+        padding-left: 1.3em;
+        text-indent: -1.3em;
+        font: 500 21px/1.3 var(--mono);
+        letter-spacing: -0.03em;
+      }
+      .blok .opis {
+        margin: 4px 0 0;
+      }
+
+      /* ===== Zdanie pod rysunkiem ===== */
+      .podpis {
+        margin: 26px 0 0;
+        font: 800 26px/1.25 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .podpis mark {
+        background: var(--zakreslacz);
+        color: var(--granat);
+        padding: 0 3px;
+        margin-right: -4px;
+        border-radius: 6px;
+        box-shadow: inset 0 -5px 0 var(--limonka);
+      }
+
+      /* ===== Strzałki (rysowane po ułożeniu) ===== */
+      .strzalki {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+      }
+      .nie-wchodzi {
+        position: absolute;
+        color: var(--grafit);
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Drzewo folderu Klienci po lewej i jedna lista zasad po prawej. Plik osobisty ~/.claude/CLAUDE.md, poza folderem Klienci, plik CLAUDE.md z folderu Klienci i plik CLAUDE.md z folderu Pracownia-Lipa, folderu rozmowy, trafiają do jednej kartki Co Claude dostaje na początku rozmowy, w tej kolejności. Plik z folderu Kwiaciarnia-Malwa nie wchodzi: folder obok. Pliki łączą się w jedną listę zasad, od najszerszego do folderu rozmowy. Żaden nie zastępuje drugiego."
+    >
+      <div class="uklad">
+        <div class="lewa">
+          <div class="osobisty" id="l1">
+            <div class="karta kreski" id="k1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              ~/.claude/CLAUDE.md
+            </div>
+            <p class="opis">Plik osobisty leży poza folderem Klienci i działa we wszystkich projektach.</p>
+          </div>
+
+          <div class="teczka klienci" id="l2">
+            <div class="teczka-glowa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              Klienci
+            </div>
+            <div class="karta" id="k2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              CLAUDE.md
+            </div>
+            <p class="opis">Ten plik ma zasady wspólne.</p>
+
+            <div class="teczka rozmowa" id="l3">
+              <span class="pigulka">Folder rozmowy</span>
+              <div class="teczka-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                Pracownia-Lipa
+              </div>
+              <div class="karta" id="k3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                CLAUDE.md
+              </div>
+              <p class="opis">Ten plik ma zasady klientki.</p>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                premiera-kolekcji.txt
+              </div>
+            </div>
+
+            <div class="teczka obok" id="l4">
+              <div class="teczka-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                Kwiaciarnia-Malwa
+              </div>
+              <div class="karta" id="k4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                CLAUDE.md
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prawa">
+          <div class="kartka" id="kartka">
+            <h2>Co Claude dostaje na początku rozmowy</h2>
+            <div class="blok kreski" id="b1">
+              <div class="blok-glowa">~/.claude/CLAUDE.md</div>
+              <p class="opis">Claude czyta go przed plikami projektu.</p>
+            </div>
+            <div class="blok" id="b2">
+              <div class="blok-glowa">Klienci/CLAUDE.md</div>
+              <p class="zasada">- Bez wykrzykników.</p>
+              <p class="zasada">- Na końcu dopisz pytanie do klienta o&nbsp;akceptację.</p>
+            </div>
+            <div class="blok" id="b3">
+              <div class="blok-glowa">Pracownia-Lipa/CLAUDE.md</div>
+              <p class="zasada">- Pisz do czytelniczek na Ty.</p>
+              <p class="zasada">- Nie używaj słowa „tani”.</p>
+              <p class="zasada">- Podpis: Ola.</p>
+              <p class="opis">Claude czyta go ostatni.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="podpis">
+        Pliki łączą się w <mark>jedną listę zasad</mark>: od pliku osobistego do pliku z folderu rozmowy. Żaden plik nie zastępuje innych.
+      </p>
+
+      <svg class="strzalki" id="strzalki" aria-hidden="true"></svg>
+      <span class="nie-wchodzi" id="nie-wchodzi">Ten plik do listy nie wchodzi.</span>
+    </div>
+
+    <script>
+      // Po załadowaniu fontów: wyrównuje pary (karta z lewej, blok z prawej) do jednej wysokości i rysuje strzałki poziomo.
+      document.fonts.ready.then(() => {
+        const rys = document.querySelector(".rys");
+        const r = (el) => {
+          const a = el.getBoundingClientRect();
+          const b = rys.getBoundingClientRect();
+          return { x: a.left - b.left, y: a.top - b.top, w: a.width, h: a.height, p: a.right - b.left, d: a.bottom - b.top };
+        };
+        const id = (n) => document.getElementById(n);
+        const dodaj = (el, px) => {
+          el.style.marginTop = parseFloat(getComputedStyle(el).marginTop) + px + "px";
+        };
+        // nagłówek bloku i karta pliku na tej samej wysokości
+        for (const [lewy, karta, blok] of [["l1", "k1", "b1"], ["l2", "k2", "b2"], ["l3", "k3", "b3"]]) {
+          const d = r(id(karta)).y - r(id(blok)).y;
+          if (d > 0) dodaj(id(blok), d);
+          else if (d < 0) dodaj(id(lewy), -d);
+        }
+        // folder obok: karta poniżej kartki, żeby przekreślona strzałka szła pod nią
+        const pod = r(id("kartka")).d + 10 - r(id("k4")).y;
+        if (pod > 0) dodaj(id("l4"), pod);
+
+        const svg = id("strzalki");
+        const G = "#0e1422";
+        let s = "";
+        for (const [karta, blok] of [["k1", "b1"], ["k2", "b2"], ["k3", "b3"]]) {
+          const k = r(id(karta));
+          const b = r(id(blok));
+          const y = k.y + k.h / 2;
+          const x1 = k.p + 8;
+          const x2 = b.x - 8;
+          s += `<path d="M${x1} ${y} H${x2}" fill="none" stroke="${G}" stroke-width="4" stroke-linecap="round"/>`;
+          s += `<path d="M${x2 - 12} ${y - 11} L${x2} ${y} L${x2 - 12} ${y + 11}" fill="none" stroke="${G}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+        }
+        // przekreślona strzałka od karty kwiaciarni
+        const k = r(id("k4"));
+        const y = k.y + k.h / 2;
+        const x1 = k.p + 8;
+        const x2 = r(id("kartka")).x + 34;
+        const xs = (x1 + x2) / 2;
+        const S = "#475569";
+        s += `<path d="M${x1} ${y} H${x2}" fill="none" stroke="${S}" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 9"/>`;
+        s += `<path d="M${x2 - 12} ${y - 11} L${x2} ${y} L${x2 - 12} ${y + 11}" fill="none" stroke="${S}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+        s += `<circle cx="${xs}" cy="${y}" r="17" fill="#f6f6f1" stroke="${S}" stroke-width="3.5"/>`;
+        s += `<path d="M${xs - 7} ${y - 7} L${xs + 7} ${y + 7} M${xs + 7} ${y - 7} L${xs - 7} ${y + 7}" stroke="${S}" stroke-width="3.5" stroke-linecap="round"/>`;
+        svg.innerHTML = s;
+        const etykieta = id("nie-wchodzi");
+        etykieta.style.left = x2 + 14 + "px";
+        etykieta.style.top = y - etykieta.offsetHeight / 2 + "px";
+        document.body.dataset.wys = Math.ceil(rys.getBoundingClientRect().height);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,244 @@
+{
+  "lekcja": "zasady-wspolne-i-klienta",
+  "folder_glowny": "Klienci",
+  "folder_startowy": [
+    "CLAUDE.md",
+    "Pracownia-Lipa/CLAUDE.md",
+    "Pracownia-Lipa/premiera-kolekcji.txt",
+    "Kwiaciarnia-Malwa/CLAUDE.md"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Post w folderze klientki",
+      "opis": "Nowa rozmowa w folderze Pracownia-Lipa, który leży w folderze Klienci. Prośba o post jest już wysłana.",
+      "nauczyciel_start": "Rozmowa jest w folderze Pracownia-Lipa, prośba wysłana. Folder Klienci nad nim ma własny plik CLAUDE.md. Kliknij polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Pracownia-Lipa",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Napisz post na Instagram o premierze opisanej w @premiera-kolekcji.txt. Zapisz go w osobnym pliku.",
+            "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "post-premiera.txt"
+      ],
+      "drogi": [
+        {
+          "id": "post",
+          "etykieta": "Claude zaczyna pracę",
+          "opis": "Claude pisze post. O zasadach prośba nie mówi nic.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta pliki CLAUDE.md z folderu rozmowy i z folderów nad nim. Patrz na folder pod oknem.",
+              "fakt": "claude-md-folder-roboczy-i-foldery-nad-nim"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md",
+                "Pracownia-Lipa/CLAUDE.md",
+                "Pracownia-Lipa/premiera-kolekcji.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem post w pliku post-premiera.txt.",
+              "plik": "post-premiera.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik CLAUDE.md z folderu Kwiaciarnia-Malwa nie zaświecił. Kliknij ścieżkę post-premiera.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "post-premiera.txt",
+              "linijki": [
+                "Nowa kolekcja Pracowni Lipa już w piątek.",
+                "Swetry z wełny robione ręcznie, w czterech kolorach, od 189 zł.",
+                "Zajrzyj do sklepu i wybierz swój.",
+                "Ola",
+                "Do akceptacji: czy publikujemy w piątek rano?"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Bez wykrzykników i z pytaniem o akceptację: tak każą zasady wspólne. Na Ty i z podpisem Ola: tak każą zasady klientki.",
+              "fakt": "claude-md-pliki-lacza-sie-nie-nadpisuja"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Rozmowa w folderze Klienci",
+      "opis": "Nowa rozmowa w folderze Klienci, nad folderem klientki. Prośba z danymi kolekcji jest już wysłana.",
+      "nauczyciel_start": "To nowa rozmowa w folderze Klienci, nad folderem klientki. Prośba z danymi jest wysłana. Kliknij pierwsze polecenie nad oknem, potem drugie.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klienci",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Napisz post na Instagram o premierze kolekcji Pracowni Lipa: swetry z wełny, cztery kolory, od 189 zł, od piątku. Zapisz go w osobnym pliku.",
+            "fakt": "aplikacja-wpisz-zadanie-i-nacisnij-enter-zeby-zaczac"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "post-ogolny.txt",
+        "post-lipa.txt"
+      ],
+      "drogi": [
+        {
+          "id": "bez-pliku",
+          "etykieta": "Dane w prośbie",
+          "opis": "Claude pisze post z danych z prośby. Plików z folderu Pracownia-Lipa nie czyta.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta plik CLAUDE.md z folderu Klienci. Patrz, czy zaświeci też plik z folderu klientki.",
+              "fakt": "claude-md-folder-roboczy-i-foldery-nad-nim"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem post w pliku post-ogolny.txt.",
+              "plik": "post-ogolny.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik CLAUDE.md klientki nie zaświecił. Kliknij ścieżkę post-ogolny.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "post-ogolny.txt",
+              "linijki": [
+                "Nowa kolekcja Pracowni Lipa już w piątek.",
+                "Ciepłe, tanie swetry z wełny, w czterech kolorach, od 189 zł.",
+                "Zapraszamy Państwa do sklepu.",
+                "Do akceptacji: czy publikujemy w piątek rano?"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Bez wykrzykników, z pytaniem o akceptację. Ale nie na Ty, bez podpisu Ola i z zakazanym słowem „tanie”.",
+              "fakt": "claude-md-podfolder-wczytany-na-zadanie"
+            }
+          ]
+        },
+        {
+          "id": "z-plikiem",
+          "etykieta": "Plik z folderu klientki",
+          "opis": "Ten sam początek. Potem w tej samej rozmowie prosisz, żeby Claude przeczytał plik z folderu Pracownia-Lipa.",
+          "kroki": [
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem post w pliku post-ogolny.txt.",
+              "plik": "post-ogolny.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To ten sam post co przed chwilą. Teraz prosisz o przeczytanie pliku z folderu klientki. Patrz na folder Pracownia-Lipa.",
+              "fakt": "claude-md-podfolder-popros-o-odczyt-pliku"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj premiera-kolekcji.txt z folderu Pracownia-Lipa i napisz z niego nowy post. Zapisz go jako post-lipa.txt.",
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600,
+              "czyta": [
+                "Pracownia-Lipa/premiera-kolekcji.txt"
+              ]
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "Pracownia-Lipa/CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude przeczytał plik z folderu klientki. Wtedy wczytał też jej CLAUDE.md.",
+              "fakt": "claude-md-podfolder-wczytany-na-zadanie"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem plik z folderu Pracownia-Lipa. Post zapisałem w pliku post-lipa.txt.",
+              "plik": "post-lipa.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę post-lipa.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "post-lipa.txt",
+              "linijki": [
+                "Nowa kolekcja Pracowni Lipa już w piątek.",
+                "Swetry z wełny robione ręcznie, w czterech kolorach, od 189 zł.",
+                "Zajrzyj do sklepu i wybierz swój.",
+                "Ola",
+                "Do akceptacji: czy publikujemy w piątek rano?"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Teraz post jest na Ty i ma podpis Ola. Zasady klientki doszły, gdy Claude przeczytał plik z jej folderu.",
+              "fakt": "claude-md-podfolder-wczytany-na-zadanie"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

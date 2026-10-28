@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Kto może zostawiać komentarze na stronie artefaktu?"
+    tyl: "Osoby, którym udostępniasz stronę w swojej organizacji."
+    fakt: artefakt-komentarze-w-organizacji-claude-czyta
+
+  - przod: "Jak edytor wysyła komentarz do Claude?"
+    tyl: "W wątku na stronie, przez Send to Claude albo wzmianką @claude w komentarzu. Tak uaktywnia wątek."
+    fakt: artefakt-komentarz-send-to-claude-albo-wzmianka
+
+  - przod: "Czy klient, który ma tylko publiczny link, widzi komentarze na stronie?"
+    tyl: "Nie. Nie widzi ich i nie może dodać nowych."
+    fakt: artefakt-publiczny-link-bez-komentarzy
+
+  - przod: "Czyje konto pobiera dane z konektora, gdy ktoś otwiera stronę z danymi na żywo?"
+    tyl: "Konto osoby, która ogląda stronę, a nie konto autora."
+    fakt: artefakt-konektory-na-koncie-ogladajacego
+
+  - przod: "Dlaczego zwykły link do pobrania na stronie artefaktu nie zadziała?"
+    tyl: "Podgląd artefaktu na claude.ai blokuje każde pobieranie, które strona zaczyna sama. Plik da się zapisać przez przycisk, który Claude zbuduje z możliwością pobierania."
+    fakt: artefakt-zwykly-link-pobrania-zablokowany
+
+  - przod: "Co dostaje Claude, gdy czyta stronę, którą ktoś Ci udostępnił?"
+    tyl: "Streszczenie tego, o co pytał. Streszczenie zgłasza polecenia wpisane w stronę, zamiast je przekazać."
+    fakt: artefakt-cudzy-streszczenie-polecenia-zglaszane

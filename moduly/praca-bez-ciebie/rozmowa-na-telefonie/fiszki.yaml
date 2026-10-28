@@ -1,0 +1,20 @@
+fiszki:
+  - przod: "Gdzie pracuje Claude, gdy piszesz z telefonu do sesji połączonej przez Remote Control?"
+    tyl: "Na Twoim komputerze. Tam wykonuje polecenia i czyta pliki."
+    fakt: remote-control-claude-pracuje-na-komputerze
+
+  - przod: "Co robi telefon w sesji Remote Control?"
+    tyl: "Tylko łączy się z sesją na komputerze. Dlatego komputer musi być cały czas włączony."
+    fakt: remote-control-nie-sesja-w-chmurze
+
+  - przod: "Czy wiadomość wysłana z telefonu trafia do tej samej rozmowy co wiadomości z komputera?"
+    tyl: "Tak. Rozmowa jest zsynchronizowana na wszystkich połączonych urządzeniach."
+    fakt: remote-control-rozmowa-na-wszystkich-urzadzeniach
+
+  - przod: "Gdzie widać sesję z aplikacji na komputer, gdy połączy ją Remote Control?"
+    tyl: "Na liście sesji na claude.ai/code i w aplikacjach Claude na urządzeniach zalogowanych na Twoje konto."
+    fakt: remote-control-aplikacja-sesja-na-innych-urzadzeniach
+
+  - przod: "Gdzie w aplikacji na komputer sprawdzisz, czy sesja jest połączona przez Remote Control?"
+    tyl: "Na przełączniku Remote Control w karcie Environment, w panelu szczegółów sesji."
+    fakt: remote-control-aplikacja-stan-w-karcie-environment

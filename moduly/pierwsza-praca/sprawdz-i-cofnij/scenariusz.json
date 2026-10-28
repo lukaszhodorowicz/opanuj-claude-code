@@ -1,0 +1,227 @@
+{
+  "lekcja": "sprawdz-i-cofnij",
+  "folder_startowy": [
+    "oferta-slub.txt",
+    "cennik-2026.txt",
+    "mail-od-klientki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zobacz, co Claude zmienił w ofercie",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Twoich plików nie zmieni. Klikaj polecenia nad oknem albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Przełącznik pod polem wiadomości pokazuje Accept edits. Kliknij pierwsze polecenie i patrz na pliki pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klientka-Nowak-kopia",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "etykieta": "Poproś o aktualizację oferty",
+          "opis": "Claude przeczyta cennik i mail, a potem zmieni ofertę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zaktualizuj ofertę dla pani Nowak według plików cennik-2026.txt i mail-od-klientki.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": [
+                "cennik-2026.txt",
+                "mail-od-klientki.txt",
+                "oferta-slub.txt"
+              ],
+              "fakt": "aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu"
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "oferta-slub.txt",
+                  "linijki": [
+                    {
+                      "tekst": "Oferta: reportaż ślubny dla Anny Nowak"
+                    },
+                    {
+                      "tekst": "Termin: 12 września 2026"
+                    },
+                    {
+                      "tekst": "Pakiet „Cały dzień”: 5 500 zł",
+                      "zmiana": "usunieta"
+                    },
+                    {
+                      "tekst": "Sesja plenerowa: 900 zł",
+                      "zmiana": "usunieta"
+                    },
+                    {
+                      "tekst": "Rabat 10% dla stałych klientów",
+                      "zmiana": "usunieta"
+                    },
+                    {
+                      "tekst": "Pakiet „Cały dzień”: 6 000 zł",
+                      "zmiana": "dodana"
+                    },
+                    {
+                      "tekst": "Sesja plenerowa: 1 000 zł",
+                      "zmiana": "dodana"
+                    },
+                    {
+                      "tekst": "Zaliczka: 30% przy rezerwacji"
+                    }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-auto-i-accept-edits-licznik-do-przegladu-w-widoku-zmian"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zmieniłem ceny w pliku oferta-slub.txt według cennika 2026. Usunąłem też linijkę z rabatem, bo w cenniku go nie ma.",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude nie pytał o zgodę: działa tryb Accept edits. Na karcie Changes obok rozmowy pojawiły się liczby +2 -3.",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            }
+          ]
+        },
+        {
+          "etykieta": "Otwórz widok zmian",
+          "opis": "Klikasz liczby +2 -3 na karcie Changes.",
+          "klik": "licznik",
+          "fakt": "aplikacja-klikniecie-wskaznika-otwiera-widok-zmian",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Trzy linijki zniknęły, dwie doszły. Wśród tych, które zniknęły, jest rabat. Nikt nie prosił o jego usunięcie.",
+              "fakt": "aplikacja-widok-zmian-przeglad-modyfikacji-plik-po-pliku"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Popraw linijkę albo cofnij całą zmianę",
+      "opis": "Ta sama rozmowa po zmianie oferty. Tym razem sprawdzasz, co jest w samym pliku. Przejdź obie drogi po kolei i porównaj, co zostaje w pliku po każdej z nich.",
+      "nauczyciel_start": "Nowe ceny się zgadzają, ale rabat musi wrócić. Kliknij pierwsze polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klientka-Nowak-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zaktualizuj ofertę dla pani Nowak według plików cennik-2026.txt i mail-od-klientki.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zmieniłem ceny w pliku oferta-slub.txt według cennika 2026. Usunąłem też linijkę z rabatem, bo w cenniku go nie ma.",
+            "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "popraw",
+          "etykieta": "Popraw jedną linijkę",
+          "opis": "Prosisz Claude, żeby przywrócił tylko rabat. Nowe ceny zostają.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przywróć rabat 10% dla stałych klientów. Nowe ceny zostaw.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przywróciłem rabat 10% w pliku oferta-slub.txt. Nowe ceny zostały bez zmian.",
+              "plik": "oferta-slub.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę pliku oferta-slub.txt w odpowiedzi Claude. Otworzysz plik i sprawdzisz, co w nim jest.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-slub.txt",
+              "linijki": [
+                "Oferta: reportaż ślubny dla Anny Nowak",
+                "Termin: 12 września 2026",
+                "Pakiet „Cały dzień”: 6 000 zł",
+                "Sesja plenerowa: 1 000 zł",
+                "Rabat 10% dla stałych klientów",
+                "Zaliczka: 30% przy rezerwacji"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rabat wrócił, a ceny z cennika 2026 zostały. Zmieniła się tylko jedna linijka. Teraz kliknij drugie polecenie."
+            }
+          ]
+        },
+        {
+          "id": "cofnij",
+          "etykieta": "Cofnij całą zmianę",
+          "opis": "Prosisz Claude, żeby cofnął wszystkie swoje zmiany w ofercie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Cofnij wszystkie zmiany w ofercie.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Cofnąłem zmiany w pliku oferta-slub.txt. Oferta wygląda tak jak przed moimi zmianami.",
+              "plik": "oferta-slub.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę pliku oferta-slub.txt w odpowiedzi Claude. Otworzysz plik i sprawdzisz, co w nim jest.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-slub.txt",
+              "linijki": [
+                "Oferta: reportaż ślubny dla Anny Nowak",
+                "Termin: 12 września 2026",
+                "Pakiet „Cały dzień”: 5 500 zł",
+                "Sesja plenerowa: 900 zł",
+                "Rabat 10% dla stałych klientów",
+                "Zaliczka: 30% przy rezerwacji"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rabat wrócił, ale razem z nim wróciły stare ceny. Cofnięcie całości zabrało też dobre zmiany."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

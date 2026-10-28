@@ -1,0 +1,325 @@
+{
+  "lekcja": "nowa-czy-ta-sama",
+  "folder_startowy": [
+    "cennik-uslug.txt",
+    "oferta-wzor.txt",
+    "zapytanie-galeria.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Nowa rozmowa czy stara",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. W pasku bocznym są trzy rozmowy. Przejdź jedną drogę, potem drugą, i porównaj obie oferty.",
+      "nauczyciel_start": "Wczoraj padło ustalenie o rabacie dla galerii. Sprawdź, która rozmowa je zna. Wybierz drogę nad oknem i patrz na pasek boczny.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferty-sprzatanie",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Czy w cennik-uslug.txt są już stawki na 2027?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Tak. cennik-uslug.txt ma stawki na 2027 dla biur i galerii handlowych."
+          }
+        ],
+        "sesje": [
+          {
+            "id": "galeria",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Galeria Pasaż chce umowy na cały rok. Jaki rabat możemy dać?"
+              },
+              {
+                "kto": "claude",
+                "tekst": "Przy umowie rocznej proponuję 8% od cennika. Przy 4 000 m² to 7 728 zł zamiast 8 400 zł miesięcznie."
+              },
+              {
+                "kto": "ty",
+                "tekst": "Dobrze, dajemy 8% za umowę roczną. Ofertę zrobimy jutro."
+              }
+            ]
+          },
+          {
+            "id": "stare-zapytania",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Odpisz na zapytanie hotelu Mewa."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Odpowiedź dla hotelu Mewa jest gotowa."
+              }
+            ]
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "oferta-galeria.txt"
+      ],
+      "drogi": [
+        {
+          "id": "nowa",
+          "etykieta": "Zacznij nową rozmowę",
+          "opis": "Kliknij + New i poproś o ofertę z ustalonym rabatem.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "nowa-rozmowa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To nowa rozmowa. Sprawdź folder w rzędzie pod polem wiadomości: tu jest Oferty-sprzatanie.",
+              "fakt": "aplikacja-rzad-pod-polem-srodowisko-folder-tryb-model"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Dokończ ofertę dla Galerii Pasaż z rabatem, który ustaliliśmy.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "cennik-uslug.txt",
+                "oferta-wzor.txt",
+                "zapytanie-galeria.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem ofertę w oferta-galeria.txt. Rabatu nie wpisałem: w plikach go nie ma, a w tej rozmowie nic o nim nie ustalaliśmy. Jaki rabat wpisać?",
+              "plik": "oferta-galeria.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-galeria.txt",
+              "linijki": [
+                "Oferta: sprzątanie Galerii Pasaż",
+                "Zakres: 4 000 m², sprzątanie codzienne po zamknięciu",
+                "Cena miesięczna: 8 400 zł (2,10 zł za m²)",
+                "Rabat: do ustalenia",
+                "Okres umowy: 12 miesięcy od stycznia 2027"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W nowej rozmowie Claude przeczytał pliki z folderu Oferty-sprzatanie. Rabatu z innej rozmowy nie zna.",
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            }
+          ]
+        },
+        {
+          "id": "stara",
+          "etykieta": "Wróć do starej rozmowy",
+          "opis": "Kliknij w pasku bocznym rozmowę o galerii i poproś o to samo.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "galeria"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To wczorajsza rozmowa. Ustalenie o rabacie jest w jej historii.",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Dokończ ofertę dla Galerii Pasaż z rabatem, który ustaliliśmy.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "cennik-uslug.txt",
+                "oferta-wzor.txt",
+                "zapytanie-galeria.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem ofertę w oferta-galeria.txt, z rabatem 8% za umowę roczną.",
+              "plik": "oferta-galeria.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-galeria.txt",
+              "linijki": [
+                "Oferta: sprzątanie Galerii Pasaż",
+                "Zakres: 4 000 m², sprzątanie codzienne po zamknięciu",
+                "Cena miesięczna: 8 400 zł (2,10 zł za m²)",
+                "Rabat 8% za umowę roczną: 7 728 zł miesięcznie",
+                "Okres umowy: 12 miesięcy od stycznia 2027"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Stara rozmowa ma ustalenie w historii. Rabat trafił do oferty.",
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Nazwij i odłóż do archiwum",
+      "opis": "Ten sam pasek boczny z trzema rozmowami. Przejdź jedną drogę, potem drugą. Nazwa pojawi się w pasku tytułu, a rozmowa o hotelu Mewa zniknie z listy i znajdziesz ją w zakładce Archived.",
+      "nauczyciel_start": "Uporządkuj listę rozmów. Wybierz drogę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferty-sprzatanie",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Czy w cennik-uslug.txt są już stawki na 2027?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Tak. cennik-uslug.txt ma stawki na 2027 dla biur i galerii handlowych."
+          }
+        ],
+        "sesje": [
+          {
+            "id": "galeria",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Galeria Pasaż chce umowy na cały rok. Jaki rabat możemy dać?"
+              },
+              {
+                "kto": "claude",
+                "tekst": "Przy umowie rocznej proponuję 8% od cennika. Przy 4 000 m² to 7 728 zł zamiast 8 400 zł miesięcznie."
+              },
+              {
+                "kto": "ty",
+                "tekst": "Dobrze, dajemy 8% za umowę roczną. Ofertę zrobimy jutro."
+              }
+            ]
+          },
+          {
+            "id": "stare-zapytania",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Odpisz na zapytanie hotelu Mewa."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Odpowiedź dla hotelu Mewa jest gotowa."
+              }
+            ]
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "nazwa",
+          "etykieta": "Nadaj nazwę rozmowie o galerii",
+          "opis": "Poproś Claude, żeby nazwał rozmowę o galerii, potem ją otwórz.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Nazwij rozmowę o rabacie dla Galerii Pasaż: Oferta Galeria Pasaż 2027.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zmieniłem nazwę rozmowy o rabacie dla Galerii Pasaż na Oferta Galeria Pasaż 2027.",
+              "nazwa_sesji": {
+                "sesja": "galeria",
+                "nazwa": "Oferta Galeria Pasaż 2027"
+              },
+              "fakt": "aplikacja-popros-claude-o-nazwe-lub-archiwum"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nazwa należy do tamtej rozmowy. Otwórz ją w pasku bocznym.",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "galeria"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nazwa jest teraz w pasku tytułu.",
+              "fakt": "aplikacja-zmiana-nazwy-klik-tytulu"
+            }
+          ]
+        },
+        {
+          "id": "archiwum",
+          "etykieta": "Zarchiwizuj rozmowę o hotelu Mewa",
+          "opis": "Odłóż rozmowę o hotelu Mewa do archiwum i znajdź ją.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "menu-sesji",
+              "sesja": "stare-zapytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu tej rozmowy w pasku bocznym.",
+              "fakt": "aplikacja-archiwizacja-z-menu-w-pasku-bocznym"
+            },
+            {
+              "typ": "klik",
+              "cel": "archive"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rozmowa zniknęła z listy. Nie jest skasowana, trafiła do zarchiwizowanych.",
+              "fakt": "aplikacja-archiwizacja-z-menu-w-pasku-bocznym"
+            },
+            {
+              "typ": "klik",
+              "cel": "group-and-sort"
+            },
+            {
+              "typ": "klik",
+              "cel": "view-all"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zarchiwizowane rozmowy są w zakładce Archived.",
+              "fakt": "aplikacja-zarchiwizowane-group-and-sort-view-all"
+            },
+            {
+              "typ": "klik",
+              "cel": "archived"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu czeka rozmowa o hotelu Mewa. Na liście w pasku bocznym jej nie ma.",
+              "fakt": "aplikacja-zarchiwizowane-group-and-sort-view-all"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

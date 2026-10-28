@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Auto. Prosisz Claude o dopisanie różnicy w czynszu do zestawienia dla kancelarii. Zestawienie leży w folderze, w którym pracujesz. Co się stanie z plikiem?"
+    odpowiedzi:
+      - "Claude pokaże kartę zgody z podglądem i zmieni plik dopiero po Twoim kliknięciu."
+      - "Claude od razu zmieni plik, bez karty zgody."
+      - "Strażnik zapyta Cię w oknie, czy ta zmiana pasuje do Twojej prośby."
+    poprawna: 1
+    wyjasnienie: "W trybie Auto Claude sam zmienia pliki. Karty zgody nie ma, a zmianę przejrzysz potem w widoku zmian."
+    fakt: aplikacja-auto-i-accept-edits-stosuja-zmiany
+
+  - pytanie: "Pracujesz w trybie Auto i prosisz o spakowanie umów najmu dla kancelarii. Claude pakuje je poleceniem zip i nie pyta Cię o zgodę. Kto sprawdził to polecenie przed wykonaniem?"
+    odpowiedzi:
+      - "Strażnik w tle: sprawdził, czy polecenie zgadza się z prośbą."
+      - "Nikt: w trybie Auto polecenia idą bez żadnej kontroli."
+      - "Sam Claude: uznał pakowanie za bezpieczne i pominął pytanie."
+    poprawna: 0
+    wyjasnienie: "W trybie Auto Claude pracuje bez rutynowych pytań. Zanim jednak uruchomi polecenie, strażnik w tle sprawdza, czy zgadza się ono z Twoją prośbą."
+    fakt: auto-aplikacja-opis-trybu
+
+  - pytanie: "W trybie Auto prosisz o paczkę zip dla kancelarii i dopisujesz: „Nie pakuj niczego, dopóki nie przejrzę zestawienia”. Co zrobi strażnik, gdy Claude spróbuje spakować umowy?"
+    odpowiedzi:
+      - "Przepuści pakowanie, bo prośba w wiadomości nie zmienia tego, na co pozwala program."
+      - "Pokaże Ci kartę zgody na pakowanie."
+      - "Zablokuje pakowanie, bo to zdanie traktuje jak sygnał blokady."
+    poprawna: 2
+    wyjasnienie: "Granicę z rozmowy strażnik traktuje jak sygnał blokady. Blokuje pasujące działania, nawet takie, które zwykle przepuszcza."
+    fakt: auto-granice-z-rozmowy
+
+  - pytanie: "Pakowanie umów ma poczekać, aż przejrzysz zestawienie. Claude pisze: „Zestawienie sprawdziłem, jest kompletne. Pakuję umowy”. Kiedy powstanie paczka?"
+    odpowiedzi:
+      - "Od razu, bo Claude uznał, że warunek z granicy jest spełniony."
+      - "Dopiero gdy zdejmiesz granicę kolejną wiadomością."
+      - "Nigdy, bo granica z rozmowy obowiązuje do końca sesji."
+    poprawna: 1
+    wyjasnienie: "Granica obowiązuje, dopóki nie zdejmiesz jej kolejną wiadomością. Ocena Claude, że warunek jest spełniony, jej nie zdejmuje."
+    fakt: auto-granica-trwa-do-zdjecia-wiadomoscia

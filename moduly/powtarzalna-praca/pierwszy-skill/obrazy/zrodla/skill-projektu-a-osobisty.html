@@ -1,0 +1,197 @@
+<!doctype html>
+<!-- Rysunek R3 „Skill projektu a skill osobisty” do lekcji pierwszy-skill: ten sam skill w dwóch miejscach na dysku i które rozmowy go wczytują. Źródło PNG obrazy/skill-projektu-a-osobisty.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Skill projektu a skill osobisty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku R1 modułu strona */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      svg {
+        display: block;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+
+      /* ===== Podpis na całą szerokość ===== */
+      .teza {
+        margin: 0 0 18px;
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        text-align: center;
+        font: 800 27px/1.2 var(--sans);
+        letter-spacing: -0.025em;
+      }
+
+      /* ===== Dwa pola ===== */
+      .pola {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+      }
+      .pole {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 16px 14px 18px;
+      }
+      .pole.ta {
+        background: var(--zakreslacz);
+        border-color: var(--granat);
+        box-shadow: inset 0 0 0 4px var(--limonka);
+      }
+      .pole h2 {
+        margin: 0 0 14px 4px;
+        font: 800 28px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+
+      /* teczka w teczce: wcięcie i kreska z lewej */
+      .teczka {
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 14px;
+        padding: 10px 10px 10px;
+      }
+      .teczka .teczka {
+        margin-top: 10px;
+        background: var(--biel);
+      }
+      .glowa {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 0 0 0 2px;
+        font: 700 20px/1.25 var(--mono);
+      }
+      .glowa.sans {
+        font: 700 21px/1.25 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .glowa svg {
+        width: 26px;
+        height: 26px;
+        flex: none;
+        margin-top: -1px;
+      }
+      .glowa span {
+        min-width: 0;
+      }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 50px;
+        margin-top: 10px;
+        padding: 0 10px;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 11px;
+        font: 700 21px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .podpis {
+        margin: 16px 4px 0;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Miejsce, w którym zapiszesz skill, decyduje, które rozmowy go wczytają. Skill projektu leży w folderze Klienci-maile, w .claude/skills/odpowiedz-klientowi/SKILL.md, i działa w rozmowach w tym folderze. Skill osobisty leży w Twoim folderze domowym, w ~/.claude/skills/odpowiedz-klientowi/SKILL.md, i działa we wszystkich Twoich projektach na tym komputerze."
+    >
+      <p class="teza">Miejsce, w którym zapiszesz skill, decyduje, które rozmowy go wczytają.</p>
+
+      <div class="pola">
+        <!-- Skill projektu -->
+        <div class="pole ta">
+          <h2>Skill projektu</h2>
+          <div class="teczka">
+            <div class="glowa sans">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              <span>Klienci-maile</span>
+            </div>
+            <div class="teczka">
+              <div class="glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                <span>.claude/skills/<br />odpowiedz-klientowi</span>
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                SKILL.md
+              </div>
+            </div>
+          </div>
+          <p class="podpis">Działa w rozmowach w tym folderze.</p>
+        </div>
+
+        <!-- Skill osobisty -->
+        <div class="pole">
+          <h2>Skill osobisty</h2>
+          <div class="teczka">
+            <div class="glowa sans">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              <span>Twój folder domowy</span>
+            </div>
+            <div class="teczka">
+              <div class="glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                <span>~/.claude/skills/<br />odpowiedz-klientowi</span>
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                SKILL.md
+              </div>
+            </div>
+          </div>
+          <p class="podpis">Działa we wszystkich Twoich projektach na tym komputerze.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

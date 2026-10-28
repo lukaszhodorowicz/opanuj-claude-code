@@ -1,0 +1,486 @@
+{
+  "lekcja": "tryb-planowania",
+  "folder_startowy": [
+    "cennik-uslug.txt",
+    "notatki-do-cennika.txt",
+    "logo.png"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Bez planu i z planem",
+      "opis": "Ćwiczenie w zakładce Code aplikacji Claude. Twoich plików nie zmieni. Tę samą prośbę wyślesz dwa razy: najpierw bez planu, potem z planem.",
+      "nauczyciel_start": "Kliknij „Bez planu” nad oknem i obejrzyj zmieniony plik. Potem kliknij „Z planem”.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Cennik",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "id": "bez-planu",
+          "etykieta": "Bez planu",
+          "opis": "Tryb Accept edits: Claude od razu zmienia plik.",
+          "tryb": "Accept edits",
+          "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode",
+          "etapy": [
+            {
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Podnieś ceny w cennik-uslug.txt o 10 % i dopisz usługę Audyt strony: 1 200 zł.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": ["cennik-uslug.txt"]
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Podniosłem cztery ceny o 10 % i dopisałem audyt. Plik cennik-uslug.txt zmieniony."
+                },
+                {
+                  "typ": "zmiana",
+                  "pliki": [
+                    {
+                      "plik": "cennik-uslug.txt",
+                      "linijki": [
+                        { "tekst": "Strona wizytówka: 3 000 zł", "zmiana": "usunieta" },
+                        { "tekst": "Strona wizytówka: 3 300 zł", "zmiana": "dodana" },
+                        { "tekst": "Sklep internetowy: 9 000 zł", "zmiana": "usunieta" },
+                        { "tekst": "Sklep internetowy: 9 900 zł", "zmiana": "dodana" },
+                        { "tekst": "Pakiet startowy (promocja do końca roku): 900 zł", "zmiana": "usunieta" },
+                        { "tekst": "Pakiet startowy (promocja do końca roku): 990 zł", "zmiana": "dodana" },
+                        { "tekst": "Konsultacja 30 min: 200 zł", "zmiana": "usunieta" },
+                        { "tekst": "Konsultacja 30 min: 220 zł", "zmiana": "dodana" },
+                        { "tekst": "Audyt strony: 1 200 zł", "zmiana": "dodana" }
+                      ]
+                    }
+                  ],
+                  "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Plik już się zmienił. Otwórz widok zmian i znajdź promocję.",
+                  "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode"
+                }
+              ]
+            },
+            {
+              "etykieta": "Otwórz widok zmian",
+              "opis": "Klikasz liczby +5 -4 na karcie Changes (zmiany). Zobaczysz, co zniknęło, a co doszło.",
+              "klik": "licznik",
+              "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes",
+              "kroki": [
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Cena promocyjna obiecana klientom też wzrosła: 990 zł zamiast 900 zł. Widzisz to po fakcie."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "z-planem",
+          "etykieta": "Z planem",
+          "opis": "Tryb Plan: Claude czyta cennik i proponuje plan.",
+          "tryb": "Plan",
+          "fakt": "plan-aplikacja-opis",
+          "etapy": [
+            {
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Podnieś ceny w cennik-uslug.txt o 10 % i dopisz usługę Audyt strony: 1 200 zł.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": ["cennik-uslug.txt"],
+                  "fakt": "plan-aplikacja-opis"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Przeczytałem cennik. Oto plan zmian.",
+                  "fakt": "plan-aplikacja-bez-zmian-w-plikach"
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Plik nietknięty. Kliknij Open plan (otwórz plan) i znajdź promocję w planie. Potem kliknij Accept and auto mode albo przyciskiem Revise… popraw plan.",
+                  "fakt": "aplikacja-open-plan-otwiera-panel"
+                },
+                {
+                  "typ": "plan",
+                  "tytul": "Nowe ceny w cennik-uslug.txt",
+                  "sekcje": [
+                    {
+                      "naglowek": "Podwyżka 10 %",
+                      "punkty": [
+                        "Strona wizytówka: 3 000 → 3 300 zł",
+                        "Sklep internetowy: 9 000 → 9 900 zł",
+                        "Pakiet startowy (promocja do końca roku): 900 → 990 zł",
+                        "Konsultacja 30 min: 200 → 220 zł"
+                      ]
+                    },
+                    {
+                      "naglowek": "Nowa pozycja",
+                      "punkty": ["Audyt strony: 1 200 zł"]
+                    }
+                  ],
+                  "przyciski": {
+                    "auto": {
+                      "kroki": [
+                        {
+                          "typ": "claude",
+                          "tekst": "Wykonuję plan.",
+                          "fakt": "aplikacja-plan-accept-and-auto-mode-claude-buduje"
+                        },
+                        {
+                          "typ": "zmiana",
+                          "pliki": [
+                            {
+                              "plik": "cennik-uslug.txt",
+                              "linijki": [
+                                { "tekst": "Strona wizytówka: 3 000 zł", "zmiana": "usunieta" },
+                                { "tekst": "Strona wizytówka: 3 300 zł", "zmiana": "dodana" },
+                                { "tekst": "Sklep internetowy: 9 000 zł", "zmiana": "usunieta" },
+                                { "tekst": "Sklep internetowy: 9 900 zł", "zmiana": "dodana" },
+                                { "tekst": "Pakiet startowy (promocja do końca roku): 900 zł", "zmiana": "usunieta" },
+                                { "tekst": "Pakiet startowy (promocja do końca roku): 990 zł", "zmiana": "dodana" },
+                                { "tekst": "Konsultacja 30 min: 200 zł", "zmiana": "usunieta" },
+                                { "tekst": "Konsultacja 30 min: 220 zł", "zmiana": "dodana" },
+                                { "tekst": "Audyt strony: 1 200 zł", "zmiana": "dodana" }
+                              ]
+                            }
+                          ],
+                          "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+                        },
+                        {
+                          "typ": "nauczyciel",
+                          "tekst": "Przełącznik pokazuje Auto. Claude zrobił to, co stało w planie, także podwyżkę promocji. Plan chroni, gdy go przeczytasz.",
+                          "fakt": "aplikacja-plan-accept-and-auto-mode-karta-znika-auto"
+                        }
+                      ]
+                    },
+                    "accept": {
+                      "kroki": [
+                        {
+                          "typ": "claude",
+                          "tekst": "Zaczynam od podwyżki. Każdą zmianę pokażę Ci do zatwierdzenia.",
+                          "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                        },
+                        {
+                          "typ": "nauczyciel",
+                          "tekst": "Przełącznik pokazuje Manual. Od teraz każdą zmianę zatwierdzasz sam, jak w lekcji 1.",
+                          "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                        }
+                      ]
+                    },
+                    "revise": {
+                      "poprawka": "Promocji na pakiet startowy nie ruszaj.",
+                      "kroki": [
+                        {
+                          "typ": "mysli"
+                        },
+                        {
+                          "typ": "claude",
+                          "tekst": "Dobrze, pakiet startowy zostaje za 900 zł. Oto poprawiony plan.",
+                          "fakt": "aplikacja-plan-revise-poprawia-plan"
+                        },
+                        {
+                          "typ": "nauczyciel",
+                          "tekst": "Nowy plan, tryb nadal Plan. Teraz zatwierdź: kliknij Accept albo Accept and auto mode.",
+                          "fakt": "aplikacja-plan-revise-dymek-tryb-plan"
+                        },
+                        {
+                          "typ": "plan",
+                          "tytul": "Nowe ceny, promocja bez zmian",
+                          "sekcje": [
+                            {
+                              "naglowek": "Podwyżka 10 %",
+                              "punkty": [
+                                "Strona wizytówka: 3 000 → 3 300 zł",
+                                "Sklep internetowy: 9 000 → 9 900 zł",
+                                "Konsultacja 30 min: 200 → 220 zł"
+                              ]
+                            },
+                            {
+                              "naglowek": "Bez zmian",
+                              "punkty": ["Pakiet startowy: 900 zł"]
+                            },
+                            {
+                              "naglowek": "Nowa pozycja",
+                              "punkty": ["Audyt strony: 1 200 zł"]
+                            }
+                          ],
+                          "przyciski": {
+                            "auto": {
+                              "kroki": [
+                                {
+                                  "typ": "claude",
+                                  "tekst": "Wykonuję poprawiony plan.",
+                                  "fakt": "aplikacja-plan-accept-and-auto-mode-claude-buduje"
+                                },
+                                {
+                                  "typ": "zmiana",
+                                  "pliki": [
+                                    {
+                                      "plik": "cennik-uslug.txt",
+                                      "linijki": [
+                                        { "tekst": "Strona wizytówka: 3 000 zł", "zmiana": "usunieta" },
+                                        { "tekst": "Strona wizytówka: 3 300 zł", "zmiana": "dodana" },
+                                        { "tekst": "Sklep internetowy: 9 000 zł", "zmiana": "usunieta" },
+                                        { "tekst": "Sklep internetowy: 9 900 zł", "zmiana": "dodana" },
+                                        { "tekst": "Pakiet startowy (promocja do końca roku): 900 zł" },
+                                        { "tekst": "Konsultacja 30 min: 200 zł", "zmiana": "usunieta" },
+                                        { "tekst": "Konsultacja 30 min: 220 zł", "zmiana": "dodana" },
+                                        { "tekst": "Audyt strony: 1 200 zł", "zmiana": "dodana" }
+                                      ]
+                                    }
+                                  ],
+                                  "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+                                },
+                                {
+                                  "typ": "nauczyciel",
+                                  "tekst": "Przełącznik pokazuje Auto, a promocja została: 900 zł.",
+                                  "fakt": "aplikacja-plan-accept-and-auto-mode-karta-znika-auto"
+                                }
+                              ]
+                            },
+                            "accept": {
+                              "kroki": [
+                                {
+                                  "typ": "claude",
+                                  "tekst": "Zaczynam od podwyżki. Każdą zmianę pokażę Ci do zatwierdzenia.",
+                                  "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                                },
+                                {
+                                  "typ": "nauczyciel",
+                                  "tekst": "Przełącznik pokazuje Manual. Każdą zmianę zatwierdzisz sam, a promocja zostanie.",
+                                  "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                                }
+                              ]
+                            }
+                          },
+                          "fakt": "aplikacja-plan-revise-nowa-karta"
+                        }
+                      ]
+                    }
+                  },
+                  "fakt": "aplikacja-karta-planu-napisy"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Włącz Plan i popraw plan",
+      "opis": "Ten sam cennik, nowa prośba. Najpierw sam włączasz tryb Plan, potem przyciskiem Revise… poprawiasz plan.",
+      "nauczyciel_start": "Najpierw wybierz Plan w przełączniku pod polem wiadomości. Potem poproś o zmianę w cenniku.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Cennik",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "etykieta": "Otwórz listę trybów",
+          "opis": "Klikasz przełącznik trybu pod polem wiadomości.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+        },
+        {
+          "etykieta": "Wybierz Plan",
+          "opis": "Klikasz Plan na liście trybów.",
+          "klik": "tryb",
+          "na": "Plan",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Plan. Ten wybór działa tylko w tej sesji.",
+              "fakt": "plan-aplikacja-tylko-biezaca-sesja"
+            }
+          ]
+        },
+        {
+          "etykieta": "Poproś o audyt zamiast konsultacji",
+          "opis": "Claude czyta cennik i proponuje plan. Plik się nie zmienia.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do cennik-uslug.txt usługę Audyt strony: 1 200 zł i usuń pozycję Konsultacja 30 min.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["cennik-uslug.txt"],
+              "fakt": "plan-aplikacja-opis"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem cennik. Oto plan zmian.",
+              "fakt": "plan-aplikacja-bez-zmian-w-plikach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Konsultację jednak chcesz zostawić. Kliknij Revise… i wyślij poprawkę przyciskiem Revise.",
+              "fakt": "aplikacja-plan-revise-pole-poprawki"
+            },
+            {
+              "typ": "plan",
+              "tytul": "Audyt zamiast konsultacji",
+              "sekcje": [
+                {
+                  "naglowek": "Dopiszę",
+                  "punkty": ["Audyt strony: 1 200 zł"]
+                },
+                {
+                  "naglowek": "Usunę",
+                  "punkty": ["Konsultacja 30 min: 200 zł"]
+                }
+              ],
+              "przyciski": {
+                "revise": {
+                  "poprawka": "Konsultacji nie usuwaj, tylko dopisz audyt.",
+                  "kroki": [
+                    {
+                      "typ": "mysli"
+                    },
+                    {
+                      "typ": "claude",
+                      "tekst": "Dobrze, konsultacja zostaje. Oto poprawiony plan.",
+                      "fakt": "aplikacja-plan-revise-poprawia-plan"
+                    },
+                    {
+                      "typ": "nauczyciel",
+                      "tekst": "Poprawka poszła jako Twoja wiadomość, a Claude napisał nowy plan. Tryb nadal Plan. Teraz kliknij Accept.",
+                      "fakt": "aplikacja-plan-revise-dymek-tryb-plan"
+                    },
+                    {
+                      "typ": "plan",
+                      "tytul": "Audyt w cenniku, konsultacja zostaje",
+                      "sekcje": [
+                        {
+                          "naglowek": "Dopiszę",
+                          "punkty": ["Audyt strony: 1 200 zł"]
+                        },
+                        {
+                          "naglowek": "Bez zmian",
+                          "punkty": ["Konsultacja 30 min: 200 zł"]
+                        }
+                      ],
+                      "przyciski": {
+                        "accept": {
+                          "kroki": [
+                            {
+                              "typ": "claude",
+                              "tekst": "Dopiszę audyt na końcu cennika. Zmianę pokażę Ci do zatwierdzenia.",
+                              "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                            },
+                            {
+                              "typ": "nauczyciel",
+                              "tekst": "Przełącznik pokazuje Manual. Zmianę w cenniku zatwierdzisz sam, a konsultacja zostanie.",
+                              "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                            }
+                          ]
+                        },
+                        "auto": {
+                          "kroki": [
+                            {
+                              "typ": "claude",
+                              "tekst": "Dopisuję audyt do cennika.",
+                              "fakt": "aplikacja-plan-accept-and-auto-mode-claude-buduje"
+                            },
+                            {
+                              "typ": "zmiana",
+                              "pliki": [
+                                {
+                                  "plik": "cennik-uslug.txt",
+                                  "linijki": [
+                                    { "tekst": "Konsultacja 30 min: 200 zł" },
+                                    { "tekst": "Audyt strony: 1 200 zł", "zmiana": "dodana" }
+                                  ]
+                                }
+                              ],
+                              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+                            },
+                            {
+                              "typ": "nauczyciel",
+                              "tekst": "Przełącznik pokazuje Auto. Audyt doszedł od razu, a konsultacja została.",
+                              "fakt": "aplikacja-plan-accept-and-auto-mode-karta-znika-auto"
+                            }
+                          ]
+                        }
+                      },
+                      "fakt": "aplikacja-plan-revise-nowa-karta"
+                    }
+                  ]
+                },
+                "accept": {
+                  "kroki": [
+                    {
+                      "typ": "claude",
+                      "tekst": "Zaczynam od audytu. Każdą zmianę pokażę Ci do zatwierdzenia.",
+                      "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                    },
+                    {
+                      "typ": "nauczyciel",
+                      "tekst": "Przełącznik pokazuje Manual. Plan zatwierdzony bez poprawki: konsultacja zniknie, gdy zatwierdzisz zmianę.",
+                      "fakt": "aplikacja-plan-accept-potem-zmiany-recznie"
+                    }
+                  ]
+                },
+                "auto": {
+                  "kroki": [
+                    {
+                      "typ": "claude",
+                      "tekst": "Wykonuję plan.",
+                      "fakt": "aplikacja-plan-accept-and-auto-mode-claude-buduje"
+                    },
+                    {
+                      "typ": "zmiana",
+                      "pliki": [
+                        {
+                          "plik": "cennik-uslug.txt",
+                          "linijki": [
+                            { "tekst": "Konsultacja 30 min: 200 zł", "zmiana": "usunieta" },
+                            { "tekst": "Audyt strony: 1 200 zł", "zmiana": "dodana" }
+                          ]
+                        }
+                      ],
+                      "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+                    },
+                    {
+                      "typ": "nauczyciel",
+                      "tekst": "Przełącznik pokazuje Auto. Konsultacja zniknęła, bo tak stało w planie bez poprawki.",
+                      "fakt": "aplikacja-plan-accept-and-auto-mode-karta-znika-auto"
+                    }
+                  ]
+                }
+              },
+              "fakt": "aplikacja-karta-planu-napisy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

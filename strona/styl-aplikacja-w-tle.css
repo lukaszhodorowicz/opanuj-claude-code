@@ -1,0 +1,260 @@
+/* Wygląd pracy w tle w symulatorze aplikacji (strona/aplikacja-w-tle.js): menu ⋮ pod przyciskiem na pasku tytułu (ciemna karta, dwie pozycje z ikoną po lewej: Side chat i Background tasks z licznikiem), panel zadań w tle w miejscu otwartego pliku (nagłówek Background tasks, grupa Running, karty prac w tle z tytułem, rodzajem Agent i szarymi paskami), panel subagenta (tytuł, szare pole z zadaniem, wynik), odnośnik „N running tasks” w rozmowie i szare wiersze po zakończeniu pracy. Układ ze zrzutów z sieci materialy/zrzuty-aplikacji/panel-zadan-w-tle/. Elementy bez skutku mają kursor zwykły; „rękę” dostaje tylko element, w który kursant ma kliknąć (.apl-cel). */
+.apl-menu-kropki {
+  position: relative;
+  display: inline-flex;
+}
+/* aktywny ⋮ bez kroku, który na niego czeka: bez ręki i bez podświetlenia po najechaniu, jak przed pracą w tle */
+.apl-menu-kropki .apl-ikona {
+  cursor: default;
+}
+.apl-menu-kropki .apl-ikona.apl-cel {
+  cursor: pointer;
+}
+.apl-menu-kropki .apl-ikona:not(.apl-cel):not(.wlaczony):hover {
+  background: none;
+  color: #b5b5b5;
+}
+.apl-menu-paska {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 8;
+  min-width: 206px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-menu-paska .apl-menu-poz {
+  cursor: default;
+}
+.apl-menu-paska .apl-menu-poz.apl-cel {
+  cursor: pointer;
+}
+.apl-menu-z-ikona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.apl-menu-z-ikona svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+.apl-menu-szara.apl-menu-z-ikona .apl-szkic {
+  flex: none;
+}
+.apl-menu-znak {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--a-szkic);
+}
+.apl-menu-paska .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+
+/* panel zadań w tle i panel subagenta: ramka z nagłówkiem, jak panel pytania z boku */
+.apl-wtle {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 330px;
+  border: 1px solid var(--a-kreska);
+  border-radius: 12px;
+  background: #1c1c1c;
+  overflow: hidden;
+}
+.apl-wtle-glowa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 14px;
+  font: 500 14.5px/1.3 var(--a-sans);
+  background: #222222;
+  border-bottom: 1px solid var(--a-kreska);
+}
+.apl-wtle-glowa b {
+  min-width: 0;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+/* przyciski bez skutku (×, ‹): narysowane i wyszarzone, kursor zwykły */
+.apl-wtle-zamknij,
+.apl-wtle-wstecz {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  color: #b5b5b5;
+  opacity: 0.4;
+  cursor: default;
+}
+.apl-wtle-zamknij {
+  margin-left: auto;
+}
+.apl-wtle-wstecz {
+  margin-left: -6px;
+}
+.apl-wtle-zamknij svg,
+.apl-wtle-wstecz svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-wtle-tresc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 12px;
+}
+.apl-wtle-grupa {
+  font: 500 13px/1.3 var(--a-sans);
+  color: var(--a-szary);
+}
+.apl-wtle-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* karta pracy w tle: tytuł, wiersz z rodzajem, wiersz szarych pasków, View transcript; kwadrat zatrzymania w prawym górnym rogu */
+.apl-wtle-karta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px 46px 12px 14px;
+  border-radius: 12px;
+  background: #262626;
+}
+.apl-wtle-wpis {
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--a-tekst);
+  font: 400 14.5px/1.4 var(--a-sans);
+  text-align: left;
+  cursor: default;
+}
+.apl-wtle-wpis.apl-cel {
+  cursor: pointer;
+}
+.apl-wtle-stop {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid #8a8a8a;
+  border-radius: 6px;
+  background: #303030;
+  opacity: 0.4;
+  cursor: default;
+}
+.apl-wtle-rodzaj {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 400 13px/1.3 var(--a-sans);
+  color: var(--a-szary);
+}
+.apl-wtle-rodzaj b {
+  font-weight: 400;
+}
+.apl-wtle-rodzaj .apl-szkic {
+  flex: none;
+  height: 6px;
+  background: #333333;
+}
+.apl-wtle-liczby {
+  display: flex;
+  gap: 10px;
+}
+.apl-wtle-liczby .apl-szkic {
+  flex: none;
+  height: 6px;
+  background: #333333;
+}
+.apl-wtle-transkrypt {
+  align-self: flex-start;
+  font: 400 13px/1.3 var(--a-sans);
+  color: #4a9eff;
+  opacity: 0.4;
+  cursor: default;
+}
+.apl-wtle-lista > .apl-tag-rzad {
+  padding: 0 0 2px;
+}
+/* panel subagenta: szare pole z zadaniem od Claude, pod nim wynik zwykłym tekstem, bez ikony */
+.apl-wtle-zadanie {
+  margin: 12px 12px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #2b2b2b;
+  font: 400 14px/1.55 var(--a-sans);
+}
+.apl-wtle-zadanie p {
+  margin: 0;
+}
+.apl-wtle-wynik {
+  padding: 16px 16px 18px;
+  font: 400 14px/1.6 var(--a-sans);
+  color: var(--a-tekst);
+}
+.apl-wtle-wynik p {
+  margin: 0 0 10px;
+}
+.apl-wtle-wynik p:last-child {
+  margin-bottom: 0;
+}
+
+/* napis „N running tasks” pod odpowiedzią Claude: niebieski, bez ramki, nieaktywny (bez ręki i bez podświetlenia po najechaniu) */
+.apl-wtle-link {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #4a9eff;
+  font: 400 14px/1.4 var(--a-sans);
+  cursor: default;
+}
+/* zwinięta praca subagenta w rozmowie po końcu pracy: szary wiersz z tytułem i znakiem ›, nieaktywny */
+.apl-wtle-wiersz {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--a-szary);
+  font: 400 14px/1.4 var(--a-sans);
+  cursor: default;
+}
+.apl-wtle-wiersz i {
+  font-style: normal;
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-menu-paska {
+    animation: none;
+  }
+}
+/* telefon: panel pod rozmową (okno jest wtedy jedną kolumną), menu przy prawej krawędzi okna */
+@media (max-width: 720px) {
+  .apl-wtle {
+    height: auto;
+    min-height: 0;
+  }
+  .apl-menu-paska {
+    min-width: 190px;
+  }
+}

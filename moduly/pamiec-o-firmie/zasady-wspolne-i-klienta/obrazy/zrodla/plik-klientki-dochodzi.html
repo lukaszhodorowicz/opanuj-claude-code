@@ -1,0 +1,348 @@
+<!doctype html>
+<!-- Rysunek R2 „Rozmowa w folderze Klienci: kiedy dochodzi plik klientki” do lekcji zasady-wspolne-i-klienta: dwie osie czasu z tym samym startem (drogi ćwiczenia 2); w drugiej ta sama rozmowa idzie dalej i plik CLAUDE.md klientki dochodzi dopiero po przeczytaniu pliku z jej folderu, a plik kwiaciarni nie wchodzi. Źródło PNG obrazy/plik-klientki-dochodzi.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Kiedy dochodzi plik klientki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku „Gdzie jest strona” (lekcja strona-oferty) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --wygaszony: #94a3b8;
+        --biel: #ffffff;
+        /* dymek prośby jak w ćwiczeniu */
+        --dymek: #303030;
+        --dymek-tekst: #eeeeee;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 22px 16px 24px;
+      }
+      .osie {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 28px;
+      }
+      .naglowek {
+        margin: 0 0 14px;
+        font: 800 26px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      /* karta obok osi: bez kropki */
+      .krok.obok .karta {
+        margin-top: 2px;
+      }
+      .karta.mala {
+        padding: 8px 12px;
+      }
+
+      /* ===== Krok na osi czasu: pionowa kreska, kropka przy kroku ===== */
+      .krok {
+        position: relative;
+        padding: 0 0 22px 40px;
+      }
+      .krok::before {
+        content: "";
+        position: absolute;
+        left: 12px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--granat);
+      }
+      .krok.pierwszy::before {
+        top: 20px;
+      }
+      .kropka {
+        position: absolute;
+        left: 3px;
+        top: 11px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--papier);
+        border: 4px solid var(--granat);
+      }
+      /* ostatni krok: kreska kończy się grotem */
+      .krok.ostatni::before {
+        bottom: auto;
+        height: 12px;
+      }
+      .grot {
+        position: absolute;
+        left: 2px;
+        top: 6px;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 16px solid var(--granat);
+      }
+      .krok.ostatni {
+        padding-bottom: 0;
+      }
+
+      /* ===== Start: początek rozmowy ===== */
+      .start {
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        padding: 10px 12px 12px;
+      }
+      .start p {
+        margin: 0 0 10px;
+        font: 800 21px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+
+      /* ===== Karta pliku ===== */
+      .karta {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 11px 12px;
+        background: var(--biel);
+        border: 2px solid #d3d6c8;
+        border-radius: 11px;
+        font: 700 21px/1.25 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+        margin-top: 1px;
+      }
+      /* zaświecona: limonkowa obwódka jak „Claude czyta” w podglądzie folderu */
+      .karta.swieci {
+        outline: 4px solid var(--limonka);
+        outline-offset: 1px;
+      }
+      .karta.dochodzi {
+        background: var(--zakreslacz);
+      }
+      .karta.wygaszona {
+        background: transparent;
+        border: 2.5px dashed var(--wygaszony);
+        color: var(--grafit);
+      }
+      .oko {
+        position: absolute;
+        top: -16px;
+        right: 8px;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 30px;
+        border-radius: 999px;
+        background: var(--granat);
+        color: var(--limonka);
+      }
+      .oko svg {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+      }
+      .podpis-karty {
+        margin: 8px 0 0 4px;
+        font: 800 21px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .podpis-karty.szary {
+        color: var(--grafit);
+      }
+
+      /* ===== Dymek prośby ===== */
+      .dymek {
+        background: var(--dymek);
+        color: var(--dymek-tekst);
+        border-radius: 14px 14px 4px 14px;
+        padding: 10px 14px 12px;
+        font: 500 21px/1.35 var(--sans);
+      }
+
+      /* ===== Post: cechy ===== */
+      .post {
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 11px;
+        padding: 11px 12px 12px;
+      }
+      .post .nazwa {
+        display: flex;
+        gap: 9px;
+        align-items: center;
+        margin-bottom: 6px;
+        font: 700 21px/1.25 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      .post .nazwa svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .cecha {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 6px 0 0;
+        font: 700 21px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .cecha svg {
+        width: 22px;
+        height: 22px;
+        flex: none;
+      }
+      .cecha.druga-grupa {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 2px solid var(--kreska);
+      }
+
+      .zdanie {
+        margin: 0 0 26px;
+        font: 800 26px/1.25 var(--sans);
+        letter-spacing: -0.025em;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Dwie osie czasu rozmowy w folderze Klienci, obie od początku rozmowy, w której świeci plik Klienci/CLAUDE.md. Oś Dane w prośbie: prośba z danymi, plik Pracownia-Lipa/CLAUDE.md nie wczytany, post-ogolny.txt bez wykrzykników i z pytaniem o akceptację. Oś Plik z folderu klientki, ta sama rozmowa dalej: prośba z danymi, post-ogolny.txt, prośba Przeczytaj premiera-kolekcji.txt z folderu Pracownia-Lipa…, Claude czyta plik z folderu klientki, plik Pracownia-Lipa/CLAUDE.md dochodzi, plik Kwiaciarnia-Malwa/CLAUDE.md nie wchodzi, bo Claude nie dotknął jej plików, post-lipa.txt bez wykrzykników, z pytaniem o akceptację, na Ty i z podpisem Ola. Plik z folderu wewnątrz folderu rozmowy dochodzi dopiero wtedy, gdy Claude przeczyta, zapisze albo zmieni inny plik w tym folderze."
+    >
+      <h1 class="zdanie">Zasady klientki dochodzą dopiero wtedy, gdy Claude przeczyta, zapisze albo zmieni plik w&nbsp;jej folderze.</h1>
+      <div class="osie">
+        <p class="naglowek" style="grid-area: 1 / 1">Dane w prośbie</p>
+        <p class="naglowek" style="grid-area: 1 / 2">Plik z folderu klientki</p>
+
+        <!-- ten sam start -->
+        <div class="krok pierwszy" style="grid-area: 2 / 1">
+          <span class="kropka"></span>
+          <div class="start">
+            <p>Rozmowa zaczyna się w&nbsp;folderze Klienci.</p>
+            <div class="karta swieci">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              <span>Klienci/<wbr />CLAUDE.md</span>
+            </div>
+          </div>
+        </div>
+        <div class="krok pierwszy" style="grid-area: 2 / 2">
+          <span class="kropka"></span>
+          <div class="start">
+            <p>Rozmowa zaczyna się w&nbsp;folderze Klienci.</p>
+            <div class="karta swieci">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              <span>Klienci/<wbr />CLAUDE.md</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- prośba z danymi -->
+        <div class="krok" style="grid-area: 3 / 1">
+          <span class="kropka"></span>
+          <div class="dymek">Napisz post na Instagram o&nbsp;premierze kolekcji Pracowni Lipa: swetry z&nbsp;wełny, cztery kolory, od&nbsp;189&nbsp;zł…</div>
+        </div>
+        <div class="krok" style="grid-area: 3 / 2">
+          <span class="kropka"></span>
+          <div class="dymek">Napisz post na Instagram o&nbsp;premierze kolekcji Pracowni Lipa…</div>
+        </div>
+
+        <div class="krok" style="grid-area: 4 / 1"></div>
+        <div class="krok" style="grid-area: 4 / 2">
+          <span class="kropka"></span>
+          <p class="podpis-karty szary" style="margin:0 0 6px">Ta sama rozmowa idzie dalej.</p>
+          <div class="dymek">Przeczytaj <span style="white-space: nowrap">premiera-kolekcji.txt</span> z&nbsp;folderu Pracownia-Lipa…</div>
+        </div>
+        <div class="krok" style="grid-area: 5 / 1"></div>
+        <div class="krok" style="grid-area: 5 / 2">
+          <span class="kropka"></span>
+          <div class="karta swieci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            <span>premiera-kolekcji.txt</span>
+            <span class="oko"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span>
+          </div>
+                  </div>
+
+        <!-- plik klientki: nie wczytany po lewej, dochodzi po prawej -->
+        <div class="krok obok" style="grid-area: 6 / 1">
+          <div class="karta wygaszona">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            <span>Pracownia-Lipa/<wbr />CLAUDE.md</span>
+          </div>
+          <p class="podpis-karty szary">Ten plik jeszcze nie doszedł.</p>
+        </div>
+        <div class="krok" style="grid-area: 6 / 2">
+          <span class="kropka"></span>
+          <div class="karta swieci dochodzi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            <span>Pracownia-Lipa/<wbr />CLAUDE.md</span>
+          </div>
+          <p class="podpis-karty">Ten plik dochodzi do zasad.</p>
+        </div>
+
+        <!-- posty -->
+        <div class="krok ostatni" style="grid-area: 7 / 1">
+          <span class="grot"></span>
+          <div class="post">
+            <div class="nazwa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              post-ogolny.txt
+            </div>
+            <p class="cecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>bez wykrzykników</p>
+            <p class="cecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>z pytaniem o akceptację</p>
+          </div>
+        </div>
+        <div class="krok ostatni" style="grid-area: 7 / 2">
+          <span class="grot"></span>
+          <div class="post">
+            <div class="nazwa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              post-lipa.txt
+            </div>
+            <p class="cecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>bez wykrzykników</p>
+            <p class="cecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>z pytaniem o akceptację</p>
+            <p class="cecha druga-grupa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>na Ty</p>
+            <p class="cecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>z podpisem „Ola”</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script>
+      // Wysokość rysunku do doboru okna zrzutu (odczyt przez --dump-dom).
+      document.fonts.ready.then(() => {
+        document.body.dataset.wys = Math.ceil(document.querySelector(".rys").getBoundingClientRect().height);
+      });
+    </script>
+  </body>
+</html>

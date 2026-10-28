@@ -1,0 +1,327 @@
+{
+  "lekcja": "zasada-ktorej-claude-nie-pominie",
+  "folder_startowy": [
+    "CLAUDE.md",
+    "nabor-wiosna-notatki.txt",
+    "post-wrzesien.txt"
+  ],
+  "folder_glowny": "Lingua-teksty",
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Hook sprawdza każdy zapis",
+      "opis": "Hook leży już w folderze .claude, który widzisz pod oknem. Zlecasz post o naborze i nie wspominasz o zasadzie klienta.",
+      "nauczyciel_start": "W folderze .claude leży hook, który sprawdza każdy plik zapisany narzędziem do zapisu albo edycji. Kliknij polecenie i czytaj odpowiedź Claude.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Lingua-teksty",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze są notatki o naborze na semestr wiosenny."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ],
+        "folder_startowy_dodatkowe": [
+          ".claude/settings.json"
+        ]
+      },
+      "nowe_pliki": [
+        "post-nabor-wiosna.txt"
+      ],
+      "drogi": [
+        {
+          "id": "post",
+          "etykieta": "Zleć post o naborze",
+          "opis": "Claude pisze post z notatek. O zasadzie klienta nic nie mówisz.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Napisz post na Facebooka o naborze na semestr wiosenny. Dane weź z nabor-wiosna-notatki.txt, styl z post-wrzesien.txt. Zapisz go w post-nabor-wiosna.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "CLAUDE.md",
+                "nabor-wiosna-notatki.txt",
+                "post-wrzesien.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem post w post-nabor-wiosna.txt. Po pierwszym zapisie dostałem uwagę: w tekście było słowo „rabat”. Zamieniłem je na „10% mniej” z terminem do 31 stycznia.",
+              "plik": "post-nabor-wiosna.txt",
+              "fakt": "hook-prompt-posttooluse-continueonblock"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę i zobacz post po poprawce, już bez słowa „rabat”.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "post-nabor-wiosna.txt",
+              "linijki": [
+                "Ruszają zapisy na semestr wiosenny!",
+                "Od 3 lutego do 13 czerwca: angielski dla dzieci i młodzieży, hiszpański dla dorosłych.",
+                "Semestr kosztuje 1 200 zł, a przy zapisie do 31 stycznia płacą Państwo 10% mniej.",
+                "Zapisy w sekretariacie i przez formularz na stronie."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "O zasadzie nikt nie przypominał. Hook sprawdził zapis, a Claude poprawił tekst, zanim skończył pracę.",
+              "fakt": "hook-stala-reakcja-nie-wybor-modelu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Prośba w CLAUDE.md czy sprawdzenie w hooku",
+      "opis": "Ten sam folder szkoły, na razie bez folderu .claude. Najpierw sama zasada w CLAUDE.md, potem ta sama zasada jako hook.",
+      "nauczyciel_start": "Najpierw zobacz, co robi sama zasada w CLAUDE.md. Potem zapisz ją jako hook.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Lingua-teksty",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze są notatki o naborze na semestr wiosenny."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "mail-nabor-rodzice.txt",
+        ".claude/settings.json"
+      ],
+      "drogi": [
+        {
+          "id": "claude-md",
+          "etykieta": "Zasada tylko w CLAUDE.md",
+          "opis": "W folderze nie ma hooka. Claude zna zasadę tylko z CLAUDE.md.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Pokaż mi zasady klienta z CLAUDE.md.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zasady klienta stoją w CLAUDE.md.",
+              "plik": "CLAUDE.md",
+              "bez_zmiany": true,
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Teksty dla szkoły językowej Lingua",
+                "Piszemy do rodziców i dorosłych kursantów, na Państwo.",
+                "Nigdy nie używamy słów: promocja, rabat, okazja.",
+                "Zniżkę opisujemy z terminem, np. 10% mniej do 31 stycznia."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zakaz trzech słów stoi w CLAUDE.md, a CLAUDE.md wczytuje się na początku rozmowy.",
+              "fakt": "claude-md-i-notatki-wczytane-na-start-rozmowy"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Napisz mail do rodziców o naborze na semestr wiosenny i zapisz go w mail-nabor-rodzice.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "CLAUDE.md",
+                "nabor-wiosna-notatki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem mail w mail-nabor-rodzice.txt.",
+              "plik": "mail-nabor-rodzice.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę maila i sprawdź, czy jest w nim zakazane słowo."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "mail-nabor-rodzice.txt",
+              "linijki": [
+                "Szanowni Państwo,",
+                "zapraszamy na semestr wiosenny: od 3 lutego do 13 czerwca 2027.",
+                "Przy zapisie do 31 stycznia obowiązuje rabat 10%.",
+                "Zapisy w sekretariacie szkoły."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zasada stała w CLAUDE.md, a w mailu jest „rabat”. Claude stara się stosować CLAUDE.md, ale bez gwarancji.",
+              "fakt": "claude-md-bez-gwarancji-stosowania"
+            }
+          ]
+        },
+        {
+          "id": "hook",
+          "etykieta": "Zapisz zasadę jako hook",
+          "opis": "Claude zapisze zasadę w ustawieniach folderu, a hook sprawdzi każdy plik zapisany narzędziem do zapisu albo edycji. Potem prosisz o ten sam mail.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz zasadę z CLAUDE.md o słowach promocja, rabat i okazja jako hook w ustawieniach tego folderu. Niech sprawdza każdy zapisany tekst i każe Ci go poprawić.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dodam do .claude/settings.json hook na zdarzenie PostToolUse z dopasowaniem Edit|Write. Będzie typu prompt: po każdym zapisie narzędziem Edit albo Write model oceni tekst według zasady. Z continueOnBlock dostanę powód odmowy i poprawię tekst. Folder .claude jest chroniony, więc nawet w trybie Accept edits potrzebuję Twojej zgody.",
+              "fakt": "hook-dopasowanie-edit-write"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/settings.json",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zapis w folderze .claude wymaga zgody także w trybie Accept edits. Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem hook w .claude/settings.json.",
+              "plik": ".claude/settings.json",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze pojawił się folder .claude. Kliknij ścieżkę i przeczytaj hook.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/settings.json",
+              "linijki": [
+                "{",
+                "  \"hooks\": {",
+                "    \"PostToolUse\": [",
+                "      {",
+                "        \"matcher\": \"Edit|Write\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"prompt\",",
+                "            \"prompt\": \"W zapisanym tekście nie ma słów promocja, rabat ani okazja w żadnej odmianie. Jeśli są, w powodzie podaj to słowo.\",",
+                "            \"continueOnBlock\": true",
+                "          }",
+                "        ]",
+                "      }",
+                "    ]",
+                "  }",
+                "}"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przeczytaj plik: to ten hook sprawdził post w ćwiczeniu 1. Jego cztery części opisuje lista pod oknem ćwiczenia.",
+              "fakt": "hook-prompt-pola-pliku"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Napisz mail do rodziców o naborze na semestr wiosenny i zapisz go w mail-nabor-rodzice.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "CLAUDE.md",
+                "nabor-wiosna-notatki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem mail w mail-nabor-rodzice.txt. Po pierwszym zapisie dostałem uwagę: w tekście było słowo „rabat”. Zamieniłem je na „10% mniej” z terminem do 31 stycznia.",
+              "plik": "mail-nabor-rodzice.txt",
+              "fakt": "hook-prompt-posttooluse-continueonblock"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ta sama prośba co w pierwszej drodze. Kliknij ścieżkę i porównaj mail.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "mail-nabor-rodzice.txt",
+              "linijki": [
+                "Szanowni Państwo,",
+                "zapraszamy na semestr wiosenny: od 3 lutego do 13 czerwca 2027.",
+                "Przy zapisie do 31 stycznia płacą Państwo 10% mniej.",
+                "Zapisy w sekretariacie szkoły."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tym razem model ocenił mail według zasady z hooka, a Claude usunął „rabat”.",
+              "fakt": "hook-prompt-osad-modelu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

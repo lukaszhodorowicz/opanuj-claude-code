@@ -1,0 +1,302 @@
+<!doctype html>
+<!-- Rysunek R3 „Granica Accept edits” do lekcji zmiany-bez-pytania: po lewej Twój folder z polem „Bez pytania”, po prawej poza nim panel „Pyta o zgodę”; jedyna linia łączy chroniony folder .claude z panelem; zakreślacz tylko na wierszu „skasowanie pliku (rm)”. Opis: BRIEF.md, część 9. Źródło PNG obrazy/granica-accept-edits.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Granica Accept edits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --karta-kreska: #d3d6c8;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { position: relative; padding: 30px 16px 20px; }
+      code { font: 700 17px/1 var(--mono); }
+
+      .kolumny {
+        display: grid;
+        grid-template-columns: 60fr 40fr;
+        column-gap: 26px;
+        align-items: stretch;
+      }
+
+      /* ===== Lewa kolumna: Twój folder ===== */
+      .folder {
+        position: relative;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 22px;
+        padding: 26px 14px 14px;
+        display: flex;
+        flex-direction: column;
+      }
+      .folder-nazwa {
+        position: absolute;
+        left: 18px;
+        top: 0;
+        transform: translateY(-55%);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 10px;
+        background: linear-gradient(var(--papier) 0 55%, var(--biel) 55% 100%);
+        font: 800 28px/1 var(--sans);
+        letter-spacing: -0.025em;
+        white-space: nowrap;
+      }
+      .folder-nazwa svg { width: 30px; height: 30px; flex: none; }
+      .folder-dodane {
+        margin: 0 0 14px 4px;
+        color: var(--grafit);
+        font: 700 18px/1.25 var(--sans);
+      }
+
+      /* karty plików jak w podglądzie folderu w ćwiczeniu */
+      .karty {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .karta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 4px 9px;
+        background: var(--biel);
+        border: 2px solid var(--karta-kreska);
+        border-radius: 12px;
+        text-align: center;
+      }
+      .ikona { position: relative; width: 34px; height: 38px; color: var(--granat); }
+      .ikona svg { display: block; width: 100%; height: 100%; }
+      .ikona i {
+        position: absolute;
+        left: -7px;
+        bottom: 4px;
+        padding: 2px 3px;
+        border-radius: 3px;
+        background: var(--granat);
+        color: var(--biel);
+        font: 700 10px/1 var(--mono);
+        font-style: normal;
+        letter-spacing: 0.04em;
+      }
+      .ikona.txt i { background: var(--grafit); }
+      .karta-nazwa { font: 500 14px/1.25 var(--mono); }
+      .karta-nazwa span { display: block; }
+
+      /* pole „Bez pytania” */
+      .bez {
+        border: 3px solid var(--granat);
+        border-radius: 16px;
+        background: var(--papier);
+        padding: 12px 12px 10px;
+      }
+      .glowa {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 8px 2px;
+        font: 800 26px/1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .glowa svg { width: 34px; height: 34px; flex: none; }
+      .lista { margin: 0; padding: 0; list-style: none; }
+      .lista li {
+        padding: 7px 8px;
+        font: 500 18px/1.3 var(--sans);
+        border-top: 2px solid var(--kreska);
+      }
+      .lista li:first-child { border-top: 0; }
+      .lista li.ten {
+        margin: 2px -4px 0;
+        padding: 7px 12px;
+        background: #ffe4d6;
+        border: 0;
+        border-radius: 10px;
+        box-shadow: 0 0 0 4px #f97316;
+        font-weight: 800;
+      }
+      .lista li.ten + li { border-top: 0; }
+
+      /* chroniony folder .claude w prawym dolnym rogu ramki */
+      .chroniony {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 14px;
+      }
+      .teczka {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        width: 96px;
+        padding: 10px 4px 9px;
+        background: var(--biel);
+        border: 2px solid var(--karta-kreska);
+        border-radius: 12px;
+      }
+      .teczka .ikona { width: 40px; height: 36px; }
+      .klodka {
+        position: absolute;
+        right: -9px;
+        bottom: -4px;
+        width: 22px;
+        height: 22px;
+        background: var(--biel);
+        border-radius: 6px;
+      }
+      .klodka svg { width: 22px; height: 22px; }
+      .teczka .karta-nazwa { font-weight: 700; font-size: 15px; }
+
+      /* ===== Prawa kolumna: poza folderem ===== */
+      .pyta {
+        border: 3px dashed var(--granat);
+        border-radius: 22px;
+        background: var(--papier-2);
+        padding: 16px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .pyta .glowa { margin-bottom: 4px; }
+      .poz {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 11px;
+        background: var(--biel);
+        border: 2px dashed var(--granat);
+        border-radius: 12px;
+        font: 500 18px/1.3 var(--sans);
+        flex: 1 1 auto;
+      }
+      .poz .plik-luzem {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 54px;
+        background: var(--biel);
+        border: 2px solid var(--karta-kreska);
+        border-radius: 10px;
+      }
+      .poz .plik-luzem svg { width: 28px; height: 32px; }
+
+      /* jedyna linia między kolumnami: z .claude do pozycji 3 */
+      .linia { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+      .przypis {
+        margin: 16px 4px 0;
+        color: var(--grafit);
+        font: 500 16px/1.4 var(--sans);
+      }
+
+      h1.wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat); }
+      h1.wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <h1 class="wniosek" style="padding: 22px 16px 0">W Twoim folderze Claude <mark>zmienia i kasuje pliki bez pytania</mark>, a o resztę pyta</h1>
+    <div class="rys" role="img" aria-label="Granica trybu Accept edits: co Claude robi bez pytania w Twoim folderze, a o co nadal pyta">
+      <div class="kolumny">
+        <div class="folder">
+          <div class="folder-nazwa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5V18a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 18V9.5A1.5 1.5 0 0 0 19.5 8h-7.6L10 5.5H4.5A1.5 1.5 0 0 0 3 7z"/></svg>
+            Twój folder
+          </div>
+          <p class="folder-dodane">Do folderu należą też foldery dodane do sesji.</p>
+
+          <div class="karty">
+            <div class="karta"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2.5h7l4.5 4.5v13.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4.5"/><path d="M9 11h6M9 14h4"/></svg><i>JPG</i></span><span class="karta-nazwa"><span>kubek-</span><span>bialy</span><span>.jpg</span></span></div>
+            <div class="karta"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2.5h7l4.5 4.5v13.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4.5"/><path d="M9 11h6M9 14h4"/></svg><i>JPG</i></span><span class="karta-nazwa"><span>kubek-</span><span>czarny</span><span>.jpg</span></span></div>
+            <div class="karta"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2.5h7l4.5 4.5v13.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4.5"/><path d="M9 11h6M9 14h4"/></svg><i>JPG</i></span><span class="karta-nazwa"><span>dzbanek-</span><span>szklany</span><span>.jpg</span></span></div>
+            <div class="karta"><span class="ikona txt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2.5h7l4.5 4.5v13.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4.5"/><path d="M9 11h6M9 14h4"/></svg><i>CSV</i></span><span class="karta-nazwa"><span>lista-</span><span>produktow</span><span>.csv</span></span></div>
+          </div>
+
+          <div class="bez">
+            <div class="glowa">
+              <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="none" stroke="#0e1422" stroke-width="3" /><path d="M10.5 17.5 L15 22 L23.5 12.5" fill="none" stroke="#0e1422" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              Bez pytania
+            </div>
+            <ul class="lista">
+              <li>Odczyt plików</li>
+              <li>Nowy plik</li>
+              <li>Nowy folder</li>
+              <li>Nowa nazwa i przeniesienie pliku</li>
+              <li>Kopia pliku</li>
+              <li>Zmiana treści pliku</li>
+              <li class="ten">Skasowanie pliku. Cofanie zmian go nie przywróci.</li>
+            </ul>
+          </div>
+
+          <div class="chroniony">
+            <div class="teczka" id="claude">
+              <span class="ikona">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5V18a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 18V9.5A1.5 1.5 0 0 0 19.5 8h-7.6L10 5.5H4.5A1.5 1.5 0 0 0 3 7z"/></svg>
+                <span class="klodka"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="#ffffff" /><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" /></svg></span>
+              </span>
+              <span class="karta-nazwa">.claude</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pyta">
+          <div class="glowa">
+            <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M5 4.5h24a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-2.5 2.5H14l-6.5 6v-6H5A2.5 2.5 0 0 1 2.5 22V7A2.5 2.5 0 0 1 5 4.5z" fill="none" stroke="#0e1422" stroke-width="3" stroke-linejoin="round" /><text x="17" y="20.5" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="16" fill="#0e1422">?</text></svg>
+            Pyta o zgodę
+          </div>
+          <div class="poz">
+            <span class="plik-luzem"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2.5h7l4.5 4.5v13.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4.5"/><path d="M9 11h6M9 14h4"/></svg></span>
+            <span>Zmiana pliku poza Twoim folderem</span>
+          </div>
+          <div class="poz"><span>Inne polecenia terminala, np. pakowanie plików do archiwum (<code>zip</code>)</span></div>
+          <div class="poz" id="chronione"><span>Zapis w chronionych folderach, np. <code>.claude</code> z ustawieniami Claude albo <code>.git</code></span></div>
+          <div class="poz"><span>Skasowanie Twojego folderu albo folderu domowego</span></div>
+        </div>
+      </div>
+
+      <p class="przypis">Program pyta, gdy rozpozna skasowanie Twojego folderu albo folderu domowego.<br />Sprawdza jednak tylko polecenia rm i rmdir, więc inne polecenie może taki folder skasować.</p>
+
+      <svg class="linia" id="linia" aria-hidden="true"></svg>
+    </div>
+    <script>
+      /* Linia z karty .claude do pozycji „chronione foldery”: łamana pod kątem prostym przez odstęp między kolumnami */
+      document.fonts.ready.then(() => {
+        const rys = document.querySelector(".rys").getBoundingClientRect();
+        const a = document.getElementById("claude").getBoundingClientRect();
+        const b = document.getElementById("chronione").getBoundingClientRect();
+        const pyta = document.querySelector(".pyta").getBoundingClientRect();
+        const x1 = a.right - rys.left, y1 = a.top + a.height / 2 - rys.top;
+        const xm = pyta.left - rys.left - 13;
+        const x2 = b.left - rys.left, y2 = b.top + b.height / 2 - rys.top;
+        const r = 10, s = y2 < y1 ? -1 : 1;
+        const d = `M${x1} ${y1} H${xm - r} Q${xm} ${y1} ${xm} ${y1 + s * r} V${y2 - s * r} Q${xm} ${y2} ${xm + r} ${y2} H${x2}`;
+        document.getElementById("linia").innerHTML =
+          `<path d="${d}" fill="none" stroke="#0e1422" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>` +
+          `<circle cx="${x1}" cy="${y1}" r="4.5" fill="#0e1422"/><circle cx="${x2}" cy="${y2}" r="4.5" fill="#0e1422"/>`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,361 @@
+<!doctype html>
+<!-- Rysunek R1 „Kto decyduje, zanim konektor coś zrobi” do lekcji konektor-bez-pytania: prośba kursanta rozchodzi się na zmianę pliku i wysyłkę wiadomości; tabela trzech trybów (Manual, Accept edits, Auto) mówi, kto decyduje o każdym działaniu; pod spodem dwa wyjątki (narzędzie oznaczone przez autora konektora, narzędzie zablokowane przez organizację). Zakreślacz tylko na komórce Auto × wiadomość. Opis: BRIEF.md, część 9. Źródło PNG obrazy/kto-decyduje-konektor.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Kto decyduje, zanim konektor coś zrobi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* okno aplikacji, uproszczone */
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+        --rynna: 30px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 18px 16px 20px;
+      }
+      svg.ik {
+        flex: none;
+      }
+
+      /* ===== Okno z dymkiem prośby ===== */
+      .okno {
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 14px 14px;
+      }
+      .okno-gora {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 2px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .dymek {
+        width: 480px;
+        margin-left: auto;
+        background: var(--okno-pasek);
+        color: var(--okno-tekst);
+        border-radius: 16px 16px 4px 16px;
+        padding: 12px 16px 13px;
+        font: 600 20px/1.38 var(--sans);
+      }
+      .dymek .plik {
+        font: 700 18px/1 var(--mono);
+        color: var(--limonka);
+      }
+
+      /* ===== Most: z dymka w dół do rynny po lewej ===== */
+      .most {
+        display: block;
+        width: 728px;
+        height: 30px;
+      }
+
+      /* ===== Tabela ===== */
+      .tabela {
+        display: grid;
+        grid-template-columns: var(--rynna) 156px repeat(3, 1fr);
+        column-gap: 8px;
+        row-gap: 10px;
+      }
+      .rynna {
+        position: relative;
+      }
+      /* pion granatowej kreski; rynna w wierszu nagłówka i wierszu 1 na całą wysokość + przerwę */
+      .rynna::before {
+        content: "";
+        position: absolute;
+        left: 13px;
+        width: 4px;
+        background: var(--granat);
+        top: 0;
+        bottom: -10px;
+      }
+      .rynna.ostatnia::before {
+        bottom: auto;
+        height: calc(50% - 10px);
+      }
+      .rynna.ostatnia::after {
+        content: "";
+        position: absolute;
+        left: 13px;
+        top: calc(50% - 14px);
+        width: 14px;
+        height: 16px;
+        border-left: 4px solid var(--granat);
+        border-bottom: 4px solid var(--granat);
+        border-bottom-left-radius: 10px;
+      }
+      .rynna .grot {
+        position: absolute;
+        left: 13px;
+        top: 50%;
+        width: calc(var(--rynna) - 13px + 3px);
+        height: 20px;
+        transform: translateY(-50%);
+        overflow: visible;
+      }
+
+      .naglowek {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 2px 2px 4px;
+      }
+      .pigulka {
+        display: inline-block;
+        padding: 7px 16px 8px;
+        border: 3px solid var(--granat);
+        border-radius: 999px;
+        background: var(--biel);
+        font: 800 22px/1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .naglowek p {
+        margin: 0;
+        color: var(--grafit);
+        font: 600 17px/1.3 var(--sans);
+      }
+
+      .etykieta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 7px;
+        font: 800 19px/1.22 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .etykieta svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      .komorka {
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        padding: 12px 12px 13px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 112px;
+      }
+      .komorka svg {
+        width: 32px;
+        height: 32px;
+      }
+      .komorka b {
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .komorka small {
+        font: 600 17px/1.3 var(--sans);
+        color: var(--granat);
+      }
+      .komorka.ta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        box-shadow: 0 0 0 3px var(--limonka);
+      }
+
+      .zasada {
+        margin: 14px 0 0 calc(var(--rynna) + 8px);
+        color: var(--grafit);
+        font: 600 18px/1.35 var(--sans);
+      }
+
+      /* ===== Dwa wyjątki ===== */
+      .wyjatki {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .ramka {
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 13px 14px 15px;
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 10px;
+        align-items: start;
+      }
+      .ramka svg {
+        width: 34px;
+        height: 34px;
+      }
+      .ramka h3 {
+        margin: 2px 0 6px;
+        font: 800 20px/1.22 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .ramka p {
+        margin: 0;
+        font: 500 18px/1.35 var(--sans);
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="O wysyłkę przez konektor Claude pyta Ciebie, a w trybie Auto decyduje strażnik. Prośba: wpisz termin do pliku zamówienia i wyślij pani Lenart wiadomość. Zmianę pliku w folderze w trybie Manual Claude robi po Twojej zgodzie, w Accept edits bez pytania, w Auto bez pytania i bez strażnika. O wysłanie wiadomości przez konektor w Manual i Accept edits Claude pyta Ciebie, a w Auto decyduje strażnik; gdy strażnik zablokuje wysyłkę, Claude dostaje powód. Wysłanie wiadomości nie jest odczytem ani zmianą pliku. Wyjątki: o narzędzie oznaczone przez autora konektora Claude pyta Cię w każdym trybie, także w Auto, i strażnik go nie ocenia; narzędzia zablokowanego przez organizację Claude nie widzi, bo nie trafia ono do rozmowy."
+    >
+      <h1 class="teza">O wysyłkę przez konektor Claude <mark>pyta Ciebie</mark>, a&nbsp;w&nbsp;trybie Auto decyduje strażnik</h1>
+      <!-- 1. Prośba w oknie rozmowy -->
+      <div class="okno">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="dymek">
+          Wpisz do <span class="plik">zamowienie-lenart.txt</span> termin degustacji: czwartek 10:00. Potem wyślij pani Lenart wiadomość z tym terminem.
+        </div>
+      </div>
+
+      <!-- 2. Kreska z dymka do rynny tabeli -->
+      <svg class="most" viewBox="0 0 728 30" aria-hidden="true">
+        <path d="M474 0 V8 a6 6 0 0 1 -6 6 H21 a6 6 0 0 0 -6 6 V30" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <!-- 3-4. Tabela: wiersze to działania, kolumny to tryby -->
+      <div class="tabela">
+        <div class="rynna"></div>
+        <div></div>
+        <div class="naglowek">
+          <span class="pigulka">Manual</span>
+          <p>Bez pytania tylko czyta.</p>
+        </div>
+        <div class="naglowek">
+          <span class="pigulka">Accept edits</span>
+          <p>Bez pytania czyta i&nbsp;zmienia pliki.</p>
+        </div>
+        <div class="naglowek">
+          <span class="pigulka">Auto</span>
+          <p>Bez pytania robi wszystko, a strażnik sprawdza w tle.</p>
+        </div>
+
+        <!-- Wiersz 1: plik -->
+        <div class="rynna">
+          <svg class="grot" viewBox="0 0 25 20" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+            <path d="M0 10 H21 M14 3 L21 10 L14 17" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="etykieta">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" /></svg>
+          Zmiana pliku w&nbsp;folderze
+        </div>
+        <div class="komorka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4.5 21c.6-4 3.6-6.5 7.5-6.5s6.9 2.5 7.5 6.5" /></svg>
+          <b>Claude pyta Ciebie</b>
+        </div>
+        <div class="komorka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M8 12.3l2.8 2.8L16.3 9.3" /></svg>
+          <b>Bez pytania</b>
+        </div>
+        <div class="komorka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M8 12.3l2.8 2.8L16.3 9.3" /></svg>
+          <b>Bez pytania i&nbsp;bez strażnika</b>
+        </div>
+
+        <!-- Wiersz 2: wiadomość -->
+        <div class="rynna ostatnia">
+          <svg class="grot" viewBox="0 0 25 20" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+            <path d="M14 3 L21 10 L14 17" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="etykieta">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.8" /><path d="M3.5 7l8.5 6.5L20.5 7" /></svg>
+          Wysłanie wiadomości przez konektor
+        </div>
+        <div class="komorka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4.5 21c.6-4 3.6-6.5 7.5-6.5s6.9 2.5 7.5 6.5" /></svg>
+          <b>Claude pyta Ciebie</b>
+        </div>
+        <div class="komorka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4.5 21c.6-4 3.6-6.5 7.5-6.5s6.9 2.5 7.5 6.5" /></svg>
+          <b>Claude pyta Ciebie</b>
+        </div>
+        <div class="komorka ta">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.3-7.5 9.5-4.4-1.2-7.5-4.9-7.5-9.5V6z" /></svg>
+          <b>Decyduje strażnik, nie&nbsp;Ty</b>
+          <small>Gdy strażnik zablokuje wysyłkę, Claude dostaje powód.</small>
+        </div>
+      </div>
+
+      <!-- 5. Zasada pod tabelą -->
+      <p class="zasada">Wysłanie wiadomości nie jest odczytem ani zmianą pliku, dlatego Manual i&nbsp;Accept edits go nie przepuszczają.</p>
+
+      <!-- 6. Dwa wyjątki -->
+      <div class="wyjatki">
+        <div class="ramka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2" /><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" /><path d="M12 13.5v3.2" /><path d="M12 18.9v.1" /></svg>
+          <div>
+            <h3>Narzędzie, które autor konektora oznaczył jako wymagające zgody</h3>
+            <p>Claude pyta Cię o jego użycie w każdym trybie, także w Auto. Strażnik go nie ocenia.</p>
+          </div>
+        </div>
+        <div class="ramka">
+          <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L4 16.7a1.9 1.9 0 0 0 2.7 2.7l5.3-5.3a4 4 0 0 0 5.1-5.4l-2.4 2.4-2.1-.6-.6-2.1z" /><path d="M3 3l18 18" /></svg>
+          <div>
+            <h3>Narzędzie zablokowane przez organizację</h3>
+            <p>Claude go nie widzi, bo narzędzie nie trafia do rozmowy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<!-- Rysunek R3 „Co zrobisz z telefonu” do lekcji rozmowa-na-telefonie: jeden wniosek w nagłówku (wszystko z telefonu trafia do sesji na komputerze), telefon z czterema rzeczami do wysłania, strzałka, komputer z logo Claude (claude-icon-square.svg z press kitu Anthropic). Źródło PNG obrazy/co-zrobisz-z-telefonu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co zrobisz z telefonu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w zadanie-co-rano/obrazy/zrodla/jak-dziala-zadanie.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      p,
+      h1 {
+        margin: 0;
+      }
+      .rys {
+        padding: 26px 24px 30px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1 {
+        font: 800 34px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 640px;
+      }
+      h1 mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0 2px;
+      }
+
+      /* ===== Telefon | strzałka | komputer ===== */
+      .scena {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 330px 1fr 280px;
+        align-items: center;
+      }
+
+      .telefon {
+        position: relative;
+        border: 5px solid var(--granat);
+        border-radius: 40px;
+        background: var(--papier-2);
+        padding: 46px 16px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .telefon::before {
+        content: "";
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        width: 56px;
+        height: 9px;
+        margin-left: -28px;
+        border-radius: 5px;
+        background: var(--granat);
+      }
+      .rzecz {
+        padding: 13px 16px 14px;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .rzecz small {
+        display: block;
+        margin-top: 3px;
+        color: var(--grafit);
+        font: 700 19px/1.25 var(--sans);
+        letter-spacing: 0;
+      }
+
+      .strzalka {
+        display: flex;
+        justify-content: center;
+      }
+      .strzalka svg {
+        width: 92px;
+        height: 44px;
+        overflow: visible;
+      }
+
+      .komputer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .ekran {
+        width: 258px;
+        height: 196px;
+        border: 5px solid var(--granat);
+        border-bottom-width: 14px;
+        border-radius: 18px 18px 6px 6px;
+        background: var(--biel);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ekran img {
+        width: 104px;
+        height: 104px;
+        display: block;
+      }
+      .podstawa {
+        width: 280px;
+        height: 16px;
+        margin-top: -2px;
+        background: var(--granat);
+        border-radius: 3px 3px 12px 12px;
+      }
+      .podpis {
+        margin-top: 16px;
+        text-align: center;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .podpis small {
+        display: block;
+        margin-top: 4px;
+        color: var(--grafit);
+        font: 700 19px/1.3 var(--sans);
+        letter-spacing: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Wszystko, co zrobisz z telefonu, trafia do sesji na komputerze. Z telefonu wysyłasz: wiadomość, zdjęcie albo plik, zmianę trybu (Bypass permissions nie wybierzesz) i odpowiedź na pytanie o zgodę. Strzałka prowadzi do komputera, na którym pracuje Claude."
+    >
+      <h1>Wszystko, co zrobisz z telefonu, <mark>trafia do sesji na komputerze</mark></h1>
+
+      <div class="scena">
+        <div class="telefon">
+          <p class="rzecz">Wiadomość</p>
+          <p class="rzecz">Zdjęcie albo plik</p>
+          <p class="rzecz">Zmiana trybu<small>Bypass permissions nie wybierzesz.</small></p>
+          <p class="rzecz">Odpowiedź na pytanie o&nbsp;zgodę</p>
+        </div>
+
+        <div class="strzalka">
+          <svg viewBox="0 0 92 44" aria-hidden="true">
+            <path d="M6 22 H82 M64 6 L84 22 L64 38" fill="none" stroke="#0e1422" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="komputer">
+          <div class="ekran"><img src="claude-icon-square.svg" alt="" /></div>
+          <div class="podstawa"></div>
+          <p class="podpis">Twój komputer<small>Tu pracuje Claude.</small></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

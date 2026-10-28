@@ -1,0 +1,82 @@
+{
+  "cw1-subagent": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 45000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-subagent": {
+    "szer": 375,
+    "wys": 2600,
+    "budzet": 45000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw2-menu": {
+    "szer": 1280,
+    "wys": 1200,
+    "budzet": 20000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 [data-pasek=\"menu\"].apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-panel-zadan": {
+    "szer": 1280,
+    "wys": 1200,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 [data-pasek=\"menu\"].apl-cel",
+      "#cw2 .apl-menu-poz.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-panel-subagenta": {
+    "szer": 1280,
+    "wys": 1200,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 [data-pasek=\"menu\"].apl-cel",
+      "#cw2 .apl-menu-poz.apl-cel",
+      "#cw2 .apl-wtle-wpis.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-plik": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 [data-pasek=\"menu\"].apl-cel",
+      "#cw2 .apl-menu-poz.apl-cel",
+      "#cw2 .apl-wtle-wpis.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-panel-subagenta": {
+    "szer": 375,
+    "wys": 2600,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 [data-pasek=\"menu\"].apl-cel",
+      "#cw2 .apl-menu-poz.apl-cel",
+      "#cw2 .apl-wtle-wpis.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

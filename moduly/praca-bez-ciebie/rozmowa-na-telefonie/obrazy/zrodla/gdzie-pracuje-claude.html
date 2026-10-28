@@ -1,0 +1,419 @@
+<!doctype html>
+<!-- Rysunek R1 „Gdzie pracuje Claude, gdy piszesz z telefonu” do lekcji rozmowa-na-telefonie: Claude pracuje na Twoim komputerze, telefon i claude.ai/code to okna do tej samej rozmowy, zapis rozmowy na serwerach Anthropic; obok sesja w chmurze jako inna rzecz. Źródło PNG obrazy/gdzie-pracuje-claude.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Gdzie pracuje Claude</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w zadanie-co-rano/obrazy/zrodla/jak-dziala-zadanie.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --szary: #8a93a3;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      p {
+        margin: 0;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .ui {
+        display: inline-block;
+        padding: 1px 8px 2px;
+        border: 2px solid var(--granat);
+        border-radius: 8px;
+        background: var(--biel);
+        font: 700 0.86em/1.25 var(--mono);
+        white-space: nowrap;
+      }
+
+      /* ===== Scena: komputer | serwery | okna ===== */
+      .scena {
+        position: relative;
+        width: 728px;
+        height: 440px;
+      }
+      .scena > svg.laczenia {
+        position: absolute;
+        inset: 0;
+        width: 728px;
+        height: 440px;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      /* Komputer */
+      .komputer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 296px;
+        height: 440px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 14px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .komputer h3 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font: 800 28px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .komputer h3 svg {
+        width: 34px;
+        height: 34px;
+        flex: none;
+      }
+      .wiersz {
+        font: 700 20px/1.25 var(--sans);
+      }
+      .folder {
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 14px;
+        padding: 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .folder-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 700 18px/1.2 var(--mono);
+      }
+      .folder-glowa svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .karta {
+        padding: 7px 10px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 10px;
+        font: 700 17px/1.15 var(--mono);
+      }
+      .pracuje {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font: 800 25px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pracuje svg {
+        width: 40px;
+        height: 40px;
+        flex: none;
+      }
+
+      /* Serwery Anthropic */
+      .serwery {
+        position: absolute;
+        left: 334px;
+        top: 0;
+        width: 170px;
+        height: 440px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .na-zewnatrz {
+        position: absolute;
+        left: -30px;
+        top: 74px;
+        width: 200px;
+        font: 700 18px/1.25 var(--sans);
+        color: var(--grafit);
+      }
+      .chmurka {
+        position: absolute;
+        top: 158px;
+        left: 0;
+        width: 170px;
+        height: 120px;
+      }
+      .chmurka svg {
+        position: absolute;
+        inset: 0;
+        width: 170px;
+        height: 120px;
+      }
+      .chmurka p {
+        position: absolute;
+        inset: 50px 0 0;
+        text-align: center;
+        font: 800 20px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .zapis {
+        position: absolute;
+        top: 290px;
+        left: 0;
+        width: 170px;
+        text-align: center;
+        font: 700 18px/1.25 var(--sans);
+        color: var(--grafit);
+      }
+
+      /* Okna: telefon i przeglądarka */
+      .okna {
+        position: absolute;
+        left: 532px;
+        top: 0;
+        width: 196px;
+        height: 440px;
+      }
+      .telefon-blok {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 196px;
+        height: 256px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .telefon {
+        width: 116px;
+        height: 182px;
+        border: 4px solid var(--granat);
+        border-radius: 24px;
+        background: var(--biel);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 8px;
+        font: 700 19px/1.2 var(--sans);
+      }
+      .telefon::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: 50%;
+        width: 34px;
+        height: 7px;
+        margin-left: -17px;
+        border-radius: 4px;
+        background: var(--granat);
+      }
+      .przegladarka-blok {
+        position: absolute;
+        top: 270px;
+        left: 0;
+        width: 196px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .przegladarka {
+        width: 196px;
+        height: 110px;
+        border: 4px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .przegladarka .gora {
+        height: 24px;
+        flex: none;
+        border-bottom: 3px solid var(--granat);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-left: 9px;
+      }
+      .przegladarka .gora i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--granat);
+      }
+      .przegladarka .srodek {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 700 19px/1.1 var(--mono);
+      }
+      .okno-podpis {
+        text-align: center;
+        font: 700 18px/1.2 var(--sans);
+        color: var(--grafit);
+      }
+
+      /* ===== Dół: dopiski i sesja w chmurze ===== */
+      .dol {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr 262px;
+        gap: 0 20px;
+        align-items: stretch;
+      }
+      .dopiski {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .dopisek {
+        padding: 10px 14px;
+        border-left: 5px solid var(--granat);
+        background: var(--papier-2);
+        border-radius: 0 12px 12px 0;
+        font: 700 20px/1.3 var(--sans);
+      }
+      .chmura-sesja {
+        border-left: 3px dashed var(--szary);
+        padding: 4px 0 4px 18px;
+        color: var(--szary);
+      }
+      .chmura-sesja .ramka {
+        height: 100%;
+        border: 2.5px solid var(--szary);
+        border-radius: 14px;
+        padding: 12px 14px;
+        background: var(--papier);
+      }
+      .chmura-sesja .glowne {
+        font: 800 21px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .chmura-sesja .drugie {
+        margin-top: 6px;
+        font: 700 18px/1.25 var(--sans);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Gdzie pracuje Claude, gdy piszesz z telefonu. Twój komputer: aplikacja Claude jest otwarta. Folder Wesele-Kowalskich z plikami harmonogram-dnia.txt, lista-dostawcow.txt i uklad-sali.txt, a także konektory i narzędzia. Tu pracuje Claude. Sesja na komputerze sama zaczyna każde połączenie z serwerami Anthropic. Na tych serwerach leży zapis sesji, dopóki Remote Control jest połączony. Z serwerami łączą się aplikacja Claude na telefonie i claude.ai/code w przeglądarce. Telefon łączy się z tą samą rozmową. Przeglądarka łączy się z tą samą rozmową. Gdy zamkniesz aplikację albo wyłączysz komputer, sesja jest offline. Gdy laptop zaśnie, Claude Code sam połączy się ponownie, kiedy komputer znów będzie online. Z boku: sesja w chmurze to inna funkcja. Taka sesja działa na serwerach w chmurze. Remote Control działa na Twoim komputerze."
+    >
+      <div class="scena">
+        <!-- Komputer -->
+        <div class="komputer">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5" /><path d="M2 19h20" /></svg>
+            Twój komputer
+          </h3>
+          <p class="wiersz">Aplikacja Claude jest otwarta.</p>
+          <div class="folder">
+            <div class="folder-glowa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z" /></svg>
+              <span>Wesele-Kowalskich</span>
+            </div>
+            <p class="karta">harmonogram-dnia.txt</p>
+            <p class="karta">lista-dostawcow.txt</p>
+            <p class="karta">uklad-sali.txt</p>
+          </div>
+          <p class="wiersz">Konektory i narzędzia</p>
+          <p class="pracuje">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><g stroke="#0e1422" stroke-width="4.2" stroke-linecap="round"><path d="M20 4v32M4 20h32M8.7 8.7l22.6 22.6M31.3 8.7L8.7 31.3" /></g></svg>
+            Tu pracuje Claude.
+          </p>
+        </div>
+
+        <!-- Serwery Anthropic -->
+        <div class="serwery">
+          <p class="na-zewnatrz">Sesja na komputerze sama zaczyna każde połączenie.</p>
+          <div class="chmurka">
+            <svg viewBox="0 0 150 104" preserveAspectRatio="none" aria-hidden="true"><path d="M38 92 H116 A28 28 0 0 0 120 36 A34 34 0 0 0 56 26 A26 26 0 0 0 32 46 A23 23 0 0 0 38 92 Z" fill="#ffffff" stroke="#0e1422" stroke-width="4" stroke-linejoin="round" /></svg>
+            <p>serwery<br />Anthropic</p>
+          </div>
+          <p class="zapis">Na tych serwerach leży zapis sesji, dopóki Remote Control jest połączony.</p>
+        </div>
+
+        <!-- Okna -->
+        <div class="okna">
+          <div class="telefon-blok">
+            <div class="telefon">aplikacja Claude</div>
+            <p class="okno-podpis">Telefon łączy się z tą samą rozmową.</p>
+          </div>
+          <div class="przegladarka-blok">
+            <div class="przegladarka">
+              <div class="gora"><i></i><i></i><i></i></div>
+              <div class="srodek">claude.ai/code</div>
+            </div>
+            <p class="okno-podpis">Przeglądarka łączy się z tą samą rozmową.</p>
+          </div>
+        </div>
+
+        <!-- Strzałki w obie strony -->
+        <svg class="laczenia" viewBox="0 0 728 440" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <!-- komputer <-> serwery -->
+            <path d="M300 220 H328" />
+            <path d="M310 211 L299 220 L310 229" />
+            <path d="M318 211 L329 220 L318 229" />
+            <!-- serwery <-> telefon i przeglądarka -->
+            <path d="M506 220 H518" />
+            <path d="M516 211 L505 220 L516 229" />
+            <path d="M518 220 V91 H566" />
+            <path d="M518 220 V325 H526" />
+            <path d="M556 82 L567 91 L556 100" />
+            <path d="M516 316 L527 325 L516 334" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="dol">
+        <div class="dopiski">
+          <p class="dopisek">Gdy zamkniesz aplikację albo wyłączysz komputer, sesja jest offline.</p>
+          <p class="dopisek">Gdy laptop zaśnie, Claude Code sam połączy się ponownie, kiedy komputer znów będzie online.</p>
+        </div>
+        <div class="chmura-sesja">
+          <div class="ramka">
+            <p class="glowne">Sesja w chmurze to inna funkcja.</p>
+            <p class="drugie">Taka sesja działa na serwerach w chmurze. Remote Control działa na Twoim komputerze.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

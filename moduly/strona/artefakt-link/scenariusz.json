@@ -1,0 +1,232 @@
+{
+  "lekcja": "artefakt-link",
+  "folder_startowy": [
+    "opis-szkolenia.txt",
+    "cennik.txt",
+    "opinie-klientow.txt",
+    "notatki-z-rozmowy.txt",
+    "oferta-szkolenia.html"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Opublikuj stronę oferty jako artefakt",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Kliknij pierwsze polecenie, potem link w odpowiedzi Claude i „Tak zobaczy klient”. Drugim poleceniem otworzysz panel Browser i jego menu.",
+      "nauczyciel_start": "W folderze leży plik strony oferty i notatki z rozmowy z klientem. Claude dopisał notatki do pliku. Kliknij pierwsze polecenie nad oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Dopisz do pliku oferta-szkolenia.html informacje z pliku notatki-z-rozmowy.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dopisałem do pliku oferta-szkolenia.html informacje z pliku notatki-z-rozmowy.txt."
+          }
+        ]
+      },
+      "widok_klienta": {
+        "ty": "Tak widzisz Ty po zalogowaniu",
+        "klient": "Tak zobaczy klient",
+        "podpis": "Po udostępnieniu publicznym: klient bez logowania albo spoza Twojej organizacji (widok uproszczony)",
+        "objasnienie": "Angielski napis znaczy: treść od użytkownika, niesprawdzona."
+      },
+      "drogi": [
+        {
+          "id": "publikuj",
+          "etykieta": "Opublikuj stronę oferty jako artefakt",
+          "opis": "Claude opublikuje plik strony. Potem klikniesz link w odpowiedzi.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Opublikuj plik oferta-szkolenia.html z tego folderu jako artefakt. Chcę potem wysłać klientowi link do tej strony.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Opublikowałem plik oferta-szkolenia.html jako artefakt. Link: https://claude.ai/code/artifact/przyklad",
+              "plik": "oferta-szkolenia.html",
+              "bez_zmiany": true,
+              "link": "https://claude.ai/code/artifact/przyklad",
+              "fakt": "artefakt-publikacja-z-prosby-bez-okna-zgody"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W ćwiczeniu link otworzy się w panelu Browser. Panel nie ma Twoich zapisanych logowań, ale możesz się w nim zalogować na claude.ai. Kliknij link.",
+              "fakt": "aplikacja-panel-browser-czysty-profil-bez-zapisanych-logowan"
+            },
+            {
+              "typ": "klik",
+              "cel": "link"
+            },
+            {
+              "typ": "artefakt",
+              "tytul": "Oferta szkolenia: rozmowa o cenie",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 600 zł netto za osobę. Rabat dla klienta: 15% (nie pisać na stronie).",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              },
+              "fakt": "artefakt-naglowek-strony-tytul-share-awatar-opis-zrzutu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na stronie jest linijka o rabacie, choć notatka mówiła, żeby jej nie pisać. Nowy artefakt widzisz tylko Ty. Kliknij „Tak zobaczy klient”.",
+              "fakt": "artefakt-nowy-widoczny-tylko-dla-ciebie"
+            }
+          ]
+        },
+        {
+          "id": "menu-browser",
+          "etykieta": "Otwórz panel Browser i jego menu",
+          "opis": "Klikniesz przycisk Browser na pasku tytułu, a potem trzy kropki w nagłówku panelu.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Panel Browser otworzysz przyciskiem Browser na pasku tytułu sesji. To ikona globusa. Kliknij ją.",
+              "fakt": "aplikacja-panel-browser-skrot-i-przycisk-na-pasku-tytulu"
+            },
+            {
+              "typ": "klik",
+              "cel": "przegladarka",
+              "fakt": "aplikacja-panel-browser-skrot-i-przycisk-na-pasku-tytulu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Panel Browser to przeglądarka z kartami. Teraz ma pustą kartę. Kliknij trzy kropki w jego nagłówku.",
+              "fakt": "aplikacja-panel-browser-to-przegladarka-z-kartami"
+            },
+            {
+              "typ": "klik",
+              "cel": "przegladarka-menu",
+              "fakt": "aplikacja-zmiana-wyboru-otwierania-linkow-w-menu-panelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pozycją Open links in built-in browser zmienisz, czy linki z rozmowy otwierają się w panelu Browser, czy w domyślnej przeglądarce.",
+              "fakt": "aplikacja-zmiana-wyboru-otwierania-linkow-w-menu-panelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pozycją Keep cookies wybierasz, czy panel zachowa ciasteczka po zamknięciu aplikacji. Gdy je zachowa, nie logujesz się od nowa.",
+              "fakt": "aplikacja-panel-browser-keep-cookies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Usuń linijkę o rabacie i opublikuj nową wersję",
+      "opis": "Strona artefaktu z ćwiczenia 1 jest już otwarta. Kliknij polecenie i patrz na stronę.",
+      "nauczyciel_start": "Strona artefaktu jest otwarta w panelu Browser. Ma jeszcze linijkę o rabacie. Kliknij polecenie i patrz na stronę.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Opublikuj plik oferta-szkolenia.html z tego folderu jako artefakt. Chcę potem wysłać klientowi link do tej strony."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Opublikowałem plik oferta-szkolenia.html jako artefakt. Link: https://claude.ai/code/artifact/przyklad"
+          }
+        ],
+        "artefakt_otwarty": {
+          "tytul": "Oferta szkolenia: rozmowa o cenie",
+          "strona": {
+            "tytul": "Rozmowa o cenie bez przepraszania",
+            "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+            "program": [
+              "Jak podać cenę jednym zdaniem",
+              "Co odpowiedzieć na „to za drogo”",
+              "Ćwiczenia na prawdziwych rozmowach zespołu"
+            ],
+            "cena": "2 600 zł netto za osobę. Rabat dla klienta: 15% (nie pisać na stronie).",
+            "opinie": [
+              "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+              "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+            ],
+            "kontakt": "Pytania o termin: kontakt@example.com"
+          }
+        }
+      },
+      "widok_klienta": {
+        "ty": "Tak widzisz Ty po zalogowaniu",
+        "klient": "Tak zobaczy klient",
+        "podpis": "Po udostępnieniu publicznym tej wersji: klient bez logowania albo spoza Twojej organizacji (widok uproszczony)",
+        "objasnienie": "Angielski napis znaczy: treść od użytkownika, niesprawdzona."
+      },
+      "drogi": [
+        {
+          "id": "popraw",
+          "etykieta": "Usuń linijkę o rabacie i opublikuj ponownie",
+          "opis": "Claude zmieni plik strony i opublikuje go jeszcze raz.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Usuń z pliku oferta-szkolenia.html linijkę o rabacie dla klienta i opublikuj stronę ponownie.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Usunąłem linijkę o rabacie z pliku oferta-szkolenia.html i opublikowałem nową wersję pod tym samym adresem: https://claude.ai/code/artifact/przyklad",
+              "plik": "oferta-szkolenia.html",
+              "fakt": "artefakt-poprawka-zmienia-plik-i-publikuje-pod-tym-samym-adresem"
+            },
+            {
+              "typ": "artefakt",
+              "tytul": "Oferta szkolenia: rozmowa o cenie",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 600 zł netto za osobę",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              },
+              "fakt": "artefakt-otwarta-strona-pokazuje-aktualizacje-wersje-wybierasz-w-share"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pod oknem ćwiczenia plik oferta-szkolenia.html ma ramkę, bo Claude go zmienił. Strona otwarta u Ciebie sama pokazuje nową wersję. Sprawdź też widok „Tak zobaczy klient”.",
+              "fakt": "artefakt-otwarta-strona-pokazuje-aktualizacje-wersje-wybierasz-w-share"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

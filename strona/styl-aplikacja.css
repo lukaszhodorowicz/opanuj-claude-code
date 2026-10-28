@@ -1,0 +1,412 @@
+/* Wygląd symulatora aplikacji Claude (zakładka Code): ciemne okno w kolorach zrzutów lekcji 1 z paskiem bocznym, rozmową, polem wiadomości, panelem szczegółów i widokiem zmian; znacznik kursu „kliknij tutaj” na elemencie do kliknięcia. */
+:root {
+  --a-tlo: #191919;
+  --a-bok: #1f1f1f;
+  --a-kreska: #353535;
+  --a-tekst: #eeeeee;
+  --a-szary: #969696;
+  --a-szkic: #3a3a3a;
+  --a-dymek: #303030;
+  --a-plus: #6fd08c;
+  --a-plus-tlo: #1d3324;
+  --a-minus: #f08a7e;
+  --a-minus-tlo: #3d2220;
+  --a-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
+  --a-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* podpis nad oknem: to symulator w kursie, nie prawdziwa aplikacja */
+.apl-podpis {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 4px 0 10px;
+  font: 500 13px/1.4 var(--mono);
+  color: var(--grafit);
+}
+
+/* okno aplikacji */
+.apl-okno {
+  display: grid;
+  grid-template-columns: 188px minmax(0, 1fr);
+  min-height: 470px;
+  background: var(--a-tlo);
+  color: var(--a-tekst);
+  font: 400 14px/1.5 var(--a-sans);
+  border: 1px solid var(--a-kreska);
+  border-radius: 14px;
+  box-shadow:
+    0 1px 0 rgba(14, 20, 34, 0.08),
+    0 14px 34px -12px rgba(14, 20, 34, 0.45);
+  overflow: hidden;
+}
+.apl-okno svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.apl-szkic {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--a-szkic);
+}
+
+/* pasek boczny: światła okna, zakładki (Code wybrana), pozycje bez napisów */
+.apl-bok {
+  background: var(--a-bok);
+  border-right: 1px solid var(--a-kreska);
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.apl-bok-gora {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 8px;
+}
+.apl-swiatla {
+  display: flex;
+  gap: 6px;
+}
+.apl-swiatla i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #4a4a4a;
+}
+.apl-bok-strzalki {
+  display: flex;
+  gap: 6px;
+  color: var(--a-szary);
+}
+.apl-bok-strzalki svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-zakladki {
+  display: flex;
+  margin-left: auto;
+  padding: 3px;
+  gap: 2px;
+  border-radius: 10px;
+  background: #2b2b2b;
+}
+.apl-zakladka {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 26px;
+  border-radius: 7px;
+  color: var(--a-szary);
+}
+.apl-zakladka.wybrana {
+  background: #3d3d3d;
+  color: var(--a-tekst);
+  box-shadow: inset 0 0 0 1px #575757;
+}
+.apl-bok-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.apl-bok-lista li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  color: #cacaca;
+}
+.apl-bok-lista li:first-child {
+  background: #404040;
+}
+/* „+ New”: jedyny napis na liście, reszta to szare paski; wysokość jak pozycja z ikoną (18 + 14 px) */
+.apl-bok-lista li.apl-bok-nowa {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.apl-bok-lista .apl-szkic {
+  height: 7px;
+}
+/* wąski ekran: pasek boczny zwija się do górnego paska (styl-aplikacja-zmiany.css chowa całą listę), ale jego pozycje zostają
+   (D-2026-10-27-51, usterka U6): „+ New” (dokumentacja: „Click + New in the sidebar”), Search, Artifacts, On-call, Customize i More stoją w jednym rzędzie, który zawija się do drugiego wiersza
+   i nie wychodzi poza okno; selektor z trzema klasami wygrywa z regułą z późniejszego pliku */
+@media (max-width: 720px) {
+  .apl-okno .apl-bok .apl-bok-lista {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px 4px;
+  }
+  .apl-okno .apl-bok .apl-bok-lista li {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: 7px;
+    padding: 6px 8px;
+  }
+  .apl-okno .apl-bok .apl-bok-lista li.apl-tag-rzad {
+    flex: 0 0 100%;
+    padding: 0 0 2px;
+  }
+}
+.apl-bok-sesje {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 8px;
+}
+.apl-bok-sesje > .apl-szkic:first-child {
+  height: 6px;
+  background: #333333;
+}
+.apl-sesja {
+  margin: -6px -8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #2a2a2a;
+  box-shadow: 0 0 0 1px var(--a-kreska);
+}
+
+/* część główna: pasek tytułu rozmowy z przyciskami paneli, pod nim rozmowa i panel szczegółów */
+.apl-glowna {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.apl-pasek {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 46px;
+  padding: 0 10px 0 16px;
+  border-bottom: 1px solid var(--a-kreska);
+}
+.apl-szkic-tytul {
+  width: 150px;
+  max-width: 40%;
+  height: 9px;
+}
+.apl-pasek-przyciski {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
+.apl-ikona {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: #b5b5b5;
+  cursor: pointer;
+  padding: 0;
+}
+.apl-ikona:hover,
+.apl-ikona.wlaczony {
+  background: #2f2f2f;
+  color: var(--a-tekst);
+}
+.apl-ikona.apl-bez {
+  cursor: default;
+}
+/* dymek z nazwą przycisku (dokumentacja: „Hover to see each button's name”): tylko po najechaniu albo fokusie klawiatury;
+   pod paskiem i dosunięty do prawej krawędzi przycisku, więc nie zasłania sąsiednich przycisków i nie wychodzi z okna */
+button.apl-ikona {
+  position: relative;
+}
+.apl-dymek {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  padding: 3px 8px;
+  border: 1px solid var(--a-kreska);
+  border-radius: 6px;
+  background: var(--a-dymek);
+  color: var(--a-tekst);
+  font: 500 12px/1.4 var(--a-sans);
+  white-space: nowrap;
+  pointer-events: none;
+}
+button.apl-ikona:focus-visible > .apl-dymek {
+  display: block;
+}
+@media (hover: hover) {
+  button.apl-ikona:hover > .apl-dymek {
+    display: block;
+  }
+}
+.apl-uklad {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  min-height: 0;
+}
+.apl-okno.zmiany-otwarte .apl-uklad {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+.apl-okno.zmiany-otwarte .apl-panel {
+  display: none; /* panel szczegółów jest tylko przy szerokiej rozmowie */
+}
+
+/* rozmowa i pole wiadomości */
+.apl-czat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 22px 16px;
+  min-width: 0;
+}
+.apl-rozmowa {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.apl-rozmowa p {
+  margin: 0;
+}
+.apl-ty {
+  align-self: flex-end;
+  max-width: 82%;
+  background: var(--a-dymek);
+  border-radius: 14px;
+  padding: 9px 14px;
+}
+.apl-claude {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.apl-pole {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 8px 8px 14px;
+  border: 1px solid #454545;
+  border-radius: 16px;
+  background: #303030;
+  box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.4);
+  color: #b5b5b5;
+}
+.apl-pole-tekst {
+  flex: 1;
+  height: 18px;
+  border-left: 1.5px solid var(--a-tekst);
+  animation: apl-kursor 1.1s steps(1) 4;
+}
+.apl-pole-wyslij {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #404040;
+  color: #8a8a8a;
+}
+.apl-rzad {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 13.5px;
+  color: #dddddd;
+}
+.apl-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+.apl-chip:first-child {
+  background: #353535;
+}
+.apl-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-chip svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* panel szczegółów: karta Changes z licznikiem i karty bez napisów */
+.apl-panel {
+  border-left: 1px solid var(--a-kreska);
+  background: #1c1c1c;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.apl-karta {
+  border: 1px solid var(--a-kreska);
+  border-radius: 12px;
+  background: #232323;
+  padding: 12px 12px;
+}
+.apl-karta-zmiany {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.apl-karta-zmiany b {
+  font-weight: 600;
+}
+.apl-karta-szkic {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.apl-pasek-uzycia {
+  height: 6px;
+  border-radius: 3px;
+  background: #2c2c2c;
+}
+.apl-pasek-uzycia i {
+  display: block;
+  width: 22%;
+  height: 100%;
+  border-radius: 3px;
+  background: #5a5a5a;
+}
+.apl-licznik {
+  position: relative;
+  border: 0;
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 4px 9px;
+  font: 600 13.5px/1.3 var(--a-mono);
+  cursor: pointer;
+}
+.apl-plus {
+  color: var(--a-plus);
+}
+.apl-minus {
+  color: var(--a-minus);
+}
+
+/* Przewiewny układ lekcji (D-2026-10-28-03) */
+.cwiczenie .apl-podpis {
+  margin: 0 0 12px;
+}

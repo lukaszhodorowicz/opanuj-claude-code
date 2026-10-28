@@ -1,0 +1,105 @@
+{
+  "cw1-plik": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-plik": {
+    "szer": 375,
+    "wys": 2060,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-plik": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-plik": {
+    "szer": 375,
+    "wys": 2420,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw1-formularz-okno": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 50000,
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-bok-harm.apl-cel",
+      "#cw1 .apl-harm-nowe.apl-cel",
+      "#cw1 .apl-harm-zaaw-glowa.apl-cel"
+    ],
+    "do": "cw1",
+    "polecenie": "cw1"
+  },
+  "cw1-390-formularz-okno": {
+    "szer": 390,
+    "wys": 2200,
+    "budzet": 50000,
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-bok-harm.apl-cel",
+      "#cw1 .apl-harm-nowe.apl-cel",
+      "#cw1 .apl-harm-zaaw-glowa.apl-cel"
+    ],
+    "do": "cw1",
+    "polecenie": "cw1"
+  },
+  "cw1-formularz-zadanie": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 60000,
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-bok-harm.apl-cel",
+      "#cw1 .apl-harm-nowe.apl-cel",
+      "#cw1 .apl-harm-zaaw-glowa.apl-cel",
+      "#cw1 .apl-harm-utworz.apl-cel",
+      "#cw1 .apl-harm-uruchom.apl-cel"
+    ],
+    "do": "cw1",
+    "polecenie": "cw1"
+  },
+  "cw1-formularz-nowe": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 50000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-bok-harm.apl-cel",
+      "#cw1 .apl-harm-nowe.apl-cel"
+    ],
+    "do": "cw1"
+  }
+}

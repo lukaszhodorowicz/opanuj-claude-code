@@ -1,0 +1,280 @@
+<!doctype html>
+<!-- Rysunek R4 „Okno rozmowy i okno subagenta” do lekcji subagent-zbiera: ankiety zostają w oknie subagenta, do rozmowy wraca samo podsumowanie. Źródło PNG obrazy/okno-rozmowy-i-subagenta.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Okno rozmowy i okno subagenta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w rysunku R1 gdzie-jest-strona) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* okno aplikacji, uproszczone */
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 24px;
+      }
+      .uklad {
+        display: grid;
+        grid-template-columns: 268px 1fr 268px;
+        align-items: stretch;
+      }
+      .pole {
+        display: flex;
+        flex-direction: column;
+      }
+      .podpis-pola {
+        margin: 0 0 10px 4px;
+        font: 800 27px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+
+      /* ===== Lewe pole: okno rozmowy ===== */
+      .okno {
+        flex: 1;
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 10px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .okno-gora {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 4px;
+        margin-bottom: -2px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .pasek {
+        border-radius: 10px;
+        background: var(--okno-pasek);
+        padding: 14px 12px;
+      }
+      .pasek.tytul {
+        color: var(--okno-tekst);
+        font: 700 21px/1.2 var(--sans);
+      }
+      .pasek .linia {
+        height: 10px;
+        border-radius: 5px;
+        background: var(--okno-kreska);
+      }
+      .pasek .linia + .linia {
+        margin-top: 9px;
+      }
+      .pasek.podsumowanie {
+        margin-top: auto;
+        align-self: flex-start;
+        padding: 10px 14px;
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+        color: var(--granat);
+        font: 800 20px/1 var(--sans);
+      }
+
+      /* ===== Prawe pole: okno subagenta ze stosem ankiet ===== */
+      .sub {
+        flex: 1;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 16px;
+        padding: 14px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 48px;
+        padding: 0 10px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 500 20px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .sub {
+        justify-content: center;
+        gap: 0;
+      }
+      /* stos: karty pod spodem wystają jak kartki w plikach */
+      .stos {
+        position: relative;
+        padding-top: 16px;
+      }
+      .stos::before,
+      .stos::after {
+        content: "";
+        position: absolute;
+        height: 48px;
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        background: var(--papier-2);
+      }
+      .stos::before { top: 0; left: 16px; right: -4px; }
+      .stos::after { top: 8px; left: 8px; right: 2px; }
+      .stos .karta {
+        position: relative;
+        z-index: 1;
+      }
+      .kropki {
+        text-align: center;
+        line-height: 0;
+        color: var(--grafit);
+        margin: 14px 0 18px;
+      }
+
+      /* ===== Środek: dwie strzałki ===== */
+      .strzalki {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 34px;
+        padding: 46px 8px 0;
+      }
+      .strzalka {
+        text-align: center;
+        font: 800 20px/1.15 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .strzalka svg {
+        display: block;
+        width: 100%;
+        height: 22px;
+        margin-top: 6px;
+        overflow: visible;
+      }
+
+      /* ===== Podpis pod rysunkiem ===== */
+      .wniosek {
+        margin: 26px 4px 0;
+        font: 800 25px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+      .limit {
+        margin: 8px 4px 0;
+        color: var(--grafit);
+        font: 700 21px/1.25 var(--sans);
+        text-align: center;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        grid-column: 1 / -1;
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans, "Plus Jakarta Sans", system-ui, sans-serif);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+        color: var(--granat, #0e1422);
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz, #d9f99d) 52%, var(--zakreslacz, #d9f99d) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Twoja rozmowa o remoncie i osobne okno subagenta z dwunastoma ankietami. Claude daje subagentowi zadanie, subagent oddaje samo podsumowanie. Ankiety zostają w oknie kontekstu subagenta. Zapytania subagenta liczą się do tego samego limitu co Twoja rozmowa.">
+      <h1 class="teza">Subagent czyta pliki u&nbsp;siebie, a&nbsp;<mark>do rozmowy wraca samo podsumowanie</mark></h1>
+      <div class="uklad">
+        <!-- Lewe pole -->
+        <div class="pole">
+          <p class="podpis-pola">Twoja rozmowa</p>
+          <div class="okno">
+            <div class="okno-gora"><i></i><i></i><i></i></div>
+            <div class="pasek tytul">rozmowa o remoncie</div>
+            <div class="pasek"><div class="linia" style="width: 100%"></div><div class="linia" style="width: 72%"></div></div>
+            <div class="pasek"><div class="linia" style="width: 88%"></div><div class="linia" style="width: 56%"></div></div>
+            <div class="pasek podsumowanie">podsumowanie</div>
+          </div>
+        </div>
+
+        <!-- Środek -->
+        <div class="strzalki">
+          <div class="strzalka">
+            zadanie<br />od Claude
+            <svg viewBox="0 0 160 22" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M4 11 H152" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" />
+              <path d="M140 2 L154 11 L140 20" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="strzalka">
+            <svg viewBox="0 0 160 22" preserveAspectRatio="none" aria-hidden="true" style="margin: 0 0 6px">
+              <path d="M8 11 H156" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" />
+              <path d="M20 2 L6 11 L20 20" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            samo<br />podsumowanie
+          </div>
+        </div>
+
+        <!-- Prawe pole -->
+        <div class="pole">
+          <p class="podpis-pola">Okno kontekstu subagenta</p>
+          <div class="sub">
+            <div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              ankieta-01.txt
+            </div>
+            <div class="kropki" aria-hidden="true"><svg viewBox="0 0 60 14" width="60" height="14"><g fill="#475569"><circle cx="7" cy="7" r="6"/><circle cx="30" cy="7" r="6"/><circle cx="53" cy="7" r="6"/></g></svg></div>
+            <div class="stos"><div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              ankieta-12.txt
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="wniosek">Ankiety zostają w&nbsp;oknie kontekstu subagenta.<br />Do rozmowy wraca samo podsumowanie.</p>
+      <p class="limit">Zapytania subagenta liczą się do tego samego limitu co Twoja rozmowa.</p>
+    </div>
+  </body>
+</html>

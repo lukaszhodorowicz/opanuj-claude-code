@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak w aplikacji poprosić o przepływ?"
+    tyl: "Własnymi słowami, na przykład „Użyj przepływu: …”."
+    fakt: przeplyw-prosba-wlasnymi-slowami
+
+  - przod: "Co pokazuje karta zgody na przepływ w aplikacji?"
+    tyl: "Nazwę przepływu, listę faz i ostrzeżenie o zużyciu tokenów."
+    fakt: przeplyw-aplikacja-karta-zgody
+
+  - przod: "Gdzie w aplikacji widać postęp przepływu?"
+    tyl: "W panelu Background tasks. Otwierasz go z menu z trzema kropkami na pasku tytułu rozmowy."
+    fakt: przeplyw-aplikacja-postep-w-panelu-background-tasks
+
+  - przod: "Kto trzyma plan w przepływie, a kto przy kilku subagentach?"
+    tyl: "W przepływie skrypt. Przy subagentach Claude, tura po turze."
+    fakt: przeplyw-kto-decyduje-o-kolejnym-kroku
+
+  - przod: "Co wraca do rozmowy po przepływie?"
+    tyl: "Jeden wynik. Wyniki pośrednie zostają w przepływie."
+    fakt: subagent-podsumowanie-przeplyw-jeden-wynik
+
+  - przod: "Jak sprawdzić koszt przepływu przed dużym zadaniem?"
+    tyl: "Uruchomić go najpierw na małym wycinku, na przykład na jednej ofercie."
+    fakt: przeplyw-najpierw-maly-wycinek

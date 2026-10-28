@@ -1,0 +1,276 @@
+<!doctype html>
+<!-- Rysunek R3 „Pierwsze uruchomienie z Tobą” do lekcji zgoda-gdy-cie-nie-ma: zadanie utworzone, Run now, pytanie o zgodę z odpowiedzią „always allow”, kolejne przebiegi bez pytania; z boku odnoga narzędzi MCP z requiresUserInteraction; na dole Always allowed i reguły allow. Pytanie o zgodę rysowane abstrakcyjnie: dokumentacja nie opisuje jego wyglądu. Źródło PNG obrazy/pierwsze-uruchomienie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Pierwsze uruchomienie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w zadanie-co-rano/obrazy/zrodla/jak-dziala-zadanie.html); czerwień jak w praca-do-warunku/obrazy/zrodla/dobry-warunek.html */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --czerwien: #c2410c;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      p {
+        margin: 0;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .ui {
+        display: inline-block;
+        padding: 1px 8px 2px;
+        border: 2px solid var(--granat);
+        border-radius: 8px;
+        background: var(--biel);
+        font: 700 0.86em/1.25 var(--mono);
+        white-space: nowrap;
+      }
+
+      /* Siatka: droga po lewej, odnoga po prawej */
+      .droga {
+        display: grid;
+        grid-template-columns: 404px 34px 1fr;
+      }
+      .krok {
+        grid-column: 1;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 14px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 14px;
+      }
+      .nr {
+        flex: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--granat);
+        color: var(--biel);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 800 21px/1 var(--sans);
+      }
+      .krok .glowne {
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .krok .glowne .ui {
+        font-size: 21px;
+      }
+      .krok .drugie {
+        margin-top: 4px;
+        font: 500 20px/1.25 var(--sans);
+        color: var(--grafit);
+      }
+      .w-dol {
+        grid-column: 1;
+        display: flex;
+        justify-content: center;
+        height: 40px;
+      }
+      .w-dol svg {
+        width: 22px;
+        height: 40px;
+        overflow: visible;
+      }
+
+      /* Krok 3: abstrakcyjna ramka pytania */
+      .pytanie {
+        margin-top: 10px;
+        padding: 12px 14px;
+        border: 2.5px dashed var(--granat);
+        border-radius: 12px;
+        background: var(--papier);
+      }
+      .pytanie .tytul {
+        font: 700 20px/1.9 var(--sans);
+      }
+      .odpowiedz {
+        display: inline-block;
+        line-height: 1.2;
+        padding: 6px 14px 8px;
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+        border-radius: 10px;
+        font: 800 22px/1.2 var(--sans);
+      }
+      .pytanie .kiedy {
+        margin-top: 6px;
+        font: 700 19px/1.2 var(--sans);
+        color: var(--grafit);
+      }
+
+      /* Odnoga MCP */
+      .odnoga-strzalka {
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .odnoga-strzalka svg {
+        width: 30px;
+        height: 20px;
+        overflow: visible;
+      }
+      .odnoga {
+        grid-column: 3;
+        align-self: center;
+        padding: 12px 13px;
+        border: 3px solid var(--czerwien);
+        border-radius: 14px;
+        background: var(--biel);
+        font: 700 19px/1.3 var(--sans);
+      }
+      .odnoga .ui {
+        margin: 4px 0;
+        font-size: 16px;
+        border-color: var(--czerwien);
+        color: var(--czerwien);
+      }
+      .odnoga .staje {
+        margin-top: 8px;
+        color: var(--czerwien);
+        font-weight: 800;
+      }
+
+      /* Krok 4: kalendarze */
+      .kalendarze {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .kal {
+        width: 70px;
+        border: 2.5px solid var(--granat);
+        border-radius: 9px;
+        overflow: hidden;
+        background: var(--biel);
+        text-align: center;
+      }
+      .kal::before {
+        content: "";
+        display: block;
+        height: 12px;
+        background: var(--granat);
+      }
+      .kal span {
+        display: block;
+        padding: 6px 0 8px;
+        font: 800 20px/1 var(--sans);
+      }
+
+      /* Dopiski */
+      .dopiski {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .dopisek {
+        padding: 11px 16px;
+        border-left: 5px solid var(--granat);
+        background: var(--papier-2);
+        border-radius: 0 12px 12px 0;
+        font: 700 20px/1.3 var(--sans);
+      }
+      .dopisek .ui {
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Pierwsze uruchomienie z Tobą. 1. Tworzysz zadanie z harmonogramu. 2. Klikasz Run now na stronie zadania. Zadanie rusza od razu, bez czekania na termin. 3. Claude pyta o zgodę. Przy każdym pytaniu wybierasz always allow. Z boku: narzędzia MCP oznaczone requiresUserInteraction pytają o zgodę przy każdym użyciu i nie mają odpowiedzi always allow. Przebieg, który ich używa, staje za każdym razem. 4. Trzy kartki kalendarza z poniedziałkami. W kolejne poniedziałki Claude używa tych samych narzędzi bez pytania. Zapisane zgody cofniesz na stronie zadania, w panelu Always allowed. Reguły allow z pliku ~/.claude/settings.json też działają w przebiegach."
+    >
+      <div class="droga">
+        <!-- 1 -->
+        <div class="krok">
+          <span class="nr">1</span>
+          <p class="glowne">Tworzysz zadanie z harmonogramu.</p>
+        </div>
+        <div class="w-dol"><svg viewBox="0 0 22 40" aria-hidden="true"><path d="M11 3 V35 M4 27 L11 36 L18 27" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+
+        <!-- 2 -->
+        <div class="krok">
+          <span class="nr">2</span>
+          <div>
+            <p class="glowne">Klikasz <span class="ui">Run now</span> na stronie zadania.</p>
+            <p class="drugie">Zadanie rusza od razu, bez czekania na termin.</p>
+          </div>
+        </div>
+        <div class="w-dol"><svg viewBox="0 0 22 40" aria-hidden="true"><path d="M11 3 V35 M4 27 L11 36 L18 27" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+
+        <!-- 3 + odnoga -->
+        <div class="krok" style="grid-row: 5">
+          <span class="nr">3</span>
+          <div style="flex: 1">
+            <p class="glowne">Claude pyta o zgodę.</p>
+            <div class="pytanie">
+              <p class="tytul">Przy każdym pytaniu wybierasz <span class="odpowiedz">always allow</span>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="odnoga-strzalka" style="grid-row: 5">
+          <svg viewBox="0 0 30 20" aria-hidden="true"><path d="M2 10 H26 M19 3 L27 10 L19 17" fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </div>
+        <div class="odnoga" style="grid-row: 5">
+          <p>Narzędzia MCP oznaczone <span class="ui">requiresUserInteraction</span> pytają o zgodę przy każdym użyciu i nie mają odpowiedzi <span style="white-space: nowrap">„always allow”</span>.</p>
+          <p class="staje">Przebieg, który ich używa, staje za każdym razem.</p>
+        </div>
+        <div class="w-dol"><svg viewBox="0 0 22 40" aria-hidden="true"><path d="M11 3 V35 M4 27 L11 36 L18 27" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+
+        <!-- 4 -->
+        <div class="krok">
+          <span class="nr">4</span>
+          <div>
+            <div class="kalendarze" style="margin-top: 0">
+              <div class="kal"><span>pon.</span></div>
+              <div class="kal"><span>pon.</span></div>
+              <div class="kal"><span>pon.</span></div>
+            </div>
+            <p class="drugie" style="margin-top: 10px">W kolejne poniedziałki Claude używa tych samych narzędzi bez pytania.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dopiski">
+        <p class="dopisek">Zapisane zgody cofniesz na stronie zadania, w panelu <span class="ui">Always allowed</span>.</p>
+        <p class="dopisek">Reguły allow z pliku <span class="ui">~/.claude/settings.json</span> też działają w przebiegach.</p>
+      </div>
+    </div>
+  </body>
+</html>

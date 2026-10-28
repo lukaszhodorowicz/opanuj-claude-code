@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co pokazuje pierścień obok wyboru modelu?"
+    tyl: "Po kliknięciu: zużycie abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code."
+    fakt: aplikacja-pierscien-zuzycie-abonamentu
+
+  - przod: "Czym jest limit sesji z komunikatu o limicie?"
+    tyl: "Oknem zużycia abonamentu, wspólnym dla wszystkich modeli, a nie jedną rozmową. Okno to tu okres, w którym liczy się zużycie abonamentu, zanim się odnowi."
+    fakt: koszty-limit-sesji-i-tygodnia-wspolny-dla-modeli
+
+  - przod: "Kiedy po komunikacie o limicie pomaga zmiana modelu?"
+    tyl: "Gdy komunikat dotyczy limitu jednej rodziny modeli. Wtedy przejdź na model spoza tej rodziny."
+    fakt: koszty-limit-rodziny-modeli-zmiana-modelu-pomaga
+
+  - przod: "Gdzie wyłączysz podpowiedzi następnego polecenia?"
+    tyl: "W Settings > Claude Code, w części Sessions: przełącznik Prompt suggestions."
+    fakt: aplikacja-podpowiedzi-wylaczasz-w-ustawieniach
+
+  - przod: "Na jakim abonamencie działa Dispatch, czyli wysyłanie zadań z telefonu?"
+    tyl: "Tylko na Pro i Max."
+    fakt: aplikacja-dispatch-tylko-pro-max
+
+  - przod: "Co pozwala pracować dalej po wyczerpaniu limitu abonamentu?"
+    tyl: "Kredyty na zużycie (usage credits)."
+    fakt: koszty-kredyty-praca-po-limicie

@@ -1,0 +1,84 @@
+/* Wygląd pierścienia zużycia abonamentu i jego okienka w symulatorze aplikacji Claude (strona/aplikacja-pierscien.js): zamknięty to sam okrąg bez tła, otwarty stoi na jaśniejszym kwadracie z zaokrąglonymi rogami bez obwódki; okienko nad nim ma wygląd menu trybów; jego treść (napisy ze zrzutu Łukasza 27.10.2026, dane konta jako szare paski) i szerokość: styl-aplikacja-menu-ekran.css. Wzór: materialy/zrzuty-aplikacji/pierscien-zuzycia/pierscien-przy-wyborze-modelu-z-popover.png. */
+
+/* przycisk: kwadrat 24 px, w środku okrąg 14 px w kolorze ikon rzędu; stoi w prawym marginesie przycisku wyboru modelu (32 px, styl-aplikacja-model.css), przy prawej krawędzi rzędu: ujemny margines (-28 px: 24 px szerokości i 4 px odstępu wierszy `gap` rzędu) zdejmuje z niego całą szerokość, więc wiersz widzi go jako element zerowej szerokości i nigdy nie rozdziela go z przyciskiem przy zawinięciu rzędu (para przechodzi do następnego wiersza razem), a środek w pionie ma wspólny z przyciskiem */
+.apl-pierscien {
+  display: grid;
+  flex: none;
+  place-items: center;
+  margin-left: -28px;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+.apl-okno .apl-pierscien svg {
+  width: 14px;
+  height: 14px;
+}
+.apl-pierscien.otwarty {
+  background: #2a2a2a;
+}
+.apl-pierscien:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}
+
+/* okienko: nad rzędem, prawa krawędź na prawej krawędzi rzędu (kolumny rozmowy) */
+.apl-okienko-zuzycia {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  z-index: 3;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 280px;
+  max-width: 100%;
+  padding: 14px 16px 16px;
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-okienko-zuzycia[hidden] {
+  display: none;
+}
+.apl-okienko-naglowek .apl-szkic {
+  height: 10px;
+}
+.apl-okienko-grupa {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.apl-okienko-zuzycia .apl-szkic {
+  background: #565656;
+}
+/* otwarte okienko przy krótkiej rozmowie (np. 390 px, pusta rozmowa): rozmowa ma tyle miejsca, żeby okienko mieściło się w oknie */
+.apl-okno.okienko-zuzycia-otwarte .apl-rozmowa {
+  min-height: 130px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-okienko-zuzycia {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  /* bez kroku `klik` `pierscien` pierścień nie zajmuje miejsca w wąskim rzędzie (przycisk modelu zostaje, styl-aplikacja-model.css) */
+  .apl-rzad:not(.apl-rzad-z-pierscieniem) .apl-pierscien {
+    display: none;
+  }
+}
+@media (max-width: 390px) {
+  .apl-okienko-zuzycia {
+    width: calc(100% - 16px);
+  }
+}

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Od rana pracujesz w aplikacji nad kampanią dla klienta i chcesz sprawdzić zużycie abonamentu. Co klikasz?"
+    odpowiedzi:
+      - "Nagłówek karty Context, bo pokazuje procent."
+      - "Pierścień obok wyboru modelu."
+      - "Polecenie /context wpisane w pole wiadomości."
+    poprawna: 1
+    wyjasnienie: "Pierścień obok wyboru modelu po kliknięciu pokazuje zużycie abonamentu."
+    fakt: aplikacja-pierscien-zuzycie-abonamentu
+
+  - pytanie: "Po całym dniu pracy nad raportami kampanii karta Context pokazuje 63%. Co to znaczy?"
+    odpowiedzi:
+      - "63% abonamentu jest już zużyte."
+      - "Tyle miejsca zajmuje kontekst wszystkich Twoich rozmów."
+      - "Tyle miejsca zajmuje kontekst tej jednej rozmowy."
+    poprawna: 2
+    wyjasnienie: "Nagłówek karty Context pokazuje w procentach, jak pełny jest kontekst tej rozmowy. Zużycie abonamentu pokazuje pierścień."
+    fakt: aplikacja-karta-context-procent-w-naglowku
+
+  - pytanie: "Przygotowujesz w aplikacji umowy dla trzech klientów, każdą w osobnej rozmowie. W jednej z nich klikasz pierścień obok wyboru modelu. Co pokaże okienko?"
+    odpowiedzi:
+      - "Zużycie abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code."
+      - "Zużycie tylko z tej rozmowy o umowie, bo każda rozmowa ma własny licznik zużycia."
+      - "Zużycie tylko z aplikacji na tym komputerze, bo każde miejsce liczy się osobno."
+    poprawna: 0
+    wyjasnienie: "Pierścień pokazuje zużycie abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code."
+    fakt: aplikacja-pierscien-zuzycie-abonamentu
+
+  - pytanie: "Klikasz + New i zadajesz to samo pytanie o budżet kampanii. Karta Context pokazuje teraz tylko 5%. Dlaczego?"
+    odpowiedzi:
+      - "Nowa rozmowa odnowiła limit abonamentu na dziś."
+      - "Każda rozmowa ma własny kontekst."
+      - "Aplikacja streściła długą rozmowę przed otwarciem nowej."
+    poprawna: 1
+    wyjasnienie: "Każda rozmowa w aplikacji śledzi własny kontekst, niezależnie od innych rozmów."
+    fakt: aplikacja-sesja-wlasny-kontekst-i-zmiany

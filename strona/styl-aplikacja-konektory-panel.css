@@ -1,0 +1,53 @@
+/* Wygląd zwiniętej karty Connectors w panelu szczegółów symulatora aplikacji (strona/aplikacja-panel.js, pole `aplikacja.konektory_do_polaczenia`; zrzuty Łukasza 27.10.2026 04-06-00 i 04-42-00): nagłówek ze strzałką w prawo i napisem „N to reconnect” po prawej, po kliknięciu strzałka w dół, napis znika, a pod nagłówkiem stoją wiersze karty rozwiniętej (zrzut 04-06-20). */
+.apl-karta-konektory [hidden] {
+  display: none;
+}
+.apl-kon-zwijana {
+  padding: 0;
+}
+.apl-kon-zwijana .apl-kon-naglowek {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.apl-kon-zwijana .apl-kon-naglowek:hover {
+  background: #2a2a2a;
+}
+/* rozwinięta karta: wiersze stoją pod nagłówkiem w tym samym odstępie co w karcie bez zwijania (zrzut 04-06-20) */
+.apl-kon-zwijana.otwarta .apl-kon-naglowek {
+  padding-bottom: 0;
+}
+.apl-kon-zwijana .apl-sr-strzalka svg {
+  transition: transform 0.15s ease;
+}
+.apl-kon-zwijana.otwarta .apl-sr-strzalka svg {
+  transform: rotate(90deg);
+}
+.apl-kon-liczba {
+  margin-left: auto;
+  color: var(--a-szary);
+  font: 400 13.5px/1.3 var(--a-sans);
+  font-variant-numeric: tabular-nums;
+}
+.apl-kon-zwijana.otwarta .apl-kon-liczba {
+  display: none;
+}
+/* rozwinięta karta: wiersze i Show more mają ten sam odstęp od brzegu co karta bez zwijania */
+.apl-kon-zwijana .apl-kon-wiersze,
+.apl-kon-zwijana .apl-kon-wiecej {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.apl-kon-zwijana .apl-kon-wiecej {
+  margin-bottom: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-kon-zwijana .apl-sr-strzalka svg {
+    transition: none;
+  }
+}

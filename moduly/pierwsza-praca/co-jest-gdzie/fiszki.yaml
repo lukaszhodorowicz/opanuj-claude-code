@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Gdzie w aplikacji Claude jest Claude Code?"
+    tyl: "Claude Code jest w zakładce Code u góry paska bocznego."
+    fakt: aplikacja-zakladka-code-u-gory-paska-bocznego
+
+  - przod: "Chcesz, żeby Claude najpierw zaproponował, jak zrobić zadanie, i nie zmieniał plików. Co wybierasz?"
+    tyl: "Wybierasz tryb Plan w przełączniku trybu pod polem wiadomości."
+    fakt: plan-aplikacja-bez-zmian-w-plikach
+
+  - przod: "Gdzie dołączysz do rozmowy plik, na przykład PDF z opiniami klientów?"
+    tyl: "Kliknij przycisk + obok pola wiadomości albo przeciągnij plik do pola."
+    fakt: aplikacja-plus-i-przeciaganie-dolaczaja-pliki
+
+  - przod: "Gdzie sprawdzisz, ile miejsca zajęła już rozmowa?"
+    tyl: "Sprawdzisz to w nagłówku karty Context w panelu szczegółów. Procent mówi, jak pełne jest okno kontekstu tej rozmowy."
+    fakt: aplikacja-karta-context-procent-w-naglowku
+
+  - przod: "Gdzie sprawdzisz zużycie abonamentu?"
+    tyl: "Kliknij pierścień obok wyboru modelu. Zużycie jest wspólne dla wszystkich miejsc, w których używasz Claude Code."
+    fakt: aplikacja-pierscien-zuzycie-abonamentu
+
+  - przod: "Jakie polecenie otwiera ustawienia aplikacji?"
+    tyl: "Wpisz /config w polu wiadomości. Otworzy się okno Settings na stronie Claude Code."
+    fakt: aplikacja-config-otwiera-settings-claude-code

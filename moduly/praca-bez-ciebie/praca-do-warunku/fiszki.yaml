@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak ustawić cel dla Claude?"
+    tyl: "Wpisz /goal, a po nim warunek, który ma być spełniony."
+    fakt: goal-nowy-cel-zastepuje-stary
+
+  - przod: "Czy po ustawieniu celu trzeba wysłać osobną prośbę?"
+    tyl: "Nie. Ustawienie celu od razu zaczyna turę, a poleceniem dla Claude jest sam warunek."
+    fakt: goal-ustawienie-od-razu-startuje-ture
+
+  - przod: "Co robi Claude, gdy oceniający uzna warunek za jeszcze niespełniony?"
+    tyl: "Pracuje dalej, a powód oceny bierze jako wskazówkę na następną turę."
+    fakt: goal-werdykt-niespelniony
+
+  - przod: "Co się dzieje z celem, gdy warunek jest spełniony?"
+    tyl: "Claude Code usuwa cel i dodaje do zapisu rozmowy wpis o osiągnięciu celu."
+    fakt: goal-werdykt-spelniony
+
+  - przod: "Czy oceniający sam czyta pliki w folderze?"
+    tyl: "Nie. Nie wywołuje narzędzi, więc ocenia tylko to, co Claude już pokazał w rozmowie."
+    fakt: goal-oceniajacy-nie-uzywa-narzedzi
+
+  - przod: "Co dopisać do warunku, żeby oceniający miał dowód w rozmowie?"
+    tyl: "Sposób sprawdzenia: jak Claude ma wykazać, że warunek jest spełniony, na przykład „po każdej turze wypisz liczbę znaków każdego posta”."
+    fakt: goal-warunek-sposob-sprawdzenia

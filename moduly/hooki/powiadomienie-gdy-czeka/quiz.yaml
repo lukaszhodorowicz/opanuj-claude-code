@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Zlecasz Claude raport z kampanii i w tym czasie piszesz oferty dla klientów. W folderze leży hook z dopasowaniem permission_prompt (pytanie o zgodę). Kiedy ten hook uruchomi swoje polecenie?"
+    odpowiedzi:
+      - "W tej samej chwili, w której Claude zapyta o zgodę."
+      - "Gdy pytanie o zgodę poczeka około sześciu sekund."
+      - "Gdy Claude skończy cały raport i przestanie pracować."
+    poprawna: 1
+    wyjasnienie: "W aplikacji permission_prompt zachodzi około sześciu sekund po tym, jak Claude poprosi o zgodę. Wtedy hook uruchamia swoje polecenie."
+    fakt: hook-aplikacja-permission-prompt-po-szesciu-sekundach
+
+  - pytanie: "Claude zapisał hook w pliku .claude/settings.json w folderze z umowami klientów. W pliku są linijki \"Notification\", \"matcher\": \"permission_prompt\" i \"command\". Która z nich mówi, co hook zrobi?"
+    odpowiedzi:
+      - "\"Notification\", bo to treść powiadomienia, które hook pokaże."
+      - "\"matcher\", bo dopasowanie wybiera, co hook ma zrobić."
+      - "\"command\", bo tam stoi polecenie do uruchomienia."
+    poprawna: 2
+    wyjasnienie: "Zapis hooka ma trzy poziomy: zdarzenie i dopasowanie mówią, kiedy hook rusza, a trzeci poziom to hook, który się wtedy uruchamia. W tym pliku to polecenie w linijce \"command\"."
+    fakt: hook-trzy-poziomy-zdarzenie-dopasowanie-hook
+
+  - pytanie: "Pracujesz dla kilku klientów, każdy ma swój projekt (folder). W projekcie Opinie-kluby Claude zapisał hook w pliku .claude/settings.json. Gdzie ten hook działa?"
+    odpowiedzi:
+      - "Tylko w projekcie Opinie-kluby."
+      - "We wszystkich projektach na tym komputerze, bo hook raz zapisany działa wszędzie."
+      - "Tylko w rozmowie, w której Claude zapisał hook, a w nowej już nie."
+    poprawna: 0
+    wyjasnienie: "Hook z pliku .claude/settings.json działa w jednym projekcie. We wszystkich projektach działa hook z pliku ~/.claude/settings.json w folderze domowym."
+    fakt: hook-miejsce-folder-albo-komputer
+
+  - pytanie: "Pracujesz w trybie Accept edits (przyjmowanie zmian). Claude zapisał raport sprzedaży bez pytania, ale przed zapisem hooka w .claude/settings.json poprosił o zgodę. Dlaczego?"
+    odpowiedzi:
+      - "Bo w trybie Accept edits każdy nowy plik wymaga Twojej zgody, także raport."
+      - "Bo folder .claude jest chroniony i zapis w nim wymaga zgody."
+      - "Bo hooki działają tylko w trybie Manual, więc Claude musiał o to zapytać."
+    poprawna: 1
+    wyjasnienie: "Folder .claude jest chroniony. W trybach Manual i Accept edits zapis w nim wymaga Twojej zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja

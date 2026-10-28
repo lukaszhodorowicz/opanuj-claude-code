@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak w aplikacji zacząć nową rozmowę?"
+    tyl: "Kliknij + New w pasku bocznym albo naciśnij Cmd+N na macOS, Ctrl+N na Windows."
+    fakt: aplikacja-nowa-sesja-new-albo-cmd-n
+
+  - przod: "Czy nowa rozmowa ma w historii ustalenia z innej rozmowy?"
+    tyl: "Nie. Każda rozmowa ma własną historię, niezależną od innych."
+    fakt: aplikacja-kazda-rozmowa-to-sesja
+
+  - przod: "Jak w aplikacji wrócić do starej rozmowy?"
+    tyl: "Kliknij ją w pasku bocznym."
+    fakt: aplikacja-powrot-do-sesji-klik-w-pasku-bocznym
+
+  - przod: "Gdzie zmienisz nazwę otwartej rozmowy?"
+    tyl: "W pasku tytułu: kliknij tytuł rozmowy."
+    fakt: aplikacja-zmiana-nazwy-klik-tytulu
+
+  - przod: "Jak odłożyć rozmowę do archiwum?"
+    tyl: "Najedź na nią w pasku bocznym, otwórz jej menu i wybierz Archive."
+    fakt: aplikacja-archiwizacja-z-menu-w-pasku-bocznym
+
+  - przod: "Gdzie w bieżącym układzie aplikacji znajdziesz zarchiwizowane rozmowy?"
+    tyl: "Najedź na nagłówek listy rozmów, kliknij ikonę Group and sort, wybierz View all i otwórz zakładkę Archived."
+    fakt: aplikacja-zarchiwizowane-group-and-sort-view-all

@@ -1,0 +1,226 @@
+<!doctype html>
+<!-- Rysunek obrazkowy do schematu okno-rozmowy-i-subagenta (lekcja subagent-zbiera): ankiety zostają w plecaku subagenta, do rozmowy wraca samo podsumowanie. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Ankiety u subagenta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=block" rel="stylesheet" />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 22px 16px 18px; }
+      h1 { margin: 0 0 18px; font: 800 30px/1.1 var(--sans); letter-spacing: -0.025em; }
+      h1 mark { background: var(--zakreslacz); color: inherit; padding: 0 4px; }
+      .rzad h2 { margin: 0 0 12px; font: 800 22px/1.2 var(--sans); letter-spacing: -0.02em; }
+      .rzad h2 span { font-weight: 700; color: var(--grafit); }
+      .rzad h2 mark { background: var(--zakreslacz); color: var(--granat); padding: 0 4px; }
+      .rzad + .rzad { margin-top: 14px; padding-top: 16px; border-top: 3px dashed #cfd2c4; }
+      svg { display: block; overflow: visible; }
+      svg text { font-family: var(--sans); fill: var(--granat); }
+      svg text.notka { font-weight: 700; font-size: 15px; fill: var(--grafit); }
+      .dymek { font-weight: 700; font-size: 17px; }
+      .dymek-mech { font-weight: 800; font-size: 17px; }
+      .mysl { font-weight: 700; font-size: 16px; }
+      .podpis { font-weight: 800; font-size: 17px; }
+      .sciezka { font-weight: 700; font-size: 16px; }
+      .maly { font-weight: 800; font-size: 15px; }
+      .kreska { fill: none; stroke: var(--granat); stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </head>
+  <body>
+    <div class="rys">
+      <h1>Ankiety <mark>zostają u subagenta</mark></h1>
+      <svg width="0" height="0" style="position: absolute">
+        <defs>
+          <filter id="reka" filterUnits="userSpaceOnUse" x="-300" y="-300" width="1400" height="1200">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" />
+            <feDisplacementMap in="SourceGraphic" scale="2.6" />
+          </filter>
+          <marker id="grot" viewBox="0 0 20 20" refX="12" refY="10" markerWidth="20" markerHeight="20" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M3,3 L13,10 L3,17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+          <marker id="grot-gruby" viewBox="0 0 30 30" refX="16" refY="15" markerWidth="30" markerHeight="30" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M4,4 L18,15 L4,26" fill="none" stroke="#0e1422" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+
+          <!-- Ty: ludzik, rama 56 x 76 od (0,0) -->
+          <g id="ty">
+            <g filter="url(#reka)">
+              <circle cx="28" cy="16" r="15" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M0,76 Q0,40 28,40 Q56,40 56,76 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+            </g>
+          </g>
+
+          <!-- Claude: znak w kółku, środek (0,0), promień 32 -->
+          <g id="claude">
+            <g filter="url(#reka)">
+              <circle cx="0" cy="0" r="32" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M-18,0 H18 M0,-18 V18 M-12.7,-12.7 L12.7,12.7 M12.7,-12.7 L-12.7,12.7" class="kreska" stroke-width="5" />
+            </g>
+          </g>
+
+          <!-- ptaszek w limonkowym kółku i krzyżyk w białym kółku, środek (0,0) -->
+          <g id="ptaszek">
+            <g filter="url(#reka)">
+              <circle cx="0" cy="0" r="17" fill="#a3e635" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M-8,0 L-2,6 L9,-7" class="kreska" stroke-width="4.5" />
+            </g>
+          </g>
+          <g id="krzyzyk">
+            <g filter="url(#reka)">
+              <circle cx="0" cy="0" r="19" fill="#fff" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M-7.5,-7.5 L7.5,7.5 M7.5,-7.5 L-7.5,7.5" class="kreska" stroke-width="4.5" />
+            </g>
+          </g>
+
+          <!-- kartka 52 x 68 od (0,0) -->
+          <g id="kartka">
+            <g filter="url(#reka)">
+              <path d="M0,0 H36 L52,16 V68 H0 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M36,0 V16 H52" class="kreska" stroke-width="3" />
+              <path d="M9,26 H40 M9,38 H42 M9,50 H30" class="kreska" stroke-width="3" stroke="#475569" />
+            </g>
+          </g>
+          <g id="kartka-dobra">
+            <use href="#kartka" />
+            <use href="#ptaszek" x="50" y="64" />
+          </g>
+
+          <!-- stos kartek: przednia kartka od (0,0), tylne do (76,-18) -->
+          <g id="stos">
+            <g filter="url(#reka)">
+              <path d="M24,-18 H60 L76,-2 V50 H24 Z" class="kreska" stroke-width="3.5" style="fill:#fff" />
+              <path d="M16,-12 H52 L68,4 V56 H16 Z" class="kreska" stroke-width="3.5" style="fill:#fff" />
+              <path d="M8,-6 H44 L60,10 V62 H8 Z" class="kreska" stroke-width="3.5" style="fill:#fff" />
+            </g>
+            <use href="#kartka" />
+          </g>
+
+          <!-- szlaban strażnika: słupek od (0,0), ramię w paski w prawo; ramka x -9..100, y 0..71 -->
+          <g id="szlaban">
+            <g filter="url(#reka)">
+              <rect x="6" y="4" width="94" height="15" rx="5" fill="#a3e635" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M34,4 h12 l-6,15 h-12 Z M60,4 h12 l-6,15 h-12 Z M86,4 h10 l-5,15 h-11 Z" fill="#0e1422" />
+              <rect x="0" y="0" width="16" height="66" rx="3" fill="#fff" stroke="#0e1422" stroke-width="3.5" />
+              <rect x="-9" y="62" width="34" height="9" rx="2" fill="#0e1422" />
+              <circle cx="8" cy="11" r="4" fill="#0e1422" />
+            </g>
+          </g>
+
+          <!-- karta zgody 76 x 60 z okienkami ptaszek i krzyżyk, limonkowa obwódka -->
+          <g id="karta-zgody">
+            <g filter="url(#reka)">
+              <rect x="0" y="0" width="76" height="60" rx="8" fill="none" stroke="#a3e635" stroke-width="11" />
+              <rect x="0" y="0" width="76" height="60" rx="8" fill="#fff" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M12,13 H52" class="kreska" stroke-width="3" stroke="#475569" />
+              <rect x="10" y="24" width="24" height="24" rx="4" fill="#fff" stroke="#0e1422" stroke-width="3" />
+              <path d="M15,36 L20,41 L29,30" class="kreska" stroke-width="3.5" />
+              <rect x="42" y="24" width="24" height="24" rx="4" fill="#fff" stroke="#0e1422" stroke-width="3" />
+              <path d="M48,30 L60,42 M60,30 L48,42" class="kreska" stroke-width="3.5" />
+            </g>
+          </g>
+          <g id="karta-zgody-odmowa">
+            <g filter="url(#reka)">
+              <rect x="0" y="0" width="76" height="60" rx="8" fill="none" stroke="#a3e635" stroke-width="11" />
+              <rect x="0" y="0" width="76" height="60" rx="8" fill="#fff" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M12,13 H52" class="kreska" stroke-width="3" stroke="#475569" />
+              <rect x="10" y="24" width="24" height="24" rx="4" fill="#fff" stroke="#0e1422" stroke-width="3" />
+              <path d="M15,36 L20,41 L29,30" class="kreska" stroke-width="3.5" />
+              <rect x="42" y="24" width="24" height="24" rx="4" fill="#0e1422" stroke="#0e1422" stroke-width="3" />
+              <path d="M48,30 L60,42 M60,30 L48,42" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <!-- plecak otwarty od góry, klapa odchylona do tyłu; korpus x 2..178, y 30..240; wnętrze x 12..168, y 66..228 -->
+          <g id="plecak-ksztalt">
+            <path d="M22,40 Q22,-4 90,-4 Q158,-4 158,40 Z" class="kreska" stroke-width="3.5" style="fill:#e4e6da" />
+            <path d="M74,-2 Q74,-24 90,-24 Q106,-24 106,-2" class="kreska" stroke-width="5" />
+            <rect x="83" y="6" width="14" height="20" rx="3" class="kreska" stroke-width="3" style="fill:#fff" />
+            <rect x="-15" y="116" width="22" height="82" rx="8" class="kreska" stroke-width="3.5" style="fill:#fff" />
+            <rect x="173" y="116" width="22" height="82" rx="8" class="kreska" stroke-width="3.5" style="fill:#fff" />
+          </g>
+          <g id="plecak">
+            <g filter="url(#reka)">
+              <use href="#plecak-ksztalt" />
+              <path d="M2,64 Q2,30 36,30 H144 Q178,30 178,64 V212 Q178,240 150,240 H30 Q2,240 2,212 Z" fill="none" stroke="#a3e635" stroke-width="13" />
+              <path d="M2,64 Q2,30 36,30 H144 Q178,30 178,64 V212 Q178,240 150,240 H30 Q2,240 2,212 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M10,48 Q90,26 170,48 Q90,66 10,48 Z" class="kreska" stroke-width="3.5" style="fill:#e4e6da" />
+            </g>
+          </g>
+          <g id="plecak-zwykly">
+            <g filter="url(#reka)">
+              <use href="#plecak-ksztalt" />
+              <path d="M2,64 Q2,30 36,30 H144 Q178,30 178,64 V212 Q178,240 150,240 H30 Q2,240 2,212 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M10,48 Q90,26 170,48 Q90,66 10,48 Z" class="kreska" stroke-width="3.5" style="fill:#e4e6da" />
+            </g>
+          </g>
+        </defs>
+      </svg>
+      <section class="rzad">
+        <h2>Claude czyta sam</h2>
+        <svg width="728" height="216" viewBox="0 0 728 216">
+<path d="M20,4 H242 Q256,4 256,18 V52 Q256,66 242,66 H66 L46,90 L46,66 H20 Q6,66 6,52 V18 Q6,4 20,4 Z" class="kreska" stroke-width="3.5" style="fill:#fff" filter="url(#reka)" />
+<text class="dymek" x="131.0" y="30.0" text-anchor="middle">Przeczytaj 12 ankiet gości.</text>
+<text class="dymek" x="131.0" y="52.0" text-anchor="middle">Na co narzekają?</text>
+<use href="#ty" x="24" y="96" />
+<text class="podpis" x="52" y="196" text-anchor="middle">Ty</text>
+<path d="M96,146 Q130,140 166,142" class="kreska" stroke-width="3.5" marker-end="url(#grot)" filter="url(#reka)" />
+<use href="#claude" x="210" y="142" />
+<text class="podpis" x="210" y="198" text-anchor="middle">Claude</text>
+<use href="#stos" x="262" y="112" />
+<text class="maly" x="300" y="206" text-anchor="middle">12 ankiet</text>
+<path id="r4a" d="M348,142 C420,128 500,124 568,130" class="kreska" stroke-width="9" marker-end="url(#grot-gruby)" filter="url(#reka)" />
+<text class="sciezka" dy="-16"><textPath href="#r4a" startOffset="50%" text-anchor="middle">wszystkie ankiety</textPath></text>
+<use href="#plecak-zwykly" transform="translate(590,30) scale(0.62)" />
+<use href="#stos" x="610" y="96" />
+<text class="podpis" x="646" y="208" text-anchor="middle">Twoja rozmowa</text>
+        </svg>
+      </section>
+      <section class="rzad">
+        <h2>Claude oddaje czytanie <mark>subagentowi</mark></h2>
+        <svg width="728" height="424" viewBox="0 0 728 424">
+<path d="M20,40 H228 Q242,40 242,54 V88 Q242,102 228,102 H66 L46,126 L46,102 H20 Q6,102 6,88 V54 Q6,40 20,40 Z" class="kreska" stroke-width="3.5" style="fill:#fff" filter="url(#reka)" />
+<text class="dymek" x="124.0" y="66.0" text-anchor="middle">Użyj subagenta. Przeczytaj</text>
+<text class="dymek" x="124.0" y="88.0" text-anchor="middle">12 ankiet gości.</text>
+<use href="#ty" x="24" y="132" />
+<text class="podpis" x="52" y="232" text-anchor="middle">Ty</text>
+<path d="M96,180 Q130,174 166,176" class="kreska" stroke-width="3.5" marker-end="url(#grot)" filter="url(#reka)" />
+<use href="#claude" x="210" y="178" />
+<text class="podpis" x="210" y="234" text-anchor="middle">Claude</text>
+<path id="r4z" d="M242,164 C270,136 296,120 316,116" class="kreska" stroke-width="3.5" marker-end="url(#grot)" filter="url(#reka)" />
+<text class="sciezka" dy="-12"><textPath href="#r4z" startOffset="45%" text-anchor="middle">zadanie</textPath></text>
+<use href="#claude" x="344" y="112" transform="translate(344,112) scale(0.72) translate(-344,-112)" />
+<text class="podpis" x="344" y="156" text-anchor="middle">subagent</text>
+<use href="#stos" x="398" y="96" />
+<text class="maly" x="436" y="186" text-anchor="middle">12 ankiet</text>
+<path d="M482,126 H516" class="kreska" stroke-width="9" marker-end="url(#grot-gruby)" filter="url(#reka)" />
+<use href="#plecak" transform="translate(540,30) scale(0.62)" />
+<use href="#stos" x="560" y="96" />
+<text class="podpis" x="596" y="208" text-anchor="middle">okno subagenta</text>
+<path d="M264,0 H504 Q518,0 518,14 V48 Q518,62 504,62 H364 L344,80 L344,62 H264 Q250,62 250,48 V14 Q250,0 264,0 Z" class="kreska" stroke-width="3.5" style="fill:#d9f99d" filter="url(#reka)" />
+<text class="dymek-mech" x="384.0" y="26.0" text-anchor="middle">Ankiety zostają u mnie.</text>
+<text class="dymek-mech" x="384.0" y="48.0" text-anchor="middle">Oddaję samo podsumowanie.</text>
+<path id="r4p" d="M344,170 C352,280 470,306 566,312" class="kreska" stroke-width="3.5" marker-end="url(#grot)" filter="url(#reka)" />
+<text class="sciezka" dy="26"><textPath href="#r4p" startOffset="56%" text-anchor="middle">samo podsumowanie</textPath></text>
+<use href="#plecak-zwykly" transform="translate(590,236) scale(0.62)" />
+<use href="#kartka-dobra" x="616" y="288" />
+<text class="podpis" x="646" y="414" text-anchor="middle">Twoja rozmowa</text>
+        </svg>
+      </section>
+    </div>
+    <script>document.fonts.ready.then(() => document.documentElement.setAttribute("data-h", Math.ceil(document.documentElement.getBoundingClientRect().height)));</script>
+  </body>
+</html>

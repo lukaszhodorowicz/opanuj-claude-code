@@ -1,0 +1,232 @@
+{
+  "lekcja": "limit-abonamentu",
+  "folder_startowy": [
+    "raport-tydzien-01.txt",
+    "raport-tydzien-02.txt",
+    "raport-tydzien-03.txt",
+    "raport-tydzien-04.txt",
+    "raport-tydzien-05.txt",
+    "raport-tydzien-06.txt",
+    "raport-tydzien-07.txt",
+    "raport-tydzien-08.txt",
+    "raport-tydzien-09.txt",
+    "raport-tydzien-10.txt",
+    "raport-tydzien-11.txt",
+    "raport-tydzien-12.txt",
+    "cele-kwartalu.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Gdzie sprawdzić zużycie abonamentu",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Rozmowa trwa od rana. Kliknij pierścień obok wyboru modelu, potem kartę Context, i porównaj oba miejsca.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Patrz na pierścień obok wyboru modelu i na kartę Context.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Kampanie-Q3",
+        "tryb": "Accept edits",
+        "panel": "widoczny",
+        "kontekst": 62,
+        "folder_startowy_dodatkowe": [
+          "zestawienie-Q3.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj wszystkie raporty tygodniowe i cele kwartału. Zapisz zestawienie w zestawienie-Q3.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem zestawienie w zestawienie-Q3.txt: wyniki tygodni 1-12 obok celów kwartału. Najwięcej zapisów dał tydzień 9."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "dwa-liczniki",
+          "etykieta": "Sprawdź zużycie i miejsce w rozmowie",
+          "opis": "Najpierw pierścień obok wyboru modelu, potem karta Context.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pierścień to kółko na końcu rzędu pod polem wiadomości, obok wyboru modelu. Kliknij go.",
+              "fakt": "aplikacja-pierscien-zuzycie-abonamentu"
+            },
+            {
+              "typ": "klik",
+              "cel": "pierscien"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To zużycie Twojego abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code. Teraz kliknij nagłówek karty Context.",
+              "fakt": "aplikacja-pierscien-zuzycie-abonamentu"
+            },
+            {
+              "typ": "klik",
+              "cel": "context"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta Context pokazuje, ile miejsca zajmuje kontekst tej jednej rozmowy. To nie jest zużycie abonamentu.",
+              "fakt": "aplikacja-karta-context-procent-w-naglowku"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "To samo pytanie w długiej i w nowej rozmowie",
+      "opis": "Ta sama kampania i ta sama rozmowa od rana. Zadaj krótkie pytanie najpierw w niej, potem w nowej rozmowie, i porównaj procent na karcie Context.",
+      "nauczyciel_start": "Rozmowa trwa od rana. Wybierz pierwszą drogę nad oknem i patrz na kartę Context.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Kampanie-Q3",
+        "tryb": "Accept edits",
+        "panel": "widoczny",
+        "kontekst": 62,
+        "folder_startowy_dodatkowe": [
+          "zestawienie-Q3.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj wszystkie raporty tygodniowe i cele kwartału. Zapisz zestawienie w zestawienie-Q3.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem zestawienie w zestawienie-Q3.txt: wyniki tygodni 1-12 obok celów kwartału. Najwięcej zapisów dał tydzień 9."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "dluga",
+          "etykieta": "Zapytaj w tej długiej rozmowie",
+          "opis": "Krótkie pytanie w rozmowie, w której Claude przeczytał dwanaście raportów.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Jaki budżet reklamowy mamy na ten kwartał? Sprawdź cele-kwartalu.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "cele-kwartalu.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Budżet reklamowy na kwartał to 24 000 zł. Tak jest w cele-kwartalu.txt.",
+              "plik": "cele-kwartalu.txt",
+              "bez_zmiany": true,
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "kontekst",
+              "procent": 63,
+              "fakt": "kontekst-okno-miesci-wszystko-o-sesji"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Razem z krótkim pytaniem poleciała do Claude cała rozmowa, z dwunastoma raportami. Kliknij ścieżkę pliku w odpowiedzi.",
+              "fakt": "koszty-kazde-zapytanie-niesie-cala-rozmowe"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "cele-kwartalu.txt",
+              "linijki": [
+                "Cele kampanii: szkoła językowa Lingwa, III kwartał 2026",
+                "Zapisy na kursy jesienne: 450 osób",
+                "Budżet reklamowy na kwartał: 24 000 zł",
+                "Koszt pozyskania kursanta: najwyżej 55 zł",
+                "Kanały: reklamy w mediach społecznościowych i newsletter"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta Context pokazała 63%. Odpowiedź jest dobra, ale to krótkie pytanie zużyło limit za całą długą rozmowę.",
+              "fakt": "koszty-kazde-zapytanie-niesie-cala-rozmowe"
+            }
+          ]
+        },
+        {
+          "id": "nowa",
+          "etykieta": "Zapytaj w nowej rozmowie",
+          "opis": "To samo pytanie po kliknięciu + New.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "nowa-rozmowa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Panel z kartą Context zniknął. Pojawi się znowu, gdy wyślesz pierwszą prośbę.",
+              "fakt": "aplikacja-panel-szczegolow-sesji-karty-obok-czatu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Folder rozmowy widać w rzędzie pod polem wiadomości. To ten sam folder Kampanie-Q3, z plikiem cele-kwartalu.txt.",
+              "fakt": "aplikacja-rzad-pod-polem-srodowisko-folder-tryb-model"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Jaki budżet reklamowy mamy na ten kwartał? Sprawdź cele-kwartalu.txt.",
+              "fakt": "aplikacja-sesja-startuje-po-wyslaniu-zadania"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "cele-kwartalu.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Budżet reklamowy na kwartał to 24 000 zł. Tak jest w cele-kwartalu.txt.",
+              "plik": "cele-kwartalu.txt",
+              "bez_zmiany": true,
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            },
+            {
+              "typ": "kontekst",
+              "procent": 5,
+              "fakt": "aplikacja-sesja-wlasny-kontekst-i-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nowa rozmowa zaczęła się z czystym kontekstem. Ta sama odpowiedź, a karta Context pokazuje tylko 5%. Kliknij ścieżkę pliku.",
+              "fakt": "sesje-niezalezne-zasady-w-claude-md"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "cele-kwartalu.txt",
+              "linijki": [
+                "Cele kampanii: szkoła językowa Lingwa, III kwartał 2026",
+                "Zapisy na kursy jesienne: 450 osób",
+                "Budżet reklamowy na kwartał: 24 000 zł",
+                "Koszt pozyskania kursanta: najwyżej 55 zł",
+                "Kanały: reklamy w mediach społecznościowych i newsletter"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta Context pokazała tu 5%, a w długiej rozmowie 63%. Do innej pracy zaczynaj nową rozmowę. Stara kosztowałaby tokeny przy każdej wiadomości.",
+              "fakt": "stara-rozmowa-wypiera-pliki-i-kosztuje"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

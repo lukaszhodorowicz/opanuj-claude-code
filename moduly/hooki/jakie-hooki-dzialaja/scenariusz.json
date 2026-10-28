@@ -1,0 +1,304 @@
+{
+  "lekcja": "jakie-hooki-dzialaja",
+  "folder_startowy": [
+    "oferta-toskania-2027.txt",
+    "cennik-2027.txt",
+    ".claude/settings.json"
+  ],
+  "folder_glowny": "Biuro-podrozy",
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zapytaj, jakie hooki działają",
+      "opis": "Folder biura podróży ma folder .claude, który widzisz pod oknem. Pytasz Claude, jakie hooki w nim działają.",
+      "nauczyciel_start": "W folderze biura jest folder .claude. Kliknij polecenie i zapytaj Claude, jakie hooki w nim działają.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Biuro-podrozy",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze przygotowuję ofertę na Toskanię 2027."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "zapytaj",
+          "etykieta": "Zapytaj o hooki w folderze",
+          "opis": "Claude czyta plik ustawień folderu i opisuje każdy hook.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Jakie hooki działają w tym folderze? Opisz każdy: kiedy rusza i co robi.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/settings.json"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "W pliku .claude/settings.json tego folderu są dwa hooki. Pierwszy reaguje na zdarzenie Notification (powiadomienie) z dopasowaniem permission_prompt (pytanie o zgodę): gdy pytanie o zgodę czeka około sześciu sekund, uruchamia polecenie powiadomienia dla macOS. Drugi reaguje na zdarzenie PostToolUse (po użyciu narzędzia) z dopasowaniem Bash (narzędzie, którym uruchamiam polecenia terminala): po każdym poleceniu terminala, które uruchomię, dopisuje to polecenie do pliku ~/.claude/command-log.txt w Twoim folderze domowym. Przeczytałem tylko plik tego folderu. Hooki mogą leżeć też w ~/.claude/settings.json i we włączonych wtyczkach, a wtedy działają razem z hookami tego folderu.",
+              "plik": ".claude/settings.json",
+              "bez_zmiany": true,
+              "fakt": "hook-miejsce-folder-albo-komputer"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude przeczytał plik ustawień bez pytania o zgodę. Kliknij ścieżkę i znajdź oba wpisy.",
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/settings.json",
+              "linijki": [
+                "{",
+                "  \"hooks\": {",
+                "    \"Notification\": [",
+                "      {",
+                "        \"matcher\": \"permission_prompt\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"command\",",
+                "            \"command\": \"osascript -e 'display notification \\\"Claude Code needs your attention\\\" with title \\\"Claude Code\\\"'\"",
+                "          }",
+                "        ]",
+                "      }",
+                "    ],",
+                "    \"PostToolUse\": [",
+                "      {",
+                "        \"matcher\": \"Bash\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"command\",",
+                "            \"command\": \"jq -r '.tool_input.command' >> ~/.claude/command-log.txt\"",
+                "          }",
+                "        ]",
+                "      }",
+                "    ]",
+                "  }",
+                "}"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Drugi hook dopisuje każde polecenie terminala, które uruchamia Claude, do pliku w Twoim folderze domowym. Nie pamiętasz, po co. Usuniesz go w ćwiczeniu 2.",
+              "fakt": "hook-przyklad-dziennik-polecen-bash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Usuń jeden hook albo wyłącz wszystkie",
+      "opis": "Ten sam folder z dwoma hookami. Najpierw usuwasz hook dziennika, potem sprawdzasz, co daje wyłączenie wszystkich hooków.",
+      "nauczyciel_start": "Najpierw usuń hook dziennika. Potem zobacz, co daje wyłączenie wszystkich hooków naraz.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Biuro-podrozy",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze przygotowuję ofertę na Toskanię 2027."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "usun",
+          "etykieta": "Usuń hook dziennika",
+          "opis": "Hook powiadomienia zostaje.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Usuń z ustawień tego folderu hook, który dopisuje polecenia do dziennika. Hook powiadomienia zostaw.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/settings.json"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Usunę z .claude/settings.json wpis PostToolUse z dopasowaniem Bash, a wpis Notification zostawię. Folder .claude jest chroniony, więc potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/settings.json",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zapis w folderze .claude wymaga zgody także w trybie Accept edits. Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Usunąłem z .claude/settings.json hook dziennika. Hook powiadomienia został.",
+              "plik": ".claude/settings.json",
+              "fakt": "hook-usun-wpis-z-pliku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta settings.json pod oknem ma znacznik zmiany. Kliknij ścieżkę i sprawdź, co zostało.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/settings.json",
+              "linijki": [
+                "{",
+                "  \"hooks\": {",
+                "    \"Notification\": [",
+                "      {",
+                "        \"matcher\": \"permission_prompt\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"command\",",
+                "            \"command\": \"osascript -e 'display notification \\\"Claude Code needs your attention\\\" with title \\\"Claude Code\\\"'\"",
+                "          }",
+                "        ]",
+                "      }",
+                "    ]",
+                "  }",
+                "}"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Usunięty hook to usunięty wpis. Wpis powiadomienia został w pliku.",
+              "fakt": "hook-usun-wpis-z-pliku"
+            }
+          ]
+        },
+        {
+          "id": "wylacz",
+          "etykieta": "Wyłącz wszystkie hooki",
+          "opis": "Wpisy zostają w pliku, ale oba hooki przestają działać.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Folder wrócił do stanu sprzed usunięcia: oba hooki znowu są w pliku."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Wyłącz wszystkie hooki w ustawieniach tego folderu, ale zostaw ich wpisy w pliku.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/settings.json"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopiszę do .claude/settings.json ustawienie disableAllHooks z wartością true. Wpisy obu hooków zostaną, ale hooki z Twoich plików ustawień i z wtyczek przestaną działać, także powiadomienie. Folder .claude jest chroniony, więc potrzebuję Twojej zgody.",
+              "fakt": "disableallhooks-zasieg-poza-ustawieniami-organizacji"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/settings.json",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu też zapis w folderze .claude wymaga Twojej zgody. Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopisałem disableAllHooks do .claude/settings.json. Oba wpisy zostały.",
+              "plik": ".claude/settings.json",
+              "fakt": "disableallhooks-wylacza-wszystkie-bez-usuwania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę i sprawdź, czy wpisy hooków nadal są w pliku.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/settings.json",
+              "linijki": [
+                "{",
+                "  \"disableAllHooks\": true,",
+                "  \"hooks\": {",
+                "    \"Notification\": [",
+                "      {",
+                "        \"matcher\": \"permission_prompt\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"command\",",
+                "            \"command\": \"osascript -e 'display notification \\\"Claude Code needs your attention\\\" with title \\\"Claude Code\\\"'\"",
+                "          }",
+                "        ]",
+                "      }",
+                "    ],",
+                "    \"PostToolUse\": [",
+                "      {",
+                "        \"matcher\": \"Bash\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"command\",",
+                "            \"command\": \"jq -r '.tool_input.command' >> ~/.claude/command-log.txt\"",
+                "          }",
+                "        ]",
+                "      }",
+                "    ]",
+                "  }",
+                "}"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Oba wpisy zostały, ale żaden z tych hooków nie ruszy, nawet powiadomienie. Jednego hooka tak nie wyłączysz.",
+              "fakt": "hook-nie-wylaczysz-pojedynczego"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

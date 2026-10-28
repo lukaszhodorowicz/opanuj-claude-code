@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Gdzie zapisać subagenta, który ma działać tylko w jednym projekcie?"
+    tyl: "W folderze .claude/agents/ tego projektu."
+    fakt: subagent-zakres-projekt-i-uzytkownik
+
+  - przod: "Które pola nagłówka subagenta są wymagane?"
+    tyl: "Tylko name i description."
+    fakt: subagent-wymagane-tylko-name-i-description
+
+  - przod: "Co mówi pole description w pliku subagenta?"
+    tyl: "Kiedy Claude ma przekazać zadanie temu subagentowi."
+    fakt: subagent-pole-description-kiedy-przekazac
+
+  - przod: "Jak wołasz własnego subagenta?"
+    tyl: "Zwykłym zdaniem z jego nazwą. Claude zwykle przekazuje mu wtedy zadanie, ale decyduje sam."
+    fakt: subagent-wolasz-zwyklym-zdaniem-z-nazwa
+
+  - przod: "Skąd subagent wie, jak ma pracować?"
+    tyl: "Z instrukcji pod nagłówkiem swojego pliku."
+    fakt: subagent-tresc-pliku-to-jego-instrukcja
+
+  - przod: "Dlaczego w trybie Accept edits korektor zmienia newsletter bez pytania?"
+    tyl: "Bo subagent pracuje w tym samym trybie co rozmowa."
+    fakt: subagent-pracuje-w-trybie-rozmowy

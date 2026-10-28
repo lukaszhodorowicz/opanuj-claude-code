@@ -1,0 +1,125 @@
+/* Wygląd okna Settings → Connectors, zakładka Yours (strona/aplikacja-ustawienia-konektory.js; obudowa okna: strona/styl-aplikacja-ustawienia.css; zrzut Łukasza 04-22-53): tabela „Connector / Type / Status” z ikoną konektora, nazwą (szary pasek dla danych konta), pigułką przy typie i ptaszkiem albo szarym napisem w kolumnie stanu. Wszystko bez skutku, kursor zwykły. */
+.apl-ukon-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.apl-ukon-tabela th {
+  padding: 10px 6px 10px 0;
+  border-bottom: 1px solid #353535;
+  color: var(--a-szary);
+  font-weight: 400;
+  text-align: left;
+}
+.apl-ukon-tabela td {
+  padding: 12px 6px 12px 0;
+  border-bottom: 1px solid #353535;
+  vertical-align: middle;
+}
+.apl-ukon-tabela th:nth-child(2),
+.apl-ukon-tabela td:nth-child(2) {
+  width: 22%;
+}
+.apl-ukon-tabela th:nth-child(3),
+.apl-ukon-tabela td:nth-child(3) {
+  width: 26%;
+}
+.apl-ukon-nazwa {
+  display: table-cell;
+}
+.apl-ukon-ikona {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  background: #272727;
+  vertical-align: middle;
+}
+.apl-ukon-ikona svg {
+  width: 15px;
+  height: 15px;
+}
+.apl-ukon-tekst {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  vertical-align: middle;
+}
+.apl-ukon-tekst b {
+  font-weight: 500;
+  font-size: 15px;
+}
+.apl-ukon-dana,
+.apl-ukon-podpis .apl-ukon-pasek {
+  display: inline-flex;
+  align-items: center;
+}
+.apl-ukon-podpis {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--a-szary);
+  font-size: 13px;
+}
+.apl-ukon-typ {
+  color: var(--a-szary);
+}
+.apl-ukon-znaczek {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 7px;
+  border: 1px solid #5a5a5a;
+  border-radius: 999px;
+  color: var(--a-tekst);
+  font-size: 12px;
+  line-height: 18px;
+}
+.apl-ukon-stan-tekst {
+  color: var(--a-szary);
+}
+.apl-ukon-ptaszek svg {
+  width: 18px;
+  height: 18px;
+  color: var(--a-szary);
+}
+@media (max-width: 720px) {
+  /* stałe szerokości kolumn: pierwsza (nazwa i podpis) zawija się, zamiast rozpychać tabelę poza okno */
+  .apl-ukon-tabela {
+    table-layout: fixed;
+    font-size: 13px;
+  }
+  .apl-ukon-tekst,
+  .apl-ukon-nazwa {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .apl-ukon-podpis {
+    flex-wrap: wrap;
+    gap: 3px 5px;
+  }
+  .apl-ukon-tabela th:nth-child(2),
+  .apl-ukon-tabela td:nth-child(2) {
+    width: 30%;
+  }
+  .apl-ukon-tabela th:nth-child(3),
+  .apl-ukon-tabela td:nth-child(3) {
+    width: 24%;
+  }
+  .apl-ukon-ikona {
+    margin-right: 8px;
+  }
+  .apl-ukon-znaczek {
+    margin: 4px 0 0;
+  }
+  .apl-ukon-typ-kom {
+    line-height: 1.2;
+  }
+  .apl-ukon-typ,
+  .apl-ukon-znaczek {
+    display: block;
+    width: fit-content;
+  }
+}

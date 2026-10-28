@@ -1,0 +1,104 @@
+/* Wygląd treści otwartej karty Context po zrzucie Łukasza z 27.10.2026, plik 04-06-08 (strona/aplikacja-kontekst-tresc.js): trójkąt przy nagłówku, wiersz „N% used” z licznikiem, wiersze kategorii (znak, nazwa, tokeny, udział), wiersze ze strzałką i karta statyczna w ćwiczeniach bez `aplikacja.kontekst`. Kolory znaków 1-6: styl-aplikacja-kontekst.css. */
+
+/* kolor znaku „Free space” (ostatnia kategoria) */
+.apl-kol-7 {
+  background: #2d2d2d;
+}
+
+/* karta Context: trójkąt zamiast szewronu, treść z sumami, wierszami kategorii i wierszami ze strzałką */
+.apl-okno .apl-karta-kontekst .apl-kontekst-strzalka svg {
+  width: 9px;
+  height: 9px;
+}
+.apl-karta-statyczna .apl-kontekst-naglowek {
+  cursor: default;
+}
+.apl-karta-statyczna .apl-kontekst-naglowek:hover {
+  background: none;
+}
+.apl-kontekst-sumy {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font: 400 12.5px/1.3 var(--a-sans);
+}
+.apl-kontekst-sumy b {
+  font: 500 14px/1.3 var(--a-sans);
+  color: var(--a-tekst);
+}
+.apl-kontekst-sumy span {
+  color: var(--a-szary);
+  font-variant-numeric: tabular-nums;
+}
+.apl-kontekst-sumy .apl-szkic {
+  background: #4d4d4d;
+}
+.apl-kontekst-sz-duzy {
+  width: 52px;
+}
+.apl-kontekst-sz {
+  width: 62px;
+}
+.apl-kontekst-wiersze {
+  gap: 8px;
+}
+.apl-kontekst-wiersze li,
+.apl-kontekst-stale li {
+  gap: 6px;
+  font: 400 12px/1.3 var(--a-sans);
+}
+.apl-kontekst-nazwa {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #c4c4c4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-kontekst-liczba,
+.apl-kontekst-udzial {
+  flex: none;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.apl-kontekst-liczba {
+  min-width: 36px;
+  color: var(--a-szary);
+}
+.apl-kontekst-udzial {
+  min-width: 32px;
+  color: var(--a-tekst);
+}
+.apl-kontekst-liczba .apl-szkic,
+.apl-kontekst-udzial .apl-szkic {
+  display: inline-block;
+  width: 22px;
+  background: #4d4d4d;
+}
+.apl-kontekst-stale {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  padding: 9px 0 0;
+  border-top: 1px solid #2d2d2d;
+  list-style: none;
+}
+.apl-kontekst-stale li {
+  display: flex;
+  align-items: center;
+}
+.apl-okno .apl-kontekst-wiecej {
+  display: inline-flex;
+  flex: none;
+  width: 12px;
+  color: var(--a-szary);
+}
+.apl-okno .apl-kontekst-wiecej svg {
+  width: 12px;
+  height: 12px;
+}
+.apl-kontekst-stale .apl-kontekst-liczba .apl-szkic {
+  width: 18px;
+}

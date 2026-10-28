@@ -1,0 +1,346 @@
+{
+  "lekcja": "subagent-zbiera",
+  "folder_glowny": "Pensjonat-ankiety",
+  "folder_startowy": [
+    "ankiety/ankieta-01.txt",
+    "ankiety/ankieta-02.txt",
+    "ankiety/ankieta-03.txt",
+    "ankiety/ankieta-04.txt",
+    "ankiety/ankieta-05.txt",
+    "ankiety/ankieta-06.txt",
+    "ankiety/ankieta-07.txt",
+    "ankiety/ankieta-08.txt",
+    "ankiety/ankieta-09.txt",
+    "ankiety/ankieta-10.txt",
+    "ankiety/ankieta-11.txt",
+    "ankiety/ankieta-12.txt",
+    "cennik-zima.txt",
+    "plan-remontu.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Te same ankiety: w rozmowie albo przez subagenta",
+      "nauczyciel_start": "Patrz na kartę Context w panelu obok rozmowy. Przejdź obie drogi i porównaj procent.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Pensjonat-ankiety",
+        "tryb": "Accept edits",
+        "panel": "widoczny",
+        "kontekst": 9,
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj plan-remontu.txt i powiedz, co remontujemy w listopadzie."
+          },
+          {
+            "kto": "claude",
+            "tekst": "W listopadzie remontujesz łazienki w pokojach 3 i 5."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "uwagi-gosci.txt"
+      ],
+      "drogi": [
+        {
+          "id": "sam",
+          "etykieta": "Claude czyta ankiety sam",
+          "opis": "Claude czyta ankiety w tej rozmowie i zapisuje uwagi w pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj wszystkie ankiety z folderu ankiety i zapisz 5 najczęstszych uwag gości w pliku uwagi-gosci.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2600,
+              "czyta": [
+                "ankiety/ankieta-01.txt",
+                "ankiety/ankieta-02.txt",
+                "ankiety/ankieta-03.txt",
+                "ankiety/ankieta-04.txt",
+                "ankiety/ankieta-05.txt",
+                "ankiety/ankieta-06.txt",
+                "ankiety/ankieta-07.txt",
+                "ankiety/ankieta-08.txt",
+                "ankiety/ankieta-09.txt",
+                "ankiety/ankieta-10.txt",
+                "ankiety/ankieta-11.txt",
+                "ankiety/ankieta-12.txt"
+              ]
+            },
+            {
+              "typ": "kontekst",
+              "procent": 58,
+              "fakt": "kontekst-kazdy-przeczytany-plik-dodaje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Każda przeczytana ankieta została w tej rozmowie. Dlatego procent na karcie Context mocno urósł.",
+              "fakt": "kontekst-kazdy-przeczytany-plik-dodaje"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem 5 najczęstszych uwag gości w pliku uwagi-gosci.txt.",
+              "plik": "uwagi-gosci.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "uwagi-gosci.txt",
+              "linijki": [
+                "5 najczęstszych uwag gości (12 ankiet)",
+                "1. Za mało miejsc na parkingu (8 ankiet)",
+                "2. Chłodno w pokojach na poddaszu (6)",
+                "3. Śniadania kończą się za wcześnie (5)",
+                "4. Słabe Wi-Fi w pokoju 7 (4)",
+                "5. Brak suszarni na buty narciarskie (3)"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wynik jest w pliku, ale wszystkie ankiety dalej zajmują miejsce w rozmowie.",
+              "fakt": "kontekst-kazdy-przeczytany-plik-dodaje"
+            }
+          ]
+        },
+        {
+          "id": "subagent",
+          "etykieta": "Przez subagenta",
+          "opis": "Ankiety czyta pomocnik w osobnym oknie kontekstu. Do rozmowy wraca podsumowanie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj subagenta: niech przeczyta wszystkie ankiety z folderu ankiety i odda 5 najczęstszych uwag gości. Zapisz je w pliku uwagi-gosci.txt.",
+              "fakt": "subagent-oddaj-duzo-danych-wraca-podsumowanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zleciłem przeczytanie ankiet subagentowi. Pracuje w tle, a wynik podam, gdy skończy.",
+              "fakt": "subagent-aplikacja-claude-nie-czeka-przy-trybie-fork"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude oddał czytanie subagentowi. Teraz on czyta ankiety w swoim oknie kontekstu.",
+              "fakt": "subagent-wlasne-okno-kontekstu"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2600,
+              "czyta": [
+                "ankiety/ankieta-01.txt",
+                "ankiety/ankieta-02.txt",
+                "ankiety/ankieta-03.txt",
+                "ankiety/ankieta-04.txt",
+                "ankiety/ankieta-05.txt",
+                "ankiety/ankieta-06.txt",
+                "ankiety/ankieta-07.txt",
+                "ankiety/ankieta-08.txt",
+                "ankiety/ankieta-09.txt",
+                "ankiety/ankieta-10.txt",
+                "ankiety/ankieta-11.txt",
+                "ankiety/ankieta-12.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Subagent skończył. Zapisałem 5 najczęstszych uwag gości w pliku uwagi-gosci.txt.",
+              "plik": "uwagi-gosci.txt",
+              "fakt": "subagent-w-tle-wynik-w-pozniejszej-turze"
+            },
+            {
+              "typ": "kontekst",
+              "procent": 12,
+              "fakt": "kontekst-subagent-duze-odczyty-poza-twoim-oknem"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Do rozmowy wróciło samo podsumowanie, więc procent urósł tylko trochę.",
+              "fakt": "subagent-osobne-okno-wraca-podsumowanie"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "uwagi-gosci.txt",
+              "linijki": [
+                "5 najczęstszych uwag gości (12 ankiet)",
+                "1. Za mało miejsc na parkingu (8 ankiet)",
+                "2. Chłodno w pokojach na poddaszu (6)",
+                "3. Śniadania kończą się za wcześnie (5)",
+                "4. Słabe Wi-Fi w pokoju 7 (4)",
+                "5. Brak suszarni na buty narciarskie (3)"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten sam plik co w pierwszej drodze. Ankiety zostały w oknie subagenta.",
+              "fakt": "subagent-poboczne-zadanie-oddaje-podsumowanie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Zajrzyj, co robią subagenci",
+      "nauczyciel_start": "Kliknij polecenie. Gdy subagenci ruszą, zajrzysz do ich pracy przez menu ⋮ na pasku tytułu.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Pensjonat-ankiety",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "uwagi-gosci.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Od listopada pokój 4 nazywamy apartamentem Pod Smrekiem. Tak o nim pisz."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. O pokoju 4 piszę: apartament Pod Smrekiem."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "pokoje-opinie.txt"
+      ],
+      "drogi": [
+        {
+          "id": "panel",
+          "etykieta": "Zleć pracę dwóm subagentom i zajrzyj do panelu",
+          "opis": "Claude odda ankiety dwóm subagentom. Ich pracę zobaczysz w panelu zadań w tle.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj dwóch subagentów: jeden niech sprawdzi w ankietach, które pokoje goście chwalą, a drugi, które krytykują. Pokój 4 nazywaj apartamentem Pod Smrekiem. Wynik zapisz w pokoje-opinie.txt.",
+              "fakt": "subagent-zasade-powtorz-w-prosbie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zleciłem to dwóm subagentom. Pracują w tle, a wynik zapiszę, gdy skończą.",
+              "w_tle": [
+                {
+                  "rodzaj": "subagent",
+                  "tytul": "Pokoje chwalone w ankietach",
+                  "zadanie": "Przeczytaj 12 plików z folderu ankiety. Wypisz pokoje, które goście chwalą, z krótkim powodem przy każdym. Oddaj samą listę, bez cytatów z ankiet. W wyniku pisz o pokoju 4: apartament Pod Smrekiem.",
+                  "wynik": [
+                    "Chwalą: apartament Pod Smrekiem (widok na góry), pokój 2 (cisza)."
+                  ]
+                },
+                {
+                  "rodzaj": "subagent",
+                  "tytul": "Pokoje krytykowane w ankietach",
+                  "zadanie": "Przeczytaj 12 plików z folderu ankiety. Wypisz pokoje, które goście krytykują, z krótkim powodem przy każdym. Oddaj samą listę, bez cytatów z ankiet. W wyniku pisz o pokoju 4: apartament Pod Smrekiem.",
+                  "wynik": [
+                    "Krytykują: pokoje 6 i 7 na poddaszu (chłód), pokój 7 (słabe Wi-Fi)."
+                  ]
+                }
+              ],
+              "fakt": "subagent-domyslnie-w-tle"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zwykły subagent nie widzi tej rozmowy, a zadanie pisze mu Claude. Dlatego zasada o pokoju 4 jest w prośbie.",
+              "fakt": "subagent-swieze-okno-bez-historii-rozmowy"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2600,
+              "czyta": [
+                "ankiety/ankieta-01.txt",
+                "ankiety/ankieta-02.txt",
+                "ankiety/ankieta-03.txt",
+                "ankiety/ankieta-04.txt",
+                "ankiety/ankieta-05.txt",
+                "ankiety/ankieta-06.txt",
+                "ankiety/ankieta-07.txt",
+                "ankiety/ankieta-08.txt",
+                "ankiety/ankieta-09.txt",
+                "ankiety/ankieta-10.txt",
+                "ankiety/ankieta-11.txt",
+                "ankiety/ankieta-12.txt"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Subagenci pracują w tle. Otwórz menu ⋮ na pasku tytułu rozmowy.",
+              "fakt": "aplikacja-panel-zadan-w-tle-co-pokazuje"
+            },
+            {
+              "typ": "klik",
+              "cel": "menu-paska",
+              "fakt": "aplikacja-menu-paska-panele-bez-przycisku"
+            },
+            {
+              "typ": "klik",
+              "cel": "background-tasks",
+              "fakt": "aplikacja-panel-zadan-w-tle-co-pokazuje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To panel zadań w tle. W grupie Running (w toku) każdy subagent ma swój wpis. Kliknij tytuł pierwszego wpisu.",
+              "fakt": "aplikacja-panel-zadan-grupa-running-wpis-agent"
+            },
+            {
+              "typ": "klik",
+              "cel": "wpis-w-tle",
+              "nr": 1,
+              "fakt": "aplikacja-wpis-w-tle-wynik-w-panelu-subagenta"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W szarym polu stoi zadanie. Claude napisał je własnymi słowami, z zasadą o pokoju 4. Pod nim jest wynik.",
+              "fakt": "subagent-zadanie-pisze-claude"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Subagenci skończyli. Zapisałem opinie o pokojach w pliku pokoje-opinie.txt.",
+              "plik": "pokoje-opinie.txt",
+              "w_tle_koniec": true,
+              "fakt": "subagent-w-tle-wynik-w-pozniejszej-turze"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "pokoje-opinie.txt",
+              "linijki": [
+                "Chwalą: apartament Pod Smrekiem (widok na góry), pokój 2 (cisza).",
+                "Krytykują: pokoje 6 i 7 na poddaszu (chłód), pokój 7 (słabe Wi-Fi)."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał wyniki subagentów w pliku. Ankiety zostały w ich oknach kontekstu.",
+              "fakt": "subagent-oddaj-duzo-danych-wraca-podsumowanie"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

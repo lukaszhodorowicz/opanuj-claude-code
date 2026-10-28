@@ -1,0 +1,454 @@
+<!doctype html>
+<!-- Rysunek R1 „Dokąd idzie Twoja rozmowa i jak długo zostaje” do lekcji dane-i-ukryte-polecenia: z komputera szyfrowana strzałka do Anthropic; w Anthropic dwie karty planów (Pro, Max z ustawieniem ulepszania modeli; Team, Enterprise); na komputerze zapis rozmów zwykłym tekstem; osobno metryki i raporty błędów do usług zewnętrznych; u dołu Remote Control. Zakreślacz tylko na karcie Pro, Max. Opis: BRIEF.md, część 9; napisy w brzmieniu lekcji. Źródło PNG obrazy/dokad-idzie-rozmowa.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Dokąd idzie Twoja rozmowa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w kto-decyduje-konektor.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        padding: 18px 16px 20px;
+      }
+      svg.ik {
+        flex: none;
+      }
+      svg.linie {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+      }
+
+      /* ===== Rząd główny: komputer | strzałka | Anthropic ===== */
+      .glowny {
+        display: grid;
+        grid-template-columns: 236px 1fr 318px;
+        align-items: start;
+      }
+      .pudlo {
+        position: relative;
+        border: 3px solid var(--granat);
+        border-radius: 18px;
+        background: var(--biel);
+        padding: 14px 14px 16px;
+      }
+      .tytul {
+        display: inline-block;
+        padding: 6px 14px 7px;
+        border: 3px solid var(--granat);
+        border-radius: 999px;
+        background: var(--biel);
+        font: 800 21px/1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .pudlo > .tytul {
+        position: absolute;
+        top: -19px;
+        left: 14px;
+      }
+      .pudlo.z-tytulem {
+        padding-top: 28px;
+      }
+      .glowny {
+        margin-top: 18px;
+      }
+
+      /* Okno aplikacji, uproszczone i jasne */
+      .okno {
+        border: 2px solid var(--granat);
+        border-radius: 12px;
+        background: var(--papier);
+        padding: 0 10px 12px;
+      }
+      .okno-gora {
+        height: 22px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .okno-gora i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--kreska);
+        border: 1.5px solid var(--grafit);
+      }
+      .okno-srodek {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+      }
+      .okno-srodek svg {
+        width: 34px;
+        height: 34px;
+      }
+      .dymek {
+        flex: 1;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 12px 12px 3px 12px;
+        padding: 9px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .dymek i {
+        display: block;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--kreska);
+      }
+      .dymek i:last-child {
+        width: 60%;
+      }
+
+      .kartka {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        column-gap: 9px;
+        margin-top: 14px;
+      }
+      .kartka svg {
+        width: 30px;
+        height: 30px;
+      }
+      .kartka b {
+        display: block;
+        font: 700 17px/1.3 var(--sans);
+      }
+      small,
+      .drobny {
+        display: block;
+        margin-top: 4px;
+        color: var(--grafit);
+        font: 600 16px/1.32 var(--sans);
+      }
+
+      /* Strzałka szyfrowana */
+      .droga {
+        position: relative;
+        padding: 6px 12px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .droga svg.strzala {
+        width: 100%;
+        height: 40px;
+        margin: 6px 0 8px;
+      }
+      .droga b {
+        font: 700 16px/1.3 var(--sans);
+      }
+      .droga small {
+        margin-top: 0;
+      }
+
+      /* Anthropic */
+      .naglowek-maly {
+        margin: 0 0 12px;
+        color: var(--grafit);
+        font: 600 16px/1.3 var(--sans);
+      }
+      .karta {
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 11px 12px 12px;
+      }
+      .karta h3 {
+        margin: 0 0 9px;
+        font: 800 20px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .karta.ta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        box-shadow: 0 0 0 3px var(--limonka);
+      }
+      .przelacznik {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 12px 6px 6px;
+        border: 2px solid var(--granat);
+        border-radius: 999px;
+        background: var(--biel);
+        font: 700 16px/1 var(--sans);
+      }
+      .przelacznik i {
+        width: 30px;
+        height: 18px;
+        border-radius: 999px;
+        background: var(--granat);
+        position: relative;
+      }
+      .przelacznik i::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--biel);
+      }
+      .ustawienie {
+        margin: 0;
+        font: 700 16px/1.3 var(--sans);
+      }
+      .galezie {
+        margin: 8px 0 0 15px;
+      }
+      .galaz {
+        position: relative;
+        padding: 6px 0 4px 26px;
+        border-left: 3px solid var(--granat);
+        font: 600 16px/1.3 var(--sans);
+      }
+      .galaz:last-child {
+        border-left-color: transparent;
+      }
+      .galaz::before {
+        content: "";
+        position: absolute;
+        left: -3px;
+        top: 0;
+        width: 18px;
+        height: 15px;
+        border-left: 3px solid var(--granat);
+        border-bottom: 3px solid var(--granat);
+      }
+      .galaz:last-child::before {
+        border-bottom-left-radius: 8px;
+      }
+      .galaz::after {
+        content: "";
+        position: absolute;
+        left: 9px;
+        top: 10px;
+        width: 7px;
+        height: 7px;
+        border-top: 3px solid var(--granat);
+        border-right: 3px solid var(--granat);
+        transform: rotate(45deg);
+      }
+      .galaz em {
+        font-style: normal;
+        color: var(--grafit);
+      }
+      .galaz strong {
+        font-weight: 800;
+      }
+      .dymek-rada {
+        position: relative;
+        margin: 14px 0 14px;
+        padding: 9px 12px 10px;
+        border: 2px solid var(--granat);
+        border-radius: 12px;
+        background: var(--papier);
+        font: 600 16px/1.35 var(--sans);
+      }
+      .dymek-rada::before {
+        content: "";
+        position: absolute;
+        top: -9px;
+        left: 26px;
+        width: 14px;
+        height: 14px;
+        background: var(--papier);
+        border-left: 2px solid var(--granat);
+        border-top: 2px solid var(--granat);
+        transform: rotate(45deg);
+      }
+      .adres {
+        display: block;
+        margin-top: 3px;
+        font: 700 15px/1.4 var(--mono);
+      }
+      .adres .cale {
+        white-space: nowrap;
+      }
+      .karta.firmowa p {
+        margin: 0;
+        font: 700 17px/1.3 var(--sans);
+      }
+
+      /* ===== Metryki i raporty ===== */
+      .boczne {
+        margin-top: 26px;
+        padding-left: 132px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .wiersz {
+        display: grid;
+        grid-template-columns: 1fr 214px;
+        align-items: end;
+        column-gap: 18px;
+      }
+      .wiersz .opis {
+        padding: 0 0 34px;
+        max-width: 330px;
+      }
+      .wiersz .opis b {
+        font: 700 16px/1.3 var(--sans);
+      }
+      .usluga {
+        border: 2px dashed var(--granat);
+        border-radius: 12px;
+        background: var(--biel);
+        padding: 9px 12px;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 700 16px/1.2 var(--sans);
+      }
+      .usluga svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      /* ===== Remote Control ===== */
+      .zdalnie {
+        margin-top: 24px;
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 12px 14px;
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        column-gap: 12px;
+        align-items: center;
+        font: 600 16px/1.35 var(--sans);
+      }
+      .zdalnie svg {
+        width: 40px;
+        height: 40px;
+      }
+      .zdalnie b {
+        font-weight: 800;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Rozmowa trafia domyślnie do Anthropic, a jak długo tam zostaje, zależy od planu i ustawienia. Twój komputer: okno aplikacji z rozmową. Na dysku zostaje zapis rozmów zwykłym tekstem; zapis rozmów z aplikacji domyślnie nie znika po 30 dniach. Strzałka z kłódką do Anthropic: prompty i odpowiedzi idą szyfrowanym połączeniem. Plany Pro i Max: decyduje ustawienie ulepszania modeli; włączone: dane zostają 5 lat i służą do uczenia nowych modeli; wyłączone: dane zostają 30 dni. Plany Team i Enterprise: dane zostają standardowo 30 dni i bez zgody firmy nie służą do uczenia modeli."
+    >
+      <h1 class="teza">Rozmowa trafia domyślnie do Anthropic, a&nbsp;<mark>jak długo tam zostaje</mark>, zależy od planu i&nbsp;ustawienia</h1>
+      <svg class="linie" id="linie" aria-hidden="true"></svg>
+
+      <div class="glowny">
+        <!-- 1. Twój komputer -->
+        <div class="pudlo z-tytulem" id="komputer">
+          <span class="tytul">Twój komputer</span>
+          <div class="okno">
+            <div class="okno-gora"><i></i><i></i><i></i></div>
+            <div class="okno-srodek">
+              <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z" /></svg>
+              <div class="dymek"><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="kartka">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" /></svg>
+            <div>
+              <b>Na dysku zostaje zapis rozmów zwykłym tekstem.</b>
+              <small>Zapis rozmów z&nbsp;aplikacji domyślnie nie znika po 30&nbsp;dniach.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Szyfrowana strzałka -->
+        <div class="droga" id="droga">
+          <svg class="strzala" viewBox="0 0 160 40" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2 20 H142" stroke="#0e1422" stroke-width="9" stroke-linecap="round" />
+            <path d="M130 6 L154 20 L130 34" fill="none" stroke="#0e1422" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <svg class="ik zamek" viewBox="0 0 24 24" width="34" height="34" fill="#ffffff" stroke="#0e1422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute;top:13px;left:calc(50% - 22px)"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2" /><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" /></svg>
+          <b>Prompty i&nbsp;odpowiedzi idą szyfrowanym połączeniem.</b>
+                  </div>
+
+        <!-- 3. Anthropic -->
+        <div class="pudlo z-tytulem" id="anthropic">
+          <span class="tytul">Anthropic</span>
+          <div class="karta ta">
+            <h3>Pro, Max</h3>
+            <p class="ustawienie">Decyduje ustawienie ulepszania modeli:</p>
+            <div class="galezie">
+              <div class="galaz"><em>Włączone:</em> dane zostają <strong>5&nbsp;lat</strong> i&nbsp;służą do uczenia nowych modeli.</div>
+              <div class="galaz"><em>Wyłączone:</em> dane zostają <strong>30&nbsp;dni</strong>.</div>
+            </div>
+          </div>
+          <div class="karta firmowa">
+            <h3>Team, Enterprise</h3>
+            <p>Dane zostają standardowo 30&nbsp;dni. Bez zgody firmy nie służą do uczenia modeli.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      // Metryki, raporty błędów i Remote Control zeszły z rysunku do tekstu lekcji; linii bocznych już nie ma.
+      function rysuj() {}
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+        rysuj();
+        document.body.dataset.h = Math.ceil(document.documentElement.scrollHeight);
+      });
+    </script>
+  </body>
+</html>

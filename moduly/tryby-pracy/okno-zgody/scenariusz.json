@@ -1,0 +1,209 @@
+{
+  "lekcja": "okno-zgody",
+  "folder_startowy": [
+    "sprzedaz-2026-09.csv",
+    "sprzedaz-2026-10.csv",
+    "uwagi-ksiegowej.txt",
+    "podsumowanie.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zatwierdź zmianę w trybie Manual",
+      "opis": "Ćwiczenie w zakładce Code aplikacji Claude. Twoich plików nie zmieni. Klikaj po kolei kroki nad oknem albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Przełącznik pod polem wiadomości pokazuje Manual. Kliknij pierwszy krok nad oknem i patrz na folder pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Raporty",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Poproś o sumę z września",
+          "opis": "Wysyłasz prośbę. Claude przeczyta raport i zaproponuje wpis.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Policz sumę sprzedaży z września z pliku sprzedaz-2026-09.csv i wpisz ją do podsumowanie.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["sprzedaz-2026-09.csv", "podsumowanie.txt"],
+              "fakt": "odczyty-w-folderze-roboczym-bez-zgody-w-manual"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem raport: sprzedaż we wrześniu to razem 48 200 zł. Proponuję zmianę w pliku podsumowanie.txt."
+            },
+            {
+              "typ": "zgoda",
+              "plik": "podsumowanie.txt",
+              "linijki": [
+                {
+                  "tekst": "Podsumowanie sprzedaży dla księgowej"
+                },
+                {
+                  "tekst": "Wrzesień: do uzupełnienia",
+                  "zmiana": "usunieta"
+                },
+                {
+                  "tekst": "Wrzesień: 48 200 zł",
+                  "zmiana": "dodana"
+                },
+                {
+                  "tekst": "Październik: do uzupełnienia"
+                }
+              ],
+              "fakt": "aplikacja-manual-podglad-i-przyciski"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude przeczytał pliki bez pytania. Zmianę pokazał na karcie zgody i czeka. Kliknij ptaszek, żeby ją zatwierdzić.",
+              "fakt": "tryb-manual-aplikacja-czeka-na-zatwierdzenie"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zatwierdź zmianę",
+          "opis": "Klikasz przycisk z ptaszkiem na karcie zgody.",
+          "klik": "zatwierdz",
+          "fakt": "aplikacja-manual-przyciski-zatwierdzania",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik zmienił się dopiero teraz. Na karcie Changes (zmiany) pojawiły się liczby +1 -1. Kliknij je, żeby otworzyć widok zmian.",
+              "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+            }
+          ]
+        },
+        {
+          "etykieta": "Otwórz widok zmian",
+          "opis": "Klikasz liczby na karcie Changes.",
+          "klik": "licznik",
+          "fakt": "aplikacja-klikniecie-wskaznika-otwiera-widok-zmian",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Widok zmian pokazuje tę samą zmianę: linijkę usuniętą i dodaną. Tak obejrzysz ją jeszcze raz.",
+              "fakt": "aplikacja-klikniecie-wskaznika-otwiera-widok-zmian"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Zmień tryb i poproś jeszcze raz",
+      "opis": "Folder jest ten sam co w ćwiczeniu 1, z wpisaną sumą za wrzesień. Najpierw zmieniasz tryb w przełączniku, potem prosisz o sumę za październik.",
+      "nauczyciel_start": "Przełącznik pokazuje Manual. Najpierw zmień tryb: kliknij pierwszy krok nad oknem, a otworzy się lista trybów.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Raporty",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Otwórz listę trybów",
+          "opis": "Klikasz przełącznik trybu pod polem wiadomości.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się lista trybów. Kliknij Accept edits.",
+              "fakt": "aplikacja-dostepne-tryby"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz Accept edits",
+          "opis": "Klikasz tryb na liście.",
+          "klik": "tryb",
+          "na": "Accept edits",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Accept edits. Aplikacja zapamięta ten tryb dla folderu. Teraz kliknij „Poproś o sumę z października”.",
+              "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+            }
+          ]
+        },
+        {
+          "etykieta": "Poproś o sumę z października",
+          "opis": "Prawie ta sama prośba co w ćwiczeniu 1. Zobacz, czy pojawi się karta zgody.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Policz sumę sprzedaży z października z pliku sprzedaz-2026-10.csv i wpisz ją do podsumowanie.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["sprzedaz-2026-10.csv", "podsumowanie.txt"],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem raport: sprzedaż w październiku to razem 51 900 zł. Wpisałem sumę do pliku podsumowanie.txt."
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "podsumowanie.txt",
+                  "linijki": [
+                    {
+                      "tekst": "Podsumowanie sprzedaży dla księgowej"
+                    },
+                    {
+                      "tekst": "Wrzesień: 48 200 zł"
+                    },
+                    {
+                      "tekst": "Październik: do uzupełnienia",
+                      "zmiana": "usunieta"
+                    },
+                    {
+                      "tekst": "Październik: 51 900 zł",
+                      "zmiana": "dodana"
+                    }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karty zgody nie było. Liczby +1 -1 na karcie Changes pojawiły się od razu. Kliknij je.",
+              "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode"
+            }
+          ]
+        },
+        {
+          "etykieta": "Otwórz widok zmian",
+          "opis": "Klikasz liczby na karcie Changes.",
+          "klik": "licznik",
+          "fakt": "aplikacja-klikniecie-wskaznika-otwiera-widok-zmian",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zmiana podobna do tej z ćwiczenia 1, tylko tym razem nikt jej nie zatwierdzał ptaszkiem. Tryb Accept edits poznasz bliżej w lekcji 2.",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

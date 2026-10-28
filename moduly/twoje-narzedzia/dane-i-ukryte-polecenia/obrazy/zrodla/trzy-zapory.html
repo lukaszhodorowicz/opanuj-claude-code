@@ -1,0 +1,358 @@
+<!doctype html>
+<!-- Rysunek R2 „Droga ukrytego polecenia: trzy zapory” do lekcji dane-i-ukryte-polecenia: nagłówek z wnioskiem (żadna zapora nie daje pewności); ramka Bypass permissions, dopisek o konektorach i stopka zeszły do tekstu lekcji; cudzy tekst (plik albo mail, strona w panelu Browser) z wstawionym zdaniem do Claude; Claude czyta; Claude chce coś zrobić; trzy zapory obok siebie (Manual, Auto, cudza strona), każda ze swoim momentem, bez kolejności; zbiegają się w pudełku „Ty: zgoda albo odmowa”; pod spodem Bypass permissions i stopka. Zakreślacz tylko na pudełku Ty. Opis: BRIEF.md, część 9; napisy w brzmieniu lekcji. Źródło PNG obrazy/trzy-zapory.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Trzy zapory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w kto-decyduje-konektor.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        padding: 18px 16px 20px;
+      }
+      svg.ik {
+        flex: none;
+      }
+      svg.linie {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+      }
+      small {
+        display: block;
+        margin-top: 5px;
+        color: var(--grafit);
+        font: 600 16px/1.32 var(--sans);
+      }
+
+      /* ===== Góra: cudzy tekst -> Claude czyta ===== */
+      .gora {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        column-gap: 64px;
+        align-items: center;
+      }
+      .naglowek {
+        margin: 0 0 10px;
+        font: 800 19px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .zrodla {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .zrodlo {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 10px;
+        align-items: center;
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 10px 12px;
+        font: 700 17px/1.25 var(--sans);
+      }
+      .zrodlo svg {
+        width: 34px;
+        height: 34px;
+      }
+      .pudlo {
+        border: 3px solid var(--granat);
+        border-radius: 16px;
+        background: var(--biel);
+        padding: 13px 14px 14px;
+      }
+      .pudlo b {
+        display: block;
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .chce {
+        width: 470px;
+        margin: 38px auto 0;
+        text-align: center;
+      }
+
+      /* ===== Trzy zapory obok siebie ===== */
+      .zapory {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 40px;
+        align-items: stretch;
+      }
+      .zapora {
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 12px 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .zapora .ikona {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .zapora .ikona svg {
+        width: 32px;
+        height: 32px;
+      }
+      .pigulka {
+        display: inline-block;
+        padding: 5px 13px 6px;
+        border: 3px solid var(--granat);
+        border-radius: 999px;
+        background: var(--biel);
+        font: 800 19px/1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .zapora p {
+        margin: 0;
+        font: 700 16px/1.32 var(--sans);
+      }
+      .zapora small {
+        margin-top: 0;
+      }
+      .karta-mini {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .karta-mini span {
+        padding: 4px 6px 5px;
+        border: 2px solid var(--granat);
+        border-radius: 999px;
+        font: 700 14px/1 var(--sans);
+        white-space: nowrap;
+      }
+
+      /* ===== Ty ===== */
+      .ty {
+        width: 360px;
+        margin: 70px auto 0;
+        text-align: center;
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+        box-shadow: 0 0 0 3px var(--limonka);
+        border-radius: 16px;
+        padding: 14px 14px 15px;
+      }
+      .ty b {
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .blokada {
+        display: block;
+        margin-top: 10px;
+      }
+      .dopisek {
+        position: absolute;
+        width: 190px;
+        color: var(--grafit);
+        font: 600 16px/1.3 var(--sans);
+      }
+
+      /* ===== Bypass i stopka ===== */
+      .bypass {
+        margin-top: 24px;
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 12px 14px;
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 12px;
+        align-items: center;
+      }
+      .bypass svg {
+        width: 34px;
+        height: 34px;
+      }
+      .bypass b {
+        font: 800 18px/1.3 var(--sans);
+      }
+      .bypass small {
+        margin-top: 2px;
+      }
+      .stopka {
+        margin: 16px 0 0;
+        padding-top: 14px;
+        border-top: 3px solid var(--granat);
+        font: 800 19px/1.3 var(--sans);
+        letter-spacing: -0.015em;
+        text-align: center;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Przed ukrytym poleceniem stoją trzy zapory, ale żadna nie daje pewności. W cudzym tekście stoi zdanie napisane do Claude, a nie do Ciebie: cudzy tekst w pliku albo mailu, cudza strona w panelu Browser. Claude czyta ten tekst; w trybach Manual i Accept edits czyta pliki w folderze bez pytania. Claude chce coś zrobić: wysłać wiadomość, wejść na stronę albo coś wpisać. Trzy zapory. Manual: większość narzędzi, które wysyłają coś do sieci, domyślnie czeka na Twoją zgodę. Auto: strażnik blokuje działania, które wyglądają na skutek wrogiej treści, a samej treści nie czyta; tryb Auto nie gwarantuje bezpieczeństwa; po blokadzie strażnika nic nie wychodzi. Cudza strona: przy pierwszym działaniu każda strona dostaje osobną kartę zgody z przyciskami Allow once, Always allow i Deny; strażnik sprawdza klikanie i pisanie w każdym trybie. W trybie Manual i na cudzej stronie na końcu Ty decydujesz: zgoda albo odmowa."
+    >
+      <h1 class="teza">Przed ukrytym poleceniem stoją trzy zapory, ale <mark>żadna nie daje pewności</mark></h1>
+      <svg class="linie" id="linie" aria-hidden="true"></svg>
+
+      <!-- 1-2. Cudzy tekst i Claude czyta -->
+      <div class="gora">
+        <div id="zrodla">
+          <p class="naglowek">W cudzym tekście stoi zdanie napisane do Claude, a&nbsp;nie do Ciebie.</p>
+          <div class="zrodla">
+            <div class="zrodlo">
+              <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8l4 4v6" /><path d="M13 3v4h4" /><path d="M5 3v15h5" /><rect x="12" y="14.5" width="10" height="7" rx="1.2" /><path d="M12.4 15.2l4.6 3.4 4.6-3.4" /></svg>
+              Cudzy tekst w pliku albo mailu
+            </div>
+            <div class="zrodlo">
+              <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18" /><path d="M6 6.5h.01M8.5 6.5h.01" /><path d="M7 13h10M7 16h6" /></svg>
+              Cudza strona w panelu Browser
+            </div>
+          </div>
+        </div>
+        <div class="pudlo" id="czyta">
+          <b>Claude czyta ten tekst</b>
+          <small>W trybach Manual i&nbsp;Accept edits czyta pliki w&nbsp;folderze bez pytania.</small>
+        </div>
+      </div>
+
+      <!-- 3. Claude chce coś zrobić -->
+      <div class="pudlo chce" id="chce">
+        <b>Claude chce coś zrobić: wysłać wiadomość, wejść na stronę albo coś wpisać</b>
+      </div>
+
+      <!-- 4. Trzy zapory obok siebie -->
+      <div class="zapory">
+        <div class="zapora" id="z1">
+          <div class="ikona">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4.5 21c.6-4 3.6-6.5 7.5-6.5s6.9 2.5 7.5 6.5" /></svg>
+            <span class="pigulka">Manual</span>
+          </div>
+          <p>Większość narzędzi, które wysyłają coś do sieci, domyślnie czeka na Twoją zgodę.</p>
+        </div>
+        <div class="zapora" id="z2">
+          <div class="ikona">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.3-7.5 9.5-4.4-1.2-7.5-4.9-7.5-9.5V6z" /></svg>
+            <span class="pigulka">Auto</span>
+          </div>
+          <p>Strażnik blokuje działania, które wyglądają na skutek wrogiej treści. Samej treści strażnik nie czyta.</p>
+          <small>Tryb Auto nie gwarantuje bezpieczeństwa.</small>
+          <small class="blokada">Po blokadzie strażnika nic nie wychodzi.</small>
+        </div>
+        <div class="zapora" id="z3">
+          <div class="ikona">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18" /><path d="M6 6.5h.01M8.5 6.5h.01" /></svg>
+            <span class="pigulka">Cudza strona</span>
+          </div>
+          <div class="karta-mini"><span>Allow once</span><span>Always allow</span><span>Deny</span></div>
+          <p>Przy pierwszym działaniu każda strona dostaje osobną kartę zgody.</p>
+          <small>Strażnik sprawdza klikanie i&nbsp;pisanie w&nbsp;każdym trybie.</small>
+        </div>
+      </div>
+
+      <!-- 5. Ty -->
+      <div class="ty" id="ty"><b>Ty decydujesz: zgoda albo odmowa</b></div>
+    </div>
+
+    <script>
+      // Strzałki między pudełkami; z kolumny Auto nie ma strzałki do pola Ty, bo tam decyduje strażnik.
+      function rysuj() {
+        const rys = document.querySelector(".rys").getBoundingClientRect();
+        const r = (id) => {
+          const b = document.getElementById(id).getBoundingClientRect();
+          return { l: b.left - rys.left, t: b.top - rys.top, r: b.right - rys.left, b: b.bottom - rys.top, cx: (b.left + b.right) / 2 - rys.left, cy: (b.top + b.bottom) / 2 - rys.top };
+        };
+        const ns = "http://www.w3.org/2000/svg";
+        const svg = document.getElementById("linie");
+        const linia = (d, przerywana) => {
+          const p = document.createElementNS(ns, "path");
+          p.setAttribute("d", d);
+          p.setAttribute("fill", "none");
+          p.setAttribute("stroke", "#0e1422");
+          p.setAttribute("stroke-width", "4");
+          p.setAttribute("stroke-linecap", "round");
+          p.setAttribute("stroke-linejoin", "round");
+          if (przerywana) p.setAttribute("stroke-dasharray", "9 8");
+          svg.appendChild(p);
+        };
+        const grot = (x, y, kier) => {
+          const g = { p: `M${x - 10} ${y - 8} L${x} ${y} L${x - 10} ${y + 8}`, d: `M${x - 8} ${y - 10} L${x} ${y} L${x + 8} ${y - 10}`, l: `M${x + 10} ${y - 8} L${x} ${y} L${x + 10} ${y + 8}` };
+          linia(g[kier]);
+        };
+        const zr = r("zrodla"), cz = r("czyta"), ch = r("chce"), z1 = r("z1"), z2 = r("z2"), z3 = r("z3"), ty = r("ty");
+        // źródła -> Claude czyta
+        const zz = [...document.querySelectorAll(".zrodlo")].map((e) => { const b = e.getBoundingClientRect(); return { r: b.right - rys.left, cy: (b.top + b.bottom) / 2 - rys.top }; });
+        const xk = Math.max(...zz.map((z) => z.r)) + 14;
+        zz.forEach((z) => linia(`M${z.r + 4} ${z.cy} H${xk}`));
+        linia(`M${xk} ${zz[0].cy} V${zz[zz.length - 1].cy}`);
+        linia(`M${xk} ${cz.cy} H${cz.l - 6}`);
+        grot(cz.l - 5, cz.cy, "p");
+        // Claude czyta -> Claude chce
+        linia(`M${cz.cx} ${cz.b + 3} V${ch.t - 6}`);
+        grot(cz.cx, ch.t - 5, "d");
+        // Claude chce -> trzy zapory (rozgałęzienie)
+        const ys = ch.b + (z1.t - ch.b) / 2;
+        linia(`M${ch.cx} ${ch.b + 3} V${ys}`);
+        linia(`M${z1.cx} ${z1.t - 6} V${ys + 10} q0 -10 10 -10 H${z3.cx - 10} q10 0 10 10 V${z3.t - 6}`);
+        linia(`M${z2.cx} ${ys} V${z2.t - 6}`);
+        [z1, z2, z3].forEach((z) => grot(z.cx, z.t - 5, "d"));
+        // zapory -> Ty
+        linia(`M${z1.cx} ${z1.b + 3} V${ty.cy - 10} q0 10 10 10 H${ty.l - 8}`);
+        grot(ty.l - 7, ty.cy, "p");
+        linia(`M${z3.cx} ${z3.b + 3} V${ty.cy - 10} q0 10 -10 10 H${ty.r + 8}`);
+        grot(ty.r + 7, ty.cy, "l");
+      }
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(rysuj);
+    </script>
+  </body>
+</html>

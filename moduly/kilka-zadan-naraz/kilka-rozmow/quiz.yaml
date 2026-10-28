@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Masz kwiaciarnię. W jednej rozmowie liczysz cennik wieńców, a teraz zaczynasz drugą rozmowę, o postach na Instagram. Kiedy i gdzie wybierasz jej folder?"
+    odpowiedzi:
+      - "W ustawieniach aplikacji, raz dla wszystkich rozmów."
+      - "W rzędzie pod polem wiadomości, zanim wyślesz pierwszą prośbę."
+      - "Po pierwszej odpowiedzi Claude, przeciągając rozmowę do grupy folderu w pasku bocznym."
+    poprawna: 1
+    wyjasnienie: "Przed pierwszą prośbą wybierasz folder w rzędzie pod polem wiadomości. W każdej nowej rozmowie wybierasz go osobno."
+    fakt: aplikacja-rzad-pod-polem-srodowisko-folder-tryb-model
+
+  - pytanie: "W jednej rozmowie przygotowujesz raport kampanii w folderze Klient-A. W drugiej piszesz ofertę w folderze Klient-B. Klikasz w pasku bocznym rozmowę o raporcie. Co w niej jest?"
+    odpowiedzi:
+      - "Historia obu rozmów, bo aplikacja łączy je w jeden wątek."
+      - "Folder Klient-B, bo ostatnio wybrany folder obowiązuje we wszystkich rozmowach."
+      - "Jej własna historia, a Claude pracuje w folderze Klient-A."
+    poprawna: 2
+    wyjasnienie: "Każda rozmowa w zakładce Code ma własną historię i własny folder, niezależne od innych rozmów."
+    fakt: aplikacja-kazda-rozmowa-to-sesja
+
+  - pytanie: "W rozmowie o postach chcesz poznać cenę wieńca, którą ustaliła rozmowa o cenniku. Co robisz?"
+    odpowiedzi:
+      - "Piszesz zwykłymi słowami: „Co ustaliła rozmowa Cennik wieńców?”."
+      - "Kopiujesz cenę ręcznie, bo rozmowy nic o sobie nie wiedzą i Claude nie zajrzy do drugiej."
+      - "Wpisujesz /list-agents w polu wiadomości, bo tylko tak Claude zobaczy inne rozmowy."
+    poprawna: 0
+    wyjasnienie: "Claude w aplikacji potrafi przeczytać, co działo się w Twoich innych rozmowach z zakładki Code. Prosisz go o to zwykłymi słowami."
+    fakt: aplikacja-claude-czyta-inne-sesje-zwykla-prosba
+
+  - pytanie: "W rozmowie o postach prosisz: „Daj znać w rozmowie Cennik wieńców, że posty mają nową cenę”. Potem otwierasz rozmowę Cennik wieńców. Co w niej widzisz?"
+    odpowiedzi:
+      - "Nic nowego, bo wiadomość widać tylko w rozmowie, która ją wysłała."
+      - "Kartę z tytułem rozmowy, która wysłała wiadomość."
+      - "Twoją prośbę jako zwykły dymek, jakby padła w tej rozmowie."
+    poprawna: 1
+    wyjasnienie: "Aplikacja pokazuje wiadomość w drugiej rozmowie jako kartę z tytułem rozmowy, która ją wysłała, i z odnośnikiem do niej."
+    fakt: aplikacja-wiadomosc-karta-z-tytulem-nadawcy

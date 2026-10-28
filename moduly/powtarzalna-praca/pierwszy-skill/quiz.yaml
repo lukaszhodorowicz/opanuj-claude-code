@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Accept edits (przyjmowanie zmian). Prosisz Claude o zapisanie zasad odpisywania klientom jako skill. Claude zatrzymuje się przed zapisem w folderze .claude i prosi o zgodę. Dlaczego?"
+    odpowiedzi:
+      - "Accept edits pyta o zgodę przed każdym nowym plikiem, a bez pytania zmienia tylko pliki, które już są."
+      - "Folder .claude, w którym leżą skille, jest chroniony: zapis w nim wymaga zgody także w tym trybie."
+      - "Skill to dodatek, który instaluje się jak program w terminalu, więc Claude prosi o zgodę na instalację."
+    poprawna: 1
+    wyjasnienie: "Folder .claude, w którym leżą skille, jest chroniony. W trybach Manual i Accept edits zapis w chronionych folderach wymaga Twojej zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja
+
+  - pytanie: "Zapisujesz skill, który pisze szkice odpowiedzi klientom sklepu. Po czym Claude pozna, kiedy sam ma po niego sięgnąć?"
+    odpowiedzi:
+      - "Po nazwie pliku SKILL.md, bo każdy skill ma plik o tej samej nazwie."
+      - "Po ostatniej linijce treści, w której piszesz, kiedy go użyć."
+      - "Po opisie w polu description."
+    poprawna: 2
+    wyjasnienie: "Opis w polu description mówi, co skill robi i kiedy go użyć. Po nim Claude decyduje, kiedy sam użyje skilla."
+    fakt: skill-opis-decyduje
+
+  - pytanie: "Wysyłasz wiadomość „/odpowiedz-klientowi mail-reklamacja-zielinska.txt”. Treść skilla nie ma osobnego miejsca na tekst po nazwie. Co dzieje się z nazwą pliku?"
+    odpowiedzi:
+      - "Claude Code dopisuje ją na końcu treści skilla."
+      - "Claude Code ją pomija, bo skill pracuje tylko według treści z pliku SKILL.md, a mail Claude wybiera sam."
+      - "Claude Code szuka drugiego skilla o tej nazwie, bo traktuje ją jak kolejne polecenie."
+    poprawna: 0
+    wyjasnienie: "Gdy treść skilla nie ma miejsca na tekst po nazwie, Claude Code dopisuje go na końcu treści skilla. Dzięki temu Claude widzi, co wpisano."
+    fakt: skill-tekst-po-nazwie-dopisany-na-koncu
+
+  - pytanie: "Nowa rozmowa w folderze z mailami klientów. Piszesz: „Odpisz na mail z pliku mail-termin-adamski.txt”, bez nazwy skilla. Claude i tak korzysta ze skilla odpowiedz-klientowi. Dlaczego?"
+    odpowiedzi:
+      - "Claude Code dokłada skill do każdej wiadomości w tym folderze, bez względu na jej treść."
+      - "Prośba pasuje do zadania skilla, a Claude sam ładuje pasujące skille."
+      - "Claude pamięta poprzednią rozmowę, w której ten skill powstał."
+    poprawna: 1
+    wyjasnienie: "W aplikacji Claude ładuje skille sam, gdy pasują do zadania. Nazwę skilla możesz też wpisać, żeby wskazać go wprost."
+    fakt: aplikacja-skille-claude-laduje-sam-albo-wskazujesz

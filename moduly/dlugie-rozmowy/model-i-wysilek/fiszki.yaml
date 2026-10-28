@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Gdzie w aplikacji wybierasz poziom wysiłku?"
+    tyl: "Otwórz wybór modelu w rzędzie pod polem wiadomości i kliknij poziom pod Effort."
+    fakt: aplikacja-wysilek-pod-effort-w-wyborze-modelu
+
+  - przod: "Czym steruje poziom wysiłku?"
+    tyl: "Rozumowaniem, w którym model sam decyduje na każdym kroku, czy myśleć i ile."
+    fakt: wysilek-model-decyduje-czy-i-ile-myslec
+
+  - przod: "Kiedy wystarczy niski wysiłek?"
+    tyl: "Przy szybkiej pracy, w której przeglądasz każdy wynik, na przykład przy burzy pomysłów albo pierwszym szkicu."
+    fakt: wysilek-low-szybkie-wymiany-szkic
+
+  - przod: "Kiedy podnieść wysiłek do poziomu high?"
+    tyl: "Gdy liczy się sprawdzenie albo prawdopodobne są nietypowe przypadki."
+    fakt: wysilek-high-gdy-liczy-sie-sprawdzenie
+
+  - przod: "Co daje i co kosztuje wyższy wysiłek?"
+    tyl: "Daje dokładniejsze odpowiedzi, ale trwa dłużej i szybciej zużywa Twoje limity."
+    fakt: program-wyzszy-wysilek-dluzej-szybciej-zuzywa-limity
+
+  - przod: "Jak w aplikacji zobaczyć, co Claude myślał?"
+    tyl: "Kliknij strzałkę obok tytułu rozmowy, wybierz Transcript view, a potem Thinking. Możesz też naciskać Ctrl+O."
+    fakt: aplikacja-transcript-view-menu-sesji-ctrl-o

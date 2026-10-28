@@ -1,0 +1,153 @@
+/* Wygląd karty Context w panelu szczegółów symulatora aplikacji (strona/aplikacja-kontekst.js): nagłówek z napisem, strzałką i procentem, po otwarciu pasek zajętości i wiersze z kolorowym znakiem i szarym paskiem, bez nazw i liczb. Kolory znaków ze zrzutu z sieci karta-context-otwarta-panel-szczegolow.png. */
+:root {
+  --a-kol-1: #3b82f6;
+  --a-kol-2: #e0592a;
+  --a-kol-3: #1fa97a;
+  --a-kol-4: #d98c0f;
+  --a-kol-5: #a3a29c;
+  --a-kol-6: #6b6b6b;
+}
+.apl-kol-1 {
+  background: var(--a-kol-1);
+}
+.apl-kol-2 {
+  background: var(--a-kol-2);
+}
+.apl-kol-3 {
+  background: var(--a-kol-3);
+}
+.apl-kol-4 {
+  background: var(--a-kol-4);
+}
+.apl-kol-5 {
+  background: var(--a-kol-5);
+}
+.apl-kol-6 {
+  background: var(--a-kol-6);
+}
+
+.apl-karta-kontekst {
+  padding: 0;
+}
+.apl-kontekst-naglowek {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--a-tekst);
+  font: 600 14px/1.3 var(--a-sans);
+  text-align: left;
+  cursor: pointer;
+}
+.apl-kontekst-naglowek:hover {
+  background: #2a2a2a;
+}
+.apl-karta-kontekst .apl-kontekst-strzalka svg {
+  width: 14px;
+  height: 14px;
+  color: var(--a-szary);
+  transition: transform 0.15s ease;
+}
+.apl-karta-kontekst.otwarta .apl-kontekst-strzalka svg {
+  transform: rotate(90deg);
+}
+.apl-kontekst-proc {
+  margin-left: auto;
+  padding: 3px 6px;
+  border-radius: 6px;
+  color: var(--a-szary);
+  font: 500 13.5px/1 var(--a-sans);
+  font-variant-numeric: tabular-nums;
+}
+/* karta nowej rozmowy przed pierwszą liczbą: szary pasek w miejscu procentu */
+.apl-kontekst-brak {
+  width: 28px;
+  height: 8px;
+  margin: 3px 0;
+  background: #4d4d4d;
+}
+/* krótkie mignięcie przy zmianie procentu (krok `kontekst`) */
+.apl-kontekst-proc.mignij {
+  animation: apl-kontekst-mignij 0.7s ease-out;
+}
+@keyframes apl-kontekst-mignij {
+  from {
+    background: #4d4d4d;
+    color: var(--a-tekst);
+  }
+}
+.apl-kontekst-tresc {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 12px 13px;
+}
+.apl-kontekst-tresc[hidden] {
+  display: none;
+}
+.apl-kontekst-pasek {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: #2c2c2c;
+  overflow: hidden;
+}
+.apl-kontekst-zajete {
+  display: flex;
+  gap: 1px;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+.apl-kontekst-zajete i {
+  display: block;
+  height: 100%;
+}
+.apl-kontekst-wiersze {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.apl-kontekst-wiersze li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.apl-kontekst-znak {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* po `klik` `nowa-rozmowa` panel szczegółów znika (sesja startuje dopiero po wysłaniu zadania, fakt aplikacja-sesja-startuje-po-wyslaniu-zadania), na każdym ekranie, także gdy obok rozmowy jest otwarty plik; strona/aplikacja-kontekst.js zdejmuje klasę przy pierwszej prośbie */
+.apl-okno.panel-ukryty:not(.plik-otwarty) .apl-uklad {
+  grid-template-columns: minmax(0, 1fr);
+}
+.apl-okno.panel-ukryty .apl-panel,
+.apl-okno.panel-ukryty.plik-otwarty .apl-panel {
+  display: none;
+}
+/* panel szczegółów stoi tylko przy szerokiej rozmowie (fakt aplikacja-panel-szczegolow-sesji-karty-obok-czatu): gdy obok rozmowy jest otwarty plik, strona artefaktu albo pytanie z boku, na szerokim ekranie znika, a pod rozmową (telefon) zostaje */
+.apl-okno.plik-otwarty .apl-panel {
+  display: none;
+}
+@media (max-width: 720px) {
+  .apl-okno.plik-otwarty .apl-panel {
+    display: flex;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-kontekst-proc.mignij,
+  .apl-kontekst-zajete,
+  .apl-karta-kontekst .apl-kontekst-strzalka svg {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,203 @@
+/* Wygląd symulatora aplikacji Claude, tryby i zgoda: klikalny przełącznik trybu, menu trybów nad nim (jak menu środowiska ze zrzutu 2-rzad-pod-polem.png), karta zgody z podglądem zmiany i przyciskami bez napisów, rząd ze znacznikiem „kliknij tutaj” pod elementem. */
+
+/* przełącznik trybu w rzędzie pod polem wiadomości */
+.apl-rzad-tryby {
+  position: relative;
+}
+.apl-przelacznik {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.apl-przelacznik:hover,
+.apl-przelacznik.otwarty {
+  background: #2f2f2f;
+}
+.apl-przelacznik:focus-visible,
+.apl-menu-poz:focus-visible,
+.apl-zgoda-przyciski button:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}
+
+/* menu trybów: ciemna karta nad rzędem, pozycje jedna pod drugą */
+.apl-menu-trybow {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 3;
+  min-width: 190px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-menu-trybow[hidden] {
+  display: none;
+}
+/* otwarta lista trybów przy krótkiej rozmowie (np. 390 px, pusta rozmowa): rozmowa ma tyle miejsca, żeby lista nie wyszła nad pasek okna */
+.apl-okno.menu-otwarte .apl-rozmowa {
+  min-height: 210px;
+}
+.apl-menu-poz {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--a-tekst);
+  font: 400 14.5px/1.35 var(--a-sans);
+  text-align: left;
+  cursor: pointer;
+}
+.apl-menu-poz:hover {
+  background: #383838;
+}
+
+/* widok zmian z kilkoma plikami (krok zmiana): odstęp między plikami */
+.apl-widok-zmian .apl-plik + .apl-plik {
+  margin-top: 10px;
+}
+
+/* karta zgody: ten sam plik ze zmianą co w widoku zmian, pod nim przyciski */
+.apl-zgoda {
+  animation: apl-wjazd 0.3s ease-out;
+}
+.apl-zgoda .apl-plik {
+  background: #1e1e1e;
+}
+.apl-zgoda-przyciski {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--a-kreska);
+  background: #222222;
+}
+/* karta zgody w drodze (folder chroniony): sam rząd przycisków, bez nagłówka z nazwą pliku nad nim */
+.apl-zgoda-chroniona .apl-zgoda-przyciski {
+  border-top: 0;
+}
+.apl-zgoda-przyciski button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #4a4a4a;
+  border-radius: 9px;
+  background: #2f2f2f;
+  color: var(--a-tekst);
+  cursor: pointer;
+}
+.apl-zgoda-przyciski button:hover {
+  background: #3a3a3a;
+}
+/* przycisk bez skutku (krzyżyk, ptaszek w czasie odliczania): wyszarzony, kursor zwykły (D-2026-10-26-54; jak .apl-plan-p[disabled] w styl-aplikacja-plan.css) */
+.apl-zgoda-przyciski button[aria-disabled="true"] {
+  opacity: 0.38;
+  cursor: default;
+}
+.apl-zgoda-przyciski button[aria-disabled="true"]:hover {
+  background: #2f2f2f;
+}
+
+/* karta zgody przeglądarki w drodze (krok zgoda z witryna, strona/aplikacja-drogi-strona.js): ta sama ramka, w niej trzy przyciski tekstowe w wyglądzie przycisków karty planu (.apl-plan-p); nieaktywne wyszarzone jak krzyżyk (aria-disabled, D-2026-10-26-54) */
+.apl-zgoda-strona .apl-plan-przyciski {
+  justify-content: flex-start;
+  padding: 8px 10px;
+  background: #222222;
+}
+.apl-zgoda-strona .apl-plan-p[aria-disabled="true"] {
+  opacity: 0.38;
+  cursor: default;
+}
+.apl-zgoda-strona .apl-plan-p[aria-disabled="true"]:hover {
+  filter: none;
+}
+.apl-zgoda-strona .apl-plan-p:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}
+
+/* rząd ze znacznikiem kursu zaraz pod elementem do kliknięcia; środek liczy aplikacja-zgoda.js */
+.apl-tag-rzad {
+  display: flex;
+  list-style: none;
+  padding: 0 0 2px;
+}
+.apl-tag-rzad .apl-tag.apl-tag-pod {
+  margin-top: 5px;
+}
+.apl-tag-rzad .apl-tag.apl-tag-pod::after {
+  left: var(
+    --strzalka,
+    50%
+  ); /* środek klikanego elementu, liczy aplikacja-zgoda.js */
+}
+/* odliczanie przed ptaszkiem (pole odliczanie_ms, strona/aplikacja-drogi-odliczanie.js): ta sama pigułka kursu, bez strzałki, bo jeszcze nic nie jest do kliknięcia */
+.apl-tag-rzad .apl-tag.apl-odliczanie {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+.apl-tag-rzad .apl-tag.apl-odliczanie::after {
+  display: none;
+}
+.apl-menu-trybow .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+/* znacznik celu z wyższego wiersza zawiniętego rzędu pod polem (PK.celPod): stoi w rzędzie, na całą jego szerokość, więc reszta rzędu zawija się pod nim; odstęp od celu jak pod rzędem: 4 px odstępu wierszy rzędu (gap) i 6 px marginesu dają 10 px, tyle co odstęp rzędu od następnego elementu rozmowy */
+.apl-rzad > .apl-tag-rzad {
+  flex: 0 0 100%;
+  margin-top: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-menu-trybow,
+  .apl-zgoda {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  .apl-menu-trybow {
+    min-width: 170px;
+  }
+  .apl-zgoda-przyciski button {
+    width: 42px;
+    height: 36px;
+  }
+}
+
+/* polecenia nad oknem po kolei: nieaktywne są wyszarzone (wysłane trochę mniej, z ikoną jak po kliknięciu) */
+.cwiczenie-apl .polecenie:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--biel);
+  transform: none;
+  box-shadow: 0 3px 0 var(--granat);
+}
+.cwiczenie-apl .polecenie.wyslane:disabled {
+  opacity: 0.75;
+}
+/* dalsze etapy wybranej drogi: osobny rząd pod poleceniami dróg z podpisem */
+.cwiczenie-apl .polecenia-etapy {
+  margin-top: -6px;
+}
+.cwiczenie-apl .polecenia-etapy[hidden] {
+  display: none;
+}
+.polecenia-naglowek {
+  flex: 0 0 100%;
+  margin: 0;
+  font: 700 12px/1.3 var(--mono);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--grafit);
+}

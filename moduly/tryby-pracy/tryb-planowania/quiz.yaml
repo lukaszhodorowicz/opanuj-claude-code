@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Plan. Prosisz Claude o podwyżkę cen w cenniku dla klientów, a Claude pokazuje kartę „Claude proposed a plan”. Co jest teraz w pliku z cennikiem?"
+    odpowiedzi:
+      - "Nowe ceny, bo Claude zmienia plik od razu, a plan to tylko podsumowanie."
+      - "Stare ceny, bo w trybie Plan Claude nie zmienia żadnego pliku."
+      - "Nowe ceny, bo plan wykonuje się sam zaraz po pokazaniu karty."
+    poprawna: 1
+    wyjasnienie: "W trybie Plan Claude proponuje plan i nie zmienia żadnego pliku. Cennik zmieni się dopiero po zatwierdzeniu planu."
+    fakt: plan-aplikacja-bez-zmian-w-plikach
+
+  - pytanie: "Plan podwyżki w cenniku Ci odpowiada. Klikasz Accept and auto mode. Co pokaże przełącznik pod polem wiadomości?"
+    odpowiedzi:
+      - "Auto, a karta planu zniknie."
+      - "Plan, bo przełącznik zmieniasz zawsze sam."
+      - "Manual, a Claude zapyta o każdą zmianę."
+    poprawna: 0
+    wyjasnienie: "Po kliknięciu Accept and auto mode karta planu znika, a przełącznik pod polem wiadomości pokazuje Auto."
+    fakt: aplikacja-plan-accept-and-auto-mode-karta-znika-auto
+
+  - pytanie: "W planie zmian w cenniku Claude chce usunąć konsultację, a Ty chcesz ją zostawić. Klikasz Revise…, wpisujesz poprawkę i klikasz Revise. Co się stanie?"
+    odpowiedzi:
+      - "Claude wykona plan z Twoją poprawką i od razu zmieni cennik."
+      - "Przełącznik przejdzie na Manual i Claude zapyta o każdą zmianę."
+      - "Poprawka trafi do rozmowy, a przełącznik dalej pokaże Plan."
+    poprawna: 2
+    wyjasnienie: "Gdy wyślesz poprawkę, karta znika, a poprawka pojawia się w rozmowie jako Twoja wiadomość. Przełącznik dalej pokazuje tryb Plan."
+    fakt: aplikacja-plan-revise-dymek-tryb-plan
+
+  - pytanie: "Claude pokazał plan podwyżki w cenniku dla klientów. Klikasz Accept na karcie planu. Co pokaże przełącznik pod polem wiadomości?"
+    odpowiedzi:
+      - "Auto, a Claude od razu zmieni plik."
+      - "Manual, a zmiany zatwierdzisz sam."
+      - "Plan, bo plan trzeba jeszcze poprawić."
+    poprawna: 1
+    wyjasnienie: "Po Accept zmiany zatwierdzasz potem ręcznie. W ćwiczeniu przełącznik pokazał Manual."
+    fakt: aplikacja-plan-accept-potem-zmiany-recznie

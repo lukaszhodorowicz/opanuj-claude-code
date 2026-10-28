@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co robi Claude, gdy opiszesz, jakiej prezentacji potrzebujesz?"
+    tyl: "Wybiera pasujący szablon, wypełnia go z Twojej prośby i z tego, co sesja już ma, i daje Ci link."
+    fakt: slides-zwykla-prosba-wybiera-szablon
+
+  - przod: "Gdzie otwierasz prezentację Claude Slides, żeby ją edytować albo pokazać?"
+    tyl: "W przeglądarce na komputerze."
+    fakt: slides-otwierasz-w-przegladarce-na-komputerze
+
+  - przod: "Do jakich formatów eksportujesz z edytora na claude.ai artefakt zrobiony z szablonu?"
+    tyl: "Do formatów takich jak PowerPoint, PDF czy Word."
+    fakt: slides-edytor-na-claude-ai-i-eksport
+
+  - przod: "Co się stanie, gdy wpiszesz /slides bez opisu?"
+    tyl: "Claude najpierw zapyta, o czym ma być prezentacja."
+    fakt: slides-bez-opisu-claude-pyta
+
+  - przod: "Co wygrywa: zapis wyglądu w CLAUDE.md czy Twoja prośba?"
+    tyl: "Twoja prośba. Zapis wyglądu wygrywa z własnymi wyborami Claude."
+    fakt: artefakt-pierwszenstwo-prosba-zapis-wygladu-claude
+
+  - przod: "Dokąd trafia prośba o dokument dla innych osób, gdy konektor Claude Docs jest podłączony?"
+    tyl: "Do Claude Docs zamiast na stronę artefaktu."
+    fakt: docs-konektor-prosba-o-dokument-dla-innych-idzie-do-docs

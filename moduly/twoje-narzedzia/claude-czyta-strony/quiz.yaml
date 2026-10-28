@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude: „Wejdź na stronę konkurencji i spisz ceny przeglądów”. Pracujesz w trybie Accept edits (przyjmowanie zmian). Co się stanie, zanim strona otworzy się w panelu Browser?"
+    odpowiedzi:
+      - "Strona otworzy się od razu, bo tryb Accept edits przepuszcza bez pytania także wejście na cudzą stronę."
+      - "Claude pokaże kartę zgody i poczeka na Twój wybór."
+      - "Claude poprosi o wpisanie adresu strony w pasek przeglądarki w panelu."
+    poprawna: 1
+    wyjasnienie: "Gdy Claude pierwszy raz działa na cudzej stronie, pojawia się karta zgody i Claude czeka na Twój wybór: Allow once, Always allow albo Deny. Aplikacja pyta o zgodę już przy pierwszym wejściu na nową stronę."
+    fakt: aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu
+
+  - pytanie: "Co tydzień bierzesz ceny części ze strony tej samej hurtowni. Czym na karcie zgody różni się Always allow (zezwalaj zawsze) od Allow once (zezwól raz)?"
+    odpowiedzi:
+      - "Always allow zezwala od razu na strony wszystkich hurtowni i sklepów, a Allow once tylko na tę jedną stronę."
+      - "Allow once zapamiętuje stronę do końca dnia, a Always allow zapamiętuje ją do końca miesiąca."
+      - "Always allow zapisuje zgodę dla tej strony, a Allow once niczego nie zapisuje."
+    poprawna: 2
+    wyjasnienie: "Always allow zapisuje zgodę dla tej strony na Twoim komputerze. Cofniesz ją w Settings (ustawieniach aplikacji)."
+    fakt: aplikacja-browser-always-allow-zapisuje-dla-strony
+
+  - pytanie: "Prosisz Claude o ceny ze strony konkurencji. Na karcie zgody klikasz Deny (odmów). Co widzisz potem?"
+    odpowiedzi:
+      - "Strona się nie otwiera, a w folderze nie ma nowego pliku z cenami."
+      - "Strona otwiera się w panelu Browser, ale Claude nie zapisuje cen do pliku."
+      - "Claude i tak wchodzi na stronę, bo tryb Accept edits przepuszcza odczyty bez pytania."
+    poprawna: 0
+    wyjasnienie: "Claude czeka na Twój wybór na karcie zgody, a Deny to odmowa. Bez zgody Claude nie wszedł na stronę, więc nie spisał cen."
+    fakt: aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu
+
+  - pytanie: "Na stronie hurtowni wybierasz Always allow (zezwalaj zawsze). Potem prosisz Claude o dopisek w polu Wiadomość formularza zapytania. Dlaczego Claude dopisuje go bez nowej karty zgody?"
+    odpowiedzi:
+      - "Bo tryb Accept edits przepuszcza pisanie na każdej stronie."
+      - "Bo strażnik wyłącza się po pierwszej karcie."
+      - "Bo Always allow zapisał zgodę dla tej strony."
+    poprawna: 2
+    wyjasnienie: "Always allow zapisuje zgodę dla tej strony na Twoim komputerze. Dlatego aplikacja pomija dla niej pytanie o zgodę."
+    fakt: aplikacja-browser-always-allow-zapisuje-dla-strony

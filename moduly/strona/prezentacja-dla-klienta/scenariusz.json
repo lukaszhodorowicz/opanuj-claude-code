@@ -1,0 +1,233 @@
+{
+  "lekcja": "prezentacja-dla-klienta",
+  "folder_startowy": [
+    "opis-szkolenia.txt",
+    "cennik.txt",
+    "opinie-klientow.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zleć prezentację z plików w folderze",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Kliknij pierwsze polecenie, potem ścieżkę pliku i link w odpowiedzi Claude. W drugim poleceniu klikniesz link i rozwiniesz edytor prezentacji.",
+      "nauczyciel_start": "W folderze leżą trzy pliki z tekstami oferty. Kliknij polecenie nad oknem ćwiczenia i patrz na pliki pod nim.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam opis szkolenia, cennik i opinie klientów. Za chwilę napiszę, jakiej prezentacji potrzebuję."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze, czekam."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "prezentacja",
+          "etykieta": "Zleć prezentację dla dyrektora sprzedaży",
+          "opis": "Claude odpowie linkiem. Potem klikniesz ścieżkę pliku, z którego wziął cenę, a na końcu link.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób z oferty szkolenia prezentację dla dyrektora sprzedaży, który zdecyduje o zamówieniu warsztatu dla zespołu. Pokaż, czego uczy warsztat, ile kosztuje i co mówią klienci. Teksty weź z opis-szkolenia.txt, cennik.txt i opinie-klientow.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "fakt": "aplikacja-claude-czyta-pliki-projektu"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Prezentacja jest gotowa: https://claude.ai/… Opis szkolenia wziąłem z opis-szkolenia.txt, cenę (2 600 zł netto za osobę) z cennik.txt, dwie opinie z opinie-klientow.txt.",
+              "plik": "cennik.txt",
+              "bez_zmiany": true,
+              "link": "https://claude.ai/…",
+              "fakt": "slides-zwykla-prosba-wybiera-szablon"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude odpowiedział linkiem do prezentacji i wymienił pliki, z których ją zrobił. Kliknij ścieżkę cennik.txt, żeby sprawdzić cenę.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "cennik.txt",
+              "linijki": [
+                "Warsztat „Rozmowa o cenie bez przepraszania”",
+                "Jeden dzień, dla zespołu sprzedaży",
+                "Cena: 2 600 zł netto za osobę"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Cena w pliku zgadza się z ceną w odpowiedzi Claude. Tak samo sprawdź liczby w prezentacji, zanim pokażesz ją klientowi."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Za pierwszym razem aplikacja zapyta, czy otwierać linki w panelu Browser, czy w domyślnej przeglądarce. W ćwiczeniu link otworzy się w panelu Browser.",
+              "fakt": "aplikacja-link-w-rozmowie-cmd-klik-zwykla-przegladarka"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Panel Browser to przeglądarka z kartami w aplikacji.",
+              "fakt": "aplikacja-panel-browser-to-przegladarka-z-kartami"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Panel Browser ma osobny profil, bez Twoich zapisanych logowań.",
+              "fakt": "aplikacja-panel-browser-czysty-profil-bez-zapisanych-logowan"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W prawdziwej aplikacji możesz się w panelu Browser zalogować na claude.ai. W ćwiczeniu od razu kliknij link w odpowiedzi Claude.",
+              "fakt": "aplikacja-panel-browser-mozna-logowac-sie-na-stronach"
+            },
+            {
+              "typ": "klik",
+              "cel": "link"
+            },
+            {
+              "typ": "artefakt",
+              "tytul": "Rozmowa o cenie bez przepraszania",
+              "slajdy": [
+                {
+                  "nadtytul": "Oferta dla dyrektora sprzedaży",
+                  "tytul": "Rozmowa o cenie bez przepraszania",
+                  "punkty": [
+                    "Jednodniowy warsztat dla zespołów sprzedaży",
+                    "Handlowcy uczą się mówić o cenie spokojnie"
+                  ]
+                },
+                {
+                  "tytul": "Czego uczy warsztat",
+                  "punkty": [
+                    "Jak podać cenę jednym zdaniem",
+                    "Co odpowiedzieć na „to za drogo”",
+                    "Ćwiczenia na prawdziwych rozmowach zespołu"
+                  ]
+                },
+                {
+                  "tytul": "Ile kosztuje",
+                  "punkty": [
+                    "2 600 zł netto za osobę",
+                    "Jeden dzień warsztatu"
+                  ]
+                },
+                {
+                  "tytul": "Co mówią klienci",
+                  "punkty": [
+                    "„Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę.” Marta K.",
+                    "„Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia.” Piotr W."
+                  ]
+                }
+              ],
+              "fakt": "slides-edytor-na-claude-ai-i-eksport"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To uproszczony przykład slajdów z Twoich plików. Prezentację otwierasz w przeglądarce na komputerze, żeby ją edytować albo pokazać. W ćwiczeniu strzałka pod slajdem przełącza slajdy.",
+              "fakt": "slides-otwierasz-w-przegladarce-na-komputerze"
+            }
+          ]
+        },
+        {
+          "id": "edytor",
+          "etykieta": "Rozwiń edytor prezentacji",
+          "opis": "Claude odpowie linkiem. Klikniesz link, a potem ikonę rozwinięcia edytora.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób z oferty szkolenia prezentację dla dyrektora sprzedaży. Teksty weź z opis-szkolenia.txt, cennik.txt i opinie-klientow.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "fakt": "aplikacja-claude-czyta-pliki-projektu"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Prezentacja jest gotowa: https://claude.ai/…",
+              "link": "https://claude.ai/…",
+              "fakt": "slides-zwykla-prosba-wybiera-szablon"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude odpowiedział linkiem do prezentacji. Kliknij link.",
+              "fakt": "slides-zwykla-prosba-wybiera-szablon"
+            },
+            {
+              "typ": "klik",
+              "cel": "link"
+            },
+            {
+              "typ": "artefakt",
+              "tytul": "Rozmowa o cenie bez przepraszania",
+              "slajdy": [
+                {
+                  "nadtytul": "Oferta dla dyrektora sprzedaży",
+                  "tytul": "Rozmowa o cenie bez przepraszania",
+                  "punkty": [
+                    "Jednodniowy warsztat dla zespołów sprzedaży",
+                    "Handlowcy uczą się mówić o cenie spokojnie"
+                  ]
+                },
+                {
+                  "tytul": "Czego uczy warsztat",
+                  "punkty": [
+                    "Jak podać cenę jednym zdaniem",
+                    "Co odpowiedzieć na „to za drogo”",
+                    "Ćwiczenia na prawdziwych rozmowach zespołu"
+                  ]
+                },
+                {
+                  "tytul": "Ile kosztuje",
+                  "punkty": [
+                    "2 600 zł netto za osobę",
+                    "Jeden dzień warsztatu"
+                  ]
+                },
+                {
+                  "tytul": "Co mówią klienci",
+                  "punkty": [
+                    "„Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę.” Marta K.",
+                    "„Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia.” Piotr W."
+                  ]
+                }
+              ],
+              "fakt": "slides-edytor-na-claude-ai-i-eksport"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Prezentacja jest otwarta w edytorze. Prawdziwy edytor jest na claude.ai. Kliknij ikonę rozwinięcia w prawym górnym rogu edytora.",
+              "fakt": "slides-edytor-na-claude-ai-i-eksport"
+            },
+            {
+              "typ": "klik",
+              "cel": "edytor-rozwin"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Edytor zajął całe okno, więc slajd jest większy. Na dole widzisz miniatury wszystkich slajdów."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W edytorze zmieniasz prezentację sam albo prosisz o to Claude.",
+              "fakt": "slides-edytor-na-claude-ai-i-eksport"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

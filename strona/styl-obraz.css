@@ -1,0 +1,49 @@
+/* Wygląd zrzutu aplikacji w tekście lekcji: karta jak ćwiczenie, obraz najwyżej na szerokość kolumny i nie szerszy niż jego plik, podpis pod obrazem. Dołączany tylko do lekcji z obrazem. */
+.tekst figure.obraz {
+  width: fit-content;
+  min-width: min(100%, 320px);
+  max-width: 100%;
+  margin: 18px 0 24px;
+  padding: 8px;
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-radius: 22px;
+  box-shadow: 0 1px 2px rgba(14, 20, 34, 0.04);
+}
+.obraz img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--kreska);
+  border-radius: 14px;
+}
+/* podpis łamie się do szerokości obrazu, nie rozpycha karty */
+.obraz figcaption {
+  contain: inline-size;
+  margin: 10px 8px 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--grafit);
+  text-wrap: pretty;
+}
+.kolumna figure.obraz {
+  margin: 0 0 14px;
+}
+
+/* Przewiewny układ lekcji (D-2026-10-28-03): rysunek bez karty dookoła */
+.strona .tekst > figure.obraz {
+  max-width: var(--szeroka);
+  margin: 40px auto 48px;
+}
+
+/* ZASADA: mniej ramek w ramkach. Rysunek bez karty dookoła: zostaje ramka samego obrazu i podpis pod nim */
+.tekst figure.obraz {
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.obraz figcaption {
+  margin: 12px 0 0;
+}

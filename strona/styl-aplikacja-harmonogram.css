@@ -1,0 +1,195 @@
+/* Wygląd symulatora aplikacji Claude, zadanie według harmonogramu (strona/aplikacja-harmonogram-widok.js, strona/aplikacja-harmonogram.js): pozycja Scheduled w pasku bocznym, strona Scheduled tasks, okno New scheduled task nad nią z sekcją Advanced settings i strona zadania; układ i kolory ze zrzutów Łukasza z 27.10.2026 (05-04-44 do 05-06-07) w kolorach okna symulatora. Okno ma atrybut data-harm: „lista”, „okno” albo „zadanie” (bez niego widać rozmowę). Elementy bez skutku mają kursor zwykły; „rękę” dostaje tylko element, w który kursant ma kliknąć (.apl-cel), i drugi przycisk New task (.apl-cel-obok). */
+
+/* okno z otwartą stroną harmonogramu: rozmowa i panel schowane, stała wysokość pod okno z sekcją Advanced settings */
+.apl-okno.harm-otwarte {
+  position: relative;
+  min-height: 640px;
+}
+.apl-okno[data-harm] .apl-pasek,
+.apl-okno[data-harm] .apl-uklad {
+  display: none;
+}
+.apl-harm {
+  display: none;
+  flex: 1;
+  min-width: 0;
+}
+.apl-okno[data-harm] .apl-harm {
+  display: block;
+}
+
+/* pasek boczny: wybrana pozycja Scheduled, „+ New” bez podświetlenia (jak na zrzucie) */
+.apl-bok-lista li.apl-bok-harm {
+  cursor: default;
+}
+.apl-bok-lista li.apl-bok-harm.apl-cel {
+  cursor: pointer;
+}
+.apl-okno[data-harm="lista"] .apl-bok-lista li.apl-bok-harm,
+.apl-okno[data-harm="okno"] .apl-bok-lista li.apl-bok-harm {
+  background: #404040;
+}
+.apl-okno[data-harm] .apl-bok-lista li:first-child {
+  background: none;
+}
+
+/* strona Scheduled tasks */
+.apl-harm-lista,
+.apl-harm-zadanie {
+  display: none;
+}
+.apl-okno[data-harm="lista"] .apl-harm-lista,
+.apl-okno[data-harm="okno"] .apl-harm-lista {
+  display: block;
+  padding: 28px 28px 24px;
+  animation: apl-wjazd 0.25s ease-out;
+}
+.apl-okno[data-harm="zadanie"] .apl-harm-zadanie {
+  display: block;
+  position: relative;
+  min-height: 560px;
+  animation: apl-wjazd 0.25s ease-out;
+}
+.apl-harm-tytul,
+.apl-harm-zadanie-opis h3 {
+  margin: 0;
+  font: 500 28px/1.2 Georgia, "Times New Roman", serif;
+}
+.apl-harm-gora {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-top: 22px;
+}
+.apl-harm-zakladki {
+  display: flex;
+  gap: 6px;
+}
+.apl-harm-zakl {
+  display: inline-flex;
+  align-items: center;
+  min-width: 76px;
+  height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: none;
+  color: var(--a-szary);
+  font: 500 14px/1 var(--a-sans);
+  cursor: default;
+}
+.apl-harm-zakl.wybrana {
+  background: #2f2f2f;
+  color: var(--a-tekst);
+}
+.apl-harm-narzedzia {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.apl-harm-ikona-nar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #c4c4c4;
+}
+.apl-harm-nowe,
+.apl-harm-uruchom,
+.apl-harm-utworz {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: #f2f2f2;
+  color: #1a1a1a;
+  font: 500 14px/1 var(--a-sans);
+  cursor: default;
+}
+.apl-harm-nowe.apl-cel,
+.apl-harm-nowe.apl-cel-obok,
+.apl-harm-uruchom.apl-cel,
+.apl-harm-utworz.apl-cel {
+  cursor: pointer;
+}
+.apl-harm-chevron {
+  display: inline-flex;
+  color: currentColor;
+  opacity: 0.8;
+}
+.apl-okno .apl-harm-chevron svg {
+  width: 14px;
+  height: 14px;
+}
+.apl-harm-puste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 46px 0 0;
+  text-align: center;
+}
+.apl-harm-puste p {
+  margin: 0;
+  color: var(--a-szary);
+}
+.apl-okno .apl-harm-stoper svg {
+  width: 84px;
+  height: 84px;
+  color: #dcdcdc;
+}
+.apl-harm-szablony {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 40px;
+  margin: 46px 0 0;
+  padding: 38px 0 0;
+  border-top: 1px dashed var(--a-kreska);
+  list-style: none;
+}
+.apl-harm-szablony li {
+  display: flex;
+  gap: 14px;
+}
+.apl-harm-szablon-ikona {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #262626;
+}
+.apl-harm-szablon-tekst {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 9px;
+  padding-top: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-harm-lista,
+  .apl-harm-zadanie,
+  .apl-harm-tlo {
+    animation: none !important;
+  }
+}
+/* telefon: pasek boczny zwinięty do paska u góry, ale pozycja Scheduled zostaje (jest celem kroku); strona w jednej kolumnie */
+@media (max-width: 720px) {
+  .apl-okno .apl-bok .apl-bok-lista li:not(.apl-bok-nowa).apl-bok-harm {
+    display: flex;
+  }
+  .apl-okno[data-harm="lista"] .apl-harm-lista,
+  .apl-okno[data-harm="okno"] .apl-harm-lista {
+    padding: 18px 14px;
+  }
+  .apl-harm-szablony {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 28px;
+    padding-top: 22px;
+  }
+}

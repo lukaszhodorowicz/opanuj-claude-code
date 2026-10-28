@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Redagujesz e-book klienta. Claude przeczytał w rozmowie dziesięć rozdziałów, a nagłówek karty Context pokazuje 71%. Co oznacza ta liczba?"
+    odpowiedzi:
+      - "71% abonamentu w tym miesiącu jest już zużyte."
+      - "Kontekst tej rozmowy jest zajęty w 71%."
+      - "Claude przeczytał 71% plików z folderu."
+    poprawna: 1
+    wyjasnienie: "Nagłówek karty Context pokazuje w procentach, jak pełny jest kontekst tej jednej rozmowy."
+    fakt: aplikacja-karta-context-procent-w-naglowku
+
+  - pytanie: "Długo pracujesz z Claude nad raportem kampanii i karta Context pokazuje wysoki procent. Wpisujesz /compact w pole wiadomości i wysyłasz. Co się dzieje?"
+    odpowiedzi:
+      - "Claude streszcza rozmowę, zanim kontekst się zapełni, i zwalnia miejsce."
+      - "Aplikacja zamyka tę rozmowę i otwiera nową, pustą."
+      - "Claude usuwa z folderu raporty, które już przeczytał, i tak zwalnia miejsce."
+    poprawna: 0
+    wyjasnienie: "Polecenie /compact uruchamia streszczenie rozmowy wcześniej, niż zrobiłby to Claude sam, i zwalnia miejsce w kontekście."
+    fakt: aplikacja-compact-skraca-rozmowe-wczesniej
+
+  - pytanie: "Przygotowujesz z Claude ofertę dla klienta. Poleceniem /btw pytasz z boku, jaki rabat podał klient, a potem zamykasz panel pytania z boku. Co widać w głównej rozmowie?"
+    odpowiedzi:
+      - "Pytanie i odpowiedź dopisały się na końcu rozmowy."
+      - "Odpowiedź jest zapisana w pliku z ofertą."
+      - "Nie ma w niej ani pytania, ani odpowiedzi."
+    poprawna: 2
+    wyjasnienie: "Pytanie z boku korzysta z kontekstu rozmowy, ale ani pytanie, ani odpowiedź nie wracają do głównej rozmowy."
+    fakt: aplikacja-pytanie-z-boku-nic-nie-wraca-do-rozmowy
+
+  - pytanie: "Claude przeczytał w rozmowie uwagi autora e-booka. Pytasz z boku: jaki termin oddania podał autor? Skąd Claude bierze odpowiedź?"
+    odpowiedzi:
+      - "Z poprzednich rozmów prowadzonych w tym folderze."
+      - "Z tego, co jest w głównej rozmowie do tej chwili."
+      - "Tylko z Twojej ostatniej wiadomości w głównej rozmowie."
+    poprawna: 1
+    wyjasnienie: "Pytanie z boku może czytać wszystko z głównej rozmowy do chwili, w której je otworzysz."
+    fakt: aplikacja-btw-otwiera-boczna-rozmowe

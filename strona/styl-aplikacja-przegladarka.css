@@ -1,0 +1,155 @@
+/* Wygląd panelu Browser w symulatorze aplikacji: szary pasek z jedną kartą bez napisu i jasna strona oferty (typografia kursu, stonowane kolory); przycisk Browser na pasku tytułu bez wyglądu klikalnego. */
+.apl-przegladarka {
+  --p-tlo: #fbfaf6;
+  --p-tekst: #29303d;
+  --p-przygaszony: #5c6573;
+  --p-akcent: #4f6a7d;
+  --p-kreska: #dcdfe3;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--a-kreska);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--p-tlo);
+  color: var(--p-tekst);
+  font-family: var(--sans);
+}
+/* pasek przeglądarki: wąski, szary, jedna karta bez napisu */
+.apl-prz-pasek {
+  display: flex;
+  align-items: flex-end;
+  height: 34px;
+  padding: 0 10px;
+  background: #3a3a3a;
+  border-bottom: 1px solid var(--a-kreska);
+}
+.apl-prz-karta {
+  width: 132px;
+  max-width: 60%;
+  height: 26px;
+  border-radius: 8px 8px 0 0;
+  background: #505050;
+}
+/* strona: tekst zwykły, nic, co wygląda na klikalne */
+.apl-prz-strona {
+  flex: 1;
+  padding: 22px 22px 24px;
+  font-size: 14px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.apl-prz-strona :where(p, blockquote) {
+  margin: 0;
+}
+.apl-prz-tytul {
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--p-tekst);
+}
+.apl-prz-opis {
+  margin-top: 10px;
+  color: var(--p-przygaszony);
+}
+/* lista programu z selektorem .apl-przegladarka: własny wygląd listy strony, niezależny od list z tekstu lekcji (reguły .kolumna > ul sięgają tylko list z tekstu) */
+.apl-przegladarka .apl-prz-program {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.apl-przegladarka .apl-prz-program li {
+  position: relative;
+  margin: 0;
+  padding-left: 18px;
+  font-weight: 600;
+}
+.apl-przegladarka .apl-prz-program li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--p-akcent);
+}
+.apl-prz-cena {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--p-kreska);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--p-akcent);
+}
+.apl-prz-opinie {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.apl-prz-opinie blockquote {
+  padding-left: 12px;
+  border-left: 3px solid #c3ccd3;
+  color: var(--p-przygaszony);
+  font-size: 13.5px;
+}
+.apl-prz-kontakt {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--p-kreska);
+  font-size: 13px;
+  color: var(--p-przygaszony);
+}
+/* ramki pól cudzej strony (krok strona z `pola`): etykieta nad ramką, w ramce tekst; to zwykłe div-y, nie pola formularza: bez fokusu, bez kursora tekstu i ręki, bez przycisku */
+.apl-prz-pola {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--p-kreska);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.apl-prz-pole {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.apl-prz-etykieta {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--p-przygaszony);
+}
+.apl-prz-ramka {
+  box-sizing: border-box;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid #c3ccd3;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  cursor: default;
+  user-select: none;
+}
+/* podgląd w tekście lekcji: strona nie ma stałej wysokości okna */
+.apl-podglad .apl-przegladarka {
+  height: auto;
+}
+/* przycisk Browser na pasku tytułu nie jest klikalny: bez zmiany kursora, bez podświetlenia, tylko dymek z nazwą */
+.apl-ikona[data-pasek="browser"] {
+  cursor: default;
+}
+.apl-ikona[data-pasek="browser"]:hover {
+  background: none;
+  color: #b5b5b5;
+}

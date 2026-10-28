@@ -1,0 +1,124 @@
+{
+  "cw1-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-cel": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-czyta": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 4500,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-strona": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-cel": {
+    "szer": 375,
+    "wys": 1600,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-375-strona": {
+    "szer": 375,
+    "wys": 2600,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "podglad-375": {
+    "szer": 375,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 1200,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-cel": {
+    "szer": 1280,
+    "wys": 1200,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-strona": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-strona": {
+    "szer": 375,
+    "wys": 2900,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-czyta": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 2500,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-cennik-menu": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 120000,
+    "polecenie": "cw2",
+    "droga": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-cel",
+      "#cw2 .apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-mail-menu": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 180000,
+    "polecenie": "cw2",
+    "droga": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-cel",
+      "#cw2 .apl-cel",
+      "#cw2 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw2 .apl-cel",
+      "#cw2 .apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

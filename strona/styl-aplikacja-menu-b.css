@@ -1,0 +1,147 @@
+/* Wygląd symulatora aplikacji Claude, menu paczki 4 części B (strona/aplikacja-menu-b.js): karta menu w kolorach okna, pozycje z wartością, skrótem, ptaszkiem i strzałką podmenu, szare i czerwone pozycje, menu sesji z paska tytułu z podmenu „Transcript view” (strona/aplikacja-menu-tytulu.js) i menu „…” panelu Browser (strona/aplikacja-browser-dane.js). Układ ze zrzutów Łukasza z 27.10.2026 (15-28-39, 15-32-22), kolory okna symulatora. */
+
+.apl-mb {
+  position: absolute;
+  z-index: 8;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-mb > li:not(.apl-mb-linia) {
+  position: relative;
+  margin: 0;
+}
+/* pozycja: napis po lewej, po prawej wartość, skrót, ptaszek albo strzałka podmenu; bez skutku (kursor zwykły), poza tą, na którą czeka krok */
+.apl-mb-poz {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4.5px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--a-tekst);
+  font: 400 12px/1.35 var(--a-sans);
+  text-align: left;
+  white-space: nowrap;
+  cursor: default;
+}
+.apl-mb-poz.apl-cel {
+  cursor: pointer;
+}
+.apl-mb-poz.apl-cel:hover,
+.apl-mb-poz.otwarta {
+  background: #404040;
+}
+/* naprawdę szara w aplikacji (przy pustej karcie): zostaje szara także na zrzucie bez znacznika */
+.apl-mb-poz.apl-poz-wylaczona {
+  opacity: 0.38;
+}
+.apl-mb-czerwona {
+  color: var(--a-minus);
+}
+.apl-mb-prawa {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  gap: 10px;
+  margin-left: auto;
+}
+.apl-mb-wartosc,
+.apl-mb-skrot {
+  color: var(--a-szary);
+  font-size: 11.5px;
+}
+.apl-mb-ptak,
+.apl-mb-strzalka {
+  display: inline-flex;
+}
+.apl-mb-ptak {
+  color: #3b82f6;
+}
+.apl-mb-strzalka {
+  color: var(--a-szary);
+}
+.apl-mb-ptak svg,
+.apl-mb-strzalka svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-mb-linia {
+  height: 1px;
+  margin: 4px 6px;
+  background: #3f3f3f;
+}
+.apl-mb-naglowek {
+  padding: 4.5px 9px;
+  color: #7c7c7c;
+  font: 400 12px/1.35 var(--a-sans);
+}
+.apl-mb .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+/* menu czeka na pozycję: reszta pozycji jest przygaszona, żeby było widać, co kliknąć (jak lista trybów) */
+.apl-mt-czeka .apl-mb-poz[aria-disabled="true"] {
+  opacity: 0.38;
+}
+
+/* menu sesji z paska tytułu: karta pod strzałką przy tytule (lewa krawędź ustawiana skryptem), podmenu obok wiersza „Transcript view” */
+.apl-pasek.apl-pasek-menu {
+  position: relative;
+}
+.apl-mt {
+  top: calc(100% - 6px);
+  min-width: 165px;
+}
+.apl-mt .apl-mb-poz,
+.apl-mt .apl-mb-naglowek,
+.apl-mb-podmenu .apl-mb-poz {
+  padding: 4.5px 10px;
+  font-size: 12.5px;
+}
+.apl-mb-podmenu {
+  top: -2px;
+  left: calc(100% + 6px);
+  min-width: 113px;
+}
+.apl-tyt-strzalka {
+  width: 26px;
+  height: 26px;
+  margin-left: -6px;
+}
+.apl-tyt-strzalka svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-tyt-strzalka[aria-disabled="true"] {
+  cursor: default;
+}
+.apl-tyt-strzalka.apl-cel {
+  cursor: pointer;
+}
+/* otwarte menu sesji przy krótkiej rozmowie (np. 390 px, pusta rozmowa): rozmowa ma tyle miejsca, żeby menu nie wyszło poza okno */
+.apl-okno.menu-tytulu-otwarte .apl-rozmowa {
+  min-height: 270px;
+}
+@media (max-width: 720px) {
+  /* obok menu nie ma miejsca: podmenu stoi pod wierszem „Transcript view”, przy prawej krawędzi menu */
+  .apl-mb-podmenu {
+    top: calc(100% + 2px);
+    right: 6px;
+    left: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-mb {
+    animation: none;
+  }
+}

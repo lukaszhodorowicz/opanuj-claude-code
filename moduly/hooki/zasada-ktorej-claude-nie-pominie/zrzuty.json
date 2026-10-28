@@ -1,0 +1,113 @@
+{
+  "cw1-post": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-post": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-claude-md-zasada": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 20000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-claude-md": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 35000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-karta": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-hook": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 55000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-zgoda-tak.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-hook-mail": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 70000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-zgoda-tak.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-hook": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 55000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-zgoda-tak.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-hook-mail": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 70000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-zgoda-tak.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

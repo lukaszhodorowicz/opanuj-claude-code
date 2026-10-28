@@ -1,0 +1,352 @@
+<!doctype html>
+<!-- Rysunek R1 „Gdzie jest Twoja strona” do lekcji artefakt-link: plik w folderze (albo w katalogu tymczasowym), publikacja, adres na claude.ai widoczny tylko dla Ciebie, przeglądarki Twoja i klienta. Źródło PNG obrazy/gdzie-lezy-strona.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Gdzie leży strona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .glowa {
+        min-height: 0;
+        align-items: center;
+      }
+      .glowa .nr {
+        margin-top: 0;
+      }
+      .scena {
+        padding: 16px;
+      }
+
+      /* pole 1: folder i katalog tymczasowy */
+      .komputer {
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 14px;
+        align-items: stretch;
+      }
+      .folder {
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .folder-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 4px 2px;
+        font: 700 19px/1.2 var(--mono);
+      }
+      .folder-glowa svg,
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 48px;
+        padding: 0 10px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 500 20px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .karta.ta {
+        border: 3px solid var(--granat);
+        font-weight: 700;
+      }
+      .tymczasowy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px;
+        border: 3px dashed var(--grafit);
+        border-radius: 16px;
+        color: var(--grafit);
+      }
+      .tymczasowy svg {
+        width: 34px;
+        height: 34px;
+      }
+      .tymczasowy b {
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+        color: var(--granat);
+      }
+      .tymczasowy span {
+        font: 700 20px/1.25 var(--sans);
+      }
+
+      /* strzałki między polami */
+      .w-dol {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        height: 96px;
+        padding-left: 112px;
+        font: 800 28px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .w-dol svg {
+        width: 40px;
+        height: 96px;
+        overflow: visible;
+      }
+      .rozwidlenie {
+        height: 78px;
+      }
+      .rozwidlenie svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      /* pole 3: claude.ai */
+      .adres {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .pasek-adresu {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 60px;
+        padding: 0 16px;
+        border-radius: 12px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        font: 700 22px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .pasek-adresu svg {
+        width: 26px;
+        height: 26px;
+        flex: none;
+      }
+      .tylko-ty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 60px;
+        padding: 0 16px;
+        border-radius: 30px;
+        background: var(--granat);
+        color: var(--biel);
+        font: 800 23px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .tylko-ty svg {
+        width: 26px;
+        height: 26px;
+        color: var(--limonka);
+      }
+      .z-pliku {
+        margin: 12px 2px 0;
+        color: var(--grafit);
+        font: 700 21px/1.25 var(--sans);
+      }
+
+      /* pole 4: dwie przeglądarki */
+      .dwie {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .kto {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .kto h3 {
+        margin: 0 0 0 4px;
+        font: 800 27px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .kto .dopisek {
+        min-height: 2.4em;
+        margin: -6px 0 2px 4px;
+      }
+      .okno-p {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-radius: 14px;
+        background: var(--okno);
+        padding: 0 8px 8px;
+      }
+      .okno-p .gora {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 28px;
+        padding-left: 6px;
+      }
+      .okno-p .gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .okno-p .panel-glowa {
+        border-radius: 10px 10px 0 0;
+        height: 44px;
+      }
+      .okno-p .panel-glowa .adr {
+        font: 700 20px/1 var(--mono);
+        color: var(--okno-tekst);
+      }
+      .strona {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px;
+        border-radius: 0 0 10px 10px;
+        background: var(--papier);
+      }
+      .strona b {
+        font: 800 21px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .strona .szkic {
+        background: #d6d9cd;
+      }
+      .klienta .okno-p {
+        background: var(--biel);
+        border: 3px dashed var(--grafit);
+      }
+      .klienta .okno-p .gora i {
+        background: var(--kreska);
+      }
+      .klienta .panel-glowa {
+        background: var(--papier-2);
+        color: var(--grafit);
+      }
+      .klienta .panel-glowa .adr {
+        color: var(--grafit);
+      }
+      .klienta .strona {
+        background: var(--papier);
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Plik oferta-szkolenia.html leży w folderze na Twoim komputerze; bez wskazania pliku Claude zapisuje stronę w katalogu tymczasowym poza projektem. Po publikacji strona ma adres claude.ai/code/artifact/…, który widzisz tylko Ty. Otwierasz ją w panelu Browser albo w domyślnej przeglądarce; klient otworzy ją dopiero po udostępnieniu.">
+      <p class="wniosek">Klient zobaczy stronę <mark>pod adresem na claude.ai</mark>, a nie Twój plik.</p>
+      <!-- 1 -->
+      <div class="kadr">
+        <p class="glowa"><span class="nr">1</span>Plik na Twoim komputerze</p>
+        <div class="scena">
+          <div class="komputer">
+            <div class="folder">
+              <div class="folder-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                Oferta-szkolenia-kopia
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                cennik.txt
+              </div>
+              <div class="karta ta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M10.5 11.5 8.5 14l2 2.5M13.5 11.5l2 2.5-2 2.5"/></svg>
+                oferta-szkolenia.html
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="w-dol">
+        <svg viewBox="0 0 40 96" aria-hidden="true">
+          <path d="M20 6 V86" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+          <path d="M8 74 L20 88 L32 74" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="nr">2</span>
+        Claude publikuje stronę
+      </div>
+
+      <!-- 3 -->
+      <div class="kadr">
+        <p class="glowa"><span class="nr">3</span>Strona pod adresem na claude.ai</p>
+        <div class="scena">
+          <div class="adres">
+            <div class="pasek-adresu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+              claude.ai/code/artifact/…
+            </div>
+            <div class="tylko-ty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              Widzisz ją tylko Ty
+            </div>
+          </div>
+          <p class="z-pliku">Strona powstaje z Twojego pliku.</p>
+        </div>
+      </div>
+
+      <!-- strzałki do dwóch przeglądarek -->
+      <div class="rozwidlenie">
+        <svg viewBox="0 0 728 78" aria-hidden="true">
+          <path d="M364 4 V22 a10 10 0 0 1 -10 10 H192 a10 10 0 0 0 -10 10 V68" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M170 56 L182 70 L194 56" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M364 22 a10 10 0 0 0 10 10 H536 a10 10 0 0 1 10 10 V68" fill="none" stroke="#475569" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M534 56 L546 70 L558 56" fill="none" stroke="#475569" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- 4 -->
+      <div class="kadr">
+        <p class="glowa"><span class="nr">4</span>Kto otworzy stronę</p>
+        <div class="dwie">
+          <div class="kto">
+            <h3>Ty</h3>
+            <span class="dopisek">W panelu Browser albo w domyślnej przeglądarce.</span>
+            <div class="okno-p">
+              <div class="gora"><i></i><i></i><i></i></div>
+              <div class="panel-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+                Browser
+              </div>
+              <div class="strona">
+                <b>Rozmowa o cenie bez przepraszania</b>
+                <span class="szkic" style="width: 100%"></span>
+                <span class="szkic" style="width: 72%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="kto klienta">
+            <h3>Klient</h3>
+            <span class="dopisek">Zobaczy ją dopiero po udostępnieniu.</span>
+            <div class="okno-p">
+              <div class="gora"><i></i><i></i><i></i></div>
+              <div class="panel-glowa"><span class="adr">claude.ai/code/artifact/…</span></div>
+              <div class="strona">
+                <b>Rozmowa o cenie bez przepraszania</b>
+                <span class="szkic" style="width: 100%"></span>
+                <span class="szkic" style="width: 72%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+/* Wygląd karty wiadomości od innej rozmowy w symulatorze aplikacji (strona/aplikacja-sesje-wiadomosc.js): ramka w kolorach okna na całą szerokość rozmowy, nagłówek z tytułem nadawcy i strzałką po prawej, pod nim tekst. Żaden zrzut karty nie istnieje, więc wygląd to umowa symulatora. Strzałka bez skutku ma kursor zwykły; „rękę” dostaje tylko jako cel kroku (.apl-cel). */
+.apl-wiadomosc {
+  border: 1px solid var(--a-kreska);
+  border-radius: 12px;
+  background: var(--a-tlo);
+  padding: 10px 14px 12px;
+}
+.apl-wiadomosc header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.apl-wiadomosc header b {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 600 13px/1.4 var(--a-sans);
+  color: var(--a-szary);
+}
+.apl-wiad-wr {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: #b5b5b5;
+  cursor: default;
+}
+.apl-wiad-wr.apl-cel {
+  cursor: pointer;
+}
+.apl-wiad-wr svg {
+  width: 16px;
+  height: 16px;
+}

@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Z jakich dwóch części składa się plik SKILL.md?"
+    tyl: "Z nagłówka między liniami --- i z treści z instrukcjami dla Claude."
+    fakt: skill-plik-ma-naglowek-i-instrukcje
+
+  - przod: "Po czym Claude decyduje, kiedy sam użyje Twojego skilla?"
+    tyl: "Po opisie w polu description."
+    fakt: skill-opis-decyduje
+
+  - przod: "Gdzie leży skill projektu?"
+    tyl: "W pliku .claude/skills/<nazwa>/SKILL.md."
+    fakt: skill-projektu-katalog
+
+  - przod: "Czy w trybie Accept edits zapis w folderze .claude wymaga Twojej zgody?"
+    tyl: "Tak. Folder .claude, w którym leżą skille, jest chroniony. W trybach Manual i Accept edits zapis w chronionych folderach wymaga zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja
+
+  - przod: "Jak uruchomić skill od razu?"
+    tyl: "Wpisz jego nazwę z ukośnikiem na początku wiadomości, na przykład /odpowiedz-klientowi."
+    fakt: skill-uruchomienie-ukosnik
+
+  - przod: "Dlaczego pierwszy skill w folderze uruchamiasz w nowej rozmowie?"
+    tyl: "Bo Claude Code nie obserwuje folderu skilli, którego nie było na starcie rozmowy, więc nie widzi skilli zapisanych w nim później."
+    fakt: skill-nowy-folder-skilli-wymaga-przeladowania

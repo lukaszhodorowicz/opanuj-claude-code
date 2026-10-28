@@ -1,0 +1,152 @@
+/* Wygląd ekranu otwartej rozmowy na telefonie z Remote Control w symulatorze aplikacji Claude (strona/aplikacja-telefon-widok.js, aplikacja-telefon.js; ramka, pasek stanu i ekran listy: strona/styl-aplikacja-telefon.css): nagłówek z tytułem sesji i folderem, kółko pracy, wiadomości (ta sama rozmowa co w oknie na komputerze), pole z podpowiedzią i rząd z plusem, modelem, mikrofonem i strzałką wysyłania; kolory i układ według zrzutu telefonu Łukasza z 27.10.2026 (IMG_1059). Elementy bez skutku mają kursor zwykły; „rękę” dostaje tylko strzałka wstecz jako cel kroku (.apl-cel). */
+
+/* ekran rozmowy: nagłówek z tytułem i folderem, wiadomości, pole z podpowiedzią */
+.apl-tel-gora-rozmowy {
+  padding-bottom: 6px;
+}
+.apl-tel-wstecz {
+  width: 36px;
+  padding: 0;
+  cursor: default;
+}
+.apl-tel-wstecz.apl-cel {
+  cursor: pointer;
+}
+.apl-tel-tytuly {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+.apl-tel-tytuly b {
+  max-width: 100%;
+  overflow: hidden;
+  font: 600 14px/1.25 var(--a-sans);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-tel-tytuly small {
+  max-width: 100%;
+  overflow: hidden;
+  color: #8c8c8c;
+  font-size: 11.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* kółko pracy jest w nagłówku tylko, gdy Claude pracuje (zrzut IMG_1059); bez niego tytuł ma więcej miejsca */
+.apl-tel-praca {
+  display: none;
+  width: 34px;
+  padding: 0;
+}
+.apl-tel-praca.pracuje {
+  display: inline-grid;
+}
+.apl-tel-kolko {
+  display: block;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #343434;
+  border-top-color: #4a9eff;
+  border-radius: 50%;
+}
+.apl-tel-praca.pracuje .apl-tel-kolko {
+  animation: apl-tel-obrot 0.9s linear infinite;
+}
+@keyframes apl-tel-obrot {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.apl-tel-wiadomosci {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  padding: 10px 14px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.apl-tel-wiadomosci::-webkit-scrollbar {
+  display: none;
+}
+.apl-tel-ty {
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 9px 13px;
+  border-radius: 18px;
+  background: #272727;
+}
+.apl-tel-claude {
+  max-width: 100%;
+}
+.apl-tel-ty p,
+.apl-tel-claude p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.apl-tel-pole {
+  flex: none;
+  margin: 6px 12px 14px;
+  padding: 12px 10px 10px 14px;
+  border: 1px solid #2d2d2d;
+  border-radius: 24px;
+  background: #121212;
+}
+.apl-tel-wiersz-pola {
+  min-height: 38px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.apl-tel-podpowiedz {
+  color: #8a8a8a;
+}
+.apl-tel-wpis:not(:empty) ~ .apl-tel-podpowiedz {
+  display: none;
+}
+.apl-tel-pole-dol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.apl-tel-pole-dol .apl-tel-okragly {
+  width: 34px;
+  height: 34px;
+  background: #1d1d1d;
+}
+.apl-tel-model {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #1d1d1d;
+  font-size: 13px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.apl-tel-model span {
+  color: #8c8c8c;
+}
+.apl-tel-rozpor {
+  flex: 1;
+}
+.apl-tel-pole-dol .apl-tel-wyslij {
+  border-color: transparent;
+  background: #5e3226;
+  color: #cf8a75;
+  transition: background 0.15s;
+}
+.apl-tel-pole.pisze .apl-tel-wyslij {
+  background: #b5573f;
+  color: #fff;
+}
+
+/* kółko pracy w nagłówku rozmowy nie kręci się u osób, które wyłączyły animacje */
+@media (prefers-reduced-motion: reduce) {
+  .apl-tel-praca.pracuje .apl-tel-kolko {
+    animation: none;
+  }
+}

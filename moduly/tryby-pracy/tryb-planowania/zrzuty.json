@@ -1,0 +1,249 @@
+{
+  "cw1-bez-planu-zmiany": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-karta": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-panel": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-auto": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz",
+      "#cw1 .apl-plan-karta [data-akcja=\"auto\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-accept": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz",
+      "#cw1 .apl-plan-karta [data-akcja=\"accept\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-revise-pole": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz",
+      "#cw1 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-revise-nowy-plan": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz",
+      "#cw1 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw1 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-revise-auto": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 120000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz",
+      "#cw1 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw1 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])",
+      "#cw1 .apl-plan-karta [data-akcja=\"auto\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-revise-accept": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 120000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz",
+      "#cw1 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw1 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])",
+      "#cw1 .apl-plan-karta [data-akcja=\"accept\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z-planem-390-panel": {
+    "szer": 390,
+    "wys": 2600,
+    "budzet": 90000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plan-karta .apl-plan-otworz"
+    ],
+    "do": "cw1"
+  },
+  "cw2-plan-wybrany": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-karta-panel": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz"
+    ],
+    "do": "cw2"
+  },
+  "cw2-revise-pole": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-revise-nowy-plan": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw2 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-revise-accept": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 120000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw2 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])",
+      "#cw2 .apl-plan-karta [data-akcja=\"accept\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-revise-auto": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 120000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw2 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])",
+      "#cw2 .apl-plan-karta [data-akcja=\"auto\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-accept": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"accept\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-auto": {
+    "szer": 1280,
+    "wys": 1300,
+    "budzet": 90000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"auto\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-revise-nowy-plan": {
+    "szer": 390,
+    "wys": 2600,
+    "budzet": 90000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .polecenie[data-e=\"1\"]:not([disabled])",
+      "#cw2 .polecenie[data-e=\"2\"]:not([disabled])",
+      "#cw2 .apl-plan-karta .apl-plan-otworz",
+      "#cw2 .apl-plan-karta [data-akcja=\"revise\"]:not([disabled])",
+      "#cw2 .apl-plan-karta [data-akcja=\"wyslij\"]:not([disabled])"
+    ],
+    "do": "cw2"
+  }
+}

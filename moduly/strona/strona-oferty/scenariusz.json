@@ -1,0 +1,316 @@
+{
+  "lekcja": "strona-oferty",
+  "folder_startowy": [
+    "opis-szkolenia.txt",
+    "cennik.txt",
+    "opinie-klientow.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zleć stronę oferty z plików w folderze",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Kliknij polecenie, a potem ścieżkę nowego pliku w odpowiedzi Claude.",
+      "nauczyciel_start": "W folderze leżą trzy pliki z tekstami. Kliknij polecenie nad oknem ćwiczenia i patrz na rozmowę i na pliki pod oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam opis szkolenia, cennik i opinie klientów. Chcę z nich zrobić stronę oferty."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, w jakim pliku mam zapisać stronę i co ma się na niej znaleźć."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "oferta-szkolenia.html"
+      ],
+      "drogi": [
+        {
+          "id": "strona",
+          "etykieta": "Zleć stronę oferty z trzech plików",
+          "opis": "Claude zapisze nowy plik. Potem klikniesz jego ścieżkę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób stronę oferty szkolenia i zapisz ją w jednym pliku oferta-szkolenia.html w tym folderze. Teksty weź z @opis-szkolenia.txt, @cennik.txt i @opinie-klientow.txt. Nic nie instaluj. Kontakt podaj jako zwykły tekst z adresem kontakt@example.com, bez formularza.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Znak @ przed nazwą dodaje plik do rozmowy. Pod oknem ćwiczenia świecą pliki, które wskazuje prośba.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "mysli",
+              "ms": 3500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem stronę w pliku oferta-szkolenia.html. Teksty wziąłem z opis-szkolenia.txt, cennik.txt i opinie-klientow.txt, a kontakt podałem zwykłym tekstem.",
+              "plik": "oferta-szkolenia.html",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał nowy plik bez okna zgody, bo działa w trybie Accept edits. Pod oknem ćwiczenia pojawił się nowy plik. Kliknij ścieżkę pliku w odpowiedzi.",
+              "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-szkolenia.html",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 400 zł netto za osobę",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              },
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknięcie ścieżki pliku HTML w rozmowie otworzyło go w panelu Browser. Strona jest przykładem, jak może wyglądać wynik.",
+              "fakt": "aplikacja-klik-sciezki-do-pdf-html-wideo-otwiera-panel-browser"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Popraw cenę na stronie oferty",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Kliknij po kolei trzy polecenia nad oknem i elementy, które wskaże nauczyciel.",
+      "nauczyciel_start": "Strona leży już w folderze, a w cenniku jest nowa cena. Kliknij pierwsze polecenie i patrz na pliki pod oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "oferta-szkolenia.html"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zrób stronę oferty szkolenia i zapisz ją w jednym pliku oferta-szkolenia.html w tym folderze. Teksty weź z @opis-szkolenia.txt, @cennik.txt i @opinie-klientow.txt. Nic nie instaluj. Kontakt podaj jako zwykły tekst z adresem kontakt@example.com, bez formularza."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem stronę w pliku oferta-szkolenia.html.",
+            "fakt": "claude-code-tworzy-nowe-pliki"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "mail-do-klienta.txt"
+      ],
+      "drogi": [
+        {
+          "id": "cena",
+          "etykieta": "Popraw cenę na stronie",
+          "opis": "Claude zmieni plik strony. Potem klikniesz jego ścieżkę jeszcze raz.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "W pliku @cennik.txt jest nowa cena. Wpisz ją na stronie w pliku @oferta-szkolenia.html. Resztę strony zostaw bez zmian.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zmieniłem cenę w pliku oferta-szkolenia.html z 2 400 zł na 2 600 zł netto za osobę, jak w pliku cennik.txt. Reszty strony nie zmieniałem.",
+              "plik": "oferta-szkolenia.html",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pod oknem ćwiczenia plik strony ma znacznik zmiany. Claude zmienił go bez okna zgody, bo działa w trybie Accept edits. Kliknij ścieżkę jeszcze raz.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-szkolenia.html",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 600 zł netto za osobę",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              },
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknięcie ścieżki w rozmowie znów otworzyło plik w panelu Browser. W pliku jest już nowa cena.",
+              "fakt": "aplikacja-klik-sciezki-do-pdf-html-wideo-otwiera-panel-browser"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na pasku tytułu sesji stoją przyciski z samymi ikonami. Najedź myszą na pierwszy z nich.",
+              "fakt": "aplikacja-panel-plikow-files-na-pasku-tytulu"
+            },
+            {
+              "typ": "klik",
+              "cel": "ikona-tytulu",
+              "nr": 1,
+              "fakt": "aplikacja-panel-plikow-files-na-pasku-tytulu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Dymek podaje nazwę przycisku: Show session rail. Ten przycisk pokazuje panel szczegółów sesji.",
+              "fakt": "aplikacja-panel-szczegolow-ukryj-i-pokaz"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tak sprawdzisz nazwę każdego przycisku.",
+              "fakt": "aplikacja-panel-plikow-files-na-pasku-tytulu"
+            }
+          ]
+        },
+        {
+          "id": "cennik",
+          "etykieta": "Otwórz cennik i menu jego panelu",
+          "opis": "Klikniesz ścieżkę cennika, a potem trzy kropki w pasku panelu pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Pokaż mi plik @cennik.txt. Drobne błędy poprawię w nim sam.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Cennik jest w pliku cennik.txt w tym folderze. Kliknij ścieżkę, żeby go otworzyć.",
+              "plik": "cennik.txt",
+              "bez_zmiany": true,
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę cennik.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "cennik.txt",
+              "linijki": [
+                "Cennik szkoleń",
+                "Rozmowa o cenie bez przepraszania",
+                "Cena: 2 600 zł netto za osobę",
+                "Cena obowiązuje od 1 listopada 2026"
+              ],
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Cennik jest otwarty. W sesji lokalnej taki plik poprawisz sam w panelu pliku. Kliknij trzy kropki w pasku panelu pliku.",
+              "fakt": "aplikacja-sesja-lokalna-pliki-z-folderu-edytujesz-w-panelu-pliku"
+            },
+            {
+              "typ": "klik",
+              "cel": "plik-menu",
+              "fakt": "aplikacja-panel-pliku-auto-save-wylaczony-save-i-cancel"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu panelu pliku. Ptaszek przy Auto save znaczy, że Twoje zmiany zapisują się same i nie ma przycisku Save.",
+              "fakt": "aplikacja-panel-pliku-zapisuje-zmiany-sam-bez-przycisku-save"
+            }
+          ]
+        },
+        {
+          "id": "mail",
+          "etykieta": "Zapisz mail do klienta i znajdź go na dysku",
+          "opis": "Claude zapisze nowy plik. Potem otworzysz menu jego karty prawym przyciskiem.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Napisz krótki mail do klienta o nowej cenie szkolenia. Zapisz go w pliku mail-do-klienta.txt w tym folderze.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem mail o nowej cenie szkolenia w pliku mail-do-klienta.txt. Leży w tym samym folderze co oferta-szkolenia.html.",
+              "plik": "mail-do-klienta.txt",
+              "karta_pliku": {
+                "rozmiar": 412
+              },
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał nowy plik bez okna zgody, bo działa w trybie Accept edits. Kliknij prawym przyciskiem myszy kartę pliku mail-do-klienta.txt nad odpowiedzią Claude.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "plik-karta-menu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyło się menu karty pliku. Wybierz Show in Finder."
+            },
+            {
+              "typ": "klik",
+              "cel": "plik-karta-pozycja",
+              "pozycja": "Show in Finder",
+              "fakt": "aplikacja-menu-sciezki-show-in-finder-i-explorer-otwieraja-folder-z-plikiem"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W menu ścieżki pliku Show in Finder otwiera folder z tym plikiem. Ta sama pozycja stoi w menu karty.",
+              "fakt": "aplikacja-menu-sciezki-show-in-finder-i-explorer-otwieraja-folder-z-plikiem"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik strony leży w tym samym folderze co mail."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

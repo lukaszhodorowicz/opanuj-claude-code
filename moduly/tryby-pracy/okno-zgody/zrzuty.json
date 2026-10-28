@@ -1,0 +1,105 @@
+{
+  "cw1-karta-przed-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-karta-po-1280": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-widok-zmian-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel",
+      "#cw1 .apl-licznik"
+    ],
+    "do": "cw1"
+  },
+  "cw2-menu-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-tryb-po-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 20000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-menu-poz.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-zmiana-bez-karty-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-menu-poz.apl-cel",
+      "#cw2 .polecenie[data-e=\"2\"]"
+    ],
+    "do": "cw2"
+  },
+  "cw2-widok-zmian-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 35000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-menu-poz.apl-cel",
+      "#cw2 .polecenie[data-e=\"2\"]",
+      "#cw2 .apl-licznik:not([hidden])"
+    ],
+    "do": "cw2"
+  },
+  "cw1-karta-przed-390": {
+    "szer": 390,
+    "wys": 1900,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-karta-po-390": {
+    "szer": 390,
+    "wys": 2000,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-menu-390": {
+    "szer": 390,
+    "wys": 2000,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-zmiana-bez-karty-390": {
+    "szer": 390,
+    "wys": 2000,
+    "budzet": 30000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-menu-poz.apl-cel",
+      "#cw2 .polecenie[data-e=\"2\"]"
+    ],
+    "do": "cw2"
+  }
+}

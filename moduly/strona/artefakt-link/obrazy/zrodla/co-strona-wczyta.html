@@ -1,0 +1,180 @@
+<!doctype html>
+<!-- Rysunek R5 „Co strona artefaktu może wczytać” do lekcji artefakt-link: dwie kolumny, wolno (Google Fonts, pięć serwerów CDN, własny adres strony, obrazy wklejone do pliku) i zablokowane (obrazy z internetu, inne skrypty, pliki obok strony). Źródło PNG obrazy/co-strona-wczyta.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co strona wczyta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .glowa {
+        min-height: 0;
+        align-items: center;
+      }
+      .kolumny {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .prawa {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .rada {
+        position: relative;
+        margin-top: auto;
+        padding: 16px 16px 16px 58px;
+        border-radius: 16px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .rada svg {
+        position: absolute;
+        left: -30px;
+        top: 50%;
+        width: 72px;
+        height: 30px;
+        transform: translateY(-50%);
+        overflow: visible;
+      }
+      .kol {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 12px 14px;
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        background: var(--biel);
+      }
+      .kol.nie {
+        border-color: var(--grafit);
+        border-style: dashed;
+        background: var(--papier-2);
+      }
+      .kol-glowa {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 4px 2px;
+        font: 800 28px/1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .znak {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--granat);
+        color: var(--biel);
+      }
+      .znak svg {
+        width: 24px;
+        height: 24px;
+      }
+      .nie .znak {
+        background: var(--grafit);
+      }
+      .nie .kol-glowa {
+        color: var(--grafit);
+      }
+      .poz {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 10px;
+        align-items: start;
+        padding: 12px 10px;
+        border: 2px solid var(--kreska);
+        border-radius: 12px;
+        background: var(--biel);
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .poz > svg {
+        width: 30px;
+        height: 30px;
+        margin-top: -2px;
+      }
+      .poz small {
+        display: block;
+        margin-top: 6px;
+        color: var(--grafit);
+        font: 700 18px/1.35 var(--mono);
+        letter-spacing: 0;
+      }
+      .poz small.pl {
+        font: 700 20px/1.3 var(--sans);
+      }
+      .poz.ta {
+        border: 3px solid var(--limonka);
+        background: var(--zakreslacz);
+      }
+      .nie .poz {
+        color: var(--grafit);
+        background: var(--biel);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Co strona artefaktu może wczytać. Wolno: kroje pisma z Google Fonts, skrypty z pięciu serwerów CDN, wywołania do własnego adresu strony, obrazy wklejone do pliku strony. Zablokowane: obrazy z internetu, inne skrypty z internetu, pliki obok strony (linki względne).">
+      <p class="wniosek">Zdjęcie z internetu? Claude <mark>wkleja je do pliku strony</mark>.</p>
+      <div class="kolumny">
+        <div class="kol">
+          <div class="kol-glowa">
+            <span class="znak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg></span>
+            Strona wczyta
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19 8.5 5h1L15 19M5.2 14h7.6"/><path d="M21 19v-6.5a3 3 0 0 0-5.6-1.5M21 16a3 3 0 1 1-3-3h3"/></svg>
+            <div>Kroje pisma z Google Fonts</div>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+            <div>Skrypty z pięciu serwerów z gotowymi skryptami</div>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18.5 3v4h-4M5.5 21v-4h4"/></svg>
+            <div>Połączenia skryptów z adresem samej strony</div>
+          </div>
+          <div class="poz ta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5.5-5 4 3.5 2.5-2 4 3.5"/></svg>
+            <div>Obrazy wklejone do pliku strony</div>
+          </div>
+        </div>
+
+        <div class="prawa">
+        <div class="kol nie">
+          <div class="kol-glowa">
+            <span class="znak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></span>
+            Strona nie wczyta
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5.5-5 4 3.5 2.5-2 4 3.5"/></svg>
+            <div><span>Obrazy z internetu</span></div>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+            <div><span>Inne skrypty z internetu</span></div>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M10 14.5h4M10.5 12a2.5 2.5 0 0 0 0 5M13.5 12a2.5 2.5 0 0 1 0 5"/></svg>
+            <div><span>Pliki leżące obok strony</span></div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

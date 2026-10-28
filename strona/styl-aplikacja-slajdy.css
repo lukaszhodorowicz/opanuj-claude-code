@@ -1,0 +1,324 @@
+/* Edytor prezentacji w panelu Browser (strona/aplikacja-slajdy.js): nagłówek, nieklikane paski narzędzi, slajd 16:9, pigułka ze strzałkami i animacja tworzenia z kursorem „Claude”. */
+
+/* Edytor prezentacji (strona/aplikacja-slajdy.js), kolory zmierzone na zrzutach Łukasza z 26.10.2026: tło #1a1a19, kreski #313130, slajd #192438, nadtytuł #d99d59, kursor #8c601e. */
+.apl-art-widok .apl-slajdy {
+  flex: 1;
+  height: auto;
+}
+.apl-przegladarka.apl-slajdy {
+  container: edytor / inline-size;
+  background: #1a1a19;
+  color: #f0efec;
+  font: 400 14px/1.35 var(--a-sans);
+}
+.apl-sl-glowa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 8px 14px;
+  border-bottom: 1px solid #353535;
+}
+.apl-sl-tytul {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-weight: 400;
+}
+.apl-sl-tytul span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-slajdy svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+.apl-sl-tytul svg,
+.apl-sl-para svg + svg,
+.apl-sl-skala svg {
+  width: 13px;
+  height: 13px;
+  color: #a5a4a1;
+}
+.apl-sl-prawa {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+.apl-sl-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+}
+/* ikony i paski narzędzi wyglądają jak w edytorze, ale nic nie robią: kursor zwykły */
+.apl-sl-ik {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: default;
+}
+.apl-sl-narzedzia {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 10px 0;
+}
+.apl-sl-grupa {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 5px;
+  border: 1px solid #313130;
+  border-radius: 12px;
+}
+.apl-sl-skala {
+  padding: 0 4px 0 8px;
+  font-size: 13.5px;
+}
+.apl-sl-kreska {
+  flex: none;
+  width: 1px;
+  height: 18px;
+  margin: 0 4px;
+  background: #313130;
+}
+.apl-sl-scena {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 26px 10px;
+}
+/* jeden slajd 16:9; pismo liczone od szerokości slajdu */
+.apl-sl-slajd {
+  container: slajd / inline-size;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #192438;
+  font-family: var(--sans);
+  transition: background-color 0.5s ease;
+}
+.apl-sl-strona {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8cqw;
+}
+.apl-sl-strona[hidden] {
+  display: none !important;
+}
+.apl-sl-strona p,
+.apl-slajdy .apl-sl-punkty {
+  margin: 0;
+}
+.apl-sl-nad {
+  margin-bottom: 2.4cqw !important;
+  color: #d99d59;
+  font-size: max(8.5px, 1.75cqw);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.apl-sl-h {
+  color: #f6f4ef;
+  font-size: max(15px, 4.6cqw);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.apl-sl-tytulowy .apl-sl-h {
+  font-size: max(17px, 6.4cqw);
+  line-height: 1.08;
+}
+.apl-sl-pod {
+  margin-top: 2.2cqw !important;
+  color: #cbd1db;
+  font-size: max(10.5px, 2.4cqw);
+  line-height: 1.4;
+}
+.apl-sl-pod + .apl-sl-pod {
+  margin-top: 0.8cqw !important;
+}
+.apl-slajdy .apl-sl-punkty {
+  list-style: none;
+  margin-top: 2.6cqw;
+  padding: 0;
+  color: #cbd1db;
+  font-size: max(10.5px, 2.6cqw);
+  line-height: 1.4;
+}
+.apl-slajdy .apl-sl-punkty li {
+  position: relative;
+  margin: 0 0 1.1cqw;
+  padding-left: 2.6cqw;
+}
+.apl-slajdy .apl-sl-punkty li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.85cqw;
+  height: 0.85cqw;
+  min-width: 4px;
+  min-height: 4px;
+  border-radius: 50%;
+  background: #d99d59;
+}
+/* pigułka pod slajdem: strzałki klikane (konwencja kursu), reszta ikon tylko wygląda */
+.apl-sl-dol {
+  display: flex;
+  justify-content: center;
+  padding: 2px 10px 14px;
+}
+.apl-sl-pigulka {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid #313130;
+  border-radius: 999px;
+  color: #c9c8c5;
+  font-size: 14px;
+}
+.apl-sl-licznik {
+  min-width: 3.4em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.apl-sl-strzalka {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #f0efec;
+  cursor: pointer;
+}
+.apl-sl-strzalka:hover:not([disabled]) {
+  background: #2b2b2a;
+}
+.apl-sl-strzalka[disabled] {
+  color: #5d5d5a;
+  cursor: default;
+}
+.apl-sl-dodaj {
+  display: none;
+  padding-left: 16px;
+}
+/* tworzenie: pusty szary slajd i pigułka „Add slide”, kursor „Claude”, napisy pojawiają się po kolei */
+.apl-slajdy.tworzy .apl-sl-slajd {
+  background: #292928;
+}
+.apl-slajdy.tworzy.tlo .apl-sl-slajd {
+  background: #192438;
+}
+.apl-slajdy.tworzy .apl-sl-el:not(.widac) {
+  visibility: hidden;
+}
+.apl-slajdy.tworzy .apl-sl-el.widac {
+  animation: apl-sl-pojaw 0.4s ease-out;
+}
+.apl-slajdy.tworzy .apl-sl-nawigacja {
+  display: none;
+}
+.apl-slajdy.tworzy .apl-sl-dodaj {
+  display: inline-flex;
+}
+.apl-sl-kursor {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 30%;
+  top: 42%;
+  pointer-events: none;
+  transition:
+    left 0.55s ease,
+    top 0.55s ease;
+}
+.apl-slajdy.tworzy .apl-sl-kursor {
+  display: block;
+}
+.apl-sl-kursor svg {
+  position: absolute;
+  left: -3px;
+  top: -2px;
+  width: 20px;
+  height: 20px;
+}
+.apl-sl-kursor span {
+  position: absolute;
+  left: 15px;
+  top: 19px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #8c601e;
+  color: #efe8df;
+  font: 500 13px/1.3 var(--a-sans);
+  white-space: nowrap;
+}
+@keyframes apl-sl-pojaw {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-sl-slajd,
+  .apl-sl-kursor {
+    transition: none;
+  }
+}
+/* wąski edytor (telefon): mniejsze ikony, bez ikony widoku slajdu, kreski przy niej i ikony rozwinięcia */
+@container edytor (max-width: 440px) {
+  .apl-sl-zbedne {
+    display: none !important;
+  }
+  .apl-sl-ik,
+  .apl-sl-strzalka {
+    min-width: 26px;
+    width: auto;
+    height: 26px;
+  }
+  .apl-sl-ik:not(.apl-sl-skala) > svg:first-child,
+  .apl-sl-strzalka svg,
+  .apl-sl-share svg {
+    width: 16px;
+    height: 16px;
+  }
+  .apl-sl-glowa {
+    gap: 6px;
+    padding: 7px 6px 7px 10px;
+    font-size: 13px;
+  }
+  .apl-sl-narzedzia {
+    padding: 8px 6px 0;
+    gap: 6px;
+  }
+  .apl-sl-grupa {
+    padding: 2px 3px;
+    gap: 0;
+  }
+  .apl-sl-skala {
+    padding: 0 2px 0 4px;
+    font-size: 12.5px;
+  }
+  .apl-sl-scena {
+    padding: 18px 6px;
+  }
+}

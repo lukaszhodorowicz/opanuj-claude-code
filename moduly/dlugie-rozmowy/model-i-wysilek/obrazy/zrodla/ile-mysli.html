@@ -1,0 +1,229 @@
+<!doctype html>
+<!-- Rysunek R1 „Wysiłek: ile Claude myśli na każdym kroku” do lekcji model-i-wysilek: ta sama prośba na dwóch torach, niski wysiłek z jedną małą chmurką myślenia i wcześniejszą metą, wysoki z chmurkami nad każdym krokiem (największa zakreślona) i późniejszą metą; pod torami oś czasu. Źródło PNG obrazy/ile-mysli.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Ile Claude myśli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w kontekst-rozmowy/obrazy/zrodla/co-zajmuje-miejsce.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      svg.tory {
+        display: block;
+        width: 728px;
+        overflow: visible;
+      }
+      .tory text {
+        font-family: var(--sans);
+        fill: var(--granat);
+      }
+      .tory .prosba {
+        font: 800 24px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .tory .tor {
+        font: 800 22px/1 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .tory .krok {
+        font: 700 19px/1 var(--sans);
+      }
+      .tory .meta {
+        font: 800 21px/1 var(--sans);
+      }
+      .tory .czas {
+        font: 800 22px/1 var(--sans);
+      }
+      .tory .legenda {
+        font: 700 21px/1 var(--sans);
+        fill: var(--grafit);
+      }
+
+      /* ===== Pasek pod spodem ===== */
+      .pasek {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 3px solid var(--granat);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .pasek p {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pasek svg {
+        flex: none;
+        width: 32px;
+        height: 32px;
+      }
+      .umowna {
+        margin: 14px 0 0;
+        text-align: right;
+        color: var(--grafit);
+        font: 700 19px/1.2 var(--sans);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Ta sama prośba, wycena dla piekarni, na dwóch torach. Niski wysiłek: trzy kroki, myślenie przed odpowiedzią tylko przed pierwszym, mała chmurka; tor kończy się wcześniej, punkt wyjścia do poprawek, szybciej. Wysoki wysiłek: te same trzy kroki, chmurki myślenia nad każdym, większe, największa zaznaczona; tor kończy się dalej, Claude sprawdził więcej, dłużej. Przy rozumowaniu adaptacyjnym model sam decyduje na każdym kroku, czy myśleć i ile. Każda chmurka to tokeny, więc myślenie wlicza się do zużycia. To przykład: liczba kroków i chmurek jest umowna."
+    >
+      <svg class="tory" id="tory" viewBox="0 0 728 574" height="574" aria-hidden="true">
+        <!-- prośba na starcie obu torów -->
+        <rect x="2" y="2" width="318" height="58" rx="14" fill="#ffffff" stroke="#0e1422" stroke-width="4" />
+        <g fill="none" stroke="#0e1422" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(18 16) scale(1.2)">
+          <path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" />
+        </g>
+        <text class="prosba" x="60" y="40">Wycena dla piekarni</text>
+
+        <!-- wspólny podpis chmurek -->
+        <g id="legenda-chmurka"></g>
+        <text class="legenda" x="436" y="40">myślenie przed odpowiedzią</text>
+
+        <!-- rozwidlenie z prośby do torów -->
+        <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 62 V410" />
+          <path d="M22 180 H38 M30 172 L38 180 L30 188" />
+          <path d="M22 410 H38 M30 402 L38 410 L30 418" />
+        </g>
+
+        <!-- tor niski: y=180 -->
+        <rect x="42" y="160" width="190" height="40" rx="20" fill="#ffffff" stroke="#0e1422" stroke-width="3" />
+        <text class="tor" x="137" y="188" text-anchor="middle">Niski wysiłek</text>
+        <path d="M232 180 H480" stroke="#0e1422" stroke-width="4" />
+        <!-- tor wysoki: y=410 -->
+        <rect x="42" y="390" width="190" height="40" rx="20" fill="#ffffff" stroke="#0e1422" stroke-width="3" />
+        <text class="tor" x="137" y="418" text-anchor="middle">Wysoki wysiłek</text>
+        <path d="M232 410 H690" stroke="#0e1422" stroke-width="4" />
+
+        <g id="chmurki"></g>
+        <g id="kroki"></g>
+
+        <!-- mety -->
+        <g stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M480 180 V118" fill="none" />
+          <path d="M480 118 H512 L503 129 L512 140 H480 Z" fill="#0e1422" />
+          <path d="M690 410 V348" fill="none" />
+          <path d="M690 348 H722 L713 359 L722 370 H690 Z" fill="#0e1422" />
+        </g>
+        <text class="meta" x="524" y="127">Wynik to punkt</text>
+        <text class="meta" x="524" y="153">wyjścia do</text>
+        <text class="meta" x="524" y="179">poprawek.</text>
+        <text class="meta" x="724" y="468" text-anchor="end">Claude sprawdził</text>
+        <text class="meta" x="724" y="494" text-anchor="end">więcej.</text>
+
+        <!-- oś czasu -->
+        <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M42 532 H720 M708 520 L720 532 L708 544" />
+          <path d="M480 522 V542 M690 522 V542" />
+        </g>
+        <g fill="none" stroke="#0e1422" stroke-width="2.4" stroke-linecap="round" transform="translate(6 520)">
+          <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 3" />
+        </g>
+        <text class="czas" x="480" y="570" text-anchor="middle">wcześniej</text>
+        <text class="czas" x="690" y="570" text-anchor="middle">później</text>
+      </svg>
+
+      <div class="pasek">
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" /></svg>
+          Przy rozumowaniu adaptacyjnym model sam decyduje na każdym kroku, czy myśleć i&nbsp;ile.
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z" /></svg>
+          Każda chmurka to tokeny, więc myślenie wlicza się do zużycia.
+        </p>
+      </div>
+      <p class="umowna">To przykład: liczba kroków i chmurek jest umowna.</p>
+    </div>
+    <script>
+      (() => {
+        const ns = "http://www.w3.org/2000/svg";
+        const el = (tag, at, rodzic) => {
+          const e = document.createElementNS(ns, tag);
+          for (const [k, v] of Object.entries(at)) e.setAttribute(k, v);
+          rodzic.appendChild(e);
+          return e;
+        };
+        /* chmurka: obrys sumy kształtów (najpierw grube kształty w kolorze kreski, potem wypełnienie) */
+        const chmurka = (rodzic, cx, cy, w, h, ta) => {
+          const kreska = ta ? "#a3e635" : "#0e1422";
+          const grubosc = ta ? 10 : 6;
+          const wypelnienie = ta ? "#d9f99d" : "#ffffff";
+          const czesci = [
+            ["ellipse", { cx, cy: cy + 0.15 * h, rx: 0.5 * w, ry: 0.35 * h }],
+            ["circle", { cx: cx - 0.2 * w, cy: cy - 0.02 * h, r: 0.32 * h }],
+            ["circle", { cx: cx + 0.12 * w, cy: cy - 0.12 * h, r: 0.38 * h }],
+          ];
+          const g = el("g", {}, rodzic);
+          czesci.forEach(([t, a]) => el(t, { ...a, fill: kreska, stroke: kreska, "stroke-width": grubosc }, g));
+          czesci.forEach(([t, a]) => el(t, { ...a, fill: wypelnienie }, g));
+          return g;
+        };
+        const babelek = (rodzic, cx, cy) =>
+          el("circle", { cx, cy, r: 5, fill: "#ffffff", stroke: "#0e1422", "stroke-width": 3 }, rodzic);
+
+        const ch = document.getElementById("chmurki");
+        const kr = document.getElementById("kroki");
+        /* kółko kroku: r=30; chmurka kończy się 48 px nad torem, bąbelek między nimi */
+        const nadKrokiem = (x, tor, w, h, ta) => {
+          chmurka(ch, x, tor - 48 - h / 2, w, h, ta);
+          babelek(ch, x, tor - 39);
+        };
+        nadKrokiem(280, 180, 60, 38, false);
+        nadKrokiem(280, 410, 96, 58, false);
+        nadKrokiem(445, 410, 144, 86, true);
+        nadKrokiem(600, 410, 108, 66, false);
+
+        const krok = (x, y) => {
+          el("circle", { cx: x, cy: y, r: 30, fill: "#ffffff", stroke: "#0e1422", "stroke-width": 4 }, kr);
+          const t = el("text", { x, y: y + 6, "text-anchor": "middle", class: "krok" }, kr);
+          t.textContent = "krok";
+        };
+        [280, 350, 420].forEach((x) => krok(x, 180));
+        [280, 445, 600].forEach((x) => krok(x, 410));
+
+        chmurka(document.getElementById("legenda-chmurka"), 408, 32, 36, 24, false);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,404 @@
+<!doctype html>
+<!-- Rysunek R2 „Co zostaje po streszczeniu, a co może zniknąć” do lekcji kontekst-rozmowy: długa rozmowa przechodzi w streszczenie z Twoimi prośbami, z dysku wracają CLAUDE.md z głównego folderu, plan, opisy skilli i do pięciu ostatnio zmienianych plików; polecenia z początku (przerywana ramka) mogą zniknąć, stałe zasady idą do CLAUDE.md. Źródło PNG obrazy/po-streszczeniu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Po streszczeniu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w strona-oferty/obrazy/zrodla/gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        padding: 20px 16px 24px 38px;
+      }
+      #strzalki {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+      .uklad {
+        display: grid;
+        grid-template-columns: 220px 1fr 226px;
+        align-items: start;
+      }
+      .kol {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== Lewa kolumna: długa rozmowa ===== */
+      .podpis {
+        margin: 0 0 10px 2px;
+        font: 800 25px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .okno {
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 10px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .okno-gora {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 4px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .dymek {
+        border-radius: 12px;
+        padding: 10px 11px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .dymek i {
+        display: block;
+        height: 8px;
+        border-radius: 4px;
+      }
+      .ty {
+        align-self: flex-end;
+        width: 74%;
+        background: var(--okno-tekst);
+      }
+      .ty i {
+        background: #b9b6ae;
+      }
+      .claude {
+        align-self: flex-start;
+        width: 86%;
+        background: var(--okno-pasek);
+      }
+      .claude i {
+        background: #55555b;
+      }
+      /* polecenie z samego początku: obrys przerywany, może zniknąć */
+      .ty.poczatek {
+        background: transparent;
+        border: 3px dashed var(--okno-tekst);
+      }
+      .ty.poczatek i {
+        background: #8a877f;
+      }
+      .uwaga {
+        margin-top: 18px;
+        padding: 12px 14px;
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+        border-radius: 12px;
+        font: 800 21px/1.22 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .zasada {
+        margin-top: 46px;
+        padding: 12px 14px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 12px;
+        font: 700 21px/1.25 var(--sans);
+      }
+      .zasada code {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+        font: 700 21px/1 var(--mono);
+      }
+      .zasada svg {
+        width: 22px;
+        height: 22px;
+        flex: none;
+      }
+
+      /* ===== Środkowa kolumna: strzałka streszczenia i to, co wraca ===== */
+      .srodek {
+        padding: 0 40px 0 20px;
+      }
+      .etykieta-glowna {
+        height: 158px;
+        margin-top: 30px;
+        text-align: center;
+        font: 800 21px/1.25 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .etykieta-glowna code {
+        display: block;
+        margin-bottom: 3px;
+        font: 700 23px/1.1 var(--mono);
+      }
+      .z-dysku {
+        margin: 0 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--grafit);
+        font: 800 21px/1 var(--sans);
+      }
+      .z-dysku svg {
+        width: 22px;
+        height: 22px;
+      }
+      .zrodlo {
+        margin-bottom: 12px;
+        padding: 11px 12px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 700 20px/1.2 var(--sans);
+      }
+      .zrodlo code {
+        font: 700 20px/1 var(--mono);
+      }
+      .zrodlo small {
+        display: block;
+        margin-top: 4px;
+        color: var(--grafit);
+        font: 700 17px/1.2 var(--sans);
+      }
+      .pliki {
+        margin-top: 14px;
+        padding: 12px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 700 19px/1.25 var(--sans);
+      }
+      .pliki svg {
+        display: inline-block;
+        vertical-align: -5px;
+        width: 26px;
+        height: 26px;
+        margin-right: 6px;
+      }
+
+      /* ===== Prawa kolumna: ramka streszczenia ===== */
+      .ramka {
+        margin-top: 30px;
+        align-self: stretch;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 16px 14px;
+        display: flex;
+        flex-direction: column;
+      }
+      .ramka h3 {
+        margin: 0 0 12px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--kreska);
+        font: 800 26px/1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .prosby {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 8px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 10px;
+        font: 800 20px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .prosby svg {
+        width: 20px;
+        height: 20px;
+        flex: none;
+      }
+      .linia {
+        height: 10px;
+        border-radius: 5px;
+        background: #d6d9cd;
+        margin-top: 14px;
+      }
+      .wpis {
+        position: absolute;
+        height: 12px;
+        border-radius: 6px;
+        background: #d6d9cd;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Po streszczeniu CLAUDE.md i plan wracają z dysku, ale szczegóły z początku rozmowy mogą zniknąć. Długa rozmowa przechodzi w streszczenie poleceniem /compact albo samoistnie, gdy brak miejsca. Kontekst po streszczeniu: Twoje prośby w streszczeniu. Z dysku wracają CLAUDE.md z głównego folderu, plan z trybu planowania i opisy skilli, zbudowane od nowa, a także do pięciu plików, które Claude czytał albo zmieniał. Szczegółowe polecenia z początku rozmowy, zaznaczone przerywaną ramką, mogą zniknąć. Tu zapisz stałe zasady: CLAUDE.md."
+    >
+      <h1 class="teza">Po streszczeniu CLAUDE.md i&nbsp;plan wracają z&nbsp;dysku, ale <mark>szczegóły z&nbsp;początku rozmowy mogą zniknąć</mark></h1>
+      <svg id="strzalki" aria-hidden="true"></svg>
+      <div class="uklad">
+        <!-- Lewa: rozmowa -->
+        <div class="kol">
+          <div class="okno" id="rozmowa">
+            <div class="okno-gora"><i></i><i></i><i></i></div>
+            <div class="dymek ty poczatek" id="poczatek"><i style="width: 100%"></i><i style="width: 80%"></i><i style="width: 55%"></i></div>
+            <div class="dymek claude"><i style="width: 100%"></i><i style="width: 70%"></i></div>
+            <div class="dymek ty"><i style="width: 90%"></i></div>
+            <div class="dymek claude"><i style="width: 100%"></i><i style="width: 92%"></i><i style="width: 60%"></i></div>
+            <div class="dymek ty"><i style="width: 100%"></i><i style="width: 50%"></i></div>
+            <div class="dymek claude"><i style="width: 85%"></i></div>
+          </div>
+          <div class="uwaga" id="uwaga">Szczegółowe polecenia z&nbsp;początku rozmowy mogą zniknąć.</div>
+          <div class="zasada" id="zasada">
+            <code><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" /></svg>CLAUDE.md:</code>
+            Tu zapisz stałe zasady.
+          </div>
+        </div>
+
+        <!-- Środek -->
+        <div class="kol srodek">
+          <div class="etykieta-glowna" id="etykieta"><code>/compact</code>albo samoistnie, gdy brak miejsca</div>
+          <p class="z-dysku">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6" /><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></svg>            Z&nbsp;dysku wracają:
+          </p>
+          <div class="zrodlo"><code>CLAUDE.md</code> z&nbsp;głównego folderu</div>
+          <div class="zrodlo">plan z&nbsp;trybu planowania</div>
+          <div class="zrodlo">opisy skilli<small>zbudowane od nowa</small></div>
+          <div class="pliki">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z" /></svg>
+            <span>do pięciu plików, które Claude czytał albo zmieniał</span>
+          </div>
+        </div>
+
+        <!-- Prawa: streszczenie -->
+        <div class="ramka" id="ramka">
+          <h3>Kontekst po streszczeniu</h3>
+          <div class="prosby">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+            Twoje prośby
+          </div>
+          <div class="linia" style="width: 100%"></div>
+          <div class="linia" style="width: 72%"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (async () => {
+        await document.fonts.ready;
+        const rys = document.querySelector(".rys").getBoundingClientRect();
+        const svg = document.getElementById("strzalki");
+        const r = (el) => {
+          const b = el.getBoundingClientRect();
+          return { l: b.left - rys.left, r: b.right - rys.left, t: b.top - rys.top, b: b.bottom - rys.top };
+        };
+        const ns = "http://www.w3.org/2000/svg";
+        const kreska = (d) => {
+          const p = document.createElementNS(ns, "path");
+          p.setAttribute("d", d);
+          p.setAttribute("fill", "none");
+          p.setAttribute("stroke", "#0e1422");
+          p.setAttribute("stroke-width", "4");
+          p.setAttribute("stroke-linecap", "round");
+          p.setAttribute("stroke-linejoin", "round");
+          svg.appendChild(p);
+        };
+        const wPrawo = (x1, x2, y) => {
+          kreska(`M${x1} ${y} H${x2 - 2}`);
+          kreska(`M${x2 - 14} ${y - 11} L${x2 - 2} ${y} L${x2 - 14} ${y + 11}`);
+        };
+        const ramka = r(document.getElementById("ramka"));
+        const etyk = r(document.getElementById("etykieta"));
+        const rozm = r(document.getElementById("rozmowa"));
+        /* strzałka główna: z rozmowy do streszczenia, tuż pod podpisem */
+        const yGl = etyk.t + 116;
+        wPrawo(rozm.r + 8, ramka.l - 6, yGl);
+        /* strzałki z tego, co wraca z dysku, i z folderu */
+        document.querySelectorAll(".zrodlo, .pliki").forEach((el) => {
+          const b = r(el);
+          const y = (b.t + b.b) / 2;
+          wPrawo(b.r + 8, ramka.l - 6, y);
+          /* w ramce: miejsce, w które to wraca */
+          const w = document.createElement("i");
+          w.className = "wpis";
+          w.style.left = ramka.l + 18 + "px";
+          w.style.width = (ramka.r - ramka.l) * (el.classList.contains("pliki") ? 0.62 : 0.78) + "px";
+          w.style.top = y - 6 + "px";
+          document.querySelector(".rys").appendChild(w);
+        });
+        /* od uwagi do CLAUDE.md */
+        const uw = r(document.getElementById("uwaga"));
+        const za = r(document.getElementById("zasada"));
+        const x = (uw.l + uw.r) / 2;
+        kreska(`M${x} ${uw.b + 8} V${za.t - 6}`);
+        kreska(`M${x - 11} ${za.t - 18} L${x} ${za.t - 6} L${x + 11} ${za.t - 18}`);
+        /* od uwagi do przerywanej ramki u góry rozmowy (to są te polecenia): linia limonką wzdłuż lewego brzegu okna */
+        const po = r(document.getElementById("poczatek"));
+        const xl = rozm.l - 18;
+        const yu = uw.t + 30;
+        const yp = (po.t + po.b) / 2;
+        const lacznik = document.createElementNS(ns, "path");
+        lacznik.setAttribute("d", `M${uw.l - 2} ${yu} H${xl} V${yp} H${po.l - 8}`);
+        lacznik.setAttribute("fill", "none");
+        lacznik.setAttribute("stroke", "#a3e635");
+        lacznik.setAttribute("stroke-width", "4");
+        lacznik.setAttribute("stroke-linecap", "round");
+        lacznik.setAttribute("stroke-linejoin", "round");
+        svg.appendChild(lacznik);
+        const grot = lacznik.cloneNode();
+        grot.setAttribute("d", `M${po.l - 20} ${yp - 11} L${po.l - 8} ${yp} L${po.l - 20} ${yp + 11}`);
+        svg.appendChild(grot);
+      })();
+    </script>
+  </body>
+</html>

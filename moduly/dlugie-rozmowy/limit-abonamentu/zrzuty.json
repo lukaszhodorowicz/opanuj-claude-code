@@ -1,0 +1,92 @@
+{
+  "cw1-okienko": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-dwa-liczniki": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-dwa-liczniki": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-dluga": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-nowa-pusta": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-nowa": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 55000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-dluga": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-nowa": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 55000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

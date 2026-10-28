@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co Claude robi bez pytania w trybie Manual (ręczny)?"
+    tyl: "Tylko odczyty."
+    fakt: tryb-manual-bez-pytania-tylko-odczyt
+
+  - przod: "Co Claude robi bez pytania w trybie Accept edits (przyjmowanie zmian)?"
+    tyl: "Odczyty, zmiany plików i typowe polecenia na plikach, na przykład kopiowanie i przenoszenie."
+    fakt: accept-edits-odczyty-bez-pytania
+
+  - przod: "Kto w trybie Auto ocenia wysłanie wiadomości przez konektor?"
+    tyl: "Strażnik (klasyfikator), zanim działanie się wykona."
+    fakt: auto-kolejnosc-reszta-do-klasyfikatora
+
+  - przod: "Kiedy Claude pyta o użycie narzędzia, które autor konektora oznaczył jako wymagające zgody?"
+    tyl: "Przy każdym użyciu, także w trybach Accept edits i Auto, bez odpowiedzi „nie pytaj ponownie”."
+    fakt: mcp-narzedzie-wymagajace-zgody-pyta-w-kazdym-trybie
+
+  - przod: "Co dzieje się z narzędziem konektora, które zablokowała organizacja?"
+    tyl: "Claude go nie widzi, bo nie ma go na jego liście narzędzi."
+    fakt: konektor-zablokowane-narzedzie-niewidoczne-dla-claude
+
+  - przod: "Czy tryb Auto zastępuje Twój przegląd wrażliwych działań?"
+    tyl: "Nie. Zmniejsza liczbę pytań, ale nie gwarantuje bezpieczeństwa."
+    fakt: auto-nie-gwarantuje-bezpieczenstwa

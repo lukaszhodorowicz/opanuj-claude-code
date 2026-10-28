@@ -1,0 +1,190 @@
+<!doctype html>
+<!-- Rysunek R3 „Pierwszeństwo wyglądu” do lekcji prezentacja-dla-klienta: zapis wyglądu w CLAUDE.md (przykład z lekcji) i schody pierwszeństwa: wybór Claude, Twój zapis, Twoja prośba; wyżej wygrywa. Pod spodem: tak opisuje to dokumentacja przy artefaktach budowanych jako strona. Źródło PNG obrazy/r3-pierwszenstwo-wygladu.png. Fakty: artefakt-wbudowany-skill-wygladu-szuka-zapisu-wygladu, artefakt-zapis-wygladu-marki-w-claude-md, artefakt-pierwszenstwo-prosba-zapis-wygladu-claude. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Pierwszeństwo wyglądu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .dwa {
+        display: grid;
+        grid-template-columns: 390px 1fr;
+        column-gap: 26px;
+        align-items: stretch;
+      }
+      .pole {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .glowka {
+        margin: 0 0 10px 4px;
+        font: 800 27px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      /* plik CLAUDE.md: karta z nazwą i linijkami */
+      .plik {
+        display: flex;
+        flex-direction: column;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .plik-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 14px;
+        background: var(--granat);
+        color: var(--biel);
+        font: 700 21px/1 var(--mono);
+      }
+      .plik-glowa svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .plik-tresc {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 14px 18px;
+        font: 700 20px/1.25 var(--mono);
+      }
+      .plik-tresc span {
+        padding-left: 2ch;
+        text-indent: -2ch;
+      }
+      .plik-tresc .uwaga {
+        color: var(--grafit);
+      }
+      .przyklad {
+        margin: 12px 4px 0;
+        color: var(--grafit);
+        font: 700 20px/1.25 var(--sans);
+      }
+      /* schody pierwszeństwa: od dołu do góry */
+      .schody {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        column-gap: 10px;
+      }
+      .wzwyz {
+        position: relative;
+      }
+      .wzwyz svg {
+        position: absolute;
+        inset: 0;
+        width: 44px;
+        height: 100%;
+        overflow: visible;
+      }
+      .stopnie {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .stopien {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 92px;
+        padding: 12px 16px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 14px;
+        font: 800 24px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .stopien small {
+        display: block;
+        margin-top: 4px;
+        color: var(--grafit);
+        font: 700 20px/1.2 var(--sans);
+        letter-spacing: 0;
+      }
+      .stopien.ta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        box-shadow: inset 0 0 0 1px var(--limonka);
+      }
+      .stopien.ta small {
+        color: var(--granat);
+      }
+      .s3 {
+        margin-left: 64px;
+      }
+      .s2 {
+        margin-left: 32px;
+      }
+      .wygrywa {
+        margin: 12px 0 0 54px;
+        font: 800 24px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .wspolny {
+        margin: 28px 0 0;
+        font-size: 23px;
+        text-wrap: balance;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Po lewej plik CLAUDE.md z zapisem wyglądu, jak w przykładzie z lekcji: nagłówek ## Wygląd firmy, kolory: granat #1f3a68, pomarańczowy #f08a24, tło #f7f7f7, czcionki: Lato do tekstu, odstępy: co 8 pikseli; nagłówek i format to tylko przykład. Po prawej trzy stopnie od dołu: wybór Claude (wbudowany skill wyglądu), Twój zapis wyglądu w CLAUDE.md, Twoja prośba. Wyżej wygrywa. Pod spodem: tak opisuje to dokumentacja przy artefaktach, które Claude buduje jako stronę."
+    >
+      <div class="dwa">
+        <div class="pole">
+          <p class="glowka">Zapis wyglądu</p>
+          <div class="plik">
+            <div class="plik-glowa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              CLAUDE.md
+            </div>
+            <div class="plik-tresc">
+              <span>## Wygląd firmy</span>
+              <span>- Kolory: granat #1f3a68, pomarańczowy #f08a24, tło #f7f7f7</span>
+              <span>- Czcionki: Lato do tekstu</span>
+              <span>- Odstępy: co 8 pikseli</span>
+            </div>
+          </div>
+          <p class="przyklad">Nagłówek i format to tylko przykład. Wystarczy jasna lista kolorów, czcionek i odstępów.</p>
+        </div>
+
+        <div class="pole">
+          <p class="glowka">Kto wygrywa</p>
+          <div class="schody">
+            <div class="wzwyz" aria-hidden="true">
+              <svg viewBox="0 0 44 100" preserveAspectRatio="none">
+                <path d="M22 98 V4" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <svg viewBox="0 0 44 20" style="height: 20px" aria-hidden="true">
+                <path d="M10 14 L22 2 L34 14" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="stopnie">
+              <div class="stopien s3">Twoja prośba</div>
+              <div class="stopien s2 ta">Twój zapis wyglądu w&nbsp;CLAUDE.md</div>
+              <div class="stopien">wybór Claude<small>wbudowany skill wyglądu</small></div>
+            </div>
+          </div>
+          <p class="wygrywa">Wyższy poziom wygrywa z niższym.</p>
+        </div>
+      </div>
+
+      <p class="wspolny">Tak opisuje to dokumentacja przy artefaktach, które Claude buduje jako stronę.</p>
+    </div>
+  </body>
+</html>

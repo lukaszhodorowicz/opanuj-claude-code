@@ -1,0 +1,190 @@
+/* Wygląd części pod lekcją: quiz, fiszki, ramka „zapamiętaj”, źródła i nawigacja do następnej lekcji. */
+.zapamietaj {
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-left: 4px solid var(--limonka);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 18px 0;
+}
+.zapamietaj ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+
+/* quiz */
+.pytanie {
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin: 12px 0;
+}
+.pytanie .tresc {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.odp {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--kreska);
+  background: var(--papier);
+  color: var(--granat);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  font: 400 16px/1.45 var(--sans);
+  cursor: pointer;
+}
+.odp:hover:not([disabled]) {
+  border-color: var(--granat);
+}
+.odp.dobra {
+  background: var(--zakreslacz);
+  border-color: var(--akcent);
+}
+.odp.zla {
+  background: var(--czerwony-jasny);
+  border-color: #d27a6c;
+}
+.wyjasnienie {
+  font-size: 15px;
+  color: var(--grafit);
+  margin-top: 8px;
+  display: none;
+}
+.wyjasnienie.widac {
+  display: block;
+}
+.wynik-quizu {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* fiszki */
+.fiszki {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.fiszka {
+  perspective: 900px;
+  height: 150px;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+.fiszka .wnetrze {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s;
+  transform-style: preserve-3d;
+}
+.fiszka.odwrocona .wnetrze {
+  transform: rotateY(180deg);
+}
+.fiszka .strona-f {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  padding: 14px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 15px;
+}
+.fiszka .przod {
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  font-weight: 700;
+}
+.fiszka .tyl {
+  background: var(--granat);
+  color: var(--biel);
+  transform: rotateY(180deg);
+}
+
+.zrodla {
+  font-size: 14px;
+  color: var(--grafit);
+  border-top: 1px solid var(--kreska);
+  margin-top: 48px;
+  padding-top: 14px;
+}
+.zrodla a {
+  color: var(--grafit);
+}
+.dalej {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.dalej a {
+  text-decoration: none;
+  color: var(--granat);
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-radius: 999px;
+  padding: 11px 18px;
+  font-weight: 700;
+}
+
+/* Przewiewny układ lekcji (D-2026-10-28-03): quiz bez kart, fiszki w szerokiej kolumnie, zielone */
+/* ZASADA: wydzielenie dużych części. Quiz: pytania bez kart (jedna ramka mniej), oddzielone odstępem 40 px; odpowiedzi zostają przyciskami w ramkach */
+.pytanie {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 40px;
+}
+
+.pytanie .tresc {
+  margin-bottom: 16px;
+}
+
+.odp {
+  margin: 0 0 10px;
+  padding: 12px 16px;
+  background: var(--biel);
+}
+
+/* ZASADA: breakout. Fiszki w szerokiej kolumnie, trzy w rzędzie, z odstępem, w którym mieści się cień */
+.strona > .fiszki {
+  max-width: var(--szeroka);
+  margin: 32px auto 0;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: 24px;
+  padding-right: 4px; /* ZASADA: wyrównanie optyczne. Twardy cień 4 px nie wchodzi w 16-pikselowy margines telefonu */
+}
+
+.fiszka {
+  height: 168px;
+}
+
+.fiszka .strona-f {
+  padding: 20px;
+}
+
+/* Przód fiszki: jasna limonka z granatową ramką 2 px i twardym cieniem (wzór: probki/probka-fiszki.html); tył bez zmian */
+.fiszka .przod {
+  background: var(--zakreslacz);
+  border: 2px solid var(--granat);
+  box-shadow: 4px 4px 0 var(--granat);
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+}
+
+.fiszka:hover .przod {
+  box-shadow: 6px 6px 0 var(--limonka);
+}

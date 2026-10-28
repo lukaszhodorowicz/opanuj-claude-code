@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Czym jest plik CLAUDE.md?"
+    tyl: "Zwykłym plikiem tekstowym z zasadami, który piszesz Ty."
+    fakt: claude-md-zwykly-tekst-piszesz-ty
+
+  - przod: "Kiedy Claude czyta plik CLAUDE.md?"
+    tyl: "Na początku każdej rozmowy."
+    fakt: claude-md-czytany-na-start-sesji
+
+  - przod: "Jak w aplikacji poprosić o plik CLAUDE.md z zasadami?"
+    tyl: "Prośbą w polu wiadomości, na przykład: utwórz plik CLAUDE.md z zasadami dla tego projektu."
+    fakt: aplikacja-przyklad-prosby-utworz-claude-md
+
+  - przod: "Kiedy warto dopisać zasadę do CLAUDE.md?"
+    tyl: "Między innymi gdy Claude drugi raz robi ten sam błąd albo gdy w nowej rozmowie znów tłumaczysz to samo co w poprzedniej."
+    fakt: claude-md-kiedy-dopisac
+
+  - przod: "Czego nie wpisywać do CLAUDE.md?"
+    tyl: "Między innymi informacji, które często się zmieniają."
+    fakt: claude-md-nie-wpisuj-zmiennych-informacji
+
+  - przod: "Czy plik CLAUDE.md wymusza na Claude każdą zasadę?"
+    tyl: "Nie. Claude traktuje go jako kontekst, czyli tło do pracy, a nie jako ustawienie, które wymusza zasady."
+    fakt: claude-md-kontekst-nie-wymuszenie

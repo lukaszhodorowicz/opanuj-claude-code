@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prowadzisz gabinet dietetyczny i chcesz podłączyć swój kalendarz do Claude w aplikacji na komputer. Co robisz?"
+    odpowiedzi:
+      - "Wpisujesz /mcp w polu wiadomości i dodajesz kalendarz poleceniem, tak jak w terminalu."
+      - "Klikasz plus obok pola wiadomości, potem Connectors i Browse connectors."
+      - "Kopiujesz plik z kalendarzem do folderu, bo konektor to po prostu plik w folderze."
+    poprawna: 1
+    wyjasnienie: "W aplikacji konektor dodajesz plusem obok pola wiadomości. Connectors, a potem Browse connectors otwierają katalog konektorów."
+    fakt: aplikacja-add-connectors-otwiera-katalog
+
+  - pytanie: "Zanim poprosisz o plan dnia, chcesz wiedzieć, czy Claude ma w tej rozmowie Twój kalendarz. Co robisz?"
+    odpowiedzi:
+      - "Wklejasz do rozmowy kilka terminów i patrzysz, czy Claude je rozpozna jako kalendarz."
+      - "Szukasz w folderze pod oknem pliku konektora kalendarza."
+      - "Pytasz Claude: „Jakie konektory masz w tej rozmowie?”."
+    poprawna: 2
+    wyjasnienie: "W aplikacji możesz zapytać Claude, jakie konektory ma w Twojej rozmowie. Pliku konektora nie ma w folderze: konektory z claude.ai ustawia się poza repozytorium projektu."
+    fakt: aplikacja-zapytaj-claude-o-konektory
+
+  - pytanie: "Claude zapisał plan jutrzejszych konsultacji w pliku plan-wtorek.txt. Żaden plik w folderze gabinetu nie zawiera terminów. Skąd Claude je wziął?"
+    odpowiedzi:
+      - "Przeczytał je w Twoim kalendarzu przez konektor."
+      - "Z pliku zasady-umawiania.txt, bo tam leżą zasady umawiania wizyt."
+      - "Z wcześniejszych rozmów, bo pamięta terminy, które ktoś mu kiedyś podał."
+    poprawna: 0
+    wyjasnienie: "Po podłączeniu konektora Claude może czytać Twój kalendarz. Terminy nie musiały leżeć w folderze."
+    fakt: aplikacja-konektor-czyta-kalendarz-wysyla-wiadomosci
+
+  - pytanie: "Co rano przepisujesz do rozmowy z Claude terminy z kalendarza, żeby dostać plan dnia. Co zmienia podłączenie konektora kalendarza?"
+    odpowiedzi:
+      - "Konektor co rano kopiuje cały kalendarz do folderu jako nowy plik."
+      - "Claude czyta kalendarz wprost, więc nie przepisujesz terminów do rozmowy."
+      - "Claude przestaje pytać o zgodę przy każdym działaniu w kalendarzu i w poczcie."
+    poprawna: 1
+    wyjasnienie: "Po podłączeniu narzędzia Claude czyta je wprost, zamiast pracować na tym, co wkleisz."
+    fakt: mcp-po-co-zamiast-przeklejania

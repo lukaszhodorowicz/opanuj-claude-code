@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak w aplikacji otworzyć widok zmian?"
+    tyl: "Kliknij liczby, na przykład „+12 -1”, na karcie Changes (zmiany) w panelu obok rozmowy."
+    fakt: aplikacja-widok-zmian-liczby-na-karcie-changes
+
+  - przod: "Czy w trybie Accept edits (przyjmowanie zmian) Claude pyta o zgodę, zanim zmieni plik?"
+    tyl: "Nie. Zmienia pliki bez pytania o zgodę."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - przod: "Jak poprosić Claude, żeby przywrócił jedną linijkę, a resztę zmian zostawił?"
+    tyl: "Napisz w polu wiadomości, co ma wrócić, a co zostać, i naciśnij Enter."
+    fakt: aplikacja-enter-wysyla-zadanie
+
+  - przod: "Claude zmienił plik i coś poszło źle. Jak cofniesz jego zmianę?"
+    tyl: "Poproś Claude o cofnięcie zmiany."
+    fakt: terminal-mozna-poprosic-claude-o-cofniecie
+
+  - przod: "Czy działania poza Twoim komputerem, na przykład zmiany w bazie danych, mają zapis sprzed zmiany?"
+    tyl: "Nie. Działań na zdalnych systemach, takich jak bazy danych, usługi w sieci (API) i publikacja, nie da się objąć punktem zapisu."
+    fakt: punkty-zapisu-dzialan-na-zdalnych-systemach-pilnujesz-trybem-uprawnien
+
+  - przod: "W którym trybie sprawdzasz zmianę, zanim trafi do pliku?"
+    tyl: "W trybie Manual (ręczny). Widzisz podgląd zmiany i przyjmujesz ją albo odrzucasz."
+    fakt: aplikacja-manual-podglad-i-przyciski

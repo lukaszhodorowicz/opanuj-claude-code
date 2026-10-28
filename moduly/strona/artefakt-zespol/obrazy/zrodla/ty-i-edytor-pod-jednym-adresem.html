@@ -1,0 +1,263 @@
+<!doctype html>
+<!-- Rysunek R2 „Ty i edytor pod jednym adresem” do lekcji artefakt-zespol: oś czasu z dwoma torami (Ty, Anna jako edytor) nad jednym adresem strony; wersja 1 od Ciebie, wersja 2 od Anny, publikacja z kopii wersji 1 odrzucona, scalenie z wersją 2, wersja 3. Źródło PNG obrazy/ty-i-edytor-pod-jednym-adresem.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Ty i edytor pod jednym adresem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .os {
+        display: grid;
+        grid-template-columns: 84px 0.9fr 1.2fr 1.3fr;
+        grid-template-rows: auto auto 40px auto;
+        column-gap: 12px;
+      }
+      /* tory: jasne pasy pod dwoma wierszami */
+      .tor {
+        grid-column: 1 / -1;
+        border-radius: 16px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+      }
+      .tor + .tor {
+        margin-top: 12px;
+      }
+      .kto {
+        position: relative;
+        z-index: 1;
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        padding: 0 0 0 14px;
+        font: 800 27px/1.05 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .kto small {
+        color: var(--grafit);
+        font: 700 19px/1.1 var(--sans);
+        letter-spacing: 0;
+      }
+      .komorka {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 14px 0 0;
+      }
+      /* kreska od dołu karty do brzegu toru */
+      .lacznik {
+        position: relative;
+        flex: 1;
+        min-height: 16px;
+      }
+      .lacznik::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        margin-left: -2px;
+        border-left: 4px solid var(--granat);
+      }
+      .tor-anny {
+        margin-top: 12px;
+      }
+      .krok {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 12px 14px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 14px;
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .krok .ciag {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .krok .ciag > span {
+        display: block;
+      }
+      .krok .strzalka-w-dol {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-left: 4px;
+      }
+      .krok .ciag > .odrzucona {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--grafit);
+      }
+      .odrzucona svg {
+        flex: none;
+        width: 22px;
+        height: 22px;
+      }
+      .scalenie {
+        padding: 6px 9px;
+        border-radius: 8px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+      }
+      /* pionowa kreska przez pusty tor i grot nad wersją */
+      .przelot {
+        position: relative;
+        z-index: 1;
+      }
+      .przelot::before,
+      .grot::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        margin-left: -2px;
+        border-left: 4px solid var(--granat);
+      }
+      .przelot.z-toru-ty {
+        margin-top: -12px;
+      }
+      .grot {
+        position: relative;
+      }
+      .grot svg {
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        width: 24px;
+        height: 14px;
+        margin-left: -12px;
+        overflow: visible;
+      }
+      /* jeden adres: oś z wersjami */
+      .adres {
+        position: relative;
+        grid-column: 2 / -1;
+        display: grid;
+        grid-template-columns: 0.9fr 1.2fr 1.3fr;
+        column-gap: 12px;
+      }
+      .adres::before {
+        content: "";
+        position: absolute;
+        left: -40px;
+        right: 2px;
+        top: 50%;
+        border-top: 4px solid var(--granat);
+      }
+      .adres > svg {
+        position: absolute;
+        right: -2px;
+        top: 50%;
+        width: 16px;
+        height: 24px;
+        margin-top: -11px;
+        overflow: visible;
+      }
+      .wersja {
+        position: relative;
+        justify-self: center;
+        padding: 9px 16px;
+        border: 3px solid var(--granat);
+        border-radius: 999px;
+        background: var(--biel);
+        font: 800 22px/1 var(--sans);
+        letter-spacing: -0.015em;
+        white-space: nowrap;
+      }
+      .pod-osia {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 14px;
+        font: 700 22px/1 var(--mono);
+      }
+      .pod-osia svg {
+        width: 26px;
+        height: 26px;
+      }
+      .wspolny {
+        margin: 24px 0 0;
+        font-size: 25px;
+        text-wrap: balance;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Oś czasu z dwoma torami, Ty i Anna jako edytor, nad jednym adresem strony claude.ai/code/artifact/…. Najpierw Ty publikujesz wersję 1. Potem Anna podaje adres swojemu Claude i publikuje wersję 2. Twój Claude ma kopię wersji 1: jego publikacja zostaje odrzucona, Claude scala zmiany z wersją 2 i publikuje wersję 3. Każdy, kto ma stronę otwartą, widzi każdą aktualizację na żywo."
+    >
+      <div class="os">
+        <div class="tor" style="grid-row: 1" aria-hidden="true"></div>
+        <div class="tor tor-anny" style="grid-row: 2" aria-hidden="true"></div>
+
+        <!-- tor: Ty -->
+        <div class="kto" style="grid-row: 1">Ty</div>
+        <div class="komorka" style="grid-row: 1; grid-column: 2">
+          <div class="krok">Publikujesz wersję 1.</div>
+          <div class="lacznik" aria-hidden="true"></div>
+        </div>
+        <div class="komorka" style="grid-row: 1; grid-column: 4">
+          <div class="krok">
+            <div class="ciag">
+              <span>Twój Claude ma kopię wersji 1.</span>
+              <span class="odrzucona">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+                Jego publikacja zostaje odrzucona.
+              </span>
+              <span class="scalenie">Claude nanosi swoje zmiany na wersję 2.</span>
+            </div>
+          </div>
+          <div class="lacznik" aria-hidden="true"></div>
+        </div>
+
+        <!-- tor: Anna -->
+        <div class="kto tor-anny" style="grid-row: 2">Anna<small>edytor</small></div>
+        <div class="przelot tor-anny z-toru-ty" style="grid-row: 2; grid-column: 2" aria-hidden="true"></div>
+        <div class="komorka tor-anny" style="grid-row: 2; grid-column: 3">
+          <div class="krok">Anna podaje adres swojemu Claude i publikuje wersję 2.</div>
+          <div class="lacznik" aria-hidden="true"></div>
+        </div>
+        <div class="przelot tor-anny z-toru-ty" style="grid-row: 2; grid-column: 4" aria-hidden="true"></div>
+
+        <!-- groty nad wersjami -->
+        <div class="grot" style="grid-row: 3; grid-column: 2" aria-hidden="true"><svg viewBox="0 0 24 14"><path d="M2 2 L12 12 L22 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="grot" style="grid-row: 3; grid-column: 3" aria-hidden="true"><svg viewBox="0 0 24 14"><path d="M2 2 L12 12 L22 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="grot" style="grid-row: 3; grid-column: 4" aria-hidden="true"><svg viewBox="0 0 24 14"><path d="M2 2 L12 12 L22 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+        <!-- jeden adres -->
+        <div class="adres" style="grid-row: 4">
+          <span class="wersja">Wersja 1</span>
+          <span class="wersja">Wersja 2</span>
+          <span class="wersja">Wersja 3</span>
+          <svg viewBox="0 0 16 24" aria-hidden="true"><path d="M3 2 L14 12 L3 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pod-osia" style="grid-row: 5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+          claude.ai/code/artifact/…
+        </div>
+      </div>
+
+      <p class="wspolny">Każdy, kto ma stronę otwartą, widzi każdą aktualizację na żywo.</p>
+    </div>
+  </body>
+</html>

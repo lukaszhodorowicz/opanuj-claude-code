@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Z jakich folderów Claude wczytuje pliki CLAUDE.md na początku rozmowy?"
+    tyl: "Z folderu rozmowy i ze wszystkich folderów nad nim."
+    fakt: claude-md-folder-roboczy-i-foldery-nad-nim
+
+  - przod: "Co się dzieje z zasadami z dwóch plików CLAUDE.md: w folderze rozmowy i w folderze nad nim?"
+    tyl: "Łączą się, a nie zastępują."
+    fakt: claude-md-pliki-lacza-sie-nie-nadpisuja
+
+  - przod: "Który z plików CLAUDE.md wczytanych na początku rozmowy Claude czyta ostatni?"
+    tyl: "Plik najbliżej folderu rozmowy. To kolejność, nie pierwszeństwo."
+    fakt: claude-md-blizszy-plik-czytany-ostatni
+
+  - przod: "Kiedy dochodzi plik CLAUDE.md z folderu wewnątrz folderu rozmowy?"
+    tyl: "Dopiero wtedy, gdy Claude przeczyta, zapisze albo zmieni inny plik w tym folderze."
+    fakt: claude-md-podfolder-wczytany-na-zadanie
+
+  - przod: "Czym jest plik ~/.claude/CLAUDE.md?"
+    tyl: "To Twoje osobiste zasady dla wszystkich projektów."
+    fakt: claude-md-osobisty-dla-wszystkich-projektow
+
+  - przod: "Co może zrobić Claude, gdy dwa pliki CLAUDE.md dają różne wskazówki w tej samej sprawie?"
+    tyl: "Może wybrać jedną dowolnie."
+    fakt: claude-md-sprzeczne-miedzy-plikami

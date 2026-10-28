@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{TYTUL}} · Przewodnik po Claude Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+{{STYL}}
+    </style>
+  </head>
+  <body>
+    <header class="gora">
+      <div class="gora-wnetrze">
+        <a class="logo" href="#">
+          {{ZNAK}}
+          <span class="logo-tekst">{{NAZWA}}</span>
+        </a>
+      </div>
+    </header>
+    <div class="strona">
+{{ZNACZNIK}}
+{{TRESC}}
+
+      <div class="tekst" id="sekcja-quiz">
+        <h2>Sprawdź się</h2>
+        <div id="quiz-lista"></div>
+        <p class="wynik-quizu" id="quiz-wynik"></p>
+      </div>
+
+      <div class="tekst" id="sekcja-fiszki">
+        <h2>Fiszki do powtórki</h2>
+        <p>Kliknij fiszkę, żeby ją odwrócić.</p>
+      </div>
+      <div class="fiszki" id="fiszki-lista"></div>
+{{ZRODLA}}
+    </div>
+
+    <script type="application/json" id="scenariusz">{{SCENARIUSZ}}</script>
+    <script type="application/json" id="quiz">{{QUIZ}}</script>
+    <script type="application/json" id="fiszki">{{FISZKI}}</script>
+    <script>
+{{SILNIK}}
+    </script>
+  </body>
+</html>

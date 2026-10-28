@@ -1,0 +1,337 @@
+{
+  "lekcja": "co-jest-gdzie",
+  "folder_startowy": [
+    "opinie-klientow-pazdziernik.txt",
+    "tematy-newslettera.txt",
+    "newsletter-wrzesien.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Pięć spraw, pięć miejsc w oknie",
+      "opis": "Ćwiczysz w oknie zakładki Code aplikacji Claude. Ćwiczenie nie zmieni Twoich plików. Klikaj przyciski nad oknem po kolei albo miejsca ze znacznikiem. Włączony przełącznik Remote Control i szary napis na karcie Connectors w panelu szczegółów to stan przykładowego konta. Na start nic z nimi nie robisz. Remote Control poznasz w lekcji 8.4, a konektory w lekcji 5.1.",
+      "nauczyciel_start": "Pięć przycisków nad oknem to pięć spraw z codziennej pracy. Kliknij pierwszy i patrz na znacznik „kliknij tutaj”.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Newsletter-kopia",
+        "tryb": "Accept edits",
+        "model": "Sonnet 5.5",
+        "wysilek": "Medium",
+        "panel": "widoczny",
+        "kontekst": 9,
+        "konektory_do_polaczenia": 2,
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj opinie klientów z października i zaproponuj trzy tematy newslettera na listopad."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Przeczytałem opinie. Proponuję trzy tematy: nowe godziny otwarcia, program dla stałych klientów i prezenty na święta."
+          }
+        ],
+        "sesje": [
+          {
+            "id": "wrzesien",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Streść wrześniowy newsletter w pięciu punktach."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Gotowe. Najwięcej miejsca zajęły jesienna promocja i zaproszenie na warsztaty."
+              }
+            ],
+            "kontekst": 4
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "pasek",
+          "etykieta": "Wróć do wcześniejszej rozmowy",
+          "opis": "Wracasz do rozmowy z listy na pasku bocznym.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na pasku bocznym jest lista Twoich rozmów. Kliknij drugą rozmowę na liście.",
+              "fakt": "aplikacja-pasek-boczny-lista-sesji"
+            },
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "wrzesien",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się rozmowa o wrześniowym newsletterze. Każda rozmowa ma własną historię i folder, więc do pracy z innego dnia wracasz jednym kliknięciem.",
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta Context w panelu szczegółów pokazuje teraz 4%. Tyle miejsca zajęła ta rozmowa.",
+              "fakt": "aplikacja-karta-context-procent-w-naglowku"
+            }
+          ]
+        },
+        {
+          "id": "plus",
+          "etykieta": "Dodaj plik albo wtyczkę",
+          "opis": "Przycisk + przy polu wiadomości otwiera menu z plikami, skillami, konektorami i wtyczkami.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij + przy polu wiadomości."
+            },
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Z tego menu dołączysz plik do rozmowy i sięgniesz po skille, konektory i wtyczki. Kliknij Plugins (wtyczki).",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Plugins"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wtyczka to gotowy pakiet, który dodaje Claude między innymi skille, czyli nowe umiejętności. Kliknij Browse plugins (przeglądaj wtyczki).",
+              "fakt": "aplikacja-wtyczki-dodaja-skille-agentow-hooki-bez-terminala"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse plugins",
+              "fakt": "aplikacja-przegladarka-wtyczek-z-twoich-katalogow"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To przeglądarka wtyczek z Twoich katalogów. Tu wybierasz gotowy zestaw umiejętności dla Claude Code i instalujesz go bez terminala. Wtyczki poznasz w lekcji 4.4.",
+              "fakt": "aplikacja-wtyczki-dodaja-skille-agentow-hooki-bez-terminala"
+            }
+          ]
+        },
+        {
+          "id": "model",
+          "etykieta": "Dopasuj wysiłek do zadania",
+          "opis": "W rzędzie pod polem ustawiasz model i wysiłek oraz sprawdzasz zużycie abonamentu.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Model i wysiłek ustawiasz przyciskiem modelu w rzędzie pod polem wiadomości. Teraz ma on napis Sonnet 5.5 Medium. Kliknij go.",
+              "fakt": "aplikacja-model-prawa-czesc-rzedu-zmiana-pozniej"
+            },
+            {
+              "typ": "klik",
+              "cel": "wybor-modelu",
+              "fakt": "aplikacja-model-prawa-czesc-rzedu-zmiana-pozniej"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu wybierasz model Claude i możesz go później zmienić. Pod modelami jest Effort (wysiłek): kliknij go.",
+              "fakt": "aplikacja-model-prawa-czesc-rzedu-zmiana-pozniej"
+            },
+            {
+              "typ": "klik",
+              "cel": "effort",
+              "fakt": "aplikacja-wysilek-pod-effort-w-wyborze-modelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pod Effort wybierasz poziom wysiłku. Teraz zaznaczony jest Medium. Przyjmij, że zadanie jest proste, i kliknij Low.",
+              "fakt": "aplikacja-wysilek-pod-effort-w-wyborze-modelu"
+            },
+            {
+              "typ": "klik",
+              "cel": "poziom",
+              "poziom": 1,
+              "notka": "Niższy jest szybszy i tańszy."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przycisk pokazuje teraz Low. Niższy wysiłek jest szybszy i tańszy przy prostych zadaniach, a wyższy daje głębsze rozumowanie przy trudnych. Kliknij pierścień obok przycisku.",
+              "fakt": "slowniczek-wysilek-steruje-rozumowaniem"
+            },
+            {
+              "typ": "klik",
+              "cel": "pierscien",
+              "fakt": "aplikacja-pierscien-zuzycie-abonamentu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To zużycie abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code. W aplikacji zobaczysz tu dane konta. Co znaczy każdy wiersz, pokaże lekcja 6.4.",
+              "fakt": "aplikacja-pierscien-zuzycie-abonamentu"
+            }
+          ]
+        },
+        {
+          "id": "liczniki",
+          "etykieta": "Sprawdź, ile miejsca zajęła rozmowa",
+          "opis": "Porównujesz kartę Context w panelu szczegółów z pierścieniem zużycia.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na karcie Context w panelu szczegółów widać 9%: tyle miejsca zajęła już ta rozmowa. Kliknij pierścień pod polem i porównaj.",
+              "fakt": "aplikacja-karta-context-procent-w-naglowku"
+            },
+            {
+              "typ": "klik",
+              "cel": "pierscien",
+              "fakt": "aplikacja-pierscien-zuzycie-abonamentu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pierścień liczy zużycie całego abonamentu, a karta Context tylko miejsce w tej jednej rozmowie. To dwa różne liczniki.",
+              "fakt": "aplikacja-pierscien-zuzycie-abonamentu"
+            }
+          ]
+        },
+        {
+          "id": "ustawienia",
+          "etykieta": "Otwórz ustawienia",
+          "opis": "Polecenie /config wpisane w polu wiadomości otwiera okno Settings.",
+          "kroki": [
+            {
+              "typ": "komenda",
+              "tekst": "/config",
+              "fakt": "aplikacja-config-otwiera-settings-claude-code"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Polecenie /config otworzyło okno Settings (ustawienia) na stronie Claude Code. Co tu zmienisz, opisuje część o ustawieniach w tekście lekcji.",
+              "fakt": "aplikacja-config-otwiera-settings-claude-code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Gdzie i jak pracuje Claude",
+      "opis": "Ćwiczysz w oknie zakładki Code aplikacji Claude. Ćwiczenie nie zmieni Twoich plików. Klikaj przyciski nad oknem po kolei albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Trzy przyciski nad oknem to trzy sprawy, które załatwisz w rzędzie pod polem wiadomości. Kliknij pierwszy przycisk.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Newsletter-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "model": "Sonnet 5.5",
+        "wysilek": "Medium",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Przeczytaj opinie klientów z października i zaproponuj trzy tematy newslettera na listopad."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Przeczytałem opinie. Proponuję trzy tematy: nowe godziny otwarcia, program dla stałych klientów i prezenty na święta."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "srodowisko",
+          "etykieta": "Pracuj na swoim komputerze",
+          "opis": "Sprawdzasz, gdzie wybierasz miejsce pracy Claude.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pierwszy przycisk rzędu pod polem to wybór środowiska, czyli miejsca, gdzie Claude pracuje. Kliknij go.",
+              "fakt": "aplikacja-selektor-srodowiska-pierwsza-kontrolka"
+            },
+            {
+              "typ": "klik",
+              "cel": "srodowisko-menu",
+              "fakt": "aplikacja-selektor-srodowiska-pierwsza-kontrolka"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W grupie Local zaznaczona jest górna pozycja, This computer. Tę pozycję wybierasz na start.",
+              "fakt": "aplikacja-local-gorna-pozycja-w-selektorze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Środowisko Local działa na Twoim komputerze i ma bezpośredni dostęp do Twoich plików. Na nim pracujesz w całym kursie.",
+              "fakt": "aplikacja-local-dziala-na-twoim-komputerze"
+            }
+          ]
+        },
+        {
+          "id": "plan",
+          "etykieta": "Najpierw plan, potem zmiany",
+          "opis": "Przełączasz Claude w tryb Plan.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tryb mówi, czy Claude czeka na Twoją zgodę. Kliknij przełącznik trybu w rzędzie pod polem.",
+              "fakt": "aplikacja-tryb-pod-polem-mowi-czy-claude-czeka-na-zgode"
+            },
+            {
+              "typ": "klik",
+              "cel": "tryb-menu",
+              "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ptaszek stoi przy Accept edits. W tym trybie Claude sam zapisuje zmiany w plikach. Kliknij Plan.",
+              "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode"
+            },
+            {
+              "typ": "klik",
+              "cel": "tryb",
+              "na": "Plan",
+              "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Plan. Claude najpierw zaproponuje, jak zrobić zadanie, i nie zmieni żadnego pliku. Ten tryb przydaje się przed dużą przebudową plików.",
+              "fakt": "plan-aplikacja-bez-zmian-w-plikach"
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "etykieta": "Daj Claude wolną rękę",
+          "opis": "Przełączasz Claude w tryb Auto.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tryb zmienisz w dowolnej chwili, także w trakcie rozmowy. Kliknij przełącznik trybu.",
+              "fakt": "aplikacja-przelacznik-pod-polem-wiadomosci"
+            },
+            {
+              "typ": "klik",
+              "cel": "tryb-menu",
+              "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Auto jest na liście, gdy ten tryb jest dostępny. Kliknij go.",
+              "fakt": "aplikacja-dostepne-tryby"
+            },
+            {
+              "typ": "klik",
+              "cel": "tryb",
+              "na": "Auto",
+              "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Auto. Zamiast pytać Ciebie, strażnik w tle ocenia działania Claude i blokuje ryzykowne. Tak dajesz Claude wolną rękę.",
+              "fakt": "auto-aplikacja-klasyfikator-blokuje-ryzykowne"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

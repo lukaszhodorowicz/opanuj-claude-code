@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{NAZWA_TEKST}} · {{PODTYTUL}}</title>
+    <meta name="description" content="{{OPIS}}" />
+    <link rel="canonical" href="{{ADRES}}" />
+    <meta property="og:title" content="{{NAZWA_TEKST}}" />
+    <meta property="og:description" content="{{OPIS}}" />
+    <meta property="og:url" content="{{ADRES}}" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=VT323&family=Newsreader:opsz,wght@6..72,500&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      {{STYL}}
+    </style>
+  </head>
+  <body>
+    <header class="gora">
+      <div class="gora-wnetrze">
+        <a class="logo" href="./">
+          {{ZNAK}}
+          <span class="logo-tekst">{{NAZWA}}</span>
+        </a>
+      </div>
+    </header>
+    <main class="start">
+      <section class="start-wstep">
+        <h1>{{TYTUL_H1}}</h1>
+        <p class="start-podtytul">{{PODTYTUL}}</p>
+        <p class="start-haslo">{{HASLO}}</p>
+        {{OPIS_KURSU}}
+        <div class="postep">
+          <p class="postep-gora">
+            <span>TWÓJ POSTĘP</span
+            ><span class="postep-procent" data-postep-napis>0%</span>
+          </p>
+          <div class="postep-ramka" data-postep-pasek>{{KLOCKI}}</div>
+        </div>
+      </section>
+      {{ZAPIS}}
+      <section class="spis" id="lekcje">
+        <h2>Lekcje</h2>
+        {{SPIS}}
+      </section>
+      {{DISCORD}} {{KTO}}
+    </main>
+    {{SKRYPT}} {{SKRYPT_ZAPISU}}
+  </body>
+</html>

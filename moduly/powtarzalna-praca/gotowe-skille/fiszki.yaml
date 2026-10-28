@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak w aplikacji otworzyć listę poleceń i skilli?"
+    tyl: "Wpisz znak / w polu wiadomości albo kliknij + i wybierz Slash commands (polecenia z ukośnikiem)."
+    fakt: skill-aplikacja-menu
+
+  - przod: "Co jest na liście poleceń w aplikacji?"
+    tyl: "Polecenia wbudowane, Twoje skille, skille projektu i skille z zainstalowanych wtyczek."
+    fakt: skill-lista-polecen-co-na-liscie
+
+  - przod: "Co robisz, gdy wybrany skill stoi podświetlony w polu wiadomości?"
+    tyl: "Wpisujesz po nim zadanie i wysyłasz jak zwykle."
+    fakt: skill-wybrany-podswietlony-zadanie-po-nim
+
+  - przod: "Kiedy Claude w aplikacji sam sięga po skill?"
+    tyl: "Gdy skill pasuje do zadania."
+    fakt: aplikacja-skille-claude-laduje-sam-albo-wskazujesz
+
+  - przod: "Jak sprawić, żeby Claude użył konkretnego skilla?"
+    tyl: "Uruchom go jego nazwą z ukośnikiem, na przykład /nazwa."
+    fakt: claude-dopasowuje-zadanie-do-opisow-skilli
+
+  - przod: "Gdzie zarządzasz skillami swojego konta claude.ai?"
+    tyl: "Przez Customize (dostosuj) na pasku bocznym aplikacji albo w ustawieniach skilli na claude.ai."
+    fakt: skille-konta-zarzadzasz-w-customize-albo-na-claude-ai

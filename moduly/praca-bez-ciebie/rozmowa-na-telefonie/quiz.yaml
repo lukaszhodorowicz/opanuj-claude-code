@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Z sali piszesz z telefonu do sesji na komputerze: „Przesuń obiad o pół godziny w harmonogramie”. Gdzie zmienia się plik harmonogramu?"
+    odpowiedzi:
+      - "Na telefonie, a komputer pobierze nową wersję, gdy wrócisz do biura."
+      - "W folderze na komputerze, bo tam cały czas pracuje Claude."
+      - "W chmurze Anthropic, a komputer dostanie później kopię tego pliku."
+    poprawna: 1
+    wyjasnienie: "W sesji Remote Control Claude cały czas pracuje na Twoim komputerze. Tam wykonuje polecenia i czyta pliki."
+    fakt: remote-control-claude-pracuje-na-komputerze
+
+  - pytanie: "Wychodzisz z biura na salę i wyłączasz komputer. Z telefonu chcesz potem poprawić listę dostawców w tej samej sesji. Co się stanie?"
+    odpowiedzi:
+      - "Poprawki nie będzie: telefon tylko łączy się z sesją na komputerze."
+      - "Telefon przejmie pracę, bo ma już całą rozmowę i pliki z komputera."
+      - "Claude dokończy poprawkę w chmurze, a plik pobierzesz później na telefon."
+    poprawna: 0
+    wyjasnienie: "Sesja Remote Control działa na Twoim komputerze, a telefon tylko łączy się z nią. Dlatego komputer musi być cały czas włączony."
+    fakt: remote-control-nie-sesja-w-chmurze
+
+  - pytanie: "W południe z telefonu poszła prośba o zmianę harmonogramu wesela. Wieczorem siadasz przy biurku i chcesz SMS do dostawców z nowymi godzinami. Gdzie o niego prosisz?"
+    odpowiedzi:
+      - "W nowej rozmowie, bo tamta rozmowa została na telefonie."
+      - "Najpierw przenosisz rozmowę z telefonu poleceniem w terminalu."
+      - "W tej samej rozmowie w aplikacji na komputerze."
+    poprawna: 2
+    wyjasnienie: "Sesja z aplikacji na komputer pojawia się na innych urządzeniach, gdy połączy ją Remote Control. To ta sama sesja, więc przy biurku piszesz w niej dalej."
+    fakt: remote-control-aplikacja-sesja-na-innych-urzadzeniach
+
+  - pytanie: "Przed wyjazdem na salę chcesz sprawdzić, czy rozmowa o weselu jest połączona przez Remote Control. Gdzie patrzysz w aplikacji na komputerze?"
+    odpowiedzi:
+      - "W Settings > Claude Code, na ustawienie Connect new sessions to Remote Control."
+      - "W rozmowie: prosisz Claude, żeby potwierdził, że rozmowa jest na telefonie."
+      - "Na kartę Environment w panelu obok rozmowy, na przełącznik Remote Control."
+    poprawna: 2
+    wyjasnienie: "To, czy sesja jest połączona, sprawdzasz na przełączniku Remote Control w karcie Environment jej panelu szczegółów."
+    fakt: remote-control-aplikacja-stan-w-karcie-environment

@@ -1,0 +1,306 @@
+<!doctype html>
+<!-- Rysunek R4 „Co się dzieje po /odpowiedz-klientowi mail-reklamacja-zielinska.txt” do lekcji pierwszy-skill: nazwa uruchamia skill, tekst po nazwie dopisany na końcu treści, treść zostaje w rozmowie przez kolejne tury. Źródło PNG obrazy/co-sie-dzieje-z-trescia-skilla.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co się dzieje z treścią skilla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku R1 modułu strona */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* okno aplikacji jak w ćwiczeniu */
+        --okno: #1b1b1d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+        /* wspólna miara wiadomości i klamer: 21 px na znak czcionki mono */
+        --mono-wiadomosc: 700 21px/1.3 var(--mono);
+        --wciecie: 34px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      svg {
+        display: block;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+
+      /* ===== 1. Wiadomość w oknie i klamry pod nią ===== */
+      .okno {
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 18px 16px;
+      }
+      .dymek {
+        display: inline-block;
+        margin-left: calc(var(--wciecie) - 16px);
+        padding: 10px 14px;
+        border: 2px solid var(--okno-kreska);
+        border-radius: 12px;
+        background: #2f2f33;
+        color: var(--okno-tekst);
+        font: var(--mono-wiadomosc);
+        white-space: pre;
+      }
+      /* kolumny w znakach tej samej czcionki: 20 znaków nazwy, spacja, 29 znaków pliku */
+      .klamry {
+        display: grid;
+        grid-template-columns: 20ch 1ch 29ch;
+        margin: 10px 0 0 calc(var(--wciecie) + 16px);
+        font: var(--mono-wiadomosc);
+      }
+      .klamra {
+        display: flex;
+        flex-direction: column;
+      }
+      .klamra:last-child {
+        grid-column: 3;
+      }
+      .klamra svg {
+        width: 100%;
+        height: 18px;
+      }
+      .klamra p {
+        margin: 6px 0 0;
+        text-align: center;
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== Strzałka w dół ===== */
+      .strzalka {
+        display: flex;
+        justify-content: center;
+        margin: 6px 0;
+      }
+      .strzalka svg {
+        width: 30px;
+        height: 46px;
+      }
+
+      /* ===== 2. Karta Treść SKILL.md z doklejonym paskiem ===== */
+      .karta {
+        width: 470px;
+        margin: 0 auto;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .karta-glowa {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 14px 16px 6px;
+        font: 800 25px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .karta-glowa svg {
+        width: 26px;
+        height: 26px;
+        flex: none;
+      }
+      .linie {
+        padding: 6px 16px 14px;
+      }
+      .linia {
+        height: 10px;
+        border-radius: 5px;
+        background: #d6d9cd;
+        margin-top: 9px;
+      }
+      .dopisek {
+        padding: 12px 16px;
+        border-top: 3px dashed var(--granat);
+        background: var(--papier-2);
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== 3. Oś rozmowy: trzy tury i pas treści skilla ===== */
+      .os {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 16px 16px 18px;
+      }
+      .tury {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .tury::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 44px;
+        border-top: 4px solid var(--granat);
+      }
+      .tura {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        font: 800 24px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .tura i {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+      /* pas zaczyna się pod turą 1 (środek pierwszej kolumny) i biegnie pod kolejnymi turami */
+      .pas {
+        margin: 14px 0 0 calc(100% / 6 - 20px);
+        display: flex;
+        align-items: center;
+        min-height: 58px;
+        padding: 8px 16px;
+        border-radius: 12px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        font: 800 23px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pas .wiadomosc {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 12px;
+        margin-left: -8px;
+        white-space: nowrap;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 10px;
+        font: 800 21px/1.2 var(--sans);
+      }
+      .pas .wiadomosc svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .pas-podpis {
+        margin: 12px 0 0 calc(100% / 6 - 16px);
+        font: 800 23px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== 4. Szara notka na końcu osi ===== */
+      .notka-wiersz {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .laczenie {
+        width: 4px;
+        height: 22px;
+        margin-right: 92px;
+        border-left: 4px dashed var(--grafit);
+      }
+      .notka {
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        color: var(--grafit);
+        font: 800 22px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat, #0e1422); }
+      .wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Wiadomość /odpowiedz-klientowi mail-reklamacja-zielinska.txt. Nazwa na początku wiadomości uruchamia skill, a nazwa pliku to tekst po nazwie. Treść SKILL.md dostaje na końcu dopisany tekst po nazwie. Ta treść wchodzi do rozmowy w turze 1 jako jedna wiadomość i zostaje w turze 2 i 3; Claude Code nie czyta pliku ponownie. Po streszczeniu długiej rozmowy może zostać tylko początek skilla: uruchom go jeszcze raz."
+    >
+      <p class="wniosek">Treść skilla wchodzi do rozmowy raz <mark>i w niej zostaje</mark>.</p>
+      <!-- 1. Wiadomość -->
+      <div class="okno"><span class="dymek">/odpowiedz-klientowi mail-reklamacja-zielinska.txt</span></div>
+      <div class="klamry">
+        <div class="klamra">
+          <svg viewBox="0 0 100 18" preserveAspectRatio="none" aria-hidden="true"><path d="M2 2 V8 H98 V2 M50 8 V17" fill="none" stroke="#0e1422" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Nazwa na początku wiadomości uruchamia skill.</p>
+        </div>
+        <div class="klamra">
+          <svg viewBox="0 0 100 18" preserveAspectRatio="none" aria-hidden="true"><path d="M2 2 V8 H98 V2 M50 8 V17" fill="none" stroke="#0e1422" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Tekst po nazwie</p>
+        </div>
+      </div>
+
+      <div class="strzalka">
+        <svg viewBox="0 0 30 46" aria-hidden="true"><path d="M15 3 V42 M4 31 L15 43 L26 31" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- 2. Treść SKILL.md -->
+      <div class="karta">
+        <div class="karta-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          Treść SKILL.md
+        </div>
+        <div class="linie">
+          <div class="linia" style="width: 100%"></div>
+          <div class="linia" style="width: 86%"></div>
+          <div class="linia" style="width: 62%"></div>
+        </div>
+        <div class="dopisek">Gdy skill nie ma na niego miejsca, tekst po nazwie trafia na koniec treści.</div>
+      </div>
+
+      <div class="strzalka">
+        <svg viewBox="0 0 30 46" aria-hidden="true"><path d="M15 3 V42 M4 31 L15 43 L26 31" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- 3. Oś rozmowy -->
+      <div class="os">
+        <div class="tury">
+          <div class="tura">tura 1<i></i></div>
+          <div class="tura">tura 2<i></i></div>
+          <div class="tura">tura 3<i></i></div>
+        </div>
+        <div class="pas">
+          <span class="wiadomosc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            Treść skilla wchodzi jako jedna wiadomość.
+          </span>
+        </div>
+        <p class="pas-podpis">Zostaje w rozmowie, a Claude Code nie czyta pliku ponownie.</p>
+      </div>
+
+      <!-- 4. Notka -->
+      <div class="notka-wiersz"><div class="laczenie"></div></div>
+      <div class="notka">Po streszczeniu długiej rozmowy może zostać tylko początek skilla. Wtedy uruchom go jeszcze raz.</div>
+    </div>
+  </body>
+</html>

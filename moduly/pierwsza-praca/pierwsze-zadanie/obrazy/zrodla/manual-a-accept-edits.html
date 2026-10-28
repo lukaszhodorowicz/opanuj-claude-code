@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- Rysunek do lekcji pierwsze-zadanie (styl R1, D-2026-10-26-58): ten sam krok „Claude chce zapisać plik” w trybie Manual (podgląd zmiany i zgoda) i Accept edits (zapis od razu). Źródło PNG obrazy/manual-a-accept-edits.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Manual a Accept edits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        --a-tlo: #191919;
+        --a-kreska: #3d3d3d;
+        --a-tekst: #eeeeee;
+        --a-szkic: #4a4a4a;
+        --a-plus: #6fd08c;
+        --a-plus-tlo: #1d3324;
+        --a-minus: #f08a7e;
+        --a-minus-tlo: #3d2220;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys {
+        padding: 20px 16px 22px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+        column-gap: 24px;
+      }
+      h2 {
+        margin: 0 0 12px;
+        text-align: center;
+        font: 700 30px/1.1 var(--mono);
+        letter-spacing: -0.01em;
+      }
+      .krok {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 16px 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font: 800 23px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .krok svg { width: 34px; height: 34px; flex: none; }
+      .srodek { display: flex; flex-direction: column; align-items: center; }
+      .strzalka { width: 40px; flex: none; }
+      .strzalka.dluga { flex: 1; min-height: 60px; }
+      .okienko {
+        width: 100%;
+        background: var(--a-tlo);
+        border-radius: 16px;
+        padding: 14px;
+        box-shadow: 0 0 0 5px var(--limonka);
+        margin: 4px 0;
+      }
+      .diff { border: 1px solid var(--a-kreska); border-radius: 10px; overflow: hidden; }
+      .diff div { height: 30px; display: flex; align-items: center; gap: 10px; padding: 0 10px; }
+      .diff b { width: 14px; font: 700 20px/1 var(--mono); }
+      .diff i { display: block; height: 9px; border-radius: 5px; }
+      .diff .rowna i { background: var(--a-szkic); }
+      .diff .minus { background: var(--a-minus-tlo); color: var(--a-minus); }
+      .diff .minus i { background: #7a3f39; }
+      .diff .plus { background: var(--a-plus-tlo); color: var(--a-plus); }
+      .diff .plus i { background: #3c7a4e; }
+      .przyciski { display: flex; gap: 10px; margin-top: 12px; }
+      .przyciski span { flex: 1; height: 46px; border-radius: 10px; display: grid; place-items: center; }
+      .przyciski svg { width: 26px; height: 26px; }
+      .przyjmij { background: var(--a-tekst); color: var(--a-tlo); }
+      .odrzuc { border: 2px solid #5a5a5a; color: var(--a-tekst); }
+      .folder {
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 10px 10px;
+      }
+      .folder-glowa { display: flex; align-items: center; gap: 8px; margin: 0 0 8px 2px; }
+      .folder-glowa svg { width: 26px; height: 26px; }
+      .folder-glowa i { height: 10px; width: 46%; border-radius: 5px; background: var(--linia); }
+      .karta {
+        display: flex; align-items: center; gap: 10px; height: 50px; padding: 0 12px;
+        background: var(--biel); border: 3px solid var(--granat); border-radius: 11px;
+      }
+      .karta svg { width: 24px; height: 24px; flex: none; }
+      .karta i { height: 10px; width: 62%; border-radius: 5px; background: var(--linia); }
+      .podpis {
+        margin: 14px 0 0;
+        text-align: center;
+        font: 800 25px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Ten sam krok: Claude chce zapisać plik. W trybie Manual między krokiem a plikiem stoi okienko z podglądem zmiany i przyciskami przyjmij i odrzuć: Claude pyta przed zapisem. W trybie Accept edits strzałka prowadzi od razu do nowego pliku w folderze: Claude nie pyta, zapisuje od razu.">
+      <!-- wiersz 1: nazwy trybów -->
+      <h2>Manual</h2>
+      <h2>Accept edits</h2>
+      <!-- wiersz 2: ten sam krok -->
+      <div class="krok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v6"/><path d="M14 3v4h4"/><path d="M6 3v18h6"/><path d="M15.5 21l.6-2.6 4.6-4.6a1.4 1.4 0 0 1 2 2l-4.6 4.6z"/></svg>
+        Claude chce zapisać plik
+      </div>
+      <div class="krok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v6"/><path d="M14 3v4h4"/><path d="M6 3v18h6"/><path d="M15.5 21l.6-2.6 4.6-4.6a1.4 1.4 0 0 1 2 2l-4.6 4.6z"/></svg>
+        Claude chce zapisać plik
+      </div>
+      <!-- wiersz 3: okienko zgody albo długa strzałka -->
+      <div class="srodek">
+        <svg class="strzalka" viewBox="0 0 40 44" height="44" aria-hidden="true"><path d="M20 4 V38 M9 28 L20 40 L31 28" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="okienko" aria-hidden="true">
+          <div class="diff">
+            <div class="rowna"><b></b><i style="width: 70%"></i></div>
+            <div class="minus"><b>−</b><i style="width: 56%"></i></div>
+            <div class="plus"><b>+</b><i style="width: 76%"></i></div>
+            <div class="plus"><b>+</b><i style="width: 48%"></i></div>
+          </div>
+          <div class="przyciski">
+            <span class="przyjmij"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            <span class="odrzuc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></span>
+          </div>
+        </div>
+        <svg class="strzalka" viewBox="0 0 40 44" height="44" aria-hidden="true"><path d="M20 4 V38 M9 28 L20 40 L31 28" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="srodek">
+        <svg class="strzalka dluga" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true"><path d="M20 4 V97" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        <svg class="strzalka" viewBox="0 0 40 16" height="16" aria-hidden="true" style="margin-top: -4px"><path d="M9 2 L20 14 L31 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <!-- wiersz 4: nowy plik w folderze -->
+      <div class="folder">
+        <div class="folder-glowa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg><i></i></div>
+        <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i></i></div>
+      </div>
+      <div class="folder">
+        <div class="folder-glowa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg><i></i></div>
+        <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i></i></div>
+      </div>
+      <!-- wiersz 5: podpisy -->
+      <p class="podpis">Claude pyta, zanim zapisze plik.</p>
+      <p class="podpis">Claude zapisuje plik od razu, bez pytania.</p>
+    </div>
+  </body>
+</html>

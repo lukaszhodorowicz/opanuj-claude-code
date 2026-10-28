@@ -1,0 +1,141 @@
+<!doctype html>
+<!-- Rysunek R3 „Co widzi hook, a czego nie” do lekcji zasada-ktorej-claude-nie-pominie: Write daje hookowi całą treść, Edit tekst do zamiany i nowy tekst, zmiana poleceniem albo innym programem nie rusza hooka Edit|Write (zakreślacz); pasek: hook rusza po zapisie i go nie cofa. Źródło PNG obrazy/co-widzi-hook.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co widzi hook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .ramka {
+        overflow: hidden;
+      }
+      .wiersze {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+      }
+      .wiersz {
+        display: grid;
+        grid-template-columns: 48px 1.2fr 40px 50px 1fr;
+        align-items: center;
+        column-gap: 10px;
+        padding: 12px 12px;
+        border-radius: 20px;
+        border: 4px solid transparent;
+      }
+      .wiersz.ten {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+      }
+      .ikona svg {
+        display: block;
+        width: 48px;
+        height: 48px;
+      }
+      .przyczyna {
+        font: 700 21px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .skutek {
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .przyczyna code,
+      .skutek code {
+        font-size: 19px;
+      }
+      .strzalka svg {
+        display: block;
+        width: 44px;
+        height: 24px;
+        overflow: visible;
+      }
+      .znak {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 3px solid var(--granat);
+        background: var(--biel);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .znak svg {
+        width: 28px;
+        height: 28px;
+      }
+      .znak.nie {
+        background: var(--granat);
+      }
+      .pasek {
+        margin: 4px 0 0;
+        padding: 18px 20px;
+        background: var(--granat);
+        color: var(--biel);
+        text-align: center;
+        font: 800 24px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza code {
+        font-size: 0.86em;
+        margin: 0 0.12em;
+        letter-spacing: -0.04em;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Trzy wiersze. Claude zapisuje nowy plik narzędziem Write: hook dostaje całą treść. Claude zmienia istniejący plik narzędziem Edit: hook dostaje tekst do zamiany i nowy tekst. Plik zmienia polecenie uruchomione przez Claude albo inny program (zaznaczone): hook Edit|Write nie rusza. Pasek pod spodem: hook rusza po zapisie, plik już jest zmieniony, hook go nie cofa.">
+      <h1 class="teza">Hook <code>Edit|Write</code> widzi tylko zapisy, które <mark>Claude robi tymi narzędziami</mark></h1>
+      <div class="ramka">
+        <div class="wiersze">
+          <!-- Write -->
+          <div class="wiersz">
+            <div class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M12 11v6M9 14h6"/></svg></div>
+            <div class="przyczyna">Claude zapisuje nowy plik (<code>Write</code>)</div>
+            <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="znak tak"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg></div>
+            <div class="skutek">Hook dostaje całą treść pliku</div>
+          </div>
+          <!-- Edit -->
+          <div class="wiersz">
+            <div class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 16h3"/></svg></div>
+            <div class="przyczyna">Claude zmienia istniejący plik (<code>Edit</code>)</div>
+            <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="znak tak"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg></div>
+            <div class="skutek">Hook dostaje tekst do zamiany i&nbsp;nowy tekst</div>
+          </div>
+          <!-- Polecenie albo inny program -->
+          <div class="wiersz ten">
+            <div class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12l2.5 2.5L9 17"/><path d="M13 17h2.5"/></svg></div>
+            <div class="przyczyna">Polecenie uruchomione przez Claude albo inny program zmienia plik</div>
+            <div class="strzalka"><svg viewBox="0 0 54 24" aria-hidden="true"><path d="M6 12H46M37 3l10 9-10 9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="znak nie"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></div>
+            <div class="skutek">Hook <code>Edit|Write</code> wtedy nie rusza</div>
+          </div>
+        </div>
+        <p class="pasek">Hook rusza po zapisie, więc plik jest już zmieniony.<br />Hook tego nie cofa.</p>
+      </div>
+    </div>
+  </body>
+</html>

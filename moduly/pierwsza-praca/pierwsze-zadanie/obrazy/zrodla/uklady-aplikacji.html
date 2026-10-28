@@ -1,0 +1,120 @@
+<!doctype html>
+<!-- Rysunek do lekcji pierwsze-zadanie (styl R1, D-2026-10-26-58): starszy i obecny układ zakładki Code; wybór środowiska i folder przeniosły się znad pola wiadomości do rzędu pod nim. Źródło PNG obrazy/uklady-aplikacji.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Dwa układy aplikacji</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --a-tlo: #191919;
+        --a-pole: #262626;
+        --a-kreska: #3d3d3d;
+        --a-tekst: #eeeeee;
+        --a-dymek: #303030;
+        --a-szkic: #4a4a4a;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 16px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      .uklad { display: flex; flex-direction: column; }
+      .uklad h2 { margin: 0 0 12px 4px; font: 800 28px/1.1 var(--sans); letter-spacing: -0.025em; }
+      .okno {
+        background: var(--a-tlo);
+        border-radius: 16px;
+        padding: 0 12px 14px;
+        color: var(--a-tekst);
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+      }
+      .okno-gora { height: 34px; display: flex; align-items: center; gap: 7px; padding-left: 2px; }
+      .okno-gora i { width: 11px; height: 11px; border-radius: 50%; background: #4a4a4f; }
+      .rozmowa { flex: 1; display: flex; flex-direction: column; gap: 10px; padding-top: 10px; }
+      .dymek { align-self: flex-end; width: 78%; background: var(--a-dymek); border-radius: 12px; padding: 12px; }
+      .dymek i, .odp i, .btn i { display: block; height: 9px; border-radius: 5px; background: var(--a-szkic); }
+      .dymek i + i, .odp i + i { margin-top: 8px; }
+      .odp { width: 70%; padding: 4px 2px; }
+      .pole { height: 52px; background: var(--a-pole); border: 1px solid var(--a-kreska); border-radius: 14px; }
+      .rzad { height: 44px; display: flex; align-items: center; gap: 6px; }
+      .rzad.nad { margin-bottom: 8px; }
+      .rzad.pod { margin-top: 8px; }
+      .btn {
+        height: 40px; border-radius: 10px; padding: 0 10px;
+        display: flex; align-items: center; gap: 8px; color: var(--a-tekst);
+      }
+      .btn svg { width: 22px; height: 22px; flex: none; }
+      .para { display: flex; align-items: center; gap: 6px; border-radius: 12px; padding: 2px; }
+      .para.neutralna { box-shadow: 0 0 0 3px var(--a-tekst); }
+      .para.sedno { background: var(--zakreslacz); color: var(--granat); box-shadow: 0 0 0 3px var(--limonka); }
+      .para.sedno .btn { color: var(--granat); }
+      .para.sedno .btn i { background: #8fb85a; }
+      .model { margin-left: auto; }
+      .opis { margin: 14px 4px 0; display: flex; flex-direction: column; gap: 6px; font: 600 21px/1.25 var(--sans); }
+      .opis b { font-weight: 800; }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Dwa układy zakładki Code. Starszy układ: wybór środowiska i folder nad polem wiadomości, tryb i model pod nim. Obecny układ: pod polem wiadomości jeden rząd ze środowiskiem, folderem, trybem i modelem. Wybór środowiska i folder są zaznaczone w obu oknach, w starszym układzie zakreślaczem.">
+      <section class="uklad">
+        <h2>Starszy układ</h2>
+        <div class="okno">
+          <div class="okno-gora"><i></i><i></i><i></i></div>
+          <div class="rozmowa">
+            <div class="dymek"><i style="width: 90%"></i><i style="width: 60%"></i></div>
+            <div class="odp"><i style="width: 100%"></i><i style="width: 70%"></i></div>
+          </div>
+          <div class="rzad nad">
+            <span class="para sedno"><span class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="14" height="9.5" rx="1.5"/><path d="M3 18.5h18"/></svg></span>
+            <span class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg><i style="width: 60px"></i></span></span>
+          </div>
+          <div class="pole"></div>
+          <div class="rzad pod">
+            <span class="btn"><i style="width: 54px"></i></span>
+            <span class="btn model"><i style="width: 62px"></i></span>
+          </div>
+        </div>
+        <div class="opis">
+          <span><b>Nad polem</b> wybierasz środowisko i folder.</span>
+          <span><b>Pod polem</b> wybierasz tryb i model.</span>
+        </div>
+      </section>
+      <section class="uklad">
+        <h2>Obecny układ</h2>
+        <div class="okno">
+          <div class="okno-gora"><i></i><i></i><i></i></div>
+          <div class="rozmowa">
+            <div class="dymek"><i style="width: 90%"></i><i style="width: 60%"></i></div>
+            <div class="odp"><i style="width: 100%"></i><i style="width: 70%"></i></div>
+          </div>
+          <div class="pole"></div>
+          <div class="rzad pod">
+            <span class="para neutralna"><span class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="14" height="9.5" rx="1.5"/><path d="M3 18.5h18"/></svg></span>
+            <span class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg><i style="width: 60px"></i></span></span>
+            <span class="btn"><i style="width: 44px"></i></span>
+            <span class="btn model"><i style="width: 44px"></i></span>
+          </div>
+        </div>
+        <div class="opis">
+          <span><b>Pod polem</b> wybierasz środowisko, folder, tryb i model.</span>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

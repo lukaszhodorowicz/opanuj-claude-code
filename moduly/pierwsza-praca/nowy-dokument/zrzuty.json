@@ -1,0 +1,123 @@
+{
+  "cw1-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-cel": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-bez": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-z": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 45000,
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1",
+    "polecenie": "cw1"
+  },
+  "cw1-375-bez": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-z": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 45000,
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1",
+    "polecenie": "cw1"
+  },
+  "cw1-375-cel": {
+    "szer": 375,
+    "wys": 1600,
+    "budzet": 15000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 900,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-zrzut": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-zrzut": {
+    "szer": 375,
+    "wys": 2300,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "podglad-375": {
+    "szer": 375,
+    "wys": 3400,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw1-mysli-bez": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 1900,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw2-mysli": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 2000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw1-mysli-z": {
+    "szer": 1280,
+    "wys": 950,
+    "budzet": 7300,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])"
+    ],
+    "do": "cw1"
+  }
+}

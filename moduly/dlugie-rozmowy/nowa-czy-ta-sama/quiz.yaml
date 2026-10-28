@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Wczoraj w rozmowie z Claude padło ustalenie: 8% rabatu dla klienta za umowę roczną. Dziś klikasz + New i prosisz o ofertę „z ustalonym rabatem”. Co ma w historii nowa rozmowa?"
+    odpowiedzi:
+      - "Ma ustalenie o rabacie, bo pracuje w tym samym folderze co wczorajsza rozmowa."
+      - "Dostaje kopię historii wczorajszej rozmowy."
+      - "Nie ma ustaleń z wczorajszej rozmowy, bo każda rozmowa ma własną historię."
+    poprawna: 2
+    wyjasnienie: "W zakładce Code każda rozmowa ma własną historię, niezależną od innych rozmów. Ustalenie z wczoraj jest tylko w historii tamtej rozmowy."
+    fakt: aplikacja-kazda-rozmowa-to-sesja
+
+  - pytanie: "Chcesz dokończyć ofertę we wczorajszej rozmowie, w której padło ustalenie o rabacie dla klienta. Jak do niej wrócić w aplikacji?"
+    odpowiedzi:
+      - "Klikasz tę rozmowę w pasku bocznym."
+      - "Wpisujesz /resume w polu wiadomości."
+      - "Naciskasz Cmd+N, bo ten skrót otwiera ostatnią rozmowę."
+    poprawna: 0
+    wyjasnienie: "W aplikacji do starej rozmowy wracasz kliknięciem w pasku bocznym."
+    fakt: aplikacja-powrot-do-sesji-klik-w-pasku-bocznym
+
+  - pytanie: "Prosisz Claude, żeby rozmowie o ofercie dla galerii nadał nazwę „Oferta Galeria Pasaż 2027”. Gdzie zobaczysz tę nazwę po otwarciu tamtej rozmowy?"
+    odpowiedzi:
+      - "W nazwie folderu w rzędzie pod polem wiadomości."
+      - "W pasku tytułu tej rozmowy."
+      - "W nazwie pliku oferty, który Claude zapisał w folderze."
+    poprawna: 1
+    wyjasnienie: "Tytuł rozmowy widać w pasku tytułu. Tam też go klikasz, gdy chcesz zmienić nazwę bez pomocy Claude."
+    fakt: aplikacja-zmiana-nazwy-klik-tytulu
+
+  - pytanie: "Na liście w pasku bocznym jest stara rozmowa o zapytaniu hotelu Mewa. Otwierasz jej menu i wybierasz Archive. Co się z nią dzieje?"
+    odpowiedzi:
+      - "Znika na zawsze, razem z całą historią."
+      - "Przechodzi do zarchiwizowanych rozmów."
+      - "Claude przenosi jej pliki do osobnego folderu."
+    poprawna: 1
+    wyjasnienie: "Po wybraniu Archive w menu rozmowy w pasku bocznym rozmowa przechodzi do zarchiwizowanych rozmów."
+    fakt: aplikacja-archiwizacja-z-menu-w-pasku-bocznym

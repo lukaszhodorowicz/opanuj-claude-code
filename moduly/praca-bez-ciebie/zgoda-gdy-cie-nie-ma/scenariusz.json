@@ -1,0 +1,179 @@
+{
+  "lekcja": "zgoda-gdy-cie-nie-ma",
+  "folder_startowy": [
+    "raport-zapisow.txt",
+    "zapisy-online.csv",
+    "zapisy-online-kopia.csv"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Przebieg czeka na Twoją zgodę",
+      "opis": "Ćwiczenie odbywa się w zakładce Code aplikacji Claude. Okno pokazuje sesję, którą zadanie z harmonogramu zaczęło samo o 7:00. W folderze leży też kopia pliku z zapisami. Przyda się w ćwiczeniu 2. Klikaj polecenia nad oknem po kolei.",
+      "nauczyciel_start": "Jest poniedziałek, 10:00. Zadanie z raportem zapisów ruszyło samo o 7:00, w trybie Manual. Kliknij polecenie i zobacz sesję przebiegu.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkola-tanca-zapisy",
+        "tryb": "Manual",
+        "rozmowa": []
+      },
+      "etapy": [
+        {
+          "etykieta": "Zobacz sesję przebiegu z 7:00",
+          "opis": "Tę sesję zadanie zaczęło bez Ciebie.",
+          "fakt": "harmonogram-zadanie-startuje-nowa-sesje",
+          "kroki": [
+            {
+              "typ": "claude",
+              "tekst": "Czytam zapisy-online.csv i liczę nowe osoby z zeszłego tygodnia."
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["zapisy-online.csv"],
+              "fakt": "tryb-manual-bez-pytania-tylko-odczyt"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopisuję zapisy z tygodnia 19–25.10 do raport-zapisow.txt."
+            },
+            {
+              "typ": "zgoda",
+              "plik": "raport-zapisow.txt",
+              "linijki": [
+                {
+                  "tekst": "Tydzień 12-18.10: 29 nowych osób"
+                },
+                {
+                  "tekst": "Tydzień 19-25.10: 37 nowych osób (salsa 15, bachata 12, balet dla dzieci 10)",
+                  "zmiana": "dodana"
+                }
+              ],
+              "fakt": "aplikacja-manual-podglad-i-przyciski"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przebieg stoi na tej karcie zgody od 7:00. W trybie Manual czeka, aż zatwierdzisz zmianę ptaszkiem.",
+              "fakt": "zgoda-bez-ciebie-manual-przebieg-stoi"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zatwierdź zmianę",
+          "opis": "Klikasz ptaszek na karcie zgody w sesji przebiegu.",
+          "klik": "zatwierdz",
+          "fakt": "aplikacja-manual-przyciski-zatwierdzania",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zmiana trafiła do raportu dopiero teraz, trzy godziny po starcie przebiegu. Plik pod oknem ma znacznik zmiany.",
+              "fakt": "tryb-manual-aplikacja-czeka-na-zatwierdzenie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Raport za tydzień 19–25.10 jest gotowy w raport-zapisow.txt."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na każde pytanie, na którym stanie przebieg, odpowiadasz tak samo: w jego sesji.",
+              "fakt": "harmonogram-sesja-przebiegu-co-widac"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Tydzień później: przebieg w trybie Auto",
+      "opis": "Widzisz to samo zadanie tydzień później. Teraz działa w trybie Auto. W folderze leży też niepotrzebna kopia pliku z zapisami.",
+      "nauczyciel_start": "Jest następny poniedziałek, 10:00. Zadanie działa teraz w trybie Auto. Kliknij polecenie i zobacz sesję przebiegu z 7:00.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkola-tanca-zapisy",
+        "tryb": "Auto",
+        "rozmowa": []
+      },
+      "etapy": [
+        {
+          "etykieta": "Zobacz sesję przebiegu z 7:00",
+          "opis": "Tę sesję zadanie zaczęło i skończyło bez Ciebie.",
+          "fakt": "harmonogram-tryb-wlasny-zadania",
+          "kroki": [
+            {
+              "typ": "claude",
+              "tekst": "Czytam zapisy-online.csv i liczę nowe osoby z zeszłego tygodnia."
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["zapisy-online.csv"],
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "raport-zapisow.txt",
+                  "linijki": [
+                    {
+                      "tekst": "Tydzień 19-25.10: 37 nowych osób (salsa 15, bachata 12, balet dla dzieci 10)"
+                    },
+                    {
+                      "tekst": "Tydzień 26.10-1.11: 41 nowych osób (salsa 14, bachata 16, balet dla dzieci 11)",
+                      "zmiana": "dodana"
+                    }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zmiana raportu przeszła bez karty zgody. Strażnik nie ocenia zmian plików w folderze, poza zapisami w chronionych folderach i plikach. Spójrz na plik pod oknem.",
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Uzupełniłem raport. Chciałem też usunąć zapisy-online-kopia.csv, bo powtarza zapisy-online.csv, ale kasowanie zostało zablokowane. Plik zostawiam Tobie.",
+              "fakt": "auto-aplikacja-klasyfikator-blokuje-ryzykowne"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kasowanie to polecenie, więc tym razem ocenił je strażnik. Na jego liście blokad jest nieodwracalne kasowanie plików, które istniały przed sesją.",
+              "fakt": "auto-blokuje-niszczenie-plikow"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przebieg nie czekał na Ciebie. Claude dostał powód blokady i opisał ją tutaj, w sesji przebiegu.",
+              "fakt": "auto-claude-dostaje-powod-blokady"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zobacz zmiany przebiegu",
+          "opis": "Klikasz liczby na karcie Changes (zmiany) w panelu obok rozmowy.",
+          "klik": "licznik",
+          "fakt": "aplikacja-klikniecie-wskaznika-otwiera-widok-zmian",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "W sesji przebiegu przeglądasz zmiany. Doszła jedna linijka raportu, a kopia pliku z zapisami dalej leży w folderze pod oknem.",
+              "fakt": "harmonogram-sesja-przebiegu-co-widac"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

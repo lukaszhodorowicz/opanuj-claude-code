@@ -1,0 +1,228 @@
+/* Wygląd menu i okienek po zrzutach Łukasza z 27.10.2026 (część B silnika): lista trybów z nagłówkiem, podpisami i haczykiem, menu modelu z Fast mode, lista wysiłku z pigułkami, okienko pierścienia z wierszami limitów i menu ⋮ z dwiema pozycjami. Napisy: strona/aplikacja-ekran.js. */
+
+/* pigułki: Recommended, 3.5× or more usage, Buy credits */
+.apl-pigulka {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  padding: 1px 8px;
+  border: 1px solid #555555;
+  border-radius: 999px;
+  color: var(--a-szary);
+  font: 500 11.5px/1.5 var(--a-sans);
+  white-space: nowrap;
+}
+.apl-okno .apl-pigulka svg {
+  width: 12px;
+  height: 12px;
+}
+.apl-pig-kup {
+  border-color: #3d5a96;
+  background: #27334d;
+  color: #86aef7;
+}
+.apl-pig-ostrzezenie {
+  border-color: #7a6422;
+  background: #373021;
+  color: #e6b640;
+}
+
+/* lista trybów: nagłówek, nazwa z haczykiem, podpis pod nazwą */
+.apl-menu-trybow {
+  min-width: 290px;
+}
+.apl-menu-naglowek {
+  padding: 6px 12px 8px;
+  color: var(--a-szary);
+  font: 500 13px/1.3 var(--a-sans);
+}
+.apl-tryb-poz {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 8px;
+  row-gap: 1px;
+  align-items: center;
+  padding: 7px 12px;
+}
+.apl-tryb-poz .apl-tryb-nazwa {
+  grid-column: 1;
+}
+.apl-tryb-poz .apl-ptak {
+  grid-column: 2;
+  grid-row: 1;
+  margin-left: 0;
+  visibility: hidden;
+}
+.apl-tryb-poz.wybrany {
+  background: #404040;
+}
+.apl-tryb-poz.wybrany .apl-ptak {
+  visibility: visible;
+}
+.apl-tryb-poz small {
+  grid-column: 1 / -1;
+  color: var(--a-szary);
+  font: 400 13px/1.35 var(--a-sans);
+}
+
+/* menu modelu: cyfra skrótu, nagłówek części, wiersz z podpisem i pigułką */
+.apl-menu-skrot {
+  margin-left: auto;
+  color: var(--a-szary);
+  font: 400 13px/1.3 var(--a-sans);
+}
+.apl-menu-sekcja {
+  padding: 8px 10px 2px;
+  color: var(--a-szary);
+  font: 400 13px/1.3 var(--a-sans);
+}
+.apl-menu-modelu .apl-menu-szybki {
+  align-items: center;
+  gap: 8px;
+}
+.apl-menu-dwie {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.apl-menu-dwie small {
+  color: var(--a-szary);
+  font: 400 12.5px/1.35 var(--a-sans);
+}
+
+/* lista wysiłku: zdanie u góry, nazwy poziomów z pigułkami, Ultracode */
+.apl-menu-wysilku .apl-wysilek-opis {
+  display: block;
+  margin: 0;
+  padding: 8px 10px 8px;
+  color: var(--a-szary);
+  font: 400 13px/1.45 var(--a-sans);
+}
+.apl-menu-wysilku .apl-poziom {
+  justify-content: flex-start;
+  gap: 8px;
+}
+.apl-menu-wysilku .apl-ultracode {
+  color: #a98cf5;
+}
+/* wąskie okno: lista stoi w miejscu menu i ma 160 px (po jej lewej jest notka kursu), więc pigułka schodzi pod nazwę poziomu, a ✓ zostaje w pierwszej linii */
+.apl-menu-waska .apl-poziom {
+  position: relative;
+  flex-wrap: wrap;
+  row-gap: 3px;
+  padding-right: 30px;
+}
+.apl-menu-waska .apl-poziom .apl-ptak {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}
+.apl-menu-waska .apl-wysilek-opis {
+  font-size: 12px;
+}
+
+/* okienko pierścienia: nagłówek z odnośnikiem, wiersze limitów z podpisem po prawej, puste paski postępu */
+.apl-okienko-zuzycia {
+  width: 360px;
+  gap: 12px;
+  padding: 14px 16px 16px;
+}
+.apl-okienko-glowa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--a-szary);
+  font: 400 13px/1.3 var(--a-sans);
+}
+.apl-okienko-glowa .apl-okienko-naglowek {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.apl-okienko-wszystko {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  color: var(--a-tekst);
+}
+.apl-okno .apl-okienko-wszystko svg {
+  width: 13px;
+  height: 13px;
+}
+.apl-okienko-wiersz {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  color: var(--a-tekst);
+  font: 400 14px/1.35 var(--a-sans);
+}
+.apl-okienko-wiersz b {
+  font-weight: 400;
+}
+.apl-okienko-podpis {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--a-szary);
+  font: 400 13px/1.35 var(--a-sans);
+}
+.apl-okienko-wiersz .apl-okienko-podpis {
+  margin-left: auto;
+}
+.apl-okno .apl-okienko-pytajnik {
+  display: inline-flex;
+  margin-left: -4px;
+  color: var(--a-szary);
+}
+.apl-okno .apl-okienko-pytajnik svg {
+  width: 15px;
+  height: 15px;
+}
+.apl-okienko-tor {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: #474747;
+}
+
+/* menu ⋮: dwie pozycje z ikoną; Side chat bez skutku, Background tasks z licznikiem */
+.apl-menu-paska {
+  min-width: 250px;
+}
+.apl-menu-paska .apl-menu-skrot {
+  margin-left: auto;
+}
+.apl-menu-paska .apl-menu-nieaktywna {
+  color: var(--a-tekst);
+  opacity: 1;
+}
+.apl-menu-paska .apl-menu-nieaktywna:hover {
+  background: none;
+}
+.apl-menu-licznik {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 22px;
+  height: 22px;
+  margin-left: auto;
+  padding: 0 6px;
+  border-radius: 11px;
+  background: #474747;
+  color: #c4c4c4;
+  font: 500 12px/1 var(--a-sans);
+}
+
+/* telefon: okienko pierścienia węższe od rzędu o 16 px, jak w styl-aplikacja-pierscien.css (tu szerokość bazowa jest później w kaskadzie, więc reguła wraca) */
+@media (max-width: 390px) {
+  .apl-okienko-zuzycia {
+    width: calc(100% - 16px);
+  }
+}

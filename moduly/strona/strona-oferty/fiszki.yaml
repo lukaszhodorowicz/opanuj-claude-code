@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak wysłać Claude prośbę wpisaną w polu wiadomości?"
+    tyl: "Naciśnij Enter."
+    fakt: aplikacja-enter-wysyla-zadanie
+
+  - przod: "Jak w aplikacji otworzyć plik, o którym pisze Claude?"
+    tyl: "Kliknij ścieżkę pliku w rozmowie."
+    fakt: aplikacja-klik-sciezki-w-rozmowie-otwiera-plik
+
+  - przod: "Jakie pliki otworzysz w panelu Browser kliknięciem ich ścieżki w rozmowie?"
+    tyl: "W sesji lokalnej: pliki HTML, PDF i wideo."
+    fakt: aplikacja-klik-sciezki-do-pdf-html-wideo-otwiera-panel-browser
+
+  - przod: "Jak przesunąć panel w zakładce Code?"
+    tyl: "Ciągnij go za nagłówek."
+    fakt: aplikacja-panel-przeciagasz-za-naglowek-rozmiar-za-krawedz
+
+  - przod: "Gdzie w sesji lokalnej sam poprawisz plik z folderu, na przykład cennik.txt?"
+    tyl: "W panelu pliku."
+    fakt: aplikacja-sesja-lokalna-pliki-z-folderu-edytujesz-w-panelu-pliku
+
+  - przod: "Jak otworzyć folder z plikiem, którego ścieżka jest w rozmowie?"
+    tyl: "Kliknij ścieżkę prawym przyciskiem myszy i wybierz Show in Finder (na Windowsie Show in Explorer)."
+    fakt: aplikacja-menu-sciezki-show-in-finder-i-explorer-otwieraja-folder-z-plikiem

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Przygotowujesz ofertę szkolenia dla firmy klienta. Claude opublikował stronę oferty jako artefakt i podał link w odpowiedzi. Nic jeszcze nie udostępniasz. Kto może teraz otworzyć tę stronę?"
+    odpowiedzi:
+      - "Klient, gdy wyślesz mu link z odpowiedzi Claude, bo link działa od razu po publikacji."
+      - "Tylko Ty."
+      - "Każdy w Twojej organizacji na claude.ai, bo Claude udostępnia stronę zespołowi."
+    poprawna: 1
+    wyjasnienie: "Nowy artefakt widzisz tylko Ty. Żeby klient go zobaczył, udostępniasz go przyciskiem Share w nagłówku strony artefaktu."
+    fakt: artefakt-nowy-widoczny-tylko-dla-ciebie
+
+  - pytanie: "Chcesz dopisać do strony oferty termin szkolenia. W tej samej sesji, w której Claude opublikował stronę jako artefakt, prosisz o poprawkę i ponowną publikację. Pod jakim adresem jest nowa wersja?"
+    odpowiedzi:
+      - "Pod nowym adresem, bo każda publikacja dostaje własny link."
+      - "Pod żadnym. Claude zmienia tylko plik w folderze, a strona na claude.ai zostaje stara."
+      - "Pod tym samym adresem."
+    poprawna: 2
+    wyjasnienie: "Claude zmienia plik, z którego powstała strona, i publikuje go ponownie pod tym samym adresem."
+    fakt: artefakt-poprawka-zmienia-plik-i-publikuje-pod-tym-samym-adresem
+
+  - pytanie: "Masz otwartą stronę oferty w panelu Browser. Jest na niej jeszcze linijka o rabacie dla klienta. W tej samej sesji prosisz Claude, żeby usunął tę linijkę i opublikował stronę ponownie. Co widzisz na otwartej stronie?"
+    odpowiedzi:
+      - "Nową wersję bez linijki o rabacie. Strona sama ją pokazuje."
+      - "Starą wersję, dopóki nie klikniesz jeszcze raz linku w odpowiedzi Claude."
+      - "Okno z pytaniem, czy zastąpić starą wersję nową."
+    poprawna: 0
+    wyjasnienie: "Strona otwarta u Ciebie sama pokazuje nową wersję. Którą wersję widzą inni, wybierasz w Share."
+    fakt: artefakt-otwarta-strona-pokazuje-aktualizacje-wersje-wybierasz-w-share
+
+  - pytanie: "Masz włączony tryb Accept edits (przyjmowanie zmian). Chcesz wysłać klientowi link do oferty, więc prosisz Claude: „Opublikuj plik oferta-szkolenia.html z tego folderu jako artefakt”. Co pokaże się przed publikacją?"
+    odpowiedzi:
+      - "Okno zgody, bo publikacja strony na claude.ai zawsze wymaga Twojego potwierdzenia."
+      - "Nic. Claude publikuje bez okna zgody."
+      - "Okno zgody, bo tryb Accept edits dotyczy tylko plików, a nie artefaktów."
+    poprawna: 1
+    wyjasnienie: "Nowy artefakt, o który prosisz w wiadomości, przechodzi bez okna zgody. Claude Code pyta najpierw tylko w kilku przypadkach, które wymienia dokumentacja, na przykład w trybie Plan."
+    fakt: artefakt-publikacja-z-prosby-bez-okna-zgody

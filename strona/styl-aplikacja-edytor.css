@@ -1,0 +1,297 @@
+/* Wygląd edytora prezentacji rozwiniętego na całe okno, jasny motyw (strona/aplikacja-edytor.js): okno nad całym oknem symulatora z jasnym paskiem górnym, pływającymi paskami narzędzi, slajdem na szarej scenie i pasem miniatur. Układ i kolory ze zrzutu Łukasza z 27.10.2026 (zrzut_2026-10-27_15-31-46.png); slajd w kolorach edytora z panelu (strona/styl-aplikacja-slajdy.css). Wszystko jest bez skutku, kursor zwykły. */
+
+.apl-okno.edytor-otwarty {
+  position: relative;
+  min-height: 640px;
+}
+.apl-ed {
+  container: edytor-okno / inline-size;
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #1f1f1e;
+  font: 400 14px/1.35 var(--a-sans);
+  animation: apl-wjazd 0.18s ease-out;
+  cursor: default;
+}
+.apl-ed svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+/* pasek górny */
+.apl-ed-gora {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px 10px 12px;
+  border-bottom: 1px solid #e6e4df;
+}
+.apl-ed-tytul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 70px;
+  font-weight: 400;
+  font-size: 14.5px;
+}
+.apl-ed-tytul span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-ed-tytul svg,
+.apl-ed-para svg + svg,
+.apl-ed-skala svg {
+  width: 12px;
+  height: 12px;
+  color: #8a8985;
+}
+.apl-ed-prawa {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+.apl-ed-autor {
+  width: 26px;
+  height: 26px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: #66744b;
+}
+.apl-ed-przycisk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #f3f2ef;
+  white-space: nowrap;
+}
+.apl-ed-para {
+  gap: 3px;
+  padding: 5px 8px;
+}
+.apl-ed-gwiazdka {
+  display: inline-flex;
+  color: #d9774f;
+}
+.apl-ed-ik {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: #3a3936;
+}
+.apl-ed-kreska {
+  flex: none;
+  width: 1px;
+  height: 18px;
+  margin: 0 4px;
+  background: #e1dfda;
+}
+/* scena: szare tło, pływające paski narzędzi, slajd */
+.apl-ed-scena {
+  container: scena / size;
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 58px 24px 18px;
+  background: #ecebe7;
+}
+.apl-ed-narzedzia {
+  position: absolute;
+  top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border: 1px solid #e1dfda;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(20, 20, 18, 0.08);
+}
+.apl-ed-lewe {
+  left: 12px;
+}
+.apl-ed-prawe {
+  right: 12px;
+}
+.apl-ed-skala {
+  padding: 0 4px 0 8px;
+  font-size: 13.5px;
+}
+/* slajd 16:9 i miniatury: to ten sam slajd w innej skali, pismo liczone od szerokości (cqw) */
+.apl-ed-slajd {
+  container: slajd / inline-size;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #192438;
+  font-family: var(--sans);
+}
+/* slajd mieści się na scenie w obu wymiarach: szerokość to mniejsza z szerokości sceny i szerokości wynikającej z jej wysokości (16:9) */
+.apl-ed-glowny {
+  width: min(100cqw, calc(100cqh * 16 / 9));
+}
+.apl-ed-strona {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 7cqw;
+}
+.apl-ed-strona p,
+.apl-ed-strona ul {
+  margin: 0;
+}
+.apl-ed-nad {
+  margin-bottom: 2.4cqw !important;
+  color: #e5a35a;
+  font-size: 1.75cqw;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.apl-ed-h {
+  color: #f6f4ef;
+  font-size: 4.6cqw;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.apl-ed-tytulowy .apl-ed-h {
+  font-size: 6.4cqw;
+  line-height: 1.08;
+}
+.apl-ed-pod {
+  margin-top: 2.2cqw !important;
+  color: #cbd1db;
+  font-size: 2.4cqw;
+  line-height: 1.4;
+}
+.apl-ed-punkty {
+  list-style: none;
+  margin-top: 2.6cqw !important;
+  padding: 0;
+  color: #cbd1db;
+  font-size: 2.6cqw;
+  line-height: 1.4;
+}
+.apl-ed-punkty li {
+  position: relative;
+  margin: 0 0 1.1cqw;
+  padding-left: 2.6cqw;
+}
+.apl-ed-punkty li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.85cqw;
+  height: 0.85cqw;
+  border-radius: 50%;
+  background: #e5a35a;
+}
+/* pas dolny: + i książka po lewej, przełącznik widoku po prawej, pod nimi miniatury */
+.apl-ed-dol {
+  padding: 6px 12px 10px;
+  border-top: 1px solid #e6e4df;
+  background: #ffffff;
+}
+.apl-ed-dol-gora {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.apl-ed-widok {
+  display: inline-flex;
+  margin-left: auto;
+  padding: 2px;
+  border-radius: 8px;
+  background: #f3f2ef;
+}
+.apl-ed-widok .apl-ed-ik {
+  min-width: 26px;
+  height: 24px;
+}
+.apl-ed-widok .apl-ed-ik.wybrana {
+  background: #ffffff;
+  box-shadow: 0 0 0 1px #e1dfda;
+}
+.apl-ed-mala svg {
+  width: 12px;
+  height: 12px;
+  color: #8a8985;
+}
+.apl-ed-miniatury {
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
+}
+.apl-ed-miniatura {
+  position: relative;
+  flex: none;
+  width: 132px;
+  padding: 2px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+.apl-ed-miniatura.wybrana {
+  border-color: #3b6fd9;
+}
+.apl-ed-miniatura .apl-ed-slajd {
+  border-radius: 3px;
+}
+.apl-ed-nr {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  min-width: 16px;
+  padding: 1px 3px;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px #e1dfda;
+  color: #3a3936;
+  font-size: 10.5px;
+  line-height: 14px;
+  text-align: center;
+}
+/* wąskie okno (telefon): bez przycisków Translate i dymka, kółka autora, grupy kształtów i ikony ramki (paski narzędzi nie nachodzą na siebie), mniejsze miniatury */
+@container edytor-okno (max-width: 620px) {
+  .apl-ed-zbedne {
+    display: none;
+  }
+  .apl-ed-gora {
+    gap: 6px;
+    padding: 8px 8px 8px 8px;
+  }
+  .apl-ed-scena {
+    padding: 54px 10px 14px;
+  }
+  .apl-ed-miniatura {
+    width: 96px;
+  }
+}
+/* ikona rozwinięcia w nagłówku edytora z panelu (strona/aplikacja-slajdy.js): rękę dostaje tylko wtedy, gdy czeka na nią krok */
+.apl-sl-rozwin.apl-cel {
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-ed {
+    animation: none;
+  }
+}

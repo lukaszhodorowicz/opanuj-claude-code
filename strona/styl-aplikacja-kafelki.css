@@ -1,0 +1,113 @@
+/* Wygląd symulatora aplikacji Claude, kafelki okna Settings (katalog konektorów i przeglądarka wtyczek): siatka dwóch kolumn (na wąskim ekranie jedna), kafelek z ikoną funkcji, nazwą, opisem, autorem albo źródłem i przyciskiem + w rogu; układ ze zrzutów Łukasza z 27.10.2026, kolory okna symulatora. Kafelek bez skutku ma kursor zwykły, „rękę” dostaje tylko kafelek, w który kursant ma kliknąć (.apl-cel). */
+
+/* siatka kafelków: dwie kolumny, na wąskim ekranie jedna */
+.apl-kat-siatka {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.apl-kat-siatka > li {
+  display: flex;
+  flex-direction: column;
+}
+.apl-kafelek {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 46px 12px 12px;
+  border: 1px solid #343434;
+  border-radius: 14px;
+  background: #2a2a2a;
+  color: var(--a-tekst);
+  font: 400 14px/1.35 var(--a-sans);
+  text-align: left;
+  cursor: pointer;
+}
+button.apl-kafelek:not([aria-disabled="true"]):hover {
+  background: #343434;
+}
+.apl-kafelek:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}
+/* kafelek bez skutku: kursor zwykły, bez podświetlenia po najechaniu (D-2026-10-26-54); napisy zostają czytelne, bo to treść ekranu */
+.apl-kafelek[aria-disabled="true"] {
+  cursor: default;
+}
+.apl-kaf-ikona {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #1c1c1c;
+  color: var(--a-tekst);
+}
+.apl-kaf-ikona svg {
+  width: 22px;
+  height: 22px;
+}
+.apl-kaf-tekst {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.apl-kaf-tekst b {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 15px;
+}
+.apl-kaf-znaczek {
+  display: grid;
+  color: var(--a-szary);
+}
+.apl-kaf-znaczek svg {
+  width: 15px;
+  height: 15px;
+}
+.apl-kaf-opis,
+.apl-kaf-autor {
+  color: var(--a-szary);
+  font-size: 13.5px;
+}
+.apl-kaf-tekst .apl-szkic {
+  height: 7px;
+  margin-top: 5px;
+}
+.apl-kaf-plus {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #3d3d3d;
+}
+.apl-kaf-plus svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-kat-siatka .apl-tag-rzad {
+  padding: 0 0 4px;
+}
+
+@media (max-width: 720px) {
+  .apl-kat-siatka {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

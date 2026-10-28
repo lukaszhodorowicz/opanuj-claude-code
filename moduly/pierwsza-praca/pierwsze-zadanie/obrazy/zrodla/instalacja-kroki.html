@@ -1,0 +1,253 @@
+<!doctype html>
+<!-- Rysunek do lekcji pierwsze-zadanie (styl R1, D-2026-10-26-58): cztery kroki instalacji, od pobrania instalatora do kliknięcia zakładki Code. Źródło PNG obrazy/instalacja-kroki.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Instalacja krok po kroku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak we wzorze R1) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        /* okno aplikacji jak w ćwiczeniu */
+        --a-tlo: #191919;
+        --a-bok: #1f1f1f;
+        --a-kreska: #353535;
+        --a-tekst: #eeeeee;
+        --a-szary: #969696;
+        --a-szkic: #3a3a3a;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys {
+        padding: 20px 16px 22px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .krok {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 22px;
+        padding: 16px 16px 18px;
+        display: flex;
+        flex-direction: column;
+      }
+      .glowa {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .nr {
+        flex: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--granat);
+        color: var(--biel);
+        display: grid;
+        place-items: center;
+        font: 800 25px/1 var(--sans);
+      }
+      .glowa h2 {
+        margin: 0;
+        font: 800 26px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .cialo {
+        flex: 1;
+        min-height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .podpis {
+        font: 700 21px/1.2 var(--sans);
+        letter-spacing: -0.01em;
+        color: var(--granat);
+        text-align: center;
+      }
+
+      /* 1: strona dokumentacji z dwoma przyciskami */
+      .strona {
+        width: 100%;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 14px;
+        padding: 16px 16px 18px;
+      }
+      .linia { height: 10px; border-radius: 5px; background: var(--linia); margin-bottom: 9px; }
+      .przycisk {
+        margin-top: 12px;
+        height: 50px;
+        border-radius: 12px;
+        background: var(--granat);
+        color: var(--biel);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 14px;
+        font: 700 20px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .przycisk svg { width: 22px; height: 22px; flex: none; }
+
+      /* 2: instalator, Applications i menu Start */
+      .instal { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; width: 100%; align-items: end; }
+      .instalator {
+        grid-column: 1 / -1;
+        background: var(--papier-2);
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        padding: 0 16px 20px;
+      }
+      .kropki { height: 28px; display: flex; gap: 7px; align-items: center; }
+      .kropki i { width: 10px; height: 10px; border-radius: 50%; background: var(--grafit); }
+      .instalator .linia { width: 60%; margin: 6px 0 16px; }
+      .pasek { height: 18px; border-radius: 9px; background: var(--biel); border: 2px solid var(--granat); overflow: hidden; }
+      .pasek b { display: block; height: 100%; width: 68%; background: var(--granat); }
+      .miejsce { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+      .miejsce svg { width: 52px; height: 52px; }
+      .miejsce span { font: 700 20px/1.1 var(--sans); }
+      .miejsce span.mono { font: 700 18px/1.1 var(--mono); }
+
+      /* 3: konto */
+      .konto { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+      .konto svg { width: 118px; height: 118px; }
+
+      /* 4: miniatura paska bocznego jak w ćwiczeniu */
+      .bok {
+        position: relative;
+        width: 100%;
+        background: var(--a-bok);
+        border-radius: 16px;
+        padding: 12px 12px 14px;
+        color: var(--a-tekst);
+      }
+      .bok-gora { display: flex; align-items: center; justify-content: space-between; height: 46px; }
+      .bok-gora .kropki i { background: #4a4a4f; width: 11px; height: 11px; }
+      .zakladki { display: flex; gap: 4px; background: #2a2a2a; border-radius: 12px; padding: 4px; }
+      .zakladki span { width: 44px; height: 38px; border-radius: 9px; display: grid; place-items: center; color: var(--a-szary); }
+      .zakladki svg { width: 24px; height: 24px; }
+      .zakladki .ta { background: var(--zakreslacz); color: var(--granat); box-shadow: 0 0 0 3px var(--limonka); }
+      .dymek {
+        position: absolute;
+        right: 6px;
+        top: 66px;
+        background: var(--biel);
+        color: var(--granat);
+        font: 800 22px/1 var(--sans);
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 3px solid var(--granat);
+      }
+      .dymek::before {
+        content: "";
+        position: absolute;
+        right: 24px;
+        top: -11px;
+        width: 16px;
+        height: 16px;
+        background: var(--biel);
+        border-left: 3px solid var(--granat);
+        border-top: 3px solid var(--granat);
+        transform: rotate(45deg);
+      }
+      .wiersz { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 10px; color: var(--a-szary); }
+      .wiersz svg { width: 20px; height: 20px; flex: none; }
+      .wiersz i { height: 9px; border-radius: 5px; background: var(--a-szkic); }
+      .wiersz.nowy { background: #2e2e2e; border-radius: 10px; margin: 10px 0 6px; width: 62%; color: var(--a-tekst); font: 600 18px/1 var(--sans); }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Cztery kroki: 1. Pobierz instalator ze strony dokumentacji (Download for macOS albo Download for Windows). 2. Zainstaluj i uruchom aplikację: na Macu z folderu Applications, w Windows z menu Start. 3. Zaloguj się kontem Anthropic. 4. Kliknij zakładkę Code u góry paska bocznego.">
+      <!-- 1 -->
+      <section class="krok">
+        <div class="glowa"><span class="nr">1</span><h2>Pobierz instalator</h2></div>
+        <div class="cialo">
+          <div class="strona">
+            <div class="linia" style="width: 70%"></div>
+            <div class="linia" style="width: 92%"></div>
+            <div class="przycisk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5 12 15.5l5-5M5 20h14"/></svg>
+              Download for macOS
+            </div>
+            <div class="przycisk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5 12 15.5l5-5M5 20h14"/></svg>
+              Download for Windows
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 2 -->
+      <section class="krok">
+        <div class="glowa"><span class="nr">2</span><h2>Zainstaluj i uruchom aplikację</h2></div>
+        <div class="cialo">
+          <div class="instal">
+            <div class="instalator">
+              <div class="kropki"><i></i><i></i><i></i></div>
+              <div class="linia"></div>
+              <div class="pasek"><b></b></div>
+            </div>
+            <div class="miejsce">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              <span>folder <span class="mono">Applications</span> na Macu</span>
+            </div>
+            <div class="miejsce">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3.5" width="7.8" height="7.8" rx="1"/><rect x="12.7" y="3.5" width="7.8" height="7.8" rx="1"/><rect x="3.5" y="12.7" width="7.8" height="7.8" rx="1"/><rect x="12.7" y="12.7" width="7.8" height="7.8" rx="1"/></svg>
+              <span>menu Start w Windows</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 3 -->
+      <section class="krok">
+        <div class="glowa"><span class="nr">3</span><h2>Zaloguj się kontem Anthropic</h2></div>
+        <div class="cialo">
+          <div class="konto">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="19" r="7.5"/><path d="M10.5 38.5c2.6-5.6 7.5-8.5 13.5-8.5s10.9 2.9 13.5 8.5"/></svg>
+            
+          </div>
+        </div>
+      </section>
+      <!-- 4 -->
+      <section class="krok">
+        <div class="glowa"><span class="nr">4</span><h2>Kliknij zakładkę Code</h2></div>
+        <div class="cialo">
+          <div class="bok">
+            <div class="bok-gora">
+              <div class="kropki"><i></i><i></i><i></i></div>
+              <div class="zakladki">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a7 6.5 0 1 1 3.5 5.6L4 18l.9-3.4A6.3 6.3 0 0 1 4 11z"/></svg></span>
+                <span class="ta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg></span>
+              </div>
+            </div>
+            <div class="dymek">Code</div>
+            <div class="wiersz nowy">+ New</div>
+            <div class="wiersz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><i style="width: 46%"></i></div>
+            <div class="wiersz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="11" height="12" rx="2"/><path d="M9 8V5.5A1.5 1.5 0 0 1 10.5 4H18.5A1.5 1.5 0 0 1 20 5.5V14a1.5 1.5 0 0 1-1.5 1.5H15"/></svg><i style="width: 56%"></i></div>
+            <div class="wiersz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5h4"/></svg><i style="width: 38%"></i></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+/* Wygląd symulatora aplikacji Claude: panel otwartego pliku obok rozmowy (pasek z kartą pliku i ikonami, podpis z nazwą, numerowane linijki), karta pliku w rozmowie, menu „…” panelu, menu prawego kliku na karcie i dymek pierwszej ikony paska tytułu. Wymiary z zrzutów Łukasza z 27.10.2026 (2448 px szerokości = 1224 px okna, więc połowa liczb ze zrzutu): 15-27-18 (panel i karta), 15-27-25 (menu „…”), 15-27-51 (menu karty), 15-28-18 (dymek). Kod: strona/aplikacja-plik-panel.js i aplikacja-plik-gra.js. */
+
+/* panel pliku stoi przy krawędziach okna, bez wewnętrznego odstępu i bez własnej ramki (w oknie ramkę ma kolumna, w podglądzie w lekcji ramki nie ma) */
+.apl-widok-pliku:has(> .apl-plik-tresc) {
+  padding: 0;
+}
+.apl-plik-tresc {
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* pasek panelu: karta pliku (nazwa kursywą, ×) po lewej, ikony po prawej */
+.apl-pp-pasek {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 40px;
+  padding: 0 10px 0 9px;
+  border-bottom: 1px solid var(--a-kreska);
+}
+.apl-pp-karta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  height: 26px;
+  padding: 0 7px 0 11px;
+  border-radius: 8px;
+  background: #2e2e2e;
+  color: var(--a-tekst);
+  font: italic 400 13px/1 var(--a-sans);
+}
+.apl-pp-karta i {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-pp-x {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+}
+.apl-okno .apl-pp-x svg {
+  width: 13px;
+  height: 13px;
+}
+.apl-pp-ikony {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+}
+.apl-pp-ikona {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: #d6d6d6;
+}
+.apl-okno .apl-pp-ikona svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-pp-menu-opak {
+  position: relative;
+  display: inline-flex;
+}
+/* „…” jest nieaktywne, dopóki krok drogi na nie nie czeka; po otwarciu menu ma szare tło jak na zrzucie */
+button.apl-pp-menu {
+  cursor: default;
+}
+button.apl-pp-menu.apl-cel {
+  cursor: pointer;
+}
+button.apl-pp-menu.otwarty {
+  background: #3b3b3b;
+}
+
+/* podpis z nazwą pliku i linijki */
+.apl-plik-tresc > header {
+  display: block;
+  padding: 0 20px;
+  height: 39px;
+  line-height: 38px;
+  background: none;
+  border-bottom: 1px solid var(--a-kreska);
+  color: var(--a-szary);
+  font-size: 13px;
+}
+.apl-plik-tresc > header b {
+  font-weight: 400;
+}
+.apl-plik-tresc .apl-linijki {
+  padding: 8px 0;
+  font: 400 12px/17.5px var(--a-mono);
+}
+.apl-plik-tresc .apl-l {
+  gap: 14px;
+  padding: 0;
+}
+.apl-plik-tresc .apl-znak {
+  flex: none;
+  width: 30px;
+  color: #7c7c7c;
+  font-weight: 400;
+  text-align: right;
+  user-select: none;
+}
+.apl-plik-tresc .apl-l-tekst {
+  flex: 1;
+  min-width: 0;
+  margin-left: -3px;
+  padding: 0 12px 0 3px;
+}
+.apl-plik-tresc .apl-l-biezaca .apl-l-tekst {
+  background: #242424;
+}
+.apl-plik-tresc .apl-l-biezaca .apl-znak {
+  color: var(--a-tekst);
+}
+
+/* karta pliku w rozmowie: znaczek rodzaju, nazwa, rozmiar */
+.apl-kp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 9px;
+  padding: 7px 10px 7px 8px;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  color: var(--a-tekst);
+  font: 400 14px/1.2 var(--a-sans);
+}
+.apl-kp-rodzaj {
+  padding: 1px 6px;
+  border: 1px solid #5a5a5a;
+  border-radius: 999px;
+  color: #b3b3b3;
+  font: 500 10px/1.5 var(--a-sans);
+  letter-spacing: 0.04em;
+}
+.apl-kp-rozmiar {
+  color: var(--a-szary);
+  font-size: 12.5px;
+}
+.apl-kp.apl-cel {
+  cursor: pointer;
+}
+
+/* menu „…” panelu i menu prawego kliku na karcie: ciemna karta z pozycjami bez skutku, kreski między grupami */
+.apl-menu-pliku {
+  position: absolute;
+  z-index: 9;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #2e2e2e;
+  border: 1px solid #444444;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-menu-pliku-panel {
+  top: calc(100% + 8px);
+  right: -2px;
+  width: max-content;
+  min-width: 223px;
+}
+/* panel z otwartym menu „…” ma wysokość na całe menu (krótki plik pod rozmową na telefonie inaczej uciąłby je dołem okna) */
+.apl-okno.menu-pliku-otwarte .apl-widok-pliku {
+  min-height: 350px;
+}
+.apl-menu-karty {
+  top: 48%;
+  left: 58%;
+  width: max-content;
+  min-width: 131px;
+  border-radius: 11px;
+}
+.apl-menu-karty.nad {
+  top: auto;
+  bottom: 40%;
+}
+.apl-mp-poz {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 25.5px;
+  padding: 4px 8px 4px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--a-tekst);
+  font: 400 14px/17.5px var(--a-sans);
+  text-align: left;
+  cursor: default;
+}
+.apl-mp-poz.apl-cel {
+  cursor: pointer;
+}
+.apl-mp-poz.apl-mp-wybrana {
+  background: #474747;
+}
+.apl-mp-nazwa {
+  flex: 1 0 auto;
+  margin-right: 14px;
+  white-space: nowrap;
+}
+.apl-mp-szary {
+  color: #8e8e8e;
+  font-size: 13.5px;
+}
+.apl-okno .apl-mp-str svg {
+  width: 12px;
+  height: 12px;
+  color: #8e8e8e;
+}
+.apl-mp-str {
+  display: inline-grid;
+  place-items: center;
+}
+.apl-mp-ptak {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  margin: -4px 0;
+  color: #4d82e6;
+}
+.apl-okno .apl-mp-ptak svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.5;
+}
+.apl-mp-kreska {
+  height: 1px;
+  margin: 4px 8px;
+  background: #484848;
+}
+.apl-menu-pliku .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+
+/* dymek pierwszej ikony paska tytułu: środkiem pod ikoną (zrzut 15-28-18), po kroku stoi do końca drogi */
+.apl-ikona-szyna .apl-dymek {
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+button.apl-ikona.apl-dymek-stale > .apl-dymek {
+  display: block;
+}
+.apl-ikona-szyna.apl-dymek-stale {
+  background: #2f2f2f;
+  color: var(--a-tekst);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-menu-pliku {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  .apl-menu-karty {
+    left: 38%;
+  }
+  /* panel pod rozmową ma szerokość okna: menu „…” staje przy prawej krawędzi panelu, żeby nie wyszło poza lewą (przy przycisku mieściłoby się o kilka pikseli za mało) */
+  .apl-pp-menu-opak {
+    position: static;
+  }
+  .apl-menu-pliku-panel {
+    top: 46px;
+    right: 8px;
+    max-width: calc(100% - 16px);
+  }
+}

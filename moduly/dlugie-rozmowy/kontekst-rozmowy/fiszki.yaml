@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co pokazuje procent w nagłówku karty Context?"
+    tyl: "Jak pełny jest kontekst tej jednej rozmowy."
+    fakt: aplikacja-karta-context-procent-w-naglowku
+
+  - przod: "Co robi polecenie /compact wpisane w pole wiadomości?"
+    tyl: "Streszcza rozmowę, zanim kontekst się zapełni, i zwalnia miejsce."
+    fakt: aplikacja-compact-skraca-rozmowe-wczesniej
+
+  - przod: "Ile plików Claude Code czyta ponownie zaraz po streszczeniu rozmowy?"
+    tyl: "Do pięciu ostatnio zmienianych plików z tej rozmowy (Claude je czytał albo zmieniał)."
+    fakt: po-streszczeniu-do-pieciu-plikow
+
+  - przod: "Co może zniknąć, gdy Claude streszcza rozmowę?"
+    tyl: "Szczegółowe polecenia z początku rozmowy. Zasady, które mają działać zawsze, zapisz w CLAUDE.md."
+    fakt: claude-code-przy-limicie-kontekstu-streszcza-rozmowe
+
+  - przod: "Jak otworzyć pytanie z boku?"
+    tyl: "Wpisz /btw w polu wiadomości albo naciśnij Cmd+; na macOS, Ctrl+; na Windows."
+    fakt: aplikacja-btw-otwiera-boczna-rozmowe
+
+  - przod: "Czy do pytania z boku wrócisz po zamknięciu aplikacji?"
+    tyl: "Nie. Aplikacja nie zapisuje pytań z boku na dysku."
+    fakt: aplikacja-pytanie-z-boku-nie-zapisuje-sie-na-dysku

@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co wpisać do CLAUDE.md?"
+    tyl: "To, co Claude ma wiedzieć zawsze, także reguły „nigdy nie rób X”."
+    fakt: do-claude-md-co-claude-ma-wiedziec-zawsze
+
+  - przod: "Co wpisać do skilla?"
+    tyl: "Materiał, którego Claude potrzebuje tylko czasem, albo przepis pracy uruchamiany poleceniem /nazwa."
+    fakt: do-skilla-material-czasem-albo-przepis
+
+  - przod: "Kiedy wczytuje się CLAUDE.md, a kiedy skill?"
+    tyl: "CLAUDE.md w każdej rozmowie. Skill na żądanie: gdy go wywołasz albo gdy pasuje do zadania."
+    fakt: skill-wczytuje-sie-gdy-wywolany-albo-pasuje
+
+  - przod: "Kiedy CLAUDE.md i skill zajmują miejsce w kontekście?"
+    tyl: "CLAUDE.md w całości w każdym zapytaniu. Ze skilla w każdym zapytaniu tylko opis, pełna treść dopiero przy użyciu."
+    fakt: koszt-claude-md-kazde-zapytanie-skill-opisy
+
+  - przod: "Jak łączyć CLAUDE.md i skille?"
+    tyl: "CLAUDE.md trzyma zawsze obecne zasady, a skille materiał wczytywany na żądanie."
+    fakt: claude-md-zasady-stale-skill-material-na-zadanie
+
+  - przod: "Czy zasada w CLAUDE.md albo w skillu działa na pewno?"
+    tyl: "Nie, to prośba, nie gwarancja. Zasadę, która ma obowiązywać za każdym razem, zapisz jako hook (moduł 7)."
+    fakt: claude-md-i-skill-prosba-nie-gwarancja

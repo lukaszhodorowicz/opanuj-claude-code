@@ -1,0 +1,56 @@
+{
+  "cw1-karta-czeka-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-zatwierdzona-1280": {
+    "szer": 1280,
+    "wys": 1050,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-zatwierdzona-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-blokada-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-widok-zmian-1280": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-licznik"
+    ],
+    "do": "cw2"
+  },
+  "cw2-widok-zmian-390": {
+    "szer": 390,
+    "wys": 2300,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-licznik"
+    ],
+    "do": "cw2"
+  }
+}

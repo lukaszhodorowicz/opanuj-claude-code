@@ -1,0 +1,183 @@
+{
+  "lekcja": "pierwszy-konektor",
+  "folder_startowy": [
+    "cennik-konsultacji.txt",
+    "pakiety-dla-klientow.txt",
+    "zasady-umawiania.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Podłącz kalendarz z menu +",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude, nowa rozmowa. Ekranu logowania do kalendarza ćwiczenie nie rysuje, a konto i kalendarz są zmyślone.",
+      "nauczyciel_start": "Podłączysz kalendarz. Kliknij polecenie nad oknem, potem plus obok pola wiadomości. Patrz, co się otworzy.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Gabinet-dietetyczny",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": []
+      },
+      "drogi": [
+        {
+          "id": "podlacz",
+          "etykieta": "Podłącz kalendarz",
+          "opis": "Plus, katalog konektorów, logowanie i pytanie do Claude.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W tym menu dołączasz pliki i sięgasz po skille, konektory i wtyczki. Kliknij Connectors.",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Connectors",
+              "fakt": "aplikacja-add-connectors-otwiera-katalog"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Obok otworzyło się podmenu. Kliknij Browse connectors.",
+              "fakt": "aplikacja-add-connectors-otwiera-katalog"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse connectors",
+              "fakt": "aplikacja-add-connectors-otwiera-katalog"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To katalog konektorów. Kliknij kafelek Google Calendar.",
+              "fakt": "konektory-google-calendar-gmail-microsoft-365"
+            },
+            {
+              "typ": "klik",
+              "cel": "konektor",
+              "nazwa": "Google Calendar"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wymagane logowanie kończysz w claude.ai. Ćwiczenie nie rysuje ekranu logowania i za chwilę sam zamknie okno.",
+              "fakt": "konektor-logowanie-w-claude-ai"
+            },
+            {
+              "typ": "katalog_zamknij",
+              "ms": 4000
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kalendarz podłączony. Teraz pytanie do Claude: jakie konektory ma w tej rozmowie.",
+              "fakt": "aplikacja-zapytaj-claude-o-konektory"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Jakie konektory masz w tej rozmowie?",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Mam konektor Google Calendar. Mogę czytać Twój kalendarz.",
+              "fakt": "aplikacja-konektor-czyta-kalendarz-wysyla-wiadomosci"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Konektor jest w rozmowie. Claude potwierdził to w odpowiedzi.",
+              "fakt": "aplikacja-zapytaj-claude-o-konektory"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Plan dnia z danych, których nie ma w folderze",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Konektor Google Calendar jest tu już podłączony. Twojego kalendarza ćwiczenie nie czyta, a terminy są zmyślone.",
+      "nauczyciel_start": "Kalendarz jest już podłączony. Poproś o plan jutrzejszego dnia i patrz na folder pod oknem: czy Claude czyta któryś plik?",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Gabinet-dietetyczny",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Jakie konektory masz w tej rozmowie?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Mam konektor Google Calendar. Mogę czytać Twój kalendarz.",
+            "fakt": "aplikacja-zapytaj-claude-o-konektory"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "plan-wtorek.txt"
+      ],
+      "drogi": [
+        {
+          "id": "plan",
+          "etykieta": "Plan dnia z kalendarza",
+          "opis": "Prosisz o plan jutrzejszego dnia. Claude bierze terminy z kalendarza, nie z folderu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Jakie mam jutro konsultacje i spotkania? Zapisz plan dnia w plan-wtorek.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Żaden plik w folderze się nie podświetla. Claude bierze terminy z kalendarza.",
+              "fakt": "aplikacja-konektor-czyta-kalendarz-wysyla-wiadomosci"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Sprawdziłem Twój kalendarz. Jutro masz trzy terminy. Plan dnia zapisałem w plan-wtorek.txt.",
+              "plik": "plan-wtorek.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze pojawił się nowy plik. Kliknij ścieżkę plan-wtorek.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "plan-wtorek.txt",
+              "linijki": [
+                "Wtorek: plan dnia",
+                "9:00 konsultacja online: pani Zofia Lis",
+                "12:30 rozmowa z księgową o fakturach",
+                "16:00 konsultacja kontrolna: pan Adam Kruk"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Terminów nie przepisujesz do rozmowy. Claude czyta je w kalendarzu, a plan leży w folderze jak każdy plik.",
+              "fakt": "mcp-po-co-zamiast-przeklejania"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<!-- Rysunek R1 „Dwa sygnały” do lekcji powiadomienie-gdy-czeka: koniec zadania zgłasza sama aplikacja, czekanie na zgodę zgłasza hook (Notification, permission_prompt, .claude/settings.json, Twoje polecenie); zakreślacz tylko na „Twoje polecenie”. Źródło PNG obrazy/dwa-sygnaly.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Dwa sygnały</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .kolumny {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        align-items: stretch;
+      }
+      .kolumna {
+        display: flex;
+        flex-direction: column;
+        padding: 18px 16px 0;
+      }
+      .kolumna {
+        overflow: hidden;
+        background: linear-gradient(var(--biel) calc(100% - 40px), var(--granat) 0);
+      }
+      .kolumna .naglowek {
+        margin: 0 0 14px 2px;
+      }
+      .kolumna .okno-tresc {
+        min-height: 86px;
+      }
+      .okno-tresc.koniec {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font: 700 22px/1.2 var(--sans);
+      }
+      .okno-tresc.koniec svg {
+        width: 34px;
+        height: 34px;
+        flex: none;
+        color: var(--okno-tekst);
+      }
+      .zgoda {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+      }
+      .zgoda span {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        border: 2px solid var(--okno-kreska);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .zgoda svg {
+        width: 30px;
+        height: 30px;
+      }
+      .z-dopiskiem {
+        position: relative;
+      }
+      .z-dopiskiem .dopisek {
+        position: absolute;
+        left: calc(50% + 24px);
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+      }
+      .kolumna > .dopisek.pod {
+        margin-top: 10px;
+        text-align: center;
+      }
+      .kartka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 10px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 12px;
+        font: 700 20px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .kartka svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .podpis {
+        margin: auto -16px 0;
+        padding: 0 10px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--granat);
+        color: var(--biel);
+        font: 800 26px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .wypelniacz {
+        flex: 1;
+        min-height: 18px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Dwie kolumny. Claude skończył zadanie (okno aplikacji z ptaszkiem): aplikacja sama wysyła powiadomienie, gdy nie patrzysz na tę sesję; nic nie ustawiasz. Claude czeka na zgodę: po około 6 sekundach zachodzi zdarzenie Notification typu permission_prompt, hook z pliku .claude/settings.json uruchamia Twoje polecenie; to ustawiasz hookiem.">
+      <h1 class="teza">Koniec zadania zgłasza sama aplikacja, a&nbsp;<mark>czekanie na zgodę zgłasza hook</mark></h1>
+      <div class="kolumny">
+        <!-- Lewa: koniec zadania -->
+        <div class="kolumna ramka">
+          <p class="naglowek">Claude skończył zadanie</p>
+          <div class="okno">
+            <div class="okno-gora"><i></i><i></i><i></i></div>
+            <div class="okno-tresc koniec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg>
+            </div>
+          </div>
+          <div class="w-dol"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="krok">Aplikacja sama wysyła powiadomienie</div>
+          <p class="dopisek pod">Robi to, gdy nie patrzysz na tę&nbsp;sesję.</p>
+          <div class="wypelniacz"></div>
+          <div class="podpis">Nic nie ustawiasz</div>
+        </div>
+
+        <!-- Prawa: czekanie na zgodę -->
+        <div class="kolumna ramka">
+          <p class="naglowek">Claude czeka na zgodę</p>
+          <div class="okno">
+            <div class="okno-gora"><i></i><i></i><i></i></div>
+            <div class="okno-tresc zgoda">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="#e6e3dc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg></span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="#e6e3dc" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            </div>
+          </div>
+          <div class="w-dol z-dopiskiem"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="dopisek">po około 6&nbsp;s</span></div>
+          <div class="krok">Zdarzenie <code>Notification</code>,<br />typ <code>permission_prompt</code></div>
+          <div class="w-dol"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="kartka">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            .claude/settings.json
+          </div>
+          <div class="w-dol"><svg viewBox="0 0 24 44" aria-hidden="true"><path d="M12 4V38M3 29l9 10 9-10" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="krok ten">Twoje polecenie</div>
+          <div class="wypelniacz"></div>
+          <div class="podpis">To ustawiasz hookiem</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

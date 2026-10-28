@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co robi Claude w trybie Plan?"
+    tyl: "Czyta pliki i uruchamia polecenia, żeby zbadać folder. Potem proponuje plan i nie zmienia plików."
+    fakt: plan-aplikacja-opis
+
+  - przod: "Jak w aplikacji wygląda plan w rozmowie?"
+    tyl: "To karta „Claude proposed a plan” (Claude zaproponował plan) z odnośnikiem Open plan (otwórz plan) i przyciskami do decyzji."
+    fakt: aplikacja-karta-planu-napisy
+
+  - przod: "Co robi przycisk Revise… na karcie planu?"
+    tyl: "Otwiera pole na poprawkę. Piszesz w nim, co zmienić, klikasz Revise, a Claude poprawia plan."
+    fakt: aplikacja-plan-revise-poprawia-plan
+
+  - przod: "Co pokazuje przełącznik po kliknięciu Accept and auto mode?"
+    tyl: "Auto. Karta planu znika, a panel Plan zostaje otwarty."
+    fakt: aplikacja-plan-accept-and-auto-mode-karta-znika-auto
+
+  - przod: "Jak Claude zmienia plik w trybie Accept edits, bez planu?"
+    tyl: "Od razu, bez czekania na zgodę. Zmianę widzisz po fakcie w widoku zmian."
+    fakt: aplikacja-accept-edits-auto-bez-czekania-na-zgode
+
+  - przod: "Jak długo w aplikacji obowiązuje tryb Plan?"
+    tyl: "Tylko w bieżącej sesji. W nowej sesji wybierasz go znowu w przełączniku."
+    fakt: plan-aplikacja-tylko-biezaca-sesja

@@ -1,0 +1,196 @@
+/* Wygląd wyboru modelu i wysiłku w symulatorze aplikacji Claude (strona/aplikacja-model.js): przycisk w rzędzie pod polem wiadomości, menu nad rzędem (jak menu trybów), lista poziomów obok menu, ✓ przy wybranym poziomie i notka kursu. Układ ze zrzutów z sieci menu-modelu-effort-biezace-*.png; wiersze modeli to nazwy ze zrzutu (modele z konta autora zrzutu), napisy menu i listy poziomów ze zrzutów Łukasza 27.10.2026: styl-aplikacja-menu-ekran.css. */
+
+.apl-rzad {
+  position: relative;
+}
+
+/* przycisk wyboru modelu i pierścień zużycia (strona/styl-aplikacja-pierscien.css) tworzą nierozdzielną parę przy prawej krawędzi rzędu (jak w aplikacji: kontrolki modelu i zużycia stoją po prawej); „<model> <poziom>” (styl nazwy i poziomu: strona/styl-aplikacja-pole.css). Margines auto z lewej stawia parę przy prawej krawędzi także w zawiniętym rzędzie (para przechodzi do następnego wiersza razem). Margines z prawej (32 px) to miejsce na pierścień: 8 px odstępu i 24 px pierścienia, którego prawa krawędź stoi na prawej krawędzi rzędu. Pierścień zdejmuje z siebie tę szerokość ujemnym marginesem (24 px szerokości + 4 px odstępu wierszy `gap` rzędu = -28 px), więc dla układu wiersza ma szerokość zerową z odstępem włącznie i wiersz nie może go oddzielić od przycisku: pierścień mieści się zawsze, gdy mieści się przycisk (z samym ujemnym marginesem -24 px zostawał 4 px odstępu `gap` i w wąskim przedziale szerokości pierścień spadał sam do następnego wiersza, przy lewej krawędzi). Zmiana `gap` rzędu albo szerokości pierścienia wymaga zmiany obu marginesów */
+.apl-model {
+  margin-left: auto;
+  margin-right: 32px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.apl-model[aria-disabled="true"] {
+  cursor: default;
+}
+.apl-model:not([aria-disabled="true"]):hover,
+.apl-model.otwarty {
+  background: #2f2f2f;
+}
+.apl-model:focus-visible,
+.apl-menu-modelu .apl-menu-poz:focus-visible,
+.apl-menu-wysilku .apl-menu-poz:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}
+
+/* menu i lista: ciemna karta nad rzędem, wygląd jak menu trybów (styl-aplikacja-tryby.css); położenie w poziomie liczy JS */
+.apl-menu-modelu,
+.apl-menu-wysilku {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-menu-modelu[hidden],
+.apl-menu-wysilku[hidden] {
+  display: none;
+}
+.apl-menu-wysilku ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* wiersz: nazwa albo napis po lewej, po prawej ✓, cyfra skrótu albo strzałka */
+.apl-menu-modelu .apl-menu-poz,
+.apl-menu-wysilku .apl-menu-poz {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 10px;
+}
+.apl-menu-modelu .apl-szkic,
+.apl-menu-wysilku .apl-szkic {
+  flex: none;
+  background: #565656;
+}
+.apl-menu-szary,
+.apl-menu-modelu [aria-disabled="true"],
+.apl-menu-wysilku [aria-disabled="true"] {
+  cursor: default;
+}
+.apl-menu-szary:hover,
+.apl-menu-modelu [aria-disabled="true"]:hover,
+.apl-menu-wysilku [aria-disabled="true"]:hover {
+  background: none;
+}
+.apl-menu-kreska {
+  height: 1px;
+  margin: 5px 8px;
+  background: #424242;
+}
+.apl-menu-effort .apl-menu-reszta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.apl-menu-effort.otwarty,
+.apl-menu-effort.otwarty:hover {
+  background: #3a3a3a;
+}
+.apl-menu-strzalka {
+  display: inline-flex;
+  color: #969696;
+}
+.apl-menu-strzalka svg,
+.apl-ptak svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-ptak {
+  display: inline-flex;
+  margin-left: auto;
+  color: #3b82f6;
+}
+.apl-poziom .apl-ptak {
+  visibility: hidden;
+}
+.apl-poziom.wybrany .apl-ptak {
+  visibility: visible;
+}
+
+/* lista poziomów: u góry dwa krótsze paski (opis), pod nimi wiersze */
+.apl-wysilek-opis {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 8px 10px 12px;
+}
+.apl-wysilek-opis .apl-szkic {
+  height: 7px;
+}
+.apl-menu-wysilku .apl-menu-poz {
+  min-height: 32px;
+}
+
+/* notka kursu po lewej od listy, przy klikniętym wierszu: granatowa pigułka z limonkowym tekstem i strzałką do wiersza (jak objaśnienie napisu gościa w widoku klienta) */
+.apl-model-notka {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 0;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  width: max-content;
+  max-width: 180px;
+  padding: 6px 10px;
+  background: var(--granat);
+  color: var(--limonka);
+  border-radius: 8px;
+  box-shadow: 0 0 0 1.5px var(--limonka);
+  font: 600 11.5px/1.4 var(--mono);
+  text-align: left;
+  pointer-events: none;
+}
+.apl-model-notka[hidden] {
+  display: none;
+}
+.apl-model-notka::before,
+.apl-model-notka::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border: 6px solid transparent;
+  transform: translateY(-50%);
+}
+.apl-model-notka::before {
+  left: 100%;
+  margin-left: 1.5px;
+  border-left-color: var(--limonka);
+}
+.apl-model-notka::after {
+  left: 100%;
+  margin-left: 0;
+  border-width: 4.5px;
+  border-left-color: var(--granat);
+}
+
+/* znacznik „kliknij tutaj” w menu i na liście: rząd pod wierszem, jak w menu trybów */
+.apl-menu-modelu .apl-tag-rzad,
+.apl-menu-wysilku .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+
+/* otwarte menu przy krótkiej rozmowie: rozmowa ma tyle miejsca, żeby menu i lista mieściły się nad rzędem w oknie */
+.apl-okno.menu-modelu-otwarte .apl-rozmowa {
+  min-height: 300px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-menu-modelu,
+  .apl-menu-wysilku {
+    animation: none;
+  }
+}
+/* wąski ekran (do 720 px, jak reszta okna): przycisk modelu jest w każdym ćwiczeniu aplikacji, także bez kroku `wybor-modelu`. Rząd pod polem mieści się w jednym wierszu, dopóki jest na to miejsce, a gdy go brakuje, zawija się w wiersze (flex-wrap) i nie wychodzi poza okno. Gdy cel kroku stoi w wyższym wierszu zawiniętego rzędu, znacznik „kliknij tutaj” staje zaraz pod nim, w rzędzie (strona/aplikacja-zgoda.js, PK.celPod), a nie pod całym rzędem. Bez pierścienia przycisk nie rezerwuje 28 px z prawej na jego miejsce, więc mieści się w wierszu także obok najdłuższego trybu (Bypass permissions). */
+@media (max-width: 720px) {
+  .apl-rzad:not(.apl-rzad-z-pierscieniem) > .apl-model {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,219 @@
+<!doctype html>
+<!-- Rysunek R2 „Dwie zasady, które sobie przeczą” do lekcji zasady-ktore-dzialaja: dwie zasady w jednej sprawie w CLAUDE.md dają dwie możliwe odpowiedzi, a Claude może wybrać którąkolwiek. Źródło PNG obrazy/sprzeczne-zasady.png (zrzut 760 x 675 przy skali 2). -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Dwie zasady, które sobie przeczą</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku „Gdzie jest strona” (lekcja strona-oferty) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* sprzeczność: pomarańcz */
+        --sprzecznosc: #ea580c;
+        --sprzecznosc-tlo: #ffedd5;
+        /* okno rozmowy uproszczone jak w ćwiczeniu */
+        --okno: #1b1b1d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 26px;
+      }
+
+      /* ===== Karta pliku ===== */
+      .karta {
+        width: 540px;
+        margin: 0 auto;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 20px 18px;
+      }
+      .karta-glowa {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 40px;
+        margin-bottom: 6px;
+        font: 700 23px/1 var(--mono);
+      }
+      .karta-glowa svg {
+        width: 27px;
+        height: 27px;
+        flex: none;
+      }
+      .linijka {
+        height: 46px;
+        display: flex;
+        align-items: center;
+        font: 500 22px/1 var(--mono);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .linijka.naglowek {
+        font-weight: 700;
+      }
+      .linijka mark {
+        background: var(--sprzecznosc-tlo);
+        color: var(--granat);
+        padding: 7px 8px;
+        margin-left: -8px;
+        border: 2.5px solid var(--sprzecznosc);
+        border-radius: 8px;
+      }
+      .linijka + .linijka {
+        margin-top: 4px;
+      }
+
+      /* ===== Rozwidlenie ===== */
+      .rozwidlenie {
+        position: relative;
+        height: 116px;
+      }
+      .rozwidlenie svg {
+        position: absolute;
+        inset: 0;
+        width: 728px;
+        height: 116px;
+      }
+      .pytajnik {
+        position: absolute;
+        top: 38px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        display: grid;
+        place-items: center;
+        font: 800 30px/1 var(--sans);
+      }
+
+      /* ===== Dwa okna rozmowy, każde z jedną możliwą odpowiedzią ===== */
+      .okna {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 24px;
+      }
+      .okno {
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 14px 14px;
+        color: var(--okno-tekst);
+      }
+      .okno-gora {
+        height: 32px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 2px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .odpowiedz {
+        min-height: 128px;
+        padding: 12px 16px 14px;
+        border: 2px solid var(--okno-kreska);
+        border-radius: 14px 14px 14px 4px;
+        font: 500 22px/1.4 var(--sans);
+      }
+      .pole-wiadomosci {
+        margin-top: 14px;
+        height: 36px;
+        border: 2px solid var(--okno-kreska);
+        border-radius: 10px;
+      }
+      .podpis {
+        margin: 26px 0 0;
+        text-align: center;
+        font: 800 31px/1.2 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .podpis mark {
+        background: var(--zakreslacz);
+        color: var(--granat);
+        padding: 0 8px;
+        border-radius: 6px;
+        box-shadow: inset 0 -5px 0 var(--limonka);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Plik CLAUDE.md, Zasady biura, z dwiema zasadami zaznaczonymi na pomarańczowo: Do klientów pisz na Ty oraz Do klientów pisz per Pan/Pani. Od pliku biegną dwie drogi ze znakiem zapytania do dwóch okien z możliwą odpowiedzią: Cześć! Mieszkanie jest wolne od 1 grudnia… albo Dzień dobry Pani, mieszkanie jest wolne od 1 grudnia… Podpis: Claude może wybrać którąkolwiek."
+    >
+      <div class="karta">
+        <div class="karta-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          CLAUDE.md
+        </div>
+        <div class="linijka naglowek">Zasady biura</div>
+        <div class="linijka"><mark>- Do klientów pisz na Ty.</mark></div>
+        <div class="linijka"><mark>- Do klientów pisz per Pan/Pani.</mark></div>
+      </div>
+
+      <!-- Dwie drogi z karty do okien: każda może się zdarzyć, żadna nie jest stała -->
+      <div class="rozwidlenie">
+        <svg viewBox="0 0 728 116" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M364 0 V30 a14 14 0 0 1 -14 14 H196 a14 14 0 0 0 -14 14 V108" />
+            <path d="M364 0 V30 a14 14 0 0 0 14 14 H532 a14 14 0 0 1 14 14 V108" />
+            <path d="M170 96 L182 110 L194 96" />
+            <path d="M534 96 L546 110 L558 96" />
+          </g>
+        </svg>
+        <div class="pytajnik" style="left: 156px">?</div>
+        <div class="pytajnik" style="left: 520px">?</div>
+      </div>
+
+      <div class="okna">
+        <div class="okno">
+          <div class="okno-gora"><i></i><i></i><i></i></div>
+          <div class="odpowiedz">Cześć! Mieszkanie jest wolne od 1&nbsp;grudnia…</div>
+          <div class="pole-wiadomosci"></div>
+        </div>
+        <div class="okno">
+          <div class="okno-gora"><i></i><i></i><i></i></div>
+          <div class="odpowiedz">Dzień dobry Pani, mieszkanie jest wolne od 1&nbsp;grudnia…</div>
+          <div class="pole-wiadomosci"></div>
+        </div>
+      </div>
+
+      <p class="podpis">Claude może wybrać <mark>którąkolwiek z dwóch zasad</mark>.</p>
+    </div>
+  </body>
+</html>

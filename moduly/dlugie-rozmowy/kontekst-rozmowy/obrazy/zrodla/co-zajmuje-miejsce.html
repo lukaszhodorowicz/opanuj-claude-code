@@ -1,0 +1,309 @@
+<!doctype html>
+<!-- Rysunek R1 „Co zajmuje miejsce w rozmowie” do lekcji kontekst-rozmowy: pasek kontekstu podzielony na to, co jest od startu, to, co przybywa w trakcie pracy, instrukcje systemowe poza obiema grupami i wolne miejsce; nad nim karta Context z liczbami przykładowymi. Źródło PNG obrazy/co-zajmuje-miejsce.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co zajmuje miejsce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w strona-oferty/obrazy/zrodla/gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --granat-2: #16203a;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        /* odcienie odcinków: start ciemny, praca jaśniejsza */
+        --s1: #0e1422;
+        --s2: #2c3856;
+        --s3: #4f5c7d;
+        --p1: #6f7c99;
+        --p3: #8d98b0;
+        --p4: #aeb7c8;
+        --p5: #ccd2dc;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 24px;
+      }
+
+      /* ===== Karta Context nad paskiem ===== */
+      .gora {
+        position: relative;
+        height: 96px;
+      }
+      .karta {
+        position: absolute;
+        left: 517px;
+        top: 0;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 56px;
+        padding: 0 16px;
+        background: var(--okno-pasek);
+        border-radius: 12px;
+        color: var(--okno-tekst);
+        font: 700 24px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .karta svg {
+        width: 20px;
+        height: 20px;
+      }
+      .karta b {
+        font: 700 24px/1 var(--mono);
+        color: var(--biel);
+      }
+      .karta::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -12px;
+        transform: translateX(-50%);
+        border: 12px solid transparent;
+        border-bottom: 0;
+        border-top-color: var(--okno-pasek);
+      }
+      .przyklad {
+        position: absolute;
+        right: calc(728px - 517px + 112px);
+        top: 17px;
+        color: var(--grafit);
+        font: 700 21px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .przyklad::after {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        margin-left: 8px;
+        vertical-align: middle;
+        border-top: 3px solid var(--grafit);
+      }
+
+      /* ===== Pasek i klamry ===== */
+      .pasek {
+        display: block;
+        width: 728px;
+        height: 120px;
+        overflow: visible;
+      }
+      .pasek .wolne {
+        font: 800 22px/1 var(--sans);
+        fill: var(--grafit);
+      }
+
+      /* ===== Legenda w dwóch grupach ===== */
+      .legenda {
+        display: grid;
+        grid-template-columns: 258px 270px 1fr;
+        column-gap: 0;
+        padding-left: 32px;
+      }
+      .grupa:nth-child(2) {
+        padding-left: 0;
+      }
+      .grupa h3 {
+        margin: 0 0 14px;
+        font: 800 25px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .grupa ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .grupa li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font: 600 22px/1.2 var(--sans);
+      }
+      .grupa li i {
+        flex: none;
+        width: 30px;
+        height: 22px;
+        border-radius: 5px;
+      }
+      .grupa li code {
+        font: 700 21px/1 var(--mono);
+      }
+      .grupa.osobno ul {
+        margin-top: 0;
+      }
+      .grupa.osobno li {
+        align-items: flex-start;
+        line-height: 1.15;
+      }
+      .grupa.osobno li i {
+        margin-top: 2px;
+      }
+      .grupa.osobno small {
+        display: block;
+        margin-top: 8px;
+        color: var(--grafit);
+        font: 700 19px/1.15 var(--sans);
+        white-space: normal;
+        max-width: 170px;
+      }
+      .grupa li.ta span {
+        background: var(--zakreslacz);
+        box-shadow: 0 0 0 3px var(--zakreslacz);
+        border-radius: 3px;
+        font-weight: 800;
+      }
+
+      /* ===== Wniosek na dole ===== */
+      .wniosek {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 3px solid var(--granat);
+        font: 800 26px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .wniosek svg {
+        flex: none;
+        width: 34px;
+        height: 34px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 18px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Pasek kontekstu rozmowy. Od startu, zanim cokolwiek napiszesz: CLAUDE.md, nazwy narzędzi z konektorów, opisy skilli. W trakcie pracy: Twoje polecenia, przeczytane pliki (najdłuższy odcinek), odpowiedzi Claude, wyniki poleceń. Poza obiema grupami: instrukcje systemowe, też w kontekście. Na końcu wolne miejsce. Nad paskiem karta Context 71%. Liczby są przykładowe. Gdy miejsce się kończy, Claude streszcza rozmowę."
+    >
+      <h1 class="teza">Miejsce w rozmowie zajmują rzeczy wczytane na starcie i&nbsp;<mark>wszystko z&nbsp;bieżącej pracy</mark></h1>
+      <div class="gora">
+        <span class="przyklad">Liczby są przykładowe.</span>
+        <div class="karta">
+          Context
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+          <b>71%</b>
+        </div>
+      </div>
+
+      <svg class="pasek" viewBox="0 0 728 120" aria-hidden="true">
+        <defs>
+          <clipPath id="obrys"><rect x="0" y="0" width="728" height="68" rx="14" /></clipPath>
+        </defs>
+        <g clip-path="url(#obrys)">
+          <!-- od startu: 0-96 -->
+          <rect x="0" y="0" width="36" height="68" fill="#0e1422" />
+          <rect x="36" y="0" width="30" height="68" fill="#2c3856" />
+          <rect x="66" y="0" width="30" height="68" fill="#4f5c7d" />
+          <!-- w trakcie pracy: 96-488 -->
+          <rect x="96" y="0" width="44" height="68" fill="#6f7c99" />
+          <rect x="140" y="0" width="204" height="68" fill="#d9f99d" />
+          <rect x="344" y="0" width="86" height="68" fill="#8d98b0" />
+          <rect x="430" y="0" width="58" height="68" fill="#aeb7c8" />
+          <!-- instrukcje systemowe, poza grupami: 488-517 -->
+          <rect x="488" y="0" width="29" height="68" fill="#ccd2dc" />
+          <!-- wolne -->
+          <rect x="517" y="0" width="211" height="68" fill="#eef0e6" />
+          <!-- przerwy między odcinkami -->
+          <g stroke="#f6f6f1" stroke-width="3">
+            <path d="M36 0V68M66 0V68M96 0V68M140 0V68M344 0V68M430 0V68M488 0V68" />
+          </g>
+          <!-- zakreślenie limonką: przeczytane pliki -->
+          <rect x="141.5" y="1.5" width="201" height="65" fill="none" stroke="#a3e635" stroke-width="5" />
+        </g>
+        <path d="M517 0V68" stroke="#0e1422" stroke-width="3" stroke-dasharray="6 5" />
+        <rect x="1.5" y="1.5" width="725" height="65" rx="12.5" fill="none" stroke="#0e1422" stroke-width="3" />
+        <text class="wolne" x="622" y="42" text-anchor="middle">wolne miejsce</text>
+
+        <!-- klamry grup i odnogi do legendy -->
+        <g fill="none" stroke="#0e1422" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 80 V90 H93 V80" />
+          <path d="M48 90 V114" />
+          <path d="M99 80 V90 H485 V80" />
+          <path d="M306 90 V114" />
+          <!-- instrukcje systemowe: osobna mała klamra i odnoga do trzeciej kolumny -->
+          <path d="M491 80 V90 H514 V80" />
+          <path d="M502 90 V100 H575 V114" />
+        </g>
+      </svg>
+
+      <div class="legenda">
+        <div class="grupa">
+          <h3>Od startu, zanim<br />cokolwiek napiszesz</h3>
+          <ul>
+            <li><i style="background: #0e1422"></i><code>CLAUDE.md</code></li>
+            <li><i style="background: #2c3856"></i><span>nazwy narzędzi<br />z konektorów</span></li>
+            <li><i style="background: #4f5c7d"></i><span>opisy skilli</span></li>
+          </ul>
+        </div>
+        <div class="grupa">
+          <h3>W trakcie pracy</h3>
+          <ul>
+            <li><i style="background: #6f7c99"></i><span>Twoje polecenia</span></li>
+            <li class="ta"><i style="background: #d9f99d; box-shadow: inset 0 0 0 3px #a3e635"></i><span>przeczytane pliki</span></li>
+            <li><i style="background: #8d98b0"></i><span>odpowiedzi Claude</span></li>
+            <li><i style="background: #aeb7c8"></i><span>wyniki poleceń</span></li>
+          </ul>
+        </div>
+        <div class="grupa osobno">
+          <ul>
+            <li><i style="background: #ccd2dc"></i><span>instrukcje<br />systemowe</span></li>
+          </ul>
+          <small>Też zajmują miejsce.</small>
+        </div>
+      </div>
+
+      <p class="wniosek">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7" /></svg>
+        Gdy miejsce się kończy, Claude streszcza rozmowę
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Kiedy w aplikacji rusza hook z dopasowaniem permission_prompt (pytanie o zgodę)?"
+    tyl: "Około sześciu sekund po tym, jak Claude poprosi o zgodę, jeśli wcześniej nie odpowiesz."
+    fakt: hook-aplikacja-permission-prompt-po-szesciu-sekundach
+
+  - przod: "Czy w trybie Accept edits (przyjmowanie zmian) Claude pyta o zgodę na polecenie zip?"
+    tyl: "Tak. W aplikacji Accept edits sam przyjmuje zmiany plików i typowe polecenia na plikach, takie jak mkdir czy mv. O inne polecenia terminala, na przykład zip, pyta."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - przod: "Czy Claude mówi w rozmowie, że hook ruszył?"
+    tyl: "Nie. Hook działa poza rozmową."
+    fakt: hook-dziala-poza-rozmowa
+
+  - przod: "Jakie trzy rzeczy czytasz w zapisie hooka?"
+    tyl: "Zdarzenie, dopasowanie (matcher) i hook do uruchomienia, na przykład polecenie."
+    fakt: hook-trzy-poziomy-zdarzenie-dopasowanie-hook
+
+  - przod: "Gdzie działa hook z pliku .claude/settings.json w folderze projektu?"
+    tyl: "Tylko w tym projekcie. Hook z ~/.claude/settings.json działa we wszystkich."
+    fakt: hook-miejsce-folder-albo-komputer
+
+  - przod: "Dlaczego zapis w folderze .claude pyta o zgodę także w trybie Accept edits?"
+    tyl: "Bo folder .claude jest chroniony. W Manual i Accept edits zapis w nim wymaga Twojej zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja

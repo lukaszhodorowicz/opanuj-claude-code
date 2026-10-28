@@ -1,0 +1,114 @@
+/* Podgląd folderu pod oknem symulatora aplikacji: wygląd kart z lekcji terminalowych (styl-folder.css), bez napisów poza nazwami plików i ikonami; chwila czytania, wejście nowego pliku, teczki podfolderów i znacznik folderu rozmowy. */
+.cwiczenie-apl .apl-folder {
+  margin-top: 10px;
+}
+/* miejsce na uniesioną kartę i oko nad nią, żeby nie wchodziły na nazwę folderu */
+.apl-folder .pulpit-luzem {
+  margin-top: 18px;
+}
+/* tylko nazwy i ikony: bez licznika zmian, bez słowa przy oku i bez pigułki „zmieniona treść” (zostają znaczek zmiany i liczby linijek) */
+.apl-folder .licznik,
+.apl-folder .karta-edytowany {
+  display: none;
+}
+.apl-folder .karta-oko {
+  gap: 0;
+  padding: 4px;
+  font-size: 0;
+}
+.apl-folder .karta-oko svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* zmieniony plik: wyraźna granatowa ramka i kółko z ołówkiem w lewym górnym rogu (oko „czyta” zostaje w prawym; granat z białą ikoną, nie limonka jak oko), czytelne też na 375 px */
+.apl-folder .karta.edytowany {
+  border-color: var(--granat);
+  box-shadow:
+    0 0 0 1.5px var(--granat),
+    0 1px 0 rgba(14, 20, 34, 0.06);
+}
+.apl-folder .karta-zmiana {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--granat);
+  color: var(--biel);
+  border: 2px solid var(--biel);
+  box-shadow: 0 0 0 1px var(--granat);
+}
+.apl-folder .karta-zmiana svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Claude czyta: karta unosi się nad blatem w limonkowej obwódce, z okiem w rogu */
+.apl-folder .karta {
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.75, 0.25, 1),
+    box-shadow 0.25s ease-out;
+}
+.apl-folder .karta.czyta {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(14, 20, 34, 0.16);
+}
+/* czytana i zmieniona naraz: cień uniesienia i granatowy pierścień zmiany razem */
+.apl-folder .karta.czyta.edytowany {
+  box-shadow:
+    0 0 0 1.5px var(--granat),
+    0 8px 16px rgba(14, 20, 34, 0.16);
+}
+
+/* nowy plik: karta wpada na blat i zostaje zakreślona jak w lekcjach terminalowych */
+.apl-folder .karta.apl-pojawia {
+  animation: apl-pojawia 0.6s cubic-bezier(0.2, 0.75, 0.25, 1.25) backwards;
+}
+@keyframes apl-pojawia {
+  from {
+    transform: translateY(-18px) scale(0.7);
+    opacity: 0;
+  }
+}
+
+/* teczki podfolderów (`Podfolder/plik`): na wąskim ekranie jedna pod drugą, na całą szerokość */
+@media (max-width: 480px) {
+  .apl-folder .pulpit-teczki {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* folder rozmowy (`folder_glowny`): wyróżnienie bez słów, w kolorach kursu; nazwa na granatowej pigułce z limonką, teczka w limonkowym pierścieniu */
+.apl-folder .pulpit-glowa.rozmowa b,
+.apl-folder .teczka.rozmowa .teczka-glowa span {
+  background: var(--granat);
+  color: var(--limonka);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.apl-folder .teczka.rozmowa {
+  box-shadow: 0 0 0 3px var(--limonka);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-folder .karta {
+    transition: none;
+  }
+  .apl-folder .karta.czyta {
+    transform: none;
+  }
+  .apl-folder .karta.apl-pojawia {
+    animation: none;
+  }
+}
+
+/* Przewiewny układ lekcji (D-2026-10-28-03) */
+.cwiczenie-apl .apl-folder {
+  margin-top: 20px;
+}

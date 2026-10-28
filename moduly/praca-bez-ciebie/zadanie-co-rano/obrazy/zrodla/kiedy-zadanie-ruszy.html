@@ -1,0 +1,296 @@
+<!doctype html>
+<!-- Rysunek R2 „Kiedy zadanie ruszy” do lekcji zadanie-co-rano: oś czasu zwykłego dnia i wtorku; przebieg o porze, przebieg przepada przy uśpionym komputerze, jeden przebieg nadrabiający po otwarciu klapy. Źródło PNG obrazy/kiedy-zadanie-ruszy.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Kiedy zadanie ruszy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      p {
+        margin: 0;
+      }
+      .rys {
+        padding: 18px 16px 22px;
+      }
+      .ui {
+        display: inline-block;
+        padding: 0 7px 1px;
+        border: 2px solid var(--granat);
+        border-radius: 8px;
+        background: var(--biel);
+        color: var(--granat);
+        font: 700 0.84em/1.3 var(--mono);
+        white-space: nowrap;
+      }
+
+      /* ===== Oś czasu: pora | oś | zdarzenie ===== */
+      .os {
+        position: relative;
+      }
+      .os::before {
+        content: "";
+        position: absolute;
+        left: 129px;
+        top: 52px;
+        bottom: 30px;
+        width: 4px;
+        border-radius: 2px;
+        background: var(--granat);
+      }
+      .dzien {
+        margin: 0 0 10px 162px;
+        font: 800 28px/1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .dzien.drugi {
+        margin-top: 22px;
+      }
+      .zd {
+        position: relative;
+        display: grid;
+        grid-template-columns: 100px 42px 1fr;
+        column-gap: 10px;
+        align-items: start;
+        padding-bottom: 18px;
+      }
+      .pora {
+        text-align: right;
+        padding-top: 6px;
+        font: 700 25px/1 var(--mono);
+      }
+      .znak {
+        position: relative;
+        z-index: 1;
+        justify-self: center;
+        margin-top: 4px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+      .znak.maly {
+        width: 18px;
+        height: 18px;
+        margin-top: 8px;
+        background: var(--granat);
+      }
+      .znak.przepada {
+        background: var(--papier);
+        border-color: var(--grafit);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .znak.przepada svg {
+        width: 18px;
+        height: 18px;
+      }
+      .znak.nadrabia {
+        width: 36px;
+        height: 36px;
+        margin-top: 1px;
+        background: var(--limonka);
+      }
+      .tresc {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .wiersz {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font: 700 23px/1.25 var(--sans);
+      }
+      .wiersz svg {
+        width: 40px;
+        height: 40px;
+        flex: none;
+      }
+      .wiersz.szary {
+        color: var(--grafit);
+      }
+      .karta {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 14px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+      }
+      .karta svg {
+        width: 26px;
+        height: 26px;
+        flex: none;
+      }
+      .karta .nazwa {
+        font: 700 21px/1.2 var(--mono);
+      }
+      .karta .linijka {
+        margin-top: 6px;
+        font: 600 20px/1.3 var(--sans);
+        color: var(--grafit);
+      }
+      .nadrabiajacy {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .zakreslony {
+        padding: 10px 16px;
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+        border-radius: 14px;
+        font: 800 25px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .dzwonek {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 700 22px/1 var(--sans);
+      }
+      .dzwonek svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      /* ===== Dopiski pod osią ===== */
+      .dopiski {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .dopisek {
+        padding: 12px 16px;
+        border-left: 5px solid var(--granat);
+        background: var(--papier-2);
+        border-radius: 0 12px 12px 0;
+        font: 600 21px/1.35 var(--sans);
+      }
+      .dopisek b {
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Kiedy zadanie ruszy. Zwykły dzień, 7:30. Aplikacja jest otwarta, a komputer działa. Zadanie rusza kilka minut po 7:30, zawsze z tym samym opóźnieniem, i zapisuje plik poranek/&lt;data&gt;.txt. Noc. Zamknięta klapa usypia komputer. Wtorek, 7:30. Komputer śpi, więc przebieg o 7:30 przepada. Wtorek, 10:40. Otwierasz klapę. Rusza jeden przebieg nadrabiający. Aplikacja pokazuje powiadomienie. Plik poranek/2026-10-27.txt zaczyna się od linijki: Podsumowanie spóźnione: zaczęte po 10:00. Komputer spał przez 6 dni? Po jego obudzeniu zadanie ruszy tylko raz, za ostatni opuszczony termin. Starszych terminów nie nadrabia. Aplikacja szuka opuszczonych terminów tylko w ostatnich 7 dniach. Keep computer awake włączysz w Settings &gt; This computer &gt; System. To ustawienie nie pozwala komputerowi zasnąć, gdy nic na nim nie robisz. Zamknięta klapa i tak go uśpi. W poleceniu zadania warto dopisać zabezpieczenie, na przykład: „Jeśli zaczniesz po 10:00, napisz na górze, że jest spóźnione”."
+    >
+      <div class="os">
+        <p class="dzien">Zwykły dzień</p>
+
+        <div class="zd">
+          <p class="pora">7:30</p>
+          <span class="znak"></span>
+          <div class="tresc">
+            <p class="wiersz">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5" /><path d="M2 19h20" /></svg>
+              Aplikacja jest otwarta, a komputer działa.
+            </p>
+          </div>
+        </div>
+
+        <div class="zd">
+          <p class="pora"></p>
+          <span class="znak maly"></span>
+          <div class="tresc">
+            <p class="wiersz">Zadanie rusza kilka minut po 7:30, zawsze z tym samym opóźnieniem.</p>
+            <div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" /></svg>
+              <p class="nazwa">poranek/&lt;data&gt;.txt</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="zd">
+          <p class="pora">noc</p>
+          <span class="znak"></span>
+          <div class="tresc">
+            <p class="wiersz">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h16v2.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 16.5z" /><path d="M2 14h20" /></svg>
+              <span>Zamknięta klapa usypia komputer.</span>
+            </p>
+          </div>
+        </div>
+
+        <p class="dzien drugi">Wtorek</p>
+
+        <div class="zd">
+          <p class="pora">7:30</p>
+          <span class="znak przepada"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3 15 15M15 3 3 15" stroke="#475569" stroke-width="3" stroke-linecap="round" /></svg></span>
+          <div class="tresc">
+            <p class="wiersz szary">Komputer śpi, więc przebieg o 7:30 przepada.</p>
+          </div>
+        </div>
+
+        <div class="zd">
+          <p class="pora">10:40</p>
+          <span class="znak nadrabia"></span>
+          <div class="tresc">
+            <p class="wiersz">Otwierasz klapę.</p>
+            <div class="nadrabiajacy">
+              <p class="zakreslony">Rusza jeden przebieg nadrabiający.</p>
+              <p class="dzwonek">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z" /><path d="M10 20.5a2 2 0 0 0 4 0" /></svg>
+                Aplikacja pokazuje powiadomienie.
+              </p>
+            </div>
+            <div class="karta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 16h6" /></svg>
+              <div>
+                <p class="nazwa">poranek/2026-10-27.txt</p>
+                <p class="linijka">Podsumowanie spóźnione: zaczęte po 10:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dopiski">
+        <p class="dopisek"><b>Komputer spał przez 6 dni?</b> Po jego obudzeniu zadanie ruszy tylko raz, za ostatni opuszczony termin. Starszych terminów nie nadrabia. Aplikacja szuka opuszczonych terminów tylko w ostatnich 7 dniach.</p>
+        <p class="dopisek"><span class="ui">Keep computer awake</span> włączysz w <span class="ui">Settings &gt; This computer &gt; System</span>. To ustawienie nie pozwala komputerowi zasnąć, gdy nic na nim nie robisz. Zamknięta klapa i tak go uśpi.</p>
+        <p class="dopisek">W poleceniu zadania warto dopisać <b>zabezpieczenie</b>, na przykład „Jeśli zaczniesz po 10:00, napisz na górze, że jest spóźnione”.</p>
+      </div>
+    </div>
+  </body>
+</html>

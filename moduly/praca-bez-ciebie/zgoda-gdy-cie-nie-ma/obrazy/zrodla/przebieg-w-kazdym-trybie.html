@@ -1,0 +1,289 @@
+<!doctype html>
+<!-- Rysunek R1 „Przebieg bez Ciebie w każdym trybie” do lekcji zgoda-gdy-cie-nie-ma: cztery tory trybów (Manual, Accept edits, Auto, Bypass permissions) i dolny pas o tym, co pyta w każdym trybie. Źródło PNG obrazy/przebieg-w-kazdym-trybie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Przebieg w każdym trybie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w zadanie-co-rano/obrazy/zrodla/jak-dziala-zadanie.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      p {
+        margin: 0;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .ui {
+        display: inline-block;
+        padding: 1px 8px 2px;
+        border: 2px solid var(--granat);
+        border-radius: 8px;
+        background: var(--biel);
+        font: 700 0.86em/1.25 var(--mono);
+        white-space: nowrap;
+      }
+
+      /* Nagłówek: poniedziałek, 7:00 */
+      .glowa {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .glowa svg {
+        width: 54px;
+        height: 54px;
+        flex: none;
+      }
+      .glowa .pora {
+        font: 800 28px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .glowa .dalej {
+        margin-top: 3px;
+        font: 500 21px/1.25 var(--sans);
+        color: var(--grafit);
+      }
+
+      /* Tory trybów */
+      .tory {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .tor {
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 12px 12px;
+      }
+      .tor > .ui {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .kroki {
+        display: grid;
+        grid-template-columns: 1fr 32px 1fr 32px 1fr;
+        align-items: stretch;
+      }
+      .krok {
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        padding: 10px 11px;
+        font: 700 19px/1.25 var(--sans);
+      }
+      .strzalka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .strzalka svg {
+        width: 26px;
+        height: 20px;
+        overflow: visible;
+      }
+
+      /* Manual: stop w zakreślaczu, jedyny zakreślony element */
+      .stoi {
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+        border-radius: 12px;
+        padding: 8px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font: 800 19px/1.22 var(--sans);
+      }
+      .stoi svg {
+        width: 34px;
+        height: 34px;
+        flex: none;
+      }
+
+      /* Auto: boczna strzałka w dół */
+      .wstrzymanie {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 6px;
+        padding-right: 8px;
+      }
+      .wstrzymanie svg {
+        width: 20px;
+        height: 42px;
+        flex: none;
+        overflow: visible;
+      }
+      .wstrzymanie p {
+        margin-top: 12px;
+        padding: 8px 12px;
+        border: 2.5px dashed var(--granat);
+        border-radius: 11px;
+        background: var(--biel);
+        font: 700 19px/1.25 var(--sans);
+        max-width: 420px;
+      }
+
+      /* Bypass: przekreślony tor */
+      .tor.zamkniety {
+        background: var(--papier);
+        border-style: dashed;
+        border-color: var(--grafit);
+      }
+      .tor.zamkniety > .ui {
+        color: var(--grafit);
+        border-color: var(--grafit);
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+      }
+      .zakaz {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .zakaz svg {
+        width: 170px;
+        height: 40px;
+        flex: none;
+      }
+      .zakaz p {
+        font: 700 19px/1.25 var(--sans);
+        color: var(--grafit);
+      }
+
+      /* Dolny pas */
+      .pas {
+        margin-top: 16px;
+        padding: 12px 16px 14px;
+        border-left: 5px solid var(--granat);
+        background: var(--papier-2);
+        border-radius: 0 12px 12px 0;
+      }
+      .pas .tytul {
+        font: 800 22px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .pas ul {
+        margin: 8px 0 0;
+        padding-left: 24px;
+        font: 700 20px/1.35 var(--sans);
+      }
+      .pas li + li {
+        margin-top: 4px;
+      }
+      .pas .ui {
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Przebieg bez Ciebie w każdym trybie. Poniedziałek, 7:00. Zadanie samo zaczyna sesję. Przy komputerze nikogo nie ma. Manual: Claude czyta pliki w folderze bez pytania. Przed zmianą pliku Claude pyta o zgodę. Przebieg stoi, aż zatwierdzisz zmianę w sesji przebiegu. Accept edits: odczyty, zmiany plików i typowe polecenia na plikach idą bez pytania. O inne polecenia Claude pyta. Na pytanie odpowiadasz w sesji przebiegu. Auto: odczyty i zmiany plików w folderze przechodzą bez oceny strażnika. Wyjątkiem są zapisy w chronionych folderach i plikach. Polecenia i połączenia z internetem ocenia strażnik. Ryzykowne działania strażnik blokuje, zamiast pytać Ciebie. Claude dostaje powód blokady. Po 3 blokadach z rzędu albo 20 łącznie Claude Code znów pyta o zgodę. Bypass permissions jest przekreślony: dokumentacja każe używać tego trybu tylko w odizolowanych kontenerach albo maszynach wirtualnych. W żadnym trybie, także w Bypass permissions, nie przechodzą same narzędzia, które wymagają Twojej odpowiedzi: pytania Claude do Ciebie (AskUserQuestion) i narzędzia MCP oznaczone requiresUserInteraction."
+    >
+      <div class="glowa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5" /></svg>
+        <div>
+          <p class="pora">Poniedziałek, 7:00</p>
+          <p class="dalej">Zadanie samo zaczyna sesję. Przy komputerze nikogo nie ma.</p>
+        </div>
+      </div>
+
+      <div class="tory">
+        <!-- Manual -->
+        <div class="tor">
+          <span class="ui">Manual</span>
+          <div class="kroki">
+            <p class="krok">Claude czyta pliki w folderze bez pytania.</p>
+            <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <p class="krok">Przed zmianą pliku Claude pyta o zgodę.</p>
+            <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <div class="stoi">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5h8l5.5 5.5v8L16 21.5H8L2.5 16V8z" fill="#0e1422" /><path d="M7.5 12h9" stroke="#d9f99d" stroke-width="2.6" stroke-linecap="round" /></svg>
+              <p>Przebieg stoi, aż zatwierdzisz zmianę w sesji przebiegu.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accept edits -->
+        <div class="tor">
+          <span class="ui">Accept edits</span>
+          <div class="kroki">
+            <p class="krok">Odczyty, zmiany plików i typowe polecenia na plikach idą bez pytania.</p>
+            <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <p class="krok">O inne polecenia Claude pyta.</p>
+            <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <p class="krok">Na pytanie odpowiadasz w sesji przebiegu.</p>
+          </div>
+        </div>
+
+        <!-- Auto -->
+        <div class="tor">
+          <span class="ui">Auto</span>
+          <div class="kroki">
+            <p class="krok">Odczyty i zmiany plików w folderze przechodzą bez oceny strażnika. Wyjątkiem są zapisy w chronionych folderach i plikach.</p>
+            <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <p class="krok">Polecenia i połączenia z internetem ocenia strażnik.</p>
+            <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <p class="krok">Ryzykowne działania strażnik blokuje, zamiast pytać Ciebie. Claude dostaje powód blokady.</p>
+          </div>
+          <div class="wstrzymanie">
+            <svg viewBox="0 0 20 42" aria-hidden="true"><path d="M10 2 V38 M3 30 L10 39 L17 30" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <p>Po 3 blokadach z rzędu albo 20 łącznie Claude Code znów pyta o zgodę.</p>
+          </div>
+        </div>
+
+        <!-- Bypass permissions -->
+        <div class="tor zamkniety">
+          <span class="ui">Bypass permissions</span>
+          <div class="zakaz">
+            <svg viewBox="0 0 170 40" aria-hidden="true"><path d="M4 20 H160 M150 11 L162 20 L150 29" fill="none" stroke="#475569" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 0" /><path d="M66 4 L102 36 M102 4 L66 36" stroke="#0e1422" stroke-width="5" stroke-linecap="round" /></svg>
+            <p>Dokumentacja każe używać tego trybu tylko w odizolowanych kontenerach albo maszynach wirtualnych.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pas">
+        <p class="tytul">W żadnym trybie, także w Bypass permissions, nie przechodzą same narzędzia, które wymagają Twojej odpowiedzi:</p>
+        <ul>
+          <li>pytania Claude do Ciebie (<span class="ui">AskUserQuestion</span>)</li>
+          <li>narzędzia MCP oznaczone <span class="ui">requiresUserInteraction</span></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

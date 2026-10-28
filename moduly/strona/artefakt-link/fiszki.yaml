@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Czym jest artefakt w Claude Code?"
+    tyl: "Interaktywną stroną, którą Claude Code publikuje z Twojej sesji pod prywatnym adresem na claude.ai."
+    fakt: artefakt-to-strona-pod-prywatnym-linkiem-na-claude-ai
+
+  - przod: "Kto widzi nowy artefakt zaraz po publikacji?"
+    tyl: "Tylko Ty. Udostępniasz go przyciskiem Share w nagłówku strony artefaktu."
+    fakt: artefakt-nowy-widoczny-tylko-dla-ciebie
+
+  - przod: "Co widzi zamiast Twojego imienia osoba, która otwiera publiczny link bez logowania albo spoza Twojej organizacji?"
+    tyl: "Napis „Content is user-generated and unverified.” (treść od użytkownika, niesprawdzona)."
+    fakt: artefakt-gosc-publicznego-linku-widzi-napis-zamiast-imienia
+
+  - przod: "Pod jakim adresem Claude publikuje poprawkę strony w tej samej sesji?"
+    tyl: "Pod tym samym adresem. Claude zmienia plik, z którego powstała strona, i publikuje go ponownie."
+    fakt: artefakt-poprawka-zmienia-plik-i-publikuje-pod-tym-samym-adresem
+
+  - przod: "Czy panel Browser ma Twoje zapisane logowania z przeglądarki?"
+    tyl: "Nie. Panel Browser nie ma Twoich zapisanych logowań i historii. Używa czystego profilu, osobnego od Twojej przeglądarki."
+    fakt: aplikacja-panel-browser-czysty-profil-bez-zapisanych-logowan
+
+  - przod: "Czy artefakt obsłuży kilka podstron?"
+    tyl: "Nie. Artefakt to jedna samodzielna strona bez zaplecza, więc nie obsłuży wielu podstron."
+    fakt: artefakt-jedna-strona-bez-zaplecza

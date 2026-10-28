@@ -1,0 +1,445 @@
+/* Wygląd podglądu folderu: blat z kropkami, pliki jako karty z ikoną, foldery z zakładką, oznaczenia „czyta”, „zły folder”, „było”, „usunięty”, „zmieniona treść” i „przywrócony”. */
+.pulpit {
+  background-color: var(--papier);
+  background-image: radial-gradient(#d3d6c8 1px, transparent 1.3px);
+  background-size: 14px 14px;
+  border: 1px solid var(--kreska);
+  border-radius: 16px;
+  padding: 10px 12px 12px;
+}
+.pulpit-glowa {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--granat);
+}
+.pulpit-glowa svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.pulpit-glowa b {
+  font: 700 14px/1.2 var(--sans);
+}
+.licznik {
+  margin-left: auto;
+  font: 600 12px/1 var(--mono);
+  color: var(--grafit);
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-radius: 999px;
+  padding: 4px 9px;
+}
+.licznik.sa {
+  background: var(--zakreslacz);
+  border-color: var(--mech);
+  color: var(--mech);
+}
+.pulpit-teczki {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px 10px;
+  margin-top: 20px;
+}
+.pulpit-luzem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.pulpit-luzem:empty {
+  display: none;
+}
+
+/* karta pliku */
+.karta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  /* karta ma 86px, a rośnie tylko wtedy, gdy najdłuższy fragment nazwy (między „-”, „_” i „.”) albo napis celu się nie mieści */
+  width: min-content;
+  min-width: 86px;
+  padding: 9px 6px 8px;
+  background: var(--biel);
+  border: 1px solid #d3d6c8;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(14, 20, 34, 0.06);
+  text-align: center;
+  transform-origin: top left;
+}
+.karta-ikona {
+  position: relative;
+  width: 30px;
+  height: 34px;
+  color: var(--granat);
+}
+.karta-ikona svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.karta-ikona i {
+  position: absolute;
+  left: -5px;
+  bottom: 4px;
+  padding: 2px 3px;
+  border-radius: 3px;
+  background: var(--granat);
+  color: var(--biel);
+  font: 700 8.5px/1 var(--mono);
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+.karta-txt .karta-ikona i {
+  background: var(--grafit);
+}
+.karta-nazwa {
+  font: 500 10.5px/1.25 var(--mono);
+  color: var(--granat);
+  /* nazwa łamie się jak w karcie 86px także wtedy, gdy kartę poszerzył napis celu */
+  width: min-content;
+  min-width: 72px;
+}
+.karta.nowy {
+  background: var(--zakreslacz);
+}
+.karta.uwaga {
+  background: var(--czerwony-jasny);
+  border-color: var(--czerwony);
+}
+.karta-uwaga {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font: 700 10.5px/1.2 var(--sans);
+  color: var(--czerwony);
+}
+.karta-uwaga::before {
+  content: "!";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--czerwony);
+  color: var(--biel);
+  font-size: 9px;
+}
+.karta-cel {
+  font: 700 10.5px/1.2 var(--sans);
+  color: var(--mech);
+  background: var(--zakreslacz);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+/* zmiana nazwy: nowa nazwa zakreślona jak markerem, pod nią na chwilę stara, przekreślona */
+.karta.zmieniony .karta-nazwa {
+  background: linear-gradient(transparent 0 40%, var(--zakreslacz) 40% 100%) no-repeat;
+  background-size: 100% 100%;
+  font-weight: 700;
+}
+.karta.zmieniony.swiezo .karta-nazwa {
+  animation: marker 0.6s 0.15s cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
+}
+@keyframes marker {
+  from {
+    background-size: 0% 100%;
+  }
+}
+.karta-bylo {
+  font: 500 9.5px/1.25 var(--mono);
+  color: var(--grafit);
+}
+.karta-bylo s {
+  display: block;
+  text-decoration-color: var(--grafit);
+}
+.karta.swiezo .karta-bylo {
+  animation: bylo 0.35s ease-out backwards;
+}
+@keyframes bylo {
+  from {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+}
+.karta-bylo.gasnie {
+  animation: gasnie 0.4s ease-in forwards;
+}
+@keyframes gasnie {
+  to {
+    opacity: 0;
+  }
+}
+
+/* skasowanie: karta zostaje, blednie, nazwę przekreśla czerwona kreska, pod nią „usunięty” */
+.karta.usuniety {
+  background: var(--papier);
+  border: 1px dashed var(--grafit);
+  box-shadow: none;
+}
+.karta.usuniety .karta-ikona {
+  color: var(--grafit);
+  opacity: 0.45;
+}
+.karta.usuniety .karta-ikona i {
+  background: var(--grafit);
+}
+.karta.usuniety .karta-nazwa {
+  color: var(--grafit);
+  text-decoration: line-through 1.5px var(--czerwony);
+}
+.karta.usuniety.swiezo .karta-nazwa {
+  animation: skreslenie 0.5s 0.15s ease-out backwards;
+}
+@keyframes skreslenie {
+  from {
+    text-decoration-color: transparent;
+  }
+}
+.karta.usuniety.swiezo {
+  animation: blednie 0.5s ease-out;
+}
+@keyframes blednie {
+  from {
+    background: var(--biel);
+    border-color: #d3d6c8;
+  }
+}
+.karta-usuniety {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font: 700 10.5px/1.2 var(--sans);
+  color: var(--czerwony);
+}
+.karta-usuniety::before {
+  content: "×";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--czerwony);
+  color: var(--biel);
+  font-size: 11px;
+  line-height: 1;
+}
+.teczka .karta-bylo {
+  font-size: 8.5px;
+}
+
+/* zmiana treści: karta zostaje, dostaje granatową ramkę, obrysowaną pigułkę i liczby linijek +dodane −usunięte */
+.karta.edytowany {
+  border-color: var(--granat);
+  box-shadow: 0 0 0 0.5px var(--granat), 0 1px 0 rgba(14, 20, 34, 0.06);
+}
+.karta-edytowany,
+.karta-przywrocony {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  font: 700 10px/1.2 var(--sans);
+  border-radius: 999px;
+  padding: 1px 7px 1px 5px;
+}
+.karta-edytowany {
+  color: var(--granat);
+  background: var(--biel);
+  border: 1.5px solid var(--granat);
+}
+.karta-edytowany::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--limonka);
+  box-shadow: 0 0 0 1.5px var(--granat);
+}
+.karta-liczby {
+  display: flex;
+  align-items: center;
+  font: 700 11px/1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.karta-liczby b {
+  font-weight: 700;
+  padding: 0 4px;
+}
+.karta-liczby .plus {
+  color: var(--mech);
+}
+.karta-liczby .minus {
+  color: var(--czerwony);
+  border-left: 1px solid var(--kreska);
+}
+.karta.edytowany.swiezo {
+  animation: puls 0.7s ease-out 2;
+}
+.karta.swiezo .karta-liczby {
+  animation: bylo 0.35s 0.1s ease-out backwards;
+}
+@keyframes puls {
+  from {
+    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.95);
+  }
+  to {
+    box-shadow: 0 0 0 10px rgba(163, 230, 53, 0);
+  }
+}
+/* przywrócenie: zwykła karta, neutralna szara pigułka ze strzałką powrotu */
+.karta-przywrocony {
+  color: var(--grafit);
+  background: var(--papier-2);
+  border: 1px solid #cfd3c4;
+}
+.karta-przywrocony::before {
+  content: "↺";
+  font: 700 11px/1 var(--sans);
+}
+.karta.przywrocony.swiezo {
+  animation: puls-szary 0.7s ease-out;
+}
+@keyframes puls-szary {
+  from {
+    box-shadow: 0 0 0 0 rgba(71, 85, 105, 0.45);
+  }
+  to {
+    box-shadow: 0 0 0 10px rgba(71, 85, 105, 0);
+  }
+}
+.teczka .karta-edytowany,
+.teczka .karta-przywrocony {
+  font-size: 9px;
+}
+.teczka .karta-liczby {
+  font-size: 10px;
+}
+
+.karta.czyta {
+  outline: 3px solid var(--limonka);
+  outline-offset: 1px;
+}
+.karta-oko {
+  position: absolute;
+  top: -11px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 7px 3px 5px;
+  border-radius: 999px;
+  background: var(--granat);
+  color: var(--limonka);
+  font: 700 10px/1 var(--mono);
+  animation: oko 0.3s ease-out;
+}
+.karta-oko svg {
+  width: 13px;
+  height: 13px;
+}
+@keyframes oko {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+.karta.w-locie {
+  z-index: 3;
+  box-shadow: 0 10px 22px rgba(14, 20, 34, 0.22);
+}
+
+/* folder: zakładka, nazwa z liczbą plików i karty w środku (mniejsze) */
+.teczka {
+  position: relative;
+  min-width: 132px;
+  max-width: 100%;
+  background: var(--biel);
+  border: 1.5px solid var(--granat);
+  border-radius: 3px 12px 12px 12px;
+  padding: 6px;
+}
+.teczka::before {
+  content: "";
+  position: absolute;
+  left: -1.5px;
+  top: -10px;
+  width: 46px;
+  height: 10px;
+  background: var(--biel);
+  border: 1.5px solid var(--granat);
+  border-bottom: 0;
+  border-radius: 7px 7px 0 0;
+}
+.teczka-glowa {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 2px 6px;
+  color: var(--granat);
+}
+.teczka-glowa svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.teczka-glowa span {
+  font: 700 12.5px/1.2 var(--mono);
+}
+.teczka-glowa em {
+  margin-left: auto;
+  font: 700 11px/1 var(--mono);
+  font-style: normal;
+  background: var(--granat);
+  color: var(--limonka);
+  border-radius: 999px;
+  padding: 3px 7px;
+}
+.teczka-wnetrze {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 62px;
+  padding: 6px;
+  border-radius: 8px;
+  background: var(--papier-2);
+}
+.teczka-wnetrze:empty::before {
+  content: "pusty";
+  align-self: center;
+  margin: 0 auto;
+  font: 500 12px/1 var(--mono);
+  color: var(--grafit);
+}
+.teczka .karta {
+  min-width: 72px;
+  padding: 7px 4px 6px;
+}
+.teczka .karta-ikona {
+  width: 24px;
+  height: 28px;
+}
+.teczka .karta-nazwa {
+  font-size: 9.5px;
+  min-width: 62px;
+}
+.teczka.nowa {
+  animation: teczka 0.5s cubic-bezier(0.2, 0.75, 0.25, 1.3);
+}
+.teczka.nowa .teczka-glowa span {
+  background: linear-gradient(transparent 0 45%, var(--zakreslacz) 45% 100%);
+}
+@keyframes teczka {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}

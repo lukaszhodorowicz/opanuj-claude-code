@@ -1,0 +1,195 @@
+<!doctype html>
+<!-- Rysunek B do lekcji nowy-dokument (styl R1, D-2026-10-26-58): plik spoza folderu rozmowy dajesz Claude jedną z trzech dróg: przyciskiem + (załączniki), przeciągnięciem do pola wiadomości albo przez + → Add folder. Attach as context celowo pominięte (BRIEF, „Obowiązuje”, pkt c); menu + nie rysujemy (brak zrzutów, D-2026-10-26-53); nazwy pozycji „Add files or photos” nie używamy. Limonka: karta „plik spoza folderu”. Napisy z faktów: aplikacja-plus-i-przeciaganie-dolaczaja-pliki, aplikacja-plus-obok-pola-zalaczniki-skille-konektory-wtyczki, aplikacja-add-folder-w-trwajacej-sesji-lokalnej; napis „+” z dane/napisy-interfejsu.yaml. Poprawka P1 kontroli 26.10: zdanie pod rysunkiem bez „za Twoją zgodą”. Źródło PNG obrazy/plik-spoza-folderu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Plik spoza folderu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { position: relative; padding: 20px 16px 22px; }
+      .wachlarz { position: absolute; left: 0; top: 0; width: 760px; height: 170px; overflow: visible; }
+
+      /* jedyna limonka: plik spoza folderu */
+      .plik {
+        position: relative;
+        margin: 0 auto;
+        width: max-content;
+        display: flex; align-items: center; gap: 12px;
+        height: 66px; padding: 0 22px;
+        border: 5px solid var(--limonka);
+        background: var(--zakreslacz);
+        border-radius: 14px;
+        font: 800 25px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .plik svg { width: 28px; height: 28px; }
+
+      .drogi { position: relative; margin-top: 62px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .droga {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 16px 12px 18px;
+        display: flex; flex-direction: column; align-items: center;
+      }
+      .nr {
+        width: 46px; height: 46px; border-radius: 50%;
+        background: var(--granat); color: var(--biel);
+        display: grid; place-items: center;
+        font: 800 25px/1 var(--sans);
+      }
+      .droga h3 {
+        margin: 10px 0 16px;
+        font: 800 26px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+        min-height: 58px;
+      }
+
+      /* schematyczne pole wiadomości */
+      .pole {
+        width: 100%;
+        height: 60px;
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        display: flex; align-items: center; gap: 10px;
+        padding: 0 10px;
+      }
+      .plus {
+        width: 36px; height: 36px; flex: none;
+        border: 3px solid var(--granat);
+        border-radius: 50%;
+        display: grid; place-items: center;
+        font: 800 26px/1 var(--sans);
+      }
+      .pole i { flex: 1; height: 10px; border-radius: 5px; background: var(--linia); }
+      .pole.cel { border-style: dashed; }
+
+      .strzalka { width: 100%; height: 58px; overflow: visible; }
+
+      .znacznik {
+        display: flex; align-items: center; gap: 8px;
+        height: 52px; padding: 0 14px;
+        border: 2px solid var(--kreska);
+        background: var(--papier-2);
+        border-radius: 11px;
+        font: 800 22px/1 var(--sans);
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+      .znacznik { align-self: flex-start; }
+      .znacznik svg { width: 25px; height: 25px; flex: none; }
+      .znacznik.mono { font: 700 22px/1 var(--mono); letter-spacing: 0; }
+
+      .karta {
+        display: flex; align-items: center; gap: 10px;
+        height: 52px; padding: 0 14px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        box-shadow: 4px 4px 0 var(--kreska);
+      }
+      .karta svg { width: 25px; height: 25px; }
+      .karta i { width: 70px; height: 10px; border-radius: 5px; background: var(--linia); }
+
+      .zasada {
+        margin: 22px 0 0;
+        padding-top: 16px;
+        border-top: 2px solid var(--kreska);
+        color: var(--grafit);
+        font: 600 23px/1.35 var(--sans);
+        letter-spacing: -0.01em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Plik spoza folderu rozmowy możesz dać Claude jedną z trzech dróg. Jeden: kliknij + obok pola wiadomości, to załączniki. Dwa: przeciągnij plik do pola wiadomości. Trzy: dodaj folder, czyli + i Add folder. Pod spodem: Claude pracuje w folderze rozmowy; plik spoza niego dajesz mu jedną z tych dróg.">
+      <svg class="wachlarz" viewBox="0 0 760 170" aria-hidden="true">
+        <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M320 90 V100 a14 14 0 0 1 -14 14 H148 a14 14 0 0 0 -14 14 V142"/>
+          <path d="M121 130 L134 145 L147 130"/>
+          <path d="M380 90 V142"/>
+          <path d="M367 130 L380 145 L393 130"/>
+          <path d="M440 90 V100 a14 14 0 0 0 14 14 H612 a14 14 0 0 1 14 14 V142"/>
+          <path d="M613 130 L626 145 L639 130"/>
+        </g>
+      </svg>
+
+      <div class="plik">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+        Plik spoza folderu
+      </div>
+
+      <div class="drogi">
+        <div class="droga">
+          <div class="nr">1</div>
+          <h3>Kliknij + i załącz plik</h3>
+          <div class="pole"><span class="plus">+</span><i></i></div>
+          <svg class="strzalka" viewBox="0 0 205 58" aria-hidden="true">
+            <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 6 V50"/><path d="M18 39 L30 52 L42 39"/>
+            </g>
+          </svg>
+          <div class="znacznik">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-8.2 8.2a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg>
+            Add files or photos
+          </div>
+        </div>
+
+        <div class="droga">
+          <div class="nr">2</div>
+          <h3>Przeciągnij plik do pola</h3>
+          <div class="karta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M20.5 16l-5-5-8 8"/></svg>
+            <i></i>
+          </div>
+          <svg class="strzalka" viewBox="0 0 205 58" aria-hidden="true">
+            <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" >
+              <path d="M102 6 V50" stroke-dasharray="9 8"/><path d="M90 39 L102 52 L114 39"/>
+            </g>
+          </svg>
+          <div class="pole cel"><span class="plus">+</span><i></i></div>
+        </div>
+
+        <div class="droga">
+          <div class="nr">3</div>
+          <h3>Kliknij + i dodaj cały folder</h3>
+          <div class="pole"><span class="plus">+</span><i></i></div>
+          <svg class="strzalka" viewBox="0 0 205 58" aria-hidden="true">
+            <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 6 V50"/><path d="M18 39 L30 52 L42 39"/>
+            </g>
+          </svg>
+          <div class="znacznik mono">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+            Add folder
+          </div>
+        </div>
+      </div>
+
+      <p class="zasada">Claude pracuje w folderze rozmowy. Plik spoza niego dajesz mu na jeden z tych trzech sposobów.</p>
+    </div>
+  </body>
+</html>

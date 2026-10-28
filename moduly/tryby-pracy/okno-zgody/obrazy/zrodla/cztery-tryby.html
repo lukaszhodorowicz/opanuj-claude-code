@@ -1,0 +1,152 @@
+<!doctype html>
+<!-- Rysunek R1 „Cztery tryby: co Claude robi sam, a o co pyta” do lekcji okno-zgody: oś od Manual przez Accept edits do Auto, Plan osobno poza osią, pasek o poleceniach tylko do czytania; zakreślacz tylko na Manual. Źródło PNG obrazy/cztery-tryby.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Cztery tryby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 16px 20px; }
+      code { font: 700 18px/1 var(--mono); }
+
+      /* ===== Plan: osobne pole poza osią ===== */
+      .plan {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding: 16px 22px;
+        background: var(--papier-2);
+        border: 3px dashed var(--grafit);
+        border-radius: 18px;
+      }
+      .plan .nazwa { font: 800 30px/1 var(--sans); letter-spacing: -0.025em; }
+      .plan .opis { font: 500 20px/1.35 var(--sans); }
+      .plan .opis b { font-weight: 800; }
+
+      /* ===== Oś ===== */
+      .os { margin: 30px 0 14px; }
+      .os svg { display: block; width: 100%; height: 26px; }
+      .konce {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6px;
+        font: 800 22px/1 var(--sans);
+        letter-spacing: -0.02em;
+        color: var(--grafit);
+      }
+
+      /* ===== Trzy pola na osi ===== */
+      .tryby {
+        display: grid;
+        grid-template-columns: 1fr 26px 1fr 26px 1fr;
+        align-items: stretch;
+      }
+      .tryb {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 14px 13px 16px;
+        display: flex;
+        flex-direction: column;
+      }
+      .tryb.temat {
+        background: var(--zakreslacz);
+        box-shadow: 0 0 0 5px var(--limonka);
+      }
+      .tryb h3 {
+        margin: 0 0 12px;
+        font: 800 28px/1.05 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .wiersz { font: 500 19px/1.32 var(--sans); }
+      .wiersz b { display: block; font-weight: 800; color: var(--grafit); }
+      .tryb.temat .wiersz b { color: var(--granat); }
+      .wiersz + .wiersz {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 2px solid var(--kreska);
+      }
+      .tryb.temat .wiersz + .wiersz { border-top-color: #b8e07a; }
+      .strzalka { display: flex; align-items: center; justify-content: center; }
+      .strzalka svg { width: 18px; height: 30px; }
+
+      /* ===== Pasek pod całością ===== */
+      .pasek {
+        margin-top: 22px;
+        padding: 16px 20px;
+        background: var(--granat);
+        border-radius: 16px;
+        color: var(--biel);
+        text-align: center;
+        font: 700 21px/1.4 var(--sans);
+      }
+      .pasek code { color: var(--limonka); font-size: 20px; }
+
+      h1.wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat); }
+      h1.wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys">
+      <h1 class="wniosek">Im dalej w prawo, tym <mark>więcej Claude robi bez pytania</mark></h1>
+      <div class="plan">
+        <div class="nazwa">Plan</div>
+        <div class="opis">Claude czyta pliki i uruchamia polecenia, żeby zbadać folder. Potem proponuje plan.<br /><b>Plików nie zmienia.</b></div>
+      </div>
+
+      <div class="os">
+        <svg viewBox="0 0 728 26" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 13 H722" stroke="#0e1422" stroke-width="4" stroke-linecap="round" />
+          <path d="M710 3 L722 13 L710 23" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="konce"><span>Claude pyta częściej</span><span>Claude robi więcej sam</span></div>
+      </div>
+
+      <div class="tryby">
+        <div class="tryb temat">
+          <h3>Manual</h3>
+          <div class="wiersz"><b>Bez pytania</b>czyta pliki w folderze, w którym pracujesz.</div>
+          <div class="wiersz"><b>Pyta,</b>zanim zmieni plik, uruchomi polecenie albo sięgnie do sieci.</div>
+        </div>
+        <div class="strzalka"><svg viewBox="0 0 18 30" aria-hidden="true"><path d="M4 4 L14 15 L4 26" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        <div class="tryb">
+          <h3>Accept edits</h3>
+          <div class="wiersz"><b>Bez pytania</b>czyta i zmienia pliki, zakłada foldery, przenosi i kopiuje pliki.</div>
+          <div class="wiersz"><b>Pyta</b>przed innymi poleceniami terminala.</div>
+        </div>
+        <div class="strzalka"><svg viewBox="0 0 18 30" aria-hidden="true"><path d="M4 4 L14 15 L4 26" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        <div class="tryb">
+          <h3>Auto</h3>
+          <div class="wiersz"><b>Bez pytania</b>robi wszystko.</div>
+          <div class="wiersz">Zanim wykona polecenie albo sięgnie do sieci, sprawdza to klasyfikator w tle.</div>
+        </div>
+      </div>
+
+      <div class="pasek">
+        W każdym trybie polecenia, które tylko czytają pliki, zwykle idą bez pytania.
+      </div>
+    </div>
+  </body>
+</html>

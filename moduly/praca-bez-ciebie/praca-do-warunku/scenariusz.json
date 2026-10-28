@@ -1,0 +1,306 @@
+{
+  "lekcja": "praca-do-warunku",
+  "folder_glowny": "Weterynarz-posty",
+  "folder_startowy": [
+    "plan-postow-listopad.txt",
+    "zasady-klienta.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Cel z warunkiem i granicą tur",
+      "opis": "Ćwiczenie odbywa się w zakładce Code aplikacji Claude. Kliknij polecenie, a potem ścieżkę pliku wskazaną znacznikiem. Pod oknem patrz na folder posty.",
+      "nauczyciel_start": "Claude napisał 3 posty z 8 i pyta, czy pisać dalej. Zamiast odpisywać, kliknij polecenie. Ustawisz nim cel.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Weterynarz-posty",
+        "tryb": "Auto",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "posty/01-szczepienia.txt",
+          "posty/02-czipowanie.txt",
+          "posty/03-sterylizacja-kotow.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Napisz 8 postów z plan-postow-listopad.txt według zasady-klienta.txt i zapisz je w folderze posty."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Napisałem 3 posty: posty/01-szczepienia.txt, posty/02-czipowanie.txt i posty/03-sterylizacja-kotow.txt. Pisać dalej?"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "posty/04-dieta-seniora.txt",
+        "posty/05-zeby-kota.txt",
+        "posty/06-zima-lapy.txt",
+        "posty/07-nadwaga-kota.txt",
+        "posty/08-pierwsza-wizyta.txt"
+      ],
+      "drogi": [
+        {
+          "id": "cel",
+          "etykieta": "Ustaw cel z granicą tur",
+          "opis": "Polecenie /goal z warunkiem trafi do pola wiadomości. Claude zacznie pracę od razu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "/goal w folderze posty jest 8 postów z plan-postow-listopad.txt, każdy z datą publikacji i najwyżej 600 znaków; plan-postow-listopad.txt zostaje bez zmian; po każdej turze wypisz gotowe posty i liczbę znaków każdego; albo zatrzymaj się po 5 turach",
+              "fakt": "goal-nowy-cel-zastepuje-stary"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "plan-postow-listopad.txt",
+                "zasady-klienta.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem posty/04-dieta-seniora.txt.",
+              "plik": "posty/04-dieta-seniora.txt",
+              "fakt": "goal-ustawienie-od-razu-startuje-ture"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem posty/05-zeby-kota.txt.",
+              "plik": "posty/05-zeby-kota.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Tura 1 z 5. Gotowych jest 5 postów z 8. Liczba znaków: 01 – 412, 02 – 455, 03 – 431, 04 – 597, 05 – 388.",
+              "fakt": "goal-granica-tur-albo-czasu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tura się skończyła. Oceniający sprawdza warunek na podstawie rozmowy. Brakuje trzech postów, więc Claude pracuje dalej.",
+              "fakt": "goal-werdykt-niespelniony"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem posty/06-zima-lapy.txt.",
+              "plik": "posty/06-zima-lapy.txt",
+              "fakt": "goal-ustawia-warunek-i-pracuje-dalej"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem posty/07-nadwaga-kota.txt.",
+              "plik": "posty/07-nadwaga-kota.txt"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem posty/08-pierwsza-wizyta.txt. Tura 2 z 5. Gotowych jest 8 postów z 8. Liczba znaków: 06 – 466, 07 – 476, 08 – 583. Każdy post ma datę publikacji, a plan postów jest bez zmian.",
+              "plik": "posty/08-pierwsza-wizyta.txt",
+              "fakt": "goal-granica-tur-albo-czasu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Warunek jest spełniony, więc cel zniknął sam i kolejnej tury nie ma. Kliknij ścieżkę ostatniego posta.",
+              "fakt": "goal-werdykt-spelniony"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "posty/08-pierwsza-wizyta.txt",
+              "linijki": [
+                "Publikacja: 27.11",
+                "Pierwsza wizyta szczeniaka? Umów ją w pierwszym tygodniu po tym, jak maluch zamieszka z Tobą.",
+                "Lekarz obejrzy szczeniaka, zważy go i ułoży plan szczepień oraz odrobaczania. Jeśli trzeba, od razu założy mu czip.",
+                "Weź ze sobą książeczkę zdrowia od hodowcy, smakołyki, smycz i kocyk, który pachnie domem. Maluch poczuje się pewniej.",
+                "Zapisz wcześniej pytania o karmienie, sen i naukę czystości. Odpowiemy na każde, bez pośpiechu.",
+                "Pierwsza wizyta to także oswajanie z gabinetem, więc daj maluchowi czas na powąchanie wszystkiego.",
+                "Godziny przyjęć: pon.–pt. 9–19, sob. 9–13"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nikt nie pisał „dalej” ani nie klikał zgody. Tury szły bez nadzoru, bo cel ustawiono w trybie Auto.",
+              "fakt": "goal-nie-zmienia-trybu-auto-bez-nadzoru"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Warunek, który oceniający sprawdzi w rozmowie",
+      "opis": "Ustawisz ten sam cel na dwa sposoby. Przejdź najpierw pierwszą drogę, potem drugą, i policz tury w rozmowie.",
+      "nauczyciel_start": "Ustawisz ten sam cel dwa razy: raz bez sposobu sprawdzenia, raz z nim. Kliknij najpierw pierwszą drogę.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Weterynarz-posty",
+        "tryb": "Auto",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "posty/01-szczepienia.txt",
+          "posty/02-czipowanie.txt",
+          "posty/03-sterylizacja-kotow.txt",
+          "posty/04-dieta-seniora.txt",
+          "posty/05-zeby-kota.txt",
+          "posty/06-zima-lapy.txt",
+          "posty/07-nadwaga-kota.txt",
+          "posty/08-pierwsza-wizyta.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Klientka chce na Instagram posty do 500 znaków. Które są za długie?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Za długie są dwa: posty/04-dieta-seniora.txt (597 znaków) i posty/08-pierwsza-wizyta.txt (583)."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "bez",
+          "etykieta": "Warunek bez sposobu sprawdzenia",
+          "opis": "Warunek mówi tylko, jaki ma być koniec.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "/goal każdy post w folderze posty ma najwyżej 500 znaków; albo zatrzymaj się po 3 turach",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "posty/04-dieta-seniora.txt",
+                "posty/08-pierwsza-wizyta.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skróciłem posty/04-dieta-seniora.txt.",
+              "plik": "posty/04-dieta-seniora.txt",
+              "fakt": "goal-ustawienie-od-razu-startuje-ture"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skróciłem posty/08-pierwsza-wizyta.txt. Tura 1 z 3. Wszystkie posty są już krótsze.",
+              "plik": "posty/08-pierwsza-wizyta.txt",
+              "fakt": "goal-granica-tur-albo-czasu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W pierwszej turze Claude nie podał liczby znaków. Oceniający nie czyta plików, widzi tylko rozmowę.",
+              "fakt": "goal-oceniajacy-nie-uzywa-narzedzi"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "posty/01-szczepienia.txt",
+                "posty/02-czipowanie.txt",
+                "posty/03-sterylizacja-kotow.txt",
+                "posty/04-dieta-seniora.txt",
+                "posty/05-zeby-kota.txt",
+                "posty/06-zima-lapy.txt",
+                "posty/07-nadwaga-kota.txt",
+                "posty/08-pierwsza-wizyta.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Tura 2 z 3. Liczę znaki: 01 – 412, 02 – 455, 03 – 431, 04 – 489, 05 – 388, 06 – 466, 07 – 476, 08 – 497. Najdłuższy jest posty/08-pierwsza-wizyta.txt. Każdy post ma najwyżej 500 znaków.",
+              "plik": "posty/08-pierwsza-wizyta.txt",
+              "bez_zmiany": true,
+              "fakt": "goal-werdykt-niespelniony"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "posty/08-pierwsza-wizyta.txt",
+              "linijki": [
+                "Publikacja: 27.11",
+                "Pierwsza wizyta szczeniaka? Umów ją w pierwszym tygodniu po tym, jak maluch zamieszka z Tobą.",
+                "Lekarz obejrzy szczeniaka, zważy go i ułoży plan szczepień oraz odrobaczania. Jeśli trzeba, od razu założy mu czip.",
+                "Weź książeczkę zdrowia od hodowcy, smakołyki, smycz i kocyk, który pachnie domem.",
+                "Zapisz wcześniej pytania o karmienie, sen i naukę czystości. Odpowiemy na każde, bez pośpiechu.",
+                "Daj maluchowi chwilę, żeby obwąchał cały gabinet.",
+                "Godziny przyjęć: pon.–pt. 9–19, sob. 9–13"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Liczby znaków, czyli dowód dla oceniającego, pojawiły się dopiero w drugiej turze. Powód oceny posłużył Claude za wskazówkę na tę turę.",
+              "fakt": "goal-werdykt-niespelniony"
+            }
+          ]
+        },
+        {
+          "id": "z",
+          "etykieta": "Warunek ze sposobem sprawdzenia",
+          "opis": "Warunek mówi też, jak Claude ma pokazać, że skończył.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "/goal każdy post w folderze posty ma najwyżej 500 znaków; po każdej turze wypisz liczbę znaków każdego posta; plan-postow-listopad.txt bez zmian; albo zatrzymaj się po 3 turach",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "posty/04-dieta-seniora.txt",
+                "posty/08-pierwsza-wizyta.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skróciłem posty/04-dieta-seniora.txt.",
+              "plik": "posty/04-dieta-seniora.txt",
+              "fakt": "goal-ustawienie-od-razu-startuje-ture"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skróciłem posty/08-pierwsza-wizyta.txt. Tura 1 z 3. Liczba znaków: 01 – 412, 02 – 455, 03 – 431, 04 – 489, 05 – 388, 06 – 466, 07 – 476, 08 – 497. Plan postów jest bez zmian.",
+              "plik": "posty/08-pierwsza-wizyta.txt",
+              "fakt": "goal-warunek-sposob-sprawdzenia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Liczby są w rozmowie już od pierwszej tury. Kliknij ścieżkę posta 08 i sprawdź skrócony tekst.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "posty/08-pierwsza-wizyta.txt",
+              "linijki": [
+                "Publikacja: 27.11",
+                "Pierwsza wizyta szczeniaka? Umów ją w pierwszym tygodniu po tym, jak maluch zamieszka z Tobą.",
+                "Lekarz obejrzy szczeniaka, zważy go i ułoży plan szczepień oraz odrobaczania. Jeśli trzeba, od razu założy mu czip.",
+                "Weź książeczkę zdrowia od hodowcy, smakołyki, smycz i kocyk, który pachnie domem.",
+                "Zapisz wcześniej pytania o karmienie, sen i naukę czystości. Odpowiemy na każde, bez pośpiechu.",
+                "Daj maluchowi chwilę, żeby obwąchał cały gabinet.",
+                "Godziny przyjęć: pon.–pt. 9–19, sob. 9–13"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Oceniający patrzy na to, co Claude pokazał w rozmowie. Tym razem miał dowód i cel skończył się po jednej turze.",
+              "fakt": "goal-ocena-tylko-z-rozmowy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

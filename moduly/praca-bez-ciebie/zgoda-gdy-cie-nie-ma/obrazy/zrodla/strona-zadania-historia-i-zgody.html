@@ -1,0 +1,298 @@
+<!doctype html>
+<!-- Rysunek R2 „Strona zadania: historia i zgody” do lekcji zgoda-gdy-cie-nie-ma: ścieżka Code → Scheduled → zadanie, schematyczna strona zadania z listą History (wiersz przebiegu, pominięty wpis z powodami, Show more) i panelem Always allowed. Układ strony uproszczony: dokumentacja go nie opisuje. Źródło PNG obrazy/strona-zadania-historia-i-zgody.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Strona zadania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w zadanie-co-rano/obrazy/zrodla/jak-dziala-zadanie.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --pasek: #d3d6c8;
+        --biel: #ffffff;
+        --okno: #1b1b1d;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      p {
+        margin: 0;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .ui {
+        display: inline-block;
+        padding: 1px 8px 2px;
+        border: 2px solid var(--granat);
+        border-radius: 8px;
+        background: var(--biel);
+        font: 700 0.86em/1.25 var(--mono);
+        white-space: nowrap;
+      }
+
+      /* Ścieżka ramek */
+      .sciezka {
+        margin: 0 0 14px;
+        font: 700 22px/1.7 var(--sans);
+      }
+      .sciezka .ui {
+        font-size: 20px;
+      }
+      .sciezka svg {
+        width: 26px;
+        height: 20px;
+        flex: none;
+      }
+
+      /* Uproszczone okno aplikacji */
+      .okno {
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 8px 8px;
+      }
+      .okno-gora {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 6px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .strona {
+        background: var(--papier);
+        border-radius: 10px;
+        padding: 14px 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .szary {
+        display: block;
+        height: 14px;
+        border-radius: 7px;
+        background: var(--pasek);
+      }
+      .tytul-strony {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* Bloki strony */
+      .blok {
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        border-radius: 14px;
+        padding: 12px;
+      }
+      .blok > .ui {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .wiersze {
+        display: grid;
+        grid-template-columns: 258px 44px 1fr;
+        row-gap: 10px;
+        align-items: center;
+      }
+      .wiersz {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 52px;
+        padding: 10px 12px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 700 20px/1.2 var(--sans);
+      }
+      .wiersz.pusty {
+        border-style: solid;
+      }
+      .wiersz.pusty .szary {
+        width: 150px;
+      }
+      .wiersz.pominiety {
+        color: var(--grafit);
+      }
+      .wiersz svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .strzalka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .strzalka svg {
+        width: 26px;
+        height: 20px;
+        overflow: visible;
+      }
+      .objasnienie {
+        font: 700 19px/1.3 var(--sans);
+      }
+      .objasnienie .drugie {
+        font-weight: 500;
+        color: var(--grafit);
+      }
+
+      /* Dymek po najechaniu: jedyny zakreślony element */
+      .dymek {
+        position: relative;
+        background: var(--zakreslacz);
+        border: 4px solid var(--limonka);
+        border-radius: 12px;
+        padding: 8px 12px 10px;
+      }
+      .dymek .kiedy {
+        font: 500 17px/1.2 var(--sans);
+        margin-bottom: 4px;
+      }
+      .dymek ul {
+        margin: 0;
+        padding-left: 20px;
+        font: 700 19px/1.3 var(--sans);
+      }
+
+      .wiecej {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+        font: 500 19px/1.2 var(--sans);
+        color: var(--grafit);
+      }
+      .wiecej .ui {
+        font-size: 18px;
+        color: var(--granat);
+      }
+
+      /* Always allowed */
+      .zgody {
+        display: grid;
+        grid-template-columns: 258px 44px 1fr;
+        align-items: center;
+      }
+      .zgody-lista {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .zgody-lista .wiersz {
+        min-height: 44px;
+      }
+      .zgody-lista .szary {
+        width: 170px;
+      }
+
+      .dopisek {
+        margin-top: 14px;
+        padding: 12px 16px;
+        border-left: 5px solid var(--granat);
+        background: var(--papier-2);
+        border-radius: 0 12px 12px 0;
+        font: 700 21px/1.3 var(--sans);
+      }
+      .dopisek .ui {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Strona zadania: historia i zgody. W zakładce Code kliknij Scheduled w pasku bocznym, a potem zadanie raport-zapisow. Schematyczna strona zadania. Lista History: wiersz pon. 26.10, 7:00. Kliknij wiersz, a otworzy się sesja przebiegu. Tam odpowiadasz na pytanie o zgodę. Wiersz pominiętego przebiegu. Gdy najedziesz myszą na pominięty przebieg, zobaczysz jeden z tych powodów: komputer spał, poprzedni przebieg jeszcze trwał albo działały już inne zadania z harmonogramu. Pod listą Show more wczytuje starsze wpisy. Panel Always allowed: tu przejrzysz i cofniesz zapisane zgody tego zadania. Do sesji przebiegu dojdziesz też z grupy Scheduled w pasku bocznym (lekcja 1)."
+    >
+      <p class="sciezka">W zakładce <span class="ui">Code</span> kliknij <span class="ui">Scheduled</span> w pasku bocznym, a potem zadanie <span class="ui">raport-zapisow</span>.</p>
+
+      <div class="okno">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="strona">
+          <div class="tytul-strony">
+            <span class="szary" style="width: 260px; height: 18px"></span>
+            <span class="szary" style="width: 420px"></span>
+          </div>
+
+          <!-- History -->
+          <div class="blok">
+            <span class="ui">History</span>
+            <div class="wiersze">
+              <p class="wiersz">pon. 26.10, 7:00</p>
+              <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+              <p class="objasnienie">Kliknij wiersz, a otworzy się sesja przebiegu. <span class="drugie">Tam odpowiadasz na pytanie o zgodę.</span></p>
+
+              <div class="wiersz pominiety">
+                <span>pominięty przebieg</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3 L5 19 L9.5 15 L12.5 21.5 L15 20.4 L12 14 L18 14 Z" fill="#ffffff" stroke="#0e1422" stroke-width="1.8" stroke-linejoin="round" /></svg>
+              </div>
+              <div class="strzalka"><svg viewBox="0 0 26 20" aria-hidden="true"><path d="M2 10 H22 M15 3 L23 10 L15 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+              <div class="dymek">
+                <p class="kiedy">Gdy najedziesz myszą na pominięty przebieg, zobaczysz jeden z tych powodów:</p>
+                <ul>
+                  <li>komputer spał</li>
+                  <li>poprzedni przebieg jeszcze trwał</li>
+                  <li>działały już inne zadania z harmonogramu</li>
+                </ul>
+              </div>
+
+              <p class="wiersz pusty"><span class="szary"></span></p>
+              <span></span>
+              <span></span>
+            </div>
+            <p class="wiecej"><span><span class="ui">Show more</span> wczytuje starsze wpisy.</span></p>
+          </div>
+
+          <!-- Always allowed -->
+          <div class="blok">
+            <span class="ui">Always allowed</span>
+            <div class="zgody">
+              <div class="zgody-lista">
+                <p class="wiersz pusty"><span class="szary"></span></p>
+                <p class="wiersz pusty"><span class="szary"></span></p>
+              </div>
+              <span></span>
+              <p class="objasnienie">Tu przejrzysz i cofniesz zapisane zgody tego zadania.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="dopisek">Do sesji przebiegu dojdziesz też z grupy <span class="ui">Scheduled</span> w pasku bocznym (lekcja 1).</p>
+    </div>
+  </body>
+</html>

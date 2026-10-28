@@ -1,0 +1,399 @@
+<!doctype html>
+<!-- Rysunek R1 „Jedna teczka, wiele rozmów” do lekcji claude-md-zasady-firmy: każda rozmowa w folderze Studio-jogi czyta plik CLAUDE.md po prośbie, przed odpowiedzią; historia nie przechodzi między rozmowami. Źródło PNG obrazy/rozmowy-czytaja-claude-md.png (zrzut 760 x 1000 przy skali 2). -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Jedna teczka, wiele rozmów</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (identyfikacja-probka.html), jak w rysunku „Gdzie jest strona” */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --mech: #3f6212;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* okno rozmowy uproszczone jak w ćwiczeniu */
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --okno-ciche: #9a978f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        width: 760px;
+        height: 1000px;
+      }
+      .rys > * {
+        position: absolute;
+      }
+      svg.druty {
+        inset: 0;
+        width: 760px;
+        height: 1000px;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      /* ===== Folder z kartami ===== */
+      .folder {
+        left: 16px;
+        top: 249px;
+        width: 262px;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 8px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .folder-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 34px;
+        margin-left: 2px;
+        font: 700 19px/1 var(--mono);
+      }
+      .folder-glowa svg {
+        width: 26px;
+        height: 26px;
+        flex: none;
+      }
+      .karta {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 50px;
+        padding: 0 9px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 500 14.5px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .karta svg {
+        width: 22px;
+        height: 22px;
+        flex: none;
+      }
+      .karta.ta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        border-width: 3px;
+        font-weight: 700;
+        font-size: 19px;
+      }
+      .olowek {
+        left: 242px;
+        top: 398px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--biel);
+        border: 2.5px solid var(--granat);
+        display: grid;
+        place-items: center;
+        z-index: 3;
+      }
+      .olowek svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      /* ===== Podpisy ===== */
+      .podpis {
+        font: 800 20px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .podpis.cichy {
+        color: var(--grafit);
+      }
+      .podpis .wstawka {
+        display: inline-block;
+        width: 19px;
+        height: 19px;
+        vertical-align: -2px;
+        margin-right: 4px;
+      }
+      .tytul {
+        font: 800 22px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+
+      /* ===== Okno rozmowy ===== */
+      .okno {
+        height: 218px;
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 12px;
+        color: var(--okno-tekst);
+      }
+      .okno-gora {
+        height: 24px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-left: 2px;
+      }
+      .okno-gora i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .prosba {
+        height: 36px;
+        margin-left: auto;
+        width: max-content;
+        max-width: 100%;
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        background: var(--okno-pasek);
+        border-radius: 12px 12px 4px 12px;
+        font: 500 15px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .odpowiedz {
+        position: relative;
+        margin-top: 20px;
+        height: 60px;
+        padding: 9px 12px;
+        width: max-content;
+        max-width: 100%;
+        border: 1.5px solid var(--okno-kreska);
+        border-radius: 12px 12px 12px 4px;
+        font: 500 15px/21px var(--sans);
+        white-space: nowrap;
+      }
+      .pole-wiadomosci {
+        margin-top: 12px;
+        height: 30px;
+        border: 1.5px solid var(--okno-kreska);
+        border-radius: 9px;
+      }
+      .rzad {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-left: 4px;
+        color: var(--okno-ciche);
+        font: 500 14px/1 var(--mono);
+      }
+      .rzad svg {
+        width: 16px;
+        height: 16px;
+        flex: none;
+      }
+      .naklejka {
+        position: absolute;
+        left: 70px;
+        top: 31px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        height: 30px;
+        padding: 0 10px;
+        background: var(--zakreslacz);
+        border: 2.5px solid var(--granat);
+        border-radius: 8px;
+        color: var(--granat);
+        font: 800 15px/1 var(--sans);
+        white-space: nowrap;
+        transform: rotate(-2deg);
+        z-index: 3;
+      }
+      .naklejka svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* ===== Rozmowa w innym folderze: wyszarzona ===== */
+      .inny {
+        opacity: 0.45;
+      }
+      .inny .prosba {
+        font-size: 13.5px;
+        padding: 0 10px;
+      }
+      .inny .belka {
+        height: 9px;
+        border-radius: 5px;
+        background: var(--okno-kreska);
+        margin: 6px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="W folderze Studio-jogi leży plik CLAUDE.md. Trzy rozmowy w tym folderze: wczoraj, dziś i za tydzień. W każdej Claude czyta plik po prośbie, przed odpowiedzią, i odpowiada na Ty z podpisem Ania. Historia nie przechodzi do następnej rozmowy. Zasadę dopisaną w rozmowie 2 widać dopiero w odpowiedzi rozmowy 3. Rozmowa w folderze Dokumenty pliku nie wczytuje."
+    >
+      <!-- Podpis pierwszej strzałki -->
+      <p class="podpis" style="left: 16px; top: 96px; width: 268px; margin: 0; text-align: right">
+        Claude czyta plik<br />CLAUDE.md, gdy<br />rozmowa się zaczyna.
+      </p>
+
+      <!-- Folder Studio-jogi -->
+      <div class="folder">
+        <div class="folder-glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+          Studio-jogi
+        </div>
+        <div class="karta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          zapytania-klientow.txt
+        </div>
+        <div class="karta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          cennik.txt
+        </div>
+        <div class="karta ta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          CLAUDE.md
+        </div>
+      </div>
+      <div class="olowek">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M13.5 7l3 3"/></svg>
+      </div>
+      <p class="podpis" style="left: 16px; top: 498px; width: 250px; margin: 0">
+        <svg class="wstawka" viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M13.5 7l3 3"/></svg>W rozmowie 2<br />dopisujesz zasadę<br />„bez emotikonów”.
+      </p>
+
+      <!-- Rozmowa 1 -->
+      <div class="tytul" style="left: 394px; top: 16px">Rozmowa 1 (wczoraj)</div>
+      <div class="okno" style="left: 392px; top: 48px; width: 352px">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="prosba">Odpisz na zapytanie o karnet.</div>
+        <div class="odpowiedz">Cześć, Marto! :) Karnet kosztuje 189 zł.<br />Ania</div>
+        <div class="pole-wiadomosci"></div>
+        <div class="rzad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+          Studio-jogi
+        </div>
+      </div>
+
+      <p class="podpis cichy" style="left: 458px; top: 280px; margin: 0">
+        Historia nie przechodzi<br />do następnej rozmowy.
+      </p>
+
+      <!-- Rozmowa 2 -->
+      <div class="tytul" style="left: 394px; top: 342px">Rozmowa 2 (dziś)</div>
+      <div class="okno" style="left: 392px; top: 374px; width: 352px">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="prosba">Odpisz na zapytanie o karnet.</div>
+        <div class="odpowiedz">Cześć, Marto! :) Karnet kosztuje 189 zł.<br />Ania</div>
+        <div class="pole-wiadomosci"></div>
+        <div class="rzad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+          Studio-jogi
+        </div>
+      </div>
+
+      <!-- Rozmowa 3 -->
+      <div class="tytul" style="left: 394px; top: 676px">Rozmowa 3 (nowa)</div>
+      <div class="okno" style="left: 392px; top: 708px; width: 352px">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="prosba">Odpisz na zapytanie o karnet.</div>
+        <div class="odpowiedz">
+          Cześć, Marto! Karnet kosztuje 189 zł.<br />Ania
+          <span class="naklejka">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            bez emotikonów
+          </span>
+        </div>
+        <div class="pole-wiadomosci"></div>
+        <div class="rzad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+          Studio-jogi
+        </div>
+      </div>
+      <p class="podpis" style="left: 394px; top: 940px; width: 350px; margin: 0">
+        Nową zasadę sprawdzasz<br />w nowej rozmowie.
+      </p>
+
+      <!-- Rozmowa w innym folderze -->
+      <div class="tytul inny" style="left: 18px; top: 656px; width: 246px">Rozmowa w folderze Dokumenty</div>
+      <div class="okno inny" style="left: 16px; top: 708px; width: 246px">
+        <div class="okno-gora"><i></i><i></i><i></i></div>
+        <div class="prosba">Odpisz na zapytanie o karnet.</div>
+        <div class="odpowiedz" style="width: 170px">
+          <div class="belka" style="width: 100%"></div>
+          <div class="belka" style="width: 62%"></div>
+        </div>
+        <div class="pole-wiadomosci"></div>
+        <div class="rzad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+          Dokumenty
+        </div>
+      </div>
+      <p class="podpis cichy" style="left: 16px; top: 940px; width: 250px; margin: 0">
+        Plik ze Studio-jogi<br />tu się nie wczyta.
+      </p>
+
+      <!-- Strzałki: z karty CLAUDE.md do każdej rozmowy, między prośbą a odpowiedzią; między rozmowami przekreślone -->
+      <svg class="druty" viewBox="0 0 760 1000" aria-hidden="true">
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <g stroke="#0e1422" stroke-width="9">
+            <path d="M268 444 H408" />
+            <path d="M288 444 a12 12 0 0 0 12 -12 V130 a12 12 0 0 1 12 -12 H408" />
+            <path d="M288 444 a12 12 0 0 1 12 12 V766 a12 12 0 0 0 12 12 H408" />
+          </g>
+          <g stroke="#a3e635" stroke-width="4.5">
+            <path d="M268 444 H408" />
+            <path d="M288 444 a12 12 0 0 0 12 -12 V130 a12 12 0 0 1 12 -12 H408" />
+            <path d="M288 444 a12 12 0 0 1 12 12 V766 a12 12 0 0 0 12 12 H408" />
+          </g>
+        </g>
+        <g fill="#a3e635" stroke="#0e1422" stroke-width="2.5" stroke-linejoin="round">
+          <path d="M404 107 L424 118 L404 129 Z" />
+          <path d="M404 433 L424 444 L404 455 Z" />
+          <path d="M404 767 L424 778 L404 789 Z" />
+        </g>
+        <!-- przekreślone przejścia między rozmowami -->
+        <g fill="none" stroke="#475569" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M432 276 V330" />
+          <path d="M423 320 L432 331 L441 320" />
+          <path d="M432 602 V656" />
+          <path d="M423 646 L432 657 L441 646" />
+        </g>
+        <g stroke-linecap="round">
+          <circle cx="432" cy="300" r="15" fill="#f6f6f1" />
+          <path d="M422 290 L442 310 M442 290 L422 310" stroke="#0e1422" stroke-width="5" />
+          <circle cx="432" cy="626" r="15" fill="#f6f6f1" />
+          <path d="M422 616 L442 636 M442 616 L422 636" stroke="#0e1422" stroke-width="5" />
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+/* Wygląd symulatora aplikacji Claude, przycisk + i lista poleceń: klikalny + obok pola wiadomości, menu pozycji nad polem (ta sama karta co menu trybów, styl-aplikacja-tryby.css), lista poleceń z zaznaczonym paskiem i szarymi paskami bez tekstu oraz podświetlony pasek skilla w polu i w dymku kursanta (wzór: próbka m4-3 z poprawkami z D-2026-10-26-54). */
+
+/* pole wiadomości jest punktem zaczepienia menu i listy */
+.apl-pole.apl-pole-menu {
+  position: relative;
+}
+
+/* przycisk + : ta sama ikona co dotąd, teraz klikalna */
+.apl-plus-przycisk {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-left: -6px;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+.apl-plus-przycisk:hover,
+.apl-plus-przycisk.otwarty {
+  background: #3a3a3a;
+  color: var(--a-tekst);
+}
+.apl-plus-przycisk:focus-visible,
+.apl-wiersz:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}
+
+/* lista poleceń: ta sama karta, nad polem; wiersze przewijają się, gdy lista jest dłuższa od miejsca nad polem; dymek z opisem pierwszego wiersza stoi obok listy */
+.apl-lista-polecen {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 3;
+  width: min(100%, 330px);
+  background: #2c2c2c;
+  border: 1px solid #3f3f3f;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.7);
+  animation: apl-wjazd 0.18s ease-out;
+}
+.apl-lista-polecen[hidden] {
+  display: none;
+}
+.apl-lista-rzedy {
+  max-height: 282px;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #4a4a4a transparent;
+}
+.apl-wiersz {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 33px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--a-tekst);
+  font: 400 14.5px/1.35 var(--a-sans);
+  text-align: left;
+}
+.apl-wiersz .apl-szkic {
+  height: 8px;
+}
+/* wiersz bez skutku: tekst, kursor zwykły */
+.apl-wiersz[aria-disabled="true"],
+.apl-wiersz-pasek {
+  cursor: default;
+}
+/* pierwszy wiersz jest podświetlony jak na zrzucie (wybór klawiaturą), niezależnie od tego, który wiersz jest celem kroku */
+.apl-wiersz-pierwszy {
+  background: #4a4a4a;
+}
+/* wiersz do kliknięcia: kursor „ręka” i jaśniejsze tło po najechaniu */
+.apl-wiersz-wybrany {
+  cursor: pointer;
+}
+.apl-wiersz-wybrany:not(.apl-wiersz-pierwszy):hover {
+  background: #383838;
+}
+.apl-wiersz-bez-nazwy .apl-szkic {
+  background: #5a5a5a;
+}
+.apl-lista-polecen .apl-tag-rzad {
+  padding: 0 0 6px;
+}
+.apl-lista-dymek {
+  position: absolute;
+  top: 8px;
+  left: calc(100% + 6px);
+  width: max-content;
+  max-width: 260px;
+  padding: 6px 12px;
+  border: 1px solid #3f3f3f;
+  border-radius: 9px;
+  background: #2c2c2c;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.apl-lista-polecen.przewinieta .apl-lista-dymek {
+  display: none;
+}
+
+/* otwarte menu albo lista przy krótkiej rozmowie: rozmowa ma tyle miejsca, żeby karta ze znacznikiem nie zasłaniała wiadomości i nie wyszła nad pasek okna (lista jest wyższa od menu) */
+.apl-okno.plus-otwarte .apl-rozmowa {
+  min-height: 360px;
+}
+.apl-okno.lista-otwarta .apl-rozmowa {
+  min-height: 470px;
+}
+
+/* pole przy otwartej liście: znak / i podpowiedź bez kursora (zrzut 03-58-20) */
+.apl-pole-tekst.z-lista {
+  height: auto;
+  border-left: 0;
+  color: var(--a-tekst);
+  animation: none;
+}
+.apl-pole-podp {
+  margin-left: 4px;
+  color: #8a8a8a;
+}
+/* skill w polu wiadomości: podświetlony pasek bez tekstu, zadanie dopisuje się za nim */
+.apl-pole-tekst.z-skillem {
+  height: auto;
+  border-left: 0;
+  color: var(--a-tekst);
+  animation: none;
+  line-height: 1.55;
+}
+.apl-pole-tekst.z-skillem::after {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 1.1em;
+  margin-left: 1px;
+  vertical-align: -0.18em;
+  background: var(--a-tekst);
+  animation: apl-kursor-tlo 1.1s steps(1) infinite;
+}
+.apl-pole-skill {
+  display: inline-block;
+  min-width: 56px;
+  height: 1.25em;
+  vertical-align: -0.28em;
+  border-radius: 6px;
+  background: rgba(138, 180, 248, 0.17);
+  box-shadow: inset 0 0 0 1px rgba(138, 180, 248, 0.38);
+  animation: apl-wskok 0.32s ease-out;
+}
+/* skill z nazwą wiersza: niebieski napis po ukośniku, jak polecenie wpisane w polu (zrzut 04-04-30), na podświetlonym tle */
+.apl-pole-skill-nazwa {
+  min-width: 0;
+  padding: 0 7px;
+  color: #8ab4f8;
+  line-height: 1.25;
+}
+.apl-ty .apl-pole-skill {
+  margin-right: 2px;
+  animation: none;
+}
+@keyframes apl-kursor-tlo {
+  50% {
+    background: transparent;
+  }
+}
+@keyframes apl-wskok {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-lista-polecen,
+  .apl-pole-skill,
+  .apl-pole-tekst.z-skillem::after {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  .apl-okno.lista-otwarta .apl-rozmowa {
+    min-height: 500px;
+  }
+  .apl-lista-polecen {
+    width: 58%;
+  }
+  .apl-lista-dymek {
+    max-width: calc(72% - 6px);
+  }
+}

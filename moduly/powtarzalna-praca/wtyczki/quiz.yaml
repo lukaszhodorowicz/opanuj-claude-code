@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Chcesz zainstalować w zakładce Code wtyczkę z gotowym zestawem do ofert szkoleń. Nie chcesz otwierać terminala. Co klikasz?"
+    odpowiedzi:
+      - "Klikasz + obok pola wiadomości, potem Connectors (konektory) i Browse connectors."
+      - "Klikasz + obok pola wiadomości, potem Plugins (wtyczki) i Browse plugins."
+      - "Klikasz + obok pola wiadomości i wybierasz Slash commands (polecenia z ukośnikiem)."
+    poprawna: 1
+    wyjasnienie: "W rozmowie na Twoim komputerze przycisk + obok pola wiadomości i pozycje Plugins i Browse plugins otwierają przeglądarkę wtyczek."
+    fakt: aplikacja-przegladarka-wtyczek-z-twoich-katalogow
+
+  - pytanie: "Otwierasz przeglądarkę wtyczek, bo szukasz zestawu do raportów z kampanii. Jakie wtyczki w niej zobaczysz?"
+    odpowiedzi:
+      - "Wszystkie wtyczki ze strony Claude Marketplace, razem z konektorami partnerów."
+      - "Tylko wtyczki, które Anthropic sprawdził i oznaczył jako bezpieczne."
+      - "Wtyczki z Twoich katalogów, czyli spisów wtyczek."
+    poprawna: 2
+    wyjasnienie: "Przeglądarka wtyczek pokazuje wtyczki z Twoich katalogów (marketplace)."
+    fakt: aplikacja-przegladarka-wtyczek-z-twoich-katalogow
+
+  - pytanie: "Masz zainstalowaną wtyczkę z zestawem do ofert. Chcesz użyć jej skilla w ofercie dla nowego klienta. Gdzie szukasz tego skilla?"
+    odpowiedzi:
+      - "Na liście poleceń, którą otwiera znak / w polu wiadomości."
+      - "W nowym folderze, który wtyczka dodała do folderu klienta."
+      - "Nigdzie, bo skill wtyczki trzeba najpierw zapisać jako skill projektu."
+    poprawna: 0
+    wyjasnienie: "Lista otwierana znakiem / zawiera polecenia wbudowane, Twoje skille, skille projektu i skille z zainstalowanych wtyczek."
+    fakt: skill-lista-polecen-co-na-liscie
+
+  - pytanie: "Z listy poleceń wybierasz skill wtyczki do ofert. Skill stoi teraz podświetlony w polu wiadomości. Co robisz dalej?"
+    odpowiedzi:
+      - "Czekasz bez pisania, bo skill wtyczki rusza sam zaraz po kliknięciu wiersza."
+      - "Dopisujesz po nim zadanie i wysyłasz wiadomość jak zwykle."
+      - "Otwierasz przeglądarkę wtyczek i tam uruchamiasz całą wtyczkę."
+    poprawna: 1
+    wyjasnienie: "Wybrana pozycja listy pojawia się w polu wiadomości podświetlona. Zadanie wpisujesz po niej i wysyłasz jak zwykle."
+    fakt: skill-wybrany-podswietlony-zadanie-po-nim

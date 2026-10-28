@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude: „Zrób z oferty szkolenia prezentację dla dyrektora sprzedaży”. Claude skończył pracę. Co dostajesz w odpowiedzi?"
+    odpowiedzi:
+      - "Plik z prezentacją w folderze projektu."
+      - "Spis slajdów, z którego składasz prezentację sam."
+      - "Link do prezentacji."
+    poprawna: 2
+    wyjasnienie: "Claude wybiera pasujący szablon, wypełnia go i daje Ci link do prezentacji."
+    fakt: slides-zwykla-prosba-wybiera-szablon
+
+  - pytanie: "W prośbie o prezentację wymieniasz trzy pliki z folderu: opis szkolenia, cennik i opinie klientów. Skąd Claude bierze treść slajdów?"
+    odpowiedzi:
+      - "Z prośby i z tego, co sesja już ma."
+      - "Tylko z prośby, bo plików z folderu nie czyta."
+      - "Z przykładowych tekstów, które ma szablon."
+    poprawna: 0
+    wyjasnienie: "Claude wypełnia szablon z Twojej prośby i z tego, co sesja już ma. Tu są to trzy pliki wymienione w prośbie."
+    fakt: slides-zwykla-prosba-wybiera-szablon
+
+  - pytanie: "Claude podał w odpowiedzi cenę szkolenia: 2 600 zł netto za osobę. Zanim pokażesz prezentację klientowi, chcesz zobaczyć, co jest w pliku cennik.txt. Co klikasz w aplikacji?"
+    odpowiedzi:
+      - "Cenę wypisaną w odpowiedzi Claude."
+      - "Ścieżkę pliku cennik.txt w odpowiedzi Claude."
+      - "Nazwę folderu w rzędzie pod polem wiadomości."
+    poprawna: 1
+    wyjasnienie: "Plik, o którym wspomina Claude, otwierasz, gdy klikniesz jego ścieżkę w rozmowie."
+    fakt: aplikacja-klik-sciezki-w-rozmowie-otwiera-plik
+
+  - pytanie: "Claude dał Ci link do prezentacji dla dyrektora sprzedaży. Chcesz poprawić slajd z ceną, a potem pokazać prezentację dyrektorowi. Gdzie ją otwierasz?"
+    odpowiedzi:
+      - "W folderze projektu, jako plik z prezentacją."
+      - "W przeglądarce na komputerze."
+      - "W widoku zmian w aplikacji Claude."
+    poprawna: 1
+    wyjasnienie: "Prezentację otwierasz w przeglądarce na komputerze, żeby ją edytować albo pokazać."
+    fakt: slides-otwierasz-w-przegladarce-na-komputerze

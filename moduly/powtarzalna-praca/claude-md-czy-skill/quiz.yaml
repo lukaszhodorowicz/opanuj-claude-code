@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prowadzisz sklep z kosmetykami. Claude drugi raz napisał w opisie, że krem leczy. Gdzie zapisać zasadę „nie obiecujemy efektów leczniczych”?"
+    odpowiedzi:
+      - "W skillu opis-produktu, bo ten błąd padł w opisie produktu."
+      - "W CLAUDE.md, bo Claude ma ją znać przy każdym tekście sklepu."
+      - "W każdej prośbie od nowa, bo plik CLAUDE.md czyta tylko terminal."
+    poprawna: 1
+    wyjasnienie: "Do CLAUDE.md wpisujesz to, co Claude ma wiedzieć zawsze, także reguły „nigdy nie rób X”."
+    fakt: do-claude-md-co-claude-ma-wiedziec-zawsze
+
+  - pytanie: "Trzeci raz wklejasz do rozmowy ten sam sześciopunktowy przepis na opis produktu. Co z nim zrobić?"
+    odpowiedzi:
+      - "Zapisać go jako skill i uruchamiać poleceniem /opis-produktu."
+      - "Dopisać go do CLAUDE.md, żeby był w każdej rozmowie, także przy postach."
+      - "Wklejać go dalej, bo skill działa tylko w terminalu."
+    poprawna: 0
+    wyjasnienie: "Przepis pracy, który uruchamiasz poleceniem /nazwa, zapisujesz w skillu."
+    fakt: do-skilla-material-czasem-albo-przepis
+
+  - pytanie: "Otwierasz nową rozmowę w folderze z plikiem CLAUDE.md i skillem opis-produktu. Prosisz o trzy tytuły posta o kremie. Który z nich Claude wczytał?"
+    odpowiedzi:
+      - "Oba, bo CLAUDE.md i skill leżą w tym samym folderze."
+      - "Żaden, bo Claude czyta je dopiero po poleceniu z ukośnikiem."
+      - "CLAUDE.md, a skill nie, bo prośba o tytuły nie pasuje do jego opisu."
+    poprawna: 2
+    wyjasnienie: "CLAUDE.md wczytuje się w każdej rozmowie. Skill wchodzi, gdy go wywołasz albo gdy pasuje do zadania."
+    fakt: skill-wczytuje-sie-gdy-wywolany-albo-pasuje
+
+  - pytanie: "Twój przepis na opis produktu urósł do dwóch stron. Dlaczego lepiej trzymać go w skillu niż w CLAUDE.md?"
+    odpowiedzi:
+      - "Bo Claude na pewno stosuje skill, a zasady z CLAUDE.md tylko czasem."
+      - "Bo CLAUDE.md wchodzi w całości do każdego zapytania, a ze skilla do czasu użycia tylko opis."
+      - "Bo w pliku CLAUDE.md mieści się najwyżej kilka linii."
+    poprawna: 1
+    wyjasnienie: "CLAUDE.md zajmuje miejsce w kontekście w każdym zapytaniu. Ze skilli w każdym zapytaniu są tylko opisy, a pełna treść wchodzi przy użyciu."
+    fakt: koszt-claude-md-kazde-zapytanie-skill-opisy

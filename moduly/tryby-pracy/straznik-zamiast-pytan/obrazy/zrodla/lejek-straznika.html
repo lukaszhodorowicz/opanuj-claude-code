@@ -1,0 +1,322 @@
+<!doctype html>
+<!-- Rysunek R5 „Co trafia do strażnika” do lekcji straznik-zamiast-pytan: wejście „Claude chce coś zrobić”, lejek z trzech warstw (reguły, pliki w folderze bez oceny, reszta do strażnika), strażnik i dwie kolumny „Przepuszcza” / „Blokuje”, pod prawą skutek blokady i wstrzymanie Auto; zakreślacz tylko na napisie warstwy 2. Opis: BRIEF.md, część 9. Źródło PNG obrazy/lejek-straznika.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Lejek strażnika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w granica-accept-edits.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --karta-kreska: #d3d6c8;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { position: relative; padding: 22px 16px 22px; }
+      code { font: 700 0.92em/1 var(--mono); }
+      .szary { margin: 0; color: var(--grafit); font: 500 16px/1.35 var(--sans); }
+      .dol { display: flex; justify-content: center; }
+      .dol svg { display: block; width: 24px; height: 34px; }
+
+      /* ===== Wejście ===== */
+      .wejscie {
+        margin: 0 auto;
+        width: max-content;
+        padding: 9px 18px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 12px;
+        font: 700 19px/1.2 var(--sans);
+      }
+      .wejscie-szary { margin-top: 7px; text-align: center; }
+
+      /* ===== Lejek: warstwy różni szerokość i numer ===== */
+      .rzad {
+        display: grid;
+        grid-template-columns: 1fr var(--w) 1fr;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .rzad:first-of-type { margin-top: 0; }
+      .warstwa {
+        grid-column: 2;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 13px 14px 13px 12px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+      }
+      .nr {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--granat);
+        color: var(--biel);
+        font: 800 19px/1 var(--sans);
+      }
+      .tresc { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+      .napis { margin: 0; font: 700 19px/1.3 var(--sans); text-wrap: balance; }
+      .napis.ten {
+        margin: -3px -6px 0 -4px;
+        padding: 6px 9px 7px;
+        background: var(--zakreslacz);
+        border-radius: 10px;
+        box-shadow: 0 0 0 4px var(--limonka);
+        font-weight: 800;
+      }
+      .wyjscie {
+        grid-column: 3;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-left: 6px;
+        font: 800 18px/1 var(--sans);
+        white-space: nowrap;
+      }
+      .wyjscie svg { flex: none; width: 34px; height: 20px; }
+
+      /* karta pliku jak w podglądzie folderu w ćwiczeniu */
+      .z-plikiem { display: flex; gap: 12px; align-items: flex-start; }
+      .karta {
+        flex: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        width: 84px;
+        padding: 9px 4px 8px;
+        background: var(--biel);
+        border: 2px solid var(--karta-kreska);
+        border-radius: 12px;
+        text-align: center;
+      }
+      .ikona { position: relative; width: 30px; height: 34px; }
+      .ikona svg { display: block; width: 100%; height: 100%; }
+      .ikona i {
+        position: absolute;
+        left: -7px;
+        bottom: 3px;
+        padding: 2px 3px;
+        border-radius: 3px;
+        background: var(--grafit);
+        color: var(--biel);
+        font: 700 10px/1 var(--mono);
+        font-style: normal;
+        letter-spacing: 0.04em;
+      }
+      .karta-nazwa { font: 500 13px/1.25 var(--mono); }
+      .karta-nazwa span { display: block; }
+
+      /* ===== Strażnik ===== */
+      .straznik {
+        margin: 0 auto;
+        width: 380px;
+        padding: 14px 16px;
+        background: var(--biel);
+        border: 7px solid var(--granat);
+        border-radius: 18px;
+        text-align: center;
+        font: 800 24px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .straznik-szary { margin-top: 7px; text-align: center; }
+      .rozgalezienie { height: 50px; }
+
+      /* ===== Dwie kolumny równej szerokości ===== */
+      .kolumny {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 16px;
+        align-items: start;
+      }
+      .glowa {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 8px 2px;
+        font: 800 24px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .glowa svg { width: 32px; height: 32px; flex: none; }
+      .przepuszcza {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 14px 12px 8px;
+      }
+      .lista { margin: 0; padding: 0; list-style: none; }
+      .lista li {
+        padding: 9px 6px;
+        font: 500 18px/1.3 var(--sans);
+        border-top: 2px solid var(--kreska);
+      }
+      .lista li:first-child { border-top: 0; }
+      .blokuje {
+        border: 3px dashed var(--granat);
+        border-radius: 18px;
+        background: var(--papier-2);
+        padding: 14px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .poz {
+        padding: 8px 10px;
+        background: var(--biel);
+        border: 2px dashed var(--granat);
+        border-radius: 11px;
+        font: 500 17px/1.3 var(--sans);
+      }
+      .granica {
+        margin-top: 2px;
+        padding: 10px 4px 2px;
+        border-top: 2px solid var(--granat);
+        font: 500 17px/1.3 var(--sans);
+      }
+
+      /* ===== Pod prawą kolumną ===== */
+      .skutek { grid-column: 2; }
+      .skutek .dol svg { height: 30px; }
+      .pudlo {
+        padding: 11px 13px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        font: 700 17px/1.35 var(--sans);
+      }
+      .pudlo.male {
+        margin: 10px 18px 0;
+        padding: 9px 12px;
+        border-width: 2px;
+        font: 500 16px/1.35 var(--sans);
+      }
+
+      .poz, .pudlo, .granica, .lista li { text-wrap: pretty; }
+      .linie { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+      h1.wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat); text-align: left; }
+      h1.wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Kolejność decyzji w trybie Auto: zapisane reguły, potem odczyt i zmiana plików w folderze bez oceny, a wszystko inne trafia do strażnika, który przepuszcza albo blokuje">
+      <h1 class="wniosek">Każde działanie przechodzi przez trzy kroki, a <mark>decyduje pierwszy, który pasuje</mark></h1>
+      <div class="wejscie">Claude chce coś zrobić</div>
+      <div class="dol"><svg viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3 V30 M4 21 L12 30 L20 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+
+      <div class="lejek">
+        <div class="rzad" style="--w: 470px">
+          <div class="warstwa">
+            <span class="nr">1</span>
+            <div class="tresc">
+              <p class="napis">Twoje zapisane reguły zgody i odmowy rozstrzygają od razu, poza kilkoma wyjątkami.</p>
+            </div>
+          </div>
+          <div class="wyjscie"><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M2 10 H30 M22 3 L30 10 L22 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg>od razu</div>
+        </div>
+
+        <div class="rzad" style="--w: 420px">
+          <div class="warstwa">
+            <span class="nr">2</span>
+            <div class="tresc">
+              <div class="z-plikiem">
+                <p class="napis ten">Odczyt i zmiana plików w Twoim folderze idą bez strażnika.</p>
+                <div class="karta"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2.5h7l4.5 4.5v13.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4.5"/><path d="M9 11h6M9 14h4"/></svg><i>TXT</i></span><span class="karta-nazwa"><span>roznice-</span><span>umow</span><span>.txt</span></span></div>
+              </div>
+              <p class="szary">Wyjątek: zapis w chronionych folderach, np. <code>.claude</code>.</p>
+            </div>
+          </div>
+          <div class="wyjscie"><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M2 10 H30 M22 3 L30 10 L22 17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg>od razu, bez strażnika</div>
+        </div>
+
+        <div class="rzad" style="--w: 370px">
+          <div class="warstwa">
+            <span class="nr">3</span>
+            <div class="tresc">
+              <p class="napis">Wszystko inne, np. polecenia i sieć, ocenia strażnik.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dol"><svg viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3 V30 M4 21 L12 30 L20 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+
+      <div class="straznik" id="straznik">Strażnik (drugi model AI)</div>
+      <p class="szary straznik-szary" id="straznik-szary">Strażnik czyta Twoje wiadomości i polecenia Claude, ale nie to, co Claude odczytał z plików i stron.</p>
+
+      <div class="rozgalezienie"></div>
+
+      <div class="kolumny">
+        <div class="przepuszcza" id="k1">
+          <div class="glowa">
+            <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="none" stroke="#0e1422" stroke-width="3" /><path d="M10.5 17.5 L15 22 L23.5 12.5" fill="none" stroke="#0e1422" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Przepuszcza, np.
+          </div>
+          <ul class="lista">
+            <li>Polecenia na plikach w Twoim folderze, np. pakowanie</li>
+            <li>Czytanie stron w sieci</li>
+          </ul>
+        </div>
+
+        <div class="blokuje" id="k2">
+          <div class="glowa">
+            <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="none" stroke="#0e1422" stroke-width="3" /><path d="M11.5 11.5 L22.5 22.5 M22.5 11.5 L11.5 22.5" fill="none" stroke="#0e1422" stroke-width="3.4" stroke-linecap="round" /></svg>
+            Blokuje, np.
+          </div>
+          <div class="poz">Pobranie i uruchomienie kodu z sieci</div>
+          <div class="poz">Wysłanie wrażliwych danych na zewnątrz</div>
+          <div class="poz">Nieodwracalne zniszczenie plików sprzed sesji</div>
+          <div class="granica">To, czego zakazuje Twoja wiadomość w rozmowie</div>
+        </div>
+
+        <div class="skutek">
+          <div class="dol"><svg viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3 V30 M4 21 L12 30 L20 21" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+          <div class="pudlo">Po blokadzie krok się nie wykonuje. Claude dostaje powód, zwykle nazwę reguły.</div>
+        </div>
+      </div>
+
+      <svg class="linie" id="linie" aria-hidden="true"></svg>
+    </div>
+    <script>
+      /* Dwie strzałki ze strażnika: w dół, łukiem w bok nad środek kolumny i w dół do jej górnej krawędzi */
+      document.fonts.ready.then(() => {
+        const rys = document.querySelector(".rys").getBoundingClientRect();
+        const s = document.getElementById("straznik-szary").getBoundingClientRect();
+        const x1 = s.left + s.width / 2 - rys.left, y1 = s.bottom - rys.top + 6;
+        const ym = y1 + 18;
+        let d = "";
+        for (const id of ["k1", "k2"]) {
+          const k = document.getElementById(id).getBoundingClientRect();
+          const x2 = k.left + k.width / 2 - rys.left, y2 = k.top - rys.top - 6;
+          const r = 10, z = x2 > x1 ? 1 : -1;
+          d += `<path d="M${x1} ${y1} V${ym - r} Q${x1} ${ym} ${x1 + z * r} ${ym} H${x2 - z * r} Q${x2} ${ym} ${x2} ${ym + r} V${y2}"/>`;
+          d += `<path d="M${x2 - 8} ${y2 - 9} L${x2} ${y2} L${x2 + 8} ${y2 - 9}"/>`;
+        }
+        document.getElementById("linie").innerHTML =
+          `<g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${d}</g>`;
+      });
+    </script>
+  </body>
+</html>

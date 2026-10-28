@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8" /><meta name="viewport" content="width=760" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block" rel="stylesheet" />
+<style>
+:root{--granat:#0e1422;--limonka:#a3e635;--zakreslacz:#d9f99d;--papier:#f6f6f1;--papier-2:#eef0e6;--grafit:#475569;--kreska:#e2e4da;--biel:#fff;--pasek:#d6d9cd;--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html,body{margin:0;background:var(--papier)}
+body{width:760px;color:var(--granat);font-family:var(--sans)}
+.rys{padding:18px 16px 20px}
+svg.i{width:30px;height:30px;flex:none}
+.hl{-webkit-box-decoration-break:clone;box-decoration-break:clone;background:var(--zakreslacz);box-shadow:inset 0 0 0 3px var(--limonka);border-radius:8px;padding:2px 8px}
+.mala{font:700 15px/1.25 var(--sans);color:var(--grafit)}
+
+.w{display:grid;grid-template-columns:150px 1fr 190px;gap:14px;align-items:center;background:var(--biel);border:3px solid var(--granat);border-radius:14px;padding:11px 14px;margin-bottom:9px}
+.n{font:800 20px/1.15 var(--sans);letter-spacing:-.02em}
+.t{font:700 16px/1.3 var(--sans);color:var(--grafit)}
+.p{justify-self:end;font:700 15px/1.2 var(--mono);text-align:center;border:2px solid var(--granat);border-radius:999px;padding:5px 12px;background:var(--papier-2)}
+.p.a{background:var(--granat);color:#fff}
+.plan{margin-top:14px;border-top:3px dashed var(--grafit);padding-top:12px}
+.plan b{font:800 20px/1.2 var(--sans);letter-spacing:-.02em;display:block;margin-bottom:6px}
+.plan div{font:700 17px/1.4 var(--sans)}
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        grid-column: 1 / -1;
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans, "Plus Jakarta Sans", system-ui, sans-serif);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+        color: var(--granat, #0e1422);
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz, #d9f99d) 52%, var(--zakreslacz, #d9f99d) 94%, transparent 94%);
+        padding: 0;
+      }
+</style></head><body>
+<div class="rys" role="img" aria-label="Pięć sposobów pracy nad kilkoma zadaniami naraz. Subagenci i przepływy działają w aplikacji; zespoły agentów w terminalu, nie w aplikacji.">
+      <h1 class="teza">Subagenci i&nbsp;przepływy działają w&nbsp;aplikacji, <mark>zespoły agentów tylko w&nbsp;terminalu</mark></h1>
+<div class="w"><div class="n">Subagenci</div><div class="t">Pomocnicy w&nbsp;jednej rozmowie. Każdy oddaje podsumowanie.</div><div class="p a">w aplikacji</div></div>
+<div class="w"><div class="n">Agent view</div><div class="t">Jeden ekran do śledzenia sesji w&nbsp;tle. Otwiera go polecenie claude agents. Wersja testowa.</div><div class="p">w&nbsp;terminalu</div></div>
+<div class="w"><div class="n">Zespoły agentów</div><div class="t">Lider i&nbsp;kilka sesji ze wspólną listą zadań.</div><div class="p">w&nbsp;terminalu, nie w&nbsp;aplikacji</div></div>
+<div class="w"><div class="n"><span class="hl">Przepływy</span></div><div class="t">Skrypt prowadzi wielu subagentów. Na Twoją prośbę każe im sprawdzić nawzajem swoje wyniki.</div><div class="p a">w aplikacji</div></div>
+<div class="w"><div class="n">Projekty</div><div class="t">Jedna stała rozmowa, w&nbsp;której Claude uruchamia wątki: w&nbsp;chmurze albo przez Remote Control na Twoim komputerze. Publiczna beta na planach Pro i&nbsp;Max.</div><div class="p a">w&nbsp;aplikacji i&nbsp;na claude.ai/code</div></div>
+<div class="plan"><b>Kto trzyma plan?</b><div>Przy subagentach plan trzyma Claude i&nbsp;ustala kolejny krok w&nbsp;każdej odpowiedzi.<br/>Przy przepływie plan trzyma skrypt.</div></div>
+<div class="mala" style="margin-top:12px">Kilku agentów pracujących naraz mnoży zużycie tokenów.<br/>Kilka rozmów naraz opisuje lekcja 1 tego modułu.</div>
+</div></body></html>

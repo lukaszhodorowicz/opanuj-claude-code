@@ -1,0 +1,329 @@
+{
+  "lekcja": "pierwsze-zadanie",
+  "folder_startowy": [
+    "opinie-klientow-pazdziernik.txt",
+    "tematy-newslettera.txt",
+    "newsletter-wrzesien.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Pierwsze zadanie w zakładce Code",
+      "opis": "Ćwiczenie wygląda jak zakładka Code w aplikacji Claude. Pod polem wiadomości są już ustawione: Local, folder Newsletter-kopia i tryb Accept edits.",
+      "nauczyciel_start": "Pod polem wiadomości: ikona laptopa to Local, obok folder Newsletter-kopia i tryb Accept edits. Kliknij „Wyślij pierwsze zadanie” nad oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Newsletter-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam opinie klientów z października, listę tematów dawnych newsletterów i wrześniowy newsletter."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam z nimi zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": ["tematy-listopad.txt"],
+      "drogi": [
+        {
+          "id": "tematy",
+          "etykieta": "Wyślij pierwsze zadanie",
+          "opis": "Claude przeczyta opinie i listę dawnych tematów, a wynik zapisze w nowym pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Wybierz z opinii klientów trzy tematy na listopadowy newsletter i zapisz je w pliku tematy-listopad.txt. Pomiń tematy, które już były.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Patrz na folder pod oknem ćwiczenia. Karta z ikoną oka to plik, który Claude właśnie czyta.",
+              "fakt": "aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000,
+              "czyta": ["opinie-klientow-pazdziernik.txt"]
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000,
+              "czyta": ["tematy-newslettera.txt"]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem opinie z października i listę dawnych tematów. Rozmiary już były, więc ten temat pominę."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude czyta pliki z folderu. Przeczytał dwa, a jeszcze niczego nie zapisał.",
+              "fakt": "aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem trzy tematy w pliku tematy-listopad.txt.",
+              "plik": "tematy-listopad.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał wynik w nowym pliku. W folderze pod oknem ćwiczenia pojawiła się nowa karta.",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000,
+              "czyta": ["tematy-listopad.txt"]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Sprawdziłem plik: są w nim trzy tematy, bez rozmiarów. Plik tematy-listopad.txt jest gotowy.",
+              "plik": "tematy-listopad.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na koniec Claude przeczytał nowy plik.",
+              "fakt": "aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę tematy-listopad.txt w ostatniej odpowiedzi Claude, żeby otworzyć plik.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "tematy-listopad.txt",
+              "linijki": [
+                "Tematy na listopadowy newsletter",
+                "1. Dostawa przed świętami",
+                "2. Zwroty bez stresu",
+                "3. Paczki bez plastikowej folii"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten plik Claude zapisał w folderze bez pytania o zgodę, bo pod polem wiadomości stoi tryb Accept edits.",
+              "fakt": "aplikacja-accept-edits-auto-bez-czekania-na-zgode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Popraw Claude w trakcie pracy",
+      "opis": "To samo zadanie dwa razy. Za drugim razem ćwiczenie wyśle poprawkę, gdy Claude będzie już pisał pierwszy szkic.",
+      "nauczyciel_start": "Kliknij najpierw „Bez poprawki”, potem „Z poprawką”. Licz nowe karty w folderze pod oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Newsletter-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam opinie klientów z października, listę tematów dawnych newsletterów i wrześniowy newsletter."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam z nimi zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": ["szkic-dostawa.txt", "szkic-zwroty.txt", "szkic-rozmiary.txt"],
+      "drogi": [
+        {
+          "id": "bez",
+          "etykieta": "Bez poprawki",
+          "opis": "Claude napisze wszystkie szkice, które zapowie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Na podstawie opinii klientów napisz szkice tekstów do listopadowego newslettera, każdy temat w osobnym pliku.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000,
+              "czyta": ["opinie-klientow-pazdziernik.txt"]
+            },
+            {
+              "typ": "claude",
+              "tekst": "W opiniach wracają trzy tematy. Napiszę trzy szkice: najpierw o dostawie, potem o zwrotach, na końcu o rozmiarach."
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Plik szkic-dostawa.txt jest gotowy.",
+              "plik": "szkic-dostawa.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pierwsza nowa karta w folderze: szkic o dostawie."
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Plik szkic-zwroty.txt jest gotowy.",
+              "plik": "szkic-zwroty.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Druga karta. Claude pisze dalej to, co zapowiedział."
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Plik szkic-rozmiary.txt jest gotowy. Mam trzy szkice.",
+              "plik": "szkic-rozmiary.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Trzecia karta: szkic o rozmiarach, choć o nich był wrześniowy newsletter."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę szkic-rozmiary.txt w ostatniej odpowiedzi Claude, żeby otworzyć plik.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "szkic-rozmiary.txt",
+              "linijki": [
+                "Szkic: jak dobrać rozmiar",
+                "Zmierz obwód w pasie i porównaj go z tabelą rozmiarów.",
+                "Nie wiesz, który rozmiar wybrać? Napisz do nas przed zakupem."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Szkic o rozmiarach jest niepotrzebny: o rozmiarach był wrześniowy newsletter. Kliknij teraz „Z poprawką”."
+            }
+          ]
+        },
+        {
+          "id": "z",
+          "etykieta": "Z poprawką",
+          "opis": "Ćwiczenie wyśle poprawkę, gdy Claude będzie pisał pierwszy szkic.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Na podstawie opinii klientów napisz szkice tekstów do listopadowego newslettera, każdy temat w osobnym pliku.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000,
+              "czyta": ["opinie-klientow-pazdziernik.txt"]
+            },
+            {
+              "typ": "claude",
+              "tekst": "W opiniach wracają trzy tematy. Napiszę trzy szkice: najpierw o dostawie, potem o zwrotach, na końcu o rozmiarach."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapowiedział szkic o rozmiarach, a o nich był wrześniowy newsletter. Teraz pisze pierwszy szkic, o dostawie."
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ćwiczenie wyśle teraz poprawkę klawiszem Enter. Claude nie przestaje pracować.",
+              "fakt": "aplikacja-poprawka-enter-claude-czyta-po-biezacym-kroku"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Bez rozmiarów, o nich był wrześniowy newsletter. Tylko dostawa i zwroty.",
+              "fakt": "aplikacja-poprawka-enter-claude-czyta-po-biezacym-kroku"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2000
+            },
+            {
+              "typ": "claude",
+              "tekst": "Plik szkic-dostawa.txt jest gotowy.",
+              "plik": "szkic-dostawa.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten szkic powstał, choć poprawka już poszła: Claude najpierw kończy bieżący krok.",
+              "fakt": "aplikacja-poprawka-enter-claude-czyta-po-biezacym-kroku"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2500
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem poprawkę i pomijam rozmiary. Plik szkic-zwroty.txt jest gotowy. Mam dwa szkice.",
+              "plik": "szkic-zwroty.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Dwie nowe karty zamiast trzech. Nie trzeba było czekać do końca ani zaczynać od nowa.",
+              "fakt": "aplikacja-poprawka-bez-czekania-na-koniec-i-bez-startu-od-nowa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę szkic-zwroty.txt w ostatniej odpowiedzi Claude, żeby otworzyć plik.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "szkic-zwroty.txt",
+              "linijki": [
+                "Szkic: zwroty bez stresu",
+                "Masz 30 dni na zwrot, liczonych od dnia dostawy.",
+                "Formularz zwrotu znajdziesz w paczce."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Szkicu o rozmiarach nie ma: po szkicu o dostawie Claude pracował już według poprawki.",
+              "fakt": "aplikacja-poprawka-enter-claude-czyta-po-biezacym-kroku"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

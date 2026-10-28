@@ -1,0 +1,268 @@
+{
+  "lekcja": "gotowe-skille",
+  "folder_startowy": [
+    "sprzedaz-wrzesien.xlsx",
+    "sprzedaz-sierpien.xlsx",
+    "cennik.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Claude sam sięga po skill z konta",
+      "opis": "Rozmowa w folderze Sklep-sprzedaz. Poprosisz o podsumowanie arkusza zwykłymi słowami, bez nazwy skilla.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem i patrz na kartę sprzedaz-wrzesien.xlsx pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Sklep-sprzedaz",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam eksporty sprzedaży za sierpień i wrzesień oraz cennik."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "wnioski-wrzesien.txt"
+      ],
+      "drogi": [
+        {
+          "id": "sam",
+          "etykieta": "Poproś o podsumowanie sprzedaży",
+          "opis": "Prośba zwykłymi słowami, bez nazwy skilla.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Podsumuj sprzedaż z pliku sprzedaz-wrzesien.xlsx: trzy najlepsze produkty i łączny przychód. Zapisz wynik w pliku wnioski-wrzesien.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "sprzedaz-wrzesien.xlsx"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Skorzystałem ze skilla xlsx z Twojego konta claude.ai. Trzy najlepsze produkty i łączny przychód zapisałem w wnioski-wrzesien.txt.",
+              "plik": "wnioski-wrzesien.txt",
+              "fakt": "aplikacja-sesja-laduje-skille-konta-claude-ai"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W prośbie nie było nazwy skilla. Claude sam sięgnął po skill, bo pasował do zadania. Kliknij ścieżkę wnioski-wrzesien.txt.",
+              "fakt": "aplikacja-skille-claude-laduje-sam-albo-wskazujesz"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wnioski-wrzesien.txt",
+              "linijki": [
+                "Trzy najlepsze produkty we wrześniu:",
+                "1. Kawa Etiopia 250 g: 3 120 zł",
+                "2. Kawa Brazylia 1 kg: 2 860 zł",
+                "3. Zestaw degustacyjny: 1 940 zł",
+                "Łączny przychód: 18 470 zł"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wynik jest w nowym pliku. Prośba opisywała tylko zadanie, a Claude sam dobrał skill.",
+              "fakt": "aplikacja-skille-claude-laduje-sam-albo-wskazujesz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Wybierz skill z listy poleceń",
+      "opis": "Dwie drogi do tej samej listy: przycisk + albo znak /.",
+      "nauczyciel_start": "Teraz Ty wskażesz skill. Kliknij „Przez przycisk +” nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Sklep-sprzedaz",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "wnioski-wrzesien.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Mam tu eksporty sprzedaży za sierpień i wrzesień. Chcę je porównać."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "porownanie.txt"
+      ],
+      "drogi": [
+        {
+          "id": "plus",
+          "etykieta": "Przez przycisk +",
+          "opis": "Menu przycisku + ma pozycję z listą poleceń.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu przycisku +. Kliknij Slash commands (polecenia z ukośnikiem).",
+              "fakt": "skill-aplikacja-menu"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Slash commands",
+              "fakt": "skill-aplikacja-menu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu są polecenia i skille. Kliknij zaznaczony wiersz.",
+              "fakt": "skill-lista-polecen-co-na-liscie"
+            },
+            {
+              "typ": "klik",
+              "cel": "wiersz",
+              "bez_napisu": true,
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skill stoi podświetlony w polu. Zadanie dopisuje się po nim.",
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "porównaj sprzedaż z plików sprzedaz-wrzesien.xlsx i sprzedaz-sierpien.xlsx, a wynik zapisz w pliku porownanie.txt",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "sprzedaz-wrzesien.xlsx",
+                "sprzedaz-sierpien.xlsx"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Porównałem oba arkusze i zapisałem wynik w pliku porownanie.txt. Wrzesień był lepszy o 2 270 zł.",
+              "plik": "porownanie.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę porownanie.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "porownanie.txt",
+              "linijki": [
+                "Wrzesień: 18 470 zł",
+                "Sierpień: 16 200 zł",
+                "Różnica: +2 270 zł (+14%)",
+                "Największy wzrost: Kawa Etiopia 250 g"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wynik znów trafił do nowego pliku, jak w ćwiczeniu 1. Tym razem skill wskazała Twoja wiadomość.",
+              "fakt": "aplikacja-skille-claude-laduje-sam-albo-wskazujesz"
+            }
+          ]
+        },
+        {
+          "id": "ukosnik",
+          "etykieta": "Przez znak /",
+          "opis": "Znak / w polu otwiera tę samą listę od razu.",
+          "kroki": [
+            {
+              "typ": "ukosnik",
+              "fakt": "skill-aplikacja-menu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ta sama lista, bez menu. Kliknij zaznaczony wiersz.",
+              "fakt": "skill-lista-polecen-co-na-liscie"
+            },
+            {
+              "typ": "klik",
+              "cel": "wiersz",
+              "bez_napisu": true,
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skill stoi podświetlony w polu. Zadanie dopisuje się po nim.",
+              "fakt": "skill-wybrany-podswietlony-zadanie-po-nim"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "porównaj sprzedaż z plików sprzedaz-wrzesien.xlsx i sprzedaz-sierpien.xlsx, a wynik zapisz w pliku porownanie.txt",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "sprzedaz-wrzesien.xlsx",
+                "sprzedaz-sierpien.xlsx"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Porównałem oba arkusze i zapisałem wynik w pliku porownanie.txt. Wrzesień był lepszy o 2 270 zł.",
+              "plik": "porownanie.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę porownanie.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "porownanie.txt",
+              "linijki": [
+                "Wrzesień: 18 470 zł",
+                "Sierpień: 16 200 zł",
+                "Różnica: +2 270 zł (+14%)",
+                "Największy wzrost: Kawa Etiopia 250 g"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wynik znów trafił do nowego pliku, jak w ćwiczeniu 1. Tym razem skill wskazała Twoja wiadomość.",
+              "fakt": "aplikacja-skille-claude-laduje-sam-albo-wskazujesz"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+<!doctype html>
+<!-- Próbka obrazkowa „Prośba czy sprawdzenie” do lekcji zasada-ktorej-claude-nie-pominie: ikonki, strzałki, dymki. Rząd 1: zasada w CLAUDE.md, rząd 2: kłódka hooka na cienkiej ścieżce odsyła złamanie zasady do Claude. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Prośba czy sprawdzenie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 22px 16px 18px; }
+      h1 {
+        margin: 0 0 18px;
+        font: 800 30px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      h1 mark { background: var(--zakreslacz); color: inherit; padding: 0 4px; }
+      .rzad h2 {
+        margin: 0 0 12px;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .rzad h2 span {
+        font-weight: 700;
+        color: var(--grafit);
+      }
+      .rzad h2 mark {
+        background: var(--zakreslacz);
+        color: var(--granat);
+        padding: 0 4px;
+      }
+      .rzad + .rzad {
+        margin-top: 14px;
+        padding-top: 16px;
+        border-top: 3px dashed #cfd2c4;
+      }
+      svg { display: block; overflow: visible; }
+      svg text { font-family: var(--sans); fill: var(--granat); }
+      .dymek { font-weight: 700; font-size: 17px; }
+      .mysl { font-weight: 700; font-size: 16px; }
+      .podpis { font-weight: 800; font-size: 17px; }
+      .sciezka { font-weight: 700; font-size: 16px; }
+      .kreska { fill: none; stroke: var(--granat); stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </head>
+  <body>
+    <div class="rys">
+      <h1>Prośba czy <mark>sprawdzenie</mark></h1>
+
+      <svg width="0" height="0" style="position: absolute">
+        <defs>
+          <filter id="reka" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1000" height="600">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" />
+            <feDisplacementMap in="SourceGraphic" scale="2.6" />
+          </filter>
+          <marker id="grot" viewBox="0 0 20 20" refX="12" refY="10" markerWidth="20" markerHeight="20" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M3,3 L13,10 L3,17" fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+          <marker id="grot-gruby" viewBox="0 0 30 30" refX="16" refY="15" markerWidth="30" markerHeight="30" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M4,4 L18,15 L4,26" fill="none" stroke="#0e1422" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+
+          <!-- człowiek z dymkiem, Claude z chmurką myśli -->
+          <g id="poczatek">
+            <g filter="url(#reka)">
+              <path class="kreska" fill="#fff" stroke-width="3.5"
+                d="M20,4 H204 Q218,4 218,18 V54 Q218,68 204,68 H64 L48,90 L42,68 H20 Q6,68 6,54 V18 Q6,4 20,4 Z" style="fill:#fff" />
+              <circle cx="52" cy="116" r="15" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M24,176 Q24,140 52,140 Q80,140 80,176 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M96,148 Q150,141 204,146" class="kreska" stroke-width="4" marker-end="url(#grot)" />
+              <circle cx="252" cy="146" r="32" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M234,146 H270 M252,128 V164 M239.3,133.3 L264.7,158.7 M264.7,133.3 L239.3,158.7" class="kreska" stroke-width="5" />
+              <g stroke="#0e1422" stroke-width="8" fill="#0e1422">
+                <circle cx="256" cy="42" r="22" /><circle cx="286" cy="24" r="22" /><circle cx="324" cy="20" r="23" />
+                <circle cx="360" cy="28" r="21" /><circle cx="376" cy="48" r="17" /><circle cx="348" cy="60" r="18" />
+                <circle cx="310" cy="62" r="19" /><circle cx="274" cy="60" r="18" />
+                <ellipse cx="316" cy="42" rx="62" ry="24" />
+              </g>
+              <g fill="#fff">
+                <circle cx="256" cy="42" r="22" /><circle cx="286" cy="24" r="22" /><circle cx="324" cy="20" r="23" />
+                <circle cx="360" cy="28" r="21" /><circle cx="376" cy="48" r="17" /><circle cx="348" cy="60" r="18" />
+                <circle cx="310" cy="62" r="19" /><circle cx="274" cy="60" r="18" />
+                <ellipse cx="316" cy="42" rx="62" ry="24" />
+              </g>
+              <circle cx="274" cy="93" r="5.5" class="kreska" stroke-width="3" style="fill:#fff" />
+              <circle cx="266" cy="106" r="3.5" class="kreska" stroke-width="2.5" style="fill:#fff" />
+            </g>
+            <text class="dymek" x="112" y="31" text-anchor="middle">Napisz post. Nie używaj</text>
+            <text class="dymek" x="112" y="53" text-anchor="middle">długich myślników.</text>
+            <text class="podpis" x="52" y="200" text-anchor="middle">Ty</text>
+            <text class="podpis" x="252" y="202" text-anchor="middle">Claude</text>
+            <text class="mysl" x="316" y="38" text-anchor="middle">Posłuchać czy</text>
+            <text class="mysl" x="316" y="58" text-anchor="middle">nie posłuchać?</text>
+          </g>
+
+          <!-- kartka bez myślnika, z ptaszkiem -->
+          <g id="kartka-dobra">
+            <g filter="url(#reka)">
+              <path d="M0,0 H36 L52,16 V68 H0 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M36,0 V16 H52" class="kreska" stroke-width="3" />
+              <path d="M9,26 H40 M9,38 H42 M9,50 H30" class="kreska" stroke-width="3" stroke="#475569" />
+              <circle cx="50" cy="64" r="17" fill="#a3e635" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M42,64 L48,70 L59,57" class="kreska" stroke-width="4.5" />
+            </g>
+          </g>
+
+          <!-- kartka z długim myślnikiem, z krzyżykiem -->
+          <g id="kartka-zla">
+            <g filter="url(#reka)">
+              <path d="M0,0 H36 L52,16 V68 H0 Z" class="kreska" stroke-width="4" style="fill:#fff" />
+              <path d="M36,0 V16 H52" class="kreska" stroke-width="3" />
+              <path d="M9,26 H40 M9,50 H30" class="kreska" stroke-width="3" stroke="#475569" />
+              <path d="M9,38 H43" class="kreska" stroke-width="5" />
+              <circle cx="50" cy="64" r="17" fill="#fff" stroke="#0e1422" stroke-width="3.5" />
+              <path d="M43,57 L57,71 M57,57 L43,71" class="kreska" stroke-width="4.5" />
+            </g>
+          </g>
+        </defs>
+      </svg>
+
+      <section class="rzad">
+        <h2>Zasada w CLAUDE.md <span>to prośba</span></h2>
+        <svg width="728" height="250" viewBox="0 0 728 250">
+          <use href="#poczatek" />
+          <path id="r1-gora" d="M290,136 C380,124 450,74 572,68" class="kreska" stroke-width="9" marker-end="url(#grot-gruby)" filter="url(#reka)" />
+          <path id="r1-dol" d="M290,158 C380,170 450,214 572,220" class="kreska" stroke-width="3" marker-end="url(#grot)" filter="url(#reka)" />
+          <text class="sciezka" dy="-14"><textPath href="#r1-gora" startOffset="55%" text-anchor="middle">zwykle posłucha</textPath></text>
+          <text class="sciezka" dy="24"><textPath href="#r1-dol" startOffset="55%" text-anchor="middle">czasem nie posłucha</textPath></text>
+          <use href="#kartka-dobra" x="600" y="34" />
+          <use href="#kartka-zla" x="600" y="186" />
+        </svg>
+      </section>
+
+      <section class="rzad">
+        <h2>Zasada w hooku <span>to</span> <mark>sprawdzenie</mark></h2>
+        <svg width="728" height="336" viewBox="0 0 728 336">
+          <use href="#poczatek" y="12" />
+          <g transform="translate(0,12)">
+            <path id="r2-gora" d="M290,136 C380,124 450,74 572,68" class="kreska" stroke-width="9" marker-end="url(#grot-gruby)" filter="url(#reka)" />
+            <path id="r2-dol" d="M290,158 C370,170 410,214 462,220" class="kreska" stroke-width="3" marker-end="url(#grot)" filter="url(#reka)" />
+            <!-- kłódka hooka -->
+            <g filter="url(#reka)">
+              <path d="M488,202 V188 Q488,166 504,166 Q520,166 520,188 V202" class="kreska" stroke-width="6" />
+              <rect x="478" y="200" width="52" height="42" rx="8" fill="#a3e635" stroke="#0e1422" stroke-width="4" />
+              <circle cx="504" cy="216" r="5" fill="#0e1422" />
+              <path d="M504,218 V230" class="kreska" stroke-width="4" />
+            </g>
+            <text class="podpis" x="504" y="266" text-anchor="middle">hook</text>
+            <!-- powrót do Claude -->
+            <path d="M474,246 C452,292 420,294 380,294 C320,294 262,282 254,220" class="kreska" stroke-width="4" marker-end="url(#grot)" filter="url(#reka)" />
+            <!-- dymek hooka -->
+            <path d="M562,182 H704 Q718,182 718,196 V238 Q718,252 704,252 H562 Q548,252 548,238 V226 L536,220 L548,212 V196 Q548,182 562,182 Z" class="kreska" stroke-width="3.5" style="fill:#d9f99d" filter="url(#reka)" />
+            <text class="dymek" x="633" y="211" text-anchor="middle" style="font-weight:800">Nie wolno.</text>
+            <text class="dymek" x="633" y="235" text-anchor="middle" style="font-weight:800">Łamiesz zasadę.</text>
+            <text class="sciezka" dy="-14"><textPath href="#r2-gora" startOffset="55%" text-anchor="middle">zwykle posłucha</textPath></text>
+            <text class="sciezka" dy="24"><textPath href="#r2-dol" startOffset="52%" text-anchor="middle">czasem nie posłucha</textPath></text>
+            <text class="podpis" x="380" y="320" text-anchor="middle">Claude poprawia</text>
+            <use href="#kartka-dobra" x="600" y="34" />
+          </g>
+        </svg>
+      </section>
+    </div>
+  </body>
+</html>

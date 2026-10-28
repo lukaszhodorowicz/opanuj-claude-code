@@ -1,0 +1,118 @@
+{
+  "cw1-nowa-rozmowa": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-bok-nowa.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-folder": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-bok-nowa.apl-cel",
+      "#cw1 .apl-chip-folder.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-plik": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 35000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-bok-nowa.apl-cel",
+      "#cw1 .apl-chip-folder.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-powrot": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-bok-nowa.apl-cel",
+      "#cw1 .apl-chip-folder.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-wiersz.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-375-powrot": {
+    "szer": 375,
+    "wys": 2600,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-bok-nowa.apl-cel",
+      "#cw1 .apl-chip-folder.apl-cel",
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-wiersz.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-plik": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 35000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-karta": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-wiersz.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-nadawca": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 45000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-wiersz.apl-cel",
+      "#cw2 .apl-wiad-wr.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-koniec": {
+    "szer": 1280,
+    "wys": 1500,
+    "budzet": 50000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-wiersz.apl-cel",
+      "#cw2 .apl-wiad-wr.apl-cel",
+      "#cw2 .apl-wiersz.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-375-karta": {
+    "szer": 375,
+    "wys": 2600,
+    "budzet": 40000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-sciezka.apl-cel",
+      "#cw2 .apl-wiersz.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

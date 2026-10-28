@@ -1,0 +1,65 @@
+/* Wygląd symulatora aplikacji Claude, katalog konektorów: karta logowania po kliknięciu kafelka (okno Settings, kafelki i siatka są w strona/styl-aplikacja-ustawienia.css). */
+
+/* karta logowania zamiast zawartości strony: ikona kafelka i kłódka, pod nimi trzy pulsujące paski, bez tekstu i bez przycisków */
+.apl-kat-karta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 44px 0 30px;
+}
+.apl-kat-para {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.apl-kat-para .apl-kaf-ikona {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+}
+.apl-kat-para .apl-kaf-ikona svg {
+  width: 30px;
+  height: 30px;
+}
+.apl-kat-kloda {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid #4a4a4a;
+  border-radius: 50%;
+  color: var(--a-szary);
+}
+.apl-kat-kloda svg {
+  width: 26px;
+  height: 26px;
+}
+.apl-kat-karta .apl-kat-puls {
+  height: 10px;
+  max-width: 260px;
+  animation: apl-kat-puls 1.6s ease-in-out infinite;
+}
+.apl-kat-karta .apl-kat-puls:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.apl-kat-karta .apl-kat-puls:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+@keyframes apl-kat-puls {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-kat-karta .apl-kat-puls {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  .apl-kat-karta {
+    padding: 30px 0 20px;
+  }
+}

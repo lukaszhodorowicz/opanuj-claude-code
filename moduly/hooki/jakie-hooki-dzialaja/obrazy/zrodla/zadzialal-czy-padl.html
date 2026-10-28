@@ -1,0 +1,130 @@
+<!doctype html>
+<!-- Rysunek R2 „Hook zadziałał, hook padł” do lekcji jakie-hooki-dzialaja: hook rusza, trzy wyniki w kolumnach (sukces: w rozmowie nic nie widać, sprawdzasz skutek; błąd blokujący: działanie stoi; błąd nieblokujący: działanie zwykle idzie dalej (zakreślacz), przy PreToolUse notka o błędzie hooka); pasek o hooku ze złą ścieżką. Źródło PNG obrazy/zadzialal-czy-padl.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Hook zadziałał, hook padł</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .drzewo {
+        position: relative;
+        padding: 18px 16px 18px;
+      }
+      .gora {
+        display: flex;
+        justify-content: center;
+      }
+      .start {
+        font-weight: 800;
+        padding: 12px 28px;
+      }
+      .kolumny {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 14px;
+        margin-top: 58px;
+        align-items: start;
+      }
+      .kolumna {
+        display: flex;
+        flex-direction: column;
+      }
+      .kolumna .krok {
+        font-size: 19px;
+        padding: 12px 10px;
+      }
+      .kolumna .krok code {
+        font-size: 17px;
+      }
+      .kolumna .wynik {
+        font-weight: 800;
+        font-size: 21px;
+        background: var(--papier-2);
+      }
+      .kolumna .w-dol {
+        height: 36px;
+      }
+      .kolumna .w-dol svg {
+        height: 36px;
+      }
+      .pasek {
+        margin-top: 22px;
+        padding: 12px 16px;
+        border: 3px dashed var(--granat);
+        border-radius: 14px;
+        text-align: center;
+        font: 800 20px/1.25 var(--sans);
+        letter-spacing: -0.015em;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Hook rusza. Trzy wyniki. Sukces: w rozmowie nic nie widać, więc sprawdzasz skutek, na przykład czy plik dziennika ma nowy wiersz. Błąd blokujący: na zdarzeniach, które mogą blokować, działanie stoi. Błąd nieblokujący: działanie zwykle idzie dalej (zaznaczone), a przy zdarzeniach takich jak PreToolUse pojawia się notka o błędzie hooka. Pasek na dole: hook ze złą ścieżką nie rusza wcale, a przy większości zdarzeń działanie idzie dalej.">
+      <h1 class="teza">Błąd blokujący zatrzymuje działanie, a&nbsp;<mark>inny błąd hooka zwykle je przepuszcza</mark></h1>
+      <div class="ramka">
+        <div class="drzewo">
+          <div class="gora"><div class="krok start" id="start">Wynik hooka</div></div>
+          <div class="kolumny">
+            <div class="kolumna">
+              <div class="krok wynik" id="k1">Sukces</div>
+              <div class="w-dol"><svg viewBox="0 0 24 36" aria-hidden="true"><path d="M12 4V30M4 22l8 9 8-9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="krok">W rozmowie nic nie widać.</div>
+              <div class="w-dol"><svg viewBox="0 0 24 36" aria-hidden="true"><path d="M12 4V30M4 22l8 9 8-9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="krok">Sprawdzasz skutek, na przykład czy w&nbsp;pliku dziennika jest nowy wiersz.</div>
+            </div>
+            <div class="kolumna">
+              <div class="krok wynik" id="k2">Błąd blokujący</div>
+              <div class="w-dol"><svg viewBox="0 0 24 36" aria-hidden="true"><path d="M12 4V30M4 22l8 9 8-9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="krok">Przy zdarzeniach, które mogą blokować, Claude Code zatrzymuje działanie.</div>
+            </div>
+            <div class="kolumna">
+              <div class="krok wynik" id="k3">Błąd nieblokujący</div>
+              <div class="w-dol"><svg viewBox="0 0 24 36" aria-hidden="true"><path d="M12 4V30M4 22l8 9 8-9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="krok ten">Działanie zwykle idzie dalej.</div>
+              <div class="w-dol"><svg viewBox="0 0 24 36" aria-hidden="true"><path d="M12 4V30M4 22l8 9 8-9" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="krok">Przy zdarzeniach takich jak <code>PreToolUse</code> (przed użyciem narzędzia) pojawia się notka o&nbsp;błędzie hooka.</div>
+            </div>
+          </div>
+          <div class="pasek">Hook ze złą ścieżką do skryptu nie rusza wcale, a&nbsp;przy większości zdarzeń działanie i&nbsp;tak idzie dalej.</div>
+        </div>
+      </div>
+    </div>
+    <script src="strzalki.js"></script>
+    <script>
+      rysujStrzalki(".drzewo", (p) => {
+        const s = p("#start", "d");
+        const a = p("#k1", "g");
+        const b = p("#k2", "g");
+        const c = p("#k3", "g");
+        const y = s[1] + (a[1] - s[1]) / 2;
+        return [
+          { punkty: [[s[0], s[1] + 2], [s[0], y]], grot: false },
+          { punkty: [[a[0], y], [c[0], y]], grot: false },
+          { punkty: [[a[0], y], [a[0], a[1] - 4]] },
+          { punkty: [[b[0], y], [b[0], b[1] - 4]] },
+          { punkty: [[c[0], y], [c[0], c[1] - 4]] },
+        ];
+      });
+    </script>
+  </body>
+</html>

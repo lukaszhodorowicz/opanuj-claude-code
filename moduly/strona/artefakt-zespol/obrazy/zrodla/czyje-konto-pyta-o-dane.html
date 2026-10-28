@@ -1,0 +1,227 @@
+<!doctype html>
+<!-- Rysunek R4 „Czyje konto pyta o dane” do lekcji artefakt-zespol: oglądający otwiera stronę, claude.ai pyta go o zgodę, wywołanie idzie przez jego konektor; drugi oglądający z innym kontem widzi inne dane; gość z publicznym linkiem bez logowania albo bez konektora widzi stronę bez części na żywo, z komunikatem zastępczym. Źródło PNG obrazy/czyje-konto-pyta-o-dane.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Czyje konto pyta o dane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .tabela {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.12fr;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto;
+        column-gap: 14px;
+      }
+      .kol-glowa {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 12px;
+        border-radius: 16px;
+        background: var(--granat);
+        color: var(--biel);
+      }
+      .kol-glowa svg {
+        flex: none;
+        width: 30px;
+        height: 30px;
+        color: var(--limonka);
+      }
+      .kol-glowa b {
+        font: 800 24px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .kol-glowa span {
+        color: var(--szary-na-granacie);
+        font: 700 20px/1.2 var(--sans);
+      }
+      .krok {
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+        padding: 10px 12px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 12px;
+        font: 800 21px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .krok.ta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+      }
+      .w-dol {
+        position: relative;
+        height: 34px;
+      }
+      .w-dol::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 3px;
+        margin-left: -2px;
+        border-left: 4px solid var(--granat);
+      }
+      .w-dol svg {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
+        margin-left: -11px;
+        overflow: visible;
+      }
+      /* długa strzałka obok kroków pierwszej kolumny */
+      .dluga {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .dluga .w-dol {
+        flex: 1;
+      }
+      .dluga .w-dol.krotka {
+        flex: none;
+      }
+      .opis {
+        padding: 2px 4px;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+        text-align: center;
+        text-wrap: balance;
+      }
+      .opis small {
+        display: block;
+        margin-top: 4px;
+        color: var(--grafit);
+        font: 700 20px/1.2 var(--sans);
+        letter-spacing: 0;
+      }
+      .dluga .opis {
+        padding: 8px 4px;
+      }
+      /* strona u oglądającego */
+      .strona {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 16px;
+      }
+      .strona > .szkic {
+        background: #d6d9cd;
+      }
+      .na-zywo {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        height: 96px;
+        padding: 10px 12px;
+        border: 3px solid var(--granat);
+        border-radius: 10px;
+        background: var(--papier);
+      }
+      .na-zywo i {
+        flex: 1;
+        border-radius: 4px 4px 0 0;
+        background: var(--granat);
+      }
+      .zastepczy {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 96px;
+        padding: 8px 10px;
+        border: 3px dashed var(--grafit);
+        border-radius: 10px;
+        color: var(--grafit);
+        font: 800 21px/1.2 var(--sans);
+        text-align: center;
+      }
+      .warunek {
+        margin-bottom: -2px;
+        color: var(--grafit);
+        font: 700 20px/1.2 var(--sans);
+      }
+      .wspolny {
+        margin: 24px 0 0;
+        font-size: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Oglądający otwiera stronę, claude.ai pyta go o zgodę przed pierwszym wywołaniem konektora, wywołanie idzie przez jego konektor, nie Twój, i dane pojawiają się w części na żywo. Drugi oglądający z innym kontem może widzieć inne dane. Gość z publicznym linkiem bez logowania albo oglądający bez konektora widzi stronę bez części na żywo; gdy poprosisz Claude o komunikat zastępczy, w jej miejscu stoi: podłącz konektor. Strona nie widzi niczyich danych logowania."
+    >
+      <p class="wniosek">Każdy oglądający dostaje dane <mark>przez własny konektor</mark>, nie przez Twój.</p>
+      <div class="tabela">
+        <!-- głowy kolumn -->
+        <div class="kol-glowa" style="grid-row: 1; grid-column: 1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.9 3.1-6.6 7-6.6s7 2.7 7 6.6"/></svg>
+          <b>Oglądający</b>
+        </div>
+        <div class="kol-glowa" style="grid-row: 1; grid-column: 2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.9 3.1-6.6 7-6.6s7 2.7 7 6.6"/></svg>
+          <b>Drugi oglądający</b>
+        </div>
+        <div class="kol-glowa" style="grid-row: 1; grid-column: 3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+          <b>Gość albo oglądający bez konektora</b>
+        </div>
+
+        <!-- kolumna 1: łańcuch -->
+        <div class="w-dol" style="grid-row: 2; grid-column: 1" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M2 2 L11 10 L20 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="krok" style="grid-row: 3; grid-column: 1">Otwiera stronę.</div>
+        <div class="w-dol" style="grid-row: 4; grid-column: 1" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M2 2 L11 10 L20 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="krok" style="grid-row: 5; grid-column: 1">claude.ai pyta go o&nbsp;zgodę przed pierwszym wywołaniem konektora.</div>
+        <div class="w-dol" style="grid-row: 6; grid-column: 1" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M2 2 L11 10 L20 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="krok ta" style="grid-row: 7; grid-column: 1">Wywołanie idzie przez jego konektor, a nie Twój.</div>
+        <div class="w-dol" style="grid-row: 8; grid-column: 1" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M2 2 L11 10 L20 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+        <!-- kolumna 2 i 3: opis i długa strzałka -->
+        <div class="dluga" style="grid-row: 2 / 9; grid-column: 2">
+          <div class="w-dol" aria-hidden="true"></div>
+          <div class="opis">Ma inne konto.</div>
+          <div class="w-dol" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M2 2 L11 10 L20 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="dluga" style="grid-row: 2 / 9; grid-column: 3">
+          <div class="w-dol" aria-hidden="true"></div>
+          <div class="opis">Nie loguje się, <small>jest spoza Twojej organizacji albo nie ma konektora.</small></div>
+          <div class="w-dol" aria-hidden="true"><svg viewBox="0 0 22 12"><path d="M2 2 L11 10 L20 2" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+
+        <!-- strony -->
+        <div class="strona" style="grid-row: 9; grid-column: 1">
+          <span class="szkic" style="width: 90%"></span>
+          <div class="na-zywo" aria-hidden="true"><i style="height: 40%"></i><i style="height: 75%"></i><i style="height: 55%"></i><i style="height: 90%"></i></div>
+          <span class="opis" style="padding: 0; text-align: left">Widzi dane na żywo.</span>
+        </div>
+        <div class="strona" style="grid-row: 9; grid-column: 2">
+          <span class="szkic" style="width: 90%"></span>
+          <div class="na-zywo" aria-hidden="true"><i style="height: 85%"></i><i style="height: 30%"></i><i style="height: 65%"></i><i style="height: 20%"></i></div>
+          <span class="opis" style="padding: 0; text-align: left">Może widzieć inne dane.</span>
+        </div>
+        <div class="strona" style="grid-row: 9; grid-column: 3">
+          <span class="szkic" style="width: 90%"></span>
+          <span class="warunek">Gdy poprosisz Claude o&nbsp;komunikat zastępczy, widzi:</span>
+          <div class="zastepczy">„podłącz konektor …”</div>
+          <span class="opis" style="padding: 0; text-align: left; color: var(--grafit)">Strona pokazuje się bez części na żywo.</span>
+        </div>
+      </div>
+
+      <p class="wspolny">Strona nie widzi niczyich danych logowania.</p>
+    </div>
+  </body>
+</html>

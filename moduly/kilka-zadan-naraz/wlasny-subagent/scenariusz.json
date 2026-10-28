@@ -1,0 +1,222 @@
+{
+  "lekcja": "wlasny-subagent",
+  "folder_startowy": [
+    "zasady-klienta.txt",
+    "newsletter-listopad.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Poproś o subagenta korektora",
+      "opis": "Rozmowa w folderze Piekarnia-teksty. Poprosisz Claude o subagenta, który poprawia newslettery piekarni.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Patrz na folder pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Piekarnia-teksty",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Popraw newsletter-listopad.txt według zasad z zasady-klienta.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Poprawiłem literówki i zamieniłem słowo „tani”. Tekst ma teraz 1150 znaków."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        ".claude/agents/korektor.md"
+      ],
+      "drogi": [
+        {
+          "id": "korektor",
+          "etykieta": "Poproś o subagenta korektora",
+          "opis": "Claude zapisze plik subagenta w folderze .claude.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Stwórz subagenta korektor i zapisz go w .claude/agents/ tego folderu. Ma poprawiać literówki i pilnować zasad z zasady-klienta.txt. Niech tylko czyta i poprawia pliki. Niech używa modelu Sonnet.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "zasady-klienta.txt"
+              ],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapiszę subagenta w pliku .claude/agents/korektor.md. Folder .claude jest chroniony, więc potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/agents/korektor.md",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Folder .claude jest chroniony, więc Claude pyta o zgodę nawet w trybie Accept edits (przyjmowanie zmian). Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem subagenta korektor w .claude/agents/korektor.md.",
+              "plik": ".claude/agents/korektor.md",
+              "fakt": "subagent-claude-zapisuje-name-description-tools-model-instrukcje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pod oknem jest folder .claude/agents z plikiem korektora. Subagent z tego folderu działa w tym projekcie, czyli w folderze piekarni. Kliknij ścieżkę w odpowiedzi.",
+              "fakt": "subagent-zakres-projekt-i-uzytkownik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/agents/korektor.md",
+              "linijki": [
+                "---",
+                "name: korektor",
+                "description: Poprawia newslettery piekarni Rumiany Bochenek według zasad klienta. Użyj, gdy proszę o korektę newslettera.",
+                "tools: Read, Edit",
+                "model: sonnet",
+                "---",
+                "Jesteś korektorem newsletterów piekarni Rumiany Bochenek.",
+                "Poprawiaj literówki i interpunkcję.",
+                "Zwracaj się do czytelnika na „Ty”.",
+                "Nie używaj słowa „tani”.",
+                "Nazwy pieczywa pisz wielką literą, np. Chleb Żytni.",
+                "Tekst ma najwyżej 1200 znaków."
+              ],
+              "fakt": "subagent-wymagane-tylko-name-i-description"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Po polu description Claude pozna, kiedy przekazać zadanie korektorowi. Pod drugą linią --- stoją zasady klienta.",
+              "fakt": "subagent-pole-description-kiedy-przekazac"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Korektor w nowej rozmowie",
+      "opis": "Nowa rozmowa w tym samym folderze. Korektor z ćwiczenia 1 leży w folderze .claude/agents.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem, a potem + New. Zaczniesz nową rozmowę.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Piekarnia-teksty",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          ".claude/agents/korektor.md",
+          "newsletter-grudzien.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Stwórz subagenta korektor i zapisz go w .claude/agents/ tego folderu."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem subagenta korektor w .claude/agents/korektor.md."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "nowa",
+          "etykieta": "Użyj korektora w nowej rozmowie",
+          "opis": "Nowa rozmowa, a w niej prośba z nazwą subagenta.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "nowa-rozmowa",
+              "fakt": "aplikacja-nowa-sesja-new-albo-cmd-n"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To nowa rozmowa, z własną historią. Nie ma w niej wiadomości z ćwiczenia 1.",
+              "fakt": "aplikacja-kazda-rozmowa-to-sesja"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Użyj subagenta korektor, żeby poprawił newsletter-grudzien.txt.",
+              "fakt": "subagent-wolasz-zwyklym-zdaniem-z-nazwa"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "newsletter-grudzien.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przekazałem newsletter-grudzien.txt korektorowi. Napiszę, gdy skończy.",
+              "fakt": "subagent-aplikacja-claude-nie-czeka"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Korektor domyślnie startuje w tle, a Claude domyślnie na niego nie czeka. Wynik poda w późniejszej odpowiedzi.",
+              "fakt": "subagent-z-rozmowy-startuje-w-tle"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600,
+              "czyta": [
+                "newsletter-grudzien.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Korektor skończył. W newsletter-grudzien.txt poprawił 4 literówki i zamienił „tani chleb” na „chleb w dobrej cenie”.",
+              "plik": "newsletter-grudzien.txt",
+              "fakt": "subagent-wynik-w-pozniejszej-turze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W tej rozmowie nikt nie podał zasad. Korektor wziął je ze swojego pliku. Kliknij ścieżkę w odpowiedzi.",
+              "fakt": "subagent-tresc-pliku-to-jego-instrukcja"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "newsletter-grudzien.txt",
+              "linijki": [
+                "Cześć! W grudniu upieczemy dla Ciebie Chałkę Maślaną.",
+                "Chleb Żytni kupisz w dobrej cenie przez cały miesiąc.",
+                "Zamówienia na święta przyjmujemy do 20 grudnia.",
+                "Zajrzyj do nas, czekamy na Ciebie!",
+                "Twoja piekarnia Rumiany Bochenek"
+              ],
+              "fakt": "subagent-pracuje-w-trybie-rozmowy"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nazwy pieczywa mają wielkie litery, słowo „tani” zniknęło. Newsletter zmienił się bez pytania: korektor pracuje w tym samym trybie co rozmowa, czyli w Accept edits.",
+              "fakt": "subagent-pracuje-w-trybie-rozmowy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

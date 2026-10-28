@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Czym jest konektor w aplikacji Claude?"
+    tyl: "Połączeniem z Twoim narzędziem (w dokumentacji: serwerem MCP). Ustawiasz je w okienkach aplikacji."
+    fakt: aplikacja-konektor-to-serwer-mcp-z-kreatorem
+
+  - przod: "Jak w aplikacji otworzyć katalog konektorów?"
+    tyl: "Kliknij plus (+) obok pola wiadomości, potem Connectors i Browse connectors."
+    fakt: aplikacja-add-connectors-otwiera-katalog
+
+  - przod: "Kto na planach Team i Enterprise dodaje konektory na claude.ai/customize/connectors?"
+    tyl: "Tylko administratorzy."
+    fakt: konektory-team-enterprise-dodaje-admin
+
+  - przod: "Gdzie kończysz logowanie do konektora?"
+    tyl: "W claude.ai."
+    fakt: konektor-logowanie-w-claude-ai
+
+  - przod: "Jak sprawdzić, jakie konektory Claude ma w rozmowie?"
+    tyl: "Zapytaj Claude: „Jakie konektory masz w tej rozmowie?”."
+    fakt: aplikacja-zapytaj-claude-o-konektory
+
+  - przod: "Gdzie w aplikacji zarządzasz konektorami i je odłączasz?"
+    tyl: "W Settings > Connectors (ustawienia, konektory)."
+    fakt: aplikacja-konektory-zarzadzasz-w-settings-connectors

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude o przepływ, który porówna oferty trzech szkół pływania. Zanim przepływ ruszy, aplikacja pokazuje kartę zgody. Co na niej widzisz?"
+    odpowiedzi:
+      - "Gotowy raport do zatwierdzenia przed zapisaniem w pliku."
+      - "Nazwę przepływu, listę faz i ostrzeżenie o zużyciu tokenów."
+      - "Listę plików, które przepływ zmieni, z liczbami linijek."
+    poprawna: 1
+    wyjasnienie: "W aplikacji karta zgody pokazuje nazwę przepływu, listę faz i ostrzeżenie o zużyciu tokenów. Raport jest wynikiem pracy przepływu, więc przed startem go nie ma."
+    fakt: przeplyw-aplikacja-karta-zgody
+
+  - pytanie: "Przepływ porównuje oferty konkurencji w tle, a Ty chcesz zobaczyć, że pracuje. Gdzie w aplikacji to sprawdzisz?"
+    odpowiedzi:
+      - "W panelu Background tasks, który otwierasz z menu z trzema kropkami na pasku tytułu."
+      - "Po wpisaniu /workflows w polu wiadomości."
+      - "W pasku bocznym, na liście rozmów."
+    poprawna: 0
+    wyjasnienie: "W aplikacji postęp przepływu widać w bocznym panelu Background tasks. Otwierasz go z menu z trzema kropkami na pasku tytułu rozmowy."
+    fakt: przeplyw-aplikacja-postep-w-panelu-background-tasks
+
+  - pytanie: "Raz prosisz o trzech subagentów, a raz o przepływ, żeby porównać oferty konkurencji. Co w każdej z tych dróg wraca do rozmowy?"
+    odpowiedzi:
+      - "W obu drogach wyniki każdego agenta, bo przepływ to tylko więcej subagentów."
+      - "W obu drogach nic, bo wyniki trafiają tylko do plików."
+      - "Przy subagentach wyniki każdego z nich, przy przepływie jeden wynik."
+    poprawna: 2
+    wyjasnienie: "Przy subagentach do rozmowy wraca wynik każdego z nich. Przy przepływie do rozmowy wraca jeden wynik; wyniki pośrednie zostają w przepływie."
+    fakt: przeplyw-kontekst-tylko-wynik-koncowy
+
+  - pytanie: "Chcesz porównać oferty wszystkich szkół w okolicy, ale zostało Ci mało limitu planu. Od czego zacząć?"
+    odpowiedzi:
+      - "Od przepływu na małym wycinku, na przykład na jednej ofercie."
+      - "Od razu od całego zadania, bo przepływ zużywa mniej niż rozmowa."
+      - "Od całego zadania, bo na Pro przepływ ma stały limit 5 agentów."
+    poprawna: 0
+    wyjasnienie: "Żeby ocenić koszt przed dużym zadaniem, uruchom przepływ najpierw na małym wycinku. Przepływ może zużyć wyraźnie więcej tokenów niż rozmowa, a liczba agentów na Pro to wskazówka, nie limit."
+    fakt: przeplyw-najpierw-maly-wycinek

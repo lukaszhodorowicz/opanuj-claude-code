@@ -1,0 +1,242 @@
+<!doctype html>
+<!-- Rysunek R4 „Co się dzieje po każdym przycisku” do lekcji tryb-planowania: karta planu u góry, trzy strzałki z Revise…, Accept i Accept and auto mode do trzech kolumn, pasek „Tryb po kliknięciu” (jedyny element pod zakreślaczem) i odpowiedniki w terminalu. Opis: BRIEF.md, część 9. Źródło PNG obrazy/wyjscia-z-planu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Wyjścia z planu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html); karta planu w kolorach ćwiczenia (strona/styl-aplikacja-plan.css) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --okno: #1b1b1d;
+        --karta: #262626;
+        --karta-kreska: #3a3a3a;
+        --przycisk: #363636;
+        --okno-tekst: #e6e3dc;
+        --odnosnik: #6aa8ff;
+        --pole-ramka: #4a8ef0;
+        --pole: #2e2e2e;
+        --podpowiedz: #8a8a8a;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { position: relative; padding: 20px 16px 20px; }
+      h2 {
+        margin: 0 0 18px 4px;
+        font: 800 30px/1.1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+
+      /* ===== Karta planu, uproszczona jak w ćwiczeniu ===== */
+      .karta {
+        margin: 0 auto;
+        width: 640px;
+        background: var(--karta);
+        border: 1px solid var(--karta-kreska);
+        border-radius: 16px;
+        padding: 14px 16px 16px;
+        color: var(--okno-tekst);
+        box-shadow: 0 0 0 8px var(--okno);
+      }
+      .karta-glowa {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        font: 700 20px/1.2 var(--sans);
+      }
+      .karta-glowa span { color: var(--odnosnik); font-weight: 500; font-size: 18px; }
+      .przyciski { display: flex; justify-content: space-between; gap: 10px; }
+      .grupa { display: flex; gap: 8px; }
+      .p {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 12px;
+        border-radius: 9px;
+        background: var(--przycisk);
+        font: 500 18px/1.2 var(--sans);
+        white-space: nowrap;
+      }
+      .p.glowny { background: var(--biel); color: #1a1a1a; }
+      .p.wyl { opacity: 0.38; }
+      .para { display: inline-flex; gap: 2px; }
+      .para .p:first-child { border-radius: 9px 0 0 9px; }
+      .para .p.strz { border-radius: 0 9px 9px 0; padding: 7px 8px; }
+      .p.strz svg { width: 16px; height: 16px; }
+
+      /* ===== Strzałki ===== */
+      .strzalki { height: 64px; }
+      .linie { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+      /* ===== Trzy kolumny ===== */
+      .kolumny, .pasek-tryby, .terminal-rzad {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 14px;
+      }
+      .kol {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 14px 12px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+      }
+      .podpis { margin: 0; font: 700 20px/1.3 var(--sans); }
+
+      /* mała karta po „Revise…” */
+      .mini {
+        background: var(--karta);
+        border-radius: 12px;
+        padding: 9px;
+        box-shadow: 0 0 0 5px var(--okno);
+      }
+      .mini-pole {
+        min-height: 54px;
+        margin-bottom: 8px;
+        padding: 7px 8px;
+        border: 1.5px solid var(--pole-ramka);
+        border-radius: 8px;
+        background: var(--pole);
+        color: var(--podpowiedz);
+        font: 500 15px/1.3 var(--sans);
+      }
+      .mini .przyciski .p { padding: 5px 10px; font-size: 15px; color: var(--okno-tekst); }
+      .mini .przyciski .p.glowny { color: #1a1a1a; }
+
+      /* ===== Pasek trybów: jedyny element pod zakreślaczem ===== */
+      .pasek {
+        margin-top: 18px;
+        padding: 12px 12px 14px;
+        background: var(--zakreslacz);
+        border-radius: 18px;
+        box-shadow: 0 0 0 5px var(--limonka);
+      }
+      .pasek-glowa { margin: 0 0 10px 4px; font: 800 24px/1 var(--sans); letter-spacing: -0.02em; }
+      .pasek-tryby > div { display: flex; justify-content: center; }
+      .tryb {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 18px;
+        border-radius: 10px;
+        background: var(--okno);
+        color: var(--okno-tekst);
+        font: 700 20px/1.2 var(--sans);
+      }
+
+      /* ===== Dół: odpowiedniki w terminalu ===== */
+      .terminal { margin-top: 22px; color: var(--grafit); }
+      .terminal-glowa { margin: 0 0 8px 4px; font: 700 17px/1 var(--sans); }
+      .terminal-rzad code {
+        display: block;
+        text-align: center;
+        font: 500 15px/1.35 var(--mono);
+        text-wrap: balance;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Co się dzieje po każdym przycisku karty planu: Revise… zostawia tryb Plan i Claude pokazuje nowy plan, Accept przełącza na Manual, Accept and auto mode przełącza na Auto.">
+      <h2>Przycisk na karcie planu decyduje, w jakim trybie Claude wykona plan</h2>
+
+      <div class="karta">
+        <div class="karta-glowa">Claude proposed a plan <span>Open plan</span></div>
+        <div class="przyciski">
+          <span class="grupa">
+            <span class="p wyl">Reject</span>
+            <span class="p" id="p1">Revise…</span>
+          </span>
+          <span class="grupa">
+            <span class="p" id="p2">Accept</span>
+            <span class="para">
+              <span class="p glowny" id="p3">Accept and auto mode</span>
+              <span class="p glowny strz wyl"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 L8 10.5 L12.5 6" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="strzalki"></div>
+
+      <div class="kolumny">
+        <div class="kol" id="k1">
+          <div class="mini">
+            <div class="mini-pole">What should change? (optional)</div>
+            <div class="przyciski">
+              <span class="p">Back</span>
+              <span class="p glowny">Revise</span>
+            </div>
+          </div>
+          <p class="podpis">Piszesz, co zmienić. Claude pokazuje nowy plan.</p>
+        </div>
+        <div class="kol" id="k2">
+          <p class="podpis">Każdą zmianę zatwierdzasz sam.</p>
+        </div>
+        <div class="kol" id="k3">
+          <p class="podpis">Claude od razu zaczyna pracę. Polecenia i sięganie do sieci sprawdza klasyfikator.</p>
+        </div>
+      </div>
+
+      <div class="pasek">
+        <p class="pasek-glowa">Tryb po kliknięciu</p>
+        <div class="pasek-tryby">
+          <div><span class="tryb">Plan</span></div>
+          <div><span class="tryb">Manual</span></div>
+          <div><span class="tryb">Auto</span></div>
+        </div>
+      </div>
+
+      <div class="terminal">
+        <p class="terminal-glowa">W terminalu:</p>
+        <div class="terminal-rzad">
+          <code>No, keep planning</code>
+          <code>Yes, manually approve edits</code>
+          <code>Yes, and use auto mode</code>
+        </div>
+      </div>
+
+      <svg class="linie" id="linie" aria-hidden="true"></svg>
+    </div>
+    <script>
+      /* Trzy strzałki: z dołu przycisku w dół, łukiem w bok nad środek kolumny i w dół do jej górnej krawędzi */
+      document.fonts.ready.then(() => {
+        const rys = document.querySelector(".rys").getBoundingClientRect();
+        const karta = document.querySelector(".karta").getBoundingClientRect();
+        let d = "";
+        for (const i of [1, 2, 3]) {
+          const p = document.getElementById("p" + i).getBoundingClientRect();
+          const k = document.getElementById("k" + i).getBoundingClientRect();
+          const x1 = p.left + p.width / 2 - rys.left, y1 = karta.bottom - rys.top + 14;
+          const x2 = k.left + k.width / 2 - rys.left, y2 = k.top - rys.top - 6;
+          const ym = karta.bottom - rys.top + 34;
+          const r = Math.min(10, Math.abs(x2 - x1) / 2), s = x2 > x1 ? 1 : -1;
+          d += Math.abs(x2 - x1) < 14
+            ? `<path d="M${x2} ${y1} V${y2}"/>`
+            : `<path d="M${x1} ${y1} V${ym - r} Q${x1} ${ym} ${x1 + s * r} ${ym} H${x2 - s * r} Q${x2} ${ym} ${x2} ${ym + r} V${y2}"/>`;
+          d += `<path d="M${x2 - 9} ${y2 - 11} L${x2} ${y2} L${x2 + 9} ${y2 - 11}"/>`;
+        }
+        document.getElementById("linie").innerHTML =
+          `<g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${d}</g>`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "cw1-wnioski": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-odliczanie": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 7000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-odliczanie": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 7000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-po-odliczaniu": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw1-390-po-odliczaniu": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "klik": [
+      "#cw1 .apl-sciezka.apl-cel",
+      "#cw1 .apl-zgoda-tak.apl-cel"
+    ],
+    "do": "cw1"
+  },
+  "cw2-karta": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 15000,
+    "polecenie": "cw2",
+    "do": "cw2"
+  },
+  "cw2-plik": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-zgoda-tak.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  },
+  "cw2-390-plik": {
+    "szer": 390,
+    "wys": 2400,
+    "budzet": 25000,
+    "polecenie": "cw2",
+    "klik": [
+      "#cw2 .apl-zgoda-tak.apl-cel",
+      "#cw2 .apl-sciezka.apl-cel"
+    ],
+    "do": "cw2"
+  }
+}

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Wspólniczka zostawiła komentarze na stronie oferty, którą udostępniasz w organizacji. Chcesz, żeby Claude wprowadził jej uwagi. Co robisz?"
+    odpowiedzi:
+      - "Przepisujesz jej uwagi do rozmowy, bo Claude nie czyta komentarzy ze strony."
+      - "Podajesz Claude adres strony i prosisz, żeby wprowadził uwagi z komentarzy."
+      - "Otwierasz stronę w panelu Browser, a Claude sam czyta komentarze z otwartej strony."
+    poprawna: 1
+    wyjasnienie: "Claude czyta komentarze, gdy podasz mu adres strony i poprosisz o nie. W tej samej prośbie każesz mu wprowadzić zmiany, o które proszą komentujący."
+    fakt: artefakt-prosba-przeczytaj-komentarze-i-wprowadz-zmiany
+
+  - pytanie: "Na stronie oferty są dwa komentarze. Anna, która może zmieniać stronę, wysłała swój do Claude. Tomek, który stronę tylko ogląda, zostawił zwykły komentarz. Prosisz Claude o przeczytanie komentarzy. Co zrobi Claude?"
+    odpowiedzi:
+      - "Wypisze tylko komentarz Anny, bo komentarza Tomka nikt do niego nie wysłał."
+      - "Wypisze oba komentarze razem, bez zaznaczenia, kto wysłał komentarz do niego."
+      - "Wypisze oba wątki i zaznaczy komentarz, który Anna wysłała do niego."
+    poprawna: 2
+    wyjasnienie: "Na Twoją prośbę Claude wypisuje każdy wątek. Zaznacza komentarze, które wysłała do niego osoba z prawem do zmiany strony."
+    fakt: artefakt-claude-wypisuje-watki-i-zaznacza-wyslane
+
+  - pytanie: "Claude wprowadził uwagi zespołu do strony oferty i opublikował ją ponownie. Zespół ma już link do tej strony. Gdzie jest poprawiona strona?"
+    odpowiedzi:
+      - "Pod tym samym adresem, bo Claude opublikował plik strony ponownie."
+      - "Pod nowym adresem, więc zespołowi trzeba wysłać nowy link."
+      - "Tylko w pliku w folderze, a strona pod linkiem zostaje w starej wersji."
+    poprawna: 0
+    wyjasnienie: "Przy poprawce Claude zmienia plik, z którego powstała strona, i publikuje go ponownie pod tym samym adresem."
+    fakt: artefakt-poprawka-zmienia-plik-i-publikuje-pod-tym-samym-adresem
+
+  - pytanie: "Strona oferty jest otwarta w panelu Browser, gdy Claude publikuje poprawki według komentarzy zespołu. Co widzisz na otwartej stronie?"
+    odpowiedzi:
+      - "Starą wersję, dopóki znów nie klikniesz linku w odpowiedzi Claude."
+      - "Nową wersję, bo otwarta strona sama pokazuje aktualizację."
+      - "Starą wersję, bo nowa trafia tylko do osób, którym udostępniasz stronę."
+    poprawna: 1
+    wyjasnienie: "Gdy ktoś ma stronę artefaktu otwartą, strona sama pokazuje mu aktualizację, bez klikania linku."
+    fakt: artefakt-otwarta-strona-pokazuje-aktualizacje-wersje-wybierasz-w-share

@@ -1,0 +1,192 @@
+<!doctype html>
+<!-- Rysunek C do lekcji nowy-dokument (styl R1, D-2026-10-26-58; uwaga K39 kontroli 26.10): trzy menu przy gotowym pliku, każde narysowane schematycznie (dokumentacja nie opisuje wyglądu menu, więc bez udawania okna i bez logo). (a) prawy przycisk na ścieżce pliku w odpowiedzi Claude: Attach as context (do następnej prośby) i Show in Finder / Show in Explorer (otwiera folder z plikiem); (b) strzałka obok tytułu rozmowy → Transcript view → Normal / Verbose; (c) menu ⋮ panelu pliku → Auto save. Limonka: pozycja „Show in Finder / Show in Explorer”. Napisy z faktów: aplikacja-prawy-przycisk-na-sciezce-attach-as-context, aplikacja-prawy-przycisk-na-sciezce-show-in-finder-explorer, aplikacja-widok-rozmowy-transcript-view-verbose, aplikacja-panel-pliku-auto-save-zapisuje-zmiany-same. Źródło PNG obrazy/otworz-i-oddaj-wynik.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Otwórz i oddaj wynik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 12px 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: stretch; }
+
+      .pole {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 16px 10px 16px;
+        display: flex; flex-direction: column;
+      }
+      .pole h3 {
+        margin: 0 0 14px;
+        min-height: 58px;
+        font: 800 24px/1.12 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* schematyczny wyzwalacz: miejsce, które klikasz */
+      .wyzw {
+        height: 58px;
+        border: 2px solid var(--kreska);
+        background: var(--papier-2);
+        border-radius: 12px;
+        display: flex; align-items: center; gap: 8px;
+        padding: 0 10px;
+      }
+      .wyzw i { display: block; height: 10px; border-radius: 5px; background: var(--linia); }
+      .wyzw svg { width: 24px; height: 24px; flex: none; }
+      .wyzw svg.mysz { width: 32px; height: 32px; }
+      .sciezka {
+        display: flex; align-items: center; gap: 6px;
+        height: 36px; padding: 0 9px;
+        border: 2px solid var(--granat);
+        border-radius: 8px;
+        background: var(--biel);
+      }
+      .sciezka svg { width: 20px; height: 20px; }
+      .sciezka i { width: 70px; background: var(--grafit); height: 8px; }
+      .guzik {
+        margin-left: auto;
+        width: 38px; height: 38px; flex: none;
+        border: 3px solid var(--granat);
+        border-radius: 10px;
+        background: var(--biel);
+        display: grid; place-items: center;
+        font: 800 24px/1 var(--sans);
+      }
+      .guzik svg { width: 22px; height: 22px; }
+
+      .strzalka { display: block; width: 100%; height: 46px; overflow: visible; }
+
+      /* schematyczne menu */
+      .menu {
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 5px;
+        display: flex; flex-direction: column; gap: 4px;
+      }
+      .poz {
+        border-radius: 9px;
+        padding: 8px 8px 9px;
+        font: 700 21px/1.15 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .poz.wiersz { display: flex; align-items: center; gap: 8px; }
+      .poz.wiersz svg { width: 22px; height: 22px; flex: none; }
+      .poz .prawo { margin-left: auto; }
+      .poz small {
+        display: block;
+        margin-top: 4px;
+        font: 700 18px/1.2 var(--sans);
+        color: var(--grafit);
+        letter-spacing: 0;
+      }
+      .poz.szkic i { display: block; height: 10px; width: 80%; border-radius: 5px; background: var(--linia); }
+      .poz.wybrana { background: var(--papier-2); }
+      /* jedyna limonka */
+      .poz.sedno { background: var(--zakreslacz); box-shadow: inset 0 0 0 4px var(--limonka); }
+      .poz.sedno small { color: var(--granat); }
+      .ptaszek {
+        width: 24px; height: 24px; flex: none;
+        border: 3px solid var(--granat);
+        border-radius: 6px;
+        display: grid; place-items: center;
+        background: var(--granat); color: var(--biel);
+      }
+      .ptaszek svg { width: 16px; height: 16px; }
+      .dopisek {
+        margin: 12px 4px 0;
+        font: 700 18px/1.25 var(--sans);
+        color: var(--grafit);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Trzy menu przy gotowym pliku. Pierwsze: prawy przycisk na ścieżce pliku w odpowiedzi Claude otwiera menu z pozycjami Attach as context, do następnej prośby, oraz Show in Finder albo Show in Explorer, otwiera folder z plikiem. Drugie: strzałka obok tytułu rozmowy, pozycja Transcript view, a w niej Verbose, czyli każdy krok Claude. Trzecie: menu z trzema kropkami w panelu pliku i pozycja Auto save; odznaczasz ją, gdy chcesz zapisywać ręcznie.">
+
+      <!-- a: klik ścieżki otwiera plik w panelu -->
+      <section class="pole">
+        <h3>Kliknij ścieżkę pliku w&nbsp;odpowiedzi Claude</h3>
+        <div class="wyzw">
+          <span class="sciezka">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+            <i></i>
+          </span>
+        </div>
+        <svg class="strzalka" viewBox="0 0 210 46" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M52 4 V40"/><path d="M40 29 L52 42 L64 29"/>
+          </g>
+        </svg>
+        <div class="menu">
+          <div class="poz wiersz wybrana">Panel pliku</div>
+        </div>
+        <p class="dopisek">Plik otwiera się w&nbsp;panelu obok rozmowy.</p>
+      </section>
+      <!-- b: prawy przycisk na ścieżce -->
+      <section class="pole">
+        <h3>Kliknij ścieżkę pliku prawym przyciskiem</h3>
+        <div class="wyzw">
+          <span class="sciezka">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+            <i></i>
+          </span>
+          <svg class="mysz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 3v7"/><path d="M12 3a6 6 0 0 1 6 6v1h-6z" fill="currentColor"/></svg>
+        </div>
+        <svg class="strzalka" viewBox="0 0 210 46" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M52 4 V40"/><path d="M40 29 L52 42 L64 29"/>
+          </g>
+        </svg>
+        <div class="menu">
+          <div class="poz">Attach as context<small>dołącza plik do następnej prośby</small></div>
+          <div class="poz sedno">Show in Finder / Show in Explorer<small>otwiera folder z&nbsp;plikiem</small></div>
+        </div>
+      </section>
+
+
+      <!-- c: menu ⋮ panelu pliku -->
+      <section class="pole">
+        <h3>Otwórz menu ⋮ w&nbsp;panelu pliku</h3>
+        <div class="wyzw">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+          <i style="width: 70px"></i>
+          <span class="guzik">⋮</span>
+        </div>
+        <svg class="strzalka" viewBox="0 0 210 46" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M160 4 V40"/><path d="M148 29 L160 42 L172 29"/>
+          </g>
+        </svg>
+        <div class="menu">
+          <div class="poz wiersz">
+            <span class="ptaszek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            Auto save
+          </div>
+        </div>
+        <p class="dopisek">Odznacz Auto save, gdy chcesz zapisywać zmiany ręcznie przyciskiem Save.</p>
+      </section>
+    </div>
+  </body>
+</html>

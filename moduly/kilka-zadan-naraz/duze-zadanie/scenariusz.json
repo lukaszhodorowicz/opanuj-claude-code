@@ -1,0 +1,307 @@
+{
+  "lekcja": "duze-zadanie",
+  "folder_startowy": [
+    "oferta-aquaklub.txt",
+    "oferta-delfinek.txt",
+    "oferta-fala.txt",
+    "nasza-oferta.txt",
+    "co-porownac.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Przepływ porównuje trzy szkoły",
+      "opis": "Rozmowa w folderze Szkola-plywania-konkurencja. Poprosisz Claude o przepływ, który porówna oferty trzech szkół z Twoją.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Zanim przepływ ruszy, aplikacja pokaże kartę z jego planem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkola-plywania-konkurencja",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Porównaj nasze ceny z ofertą Fali."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Fala bierze 240 zł za miesiąc, my 230 zł. Fala nie ma zajęć próbnych."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "porownanie-ofert.txt"
+      ],
+      "drogi": [
+        {
+          "id": "przeplyw",
+          "etykieta": "Poproś o przepływ",
+          "opis": "Claude napisze przepływ i poprosi o zgodę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj przepływu: porównaj oferty trzech szkół z naszą ofertą według co-porownac.txt. Niech jedni subagenci przeczytają oferty, a inni sprawdzą ich ustalenia. Wynik zapisz w porownanie-ofert.txt.",
+              "fakt": "przeplyw-prosba-wlasnymi-slowami"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "co-porownac.txt"
+              ],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Napisałem przepływ w trzech fazach. Zanim ruszy, potrzebuję Twojej zgody.",
+              "fakt": "przeplyw-skrypt-pisze-claude"
+            },
+            {
+              "typ": "przeplyw",
+              "nazwa": "porownanie-ofert-szkol",
+              "fazy": [
+                "Czytanie ofert",
+                "Sprawdzanie ustaleń",
+                "Raport"
+              ],
+              "fakt": "przeplyw-aplikacja-karta-zgody"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta pokazuje nazwę i fazy przepływu. Znak ⚠ to ostrzeżenie o zużyciu tokenów. Kliknij Once.",
+              "fakt": "przeplyw-aplikacja-karta-zgody"
+            },
+            {
+              "typ": "klik",
+              "cel": "once"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przepływ pracuje w tle.",
+              "fakt": "przeplyw-skrypt-wielu-subagentow-w-tle"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otwórz menu z trzema kropkami na pasku tytułu.",
+              "fakt": "aplikacja-panel-zadan-w-tle-co-pokazuje"
+            },
+            {
+              "typ": "klik",
+              "cel": "menu-paska",
+              "fakt": "aplikacja-menu-paska-panele-bez-przycisku"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W menu jest pozycja Background tasks (zadania w tle). Kliknij ją.",
+              "fakt": "aplikacja-menu-paska-panele-bez-przycisku"
+            },
+            {
+              "typ": "klik",
+              "cel": "background-tasks",
+              "fakt": "aplikacja-panel-zadan-w-tle-co-pokazuje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu widać przepływ, który pracuje w tle. W tym czasie możesz dalej pisać w rozmowie.",
+              "fakt": "przeplyw-aplikacja-postep-w-panelu-background-tasks"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przepływ skończył. Raport jest w porownanie-ofert.txt.",
+              "plik": "porownanie-ofert.txt",
+              "w_tle_koniec": true,
+              "fakt": "subagent-podsumowanie-przeplyw-jeden-wynik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "porownanie-ofert.txt",
+              "linijki": [
+                "Porównanie: AquaKlub, Delfinek, Fala i Kijanka",
+                "Cena za miesiąc: Delfinek 220 zł, Kijanka 230 zł, Fala 240 zł, AquaKlub 260 zł",
+                "Wielkość grupy: Fala do 6 dzieci, Kijanka i AquaKlub do 8, Delfinek do 12",
+                "Wiek dzieci: Delfinek 4-12 lat, Kijanka 4-10, AquaKlub 5-10, Fala 6-14",
+                "Zajęcia próbne: bezpłatne w Kijance i Delfinku, w AquaKlubie 40 zł, w Fali brak",
+                "Przy sprawdzaniu odrzucone: 2 ustalenia"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Do rozmowy wrócił jeden raport. Wyniki pośrednie zostały w przepływie.",
+              "fakt": "przeplyw-kontekst-tylko-wynik-koncowy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Kilku subagentów czy przepływ",
+      "opis": "Ta sama rozmowa po raporcie z ćwiczenia 1. Najpierw poprosisz o trzech subagentów, potem o przepływ na jednej ofercie.",
+      "nauczyciel_start": "Przejdź obie drogi po kolei. Patrz, kto ustala kolejne kroki i co wraca do rozmowy.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkola-plywania-konkurencja",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "porownanie-ofert.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Użyj przepływu: porównaj oferty trzech szkół z naszą ofertą."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Przepływ skończył. Raport jest w porownanie-ofert.txt."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "notatki-konkurencja.txt",
+        "wycinek-fala.txt"
+      ],
+      "drogi": [
+        {
+          "id": "subagenci",
+          "etykieta": "Trzech subagentów",
+          "opis": "Każdy subagent przeczyta jedną ofertę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj trzech subagentów: każdy niech przeczyta jedną ofertę konkurencji i wypisze warunki według co-porownac.txt. Zapisz wyniki w notatki-konkurencja.txt.",
+              "fakt": "subagenty-rownolegle-niezalezne-tematy"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "co-porownac.txt"
+              ],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zleciłem to trzem subagentom, po jednym na ofertę. Wyniki zapiszę, gdy skończą.",
+              "fakt": "subagent-aplikacja-claude-nie-czeka-przy-trybie-fork"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Subagenci skończyli. AquaKlub: 260 zł, grupy do 8. Delfinek: 220 zł, grupy do 12. Fala: 240 zł, grupy do 6. Zapisałem to w notatki-konkurencja.txt.",
+              "plik": "notatki-konkurencja.txt",
+              "fakt": "subagent-w-tle-wynik-w-pozniejszej-turze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wyniki trzech subagentów wróciły do tej rozmowy. Co zrobić dalej, ustala Claude tura po turze.",
+              "fakt": "subagent-wyniki-wracaja-do-rozmowy"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "notatki-konkurencja.txt",
+              "linijki": [
+                "AquaKlub: 260 zł za miesiąc, grupy do 8 dzieci, wiek 5-10 lat, zajęcia próbne 40 zł",
+                "Delfinek: 220 zł za miesiąc, grupy do 12 dzieci, wiek 4-12 lat, zajęcia próbne bezpłatne",
+                "Fala: 240 zł za miesiąc, grupy do 6 dzieci, wiek 6-14 lat, bez zajęć próbnych"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W tej prośbie nikt nie miał sprawdzać ustaleń innych subagentów."
+            }
+          ]
+        },
+        {
+          "id": "wycinek",
+          "etykieta": "Przepływ na małym wycinku",
+          "opis": "Jedna oferta, a ustalenia sprawdzi drugi subagent.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj przepływu, ale najpierw na małym wycinku: tylko oferta-fala.txt. Jeden subagent niech wypisze warunki, a drugi je sprawdzi. Wynik zapisz w wycinek-fala.txt.",
+              "fakt": "przeplyw-najpierw-maly-wycinek"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "co-porownac.txt"
+              ],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Napisałem przepływ dla jednej oferty. Zanim ruszy, potrzebuję Twojej zgody.",
+              "fakt": "przeplyw-skrypt-pisze-claude"
+            },
+            {
+              "typ": "przeplyw",
+              "nazwa": "wycinek-oferta-fala",
+              "fazy": [
+                "Czytanie oferty",
+                "Sprawdzanie ustaleń"
+              ],
+              "fakt": "przeplyw-aplikacja-karta-zgody"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Mały wycinek: jedna oferta i dwie fazy. Kliknij Once.",
+              "fakt": "przeplyw-najpierw-maly-wycinek"
+            },
+            {
+              "typ": "klik",
+              "cel": "once"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przepływ pracuje w tle.",
+              "fakt": "przeplyw-skrypt-wielu-subagentow-w-tle"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W tym czasie możesz dalej pisać w rozmowie.",
+              "fakt": "przeplyw-skrypt-wielu-subagentow-w-tle"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przepływ skończył. Wynik jest w wycinek-fala.txt.",
+              "plik": "wycinek-fala.txt",
+              "w_tle_koniec": true,
+              "fakt": "subagent-podsumowanie-przeplyw-jeden-wynik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wycinek-fala.txt",
+              "linijki": [
+                "Fala: 240 zł za miesiąc",
+                "Grupy do 6 dzieci",
+                "Wiek: 6-14 lat",
+                "Zajęcia próbne: brak",
+                "Przy sprawdzaniu poprawione: wiek dzieci"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skrypt przepływu trzymał plan, a drugi subagent sprawdził ustalenia. Do rozmowy wrócił jeden wynik.",
+              "fakt": "przeplyw-kto-decyduje-o-kolejnym-kroku"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

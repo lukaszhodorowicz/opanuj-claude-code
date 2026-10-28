@@ -1,0 +1,280 @@
+<!doctype html>
+<!-- Rysunek R7 „Pętla celu” do lekcji praca-do-warunku: /goal startuje turę, po każdej turze mały model ocenia warunek z rozmowy i wybiera jeden z trzech werdyktów. Źródło PNG obrazy/petla-celu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Pętla celu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w gdzie-jest-strona.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        position: relative;
+        width: 760px;
+        height: 824px;
+      }
+      .rys > svg {
+        position: absolute;
+        inset: 0;
+        width: 760px;
+        height: 824px;
+        overflow: visible;
+      }
+      .el {
+        position: absolute;
+      }
+      p {
+        margin: 0;
+      }
+
+      /* Dymek kursanta */
+      .dymek {
+        left: 145px;
+        top: 18px;
+        width: 400px;
+        height: 66px;
+        background: var(--granat);
+        color: var(--limonka);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 700 24px/1 var(--sans);
+      }
+      .dymek code {
+        margin: 0 8px;
+        font: 700 26px/1 var(--mono);
+      }
+      .dymek::after {
+        content: "";
+        position: absolute;
+        left: 30px;
+        bottom: -14px;
+        border-right: 16px solid transparent;
+        border-top: 16px solid var(--granat);
+      }
+
+      /* Prostokąty */
+      .pud {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+        padding: 14px 18px;
+      }
+      .pud h3 {
+        margin: 0 0 6px;
+        font: 800 27px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .pud p {
+        font: 500 22px/1.3 var(--sans);
+      }
+      .tura {
+        left: 170px;
+        top: 132px;
+        width: 350px;
+        height: 140px;
+      }
+      .ocena {
+        left: 170px;
+        top: 336px;
+        width: 350px;
+        height: 140px;
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        border-width: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .ocena h3 {
+        margin: 0 0 6px;
+        font: 800 26px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .bez-plikow {
+        left: 170px;
+        top: 488px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--grafit);
+        font: 700 21px/1.25 var(--sans);
+      }
+      .bez-plikow svg {
+        width: 38px;
+        height: 38px;
+        flex: none;
+      }
+      .etykieta {
+        font: 800 23px/1.05 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .koniec-tury {
+        left: 362px;
+        top: 278px;
+        width: 180px;
+      }
+      .kolejna {
+        left: 52px;
+        top: 376px;
+        width: 112px;
+      }
+
+      /* Brak postępu, boczne wyjście */
+      .brak {
+        left: 556px;
+        top: 132px;
+        width: 188px;
+        border: 3px dashed var(--grafit);
+        border-radius: 16px;
+        padding: 12px 14px;
+        color: var(--grafit);
+      }
+      .brak h4 {
+        margin: 0 0 6px;
+        font: 800 21px/1.15 var(--sans);
+      }
+      .brak p {
+        font: 500 20px/1.3 var(--sans);
+      }
+
+      /* Werdykty */
+      .werdykt {
+        top: 604px;
+        width: 232px;
+        height: 204px;
+        border-radius: 16px;
+        padding: 12px 14px;
+      }
+      .werdykt h4 {
+        margin: 0 0 6px;
+        font: 800 23px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .werdykt p {
+        font: 500 20px/1.3 var(--sans);
+      }
+      .w1 {
+        left: 16px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+      .w2,
+      .w3 {
+        background: var(--papier-2);
+        border: 3px solid var(--kreska);
+      }
+      .w2 {
+        left: 264px;
+      }
+      .w3 {
+        left: 512px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Pętla celu. Wpisujesz /goal z warunkiem. Tura Claude: Claude pracuje w folderze i pisze w rozmowie, co zrobił. Claude kończy turę. Oceniający to mały, szybki model. Czyta warunek i rozmowę. Oceniający nie czyta plików i nie używa narzędzi. Jeszcze niespełniony: powód oceny wraca do Claude jako wskazówka na następną turę, a Claude zaczyna kolejną turę. Spełniony: cel znika, a w zapisie rozmowy pojawia się wpis o osiągnięciu celu. Niemożliwy: cel znika, a w zapisie rozmowy pojawia się wpis o porażce z powodem. Z boku: gdy Claude przez kilka tur nie robi postępu, Claude Code zatrzymuje pętlę i oddaje Ci głos. Cel zostaje, a ocena wraca po Twojej następnej wiadomości."
+    >
+      <svg viewBox="0 0 760 824" aria-hidden="true">
+        <defs>
+          <marker id="grot" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M1 1 L10 6 L1 11" fill="none" stroke="#0e1422" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+          <marker id="grot-cienki" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M1 1 L10 6 L1 11" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+        </defs>
+        <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- dymek -> tura -->
+          <path d="M345 100 V124" marker-end="url(#grot)" />
+          <!-- tura -> ocena -->
+          <path d="M345 276 V328" marker-end="url(#grot)" />
+          <!-- ocena -> trzy werdykty -->
+          <path d="M345 548 V566" />
+          <path d="M132 566 H628" />
+          <path d="M132 566 V596" marker-end="url(#grot)" />
+          <path d="M380 566 V596" marker-end="url(#grot)" />
+          <path d="M628 566 V596" marker-end="url(#grot)" />
+          <!-- niespełniony -> kolejna tura -->
+          <path d="M40 600 V214 a12 12 0 0 1 12 -12 H162" marker-end="url(#grot)" />
+        </g>
+        <!-- boczne wyjście: brak postępu -->
+        <path d="M524 202 H548" fill="none" stroke="#475569" stroke-width="2.5" stroke-dasharray="5 5" marker-end="url(#grot-cienki)" />
+      </svg>
+
+      <div class="el dymek"><span style="white-space: nowrap">Wpisujesz<code>/goal</code>z warunkiem.</span></div>
+
+      <div class="el pud tura">
+        <h3>Tura Claude</h3>
+        <p>Claude pracuje w folderze i pisze w rozmowie, co zrobił.</p>
+      </div>
+
+      <div class="el etykieta koniec-tury">Claude kończy turę.</div>
+
+      <div class="el pud ocena">
+        <h3>Oceniający</h3>
+        <p>To mały, szybki model. Czyta warunek i rozmowę.</p>
+      </div>
+
+      <div class="el bez-plikow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M3 21 21 3" stroke-width="2.4" /></svg>
+        <span>Oceniający nie czyta plików i nie używa narzędzi.</span>
+      </div>
+
+      <div class="el etykieta kolejna">Claude zaczyna kolejną turę.</div>
+
+      <div class="el brak">
+        <h4>Gdy Claude przez kilka tur nie robi postępu</h4>
+        <p>Claude Code zatrzymuje pętlę i oddaje Ci głos. Cel zostaje, a ocena wraca po Twojej następnej wiadomości.</p>
+      </div>
+
+      <div class="el werdykt w1">
+        <h4>Jeszcze niespełniony</h4>
+        <p>Powód oceny wraca do Claude jako wskazówka na następną turę.</p>
+      </div>
+      <div class="el werdykt w2">
+        <h4>Spełniony</h4>
+        <p>Cel znika, a w zapisie rozmowy pojawia się wpis o osiągnięciu celu.</p>
+      </div>
+      <div class="el werdykt w3">
+        <h4>Niemożliwy</h4>
+        <p>Cel znika, a w zapisie rozmowy pojawia się wpis o porażce z powodem.</p>
+      </div>
+    </div>
+  </body>
+</html>

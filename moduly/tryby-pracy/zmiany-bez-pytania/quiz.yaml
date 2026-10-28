@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "W aplikacji masz włączony tryb Accept edits. Prosisz Claude, żeby nadał zdjęciom z kampanii nazwy z Twojej listy. Claude zmienia nazwy poleceniem mv w folderze, w którym pracujesz. Ile kart zgody zobaczysz?"
+    odpowiedzi:
+      - "Po jednej przy każdym zdjęciu."
+      - "Żadnej, bo ten tryb przepuszcza mv bez pytania."
+      - "Jedną na początku, o wszystkie zmiany naraz."
+    poprawna: 1
+    wyjasnienie: "W aplikacji tryb Accept edits sam przepuszcza typowe polecenia na plikach, takie jak mv. Zmiany nazw przechodzą więc bez karty zgody, jak w pierwszym ćwiczeniu."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - pytanie: "Masz włączony tryb Accept edits. Prosisz Claude, żeby skasował stare wersje faktur w folderze, w którym pracujesz. Claude użyje polecenia rm. Co się stanie?"
+    odpowiedzi:
+      - "Skasuje je bez pytania, bo rm jest na liście tego trybu."
+      - "Zapyta o zgodę, bo kasowanie to więcej niż zmiana pliku."
+      - "Zapyta o zgodę osobno przed każdym kasowanym plikiem."
+    poprawna: 0
+    wyjasnienie: "Tryb Accept edits sam przepuszcza typowe polecenia na plikach, w tym rm, dla plików w folderze, w którym pracujesz. Dlatego duplikat w drugim ćwiczeniu zniknął bez karty zgody."
+    fakt: accept-edits-polecenia-na-plikach
+
+  - pytanie: "W aplikacji masz włączony tryb Accept edits. Claude zmienił już bez pytania nazwy kilku umów z klientami. Teraz prosisz, żeby spakował te umowy do pliku zip poleceniem terminala. Co zrobi Claude?"
+    odpowiedzi:
+      - "Spakuje je bez pytania, bo paczka powstanie w tym samym folderze."
+      - "Spakuje je bez pytania, bo ten tryb przyjmuje zmiany w plikach."
+      - "Zapyta o zgodę, bo zip to inne polecenie terminala."
+    poprawna: 2
+    wyjasnienie: "W aplikacji tryb Accept edits przepuszcza zmiany w plikach i typowe polecenia na plikach, ale przed innymi poleceniami terminala nadal pyta."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - pytanie: "Następnego dnia znów otwierasz w aplikacji folder ze zdjęciami produktów. Chcesz poprosić Claude o kolejne porządki. Skąd wiesz, czy Claude zmieni pliki bez pytania?"
+    odpowiedzi:
+      - "Z pierwszej odpowiedzi Claude, bo zawsze mówi, w jakim trybie pracuje."
+      - "Z napisu na przełączniku trybu pod polem wiadomości."
+      - "Nie musisz sprawdzać, bo każda rozmowa zaczyna się w trybie Manual."
+    poprawna: 1
+    wyjasnienie: "Napis na przełączniku trybu pod polem wiadomości mówi, czy Claude będzie czekać na Twoją zgodę."
+    fakt: aplikacja-tryb-pod-polem-mowi-czy-claude-czeka-na-zgode

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Accept edits (przyjmowanie zmian). Prosisz Claude: wpisz termin degustacji do zamówienia klientki i wyślij jej wiadomość z tym terminem. Co się stanie?"
+    odpowiedzi:
+      - "Claude zrobi obie rzeczy bez pytania, bo Accept edits przepuszcza wszystko, o co prosisz w wiadomości."
+      - "Claude nie zmieni pliku, dopóki nie zgodzisz się na wysłanie wiadomości."
+      - "Claude wpisze termin do pliku bez pytania, a przed wysłaniem wiadomości się zatrzyma."
+    poprawna: 2
+    wyjasnienie: "Wysłanie wiadomości nie jest ani odczytem, ani zmianą pliku. Accept edits przepuszcza bez pytania zmiany plików, ale wysłania wiadomości nie przepuszcza."
+    fakt: accept-edits-odczyty-bez-pytania
+
+  - pytanie: "Pracujesz w trybie Auto. Claude ma wysłać klientce wiadomość z terminem dostawy lunchu. Kto przed wysyłką sprawdza, czy to działanie zgadza się z Twoją prośbą?"
+    odpowiedzi:
+      - "Strażnik (klasyfikator), który działa w tle."
+      - "Nikt, bo w trybie Auto nic nie jest sprawdzane."
+      - "Ty, bo Claude zapyta Cię o zgodę tak jak w trybie Manual."
+    poprawna: 0
+    wyjasnienie: "Wysłanie wiadomości nie jest odczytem ani zmianą pliku w folderze, więc w trybie Auto trafia do strażnika (klasyfikatora)."
+    fakt: auto-kolejnosc-reszta-do-klasyfikatora
+
+  - pytanie: "Pracujesz w trybie Manual (ręczny). Claude chce wpisać termin degustacji do pliku z zamówieniem klientki. Co widzisz w aplikacji?"
+    odpowiedzi:
+      - "Nic, bo plik zmienia się od razu, a Claude tylko o tym informuje."
+      - "Podgląd zmiany. Przyjmujesz ją albo odrzucasz, zanim plik się zmieni."
+      - "Prośbę, żebyś sam wpisał termin, bo w trybie Manual Claude nie zmienia plików."
+    poprawna: 1
+    wyjasnienie: "W trybie Manual Claude pyta przed zmianą pliku. Widzisz podgląd zmiany i możesz ją przyjąć albo odrzucić."
+    fakt: aplikacja-manual-podglad-i-przyciski
+
+  - pytanie: "Claude ma wysłać ofertę cateringu do nowego klienta. Chcesz sam zgodzić się na wysyłkę, zanim wiadomość wyjdzie. Który tryb wybierasz?"
+    odpowiedzi:
+      - "Auto, bo strażnik sprawdzi treść wiadomości za Ciebie."
+      - "Bypass permissions, bo wtedy Claude pyta najrzadziej i szybciej skończy."
+      - "Manual albo Accept edits, bo w Auto wysyłkę ocenia strażnik, nie Ty."
+    poprawna: 2
+    wyjasnienie: "Tryb Auto zmniejsza liczbę pytań, ale nie gwarantuje bezpieczeństwa i nie zastępuje Twojego przeglądu wrażliwych działań."
+    fakt: auto-nie-gwarantuje-bezpieczenstwa

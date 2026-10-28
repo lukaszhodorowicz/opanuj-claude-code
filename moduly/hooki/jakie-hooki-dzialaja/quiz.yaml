@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "W folderze z umowami klientów pytasz Claude, jakie hooki w nim działają. Claude opisuje dwa hooki tego folderu. W którym pliku je znalazł?"
+    odpowiedzi:
+      - "W pliku CLAUDE.md tego folderu."
+      - "W pliku .claude/settings.json tego folderu."
+      - "W ustawieniach aplikacji Claude na komputer."
+    poprawna: 1
+    wyjasnienie: "Hook w .claude/settings.json folderu działa tylko w tym projekcie. Hook w ~/.claude/settings.json działa we wszystkich Twoich projektach."
+    fakt: hook-miejsce-folder-albo-komputer
+
+  - pytanie: "W folderze z raportami kampanii są dwa hooki: powiadomienie i hook, który dopisuje do dziennika każde polecenie terminala uruchomione przez Claude. Chcesz pozbyć się tylko hooka dziennika. O co prosisz Claude?"
+    odpowiedzi:
+      - "O dopisanie do pliku ustawień disableAllHooks z wartością true."
+      - "O przełączenie trybu na Manual."
+      - "O usunięcie z pliku ustawień wpisu hooka dziennika."
+    poprawna: 2
+    wyjasnienie: "Żeby usunąć hook zapisany w pliku ustawień, usuń jego wpis z tego pliku. Wpis powiadomienia zostaje."
+    fakt: hook-usun-wpis-z-pliku
+
+  - pytanie: "W ustawieniach folderu z fakturami są dwa hooki. Prosisz Claude, żeby dopisał \"disableAllHooks\": true. Co zostaje w pliku?"
+    odpowiedzi:
+      - "Wpisy obu hooków, ale oba hooki przestają działać."
+      - "Tylko wpis hooka powiadomienia, który działa dalej."
+      - "Tylko ustawienie disableAllHooks, bo Claude Code usuwa wpisy hooków."
+    poprawna: 0
+    wyjasnienie: "Ustawienie \"disableAllHooks\": true chwilowo wyłącza wszystkie hooki bez usuwania ich wpisów."
+    fakt: disableallhooks-wylacza-wszystkie-bez-usuwania
+
+  - pytanie: "Pracujesz w trybie Accept edits w folderze z ofertami dla klientów. Prosisz Claude o usunięcie hooka z .claude/settings.json, a Claude pyta o zgodę. Dlaczego?"
+    odpowiedzi:
+      - "Bo usunięcie czegokolwiek zawsze wymaga zgody."
+      - "Bo zapis w folderze .claude wymaga zgody także w trybie Accept edits."
+      - "Bo hooki można zmieniać tylko w trybie Manual."
+    poprawna: 1
+    wyjasnienie: "Folder .claude jest chroniony. W trybach Manual i Accept edits zapis w nim wymaga Twojej zgody."
+    fakt: accept-edits-sciezki-chronione-pytaja

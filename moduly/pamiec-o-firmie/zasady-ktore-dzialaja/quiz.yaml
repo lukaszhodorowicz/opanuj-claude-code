@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "W pliku CLAUDE.md biura stoi zasada „Pisz ładnie i profesjonalnie”. Ogłoszenia wychodzą długie i bez czynszu. Na jaką zasadę ją zamieniasz, żeby była zgodna z radą dokumentacji?"
+    odpowiedzi:
+      - "„Dbaj o jakość i profesjonalny ton ogłoszeń.”"
+      - "„Opis ogłoszenia ma do 400 znaków.”"
+      - "„Pisz tak, jak lubią nasi klienci.”"
+    poprawna: 1
+    wyjasnienie: "Dokumentacja radzi pisać zasady tak, żeby dało się je sprawdzić. Liczbę znaków w ogłoszeniu policzysz."
+    fakt: claude-md-zasady-konkretne-do-sprawdzenia
+
+  - pytanie: "Otwierasz nową rozmowę w folderze biura i prosisz tylko: „Napisz ogłoszenie o mieszkaniu z @dane-mieszkania.txt”. Ogłoszenie ma metraż, piętro i czynsz, choć o zasadach nie było mowy. Skąd Claude wie, że ma je podać?"
+    odpowiedzi:
+      - "Z pliku CLAUDE.md w folderze rozmowy, z którego korzysta aplikacja."
+      - "Z poprzedniej rozmowy w tym folderze, bo Claude pamięta jej historię."
+      - "Z zasad pisania ogłoszeń wbudowanych w aplikację Claude."
+    poprawna: 0
+    wyjasnienie: "Aplikacja korzysta z pliku CLAUDE.md w folderze projektu. Tam stoją trzy zasady biura."
+    fakt: aplikacja-uzywa-claude-md-z-projektu
+
+  - pytanie: "Zamieniasz w CLAUDE.md ogólną zasadę na trzy konkretne. Po czym poznasz, że zmiana zadziałała?"
+    odpowiedzi:
+      - "Po tym, że plik CLAUDE.md ma teraz więcej linii niż wcześniej."
+      - "Po tym, że Claude w odpowiedzi zapewni, że zastosuje nowe zasady."
+      - "Po tym, że ogłoszenie z nowej rozmowy spełnia nowe zasady."
+    poprawna: 2
+    wyjasnienie: "Dokumentacja radzi sprawdzać zmiany w CLAUDE.md, obserwując, czy zachowanie Claude faktycznie się zmienia. Claude czyta plik na początku rozmowy, dlatego sprawdzasz w nowej rozmowie."
+    fakt: claude-md-sprawdz-zmiane-obserwujac-zachowanie
+
+  - pytanie: "Plik biura jest krótki, a zasady konkretne. Mimo to Claude w kolejnych ogłoszeniach wciąż pomija czynsz. Co radzi dokumentacja?"
+    odpowiedzi:
+      - "Dopisać „WAŻNE” przy wszystkich zasadach, żeby Claude poważniej traktował cały plik."
+      - "Wyróżnić tylko tę jedną zasadę, na przykład słowem „WAŻNE”."
+      - "Wpisać tę samą zasadę drugi raz na końcu pliku."
+    poprawna: 1
+    wyjasnienie: "Gdy Claude wciąż pomija jedną zasadę, wyróżnij tylko ją. Gdy wyróżnisz wiele, żadna się nie wyróżni. Wyróżnienie nie daje pewności."
+    fakt: claude-md-wazne-tylko-przy-jednej-zasadzie

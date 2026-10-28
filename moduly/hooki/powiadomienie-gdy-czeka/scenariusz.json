@@ -1,0 +1,226 @@
+{
+  "lekcja": "powiadomienie-gdy-czeka",
+  "folder_startowy": [
+    "opinie-klientow-2026-10.csv",
+    "szablon-wnioskow.txt",
+    "mail-do-zarzadu.txt"
+  ],
+  "folder_glowny": "Opinie-kluby",
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Hook rusza, gdy Claude czeka na zgodę",
+      "opis": "Hook leży już w folderze .claude, który widzisz pod oknem. Prosisz, żeby Claude napisał wnioski z opinii i spakował pliki dla zarządu.",
+      "nauczyciel_start": "W tym folderze jest już hook. Kliknij polecenie i patrz na kartę z pytaniem o zgodę pod odpowiedzią Claude.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Opinie-kluby",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze są opinie klientów z października."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ],
+        "folder_startowy_dodatkowe": [
+          ".claude/settings.json"
+        ]
+      },
+      "nowe_pliki": [
+        "wnioski-pazdziernik.txt"
+      ],
+      "drogi": [
+        {
+          "id": "czekaj",
+          "etykieta": "Poproś o wnioski i plik zip dla zarządu",
+          "opis": "Claude pisze wnioski, a do spakowania potrzebuje Twojej zgody.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Wypisz wnioski z opinii według szablonu i zapisz je w pliku wnioski-pazdziernik.txt. Potem spakuj wnioski i mail-do-zarzadu.txt do opinie-pazdziernik.zip.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "opinie-klientow-2026-10.csv",
+                "szablon-wnioskow.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wnioski w pliku wnioski-pazdziernik.txt.",
+              "plik": "wnioski-pazdziernik.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę pliku z wnioskami w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wnioski-pazdziernik.txt",
+              "linijki": [
+                "Co chwalą:",
+                "- trenerów i czystość szatni",
+                "Na co narzekają:",
+                "- kolejki do rowerów w godzinach 17-19",
+                "Co zmienić:",
+                "- zapisy na rowery przez aplikację klubu"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wnioski zapisały się bez pytania. Teraz Claude chce spakować pliki.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Do spakowania potrzebuję polecenia zip. Na takie polecenie potrzebuję Twojej zgody także w trybie Accept edits.",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "zgoda",
+              "polecenie": "zip",
+              "odliczanie_ms": 6000,
+              "fakt": "hook-aplikacja-permission-prompt-po-szesciu-sekundach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Minęło około sześciu sekund. Hook uruchomił swoje polecenie. Jego skutek zobaczysz na swoim komputerze, ćwiczenie go nie rysuje. Kliknij ptaszek.",
+              "fakt": "hook-aplikacja-permission-prompt-po-szesciu-sekundach"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Spakowałem wnioski i mail w archiwum opinie-pazdziernik.zip.",
+              "fakt": "polecenie-zip-pakuje-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude nie dostaje znaku, że hook ruszył. Hook działa poza rozmową.",
+              "fakt": "hook-dziala-poza-rozmowa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Poproś o własny hook i przeczytaj go",
+      "opis": "Ten sam folder, jeszcze bez ustawień w .claude. Prosisz Claude o hook zwykłymi słowami.",
+      "nauczyciel_start": "Kliknij polecenie. Claude zapisze hook w folderze .claude, a ten zapis wymaga Twojej zgody.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Opinie-kluby",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze są opinie klientów z października."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        ".claude/settings.json"
+      ],
+      "drogi": [
+        {
+          "id": "dodaj-hook",
+          "etykieta": "Poproś o hook na pytanie o zgodę",
+          "opis": "Prośba zwykłymi słowami. Hook trafi do ustawień tego folderu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dodaj hook, który da mi znać na tym komputerze, gdy będziesz czekać na moją zgodę. Zapisz go w ustawieniach tego folderu. Pracuję na Macu.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dodam hook do pliku .claude/settings.json: zdarzenie Notification, dopasowanie permission_prompt i polecenie powiadomienia dla macOS. Folder .claude jest chroniony, więc nawet w trybie Accept edits potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/settings.json",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W trybie Accept edits Claude pyta o zgodę na zapis w folderze .claude. Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem hook w .claude/settings.json. Ruszy, gdy pytanie o zgodę poczeka około sześciu sekund.",
+              "plik": ".claude/settings.json",
+              "fakt": "hook-aplikacja-permission-prompt-po-szesciu-sekundach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ustawienia w nowym folderze .claude dotyczą tylko tego projektu. Kliknij ścieżkę w odpowiedzi.",
+              "fakt": "hook-miejsce-folder-albo-komputer"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/settings.json",
+              "linijki": [
+                "{",
+                "  \"hooks\": {",
+                "    \"Notification\": [",
+                "      {",
+                "        \"matcher\": \"permission_prompt\",",
+                "        \"hooks\": [",
+                "          {",
+                "            \"type\": \"command\",",
+                "            \"command\": \"osascript -e 'display notification \\\"Claude Code needs your attention\\\" with title \\\"Claude Code\\\"'\"",
+                "          }",
+                "        ]",
+                "      }",
+                "    ]",
+                "  }",
+                "}"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Znajdź w pliku trzy rzeczy: zdarzenie, dopasowanie i polecenie. Właśnie ten hook ruszył w ćwiczeniu 1.",
+              "fakt": "hook-trzy-poziomy-zdarzenie-dopasowanie-hook"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

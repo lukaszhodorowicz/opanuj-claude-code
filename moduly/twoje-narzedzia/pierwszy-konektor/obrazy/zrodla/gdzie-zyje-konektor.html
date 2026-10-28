@@ -1,0 +1,459 @@
+<!doctype html>
+<!-- Rysunek R1 „Gdzie żyje konektor i jak Claude do niego sięga” do lekcji pierwszy-konektor: nagłówek z wnioskiem (konektor należy do konta, nie do folderu), pod nim trzy pola obok siebie (Twój komputer z uproszczonym jasnym oknem aplikacji i teczką, Twoje konto claude.ai z kafelkiem konektora, kalendarz u dostawcy). Strzałka 1 z kółka plus do kafelka, pętla 2 z kłódką przy kafelku, strzałka 3 z kafelka do dymku rozmowy, linia przerywana bez grotów z dymku do kalendarza. Pasek odłączania na dole. Zakreślacz tylko na polu konta. Opis: BRIEF.md, część 9. Źródło PNG obrazy/gdzie-zyje-konektor.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Gdzie żyje konektor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w dwa-sprawdzenia-strony.html) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --dymek: #eeede6;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 22px 16px 20px;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1 {
+        margin: 0 0 14px 4px;
+        font: 800 28px/1.22 var(--sans);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+      }
+      h1 mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%);
+        padding: 0;
+      }
+      .scena {
+        position: relative;
+        width: 728px;
+        height: 472px;
+      }
+      svg.ik {
+        flex: none;
+      }
+
+      /* ===== Trzy pola ===== */
+      .pole {
+        position: absolute;
+        top: 52px;
+        height: 420px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 16px;
+      }
+      .pole.lewe {
+        left: 0;
+        width: 262px;
+      }
+      .pole.srodek {
+        left: 384px;
+        width: 194px;
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        box-shadow: 0 0 0 3px var(--limonka);
+      }
+      .pole.prawe {
+        left: 596px;
+        width: 132px;
+      }
+      .tytul {
+        position: absolute;
+        left: 14px;
+        top: 12px;
+        right: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 800 18px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .tytul svg {
+        width: 30px;
+        height: 30px;
+      }
+      .prawe .tytul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        right: 8px;
+        left: 12px;
+      }
+      .prawe .tytul span {
+        font-size: 17px;
+      }
+      .prawe .tytul small {
+        color: var(--grafit);
+        font: 600 15px/1.3 var(--sans);
+        letter-spacing: 0;
+      }
+
+      /* Uproszczone jasne okno aplikacji */
+      .okno {
+        position: absolute;
+        left: 11px;
+        top: 54px;
+        width: 234px;
+        height: 196px;
+        background: var(--biel);
+        border: 2px solid var(--granat);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .okno-nazwa {
+        height: 50px;
+        padding: 7px 12px 0;
+        border-bottom: 1.5px solid var(--kreska);
+        font: 700 15px/1.25 var(--sans);
+      }
+      .okno-bok {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        bottom: 0;
+        width: 38px;
+        background: var(--papier);
+        border-right: 1.5px solid var(--kreska);
+        padding: 12px 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .okno-bok i,
+      .dymek i {
+        display: block;
+        height: 7px;
+        border-radius: 4px;
+        background: var(--kreska);
+      }
+      .okno-bok i:nth-child(2) {
+        width: 70%;
+      }
+      .dymek {
+        position: absolute;
+        left: 98px;
+        top: 66px;
+        width: 124px;
+        height: 50px;
+        background: var(--dymek);
+        border: 1.5px solid var(--kreska);
+        border-radius: 14px 14px 4px 14px;
+        padding: 12px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .dymek i {
+        background: #d6d6cc;
+      }
+      .dymek i:nth-child(2) {
+        width: 60%;
+      }
+      .pole-wiadomosci {
+        position: absolute;
+        left: 48px;
+        right: 10px;
+        bottom: 12px;
+        height: 36px;
+        border: 1.5px solid var(--kreska);
+        border-radius: 10px;
+        background: var(--papier);
+      }
+      .plus {
+        position: absolute;
+        right: 6px;
+        top: 5px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--granat);
+        border-radius: 50%;
+        background: var(--biel);
+      }
+      .plus::before,
+      .plus::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: var(--granat);
+        border-radius: 1px;
+        transform: translate(-50%, -50%);
+      }
+      .plus::before {
+        width: 11px;
+        height: 2.5px;
+      }
+      .plus::after {
+        width: 2.5px;
+        height: 11px;
+      }
+
+      /* Teczka */
+      .teczka {
+        position: absolute;
+        left: 14px;
+        top: 266px;
+        width: 196px;
+      }
+      .teczka-nazwa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 700 14px/1.2 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      .teczka-nazwa svg {
+        width: 28px;
+        height: 28px;
+      }
+      .kartki {
+        display: flex;
+        gap: 6px;
+        margin: 9px 0 0 36px;
+      }
+      .kartki svg {
+        width: 24px;
+        height: 24px;
+        color: var(--grafit);
+      }
+      .uwaga {
+        margin: 10px 0 0;
+        color: var(--grafit);
+        font: 600 15px/1.3 var(--sans);
+      }
+
+      /* Kafelek konektora */
+      .kafelek {
+        position: absolute;
+        left: 12px;
+        top: 108px;
+        width: 140px;
+        height: 162px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 14px;
+        padding: 11px 11px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .kafelek svg {
+        width: 30px;
+        height: 30px;
+      }
+      .kafelek b {
+        font: 800 17px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .kafelek small {
+        margin-top: auto;
+        color: var(--grafit);
+        font: 600 14px/1.2 var(--sans);
+      }
+      .petla-napis {
+        position: absolute;
+        left: 12px;
+        right: 10px;
+        top: 284px;
+        font: 700 15px/1.3 var(--sans);
+      }
+      .srodek .uwaga {
+        position: absolute;
+        left: 12px;
+        right: 10px;
+        top: 338px;
+        margin: 0;
+        padding-top: 9px;
+        border-top: 2px dashed rgba(14, 20, 34, 0.35);
+        color: var(--granat);
+      }
+
+      /* Napisy strzałek */
+      .napis {
+        position: absolute;
+        font: 700 15px/1.25 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .napis.s3 {
+        left: 270px;
+        top: 106px;
+        width: 112px;
+      }
+      .napis.s1 {
+        left: 270px;
+        top: 286px;
+        width: 112px;
+      }
+      .napis.czyta {
+        right: 0;
+        top: 0;
+        text-align: right;
+        font-weight: 700;
+      }
+
+      /* Warstwa linii */
+      .linie {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 728px;
+        height: 472px;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      /* ===== Pasek odłączania ===== */
+      .pasek {
+        margin-top: 20px;
+        border: 2px solid var(--granat);
+        border-radius: 14px;
+        background: var(--biel);
+        padding: 12px 14px 13px;
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 12px;
+        align-items: center;
+      }
+      .pasek svg {
+        width: 34px;
+        height: 34px;
+      }
+      .pasek p {
+        margin: 0;
+        font: 600 17px/1.35 var(--sans);
+      }
+      .pasek p .kod {
+        font: 700 15px/1 var(--mono);
+      }
+      .pasek small {
+        border-left: 1.5px solid var(--kreska);
+        padding-left: 12px;
+        color: var(--grafit);
+        font: 600 14px/1.3 var(--sans);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Konektor należy do Twojego konta, nie do folderu. Trzy pola. Twój komputer: aplikacja Claude, zakładka Code, z kółkiem plus przy polu wiadomości i dymkiem rozmowy, oraz folder Gabinet-dietetyczny z trzema plikami. W folderze nie ma konektora. Twoje konto claude.ai: konektor Google Calendar. Claude Code sam dostaje konektory z tego konta. Kalendarz u dostawcy: tu są Twoje spotkania. 1. Konektor dodajesz plusem: Connectors, potem Browse connectors. 2. Wymagane logowanie kończysz w claude.ai. 3. Aplikacja przekazuje konektor do rozmowy. Claude czyta Twój kalendarz. Konektor odłączysz w aplikacji: Settings > Connectors."
+    >
+      <h1>Konektor należy <mark>do Twojego konta,</mark> nie do folderu</h1>
+      <div class="scena">
+        <!-- Pole lewe: Twój komputer -->
+        <div class="pole lewe">
+          <div class="tytul">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5" /><path d="M2 19h20" /></svg>
+            Twój komputer
+          </div>
+          <div class="okno">
+            <div class="okno-nazwa">Aplikacja Claude,<br />zakładka Code</div>
+            <div class="okno-bok"><i></i><i></i><i></i></div>
+            <div class="dymek"><i></i><i></i></div>
+            <div class="pole-wiadomosci"><span class="plus"></span></div>
+          </div>
+          <div class="teczka">
+            <div class="teczka-nazwa">
+              <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z" /></svg>
+              Gabinet-dietetyczny
+            </div>
+            <div class="kartki" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /></svg>
+            </div>
+            <p class="uwaga">W folderze nie ma konektora.</p>
+          </div>
+        </div>
+
+        <!-- Pole środkowe: Twoje konto claude.ai (zakreślacz) -->
+        <div class="pole srodek">
+          <div class="tytul">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9.5a4.75 4.75 0 0 1-.5 9.5z" /><circle cx="12" cy="11.6" r="2" /><path d="M8.6 18.6c.5-1.9 1.8-3 3.4-3s2.9 1.1 3.4 3" /></svg>
+            <span>Twoje konto claude.ai</span>
+          </div>
+          <div class="kafelek">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /><path d="M8 14h2M14 14h2M8 17h2" /></svg>
+            <b>Konektor Google Calendar</b>
+          </div>
+          <div class="petla-napis">2. Wymagane logowanie kończysz w&nbsp;claude.ai.</div>
+          <p class="uwaga">Claude Code sam dostaje konektory z&nbsp;tego konta.</p>
+        </div>
+
+        <!-- Pole prawe: Kalendarz u dostawcy -->
+        <div class="pole prawe">
+          <div class="tytul">
+            <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /><path d="M8 14h2M14 14h2M8 17h2" /></svg>
+            <span>Kalendarz u&nbsp;dostawcy</span>
+            <small>Tu są Twoje spotkania.</small>
+          </div>
+        </div>
+
+        <!-- Napisy strzałek -->
+        <div class="napis s3">3. Aplikacja przekazuje konektor do rozmowy.</div>
+        <div class="napis s1">1. Konektor dodajesz plusem: Connectors, potem Browse connectors.</div>
+        <div class="napis czyta">Claude czyta Twój kalendarz.</div>
+
+        <!-- Linie w układzie sceny: środek dymku y=202, środek plusa y=274, lewa krawędź kafelka x=399 -->
+        <svg class="linie" viewBox="0 0 728 472" aria-hidden="true">
+          <g fill="none" stroke="#0e1422" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <!-- 3: z kafelka do dymku -->
+            <path d="M397 202 H242" />
+            <path d="M250 194 L242 202 L250 210" />
+            <!-- 1: z plusa do kafelka -->
+            <path d="M231 274 H396" />
+            <path d="M388 266 L396 274 L388 282" />
+            <!-- 2: pętla przy kafelku -->
+            <path d="M542 200 C574 200 578 252 544 262" />
+            <path d="M551 255 L543 262 L551 268" />
+          </g>
+          <!-- kłódka na pętli -->
+          <g transform="translate(554 218)" fill="#ffffff" stroke="#0e1422" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="0" y="9" width="22" height="16" rx="3" />
+            <path d="M5 9V6a6 6 0 0 1 12 0v3" fill="none" />
+            <path d="M11 15v4" />
+          </g>
+          <!-- linia przerywana z dymku do kalendarza, bez grotów -->
+          <path d="M214 175 V30 H662 V52" fill="none" stroke="#0e1422" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+
+      <!-- Pasek odłączania -->
+      <div class="pasek">
+        <svg class="ik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12H5" /><rect x="5" y="8" width="5.5" height="8" rx="1.5" /><path d="M10.5 10H13M10.5 14H13" /><rect x="16" y="6.5" width="6" height="11" rx="1.5" /><path d="M18.5 10v.01M18.5 14v.01" /></svg>
+        <p>Konektor odłączysz w aplikacji: <span class="kod">Settings &gt; Connectors</span>.</p>
+      </div>
+    </div>
+  </body>
+</html>

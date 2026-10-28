@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "W pliku korektora piekarni stoi pole description: „Poprawia newslettery piekarni Rumiany Bochenek według zasad klienta. Użyj, gdy proszę o korektę newslettera.” Do czego służy to pole?"
+    odpowiedzi:
+      - "To opis dla Ciebie, Claude go nie czyta."
+      - "Po nim Claude pozna, kiedy przekazać zadanie korektorowi."
+      - "Do niczego, bo to pole name mówi, kiedy przekazać zadanie."
+    poprawna: 1
+    wyjasnienie: "Pole description mówi Claude, kiedy przekazać zadanie temu subagentowi. Dlatego w opisie korektora stoi, przy jakiej prośbie go użyć."
+    fakt: subagent-pole-description-kiedy-przekazac
+
+  - pytanie: "Pracujesz w trybie Accept edits (przyjmowanie zmian). W folderze piekarni prosisz Claude o subagenta korektora w .claude/agents/, a Claude i tak pyta o zgodę na zapisanie jego pliku. Dlaczego?"
+    odpowiedzi:
+      - "Bo w Accept edits Claude zawsze pyta przed utworzeniem nowego pliku."
+      - "Bo folder .claude jest chroniony, poza kilkoma wyjątkami."
+      - "Bo korektor musi sam zatwierdzić swój plik, zanim zacznie działać."
+    poprawna: 1
+    wyjasnienie: "Folder .claude, poza kilkoma wyjątkami, jest ścieżką chronioną. Zapisów w nim tryb Accept edits nie zatwierdza automatycznie."
+    fakt: sciezki-chronione-czym-sa
+
+  - pytanie: "Zaczynasz nową rozmowę w folderze piekarni i piszesz: „Użyj subagenta korektor, żeby poprawił newsletter-grudzien.txt.”. Zasad klienta w tej rozmowie nie podajesz. Skąd korektor je zna?"
+    odpowiedzi:
+      - "Z poprzedniej rozmowy, w której powstał, bo Claude ją pamięta."
+      - "Z pliku zasady-klienta.txt, który każdy subagent czyta w folderze na starcie."
+      - "Z instrukcji w swoim pliku."
+    poprawna: 2
+    wyjasnienie: "Treść pliku subagenta pod nagłówkiem to jego instrukcja. W ćwiczeniu 1 Claude przepisał do niej zasady klienta."
+    fakt: subagent-tresc-pliku-to-jego-instrukcja
+
+  - pytanie: "W aplikacji prosisz o korektę, podając nazwę subagenta. Claude odpisuje: „Przekazałem newsletter-grudzien.txt korektorowi. Napiszę, gdy skończy.” Co to znaczy?"
+    odpowiedzi:
+      - "Korektor nie zadziałał i trzeba wysłać prośbę jeszcze raz."
+      - "Korektor czeka na Twoją zgodę i ruszy po kliknięciu ptaszka."
+      - "Korektor pracuje, a Claude domyślnie na niego nie czeka."
+    poprawna: 2
+    wyjasnienie: "W aplikacji na Twoim komputerze Claude domyślnie nie czeka na subagenta. Dlatego odpisał, zanim korektor skończył."
+    fakt: subagent-aplikacja-claude-nie-czeka

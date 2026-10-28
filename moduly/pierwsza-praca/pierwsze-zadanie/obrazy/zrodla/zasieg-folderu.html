@@ -1,0 +1,227 @@
+<!doctype html>
+<!-- Rysunek do lekcji pierwsze-zadanie (styl R1, D-2026-10-26-58): w trybie Accept edits Claude zmienia bez pytania pliki w kopii folderu i jej podfolderach, a oryginał i inne pliki zmienia tylko za Twoją zgodą. Źródło PNG obrazy/zasieg-folderu.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Zasięg folderu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { padding: 20px 16px 22px; }
+      .ekran {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-bottom-width: 0;
+        border-radius: 24px 24px 0 0;
+        padding: 18px 16px 22px;
+      }
+      .podstawa {
+        margin: 0 -10px;
+        height: 58px;
+        background: var(--granat);
+        border-radius: 6px 6px 22px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--biel);
+        font: 800 30px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .podstawa svg { width: 34px; height: 34px; color: var(--limonka); }
+
+      /* Claude u góry i dwie strzałki */
+      .gora { position: relative; height: 150px; }
+      .gora svg.strzalki { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+      .claude {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        height: 58px;
+        padding: 0 22px 0 16px;
+        border-radius: 29px;
+        background: var(--granat);
+        color: var(--biel);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font: 800 27px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .claude img { width: 36px; height: 36px; border-radius: 9px; display: block; }
+      h1 { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; }
+      h1 mark { color: inherit; background: linear-gradient(transparent 52%, var(--zakreslacz) 52%, var(--zakreslacz) 94%, transparent 94%); padding: 0 2px; }
+      .klodka {
+        position: absolute;
+        left: 133px;
+        top: 62px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        display: grid;
+        place-items: center;
+      }
+      .klodka svg { width: 30px; height: 30px; }
+      .zgoda {
+        position: absolute;
+        left: 206px;
+        top: 62px;
+        width: 290px;
+        text-align: left;
+        font: 700 21px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* dwie kolumny */
+      .kolumny { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; align-items: start; }
+      .folder {
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .folder-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 4px 2px;
+        font: 700 20px/1.2 var(--mono);
+        white-space: nowrap;
+      }
+      .folder-glowa svg { width: 26px; height: 26px; flex: none; }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 48px;
+        padding: 0 12px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+      }
+      .karta svg { width: 24px; height: 24px; flex: none; }
+      .karta i { height: 10px; border-radius: 5px; background: var(--linia); }
+      .karta.pod { background: var(--papier-2); }
+      .kopia {
+        border: 5px solid var(--limonka);
+        background: var(--zakreslacz);
+      }
+      .kopia .karta { border-color: #c5e88a; }
+      .widzi {
+        margin: 12px 4px 0;
+        text-align: center;
+        font: 700 21px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .widzi span { font: 700 18px/1.25 var(--mono); letter-spacing: 0; white-space: nowrap; }
+      .zgoda b, .widzi b { font-weight: 800; display: block; font-size: 23px; }
+      .poza {
+        border: 3px dashed var(--grafit);
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .inne {
+        margin-top: 10px;
+        padding: 8px 10px 4px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--grafit);
+        font: 800 22px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .inne .ikony { display: flex; gap: 4px; }
+      .inne svg { width: 30px; height: 30px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Na Twoim komputerze leżą dwa foldery: oryginał Newsletter i Newsletter-kopia z podfolderem. Kopia folderu: Claude zmienia pliki bez pytania (Accept edits). Oryginał i inne pliki: zmiana tylko za Twoją zgodą.">
+      <h1>W trybie Accept edits Claude bez pytania zmienia <mark>tylko pliki w kopii folderu</mark></h1>
+      <div class="ekran">
+        <div class="gora">
+          <svg class="strzalki" viewBox="0 0 688 150" aria-hidden="true">
+            <!-- do kopii: linia ciągła -->
+            <path d="M432 29 H502 a14 14 0 0 1 14 14 V140" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M503 128 L516 143 L529 128" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- do oryginału: przerywana, przez kłódkę -->
+            <path d="M256 29 H177 a14 14 0 0 0 -14 14 V140" fill="none" stroke="#0e1422" stroke-width="4" stroke-dasharray="10 9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M150 128 L163 143 L176 128" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="claude">
+            <img src="claude-icon-square.svg" alt="" />
+            Claude
+          </div>
+          <div class="klodka">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          </div>
+          <div class="zgoda"><b>Oryginał i inne pliki</b> Claude zmieni tylko za Twoją zgodą.</div>
+        </div>
+        <div class="kolumny">
+          <div class="poza">
+            <div class="folder">
+              <div class="folder-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                Newsletter
+              </div>
+              <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i style="width: 70%"></i></div>
+              <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i style="width: 56%"></i></div>
+              <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i style="width: 64%"></i></div>
+            </div>
+            <div class="inne">
+              <span class="ikony">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+              </span>
+              Inne pliki
+            </div>
+          </div>
+          <div>
+            <div class="folder kopia">
+              <div class="folder-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                Newsletter-kopia
+              </div>
+              <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i style="width: 70%"></i></div>
+              <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i style="width: 56%"></i></div>
+              <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><i style="width: 64%"></i></div>
+              <div class="karta pod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg><i style="width: 48%"></i></div>
+            </div>
+            <p class="widzi"><b>W kopii folderu</b> Claude zmienia pliki bez pytania.</p>
+          </div>
+        </div>
+      </div>
+      <div class="podstawa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>
+        <span>Twój komputer</span>
+      </div>
+    </div>
+  </body>
+</html>

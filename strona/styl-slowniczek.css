@@ -1,0 +1,85 @@
+/* Słowniczek kursu: pogrubione pojęcie w tekście lekcji z podpowiedzią (strona/slowniczek.js, narzedzia/strona_slowniczek.py) i strona słowniczka z listą haseł. Kolory i kroje jak w styl-strona.css. */
+.pojecie-slowo {
+  font-weight: 700;
+  cursor: help;
+  text-decoration: underline dotted var(--mech) 2px;
+  text-underline-offset: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+.pojecie-slowo:hover,
+.pojecie.otwarta .pojecie-slowo {
+  background: var(--zakreslacz);
+  border-radius: 4px;
+}
+.pojecie-slowo:focus-visible {
+  outline: 3px solid var(--limonka);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* podpowiedź: granatowa karta na stałe w oknie, położenie liczy slowniczek.js; granat na bieli ma kontrast ok. 18:1 */
+.pojecie-podp {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  box-sizing: border-box;
+  width: min(340px, calc(100vw - 16px));
+  padding: 10px 14px 12px;
+  border-radius: 14px;
+  background: var(--granat);
+  color: var(--biel);
+  box-shadow: 0 10px 28px rgba(14, 20, 34, 0.28);
+  font: 500 15px/1.5 var(--sans);
+  letter-spacing: 0;
+  text-align: left;
+  text-wrap: pretty;
+  cursor: default;
+}
+.pojecie.otwarta .pojecie-podp {
+  display: block;
+}
+.pojecie-nazwa {
+  display: block;
+  margin: 0 0 3px;
+  font: 700 12px/1.3 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--limonka);
+  overflow-wrap: anywhere;
+}
+
+/* strona słowniczka: karty haseł w kolumnie czytelnej szerokości */
+.slowniczek {
+  max-width: 760px;
+}
+.slowniczek-lista {
+  margin: 0;
+  padding: 0;
+}
+.slowniczek-haslo {
+  margin: 0 0 12px;
+  padding: 14px 16px 6px;
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-radius: 18px;
+  scroll-margin-top: 16px;
+}
+.slowniczek-haslo dt {
+  margin: 0 0 4px;
+  font: 800 19px/1.25 var(--sans);
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+}
+.slowniczek-haslo dd {
+  margin: 0;
+}
+.slowniczek-haslo dd p {
+  margin: 0 0 8px;
+  font-size: 16.5px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.slowniczek-haslo dd .slowniczek-zrodlo {
+  font: 500 13px/1.4 var(--mono);
+  color: var(--grafit);
+}

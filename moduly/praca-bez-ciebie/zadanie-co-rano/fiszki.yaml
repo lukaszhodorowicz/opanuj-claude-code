@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak ustawić zadanie z harmonogramu bez szukania formularza?"
+    tyl: "Napisz w rozmowie prośbę z porą, na przykład „codziennie o 7:30 zrób podsumowanie”."
+    fakt: harmonogram-prosba-tworzy-zadanie
+
+  - przod: "W której rozmowie pracuje zadanie, gdy przyjdzie jego pora?"
+    tyl: "W nowej sesji, niezależnej od rozmów, które otwierasz sam."
+    fakt: harmonogram-sprawdza-co-minute-nowa-sesja
+
+  - przod: "Kiedy rusza zadanie na Twoim komputerze?"
+    tyl: "Tylko wtedy, gdy aplikacja jest otwarta, a komputer nie śpi."
+    fakt: harmonogram-lokalne-tylko-przy-otwartej-aplikacji
+
+  - przod: "Komputer przespał porę zadania. Co się stanie po jego przebudzeniu?"
+    tyl: "Ruszy jeden przebieg nadrabiający, za ostatni opuszczony termin z ostatnich 7 dni."
+    fakt: harmonogram-przebieg-nadrabiajacy
+
+  - przod: "Jak wstrzymać zadanie na czas wyjazdu?"
+    tyl: "Poproś Claude w rozmowie, żeby je wstrzymał."
+    fakt: harmonogram-prosba-lista-edycja-pauza
+
+  - przod: "Co się dzieje ze wstrzymanym zadaniem?"
+    tyl: "Nie rusza, ale nie znika. Możesz je potem wznowić."
+    fakt: harmonogram-status-active-paused

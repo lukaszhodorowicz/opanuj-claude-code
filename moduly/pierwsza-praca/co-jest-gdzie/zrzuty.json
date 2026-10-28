@@ -1,0 +1,521 @@
+{
+  "cw1-przed": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw1-pasek-start": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 20000,
+    "polecenie": "cw1",
+    "do": "cw1"
+  },
+  "cw1-pasek": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel"
+    ]
+  },
+  "cw1-plus-start": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 35000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])"
+    ]
+  },
+  "cw1-menu-plus": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel"
+    ]
+  },
+  "cw1-podmenu-wtyczek": {
+    "szer": 1280,
+    "wys": 1200,
+    "budzet": 45000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel"
+    ]
+  },
+  "cw1-wtyczki": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 50000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel"
+    ]
+  },
+  "cw1-model-start": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 55000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])"
+    ]
+  },
+  "cw1-menu-modelu": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 60000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel"
+    ]
+  },
+  "cw1-effort": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 65000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel"
+    ]
+  },
+  "cw1-poziom": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 72000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel"
+    ]
+  },
+  "cw1-pierscien": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 78000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel"
+    ]
+  },
+  "cw1-liczniki-start": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 82000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"3\"]:not([disabled])"
+    ]
+  },
+  "cw1-dwa-liczniki": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 88000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"3\"]:not([disabled])",
+      "#cw1 .apl-pierscien.apl-cel"
+    ]
+  },
+  "cw1-po-przebiegu": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 92000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"3\"]:not([disabled])",
+      "#cw1 .apl-pierscien.apl-cel"
+    ]
+  },
+  "cw1-390-start": {
+    "szer": 390,
+    "wys": 2200,
+    "budzet": 15000,
+    "do": "cw1"
+  },
+  "cw2-przed": {
+    "szer": 1280,
+    "wys": 1000,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "cw2-srodowisko-start": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 20000
+  },
+  "cw2-srodowisko": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 30000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel"
+    ]
+  },
+  "cw2-plan-start": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 35000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])"
+    ]
+  },
+  "cw2-lista": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 40000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel"
+    ]
+  },
+  "cw2-plan": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 45000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Plan\"].apl-cel"
+    ]
+  },
+  "cw2-auto-start": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 50000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Plan\"].apl-cel",
+      "#cw2 .polecenie[data-d=\"2\"]:not([disabled])"
+    ]
+  },
+  "cw2-lista-2": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 55000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Plan\"].apl-cel",
+      "#cw2 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel"
+    ]
+  },
+  "cw2-auto": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 60000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Plan\"].apl-cel",
+      "#cw2 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Auto\"].apl-cel"
+    ]
+  },
+  "cw2-po-przebiegu": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 64000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Plan\"].apl-cel",
+      "#cw2 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel",
+      "#cw2 .apl-tryb-poz[data-tryb=\"Auto\"].apl-cel"
+    ]
+  },
+  "cw2-390-start": {
+    "szer": 390,
+    "wys": 2200,
+    "budzet": 15000,
+    "do": "cw2"
+  },
+  "obraz-pasek-boczny": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-wczesniejsza-rozmowa": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 30000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-menu-plus": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 40000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-rzad": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 55000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-menu-modelu": {
+    "szer": 1280,
+    "wys": 1100,
+    "budzet": 60000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-dwa-liczniki": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 88000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"3\"]:not([disabled])",
+      "#cw1 .apl-pierscien.apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-panel": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 92000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"3\"]:not([disabled])",
+      "#cw1 .apl-pierscien.apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-srodowisko": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 30000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "obraz-lista-trybow": {
+    "szer": 1280,
+    "wys": 1000,
+    "polecenie": "cw2",
+    "do": "cw2",
+    "budzet": 40000,
+    "klik": [
+      "#cw2 .apl-srod-przycisk.apl-cel",
+      "#cw2 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw2 .apl-przelacznik.apl-cel"
+    ],
+    "bez_znacznika": true,
+    "bez_luki": true
+  },
+  "cw1-ustawienia": {
+    "szer": 1280,
+    "wys": 1250,
+    "budzet": 100000,
+    "polecenie": "cw1",
+    "do": "cw1",
+    "klik": [
+      "#cw1 .apl-cel",
+      "#cw1 .polecenie[data-d=\"1\"]:not([disabled])",
+      "#cw1 .apl-plus-przycisk.apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Plugins\"].apl-cel",
+      "#cw1 .apl-menu-poz[data-poz=\"Browse plugins\"].apl-cel",
+      "#cw1 .polecenie[data-d=\"2\"]:not([disabled])",
+      "#cw1 .apl-model.apl-cel",
+      "#cw1 .apl-menu-effort.apl-cel",
+      "#cw1 .apl-poziom.apl-cel",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"3\"]:not([disabled])",
+      "#cw1 .apl-pierscien.apl-cel",
+      "#cw1 .polecenie[data-d=\"4\"]:not([disabled])"
+    ]
+  }
+}

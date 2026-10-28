@@ -1,0 +1,147 @@
+<!doctype html>
+<!-- Rysunek R5 „Kolejność poprawki” do lekcji strona-oferty: plik .txt poprawiony w panelu pliku, potem prośba do Claude z plikami wskazanymi znakiem @, potem plik .html w panelu Browser. Bez strzałki od kliknięcia ścieżki do panelu pliku. Źródło PNG obrazy/kolejnosc-poprawki.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Kolejność poprawki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .kroki {
+        display: flex;
+        flex-direction: column;
+      }
+      .krok {
+        display: grid;
+        grid-template-columns: 290px 1fr;
+        gap: 18px;
+        align-items: center;
+      }
+      .krok .glowa {
+        min-height: 0;
+        margin: 0;
+      }
+      .krok .scena {
+        padding: 16px 14px;
+      }
+      .rozszerzenie {
+        font: 700 25px/1 var(--mono);
+        letter-spacing: 0;
+      }
+      .miedzy {
+        height: 62px;
+        width: 40px;
+        margin-left: 0;
+      }
+      .miedzy svg {
+        width: 40px;
+        height: 62px;
+      }
+      .prosba {
+        padding: 18px 18px;
+        border-radius: 16px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        color: var(--granat);
+        font: 700 22px/1.4 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .prosba b {
+        font: 700 20px/1.4 var(--mono);
+        letter-spacing: 0;
+      }
+      .strona {
+        margin: 0 12px 12px;
+        padding: 14px 14px 16px;
+        border-radius: 0 0 8px 8px;
+        background: var(--papier);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: var(--granat);
+      }
+      .strona h3 {
+        margin: 0 0 2px;
+        font: 800 22px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .strona .cena {
+        margin-top: 4px;
+        padding-top: 10px;
+        border-top: 2px solid var(--kreska);
+        font: 800 21px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Trzy kroki po kolei. 1: plik cennik.txt poprawiasz sam w panelu pliku. 2: prosisz Claude, żeby wpisał nową cenę na stronie, i wskazujesz oba pliki znakiem @. 3: klikasz ścieżkę strony w odpowiedzi i plik oferta-szkolenia.html otwiera się w panelu Browser."
+    >
+      <div class="kroki">
+        <!-- Krok 1: .txt w panelu pliku -->
+        <div class="krok">
+          <p class="wniosek">Najpierw poprawiasz plik z ceną, <mark>potem prosisz Claude o zmianę strony</mark>.</p>
+          <p class="glowa"><span class="nr">1</span><span>Plik <span class="rozszerzenie">.txt</span> poprawiasz sam w panelu pliku.</span></p>
+          <div class="scena">
+            <div class="panel">
+              <div class="panel-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4.5 4.5v12.5H7z"/><path d="M14 3.5V8h4.5"/></svg>
+                <span class="plik">cennik.txt</span>
+                <span class="kropki">⋮</span>
+              </div>
+              <div class="panel-tresc">
+                <div class="linijka"><span class="lp">1</span><span class="szkic" style="max-width: 76%"></span></div>
+                <div class="linijka"><span class="lp">2</span><span>2 600 zł netto<span class="kursor-tekstu"></span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="miedzy">
+          <svg viewBox="0 0 40 62" aria-hidden="true"><path d="M20 6v48M8 42l12 13 12-13" fill="none" stroke="#0e1422" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- Krok 2: prośba z @ -->
+        <div class="krok">
+          <p class="glowa"><span class="nr">2</span><span>Prosisz Claude o zmianę na stronie i wskazujesz pliki znakiem @.</span></p>
+          <div class="scena">
+            <p class="prosba" style="margin: 0">W pliku <b>@cennik.txt</b> jest nowa cena. Wpisz ją na stronie w pliku <b>@oferta-szkolenia.html</b>. Resztę strony zostaw bez zmian.</p>
+          </div>
+        </div>
+
+        <div class="miedzy">
+          <svg viewBox="0 0 40 62" aria-hidden="true"><path d="M20 6v48M8 42l12 13 12-13" fill="none" stroke="#0e1422" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- Krok 3: .html w panelu Browser -->
+        <div class="krok">
+          <p class="glowa"><span class="nr">3</span><span>Klikasz ścieżkę strony: plik <span class="rozszerzenie">.html</span> otwiera się w panelu Browser.</span></p>
+          <div class="scena">
+            <div class="panel">
+              <div class="panel-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2.2 2.3 3.2 5 3.2 8s-1 5.7-3.2 8c-2.2-2.3-3.2-5-3.2-8s1-5.7 3.2-8z"/></svg>
+                Browser
+              </div>
+              <div class="strona">
+                <h3>Rozmowa o cenie bez przepraszania</h3>
+                <span class="szkic jasny" style="width: 100%"></span>
+                <span class="szkic jasny" style="width: 70%"></span>
+                <div class="cena">2 600 zł netto za osobę</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

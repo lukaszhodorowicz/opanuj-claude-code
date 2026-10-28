@@ -1,0 +1,260 @@
+<!doctype html>
+<!-- Rysunek R1 „Zasada ginie w długim pliku” do lekcji zasady-ktore-dzialaja: w krótkim CLAUDE.md widać każdą zasadę, w długim ta sama zasada tonie wśród setek linii. Źródło PNG obrazy/zasada-ginie-w-dlugim-pliku.png (zrzut 760 x 591 przy skali 2). -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Zasada ginie w długim pliku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku „Gdzie jest strona” (lekcja strona-oferty) */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        /* linie udające tekst i zasada, która w nich ginie */
+        --szum: #d6d9cf;
+        --zgaszony: #a7aca4;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        display: grid;
+        grid-template-columns: 356px 1fr;
+        column-gap: 24px;
+        padding: 20px 16px 0;
+      }
+      .lewa {
+        padding-bottom: 24px;
+      }
+      .prawa {
+        position: relative;
+      }
+      .prawa-srodek {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .podpis {
+        min-height: 2.3em;
+        display: flex;
+        align-items: flex-end;
+        margin: 0 0 10px 4px;
+        font: 800 27px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+
+      /* ===== Karta pliku ===== */
+      .karta {
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 16px 16px;
+      }
+      .karta-glowa {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 40px;
+        margin-bottom: 6px;
+        font: 700 23px/1 var(--mono);
+      }
+      .karta-glowa svg {
+        width: 27px;
+        height: 27px;
+        flex: none;
+      }
+
+      /* Krótki plik: jedyny element z zakreślaczem */
+      .krotka {
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+      }
+      .zasada {
+        margin: 0;
+        padding: 6px 0 6px 1.2em;
+        text-indent: -1.2em;
+        font: 500 22px/1.32 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      .zasada.naglowek {
+        padding-left: 0;
+        text-indent: 0;
+        font-weight: 700;
+      }
+
+      /* Rada z dokumentacji */
+      .rada {
+        margin: 26px 0 0;
+        padding: 14px 20px 15px;
+        background: var(--granat);
+        color: var(--biel);
+        border-radius: 18px;
+        font: 700 23px/1.3 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      .rada b {
+        color: var(--limonka);
+        font-weight: 800;
+      }
+
+      /* ===== Długi plik: biegnie poza dolną krawędź ===== */
+      .dluga {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+        border-bottom: none;
+        border-radius: 16px 16px 0 0;
+        padding-right: 24px;
+      }
+      .belka {
+        height: 17px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .belka i {
+        display: block;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--szum);
+      }
+      .zgubiona {
+        margin: 4px 0;
+        padding-left: 1.2em;
+        text-indent: -1.2em;
+        color: var(--zgaszony);
+        font: 500 22px/1.3 var(--mono);
+        letter-spacing: -0.02em;
+      }
+      /* Pasek przewijania: krótki uchwyt u góry, bo pod spodem jest dużo więcej */
+      .przewijanie {
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        bottom: 0;
+        width: 8px;
+        border-radius: 4px;
+        background: var(--papier);
+      }
+      .przewijanie i {
+        display: block;
+        height: 54px;
+        border-radius: 4px;
+        background: var(--grafit);
+      }
+      .naklejka {
+        position: absolute;
+        left: 50px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 50px;
+        padding: 0 16px 0 12px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        border-radius: 12px;
+        font: 800 24px/1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        transform: rotate(-2deg);
+        box-shadow: 4px 4px 0 var(--granat);
+      }
+      .naklejka svg {
+        width: 30px;
+        height: 30px;
+        flex: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Po lewej krótki plik CLAUDE.md: nagłówek Zasady biura i trzy zasady, cztery linie, każda zasada widoczna. Pod nim rada dokumentacji: celuj w mniej niż 200 linii. Po prawej długi plik CLAUDE.md, ponad 200 linii, biegnie poza obrazek; zasada Zawsze podaj metraż, piętro i czynsz jest wyszarzona wśród szarych linii i ginie."
+    >
+      <div class="lewa">
+        <p class="podpis">Każdą zasadę widać.</p>
+        <div class="karta krotka">
+          <div class="karta-glowa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+            CLAUDE.md
+          </div>
+          <p class="zasada naglowek">Zasady biura</p>
+          <p class="zasada">- Opis ogłoszenia ma do 400 znaków.</p>
+          <p class="zasada">- Nie używaj słów: wyjątkowy, unikalny, idealny.</p>
+          <p class="zasada">- Zawsze podaj metraż, piętro i czynsz.</p>
+        </div>
+        <p class="rada"><b>Dokumentacja radzi:</b> celuj w mniej niż 200 linii.</p>
+      </div>
+
+      <div class="prawa">
+        <div class="prawa-srodek">
+          <p class="podpis">W za długim pliku zasada ginie.</p>
+          <div class="karta dluga">
+            <div class="karta-glowa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+              CLAUDE.md
+            </div>
+            <div id="szum-gora"></div>
+            <p class="zgubiona">- Zawsze podaj metraż, piętro i czynsz.</p>
+            <div id="szum-dol"></div>
+            <div class="przewijanie"><i></i></div>
+            <div class="naklejka">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M8.6 8.6a2 2 0 1 1 2.6 1.9c-.5.2-.7.6-.7 1.1"/><path d="M10.5 13.6v.1"/></svg>
+              Ta zasada ginie.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      /* Linie udające tekst: stały wzór słów, bez losowania, żeby zrzut zawsze wyglądał tak samo; 0 = pusta linia */
+      const wzor = [
+        [14, 22, 9, 30], [26, 8, 18, 20], [11, 19, 27, 7], [33, 14, 20],
+        [9, 24, 16, 12, 10], [18, 29, 10], [13, 7, 23, 18], [21, 15, 11, 22],
+        [27, 12, 19, 16], [8, 31, 14, 12], [16, 20, 9, 26], [24, 11, 30],
+        [12, 18, 22, 8], [29, 14, 17], [10, 25, 13, 21], [19, 9, 28, 6],
+      ];
+      const wstaw = (id, od, ile) => {
+        const cel = document.getElementById(id);
+        for (let n = 0; n < ile; n++) {
+          const slowa = wzor[(od + n) % wzor.length];
+          const b = document.createElement("div");
+          b.className = "belka";
+          b.innerHTML = slowa[0] ? slowa.map((w) => `<i style="width:${w * 4.4}px"></i>`).join("") : "";
+          cel.appendChild(b);
+        }
+      };
+      wstaw("szum-gora", 0, 13);
+      wstaw("szum-dol", 13, 30);
+      /* Naklejka pod zgubioną zasadą */
+      const z = document.querySelector(".zgubiona");
+      document.querySelector(".naklejka").style.top = z.offsetTop + z.offsetHeight + 12 + "px";
+    </script>
+  </body>
+</html>

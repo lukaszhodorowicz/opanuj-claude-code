@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jak dokumentacja radzi pisać zasady w CLAUDE.md?"
+    tyl: "Tak, żeby dało się je sprawdzić, na przykład „Opis ogłoszenia ma do 400 znaków”."
+    fakt: claude-md-zasady-konkretne-do-sprawdzenia
+
+  - przod: "Ile linii powinien mieć plik CLAUDE.md?"
+    tyl: "Celuj w mniej niż 200 linii. Dłuższy plik zużywa więcej kontekstu i obniża stosowanie zasad."
+    fakt: claude-md-do-200-linii
+
+  - przod: "Jak sprawdzić, czy linia w CLAUDE.md jest potrzebna?"
+    tyl: "Zapytaj: czy bez niej Claude popełni błąd? Jeśli nie, wytnij ją."
+    fakt: claude-md-test-kazdej-linii
+
+  - przod: "Co robi Claude, gdy dwie zasady w CLAUDE.md sobie przeczą?"
+    tyl: "Może wybrać którąkolwiek z nich."
+    fakt: claude-md-sprzeczne-zasady-wybor-dowolny
+
+  - przod: "Claude wciąż pomija jedną zasadę z CLAUDE.md. Co dopisać?"
+    tyl: "Wyróżnienie, na przykład słowo „WAŻNE”, tylko przy tej jednej zasadzie."
+    fakt: claude-md-wazne-tylko-przy-jednej-zasadzie
+
+  - przod: "Czy plik CLAUDE.md wymusza zasady?"
+    tyl: "Nie. Claude traktuje go jako kontekst rozmowy, a nie jako ustawienie, które wymusza zasady."
+    fakt: claude-md-kontekst-nie-wymuszenie

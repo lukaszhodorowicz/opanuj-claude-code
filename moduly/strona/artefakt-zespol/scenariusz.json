@@ -1,0 +1,93 @@
+{
+  "lekcja": "artefakt-zespol",
+  "folder_startowy": [
+    "opis-szkolenia.txt",
+    "cennik.txt",
+    "opinie-klientow.txt",
+    "notatki-z-rozmowy.txt",
+    "oferta-szkolenia.html"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Popraw stronę według uwag zespołu",
+      "opis": "Strona oferty jest otwarta w panelu Browser. Kliknij polecenie i patrz na odpowiedź Claude i na stronę.",
+      "nauczyciel_start": "Anna i Tomek zostawili komentarze do strony oferty. To nowa rozmowa. Kliknij polecenie: Claude dostanie adres strony i przeczyta z niej komentarze.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [],
+        "artefakt_otwarty": {
+          "tytul": "Oferta szkolenia: rozmowa o cenie",
+          "strona": {
+            "tytul": "Rozmowa o cenie bez przepraszania",
+            "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+            "program": [
+              "Jak podać cenę jednym zdaniem",
+              "Co odpowiedzieć na „to za drogo”",
+              "Ćwiczenia na prawdziwych rozmowach zespołu"
+            ],
+            "cena": "2 600 zł netto za osobę",
+            "opinie": [
+              "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+              "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+            ],
+            "kontakt": "Pytania o termin: kontakt@example.com"
+          }
+        }
+      },
+      "drogi": [
+        {
+          "id": "uwagi",
+          "etykieta": "Przeczytaj komentarze i popraw stronę",
+          "opis": "Claude wypisze uwagi zespołu, zmieni plik strony i opublikuje go ponownie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj komentarze pod https://claude.ai/code/artifact/przyklad i wprowadź zmiany, o które proszą komentujący. Potem opublikuj stronę ponownie.",
+              "fakt": "artefakt-prosba-przeczytaj-komentarze-i-wprowadz-zmiany"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Na stronie są dwa wątki. 1. Anna (komentarz wysłany do mnie): prosi o godziny warsztatu w opisie, od 9:00 do 16:00. 2. Tomek: prosi o adres szkolenia@example.com w kontakcie. Wprowadziłem obie zmiany w pliku oferta-szkolenia.html i opublikowałem nową wersję pod tym samym adresem: https://claude.ai/code/artifact/przyklad",
+              "plik": "oferta-szkolenia.html",
+              "link": "https://claude.ai/code/artifact/przyklad",
+              "fakt": "artefakt-poprawka-zmienia-plik-i-publikuje-pod-tym-samym-adresem"
+            },
+            {
+              "typ": "artefakt",
+              "tytul": "Oferta szkolenia: rozmowa o cenie",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie. Warsztat trwa od 9:00 do 16:00.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 600 zł netto za osobę",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: szkolenia@example.com"
+              },
+              "fakt": "artefakt-otwarta-strona-pokazuje-aktualizacje-wersje-wybierasz-w-share"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude wypisał oba wątki i zaznaczył komentarz, który Anna wysłała do niego. Strona otwarta u Ciebie pokazuje poprawki, a plik strony ma ramkę.",
+              "fakt": "artefakt-claude-wypisuje-watki-i-zaznacza-wyslane"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

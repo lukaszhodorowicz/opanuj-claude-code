@@ -1,0 +1,215 @@
+<!doctype html>
+<!-- Rysunek A do lekcji nowy-dokument (styl R1, D-2026-10-26-58): pliki z folderu rozmowy trafiają do kontekstu rozmowy trzema drogami (@nazwa, Claude sam czyta, załącznik z pliku spoza folderu); arkusz XLSX po @ daje tylko ścieżkę; kontekst się zapełnia; z kontekstu powstaje nowy plik zestawienia. Limonka: ramka „kontekst rozmowy”. Napisy z faktów: aplikacja-at-dodaje-plik-do-rozmowy, claude-code-trzy-fazy-zadania, aplikacja-plus-i-przeciaganie-dolaczaja-pliki, read-odmawia-xlsx-po-at-claude-dostaje-sciezke, claude-code-okno-kontekstu-co-trzyma-zapelnia-sie, claude-code-tworzy-nowe-pliki, claude-code-dostep-do-folderu-i-podfolderow-reszta-za-zgoda. Poprawki P3 kontroli 26.10: nagłówek „folder rozmowy”, „po @: tylko ścieżka”, „historia rozmowy”. Źródło PNG obrazy/skad-claude-bierze-informacje.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Skąd Claude bierze informacje</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys { position: relative; height: 846px; }
+      .rys > svg { position: absolute; inset: 0; width: 760px; height: 846px; overflow: visible; }
+      .abs { position: absolute; }
+
+      /* folder rozmowy */
+      .folder {
+        left: 16px; top: 20px; width: 492px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 14px 14px 16px;
+      }
+      .glowa {
+        display: flex; align-items: center; gap: 9px;
+        margin: 0 0 12px 2px;
+        font: 700 20px/1.2 var(--mono);
+        white-space: nowrap;
+      }
+      .glowa svg { width: 26px; height: 26px; flex: none; }
+      .siatka { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+      .karta {
+        display: flex; align-items: center; gap: 10px;
+        height: 52px; padding: 0 12px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 700 21px/1 var(--sans);
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+      .karta svg { width: 25px; height: 25px; flex: none; }
+      .karta.szer { grid-column: 1 / 3; }
+      .etykieta {
+        margin-left: auto;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--papier-2);
+        border: 2px solid var(--grafit);
+        color: var(--grafit);
+        font: 800 19px/1 var(--sans);
+      }
+
+      /* poza folderem */
+      .poza {
+        left: 528px; top: 20px; width: 216px; height: 138px;
+        border: 3px dashed var(--grafit);
+        border-radius: 20px;
+        padding: 14px 12px;
+      }
+      .folder .glowa { font: 800 21px/1.2 var(--sans); letter-spacing: -0.01em; }
+      .poza .glowa { font: 800 21px/1.2 var(--sans); color: var(--grafit); letter-spacing: -0.01em; }
+      .poza .karta { font-size: 20px; }
+
+      /* napisy przy strzałkach */
+      .pigulka {
+        transform: translate(-50%, -50%);
+        background: var(--papier);
+        padding: 6px 10px;
+        text-align: center;
+        font: 800 22px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .pigulka.mono { font: 700 23px/1 var(--mono); letter-spacing: 0; }
+      .pigulka .mono { font: 700 22px/1 var(--mono); letter-spacing: 0; }
+      .pigulka small { display: block; font: 700 20px/1.2 var(--sans); color: var(--grafit); letter-spacing: 0; }
+
+      /* kontekst rozmowy: jedyna limonka */
+      .kontekst {
+        left: 96px; top: 430px; width: 568px;
+        border: 5px solid var(--limonka);
+        background: var(--zakreslacz);
+        border-radius: 22px;
+        padding: 16px 18px 18px;
+        text-align: center;
+      }
+      .kontekst h2 { margin: 0 0 14px; font: 800 30px/1 var(--sans); letter-spacing: -0.02em; }
+      .zawartosc { display: flex; justify-content: center; gap: 10px; }
+      .zawartosc span {
+        background: var(--biel);
+        border: 2px solid #c5e88a;
+        border-radius: 11px;
+        padding: 10px 12px;
+        font: 700 20px/1 var(--sans);
+        white-space: nowrap;
+      }
+
+      /* pasek zapełniania */
+      .pasek {
+        left: 96px; top: 590px; width: 410px;
+        display: flex; align-items: center; gap: 14px;
+        font: 800 22px/1 var(--sans);
+        color: var(--grafit);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .tor {
+        flex: 1; height: 22px;
+        border: 3px solid var(--grafit);
+        border-radius: 11px;
+        background: var(--biel);
+        overflow: hidden;
+      }
+      .tor i { display: block; height: 100%; width: 72%; background: var(--grafit); }
+
+      /* wynik */
+      .wynik {
+        left: 50%; top: 762px; transform: translateX(-50%);
+        height: 64px; padding: 0 20px;
+        border: 4px solid var(--granat);
+        border-radius: 13px;
+        font: 700 21px/1 var(--mono);
+      }
+      .wynik svg { width: 27px; height: 27px; }
+
+      h1.wniosek { margin: 0; padding: 22px 24px 4px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat); }
+      h1.wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <h1 class="wniosek">Claude tworzy nowy plik z tego, co ma <mark>w&nbsp;kontekście rozmowy</mark></h1>
+    <div class="rys" role="img" aria-label="Folder rozmowy z kartami: faktury PDF, oferta PDF, wyciąg CSV, zrzut PNG i arkusz XLSX z etykietą po @: tylko ścieżka. Obok, poza folderem, zrzut z pulpitu. Do ramki kontekst rozmowy prowadzą trzy strzałki: @nazwa z karty w folderze, Claude sam czyta z folderu i załącznik (+ albo przeciągnięcie) z pliku spoza folderu. W kontekście są historia rozmowy, treść plików i wyniki poleceń. Pod ramką pasek: kontekst się zapełnia. Z kontekstu strzałka do nowego pliku zestawienie-kosztow-2026-10.csv.">
+      <svg viewBox="0 0 760 846" aria-hidden="true">
+        <g fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- @nazwa: z karty w folderze -->
+          <path d="M136 270 V420"/>
+          <path d="M123 408 L136 423 L149 408"/>
+          <!-- Claude sam czyta: z folderu -->
+          <path d="M386 270 V420"/>
+          <path d="M373 408 L386 423 L399 408"/>
+          <!-- załącznik: z pliku spoza folderu -->
+          <path d="M636 160 V300 a14 14 0 0 1 -14 14 H602 a14 14 0 0 0 -14 14 V420"/>
+          <path d="M575 408 L588 423 L601 408"/>
+          <!-- nowy plik -->
+          <path d="M590 564 V750"/>
+          <path d="M577 738 L590 753 L603 738"/>
+        </g>
+      </svg>
+
+      <div class="abs folder">
+        <div class="glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+          Folder rozmowy
+        </div>
+        <div class="siatka">
+          <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>faktury PDF</div>
+          <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>oferta PDF</div>
+          <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M8.5 12h7M8.5 15h7M8.5 18h7M12 12v6"/></svg>wyciąg CSV</div>
+          <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M20.5 16l-5-5-8 8"/></svg>zrzut PNG</div>
+          <div class="karta szer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M3.5 14.5h17M10 4v16"/></svg>arkusz XLSX<span class="etykieta">Claude dostaje tylko ścieżkę</span></div>
+        </div>
+      </div>
+
+      <div class="abs poza">
+        <div class="glowa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></svg>
+          Poza folderem
+        </div>
+        <div class="karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M20.5 16l-5-5-8 8"/></svg>zrzut z pulpitu</div>
+      </div>
+
+      <div class="abs pigulka" style="left: 136px; top: 340px">Ty wpisujesz<small>@ i nazwę pliku</small></div>
+      <div class="abs pigulka" style="left: 386px; top: 340px">Claude czyta sam</div>
+      <div class="abs pigulka" style="left: 610px; top: 368px">Ty załączasz plik<small>przyciskiem +<br />albo przeciągnięciem</small></div>
+
+      <div class="abs kontekst">
+        <h2>Kontekst rozmowy</h2>
+        <div class="zawartosc">
+          <span>historia rozmowy</span>
+          <span>treść plików</span>
+          <span>wyniki poleceń</span>
+        </div>
+      </div>
+
+      <div class="abs pasek">Kontekst się zapełnia.<span class="tor"><i></i></span></div>
+
+      <div class="abs pigulka" style="left: 590px; top: 662px">Nowy plik</div>
+
+      <div class="abs karta wynik">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M8.5 12h7M8.5 15h7M8.5 18h7M12 12v6"/></svg>
+        zestawienie-kosztow-2026-10.csv
+      </div>
+    </div>
+  </body>
+</html>

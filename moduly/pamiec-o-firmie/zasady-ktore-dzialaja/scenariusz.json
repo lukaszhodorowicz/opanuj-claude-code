@@ -1,0 +1,387 @@
+{
+  "lekcja": "zasady-ktore-dzialaja",
+  "folder_startowy": [
+    "dane-mieszkania.txt",
+    "CLAUDE.md"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Ogólna zasada czy konkretne zasady",
+      "opis": "Rozmowa zaczyna się od prośby o pokazanie zasad z pliku CLAUDE.md. Pierwsze polecenie pokaże ogłoszenie według zasady, która tam stoi, drugie zamieni ją na trzy konkretne.",
+      "nauczyciel_start": "Prośba jest już wysłana. Kliknij pierwsze polecenie nad oknem: zaświeci karta CLAUDE.md, bo Claude czyta ten plik.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Biuro-nieruchomosci",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Pokaż mi zasady z pliku CLAUDE.md.",
+            "fakt": "aplikacja-enter-wysyla-zadanie"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "ogloszenie-ogolne.txt"
+      ],
+      "drogi": [
+        {
+          "id": "ogolne",
+          "etykieta": "Ogłoszenie według ogólnej zasady",
+          "opis": "Oglądasz zasadę w pliku, potem prosisz o ogłoszenie.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta plik CLAUDE.md. Patrz na jego kartę w folderze pod oknem.",
+              "fakt": "claude-md-czytany-na-start-sesji"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "W pliku CLAUDE.md jest jedna zasada: „Pisz ładnie i profesjonalnie”.",
+              "plik": "CLAUDE.md",
+              "bez_zmiany": true,
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę CLAUDE.md w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady biura",
+                "- Pisz ładnie i profesjonalnie."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W pliku jest jedna zasada, ogólna. Teraz prośba o ogłoszenie. Znak @ przed nazwą dodaje plik do rozmowy.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Napisz ogłoszenie o mieszkaniu z @dane-mieszkania.txt. Zapisz je w osobnym pliku.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "dane-mieszkania.txt"
+              ],
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem ogłoszenie w pliku ogloszenie-ogolne.txt.",
+              "plik": "ogloszenie-ogolne.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę ogloszenie-ogolne.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "ogloszenie-ogolne.txt",
+              "linijki": [
+                "Wyjątkowy lokal w sercu Mokotowa czeka na nowego lokatora!",
+                "To idealny wybór dla osób, które cenią komfort i elegancję.",
+                "Jasne wnętrza, osobna kuchnia i unikalny klimat sprawią, że poczujesz się tu jak w domu.",
+                "Do metra dojdziesz pieszo w 5 minut, a wieczorem odpoczniesz na własnym balkonie.",
+                "Na Twój samochód czeka miejsce w garażu.",
+                "Mieszkanie będzie gotowe na Twoją przeprowadzkę od 1 grudnia.",
+                "Nie przegap tej niepowtarzalnej okazji, zadzwoń już dziś i umów prezentację!"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ogłoszenie jest długie, ma słowa w rodzaju „wyjątkowy” i nie ma metrażu, piętra ani czynszu."
+            }
+          ]
+        },
+        {
+          "id": "popraw",
+          "etykieta": "Zamień zasadę na trzy konkretne",
+          "opis": "Ta sama rozmowa od początku: oglądasz zasadę, potem prosisz o trzy zasady, które da się sprawdzić.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta plik CLAUDE.md. Patrz na jego kartę w folderze pod oknem.",
+              "fakt": "claude-md-czytany-na-start-sesji"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "W pliku CLAUDE.md jest jedna zasada: „Pisz ładnie i profesjonalnie”.",
+              "plik": "CLAUDE.md",
+              "bez_zmiany": true,
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę CLAUDE.md w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady biura",
+                "- Pisz ładnie i profesjonalnie."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To ta sama jedna, ogólna zasada. Teraz prośba o trzy zasady, które da się sprawdzić."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Zamień zasadę „Pisz ładnie i profesjonalnie” w pliku CLAUDE.md na trzy zasady: 1) opis ogłoszenia ma do 400 znaków, 2) nie używaj słów: wyjątkowy, unikalny, idealny, 3) zawsze podaj metraż, piętro i czynsz.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zamieniłem zasadę „Pisz ładnie i profesjonalnie” na trzy zasady w pliku CLAUDE.md.",
+              "plik": "CLAUDE.md",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę CLAUDE.md w odpowiedzi Claude, żeby otworzyć plik z nowymi zasadami.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady biura",
+                "- Opis ogłoszenia ma do 400 znaków.",
+                "- Nie używaj słów: wyjątkowy, unikalny, idealny.",
+                "- Zawsze podaj metraż, piętro i czynsz."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Każdą z trzech zasad da się sprawdzić w gotowym ogłoszeniu.",
+              "fakt": "claude-md-zasady-konkretne-do-sprawdzenia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Ta sama prośba w nowej rozmowie",
+      "opis": "Nowa rozmowa w tym samym folderze. W pliku CLAUDE.md są już trzy zasady. Prośba o ogłoszenie jest już wysłana i nie ma w niej słowa o zasadach.",
+      "nauczyciel_start": "To nowa rozmowa w folderze Biuro-nieruchomosci, a prośba jest wysłana. Trzy zasady są już w pliku CLAUDE.md. Kliknij pierwsze polecenie i patrz, co zaświeci.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Biuro-nieruchomosci",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Napisz ogłoszenie o mieszkaniu z @dane-mieszkania.txt. Zapisz je w osobnym pliku.",
+            "fakt": "aplikacja-rozmowa-to-sesja-z-wlasna-historia"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "ogloszenie-mieszkanie.txt"
+      ],
+      "drogi": [
+        {
+          "id": "nowa",
+          "etykieta": "Ta sama prośba, nowa rozmowa",
+          "opis": "Claude pracuje nad prośbą, w której nie ma słowa o zasadach.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta plik CLAUDE.md. Patrz na jego kartę w folderze pod oknem.",
+              "fakt": "claude-md-czytany-na-start-sesji"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600,
+              "czyta": [
+                "dane-mieszkania.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem ogłoszenie w pliku ogloszenie-mieszkanie.txt.",
+              "plik": "ogloszenie-mieszkanie.txt",
+              "fakt": "aplikacja-uzywa-claude-md-z-projektu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę ogloszenie-mieszkanie.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "ogloszenie-mieszkanie.txt",
+              "linijki": [
+                "Do wynajęcia: 2 pokoje, 46 m², 3. piętro.",
+                "Jasne mieszkanie na Mokotowie, 5 minut pieszo od metra.",
+                "Osobna kuchnia, balkon, miejsce w garażu.",
+                "Czynsz: 2 900 zł miesięcznie.",
+                "Wolne od 1 grudnia. Zadzwoń i umów oglądanie."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ogłoszenie jest krótkie i ma metraż, piętro oraz czynsz. Porównaj je z pierwszym ogłoszeniem pod ćwiczeniem.",
+              "fakt": "claude-md-sprawdz-zmiane-obserwujac-zachowanie"
+            }
+          ]
+        },
+        {
+          "id": "wyroznij",
+          "etykieta": "Gdy Claude wciąż pomija zasadę: wyróżnij ją",
+          "opis": "Ta sama prośba, ale tym razem w ogłoszeniu brakuje czynszu. Prosisz o wyróżnienie tej jednej zasady.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na początku rozmowy Claude czyta plik CLAUDE.md. Patrz na jego kartę w folderze pod oknem.",
+              "fakt": "claude-md-czytany-na-start-sesji"
+            },
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600,
+              "czyta": [
+                "dane-mieszkania.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem ogłoszenie w pliku ogloszenie-mieszkanie.txt.",
+              "plik": "ogloszenie-mieszkanie.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę ogloszenie-mieszkanie.txt w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "ogloszenie-mieszkanie.txt",
+              "linijki": [
+                "Do wynajęcia: 2 pokoje, 46 m², 3. piętro.",
+                "Jasne mieszkanie na Mokotowie, 5 minut pieszo od metra.",
+                "Osobna kuchnia, balkon, miejsce w garażu.",
+                "Wolne od 1 grudnia. Zadzwoń i umów oglądanie."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tym razem Claude pominął czynsz. Gdy to się powtarza, wyróżnij tę jedną zasadę. Zobacz jak.",
+              "fakt": "claude-md-wazne-tylko-przy-jednej-zasadzie"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "W pliku CLAUDE.md dopisz WAŻNE przy zasadzie o metrażu, piętrze i czynszu. Reszty nie zmieniaj.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopisałem WAŻNE przy tej zasadzie w pliku CLAUDE.md.",
+              "plik": "CLAUDE.md",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij ścieżkę CLAUDE.md w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady biura",
+                "- Opis ogłoszenia ma do 400 znaków.",
+                "- Nie używaj słów: wyjątkowy, unikalny, idealny.",
+                "- WAŻNE: Zawsze podaj metraż, piętro i czynsz."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wyróżniona jest tylko jedna zasada. Gdy wyróżnisz wiele, żadna się nie wyróżni.",
+              "fakt": "claude-md-wazne-tylko-przy-jednej-zasadzie"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

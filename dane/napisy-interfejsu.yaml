@@ -1,0 +1,1421 @@
+# Napisy, które wolno pokazać w terminalu symulatora (sprawdzone w dokumentacji albo w programie).
+# `napis` = dosłownie, `wzor` = wyrażenie regularne dla napisów z wstawką.
+# `gdzie`: tryb | menu | narzedzie | wynik | pasek | okno | aplikacja | claude.ai.
+
+napisy:
+  - napis: "⏸ manual mode on"
+    gdzie: tryb
+    zrodlo: "https://code.claude.com/docs/en/permission-modes.md (dział Switch permission modes), sprawdzono 2026-10-23"
+  - napis: "⏵⏵ accept edits on"
+    gdzie: tryb
+    zrodlo: "https://code.claude.com/docs/en/permission-modes.md (dział Switch permission modes), sprawdzono 2026-10-23"
+  - napis: "⏸ plan mode on"
+    gdzie: tryb
+    zrodlo: "https://code.claude.com/docs/en/permission-modes.md (dział Switch permission modes), sprawdzono 2026-10-23"
+  - napis: "⏵⏵ auto mode on"
+    gdzie: tryb
+    zrodlo: "https://code.claude.com/docs/en/permission-modes.md (dział Switch permission modes), sprawdzono 2026-10-23"
+  - napis: "? for shortcuts"
+    gdzie: pasek
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - wzor: "^✻ \\S+… \\(esc to interrupt\\)$"
+    gdzie: pasek
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Here is Claude's plan:"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 i dokumentacja (dział Review and approve a plan), sprawdzono 2026-10-23"
+  - napis: "Claude has written up a plan and is ready to execute. Would you like to proceed?"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 i dokumentacja (dział Review and approve a plan), sprawdzono 2026-10-23"
+  - napis: "Yes, and use auto mode"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 i dokumentacja (dział Review and approve a plan), sprawdzono 2026-10-23"
+  - napis: "Yes, auto-accept edits"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 i dokumentacja (dział Review and approve a plan), sprawdzono 2026-10-23"
+  - napis: "Yes, manually approve edits"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 i dokumentacja (dział Review and approve a plan), sprawdzono 2026-10-23"
+  - napis: "No, keep planning"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 i dokumentacja (dział Review and approve a plan), sprawdzono 2026-10-23"
+  - napis: "Bash command"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Create file"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Do you want to proceed?"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Yes"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - wzor: "^Yes, and don['’]t ask again for:? .+$"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "No, and tell Claude what to do differently (esc)"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Bash"
+    gdzie: narzedzie
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Read"
+    gdzie: narzedzie
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Write"
+    gdzie: narzedzie
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Edit"
+    gdzie: narzedzie
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "Glob"
+    gdzie: narzedzie
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - napis: "(No content)"
+    gdzie: wynik
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - wzor: "^Read PDF \\(\\d+KB\\)$"
+    gdzie: wynik
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  - wzor: "^Wrote \\d+ lines? to .+$"
+    gdzie: wynik
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-23"
+  # Okno zgody na polecenie według dokumentacji (opis zrzutu w permissions.md, dział Permission system).
+  - wzor: "^Yes, and don['’]t ask again for: .+$"
+    gdzie: menu
+    zrodlo: "https://code.claude.com/docs/en/permissions.md (opis okna zgody: „Yes, and don't ask again for: npm test *”), sprawdzono 2026-10-23"
+  - napis: "Yes, and switch to auto mode"
+    gdzie: menu
+    zrodlo: "https://code.claude.com/docs/en/permissions.md i permission-modes.md (Switch permission modes); program 2.1.309, sprawdzono 2026-10-23"
+  - napis: "No"
+    gdzie: menu
+    zrodlo: "https://code.claude.com/docs/en/permissions.md (opis okna zgody: cztery opcje, ostatnia „No”), sprawdzono 2026-10-23"
+  - wzor: "^~/[^\\s/]+(/[^\\s/]+)*$"
+    gdzie: okno
+    zrodlo: "pasek okna programu terminala (nie Claude Code): pokazujemy tylko folder roboczy, decyzja projektu 2026-10-23"
+  # Okno zgody na plik i wynik Read (program 2.1.309, sprawdzono 2026-10-24).
+  - wzor: "^Do you want to create .+\\?$"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 (okno zgody na zapis pliku, pytanie z nazwą pliku), sprawdzono 2026-10-24"
+  - wzor: "^Yes, and switch to accept edits \\(auto-approve file edits and common file commands\\) for this session( \\(shift\\+tab\\))?$"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309 (okno zgody na zapis pliku w trybie default; opcja bywa niedostępna, a dopisek klawisza zależy od ustawień), sprawdzono 2026-10-24"
+  - wzor: "^Read \\d+ lines?$"
+    gdzie: wynik
+    zrodlo: "program Claude Code 2.1.309 (wynik narzędzia Read dla pliku tekstowego), sprawdzono 2026-10-24"
+
+  # Okno odczytu spoza folderu w trybie auto (program 2.1.309, terminal, sprawdzono 2026-10-24).
+  - napis: "Read outside the working directories"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-24 (okno odczytu spoza folderów roboczych)"
+  - napis: "Allow this read outside the working directories?"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-24 (okno odczytu spoza folderów roboczych)"
+  - napis: "Yes, and keep allowing any reads outside the working directories"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-24 i permission-modes.md (The first read outside the working directories)"
+  - napis: "No, and block reads outside the working directories from now on"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-24 i permission-modes.md (The first read outside the working directories)"
+  - napis: "No, and ask again next time"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-24 i permission-modes.md (The first read outside the working directories)"
+  - napis: "Yes, but ask again next time"
+    gdzie: menu
+    zrodlo: "program Claude Code 2.1.309, sprawdzono 2026-10-24 i permission-modes.md (The first read outside the working directories)"
+
+  # Napisy zakładki Code w aplikacji Claude na komputer (symulator aplikacji, D-2026-10-24-12).
+  # Źródło: dokumentacja aplikacji, napis jako nazwa elementu (pogrubienie albo kod), sprawdzono 2026-10-24.
+  # Uwaga: w aplikacji tryb nazywa się „Plan”, nie „Plan mode” (tak nazywał go wcześniejszy układ, desktop.md dział Choose a permission mode).
+  - napis: "Code"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop-quickstart.md (dział Install, krok 2 „Open the Code tab”: zakładka u góry paska bocznego), sprawdzono 2026-10-24"
+  - napis: "Local"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop-quickstart.md (dział Start your first session, krok 1: grupa Local w wyborze środowiska), sprawdzono 2026-10-24; także kadr zrzutu Łukasza (nagłówek grupy w menu środowiska), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/2-rzad-pod-polem.png w drzewie modułu 0"
+  - napis: "Cloud"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop-quickstart.md (dział Start your first session, krok 1: lista „You can also select”), sprawdzono 2026-10-24; także kadr zrzutu Łukasza (pozycja ze strzałką w menu środowiska), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/2-rzad-pod-polem.png w drzewie modułu 0"
+  - napis: "SSH"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop-quickstart.md (dział Start your first session, krok 1: lista „You can also select”), sprawdzono 2026-10-24"
+  - napis: "Open folder…"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop-quickstart.md (dział Start your first session, krok 1: wybór folderu projektu), sprawdzono 2026-10-24"
+  - napis: "Manual"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Choose a permission mode, tabela trybów), sprawdzono 2026-10-24; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (pozycja listy trybów sesji lokalnej, druga od góry)"
+  - napis: "Accept edits"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Choose a permission mode, tabela trybów), sprawdzono 2026-10-24; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (pozycja listy trybów, trzecia od góry; też 04-26-09)"
+  - napis: "Plan"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Choose a permission mode, tabela trybów), sprawdzono 2026-10-24; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (pozycja listy trybów, czwarta od góry; też 04-26-09)"
+  - napis: "Auto"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Choose a permission mode, tabela trybów; tryb widoczny, gdy auto jest dostępny), sprawdzono 2026-10-24; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (pierwsza pozycja listy trybów z haczykiem; też 04-26-09)"
+  - napis: "Changes"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Review changes with diff view: karta w panelu obok rozmowy i przycisk na pasku tytułu), sprawdzono 2026-10-24"
+  - wzor: "^\\+\\d+ -\\d+$"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Review changes with diff view: „line counts, such as `+12 -1`”; to samo w https://code.claude.com/docs/en/desktop-quickstart.md, dział Now what?; w dokumentacji minus to zwykły myślnik), sprawdzono 2026-10-24"
+  - napis: "Terminal"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Arrange your workspace: przyciski panelu na pasku tytułu), sprawdzono 2026-10-24"
+  - napis: "Browser"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Arrange your workspace: przyciski panelu na pasku tytułu), sprawdzono 2026-10-24"
+  - napis: "Files"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Arrange your workspace: przyciski panelu na pasku tytułu), sprawdzono 2026-10-24"
+  - napis: "Cmd+Enter"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Review changes with diff view: wysłanie wszystkich uwag naraz, macOS; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-24"
+  - napis: "Ctrl+Enter"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Review changes with diff view: wysłanie wszystkich uwag naraz, Windows; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-24"
+  - napis: "+"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Use the prompt box: „Click the **+** button next to the prompt box”; dział Add files and context to prompts), sprawdzono 2026-10-25"
+  - napis: "Add folder"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Add folders to a session: „click **+** next to the prompt box and select **Add folder**”, w czasie sesji lokalnej), sprawdzono 2026-10-26; https://code.claude.com/docs/en/desktop.md (dział Add folders to a session: „select **Add folder**”, napis pogrubiony), pozycja menu +, sprawdzono 2026-10-25"
+  - napis: "Bypass permissions"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Choose a permission mode, tabela trybów: **Bypass permissions**, w selektorze dopiero po włączeniu), sprawdzono 2026-10-26; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (ostatnia pozycja listy trybów, widoczna po włączeniu na koncie)"
+  - napis: "+ New"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Work in parallel with sessions: „Click **+ New** in the sidebar”, napis pogrubiony), sprawdzono 2026-10-25; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu (pierwsza pozycja paska bocznego: ikona plusa i napis New)"
+  - napis: "Share"
+    gdzie: claude.ai
+    zrodlo: "https://code.claude.com/docs/en/artifacts.md (dział o udostępnianiu: kontrolka **Share** w nagłówku strony artefaktu na claude.ai; fakt artefakt-nowy-widoczny-tylko-dla-ciebie), sprawdzono 2026-10-25"
+  - napis: "Content is user-generated and unverified."
+    gdzie: claude.ai
+    zrodlo: "https://code.claude.com/docs/en/artifacts.md (etykieta widoczna dla gościa publicznego linku zamiast imienia autora; fakt artefakt-gosc-publicznego-linku-widzi-napis-zamiast-imienia), sprawdzono 2026-10-25"
+  - napis: "Slash commands"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Use skills: „select **Slash commands**”, napis pogrubiony; też desktop-quickstart.md, dział Now what?: „click **+** → **Slash commands**”), pozycja menu +, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Use skills: „click the **+** button and select **Slash commands**”), sprawdzono 2026-10-26"
+  - napis: "Add files or photos"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Add files and context to prompts: „**Add files or photos**”, napis pogrubiony; w `desktop.md:81` to zdanie o sesji WSL: „if the **+** menu shows **Add image** instead of **Add files or photos**”), pozycja menu +, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Add files and context to prompts: pozycja menu **+**, „if the **+** menu shows **Add image** instead of **Add files or photos**”; menu + jako całość: dział Use the prompt box), sprawdzono 2026-10-26"
+  - napis: "Add folder"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Add folders to a session: „select **Add folder**”, napis pogrubiony), pozycja menu +, sprawdzono 2026-10-25"
+  - napis: "Add connectors"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Connect external tools: „Select **Add connectors**”, napis pogrubiony), pozycja menu +, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Connect external tools: „Select **Add connectors** to open the connector directory”; fakt aplikacja-add-connectors-otwiera-katalog; zrzut z czatu aplikacji ma brzmienie „Add connector”, lekcja idzie za dokumentacją), sprawdzono 2026-10-26"
+  - napis: "Add plugins"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Install plugins: „select **Add plugins**”, napis pogrubiony), pozycja menu +, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Install plugins: „click **+** next to the prompt box and select **Add plugins**”), sprawdzono 2026-10-26"
+  - napis: "/context"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Check usage: „type `/context` in the prompt box”, napis w kodzie), wiersz listy poleceń, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Check usage: „type `/context` in the prompt box”, napis w kodzie), sprawdzono 2026-10-26"
+  - napis: "/compact"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Check and free up context: „type `/compact`”, napis w kodzie), wiersz listy poleceń, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Check and free up context: „type `/compact`”, napis w kodzie), sprawdzono 2026-10-26"
+  - napis: "/btw"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Ask a side question without derailing the session: „type `/btw` in the prompt box”, napis w kodzie), wiersz listy poleceń, sprawdzono 2026-10-25; https://code.claude.com/docs/en/desktop.md (dział Ask a side question without derailing the session: „type `/btw` in the prompt box”, napis w kodzie), sprawdzono 2026-10-26"
+  - napis: "/config"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Terminal-dialog commands: „`/config` opens **Settings > Claude Code**”, napis w kodzie), wiersz listy poleceń, sprawdzono 2026-10-26"
+  - napis: "/remote-control"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Control which sessions appear on your other devices: „typing `/remote-control` in its prompt box”, napis w kodzie), wiersz listy poleceń, sprawdzono 2026-10-25"
+  - napis: "/"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Use skills: „type `/` in the prompt box”, napis w kodzie; też desktop-quickstart.md), znak wpisany w polu wiadomości, sprawdzono 2026-10-25"
+  - napis: "Customize"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Extend Claude Code: „click **Customize** in the sidebar”, napis pogrubiony), pozycja paska bocznego; symulator jej nie rysuje, tylko tekst lekcji, sprawdzono 2026-10-25; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu (pozycja paska bocznego; symulator ją rysuje); także zrzut_2026-10-27_03-59-16.png, zrzut_2026-10-27_04-45-04.png (nagłówek grupy lewej kolumny okna Settings); https://code.claude.com/docs/en/desktop.md (dział Extend Claude Code: „click **Customize** in the sidebar”; fakt aplikacja-customize-konektory-skille-wtyczki), sprawdzono 2026-10-26"
+  - napis: "Add slide"
+    gdzie: claude.ai
+    zrodlo: "zrzut Łukasza 26.10.2026 z edytora Claude Slides (materialy/zrzuty-lukasza/zrzut_2026-10-26_05-16-00.png i 05-16-40.png w pamięci projektu)"
+  - napis: "31%"
+    gdzie: claude.ai
+    zrodlo: "zrzut Łukasza 26.10.2026 z edytora Claude Slides (materialy/zrzuty-lukasza/zrzut_2026-10-26_05-16-00.png i 05-16-40.png w pamięci projektu)"
+  - napis: "Claude"
+    gdzie: claude.ai
+    zrodlo: "zrzut Łukasza 26.10.2026 z edytora Claude Slides (materialy/zrzuty-lukasza/zrzut_2026-10-26_05-16-00.png i 05-16-40.png w pamięci projektu)"
+  - napis: "Hide session rail"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Hide or show the session details panel: „click **Hide session rail** or **Show session rail** in the session's title bar”, napis pogrubiony), sprawdzono 2026-10-26"
+  # Napisy lekcji strona-oferty (moduł 3, lekcja 1): panel Browser, układ paneli, panel pliku, menu prawego klawisza. Źródło: pogrubienia w desktop.md, sprawdzono 2026-10-26.
+  - napis: "Cmd+Shift+B"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Browse external sites: otwarcie panelu Browser, macOS; dział Keyboard shortcuts: Toggle Browser pane; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-26"
+  - napis: "Ctrl+Shift+B"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Browse external sites: otwarcie panelu Browser, Windows; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-26"
+  - napis: "Cmd+\\"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Arrange your workspace: zamknięcie aktywnego panelu, macOS; w źródle markdown ukośnik jest zapisany podwójnie; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-26"
+  - napis: "Ctrl+\\"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Arrange your workspace: zamknięcie aktywnego panelu, Windows; w źródle markdown ukośnik jest zapisany podwójnie; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-26"
+
+  # Karta planu i panel Plan w zakładce Code (symulator aplikacji, D-2026-10-26-54).
+  # Źródło: klatki filmów z YouTube opisane w materialy/zrzuty-aplikacji/plan/ZRODLA.md w pamięci projektu; dokumentacja nie podaje tych napisów.
+  - napis: "Claude proposed a plan"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: nagłówek karty planu w rozmowie), sprawdzono 2026-10-26"
+  - napis: "Open plan"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: odnośnik po prawej w nagłówku karty planu), sprawdzono 2026-10-26"
+  - napis: "Reject"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: przycisk karty planu; skutku nie pokazuje żaden film, w symulatorze nieaktywny), sprawdzono 2026-10-26"
+  - napis: "Revise…"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: przycisk karty planu), sprawdzono 2026-10-26"
+  - napis: "Esc"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: skrót przy przycisku Revise…), sprawdzono 2026-10-26"
+  - napis: "Accept"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: przycisk karty planu), sprawdzono 2026-10-26"
+  - napis: "⇧⌘⏎"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: skrót przy przycisku Accept, zapis jak w ZRODLA.md), sprawdzono 2026-10-26"
+  - napis: "Accept and auto mode"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: główny przycisk karty planu, obok strzałka ▾ bez źródła skutku), sprawdzono 2026-10-26"
+  - napis: "⌘⏎"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: skrót przy przycisku Accept and auto mode, zapis jak w ZRODLA.md), sprawdzono 2026-10-26"
+  - napis: "Select any text to leave a comment for Claude"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=650s (12.10.2026, klatka plan-11: podpowiedź pod nagłówkiem panelu Plan), sprawdzono 2026-10-26"
+  - napis: "Proposing plan"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=-YTot4fwNFY&t=315s (13.07.2026, klatka plan-skutek-revise-po: wiersz nad kartą planu), sprawdzono 2026-10-26"
+  - napis: "Proposed plan"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=wnSIIVqS48A&t=694s (12.10.2026, klatka plan-skutek-accept-and-auto-mode-po-praca: wiersz po decyzji w karcie planu), sprawdzono 2026-10-26"
+  - napis: "What should change? (optional)"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=-YTot4fwNFY&t=315s (13.07.2026, klatka plan-skutek-revise-po: podpowiedź w polu karty po kliknięciu Revise…), sprawdzono 2026-10-26"
+  - napis: "Back"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=-YTot4fwNFY&t=315s (13.07.2026, klatka plan-skutek-revise-po: przycisk po lewej pod polem poprawki), sprawdzono 2026-10-26"
+  - napis: "Revise"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=-YTot4fwNFY&t=315s (13.07.2026, klatka plan-skutek-revise-po: przycisk po prawej pod polem poprawki), sprawdzono 2026-10-26"
+  - napis: "Enter"
+    gdzie: aplikacja
+    zrodlo: "https://www.youtube.com/watch?v=-YTot4fwNFY&t=315s (13.07.2026, klatka plan-skutek-revise-po: skrót przy przycisku Revise pod polem poprawki), sprawdzono 2026-10-26"
+  # Nazwy kafelków katalogu konektorów: nazwy z dokumentacji (mcp.md, dział Use MCP servers from claude.ai: „Anthropic-hosted connectors, such as Microsoft 365, Gmail, and Google Calendar”; fakt konektory-google-calendar-gmail-microsoft-365) widoczne też jako nazwy kafelków na zrzucie katalogu z czatu aplikacji (materialy/zrzuty-aplikacji/katalog-konektorow/zapier-katalog-directory-czat.png w pamięci projektu, https://zapier.com/blog/claude-connectors/, obraz 13).
+  - napis: "Google Calendar"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/mcp.md (dział Use MCP servers from claude.ai, nazwa konektora) i zrzut katalogu z https://zapier.com/blog/claude-connectors/ (11.08.2026, obraz 13: nazwa kafelka), sprawdzono 2026-10-26; https://code.claude.com/docs/en/mcp.md (dział Use MCP servers from claude.ai, nazwa konektora) i zrzut katalogu z https://zapier.com/blog/claude-connectors/ (11.08.2026, obraz 13: nazwa kafelka), sprawdzono 2026-10-26"
+  - napis: "Gmail"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/mcp.md (dział Use MCP servers from claude.ai, nazwa konektora) i zrzut katalogu z https://zapier.com/blog/claude-connectors/ (11.08.2026, obraz 13: nazwa kafelka), sprawdzono 2026-10-26; https://code.claude.com/docs/en/mcp.md (dział Use MCP servers from claude.ai, nazwa konektora) i zrzut katalogu z https://zapier.com/blog/claude-connectors/ (11.08.2026, obraz 13: nazwa kafelka), sprawdzono 2026-10-26"
+  - napis: "Microsoft 365"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/mcp.md (dział Use MCP servers from claude.ai, nazwa konektora) i zrzut katalogu z https://zapier.com/blog/claude-connectors/ (11.08.2026, obraz 13: nazwa kafelka), sprawdzono 2026-10-26; https://code.claude.com/docs/en/mcp.md (dział Use MCP servers from claude.ai, nazwa konektora) i zrzut katalogu z https://zapier.com/blog/claude-connectors/ (11.08.2026, obraz 13: nazwa kafelka), sprawdzono 2026-10-26"
+  - napis: "Allow once"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Approve Claude's actions on a site: przycisk karty zgody przy działaniu na cudzej stronie; fakt aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu), sprawdzono 2026-10-26"
+  - napis: "Always allow"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Approve Claude's actions on a site: przycisk karty zgody przy działaniu na cudzej stronie; fakt aplikacja-browser-always-allow-zapisuje-dla-strony), sprawdzono 2026-10-26"
+  - napis: "Deny"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Approve Claude's actions on a site: przycisk karty zgody przy działaniu na cudzej stronie; fakt aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu), sprawdzono 2026-10-26; https://code.claude.com/docs/en/workflows.md (dział Approve the plan before it runs: przycisk karty zgody na przepływ w aplikacji, napis pogrubiony; skutku dokumentacja nie opisuje, w symulatorze nieaktywny), fakt przeplyw-aplikacja-karta-zgody, sprawdzono 2026-10-26"
+  # Lekcja 6.1 kontekst-rozmowy (moduł dlugie-rozmowy), 26.10.2026. Wpisy /context, /compact, /btw mają te same napisy co na gałęzi modul-skille: przy scaleniu zostaje jeden egzemplarz.
+  - napis: "Context"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Check usage: „the header of the **Context** card in the session details panel shows it as a percentage”, napis pogrubiony; bieżący układ), fakt aplikacja-karta-context-procent-w-naglowku, sprawdzono 2026-10-26; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (nagłówek karty Context w panelu szczegółów)"
+  - wzor: "^\\d{1,3}%$"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Check usage: nagłówek karty Context „shows it as a percentage”; liczba w symulatorze przykładowa, bez słowa „used” ze zrzutów), fakt aplikacja-karta-context-procent-w-naglowku, sprawdzono 2026-10-26"
+  - napis: "Cmd+;"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Ask a side question without derailing the session: „Press **Cmd+;** on macOS”; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-26"
+  - napis: "Ctrl+;"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Ask a side question without derailing the session: „or **Ctrl+;** on Windows”; skrót klawiszowy, nie napis na przycisku), sprawdzono 2026-10-26"
+  # Lekcja 6.2 nowa-czy-ta-sama (moduł dlugie-rozmowy), 26.10.2026: menu wiersza w pasku bocznym i zarchiwizowane sesje (bieżący układ).
+  - napis: "Archive"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Archive a session: „hover over it in the sidebar, open its menu, and select **Archive**”, napis pogrubiony), fakt aplikacja-archiwizacja-z-menu-w-pasku-bocznym, sprawdzono 2026-10-26"
+  - napis: "Group and sort"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Organize and find sessions: „hover over a heading in the session list to show the **Group and sort** icon”, napis pogrubiony; nazwa ikony, bieżący układ), fakt aplikacja-zarchiwizowane-group-and-sort-view-all, sprawdzono 2026-10-26"
+  - napis: "View all"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Organize and find sessions: „select **View all**, the menu's last row”, napis pogrubiony; bieżący układ), fakt aplikacja-zarchiwizowane-group-and-sort-view-all, sprawdzono 2026-10-26"
+  - napis: "Archived"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Organize and find sessions: „then open the **Archived** tab”, napis pogrubiony; bieżący układ), fakt aplikacja-zarchiwizowane-group-and-sort-view-all, sprawdzono 2026-10-26"
+  # Lekcja 6.3 model-i-wysilek (moduł dlugie-rozmowy), 26.10.2026: wiersz wysiłku w menu wyboru modelu (bieżący układ).
+  - napis: "Effort"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Turn off extended thinking: „open the model picker and select a level under **Effort**”, napis pogrubiony; bieżący układ), fakt aplikacja-wysilek-pod-effort-w-wyborze-modelu, sprawdzono 2026-10-26; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (pozycja menu modelu z bieżącym poziomem i strzałką)"
+  # Lekcja 9.2 subagent-zbiera (moduł kilka-zadan-naraz), 26.10.2026: pozycja menu ⋮ na pasku tytułu rozmowy (rozszerzenie E3).
+  - napis: "Background tasks"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Watch background tasks: „open the pane with **Background tasks** in the title bar's **⋮** menu”; dział Arrange your workspace: „panes such as **Background tasks** and **Plan** are listed once the session has something to show”, napis pogrubiony), fakt aplikacja-panel-zadan-w-tle-co-pokazuje, fakt aplikacja-menu-paska-panele-bez-przycisku, sprawdzono 2026-10-26; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-25-37.png w pamięci projektu (druga pozycja menu ⋮ z licznikiem prac)"
+  # Lekcja 9.2 subagent-zbiera, 26.10.2026: panel zadań w tle (rozszerzenie E3). Źródło: zrzuty aplikacji w załącznikach zgłoszeń na GitHubie (materialy/zrzuty-aplikacji/panel-zadan-w-tle/ZRODLA.md w pamięci projektu); dokumentacja nie podaje tych napisów. Bierzemy układ i napisy, nie zachowanie zgłoszone jako błąd.
+  - napis: "Running"
+    gdzie: aplikacja
+    zrodlo: "https://github.com/anthropics/claude-code/issues/74950#issuecomment-4897808804 (6.07.2026, zrzut panel-okno-biezace-19-running-tasks-gh74950.png: nagłówek grupy w panelu Background tasks; także issues/72965, zrzut panel-okno-earlier-10-running-tasks-gh72965.png), fakt aplikacja-panel-zadan-grupa-running-wpis-agent, sprawdzono 2026-10-26"
+  - napis: "Agent"
+    gdzie: aplikacja
+    zrodlo: "https://github.com/anthropics/claude-code/issues/74950#issuecomment-4897808804 (6.07.2026, zrzut panel-okno-biezace-19-running-tasks-gh74950.png: rodzaj wpisu subagenta pod tytułem zadania w panelu Background tasks), fakt aplikacja-panel-zadan-grupa-running-wpis-agent, sprawdzono 2026-10-26"
+  - napis: "View transcript"
+    gdzie: aplikacja
+    zrodlo: "https://github.com/anthropics/claude-code/issues/74950#issuecomment-4897808804 (6.07.2026, zrzut panel-okno-biezace-19-running-tasks-gh74950.png: niebieski odnośnik na dole wpisu Agent; skutku kliknięcia zrzut nie pokazuje, w symulatorze nieaktywny), fakt aplikacja-panel-zadan-grupa-running-wpis-agent, sprawdzono 2026-10-26"
+  - wzor: "^([2-9]|[1-9]\\d+) running tasks$"
+    gdzie: aplikacja
+    zrodlo: "https://github.com/anthropics/claude-code/issues/74950#issuecomment-4897808804 (zrzut panel-okno-biezace-19-running-tasks-gh74950.png: odnośnik „19 running tasks” w rozmowie) i https://github.com/anthropics/claude-code/issues/72965 (zrzut panel-okno-earlier-10-running-tasks-gh72965.png: „10 running tasks”); formy dla jednego zadania żaden zrzut nie pokazuje, więc wzór przyjmuje liczbę od 2, fakt aplikacja-link-running-tasks-w-rozmowie, fakt aplikacja-klik-running-tasks-otwiera-panel, sprawdzono 2026-10-26"
+  - napis: "Finished"
+    gdzie: aplikacja
+    zrodlo: "https://github.com/anthropics/claude-code/issues/72965 (1.07.2026, zrzut panel-okno-earlier-10-running-tasks-gh72965.png: zwinięta grupa „Finished 13 ›” na dole panelu Background tasks; wcześniejszy układ; przejścia wpisu do tej grupy zrzut nie pokazuje), fakt aplikacja-panel-zadan-finished-i-clear, sprawdzono 2026-10-26"
+  - napis: "Clear"
+    gdzie: aplikacja
+    zrodlo: "https://github.com/anthropics/claude-code/issues/72965 (1.07.2026, zrzut panel-okno-earlier-10-running-tasks-gh72965.png: napis po prawej przy grupie Finished; skutku zrzut nie pokazuje, w symulatorze nieaktywny), fakt aplikacja-panel-zadan-finished-i-clear, sprawdzono 2026-10-26"
+  # Lekcja 9.4 duze-zadanie (moduł kilka-zadan-naraz), 26.10.2026: karta zgody na przepływ (rozszerzenie E4). Deny ma już wpis z karty przeglądarki; ten wpis dodaje drugie źródło (karta przepływu).
+  - napis: "Once"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/workflows.md (dział Approve the plan before it runs: „an approval card shows the workflow name, the phase list, and a token-usage caution, with **Once**, **Always**, and **Deny** actions”, napis pogrubiony), fakt przeplyw-aplikacja-karta-zgody, sprawdzono 2026-10-26"
+  - napis: "Always"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/workflows.md (dział Approve the plan before it runs: przycisk karty zgody na przepływ w aplikacji, napis pogrubiony; skutku dokumentacja nie opisuje, w symulatorze nieaktywny), fakt przeplyw-aplikacja-karta-zgody, sprawdzono 2026-10-26"
+  - napis: "Deny"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/workflows.md (dział Approve the plan before it runs: przycisk karty zgody na przepływ w aplikacji, napis pogrubiony; skutku dokumentacja nie opisuje, w symulatorze nieaktywny), fakt przeplyw-aplikacja-karta-zgody, sprawdzono 2026-10-26"
+  # Menu + z podmenu Plugins i Connectors (strona/aplikacja-plus-dane.js), 27.10.2026. Napisy ze zrzutów Łukasza; „Add connectors” i „Add plugins” zostają wyżej jako napisy z dokumentacji, silnik ich już nie rysuje.
+  - napis: "⌘ U"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu; także zrzut_2026-10-27_03-58-57.png, zrzut_2026-10-27_04-22-37.png; skrót przy pozycji Add files or photos"
+  - napis: "Import GitHub issue"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu; także zrzut_2026-10-27_03-58-57.png; pozycja menu +, wyszarzona; w sesji w chmurze (04-22-37) jej nie ma"
+  - napis: "This folder doesn’t have a GitHub remote"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu; także zrzut_2026-10-27_03-58-57.png; podpis wyszarzonej pozycji Import GitHub issue"
+  - napis: "Connectors"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Connect external tools: „If the menu shows **Connectors** instead”; też **Settings > Connectors**); zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu; także zrzut_2026-10-27_04-06-20.png, zrzut_2026-10-27_04-22-37.png, zrzut_2026-10-27_04-43-33.png, zrzut_2026-10-27_04-45-04.png, zrzut_2026-10-27_05-05-38.png, zrzut_2026-10-27_05-05-45.png; pozycja menu + ze strzałką podmenu, tytuł strony okna Settings, pozycja lewej kolumny (grupa Customize) i karta obok General w Advanced settings okna New scheduled task; sprawdzono 2026-10-26"
+  - napis: "Plugins"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu; także zrzut_2026-10-27_03-59-16.png, zrzut_2026-10-27_04-45-04.png; pozycja menu + ze strzałką podmenu, tytuł strony okna Settings i pozycja lewej kolumny (grupa Customize); w sesji w chmurze wyszarzona (04-22-37)"
+  - napis: "Manage plugins"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-57.png w pamięci projektu; pozycja podmenu Plugins nad „Browse plugins”"
+  - napis: "Browse plugins"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-57.png w pamięci projektu; pozycja podmenu Plugins z ikoną +, otwiera przeglądarkę wtyczek (okno Settings, 03-59-16)"
+  - napis: "Browse connectors"
+    gdzie: "aplikacja"
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Connect external tools: „select it, then **Browse connectors**”), sprawdzono 2026-10-26; zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-37.png w pamięci projektu; pierwsza pozycja podmenu Connectors; kliknięcia zrzut nie pokazuje, widok po niej to słowa autora z 27.10.2026 (lista konektorów, 04-43-33)"
+  - napis: "Manage connectors"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-37.png w pamięci projektu; druga pozycja podmenu Connectors; skutku zrzut nie pokazuje"
+  - napis: "Only available in local sessions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-37.png w pamięci projektu; podpis wyszarzonych pozycji Add folder, Plugins i Claude in Chrome w sesji w chmurze"
+  # Lista poleceń „/” (strona/aplikacja-plus-dane.js), 27.10.2026: nazwane wiersze w kolejności ze zrzutu; czternasty wiersz jest ucięty krawędzią listy, więc symulator rysuje szary pasek.
+  - napis: "plugin"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; także zrzut_2026-10-27_04-22-53.png (końcówka podpisu „Provided by the … plugin” przy konektorze z wtyczki na liście Yours); wiersz 1 listy „/” od góry; podświetlony, obok dymek „Manage Claude Code plugins”"
+  - napis: "model"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 2 listy „/” od góry"
+  - napis: "effort"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 3 listy „/” od góry"
+  - napis: "fast"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 4 listy „/” od góry"
+  - napis: "plan"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 5 listy „/” od góry"
+  - napis: "permissions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 6 listy „/” od góry"
+  - napis: "skills"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 7 listy „/” od góry"
+  - napis: "workflows"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 8 listy „/” od góry"
+  - napis: "usage"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 9 listy „/” od góry"
+  - napis: "usage-credits"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 10 listy „/” od góry"
+  - napis: "config"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 11 listy „/” od góry"
+  - napis: "storage"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 12 listy „/” od góry"
+  - napis: "sandbox"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; wiersz 13 listy „/” od góry"
+  - napis: "Manage Claude Code plugins"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; dymek z opisem pierwszego (podświetlonego) wiersza listy „/”"
+  - napis: "Type to filter"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-20.png w pamięci projektu; podpowiedź w polu wiadomości po znaku / przy otwartej liście"
+  # Okno Settings (strona/aplikacja-ustawienia-dane.js), 27.10.2026: nagłówek, lewa kolumna i przyciski strony.
+  - napis: "Settings"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-43-33.png; nagłówek okna Settings"
+  - napis: "Search"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_03-58-01.png, zrzut_2026-10-27_04-43-33.png; pole wyszukiwania w lewej kolumnie i na stronie okna Settings"
+  - napis: "Yours"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-42-30.png, zrzut_2026-10-27_04-22-53.png; zakładka strony Plugins i Connectors"
+  - napis: "Discover"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-43-33.png; zakładka strony Plugins i Connectors (wybrana)"
+  - napis: "Add"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-43-33.png; przycisk „+ Add” ze strzałką na stronie oraz „Add” na karcie polecanej i w wierszach wtyczek"
+  - napis: "Show all"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-43-33.png; odnośnik „Show all →” przy sekcji"
+  - napis: "Preferences"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; nagłówek grupy lewej kolumny okna Settings"
+  - napis: "General"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Account"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Privacy"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Usage"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Capabilities"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Memory"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Design systems"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Claude Code"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa Preferences); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "This computer"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-42-00.png, zrzut_2026-10-27_04-45-04.png; nagłówek grupy lewej kolumny okna Settings; także zrzut_2026-10-27_03-58-01.png (rząd pod polem), zrzut_2026-10-27_04-41-10.png (rząd pod polem, kontrolka środowiska sesji lokalnej), zrzut_2026-10-27_04-06-00.png (karta Environment); pierwsza pozycja menu środowiska z haczykiem (kadr zrzutu Łukasza, plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/2-rzad-pod-polem.png w drzewie modułu 0)"
+  - napis: "System"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa This computer); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Extensions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa This computer); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Developer"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; także zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings (grupa This computer); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  - napis: "Skills"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-45-04.png w pamięci projektu; także zrzut_2026-10-27_04-06-08.png; pozycja lewej kolumny okna Settings (grupa Customize); kolumna jest u każdego konta inna, symulator rysuje pozycje wspólne"
+  # Przeglądarka wtyczek, zakładka Discover (strona/aplikacja-ustawienia-dane.js), 27.10.2026. Dwa ostatnie kafelki zrzutu są ucięte krawędzią okna, więc symulator ma tylko ich nazwy.
+  - napis: "From Anthropic"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; napis nad nazwą karty polecanej"
+  - napis: "Data"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa karty polecanej (pismo szeryfowe)"
+  - napis: "Query, chart and explain your data — SQL, spreadsheets and dashboards in one place."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; opis karty polecanej"
+  - napis: "New plugins"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nagłówek sekcji kafelków"
+  - napis: "Ando"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa kafelka wtyczki"
+  - napis: "Team messaging for people and AI agents: read shared conversations, fin…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; opis kafelka wtyczki (ucięty krawędzią kafelka tak jak na zrzucie, kończy się znakiem …) Ando"
+  - napis: "Anthropic Directory"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; źródło wtyczki w kafelku Ando"
+  - napis: "Dataiku Headless"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa kafelka wtyczki"
+  - napis: "Connect your agent to Dataiku: inspect projects, datasets, recipes, ML, and…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; opis kafelka wtyczki (ucięty krawędzią kafelka tak jak na zrzucie, kończy się znakiem …) Dataiku Headless"
+  - napis: "NetSuite SuiteSkills"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa kafelka wtyczki"
+  - napis: "NetSuite skills for insights and workflows across your business."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; opis kafelka wtyczki NetSuite SuiteSkills"
+  - napis: "learn"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa kafelka wtyczki"
+  - napis: "Use this skill when the user wants intellectual understanding — learning…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; opis kafelka wtyczki (ucięty krawędzią kafelka tak jak na zrzucie, kończy się znakiem …) learn"
+  - napis: "by Anthropic"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; źródło wtyczki w kafelku learn"
+  - napis: "doc-coauthoring"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa kafelka wtyczki"
+  - napis: "web-artifacts-builder"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; nazwa kafelka wtyczki"
+  # Katalog konektorów, zakładka Discover (strona/aplikacja-ustawienia-dane.js), 27.10.2026. „Google Calendar”, „Gmail” i „Microsoft 365” mają wyżej wpisy z dokumentacji; dwa ostatnie kafelki zrzutu są ucięte krawędzią okna, więc symulator ma tylko ich nazwy.
+  - napis: "Top connectors"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nagłówek sekcji katalogu konektorów"
+  - napis: "7593"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; liczba przy nagłówku „Top connectors”"
+  - napis: "Google Drive"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Search, read, and upload files instantly"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Google Drive"
+  - napis: "by Google"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; autor konektora w kafelku Google Drive"
+  - napis: "Draft replies, summarize threads, & search your inbox"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Gmail"
+  - napis: "Manage your schedule and coordinate meetings effortlessly"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Google Calendar"
+  - napis: "Access your company's SharePoint, OneDrive, Outlook, and Teams directly…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora (ucięty krawędzią kafelka tak jak na zrzucie, kończy się znakiem …) Microsoft 365"
+  - napis: "Slack"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Send messages, create canvases, and fetch Slack data"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Slack"
+  - napis: "by Slack"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; autor konektora w kafelku Slack"
+  - napis: "Notion"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Connect your Notion workspace to search, update, and power workflows…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora (ucięty krawędzią kafelka tak jak na zrzucie, kończy się znakiem …) Notion"
+  - napis: "by Notion"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; autor konektora w kafelku Notion"
+  - napis: "Canva"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Search, create, autofill, and export Canva designs"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Canva"
+  - napis: "by Canva"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; autor konektora w kafelku Canva"
+  - napis: "Atlassian MCP"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Search, read and update Jira, Confluence, Bitbucket, Loom and othe…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora (ucięty krawędzią kafelka tak jak na zrzucie, kończy się znakiem …) Atlassian MCP"
+  - napis: "by Atlassian"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; autor konektora w kafelku Atlassian MCP"
+  - napis: "Google Sheets"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Read, analyze, and update your spreadsheets"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Google Sheets"
+  - napis: "Figma"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; nazwa kafelka konektora"
+  - napis: "Generate diagrams and better code from Figma context"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; opis kafelka konektora Figma"
+  - napis: "by Figma"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; także zrzut_2026-10-27_04-23-08.png; autor konektora w kafelku Figma"
+  - napis: "Google Docs"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; nazwa kafelka konektora"
+  - napis: "Supabase"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-43-33.png w pamięci projektu; nazwa kafelka konektora"
+
+  # Część B silnika (D-2026-10-27-51): prawdziwe napisy ze zrzutów Łukasza z 27.10.2026 (aplikacja Claude na Macu, zakładka Code); katalog: materialy/zrzuty-lukasza/KATALOG-2026-10-27.md w pamięci projektu.
+  # Pasek boczny.
+  - napis: "Artifacts"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu (pozycja paska bocznego), sprawdzono 2026-10-27"
+  - napis: "On-call"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu (pozycja paska bocznego), sprawdzono 2026-10-27"
+  - napis: "More"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu (ostatnia pozycja paska bocznego, z ikoną trzech kropek), sprawdzono 2026-10-27"
+  # Panel szczegółów sesji.
+  - napis: "Environment"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-00.png w pamięci projektu (nagłówek karty w panelu szczegółów; też 04-42-00 i 04-22-37), sprawdzono 2026-10-27"
+  - napis: "Save"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-42-00.png w pamięci projektu (podkreślony napis po prawej w pierwszym wierszu karty Environment; skutku zrzut nie pokazuje, w symulatorze nieaktywny), sprawdzono 2026-10-27"
+  - napis: "Save"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open and edit files, część Save edits in the file pane: przycisk widoczny po wyłączeniu Auto save), sprawdzono 2026-10-26"
+  - napis: "Remote Control"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-00.png w pamięci projektu; także zrzut_2026-10-27_04-44-01.png; wiersz karty Environment z przełącznikiem (stan włączony na wszystkich zrzutach, stan wyłączony to umowa symulatora) i nagłówek części Remote Control na stronie Settings → Claude Code, sprawdzono 2026-10-27"
+  - napis: "Default"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-37.png w pamięci projektu (pierwszy wiersz karty Environment w sesji w chmurze), sprawdzono 2026-10-27"
+  - napis: "Add repository…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-37.png w pamięci projektu (drugi wiersz karty Environment w sesji w chmurze), sprawdzono 2026-10-27"
+  - napis: "Reconnect"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-20.png w pamięci projektu (pomarańczowy stan przy konektorze na karcie Connectors), sprawdzono 2026-10-27"
+  - napis: "Authenticate"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-20.png w pamięci projektu (pomarańczowy stan przy konektorze na karcie Connectors), sprawdzono 2026-10-27"
+  - napis: "Show more"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-20.png w pamięci projektu (szary napis pod listą na karcie Connectors; skutku zrzut nie pokazuje, w symulatorze nieaktywny), sprawdzono 2026-10-27"
+  - wzor: "^\\d{1,3}% used$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (nagłówek otwartej karty Context „9% used”; liczba w symulatorze to procent z karty), sprawdzono 2026-10-27"
+  - wzor: "^\\d+(\\.\\d)?k / 1M$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (licznik po prawej w nagłówku otwartej karty Context „94.4k / 1M”; liczba w symulatorze wynika z procentu karty, „1M” jak na zrzucie), sprawdzono 2026-10-27"
+  - napis: "MCP tools"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "System tools"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "Custom agents"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "System prompt"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "Memory files"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "Messages"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "Compact buffer"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - napis: "Free space"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (ostatnia kategoria na otwartej karcie Context), sprawdzono 2026-10-27"
+  - wzor: "^\\d+(\\.\\d)?k$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (liczba tokenów w wierszu kategorii na karcie Context, np. „17.8k”, „3k”; w symulatorze liczona z procentu karty), sprawdzono 2026-10-27"
+  - wzor: "^\\d{1,3}\\.\\d%$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-08.png w pamięci projektu (udział kategorii w oknie na karcie Context, np. „1.8%”; w symulatorze liczony z procentu karty), sprawdzono 2026-10-27"
+  # Rząd pod polem: lista trybów sesji lokalnej.
+  - napis: "Permissions · this session"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (nagłówek listy trybów w sesji lokalnej), sprawdzono 2026-10-27"
+  - napis: "Claude handles permission decisions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (podpis pod Auto), sprawdzono 2026-10-27"
+  - napis: "Always ask before making changes"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (podpis pod Manual), sprawdzono 2026-10-27"
+  - napis: "Automatically accept all file edits"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (podpis pod Accept edits), sprawdzono 2026-10-27"
+  - napis: "Create a plan before making changes"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (podpis pod Plan), sprawdzono 2026-10-27"
+  - napis: "Claude can modify or delete files without asking"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-41-10.png w pamięci projektu (podpis pod Bypass permissions), sprawdzono 2026-10-27"
+  # Rząd pod polem: menu modelu i podmenu Effort.
+  - napis: "2"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (cyfra skrótu przy drugim modelu w menu modelu; pierwszy model ma ✓ zamiast cyfry; licznik prac przy Background tasks w menu ⋮ to dana, nie napis), sprawdzono 2026-10-27"
+  - napis: "3"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (cyfra skrótu przy trzecim modelu w menu modelu; pierwszy model ma ✓ zamiast cyfry; licznik prac przy Background tasks w menu ⋮ to dana, nie napis), sprawdzono 2026-10-27"
+  - napis: "4"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (cyfra skrótu przy czwartym modelu w menu modelu; pierwszy model ma ✓ zamiast cyfry; licznik prac przy Background tasks w menu ⋮ to dana, nie napis), sprawdzono 2026-10-27"
+  - napis: "More models"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (pozycja menu modelu ze strzałką), sprawdzono 2026-10-27"
+  - napis: "Fast mode"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (szary nagłówek części menu modelu), sprawdzono 2026-10-27"
+  - napis: "Enable fast mode"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (pozycja menu modelu), sprawdzono 2026-10-27"
+  - napis: "Requires usage credits"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (podpis pod Enable fast mode), sprawdzono 2026-10-27"
+  - napis: "Buy credits"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (niebieska pigułka przy Enable fast mode; skutku zrzut nie pokazuje, w symulatorze nieaktywna), sprawdzono 2026-10-27"
+  - napis: "Higher effort means more thorough responses, but takes longer and uses your limits faster."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (zdanie u góry podmenu Effort), sprawdzono 2026-10-27"
+  - napis: "Low"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (poziom w podmenu Effort), sprawdzono 2026-10-27"
+  - napis: "Medium"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (poziom w podmenu Effort), sprawdzono 2026-10-27; także zrzut_2026-10-27_03-58-01.png, zrzut_2026-10-27_04-24-16.png (poziom wysiłku na przycisku modelu w rzędzie pod polem i przy wierszu Effort w menu modelu)"
+  - napis: "Recommended"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (pigułka przy poziomie Medium), sprawdzono 2026-10-27"
+  - napis: "High"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (poziom w podmenu Effort), sprawdzono 2026-10-27; także zrzut_2026-10-27_04-41-10.png (poziom wysiłku na przycisku modelu w rzędzie pod polem)"
+  - napis: "Extra"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (poziom w podmenu Effort między High a Max), sprawdzono 2026-10-27"
+  - napis: "Max"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (poziom w podmenu Effort), sprawdzono 2026-10-27"
+  - napis: "3.5× or more usage"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (żółta pigułka z ostrzeżeniem przy poziomie Max), sprawdzono 2026-10-27"
+  - napis: "Ultracode"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-29.png w pamięci projektu (fioletowa pozycja pod poziomami w podmenu Effort; to ustawienie, nie poziom, w symulatorze nieaktywne), sprawdzono 2026-10-27"
+  # Rząd pod polem: okienko pierścienia zużycia.
+  - napis: "Plan usage limits"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (nagłówek okienka pierścienia; nazwa planu po kropce to dane konta), sprawdzono 2026-10-27"
+  - napis: "See all"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (odnośnik ze strzałką → w nagłówku okienka pierścienia; skutku zrzut nie pokazuje, w symulatorze nieaktywny), sprawdzono 2026-10-27"
+  - napis: "Session limit"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (pierwszy wiersz okienka pierścienia), sprawdzono 2026-10-27"
+  - napis: "Starts when a message is sent"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (podpis przy Session limit), sprawdzono 2026-10-27"
+  - napis: "Weekly · all models"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (drugi wiersz okienka pierścienia), sprawdzono 2026-10-27"
+  - napis: "Resets"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (początek podpisu przy Weekly · all models („Resets Sun 5:00 PM”); termin to dane konta), sprawdzono 2026-10-27"
+  - napis: "Cloud session credits"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (trzeci wiersz okienka pierścienia, z ikoną znaku zapytania; kwota to dane konta), sprawdzono 2026-10-27"
+  - napis: "Expires"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-40.png w pamięci projektu (początek podpisu pod Cloud session credits („Expires 8:59 AM GMT+1, November 5”); termin to dane konta), sprawdzono 2026-10-27"
+  # Menu ⋮ na pasku tytułu.
+  - napis: "Side chat"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-25-37.png w pamięci projektu (pierwsza pozycja menu ⋮, ze skrótem; w symulatorze nieaktywna), sprawdzono 2026-10-27"
+  - napis: "⌘ ;"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-25-37.png w pamięci projektu (skrót przy Side chat), sprawdzono 2026-10-27"
+  # Lekcja 4.4 wtyczki, 26.10.2026: pole wyszukiwania na karcie Plugins (zrzut z sieci, okno otwarte z Customize).
+  - napis: "Search plugins..."
+    gdzie: aplikacja
+    zrodlo: "zrzut z https://github.com/anthropics/claude-code/issues/84557 (06.08.2026, obraz 4: tekst zastępczy pola wyszukiwania na karcie Plugins, zakładka Code), sprawdzono 2026-10-26"
+  # Zadanie według harmonogramu (strony Scheduled tasks i zadania, okno New scheduled task): zrzuty Łukasza 27.10.2026, 05-04-44 do 05-06-07.
+  - napis: "Scheduled"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-44.png w pamięci projektu; także zrzut_2026-10-27_05-04-51.png, zrzut_2026-10-27_05-05-25.png, zrzut_2026-10-27_05-06-07.png (pozycja paska bocznego z ikoną zegara (na zrzucie 05-04-44 ikona to trzy kropki); strona Scheduled tasks i zadania otwierają się z niej), sprawdzono 2026-10-27"
+  - napis: "Scheduled tasks"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-44.png w pamięci projektu; także zrzut_2026-10-27_05-06-07.png (tytuł strony z listą zadań; na stronie zadania pierwszy człon okruszków), sprawdzono 2026-10-27"
+
+  # Lekcje 8.1 zadanie-co-rano i 8.4 rozmowa-na-telefonie (moduł praca-bez-ciebie), 27.10.2026: napisy ze zrzutów Łukasza, które nazywa tekst lekcji.
+  - napis: "Scheduled tasks"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-44.png w pamięci projektu), tytuł strony po kliknięciu Scheduled w pasku bocznym; przycisk New task w prawym górnym rogu"
+  - napis: "New task"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-44.png w pamięci projektu (przycisk ze strzałką w dół u góry po prawej i przycisk pod pustą listą; oba otwierają okno New scheduled task), sprawdzono 2026-10-27"
+  - napis: "No scheduled tasks yet."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-44.png w pamięci projektu (podpis pod zegarem na pustej liście), sprawdzono 2026-10-27"
+  - napis: "New scheduled task"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (tytuł okna z X po prawej), sprawdzono 2026-10-27"
+  - napis: "Name"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (etykieta pola nazwy zadania; nazwa wpisana w pole to dane kursanta), sprawdzono 2026-10-27"
+  - napis: "Default model"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (przycisk ze strzałką w rzędzie pod polem polecenia, po prawej; obok przycisk Auto), sprawdzono 2026-10-27"
+  - napis: "For this task, Claude will work and use connectors without pausing for approval."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (zdanie w ramce pod rzędem Auto i Default model; po nim odnośnik See safe use tips), sprawdzono 2026-10-27"
+  - napis: "Default model"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-25.png w pamięci projektu), pasek pola polecenia w oknie New scheduled task, po prawej"
+  - napis: "For this task, Claude will work and use connectors without pausing for approval."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-25.png w pamięci projektu), napis pod polem polecenia w oknie New scheduled task przy trybie Auto; dalej odnośnik „See safe use tips”"
+  - napis: "Require this computer (MacBook Air (Łukasz))"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu), wiersz karty General w Advanced settings; w nawiasie nazwa komputera, u kursanta inna"
+  - napis: "See safe use tips"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (podkreślony odnośnik na końcu ramki; skutku zrzut nie pokazuje, w symulatorze nieaktywny), sprawdzono 2026-10-27"
+  - napis: "Trigger"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (etykieta rzędu z przyciskami Schedule, Daily, godziną i plusem), sprawdzono 2026-10-27"
+  - napis: "Schedule"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (przycisk ze strzałką i ikoną zegara w rzędzie Trigger), sprawdzono 2026-10-27"
+  - napis: "Schedule"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-25.png w pamięci projektu), pierwsze pole karty Trigger w oknie New scheduled task, wypełnione od razu"
+  - napis: "Daily"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (przycisk ze strzałką w rzędzie Trigger, częstotliwość; po nim godzina to dana kursanta), sprawdzono 2026-10-27"
+  - napis: "Advanced settings"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png, zrzut_2026-10-27_05-05-38.png (nagłówek sekcji ze strzałką, rozwija trzy zakładki), sprawdzono 2026-10-27"
+  - napis: "Cancel"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (przycisk u dołu okna; skutku zrzut nie pokazuje, w symulatorze nieaktywny), sprawdzono 2026-10-27"
+  - napis: "Cancel"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open and edit files, część Save edits in the file pane: przycisk widoczny po wyłączeniu Auto save), sprawdzono 2026-10-26"
+  - napis: "Override"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open and edit files, część Save edits in the file pane: ostrzeżenie, że plik zmienił się na dysku), sprawdzono 2026-10-26"
+  - napis: "Discard"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open and edit files, część Save edits in the file pane: ostrzeżenie, że plik zmienił się na dysku), sprawdzono 2026-10-26"
+  - napis: "Create"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-04-51.png w pamięci projektu; także zrzut_2026-10-27_05-05-25.png (jasny przycisk u dołu okna; zamyka okno i otwiera stronę zadania), sprawdzono 2026-10-27"
+  - napis: "Notifications"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu; także zrzut_2026-10-27_05-05-45.png, zrzut_2026-10-27_05-05-56.png (trzecia zakładka sekcji Advanced settings (obok General i Connectors)), sprawdzono 2026-10-27"
+  - napis: "Notifications"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu), karta obok Connectors w Advanced settings okna New scheduled task (rozwinięta na zrzucie 05-05-56)"
+  - napis: "Only on this computer"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (zakładka General, przełącznik wyłączony), sprawdzono 2026-10-27"
+  - napis: "Only runs while your computer is on. Use this to run against a folder on this computer instead of a cloud environment."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (podpis pod przełącznikiem Only on this computer), sprawdzono 2026-10-27"
+  - napis: "Require this computer"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (zakładka General, przełącznik wyłączony; w nawiasie po napisie stoi nazwa komputera, dana konta), sprawdzono 2026-10-27"
+  - napis: "Leave this off unless the task needs this computer’s folders or Claude in Chrome. When on, the task runs only while the computer is awake."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (podpis pod przełącznikiem Require this computer), sprawdzono 2026-10-27"
+  - napis: "Local folder"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (zakładka General; przycisk z ikoną folderu po prawej pokazuje nazwę wybranego folderu (na zrzucie „None”)), sprawdzono 2026-10-27"
+  - napis: "Claude can work in this folder while this computer is on and awake."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (podpis pod Local folder), sprawdzono 2026-10-27"
+  - napis: "Repository"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (zakładka General, przycisk ze strzałką z napisem None po prawej), sprawdzono 2026-10-27"
+  - napis: "None"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (wartość przycisków Repository i Project (oraz Local folder, gdy folderu nie wybrano)), sprawdzono 2026-10-27"
+  - napis: "Picking a repository makes this a Claude Code task."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (podpis pod Repository), sprawdzono 2026-10-27"
+  - napis: "Project"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (zakładka General, przycisk ze strzałką z ikoną i napisem None po prawej), sprawdzono 2026-10-27"
+  - napis: "A project in the cloud"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-38.png w pamięci projektu (podpis pod Project), sprawdzono 2026-10-27"
+  - napis: "No connectors connected"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-45.png w pamięci projektu (zakładka Connectors, napis pod ikoną klocków), sprawdzono 2026-10-27"
+  - napis: "Add connectors in Settings to use them in your tasks."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-45.png w pamięci projektu (zakładka Connectors, podpis pod No connectors connected), sprawdzono 2026-10-27"
+  - napis: "Notify me when this task finishes"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-56.png w pamięci projektu (zakładka Notifications, przełącznik włączony), sprawdzono 2026-10-27"
+  - napis: "Claude will send you a one-line summary when each run completes — only when there’s something worth telling you for tasks that watch for a condition."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-56.png w pamięci projektu (zakładka Notifications, podpis pod przełącznikiem), sprawdzono 2026-10-27"
+  - napis: "Push notification"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-56.png w pamięci projektu (zakładka Notifications, pole wyboru zaznaczone), sprawdzono 2026-10-27"
+  - napis: "Email"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-05-56.png w pamięci projektu (zakładka Notifications, pole wyboru niezaznaczone), sprawdzono 2026-10-27"
+  - wzor: "^Next run: today at \\d{1,2}:\\d{2} (AM|PM)$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (podpis pod tytułem strony zadania „Next run: today at 9:20 AM”; godzina to pora z aplikacja.harmonogram w zapisie 12-godzinnym; „today” przyjęte jak na zrzucie, symulator nie zna daty), sprawdzono 2026-10-27"
+  - napis: "Run now"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (przycisk z trójkątem u góry po prawej strony zadania), sprawdzono 2026-10-27"
+  - napis: "Active"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (podpis przełącznika przy Run now, włączonego; w symulatorze nieaktywny), sprawdzono 2026-10-27"
+  - napis: "Active"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu), napis przy przełączniku obok Run now na stronie zadania"
+  - napis: "History"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (nagłówek lewej kolumny strony zadania), sprawdzono 2026-10-27"
+  - napis: "No runs yet"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (pusta historia przed pierwszym przebiegiem; po Run now wpis historii to szare paski (zrzut nie pokazuje wpisu)), sprawdzono 2026-10-27"
+  - napis: "Instructions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (nagłówek prawej kolumny strony zadania, pod nim polecenie z okna), sprawdzono 2026-10-27"
+  - napis: "Repeats"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (nagłówek prawej kolumny, pod nim „Daily at 9:20 AM”), sprawdzono 2026-10-27"
+  - napis: "Instructions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu), część po prawej na stronie zadania, z poleceniem zadania"
+  - napis: "Repeats"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu), część po prawej na stronie zadania, z terminem („Daily at 9:20 AM”)"
+  - wzor: "^Daily at \\d{1,2}:\\d{2} (AM|PM)$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (wartość pod Repeats „Daily at 9:20 AM”; częstotliwość i godzina z aplikacja.harmonogram), sprawdzono 2026-10-27"
+  - napis: "Permissions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (nagłówek prawej kolumny, pod nim Auto z ikoną i podpis), sprawdzono 2026-10-27"
+  - napis: "Permissions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu), część po prawej na stronie zadania, z trybem uprawnień („Auto”, „Runs without asking.”)"
+  - napis: "…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-00.png w pamięci projektu), przycisk po prawej w wierszu Remote Control karty Environment, przed przełącznikiem; skutku zrzut nie pokazuje"
+  - napis: "Runs without asking."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (podpis pod Auto w Permissions), sprawdzono 2026-10-27"
+  - wzor: "^“.+” created\\.$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_05-06-07.png w pamięci projektu (komunikat w prawym dolnym rogu po Create, z nazwą zadania w cudzysłowie „“Codzienne podsumowanie.” created.” i krzyżykiem), sprawdzono 2026-10-27"
+  # Telefon z Remote Control (zakładka Code w aplikacji Claude na telefonie, zrzuty IMG_1056-IMG_1059): lista sesji i otwarta rozmowa.
+  - napis: "Code"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1057.PNG w pamięci projektu; także IMG_1056.PNG, IMG_1058.PNG; tytuł ekranu zakładki Code na telefonie, sprawdzono 2026-10-27"
+  - napis: "Devices"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1057.PNG w pamięci projektu; także IMG_1056.PNG, IMG_1058.PNG; etykieta części z urządzeniem; nazwa komputera po niej to dana konta (scenariusz aplikacja.telefon.urzadzenie), sprawdzono 2026-10-27"
+  - napis: "Sessions"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1057.PNG w pamięci projektu; także IMG_1056.PNG, IMG_1058.PNG; etykieta listy sesji; tytuły sesji to dane konta, sprawdzono 2026-10-27"
+  - napis: "New session"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1057.PNG w pamięci projektu; także IMG_1056.PNG, IMG_1058.PNG; biały przycisk w prawym dolnym rogu; w symulatorze bez skutku, sprawdzono 2026-10-27"
+  - napis: "now"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1057.PNG w pamięci projektu (podpis sesji Remote Control, która właśnie się połączyła, obok zielonej ikony laptopa), sprawdzono 2026-10-27"
+  - napis: "Reply to Claude or hold to talk"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1059.PNG w pamięci projektu (podpowiedź w polu otwartej rozmowy na telefonie), sprawdzono 2026-10-27"
+  - napis: "Opus 5.5 Extra"
+    gdzie: telefon
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/IMG_1059.PNG w pamięci projektu (model i poziom wysiłku w pigułce pod polem rozmowy; to model z konta autora zrzutu, w symulatorze stały napis, bo scenariusz nie ma pola z modelem), sprawdzono 2026-10-27"
+  # Strona Settings → Claude Code: część Appearance i część Remote Control z przełącznikami.
+  - napis: "Appearance"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; nagłówek części strony Settings → Claude Code, sprawdzono 2026-10-27"
+  - napis: "Default transcript view"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; pierwszy wiersz części Appearance, sprawdzono 2026-10-27"
+  - napis: "The view sessions open in. Picking a view from a session’s Transcript view menu changes only that session."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; opis wiersza Default transcript view, sprawdzono 2026-10-27"
+  - napis: "Normal"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; wybrana pozycja przełącznika widoku rozmowy, sprawdzono 2026-10-27"
+  - napis: "Thinking"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; druga pozycja przełącznika widoku rozmowy, sprawdzono 2026-10-27"
+  - napis: "Verbose"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; trzecia pozycja przełącznika widoku rozmowy, sprawdzono 2026-10-27"
+  - napis: "Connect new sessions to Remote Control"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; pierwszy przełącznik części Remote Control, włączony, sprawdzono 2026-10-27"
+  - napis: "Sessions you start on this computer connect to Remote Control automatically, so you can continue them from other devices."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu; także zrzut_2026-10-27_04-07-11.png; opis przełącznika Connect new sessions to Remote Control, sprawdzono 2026-10-27"
+  - napis: "Sessions you start on this computer connect to Remote Control automatically, so you can continue them from other devices."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_04-07-11.png w pamięci projektu), opis ustawienia Connect new sessions to Remote Control w Settings > Claude Code, część Remote Control"
+  - napis: "Let your phone and claude.ai start sessions here"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu (drugi przełącznik części Remote Control, włączony), sprawdzono 2026-10-27"
+  - napis: "While Claude is open, sessions you start from your phone or claude.ai run on this computer. They can read and edit files and run commands in the folders below, following your approval settings. This computer’s name and each folder’s name, path, Git branch, and repository URL are sent to Anthropic so your devices can list them."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu (opis drugiego przełącznika; „folders below” to lista folderów pod nią, której symulator nie rysuje), sprawdzono 2026-10-27"
+  - napis: "Keep this computer awake for Remote Control"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu (trzeci przełącznik części Remote Control, włączony), sprawdzono 2026-10-27"
+  - napis: "Keeps this computer from going to sleep on its own. If it does go to sleep, it isn’t reachable until it wakes up."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-44-01.png w pamięci projektu (opis trzeciego przełącznika), sprawdzono 2026-10-27"
+  - napis: "Describe a task or ask a question"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu (tekst zastępczy pustego pola wiadomości nowej sesji); także zrzut_2026-10-27_04-41-10.png (napis częściowo zasłonięty listą trybów), sprawdzono 2026-10-27"
+  - napis: "Type / for commands"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-37.png w pamięci projektu (tekst zastępczy pola wiadomości w rozmowie, która już się zaczęła); także zrzut_2026-10-27_04-24-16.png, zrzut_2026-10-27_04-25-37.png, zrzut_2026-10-27_04-25-46.png, sprawdzono 2026-10-27"
+  - napis: "to send,"
+    gdzie: aplikacja
+    zrodlo: "kadr zrzutu Łukasza (pole wiadomości w czasie pracy Claude, obok kwadratu stop), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/3-przycisk-stop.png w drzewie modułu 0 (lekcja 0.1, pierwsze-zadanie); oryginału zrzutu nie ma w katalogu zrzuty-lukasza (spis materialy/zrzuty-w-lekcjach-2026-10-27.md w pamięci projektu) (pierwsza część podpowiedzi; strzałka klawisza Return przed nią jest ikoną, nie napisem), sprawdzono 2026-10-27"
+  - napis: "⌘"
+    gdzie: aplikacja
+    zrodlo: "kadr zrzutu Łukasza (pole wiadomości w czasie pracy Claude, obok kwadratu stop), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/3-przycisk-stop.png w drzewie modułu 0 (lekcja 0.1, pierwsze-zadanie); oryginału zrzutu nie ma w katalogu zrzuty-lukasza (spis materialy/zrzuty-w-lekcjach-2026-10-27.md w pamięci projektu) (znak klawisza Command w podpowiedzi, przed drugą ikoną Return), sprawdzono 2026-10-27"
+  - napis: "to queue for later"
+    gdzie: aplikacja
+    zrodlo: "kadr zrzutu Łukasza (pole wiadomości w czasie pracy Claude, obok kwadratu stop), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/3-przycisk-stop.png w drzewie modułu 0 (lekcja 0.1, pierwsze-zadanie); oryginału zrzutu nie ma w katalogu zrzuty-lukasza (spis materialy/zrzuty-w-lekcjach-2026-10-27.md w pamięci projektu) (druga część podpowiedzi), sprawdzono 2026-10-27"
+  - napis: "Opus 5.5"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (pierwszy wiersz menu modelu z haczykiem i nazwa modelu na przycisku w rzędzie pod polem; model z konta autora zrzutu; w symulatorze to także model domyślny przycisku i menu, gdy scenariusz nie podaje `aplikacja.model`), sprawdzono 2026-10-27"
+  - napis: "Fable 5.1"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (drugi wiersz menu modelu z cyfrą skrótu 2; model z konta autora zrzutu), sprawdzono 2026-10-27"
+  - napis: "Sonnet 5.5"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (trzeci wiersz menu modelu z cyfrą skrótu 3); także zrzut_2026-10-27_03-58-01.png, zrzut_2026-10-27_04-41-10.png, zrzut_2026-10-27_04-25-37.png (nazwa modelu na przycisku w rzędzie pod polem; model z konta autora zrzutu), sprawdzono 2026-10-27"
+  - napis: "Haiku 5.5"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-24-16.png w pamięci projektu (czwarty wiersz menu modelu z cyfrą skrótu 4; model z konta autora zrzutu), sprawdzono 2026-10-27"
+  - napis: "Search environments…"
+    gdzie: aplikacja
+    zrodlo: "kadr zrzutu Łukasza (menu środowiska nad rzędem pod polem), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/2-rzad-pod-polem.png w drzewie modułu 0 (lekcja 0.1, pierwsze-zadanie); oryginału zrzutu nie ma w katalogu zrzuty-lukasza (spis materialy/zrzuty-w-lekcjach-2026-10-27.md w pamięci projektu), sprawdzono 2026-10-27"
+  - napis: "New environment"
+    gdzie: aplikacja
+    zrodlo: "kadr zrzutu Łukasza (menu środowiska nad rzędem pod polem), plik moduly/pierwsza-praca/pierwsze-zadanie/obrazy/2-rzad-pod-polem.png w drzewie modułu 0 (lekcja 0.1, pierwsze-zadanie); oryginału zrzutu nie ma w katalogu zrzuty-lukasza (spis materialy/zrzuty-w-lekcjach-2026-10-27.md w pamięci projektu), sprawdzono 2026-10-27"
+  - napis: "New environment"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Create a saved environment, linia 812: „select **New environment** at the bottom of its menu”, napis pogrubiony; fakt aplikacja-new-environment-na-dole-menu-selektora), sprawdzono 2026-10-26"
+  # Paczka 4B silnika (D-2026-10-27-51): wariant B lewej kolumny Settings (konto z paczek 2 i 3), strona Settings → Connectors z zakładką Yours i zwinięta karta Connectors „N to reconnect” w panelu (dane/FORMAT-SCENARIUSZA.md, części „Okno Settings: wariant lewej kolumny” i „Karta Connectors zwinięta”), 27.10.2026.
+  - napis: "Cowork"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_03-59-16.png w pamięci projektu; pozycja lewej kolumny okna Settings konta A (grupa Preferences), konto z paczki 1; konto B (paczki 2 i 3) pozycji nie ma, sprawdzono 2026-10-27"
+  - napis: "Billing"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-26-45.png w pamięci projektu; także zrzut_2026-10-27_04-22-53.png, zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings konta B (grupa Preferences); konto A pozycji nie ma, sprawdzono 2026-10-27"
+  - napis: "Reflect"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-26-45.png w pamięci projektu; także zrzut_2026-10-27_04-22-53.png, zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings konta B (grupa Preferences); konto A pozycji nie ma, sprawdzono 2026-10-27"
+  - napis: "Time and focus"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-26-45.png w pamięci projektu; także zrzut_2026-10-27_04-22-53.png, zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings konta B (grupa Preferences); konto A pozycji nie ma, sprawdzono 2026-10-27"
+  - napis: "Claude in Chrome"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-26-45.png w pamięci projektu; także zrzut_2026-10-27_04-22-53.png, zrzut_2026-10-27_04-45-04.png; pozycja lewej kolumny okna Settings konta B (grupa Preferences) i nazwa wbudowanego konektora w tabeli Settings → Connectors → Yours (zrzut 04-22-53), sprawdzono 2026-10-27"
+  - napis: "Platform"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-45-04.png w pamięci projektu; nagłówek ostatniej grupy lewej kolumny okna Settings konta B (pod Customize), sprawdzono 2026-10-27"
+  - napis: "API keys"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-45-04.png w pamięci projektu; pozycja grupy Platform lewej kolumny okna Settings konta B, z ukośną strzałką (link poza aplikację), sprawdzono 2026-10-27"
+  - napis: "Connector"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; nagłówek pierwszej kolumny tabeli Settings → Connectors → Yours, sprawdzono 2026-10-27"
+  - napis: "Type"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; nagłówek drugiej kolumny tabeli Settings → Connectors → Yours, sprawdzono 2026-10-27"
+  - napis: "Status"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; nagłówek trzeciej kolumny tabeli Settings → Connectors → Yours, sprawdzono 2026-10-27"
+  - napis: "Desktop"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; typ konektora w tabeli Settings → Connectors → Yours (blender, Claude in Chrome), sprawdzono 2026-10-27"
+  - napis: "Web"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; typ konektora w tabeli Settings → Connectors → Yours (GitHub Integration, runpod, slack), sprawdzono 2026-10-27"
+  - napis: "Local dev"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; pigułka przy typie konektora blender w tabeli Settings → Connectors → Yours, sprawdzono 2026-10-27"
+  - napis: "Included"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; pigułka przy typie konektora Claude in Chrome w tabeli Settings → Connectors → Yours, sprawdzono 2026-10-27"
+  - napis: "Connects in sessions"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; stan konektorów z wtyczek w tabeli Settings → Connectors → Yours (runpod, slack), sprawdzono 2026-10-27"
+  - napis: "Provided by the"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; początek podpisu pod nazwą konektora z wtyczki w tabeli Settings → Connectors → Yours („Provided by the Runpod plugin”); nazwa wtyczki to dana konta, w symulatorze szary pasek, a końcówkę „plugin” ma osobny wpis, sprawdzono 2026-10-27"
+  - napis: "Plugin"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-22-53.png w pamięci projektu; pigułka przy typie konektora z wtyczki w tabeli Settings → Connectors → Yours (runpod, slack), sprawdzono 2026-10-27"
+  - wzor: "^\\d{1,2} to reconnect$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_04-06-00.png w pamięci projektu; także zrzut_2026-10-27_04-42-00.png; napis zwiniętej karty Connectors w panelu szczegółów („13 to reconnect”, „4 to reconnect”); liczba w symulatorze to pole scenariusza aplikacja.konektory_do_polaczenia, sprawdzono 2026-10-27"
+  # Zrzuty Łukasza paczka 4 (15-03-50, 15-27-18…15-32-40)
+  - napis: "New"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (pierwsza pozycja paska bocznego), sprawdzono 2026-10-27"
+  - napis: "New"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026 (materialy/zrzuty-lukasza/zrzut_2026-10-27_03-58-01.png w pamięci projektu); pozycja paska bocznego z ikoną +; lekcja co-jest-gdzie, sprawdzono 2026-10-27"
+  - wzor: "^Changed \\d+ files$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (karta zmian w rozmowie („Changed 2 files”); liczba w symulatorze to liczba zmienionych plików), sprawdzono 2026-10-27"
+  - napis: "Undo"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (przycisk po prawej w nagłówku karty „Changed 2 files”), sprawdzono 2026-10-27"
+  - napis: "Approaching weekly usage limit"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (pasek ostrzeżenia nad polem wiadomości; także zrzut_2026-10-27_15-31-11.png, 15-32-36.png i 15-32-40.png; termin „Resets Sun, Nov 1, 5:00 PM” to dane konta, początek „Resets” ma osobny wpis), sprawdzono 2026-10-27"
+  - napis: "Get more usage"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (przycisk w pasku ostrzeżenia o limicie; także zrzut_2026-10-27_15-31-11.png), sprawdzono 2026-10-27"
+  - napis: "Only pushed commits are shown."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (szary podpis nad listą plików w panelu zmian po prawej), sprawdzono 2026-10-27"
+  - napis: "Attach as context"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (pierwsza pozycja menu „…” przy pliku w panelu zmian; także zrzut_2026-10-27_15-27-51.png (menu prawego kliku na karcie pliku w rozmowie)), sprawdzono 2026-10-27"
+  - napis: "Attach as context"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open files in other apps: pozycja menu prawego klawisza na ścieżce pliku), sprawdzono 2026-10-26"
+  - napis: "Browser tools"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Preview your app, ostatni akapit: przełącznik w ustawieniach, wyłącza panel Browser), sprawdzono 2026-10-26"
+  - napis: "Settings > Claude Code"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział What's not available in Desktop: „`/config` opens **Settings > Claude Code**”, napis pogrubiony; tylko na rysunku R10 lekcji 9.4, nie w symulatorze), fakt aplikacja-config-otwiera-settings-claude-code, sprawdzono 2026-10-26; https://code.claude.com/docs/en/desktop.md (dział Preview your app, ostatni akapit: ścieżka w ustawieniach do przełącznika Browser tools; ten sam zapis w dziale Accept a suggested prompt), sprawdzono 2026-10-26"
+  # Napisy lekcji prezentacja-dla-klienta (moduł 3): menu + w polu wiadomości. Źródło: pogrubienia w desktop.md, sprawdzono 2026-10-26.
+  - napis: "Slash commands"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Use skills: pozycja menu po kliknięciu **+** obok pola wiadomości, pogrubiona; fakt skill-aplikacja-menu), sprawdzono 2026-10-26"
+  - napis: "Add connectors"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Connect external tools: pozycja menu po kliknięciu **+** obok pola wiadomości, pogrubiona; fakt aplikacja-plus-add-connectors-otwiera-katalog-konektorow), sprawdzono 2026-10-26"
+  # Napisy lekcji artefakt-link (moduł 3, lekcja 2): menu ⋮ panelu Browser. Źródło: pogrubienia w desktop.md, sprawdzono 2026-10-26.
+  - napis: "⋮"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Preview your app i Browse external sites: menu w nagłówku panelu Browser, „the Browser pane's **⋮** menu”, napis pogrubiony; fakt aplikacja-zmiana-wyboru-otwierania-linkow-w-menu-panelu), sprawdzono 2026-10-26"
+  - napis: "Copy"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (druga pozycja menu „…” przy pliku w panelu zmian, ze strzałką podmenu; także zrzut_2026-10-27_15-27-51.png), sprawdzono 2026-10-27"
+  - napis: "Mark as viewed"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-03-50.png w pamięci projektu (trzecia pozycja menu „…” przy pliku w panelu zmian, pod kreską), sprawdzono 2026-10-27"
+  - napis: "Ran 2 commands, created"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-18.png w pamięci projektu (początek wiersza podsumowania w rozmowie („Ran 2 commands, created info.txt +3”); nazwa pliku to dana konta; napis dosłownie ze zrzutu, bo wzór z „created” psuje licznik w test_napisy_harmonogramu.py; także zrzut_2026-10-27_15-27-51.png), sprawdzono 2026-10-27"
+  - wzor: "^\\+\\d+$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-18.png w pamięci projektu (licznik dodanych linii na końcu wiersza podsumowania („+3”); także zrzut_2026-10-27_15-31-11.png („Created 3 files +29”)), sprawdzono 2026-10-27"
+  - napis: "Claude Code notice"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-18.png w pamięci projektu (zwinięty wiersz ze strzałką w prawo pod odpowiedzią Claude), sprawdzono 2026-10-27"
+  - napis: "Show file tree"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pierwsza pozycja menu „…” panelu pliku, ze skrótem), sprawdzono 2026-10-27"
+  - napis: "⇧ ⌘ Y"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (skrót przy Show file tree), sprawdzono 2026-10-27"
+  - napis: "File tree position"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (druga pozycja menu „…” panelu pliku, ze strzałką podmenu), sprawdzono 2026-10-27"
+  - napis: "Automatic"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (wartość przy File tree position w menu „…” panelu pliku), sprawdzono 2026-10-27"
+  - napis: "Preview tabs"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku z ptaszkiem), sprawdzono 2026-10-27"
+  - napis: "Auto save"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku z ptaszkiem (zaznaczone)), sprawdzono 2026-10-27"
+  - napis: "Auto save"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open and edit files, część Save edits in the file pane: pole wyboru w menu ⋮ panelu pliku), sprawdzono 2026-10-26"
+  - napis: "Tab key indents"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku z ptaszkiem), sprawdzono 2026-10-27"
+  - napis: "Word wrap"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku z ptaszkiem, trzecia grupa), sprawdzono 2026-10-27"
+  - napis: "Indent guides"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku z ptaszkiem, trzecia grupa), sprawdzono 2026-10-27"
+  - napis: "Show whitespace"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku bez ptaszka, trzecia grupa), sprawdzono 2026-10-27"
+  - napis: "Scroll past end"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (pozycja menu „…” panelu pliku bez ptaszka, trzecia grupa), sprawdzono 2026-10-27"
+  - napis: "Tab size"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-25.png w pamięci projektu (ostatnia pozycja menu „…” panelu pliku, ze strzałką podmenu; wartość „4” ma osobny wpis z menu modelu), sprawdzono 2026-10-27"
+  - napis: "Open in"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-51.png w pamięci projektu (trzecia pozycja menu prawego kliku na karcie pliku w rozmowie, ze strzałką podmenu; także zrzut_2026-10-27_15-32-22.png (pierwsza pozycja menu sesji)), sprawdzono 2026-10-27"
+  - napis: "Show in Finder"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-51.png w pamięci projektu (ostatnia pozycja menu prawego kliku na karcie pliku w rozmowie), sprawdzono 2026-10-27"
+  - napis: "Show in Finder"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open files in other apps: pozycja menu prawego klawisza na ścieżce pliku, macOS), sprawdzono 2026-10-26"
+  - napis: "Show session rail"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-18.png w pamięci projektu (dymek pod pierwszą ikoną paska tytułu), sprawdzono 2026-10-27"
+  - napis: "Show in Explorer"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Open files in other apps: pozycja menu prawego klawisza na ścieżce pliku, Windows), sprawdzono 2026-10-26"
+  - napis: "Show session rail"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Hide or show the session details panel: „click **Hide session rail** or **Show session rail** in the session's title bar”, napis pogrubiony), sprawdzono 2026-10-26"
+  - napis: "TXT"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-18.png w pamięci projektu (znaczek rodzaju pliku na karcie pliku w rozmowie („TXT info.txt 72B”); tylko pliki .txt, bo żaden zrzut nie pokazuje znaczka innego rodzaju; także zrzut_2026-10-27_15-27-51.png), sprawdzono 2026-10-27"
+  - wzor: "^\\d+B$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-27-18.png w pamięci projektu (rozmiar pliku na karcie pliku w rozmowie („72B”); liczba bajtów to dana pliku, symulator pokazuje tylko postać „NB”, bo żaden zrzut nie pokazuje większych jednostek), sprawdzono 2026-10-27"
+  - napis: "Open in Safari"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pierwsza pozycja menu „…” panelu Browser (szara przy pustej karcie)), sprawdzono 2026-10-27"
+  - napis: "Copy URL"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (druga pozycja menu „…” panelu Browser (szara przy pustej karcie)), sprawdzono 2026-10-27"
+  - napis: "Save screenshot"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (trzecia pozycja menu „…” panelu Browser (szara przy pustej karcie)), sprawdzono 2026-10-27"
+  - napis: "Open HTML file…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (czwarta pozycja menu „…” panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Viewport"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser po pierwszej kresce (szara)), sprawdzono 2026-10-27"
+  - napis: "Responsive"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (wartość przy Viewport w menu „…” panelu Browser (szara)), sprawdzono 2026-10-27"
+  - napis: "Open links in built-in browser"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser, bez ptaszka), sprawdzono 2026-10-27"
+  - napis: "Open links in built-in browser"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Browse external sites: pozycja w menu ⋮ panelu Browser do zmiany wyboru, gdzie otwierają się linki z rozmowy, napis pogrubiony; fakt aplikacja-zmiana-wyboru-otwierania-linkow-w-menu-panelu), sprawdzono 2026-10-26"
+  - napis: "Auto-open files Claude writes"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser z ptaszkiem), sprawdzono 2026-10-27"
+  - napis: "Auto-verify changes"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser, bez ptaszka), sprawdzono 2026-10-27"
+  - napis: "Manage allowed sites…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser, ostatnia przed trzecią kreską), sprawdzono 2026-10-27"
+  - napis: "Cookies"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (szary nagłówek grupy w menu „…” panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Import cookies…"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser pod nagłówkiem Cookies), sprawdzono 2026-10-27"
+  - napis: "Keep cookies"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (pozycja menu „…” panelu Browser, ze strzałką podmenu), sprawdzono 2026-10-27"
+  - napis: "Keep cookies"
+    gdzie: aplikacja
+    zrodlo: "https://code.claude.com/docs/en/desktop.md (dział Preview your app: pozycja w menu ⋮ panelu Browser, wybór, czy Browser zachowuje ciasteczka po zamknięciu aplikacji, napis pogrubiony; fakt aplikacja-panel-browser-keep-cookies), sprawdzono 2026-10-26"
+  - napis: "Shared"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (wartość przy Keep cookies w menu „…” panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Clear browsing data"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (ostatnia pozycja menu „…” panelu Browser, czerwona), sprawdzono 2026-10-27"
+  - napis: "New tab"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (tytuł karty w panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Type a URL"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (podpowiedź w polu adresu panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Browse with Claude"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (nagłówek pustej karty panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Type a URL or ask Claude to open a site. Claude can read, click, and type."
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (opis pod nagłówkiem pustej karty panelu Browser (dwa wiersze)), sprawdzono 2026-10-27"
+  - napis: "Preview your app instead?"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (podpowiedź na dole pustej karty panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Detect dev server"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-28-39.png w pamięci projektu (przycisk-link obok „Preview your app instead?” w pustej karcie panelu Browser), sprawdzono 2026-10-27"
+  - napis: "Used artifact tool"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-11.png w pamięci projektu (wiersz narzędzia w rozmowie ze strzałką w prawo), sprawdzono 2026-10-27"
+  - napis: "Used artifact tool quickstart"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-36.png w pamięci projektu (wiersz narzędzia w rozmowie ze strzałką w dół (rozwinięty); także zrzut_2026-10-27_15-32-40.png), sprawdzono 2026-10-27"
+  - napis: "Initialized session"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-36.png w pamięci projektu (pierwszy wiersz rozmowy ze strzałką w prawo; także zrzut_2026-10-27_15-32-40.png), sprawdzono 2026-10-27"
+  - napis: "Published"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-11.png w pamięci projektu (pigułka po prawej na karcie artefaktu w rozmowie; także zrzut_2026-10-27_15-32-22.png), sprawdzono 2026-10-27"
+  - wzor: "^Created \\d+ files$"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-11.png w pamięci projektu (początek wiersza podsumowania w rozmowie („Created 3 files +29”); także zrzut_2026-10-27_15-32-22.png, 15-32-36.png i 15-32-40.png), sprawdzono 2026-10-27"
+  - napis: "43%"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-11.png w pamięci projektu (powiększenie w prawym pasku narzędzi panelu prezentacji), sprawdzono 2026-10-27"
+  - napis: "Claude"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-11.png w pamięci projektu (plakietka z kursorem na miniaturze drugiego slajdu w panelu prezentacji), sprawdzono 2026-10-27"
+  - napis: "Rename"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (druga pozycja menu sesji otwartego strzałką przy tytule rozmowy, ze skrótem), sprawdzono 2026-10-27"
+  - napis: "R"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (skrót przy Rename w menu sesji), sprawdzono 2026-10-27"
+  - napis: "Copy link"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (trzecia pozycja menu sesji, ze skrótem), sprawdzono 2026-10-27"
+  - napis: "C"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (skrót przy Copy link w menu sesji), sprawdzono 2026-10-27"
+  - napis: "Transcript view"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (czwarta pozycja menu sesji, ze strzałką podmenu (Normal, Verbose)), sprawdzono 2026-10-27"
+  - napis: "Edit cloud environment"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (pozycja menu sesji w chmurze pod Transcript view), sprawdzono 2026-10-27"
+  - napis: "A"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (skrót przy Archive w menu sesji), sprawdzono 2026-10-27"
+  - napis: "Delete"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (ostatnia pozycja menu sesji, czerwona, ze skrótem), sprawdzono 2026-10-27"
+  - napis: "D"
+    gdzie: aplikacja
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-32-22.png w pamięci projektu (skrót przy Delete w menu sesji), sprawdzono 2026-10-27"
+  - napis: "Translate"
+    gdzie: claude.ai
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-46.png w pamięci projektu (przycisk na górnym pasku edytora prezentacji, po lewej od ikony dymka), sprawdzono 2026-10-27"
+  - napis: "Chat"
+    gdzie: claude.ai
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-46.png w pamięci projektu (przycisk z gwiazdką na górnym pasku edytora prezentacji), sprawdzono 2026-10-27"
+  - napis: "59%"
+    gdzie: claude.ai
+    zrodlo: "zrzut Łukasza 27.10.2026, plik materialy/zrzuty-lukasza/zrzut_2026-10-27_15-31-46.png w pamięci projektu (powiększenie w prawym pasku narzędzi edytora prezentacji), sprawdzono 2026-10-27"

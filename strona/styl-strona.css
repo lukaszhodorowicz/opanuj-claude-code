@@ -1,0 +1,532 @@
+/* Wygląd strony lekcji: kolory i kroje kursu (granat, limonka, zakreślacz), nagłówek, tekst lekcji i bloki w kolumnach. */
+:root {
+  --granat: #0e1422;
+  --granat-2: #16203a;
+  --limonka: #a3e635;
+  --zakreslacz: #d9f99d;
+  --mech: #3f6212;
+  --akcent: var(--mech); /* kolor akcentu tekstu: linki, etykiety */
+  --papier: #f6f6f1;
+  --papier-2: #eef0e6;
+  --grafit: #475569;
+  --kreska: #e2e4da;
+  --biel: #ffffff;
+  --czerwony-jasny: #fbe4e1;
+  --czerwony: #b4442f;
+  --sans:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--granat);
+  font: 400 17px/1.65 var(--sans);
+  overflow-x: hidden;
+}
+@media (min-width: 760px) {
+  body {
+    font-size: 18px;
+  }
+}
+a {
+  color: var(--akcent);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--limonka);
+  outline-offset: 3px;
+}
+
+/* nagłówek strony: znak i nazwa kursu */
+.gora {
+  background: var(--biel);
+  border-bottom: 1px solid var(--kreska);
+  padding: 12px 16px;
+}
+@media (min-width: 760px) {
+  .gora {
+    padding: 14px 28px;
+  }
+}
+.gora-wnetrze {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo svg {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: block;
+}
+.logo-tekst {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.logo-cc {
+  font: 500 12px/1 var(--mono);
+  letter-spacing: 0.03em;
+  color: var(--grafit);
+  margin-bottom: 5px;
+}
+.logo-pl {
+  font: 800 22px/1 var(--sans);
+  letter-spacing: -0.035em;
+  color: var(--granat);
+}
+.logo-pl span {
+  background: linear-gradient(transparent 0 48%, var(--zakreslacz) 48% 100%);
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
+}
+.kursor-znaku {
+  animation: mrug 1.1s steps(1) infinite;
+}
+@keyframes mrug {
+  55% {
+    opacity: 0;
+  }
+}
+
+/* tekst lekcji: akapity, listy i bloki kolumn na całą szerokość strony, bez łamania w połowie */
+.strona {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 16px 80px;
+}
+@media (min-width: 760px) {
+  .strona {
+    padding: 34px 28px 80px;
+  }
+}
+.tekst p,
+.tekst li {
+  text-wrap: pretty;
+}
+/* okruszki: pierwszy akapit lekcji (moduł i numer lekcji) */
+.strona > div.tekst:first-of-type > p:first-child {
+  font: 500 13px/1.4 var(--mono);
+  color: var(--grafit);
+  margin: 0 0 6px;
+}
+.strona > div.tekst:first-of-type > p:first-child em {
+  font-style: normal;
+}
+/* znacznik lekcji: moduł z nazwą i plakietka „Lekcja N z M” z paskiem odcinków; bieżący odcinek jak kursor ze znaku */
+.znacznik-lekcji {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 0 0 14px;
+}
+.znacznik-lekcji p {
+  margin: 0;
+}
+.zl-modul {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 9px;
+  line-height: 1.3;
+}
+.zl-modul-nr {
+  font: 700 12px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--akcent);
+}
+.zl-modul-nazwa {
+  font: 800 17px/1.25 var(--sans);
+  letter-spacing: -0.015em;
+  color: var(--granat);
+}
+.zl-lekcja {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  background: var(--granat);
+  color: var(--biel);
+  border-radius: 999px;
+  padding: 7px 16px 7px 14px;
+}
+.zl-napis {
+  font: 700 15px/1.2 var(--sans);
+  white-space: nowrap;
+}
+.zl-napis b {
+  font: 700 16px/1 var(--mono);
+  color: var(--limonka);
+}
+.zl-pasek {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.zl-odcinek {
+  flex: 0 1 auto;
+  width: 18px;
+  min-width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--grafit);
+}
+.zl-odcinek.zl-biezacy {
+  width: 30px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--limonka);
+}
+.znacznik-lekcji + .tekst > h1:first-child {
+  margin-top: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--sans);
+  text-wrap: balance;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+h1 {
+  font-size: clamp(29px, 6.2vw, 42px);
+  line-height: 1.12;
+  margin: 10px 0 10px;
+}
+h2 {
+  font-size: clamp(22px, 4.4vw, 27px);
+  margin: 44px 0 12px;
+}
+h3 {
+  font-size: 19px;
+  letter-spacing: -0.015em;
+  margin: 30px 0 6px;
+}
+p {
+  margin: 0 0 14px;
+}
+strong {
+  font-weight: 700;
+}
+kbd {
+  display: inline-block;
+  min-width: 24px;
+  padding: 0 7px;
+  border: 1px solid #c9ccc0;
+  border-bottom-width: 3px;
+  border-radius: 7px;
+  background: var(--biel);
+  color: var(--granat);
+  font: 700 13.5px/1.6 var(--mono);
+  text-align: center;
+  vertical-align: 1px;
+}
+code {
+  background: #ecede5;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font: 500 14.5px var(--mono);
+  overflow-wrap: anywhere;
+}
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* kolumny: dwie karty obok siebie (na telefonie jedna pod drugą), kroki jako ponumerowana ścieżka */
+.kolumny {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 14px;
+  margin: 14px 0 26px;
+}
+.kolumna {
+  background: var(--biel);
+  border: 1px solid var(--kreska);
+  border-radius: 20px;
+  padding: 16px 16px 4px;
+  min-width: 0;
+}
+@media (min-width: 760px) {
+  .kolumna {
+    padding: 20px 22px 8px;
+  }
+}
+.kolumna h4 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+.kolumna .podglad {
+  margin-bottom: 14px;
+}
+/* listy kolumny to tylko listy z tekstu lekcji (dzieci kolumny): podgląd okna aplikacji w kolumnie ma własne listy (pasek boczny, widok rozmów) i nie dostaje ich numerów, znaczników ani odstępów */
+.kolumna > ol,
+.kolumna > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.kolumna > ol {
+  counter-reset: krok;
+}
+.kolumna > :where(ol, ul) > li {
+  position: relative;
+  padding-left: 36px;
+  margin: 0 0 12px;
+}
+.kolumna > ol > li {
+  counter-increment: krok;
+}
+.kolumna > ol > li::before {
+  content: counter(krok);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--granat);
+  color: var(--limonka);
+  font: 700 12px/24px var(--mono);
+  text-align: center;
+}
+.kolumna > ol > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 28px;
+  bottom: -10px;
+  width: 2px;
+  background: var(--kreska);
+}
+.kolumna > ul > li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0.55em;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--zakreslacz);
+  border: 2px solid var(--mech);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Stopka ze źródłami lekcji (część `## Źródła` z lekcja.md, D-2026-10-26-54): po quizie i fiszkach, linia nad nią, mniejsze pismo. */
+.stopka-zrodel {
+  margin-top: 56px;
+  padding-top: 18px;
+  border-top: 1px solid var(--kreska);
+  color: var(--grafit);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.stopka-zrodel h2 {
+  margin: 0 0 8px;
+  font: 700 12px/1.3 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grafit);
+}
+.tekst.stopka-zrodel :where(p, li) {
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.stopka-zrodel :where(p, ul) {
+  margin: 0 0 8px;
+}
+
+/* Analogia pod obrazem (`<!-- analogia: … -->` w lekcja.md, narzedzia/strona_analogia.py): rozwijany blok „Jak to sobie wyobrazić?” w ramce obrazu, pod podpisem; bez skryptu, łamie się do szerokości obrazu jak podpis (na 390 px bez przewijania w bok). */
+.obraz > details {
+  contain: inline-size;
+  margin: 8px 8px 4px;
+  padding: 10px 14px;
+  background: var(--papier);
+  border: 1px solid var(--kreska);
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--granat);
+}
+.obraz > details > summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--akcent);
+  overflow-wrap: anywhere;
+}
+.obraz > details > summary:focus-visible {
+  outline: 2px solid var(--limonka);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.obraz > details > p {
+  margin: 8px 0 2px;
+  color: var(--grafit);
+  overflow-wrap: anywhere;
+}
+
+/* Przewiewny układ lekcji (D-2026-10-28-03, próbka 28.10.2026): tylko układ i odstępy, kolory marki, kroje i treść bez zmian. Skala odstępów: wielokrotności 8 px (8, 16, 24, 32, 40, 48, 64, 96). Dwie szerokości: tekst (z quizem) i szeroka (kolumny, rysunek, fiszki); ćwiczenie na całą stronę. */
+:root {
+  --miara: 640px; /* ZASADA: długość wiersza 65-75 znaków (Bringhurst); przy 18 px Plus Jakarta Sans 640 px ≈ 70 znaków */
+  --szeroka: 920px; /* ZASADA: układ z wyjściem poza kolumnę (breakout): porównania, rysunek i fiszki szersze od tekstu */
+  --odstep-czesci: 96px; /* ZASADA: rytm pionowy, duże części oddziela największy krok skali */
+}
+
+/* ZASADA: długość wiersza. Każdy element tekstu lekcji stoi w kolumnie ~70 znaków, wyśrodkowanej na stronie */
+.strona .tekst > *,
+.strona > .znacznik-lekcji {
+  max-width: var(--miara);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ZASADA: breakout. Porównanie w dwóch kolumnach i rysunek wychodzą poza kolumnę tekstu (dwie karty po ~50 znaków w wierszu) */
+.strona .tekst > .kolumny {
+  max-width: var(--szeroka);
+}
+
+/* ZASADA: odstępy między akapitami ≈ 3/4 wysokości wiersza (30 px), wcześniej 14 px */
+.tekst p {
+  margin: 0 0 22px;
+}
+
+.tekst li + li {
+  margin-top: 12px; /* ZASADA (Łukasz 28.10: przy 6 px było ciasno): punkty listy oddzielone, ale bliżej siebie niż akapity (bliskość = przynależność) */
+}
+
+.tekst > ul,
+.tekst > ol {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+/* ZASADA: znacznik lekcji i tytuł: tytuł z dużym oddechem nad wstępem, bo to pierwsza informacja na stronie */
+.strona > .znacznik-lekcji {
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+.tekst > h1 {
+  margin: 0 0 40px;
+}
+
+/* ZASADA: bliskość (Gestalt). Nagłówek części ma nad sobą ~4× więcej miejsca niż pod sobą, więc „przykleja się” do swojej treści, nie do poprzedniej */
+.tekst > h2 {
+  margin: var(--odstep-czesci) auto 20px;
+}
+
+/* ZASADA: wyraźny początek części. Krótka limonkowa kreska nad nagłówkiem (jak bieżący odcinek w pasku lekcji) zamiast ramki */
+.tekst > h2::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--limonka);
+  margin-bottom: 18px;
+}
+
+/* ZASADA: hierarchia. Podrozdział: mniejszy skok niż część (48 px nad, 12 px pod; stosunek 4:1) */
+.tekst > h3 {
+  margin: 48px auto 12px;
+}
+
+.tekst > h2 + h3,
+.tekst > h2 + p,
+.tekst > h2 + div {
+  margin-top: 0;
+}
+
+/* ZASADA: mniej ramek w ramkach. Karty porównania bez obwódki, samo białe tło; więcej powietrza w środku i między kartami */
+.kolumny {
+  gap: 24px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.kolumna {
+  border-color: transparent;
+  padding: 24px 24px 12px;
+}
+
+.kolumna h4 {
+  margin-bottom: 16px;
+}
+
+.kolumna > :where(ol, ul) > li {
+  margin-bottom: 20px;
+}
+
+/* ZASADA: wydzielenie końca lekcji. Źródła w kolumnie tekstu, daleko pod fiszkami, oddzielone kreską */
+.strona > .stopka-zrodel {
+  max-width: var(--miara);
+  margin: var(--odstep-czesci) auto 0;
+  padding-top: 24px;
+}
+
+.tekst.stopka-zrodel > h2 {
+  margin: 0 0 12px;
+}
+
+.tekst.stopka-zrodel > h2::before {
+  content: none; /* stopka to nie część lekcji: bez kreski części */
+}
+
+/* ZASADA: wyrównanie. Logo w nagłówku strony stoi przy lewej krawędzi kolumny tekstu, nie przy krawędzi ekranu */
+.gora-wnetrze {
+  max-width: var(--miara);
+}
+
+/* ZASADA: marginesy boczne na telefonie min. 16 px (zostają 16 px ze strony), mniejsze kroki pionowe przy krótszym ekranie */
+@media (max-width: 759px) {
+  :root {
+    --odstep-czesci: 64px;
+  }
+  .tekst > h3 {
+    margin-top: 40px;
+  }
+  .tekst > h1 {
+    margin-bottom: 32px;
+  }
+  .kolumny {
+    gap: 16px;
+  }
+  .kolumna {
+    padding: 20px 20px 8px;
+  }
+}

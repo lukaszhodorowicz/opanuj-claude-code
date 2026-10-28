@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Czym jest subagent?"
+    tyl: "Pomocnikiem, który pracuje we własnym oknie kontekstu, z własnym promptem, narzędziami i uprawnieniami."
+    fakt: subagent-wlasne-okno-kontekstu
+
+  - przod: "Co wraca do rozmowy, gdy subagent skończy?"
+    tyl: "Jego wyniki. Wielu subagentów ze szczegółowymi wynikami może zająć dużo kontekstu."
+    fakt: subagent-wyniki-wracaja-do-rozmowy
+
+  - przod: "Czego zwykły subagent nie widzi na start?"
+    tyl: "Historii Twojej rozmowy ani plików, które Claude już przeczytał."
+    fakt: subagent-swieze-okno-bez-historii-rozmowy
+
+  - przod: "Kto pisze zadanie dla subagenta?"
+    tyl: "Claude. Streszcza w nim Twoją prośbę."
+    fakt: subagent-zadanie-pisze-claude
+
+  - przod: "Czym fork różni się od zwykłego subagenta?"
+    tyl: "Fork zna całą dotychczasową rozmowę, zamiast zaczynać od zera."
+    fakt: subagent-fork-zna-cala-rozmowe
+
+  - przod: "Gdzie w aplikacji widać pracę subagenta w tle?"
+    tyl: "W panelu zadań w tle: menu ⋮ na pasku tytułu, pozycja Background tasks."
+    fakt: aplikacja-panel-zadan-w-tle-co-pokazuje

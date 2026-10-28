@@ -1,0 +1,364 @@
+<!doctype html>
+<!-- Rysunek R1 „Gdzie jest strona” do lekcji strona-oferty: jeden plik w dwóch widokach na komputerze kursanta, internet dopiero w lekcji 2. Źródło PNG obrazy/gdzie-jest-strona.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Gdzie jest strona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (identyfikacja-probka.html) */
+      :root {
+        --granat: #0e1422;
+        --granat-2: #16203a;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --mech: #3f6212;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --szary-na-granacie: #94a3b8;
+        /* okno aplikacji jak w ćwiczeniu */
+        --okno: #1b1b1d;
+        --okno-pasek: #2a2a2d;
+        --okno-tekst: #e6e3dc;
+        --okno-kreska: #4a4a4f;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+
+      /* ===== Laptop: ekran i podstawa z podpisem ===== */
+      .ekran {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-bottom-width: 0;
+        border-radius: 24px 24px 0 0;
+        padding: 16px 16px 6px;
+      }
+      .pola {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 34px;
+        align-items: stretch;
+      }
+      .pole {
+        display: flex;
+        flex-direction: column;
+      }
+      .podpis-pola {
+        min-height: 2.3em;
+        display: flex;
+        align-items: flex-end;
+        margin: 0 0 10px 4px;
+        font: 800 27px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .podstawa {
+        margin: 0 -10px;
+        height: 58px;
+        background: var(--granat);
+        border-radius: 6px 6px 22px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--biel);
+        font: 800 30px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .podstawa svg {
+        width: 34px;
+        height: 34px;
+        color: var(--limonka);
+      }
+      .podstawa .local {
+        font: 700 27px/1 var(--mono);
+        color: var(--limonka);
+        letter-spacing: 0;
+      }
+
+      /* ===== Pole 1: folder z kartami ===== */
+      .folder {
+        flex: 1;
+        background: var(--papier);
+        border: 2px solid var(--kreska);
+        border-radius: 16px;
+        padding: 12px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .folder-glowa {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 4px 2px;
+        font: 700 19px/1.2 var(--mono);
+      }
+      .folder-glowa svg {
+        width: 26px;
+        height: 26px;
+        flex: none;
+      }
+      .karta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 50px;
+        padding: 0 10px;
+        background: var(--biel);
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        font: 500 20px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .karta svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+      }
+      .karta.ta {
+        background: var(--zakreslacz);
+        border-color: var(--limonka);
+        border-width: 3px;
+        font-weight: 700;
+      }
+
+      /* ===== Pole 2: okno aplikacji z panelem Browser ===== */
+      .okno {
+        flex: 1;
+        background: var(--okno);
+        border-radius: 16px;
+        padding: 0 8px 8px;
+        display: flex;
+        flex-direction: column;
+      }
+      .okno-gora {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-left: 6px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .panel-glowa {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 42px;
+        padding: 0 12px;
+        background: var(--okno-pasek);
+        border-radius: 10px 10px 0 0;
+        color: var(--okno-tekst);
+        font: 700 22px/1 var(--sans);
+      }
+      .panel-glowa svg {
+        width: 24px;
+        height: 24px;
+      }
+      .strona {
+        flex: 1;
+        background: var(--papier);
+        border-radius: 0 0 10px 10px;
+        padding: 14px 14px 16px;
+        display: flex;
+        flex-direction: column;
+      }
+      .strona h3 {
+        margin: 0 0 12px;
+        font: 800 24px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .linia {
+        height: 10px;
+        border-radius: 5px;
+        background: #d6d9cd;
+        margin-bottom: 9px;
+      }
+      .cena {
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 2px solid var(--kreska);
+        font: 800 21px/1.1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+
+      /* ===== Strzałka między polami ===== */
+      .przejscie {
+        position: relative;
+        height: 92px;
+      }
+      .przejscie svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .przejscie .etykieta {
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        transform: translateX(-50%);
+        font: 800 28px/1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+
+      /* ===== Granica i internet ===== */
+      .granica {
+        position: relative;
+        margin: 34px 0 0;
+        border-top: 3px dashed var(--grafit);
+      }
+      .granica .etykieta {
+        position: absolute;
+        left: 50%;
+        top: -1.5px;
+        transform: translate(-50%, -50%);
+        background: var(--papier);
+        padding: 0 14px;
+        color: var(--grafit);
+        font: 800 28px/1 var(--sans);
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .internet {
+        display: flex;
+        justify-content: center;
+        margin-top: 26px;
+      }
+      .chmura {
+        position: relative;
+        width: 390px;
+        height: 120px;
+      }
+      .chmura svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .chmura span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 68px;
+        text-align: center;
+        color: var(--grafit);
+        font: 800 27px/1 var(--sans);
+        letter-spacing: -0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Plik oferta-szkolenia.html leży w folderze Oferta-szkolenia-kopia na Twoim komputerze (Local). Kliknięcie ścieżki w rozmowie otwiera ten sam plik w panelu Browser. Internet i klient są za przerywaną linią: jeszcze nie, to lekcja 2.">
+      <div class="ekran">
+        <div class="pola">
+          <!-- Pole 1 -->
+          <div class="pole">
+            <p class="podpis-pola">Plik w folderze</p>
+            <div class="folder">
+              <div class="folder-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.2h9A1.5 1.5 0 0 1 21 9.7v8.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+                Oferta-szkolenia-kopia
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                opis-szkolenia.txt
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                cennik.txt
+              </div>
+              <div class="karta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                opinie-klientow.txt
+              </div>
+              <div class="karta ta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M10.5 11.5 8.5 14l2 2.5M13.5 11.5l2 2.5-2 2.5"/></svg>
+                oferta-szkolenia.html
+              </div>
+            </div>
+          </div>
+          <!-- Pole 2 -->
+          <div class="pole">
+            <p class="podpis-pola">Ten sam plik<br />w panelu Browser</p>
+            <div class="okno">
+              <div class="okno-gora"><i></i><i></i><i></i></div>
+              <div class="panel-glowa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+                Browser
+              </div>
+              <div class="strona">
+                <h3>Rozmowa o cenie bez przepraszania</h3>
+                <div class="linia" style="width: 100%"></div>
+                <div class="linia" style="width: 88%"></div>
+                <div class="linia" style="width: 64%"></div>
+                <div class="cena">2 600 zł netto za osobę</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Strzałka: z folderu do panelu Browser -->
+        <div class="przejscie">
+          <svg viewBox="0 0 688 92" aria-hidden="true">
+            <path d="M163 2 V24 a10 10 0 0 0 10 10 H515 a10 10 0 0 0 10 -10 V14" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M513 17 L525 3 L537 17" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="etykieta">Klikasz ścieżkę w rozmowie.</div>
+        </div>
+      </div>
+      <div class="podstawa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>
+        <span>Twój komputer <span class="local">(This computer)</span></span>
+      </div>
+
+      <div class="granica"><span class="etykieta">Klient jeszcze nie widzi strony.</span></div>
+      <div class="internet">
+        <div class="chmura">
+          <svg viewBox="0 0 390 120" aria-hidden="true">
+            <g fill="#94a3b8">
+              <rect x="111" y="73" width="170" height="46"/>
+              <circle cx="111" cy="76" r="43"/><circle cx="196" cy="60" r="57"/><circle cx="281" cy="76" r="43"/>
+            </g>
+            <g fill="#eef0e6">
+              <rect x="111" y="76" width="170" height="40"/>
+              <circle cx="111" cy="76" r="40"/><circle cx="196" cy="60" r="54"/><circle cx="281" cy="76" r="40"/>
+            </g>
+          </svg>
+          <span>Internet i klient</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

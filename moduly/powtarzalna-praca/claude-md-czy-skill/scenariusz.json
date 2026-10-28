@@ -1,0 +1,267 @@
+{
+  "lekcja": "claude-md-czy-skill",
+  "folder_startowy": [
+    "CLAUDE.md",
+    "przepis-na-opis.txt",
+    "krem-rozany-notatki.txt",
+    "serum-notatki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zasada do CLAUDE.md, przepis do skilla",
+      "opis": "Rozmowa w folderze Opisy-produktow. Zapiszesz dwie rzeczy: zasadę sklepu i przepis na opis produktu.",
+      "nauczyciel_start": "Dwie rzeczy do zapisania, dwa miejsca. Kliknij pierwsze polecenie i patrz na folder pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Opisy-produktow",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam zasady sklepu, notatki o produktach i mój przepis na opis produktu."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        ".claude/skills/opis-produktu/SKILL.md"
+      ],
+      "drogi": [
+        {
+          "id": "zasada",
+          "etykieta": "Dopisz zasadę do CLAUDE.md",
+          "opis": "Claude dwa razy obiecał w tekście efekt leczniczy. Zasada „nie obiecujemy efektów leczniczych” dotyczy każdego tekstu sklepu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dwa razy napisałeś, że krem leczy. Dopisz do CLAUDE.md zasadę: nie obiecujemy efektów leczniczych.",
+              "fakt": "claude-md-prosba-o-zapis"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopisałem zasadę na końcu CLAUDE.md. Ten plik czytam na początku każdej rozmowy w tym folderze.",
+              "plik": "CLAUDE.md",
+              "fakt": "claude-md-czytany-na-start-sesji"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta CLAUDE.md pod oknem ma ramkę zmiany. W trybie Accept edits Claude zapisał zmianę bez pytania. Kliknij ścieżkę w odpowiedzi.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady sklepu z kosmetykami naturalnymi",
+                "- Do klientek piszemy na Ty.",
+                "- Piszemy prosto, bez słów „luksusowy” i „cudowny”.",
+                "- Nie obiecujemy efektów leczniczych."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nowa zasada stoi obok zasad sklepu. Claude ma ją znać przy każdym tekście, więc jej miejsce jest w CLAUDE.md.",
+              "fakt": "do-claude-md-co-claude-ma-wiedziec-zawsze"
+            }
+          ]
+        },
+        {
+          "id": "przepis",
+          "etykieta": "Zapisz przepis jako skill",
+          "opis": "Sześć kroków, które wklejasz przy każdym opisie produktu. Przydają się tylko przy opisach.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz mój przepis z pliku przepis-na-opis.txt jako skill projektu o nazwie opis-produktu.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "przepis-na-opis.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapiszę przepis jako skill w pliku .claude/skills/opis-produktu/SKILL.md. Zapis skilla w folderze .claude wymaga Twojej zgody, także w trybie Accept edits.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/skills/opis-produktu/SKILL.md",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W trybie Accept edits Claude zapisuje zwykłe pliki, jak CLAUDE.md, bez pytania. O zapis skilla w folderze .claude pyta. Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem skill w .claude/skills/opis-produktu/SKILL.md. Uruchomisz go w nowej rozmowie w tym folderze poleceniem /opis-produktu.",
+              "plik": ".claude/skills/opis-produktu/SKILL.md",
+              "fakt": "skill-nowy-folder-skilli-wymaga-przeladowania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pod oknem pojawił się folder .claude/skills/opis-produktu, osobno od CLAUDE.md. Przepis uruchomisz poleceniem /opis-produktu. Kliknij ścieżkę w odpowiedzi.",
+              "fakt": "do-skilla-material-czasem-albo-przepis"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/skills/opis-produktu/SKILL.md",
+              "linijki": [
+                "---",
+                "name: opis-produktu",
+                "description: Pisze opis produktu do sklepu z kosmetykami według sześciu kroków. Użyj, gdy proszę o opis produktu z notatek.",
+                "---",
+                "1. Tytuł: nazwa i pojemność.",
+                "2. Jedno zdanie: dla kogo jest produkt.",
+                "3. Trzy korzyści w punktach.",
+                "4. Jak używać, w jednym zdaniu.",
+                "5. Pełny skład z notatek.",
+                "6. Na końcu cena."
+              ],
+              "fakt": "skill-plik-ma-naglowek-i-instrukcje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na górze opis skilla, niżej sam przepis. Treść wejdzie do rozmowy, gdy wywołasz skill albo zadanie będzie pasować do opisu.",
+              "fakt": "skill-wczytuje-sie-gdy-wywolany-albo-pasuje"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Zasady sklepu i przepis w jednej rozmowie",
+      "opis": "Nowa rozmowa w tym samym folderze. Pierwsza prośba dotyczy posta, nie opisu produktu.",
+      "nauczyciel_start": "To nowa rozmowa, pierwsza prośba jest wysłana. Kliknij polecenie nad oknem i patrz, które karty pod oknem zaświecą.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Opisy-produktow",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          ".claude/skills/opis-produktu/SKILL.md"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zaproponuj trzy tytuły posta o kremie z pliku krem-rozany-notatki.txt.",
+            "fakt": "aplikacja-rozmowa-to-sesja-z-wlasna-historia"
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "opis-serum.txt"
+      ],
+      "drogi": [
+        {
+          "id": "razem",
+          "etykieta": "Patrz, co Claude czyta",
+          "opis": "Najpierw prośba o tytuły posta, potem polecenie skilla.",
+          "kroki": [
+            {
+              "typ": "mysli",
+              "ms": 2400,
+              "czyta": [
+                "CLAUDE.md"
+              ]
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "krem-rozany-notatki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Trzy propozycje: 1. Krem różany na suchą skórę po zimie. 2. Róża i masło shea dla Twojej skóry. 3. Krem różany 50 ml: prosto, bez pośpiechu."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na starcie zaświeciła karta CLAUDE.md. Skill nie wszedł: prośba o tytuły posta nie pasuje do jego opisu.",
+              "fakt": "skill-wczytuje-sie-gdy-wywolany-albo-pasuje"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "/opis-produktu serum-notatki.txt",
+              "fakt": "skill-uruchomienie-ukosnik"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/skills/opis-produktu/SKILL.md",
+                "serum-notatki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Opis serum zapisałem w opis-serum.txt.",
+              "plik": "opis-serum.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Teraz weszła treść skilla. Karta CLAUDE.md nie świeci drugi raz, bo jest w rozmowie od początku. Kliknij ścieżkę.",
+              "fakt": "koszt-claude-md-kazde-zapytanie-skill-opisy"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "opis-serum.txt",
+              "linijki": [
+                "Serum z witaminą C, 30 ml",
+                "Dla Ciebie, jeśli Twoja skóra jest zmęczona i bez blasku.",
+                "- Lekkie i szybko się wchłania.",
+                "- Pasuje pod makijaż.",
+                "- Dodaje skórze blasku.",
+                "Nałóż 3 krople rano na oczyszczoną skórę.",
+                "Skład: woda, witamina C, gliceryna, ekstrakt z rumianku.",
+                "Cena: 79 zł."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Sześć kroków ze skilla i zasady z CLAUDE.md: opis mówi na Ty i nie obiecuje leczenia, choć w notatkach stoi, że serum leczy przebarwienia.",
+              "fakt": "claude-md-zasady-stale-skill-material-na-zadanie"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co Claude w trybie Manual robi bez pytania o zgodę?"
+    tyl: "Czyta pliki w folderze, w którym pracujesz, i w folderach dodatkowych."
+    fakt: odczyty-w-folderze-roboczym-bez-zgody-w-manual
+
+  - przod: "Kiedy w trybie Manual zmiana trafia do pliku?"
+    tyl: "Dopiero gdy ją zatwierdzisz. Do tej chwili Claude ją proponuje i czeka."
+    fakt: tryb-manual-aplikacja-czeka-na-zatwierdzenie
+
+  - przod: "Co pokazuje karta zgody w trybie Manual?"
+    tyl: "Podgląd zmiany w pliku. Zmianę możesz przyjąć albo odrzucić."
+    fakt: aplikacja-manual-podglad-i-przyciski
+
+  - przod: "Jak w aplikacji otworzyć widok zmian?"
+    tyl: "Kliknij liczby linijek, na przykład +1 -1, na karcie Changes (zmiany)."
+    fakt: aplikacja-widok-zmian-liczby-na-karcie-changes
+
+  - przod: "Gdzie w aplikacji zmieniasz tryb?"
+    tyl: "W przełączniku trybu. Kliknij go i wybierz tryb z listy."
+    fakt: aplikacja-tryb-wybierasz-w-przelaczniku
+
+  - przod: "Co Claude robi ze zmianą w pliku w trybie Accept edits?"
+    tyl: "Wprowadza ją sam, bez karty zgody."
+    fakt: aplikacja-accept-edits-auto-bez-czekania-na-zgode

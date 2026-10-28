@@ -1,0 +1,249 @@
+<!doctype html>
+<!-- Rysunek R1 „Jak uwagi trafiają do Claude” do lekcji artefakt-zespol: strona oferty z komentarzami Anny (edytor) i Tomka (oglądający), dwie drogi komentarzy do sesji, odpowiedź tylko w uaktywnionym wątku, nowa wersja pod tym samym adresem; klient z publicznym linkiem widzi stronę bez komentarzy. Bez wyglądu wątku i przycisków claude.ai. Źródło PNG obrazy/jak-uwagi-trafiaja-do-claude.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Jak uwagi trafiają do Claude</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      /* trzy kolumny: strona, strzałki, sesja; wiersze to drogi */
+      .uklad {
+        display: grid;
+        grid-template-columns: 206px 1fr 206px;
+        grid-template-rows: auto auto auto auto auto;
+      }
+      .tytul-kol {
+        margin: 0 0 10px 4px;
+        font: 800 25px/1.12 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .tlo-strony {
+        grid-column: 1;
+        grid-row: 2 / 6;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 18px;
+      }
+      .tlo-sesji {
+        grid-column: 3;
+        grid-row: 2 / 6;
+        background: var(--okno);
+        border-radius: 18px;
+      }
+      .w-stronie,
+      .w-sesji {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 16px;
+      }
+      .w-stronie {
+        grid-column: 1;
+      }
+      .w-sesji {
+        grid-column: 3;
+      }
+      .w-stronie > b {
+        font: 800 20px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .w-stronie .szkic {
+        background: #d6d9cd;
+      }
+      .okno-gora {
+        display: flex;
+        gap: 7px;
+        padding: 2px 0 6px;
+      }
+      .okno-gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .moja {
+        align-self: flex-end;
+        width: 70%;
+        padding: 10px;
+        border-radius: 12px 12px 4px 12px;
+        background: #3a3a3e;
+      }
+      .moja .szkic {
+        background: #5a5a60;
+      }
+      /* droga w środkowej kolumnie */
+      .droga {
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 0;
+      }
+      .droga .etyk {
+        padding: 0 14px;
+      }
+      .droga .strz {
+        margin: 0 -2px;
+      }
+      .tryb {
+        margin: 2px 14px 0;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        color: var(--grafit);
+        font: 700 20px/1.25 var(--sans);
+      }
+      .tryb b {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--granat);
+        font-weight: 800;
+      }
+      .tryb span {
+        display: block;
+        padding-left: 18px;
+        position: relative;
+      }
+      .tryb span::before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 0.5em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--grafit);
+      }
+
+      /* klient z publicznym linkiem, osobno */
+      .granica {
+        margin: 30px 0 22px;
+        border-top: 3px dashed var(--grafit);
+      }
+      .klient {
+        display: grid;
+        grid-template-columns: 1fr 260px;
+        gap: 22px;
+        align-items: center;
+      }
+      .klient h3 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 10px;
+        font: 800 27px/1.12 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .klient h3 svg {
+        flex: none;
+        width: 34px;
+        height: 34px;
+      }
+      .klient p {
+        margin: 0;
+        font: 800 24px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+        color: var(--grafit);
+      }
+      .wspolny {
+        margin: 26px 0 0;
+        font-size: 24px;
+        text-wrap: balance;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Na stronie oferty są dwa komentarze: Anny, która jest edytorem, i Tomka, który jest oglądającym. Do Twojej sesji Claude Code komentarze trafiają dwiema drogami: prosisz Claude, żeby przeczytał komentarze pod adresem strony, albo edytor wysyła komentarz do Claude (Send to Claude albo @claude). Wtedy tryb decyduje: Claude odpowiada sam, czeka na Ciebie albo w trybie Plan czeka. Claude odpowiada tylko w uaktywnionym wątku i publikuje nową wersję pod tym samym adresem. Klient z publicznym linkiem widzi tę samą stronę bez komentarzy: nie widzi ich i nie doda. Team i Enterprise: komentarze przy udostępnieniu w organizacji."
+    >
+      <p class="wniosek">Komentarz trafia do Claude <mark>na Twoją prośbę albo wtedy, gdy wyśle go edytor</mark>.</p>
+      <div class="uklad">
+        <p class="tytul-kol" style="grid-column: 1; grid-row: 1">Strona oferty</p>
+        <p class="tytul-kol" style="grid-column: 3; grid-row: 1"><img class="logo-claude" src="claude-icon-square.svg" alt="" />Twoja sesja Claude&nbsp;Code</p>
+        <div class="tlo-strony" aria-hidden="true"></div>
+        <div class="tlo-sesji" aria-hidden="true"></div>
+
+        <!-- wiersz 1: prosisz -->
+        <div class="w-stronie" style="grid-row: 2">
+          <b>Rozmowa o cenie bez przepraszania</b>
+          <span class="szkic" style="width: 100%"></span>
+          <div class="komentarz">
+            <b>Tomek <span>oglądający</span></b>
+            <span class="szkic" style="width: 100%"></span>
+            <span class="szkic" style="width: 60%"></span>
+          </div>
+        </div>
+        <div class="droga" style="grid-row: 2">
+          <div class="etyk">Prosisz Claude, żeby przeczytał komentarze pod adresem strony.</div>
+          <div class="strz w-prawo"><svg viewBox="0 0 16 24" aria-hidden="true"><path d="M3 2 L14 12 L3 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="w-sesji" style="grid-row: 2; justify-content: flex-start">
+          <div class="okno-gora"><i></i><i></i><i></i></div>
+          <div class="moja"><span class="szkic" style="width: 100%"></span></div>
+        </div>
+
+        <!-- wiersz 2: edytor wysyła -->
+        <div class="w-stronie" style="grid-row: 3 / 5; justify-content: space-evenly">
+          <span class="szkic" style="width: 100%"></span>
+          <div class="komentarz ta">
+            <b>Anna <span>edytor</span></b>
+            <span class="szkic" style="width: 100%"></span>
+            <span class="szkic" style="width: 75%"></span>
+          </div>
+          <span class="szkic" style="width: 88%"></span>
+        </div>
+        <div class="droga" style="grid-row: 3">
+          <div class="etyk">Edytor wysyła komentarz do Claude <small>przez Send to Claude albo wzmianką @claude.</small></div>
+          <div class="strz w-prawo"><svg viewBox="0 0 16 24" aria-hidden="true"><path d="M3 2 L14 12 L3 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="tryb">
+            <b>Tryb uprawnień decyduje:</b>
+            <span>Claude odpowiada sam albo czeka na Ciebie.</span>
+            <span>W trybie Plan czeka.</span>
+          </div>
+        </div>
+        <div class="w-sesji" style="grid-row: 3">
+          <span class="szkic" style="width: 100%"></span>
+          <span class="szkic" style="width: 72%"></span>
+        </div>
+        <div class="w-sesji" style="grid-row: 4">
+          <span class="szkic" style="width: 92%"></span>
+          <span class="szkic" style="width: 60%"></span>
+        </div>
+        <div class="w-sesji" style="grid-row: 5">
+          <span class="szkic" style="width: 100%"></span>
+          <span class="szkic" style="width: 50%"></span>
+        </div>
+
+        <!-- wiersz 3: odpowiedź -->
+        <div class="droga" style="grid-row: 4">
+          <div class="strz w-lewo"><svg viewBox="0 0 16 24" aria-hidden="true"><path d="M13 2 L2 12 L13 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="etyk">Claude odpowiada tylko w&nbsp;wątku, który edytor wysłał do Claude.</div>
+        </div>
+
+        <!-- wiersz 4: nowa wersja -->
+        <div class="w-stronie" style="grid-row: 5">
+          <span class="szkic" style="width: 100%"></span>
+          <span class="szkic" style="width: 70%"></span>
+        </div>
+        <div class="droga" style="grid-row: 5">
+          <div class="strz w-lewo"><svg viewBox="0 0 16 24" aria-hidden="true"><path d="M13 2 L2 12 L13 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="etyk">Claude publikuje nową wersję pod tym samym adresem.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

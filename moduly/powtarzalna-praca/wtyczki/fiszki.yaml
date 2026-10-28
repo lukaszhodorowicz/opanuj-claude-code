@@ -1,0 +1,20 @@
+fiszki:
+  - przod: "Czym jest wtyczka Claude Code?"
+    tyl: "Folderem ze skillami, agentami, hookami, serwerami MCP albo innymi składnikami, który Claude Code instaluje i ładuje jako jedną całość."
+    fakt: wtyczka-folder-instalowany-jako-calosc
+
+  - przod: "Jak w aplikacji otworzyć przeglądarkę wtyczek?"
+    tyl: "W rozmowie na swoim komputerze kliknij + obok pola wiadomości, wybierz Plugins (wtyczki), a potem Browse plugins (przeglądaj wtyczki)."
+    fakt: aplikacja-przegladarka-wtyczek-z-twoich-katalogow
+
+  - przod: "Co mówi nazwa katalogu wtyczek?"
+    tyl: "Kto wydaje spis, a nie co robi każda wtyczka w nim."
+    fakt: nazwa-katalogu-mowi-kto-wydaje-nie-co-robi-wtyczka
+
+  - przod: "Co z włączonej wtyczki jest w kontekście każdej rozmowy?"
+    tyl: "Nazwy i opisy jej skilli, po które Claude może sięgnąć sam, są w kontekście w każdej turze i liczą się do zużycia, nawet gdy nic z wtyczki nie działa."
+    fakt: wtyczka-nazwy-i-opisy-w-kazdej-turze
+
+  - przod: "Gdzie w aplikacji wyłączysz albo odinstalujesz wtyczkę?"
+    tyl: "W menu przycisku + wybierz Plugins, a potem Manage plugins (zarządzaj wtyczkami)."
+    fakt: aplikacja-plugins-browse-albo-manage-plugins

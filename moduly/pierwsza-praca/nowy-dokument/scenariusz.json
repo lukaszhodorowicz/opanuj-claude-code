@@ -1,0 +1,216 @@
+{
+  "lekcja": "nowy-dokument",
+  "folder_startowy": [
+    "faktura-hosting.pdf",
+    "faktura-canva.pdf",
+    "faktura-biuro-rachunkowe.pdf",
+    "oferta-hosting-2027.pdf",
+    "wyciag-pazdziernik.csv",
+    "zrzut-platnosc-subskrypcja.png"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Wskaż pliki znakiem @",
+      "opis": "Ćwiczenie pokazuje aplikację Claude. Prosisz o to samo zestawienie na dwa sposoby, bez wskazania plików i ze znakiem @, a potem porównujesz oba zestawienia.",
+      "nauczyciel_start": "Kliknij najpierw Bez wskazania plików, potem Ze wskazaniem @. Patrz, które karty w folderze pod oknem ćwiczenia świecą.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Koszty-pazdziernik-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Mam tu dokumenty za październik. Zrobimy zestawienie kosztów dla księgowej."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co ma być w zestawieniu i gdzie je zapisać."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "zestawienie-kosztow-2026-10.csv"
+      ],
+      "drogi": [
+        {
+          "id": "bez",
+          "etykieta": "Bez wskazania plików",
+          "opis": "Claude sam wybiera, z czego zrobić zestawienie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób zestawienie kosztów października i zapisz je jako zestawienie-kosztow-2026-10.csv.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "faktura-hosting.pdf",
+                "faktura-canva.pdf",
+                "faktura-biuro-rachunkowe.pdf",
+                "oferta-hosting-2027.pdf",
+                "wyciag-pazdziernik.csv"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przejrzałem pliki w folderze i zapisałem zestawienie w pliku zestawienie-kosztow-2026-10.csv. Są w nim cztery pozycje, w tym hosting na 2027.",
+              "plik": "zestawienie-kosztow-2026-10.csv",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze pojawiła się nowa karta. Kliknij w odpowiedzi Claude ścieżkę zestawienie-kosztow-2026-10.csv, a plik się otworzy.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "zestawienie-kosztow-2026-10.csv",
+              "linijki": [
+                "Data;Za co;Kwota (zł)",
+                "2026-10-02;Hosting strony;149",
+                "2026-10-05;Canva;55",
+                "2026-10-10;Biuro rachunkowe;350",
+                "2026-10-20;Hosting na 2027;1290",
+                "Suma;;1844"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Spójrz na czwartą pozycję: hosting na 2027. Claude sam wybrał pliki i wziął też ofertę, a oferta to nie koszt.",
+              "fakt": "aplikacja-claude-czyta-pliki-i-zmienia-wedlug-trybu"
+            }
+          ]
+        },
+        {
+          "id": "z",
+          "etykieta": "Ze wskazaniem @",
+          "opis": "Wskazujesz znakiem @ trzy faktury i wyciąg.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób zestawienie kosztów października z @faktura-hosting.pdf, @faktura-canva.pdf i @faktura-biuro-rachunkowe.pdf. Kwoty sprawdź w @wyciag-pazdziernik.csv. Zapisz jako zestawienie-kosztow-2026-10.csv.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem zestawienie w pliku zestawienie-kosztow-2026-10.csv. Są w nim trzy pozycje, a kwoty zgadzają się z wyciągiem.",
+              "plik": "zestawienie-kosztow-2026-10.csv",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze znów jest nowa karta. Kliknij w odpowiedzi Claude ścieżkę zestawienie-kosztow-2026-10.csv, a plik się otworzy.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "zestawienie-kosztow-2026-10.csv",
+              "linijki": [
+                "Data;Za co;Kwota (zł)",
+                "2026-10-02;Hosting strony;149",
+                "2026-10-05;Canva;55",
+                "2026-10-10;Biuro rachunkowe;350",
+                "Suma;;554"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Spójrz na plik: trzy faktury, bez oferty. Znak @ dodał do rozmowy pliki wskazane w prośbie.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Dopisz koszt ze zrzutu ekranu",
+      "opis": "Zestawienie z trzech faktur już jest w folderze. Obok leży zrzut ekranu z płatnością, na którą nie masz faktury.",
+      "nauczyciel_start": "Kliknij Dopisz płatność ze zrzutu nad oknem ćwiczenia. Patrz na odpowiedź Claude i na kartę zestawienia w folderze pod oknem ćwiczenia.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Koszty-pazdziernik-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zrób zestawienie kosztów października z @faktura-hosting.pdf, @faktura-canva.pdf i @faktura-biuro-rachunkowe.pdf. Kwoty sprawdź w @wyciag-pazdziernik.csv. Zapisz jako zestawienie-kosztow-2026-10.csv."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zapisałem zestawienie z trzema pozycjami. Kwoty zgadzają się z wyciągiem."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "zestawienie-kosztow-2026-10.csv"
+      ],
+      "drogi": [
+        {
+          "id": "zrzut",
+          "etykieta": "Dopisz płatność ze zrzutu",
+          "opis": "Wskazujesz znakiem @ zrzut i zestawienie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do @zestawienie-kosztow-2026-10.csv płatność ze zrzutu @zrzut-platnosc-subskrypcja.png.",
+              "fakt": "aplikacja-at-dodaje-plik-do-rozmowy"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Odczytałem ze zrzutu płatność 89 zł za narzędzie do newslettera. Dopisałem ją do pliku zestawienie-kosztow-2026-10.csv i przeliczyłem sumę.",
+              "plik": "zestawienie-kosztow-2026-10.csv",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta zestawienia dostała znacznik zmiany. Kliknij ścieżkę pliku w odpowiedzi Claude i sprawdź nową linijkę.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "zestawienie-kosztow-2026-10.csv",
+              "linijki": [
+                "Data;Za co;Kwota (zł)",
+                "2026-10-02;Hosting strony;149",
+                "2026-10-05;Canva;55",
+                "2026-10-10;Biuro rachunkowe;350",
+                "2026-10-14;Narzędzie do newslettera;89",
+                "Suma;;643"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Spójrz na czwartą pozycję: kwotę 89 zł Claude odczytał ze zrzutu ekranu. Nowy plik nie powstał, zmieniło się zestawienie.",
+              "fakt": "read-pokazuje-claude-obrazy-png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

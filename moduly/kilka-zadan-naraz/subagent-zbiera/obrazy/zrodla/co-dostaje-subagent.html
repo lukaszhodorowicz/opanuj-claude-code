@@ -1,0 +1,214 @@
+<!doctype html>
+<!-- Rysunek R5 „Co subagent dostaje na start” do lekcji subagent-zbiera: co trafia do świeżego okna subagenta, czego nie, wyjątek forka i zasada w prośbie. Źródło PNG obrazy/co-dostaje-subagent.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co subagent dostaje na start</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu (jak w rysunku R1 gdzie-jest-strona) */
+      :root {
+        --granat: #0e1422;
+        --granat-2: #16203a;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --szary-na-granacie: #94a3b8;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+      .kolumny {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 18px;
+      }
+      .kolumna {
+        border-radius: 16px;
+        padding: 14px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .kolumna.tak {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+      .kolumna.nie {
+        background: var(--papier-2);
+        border: 4px solid var(--kreska);
+      }
+      .glowa {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 4px 2px;
+        font: 800 27px/1.15 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .znak {
+        width: 34px;
+        height: 34px;
+        flex: none;
+      }
+      .nie .glowa {
+        color: var(--grafit);
+      }
+      .poz {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        min-height: 64px;
+        padding: 12px 12px;
+        border: 2px solid var(--kreska);
+        border-radius: 11px;
+        background: var(--papier);
+        font: 700 21px/1.25 var(--sans);
+      }
+      .nie .poz {
+        background: var(--biel);
+        color: var(--grafit);
+      }
+      .poz svg {
+        width: 24px;
+        height: 24px;
+        flex: none;
+        margin-top: 2px;
+      }
+      .poz code {
+        font: 700 20px/1.25 var(--mono);
+      }
+      .poz small {
+        display: block;
+        margin-top: 3px;
+        color: var(--grafit);
+        font: 500 18px/1.25 var(--sans);
+      }
+
+      /* ===== Wyjątek: fork ===== */
+      .fork {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 16px;
+        background: var(--granat-2);
+        border-radius: 16px;
+        color: var(--biel);
+        font: 700 21px/1.3 var(--sans);
+      }
+      .fork svg {
+        width: 40px;
+        height: 40px;
+        flex: none;
+        color: var(--szary-na-granacie);
+      }
+      .fork b {
+        font-weight: 800;
+      }
+
+      /* ===== Pasek na dole: zasada w prośbie ===== */
+      .zasada {
+        margin-top: 18px;
+        padding: 14px 18px;
+        background: var(--zakreslacz);
+        border: 3px solid var(--limonka);
+        border-radius: 14px;
+        text-align: center;
+        font: 800 23px/1.3 var(--sans);
+        letter-spacing: -0.015em;
+      }
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        grid-column: 1 / -1;
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans, "Plus Jakarta Sans", system-ui, sans-serif);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+        color: var(--granat, #0e1422);
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz, #d9f99d) 52%, var(--zakreslacz, #d9f99d) 94%, transparent 94%);
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Subagent na start dostaje swój prompt (instrukcję na start), zadanie napisane przez Claude i pliki CLAUDE.md (Explore i Plan ich nie dostają). Nie dostaje historii Twojej rozmowy, plików, które Claude już przeczytał, ani pamięci automatycznej (notatek, które Claude zapisuje sam). Wyjątek: fork zna całą rozmowę, Claude może uruchomić go sam. Zasadę, która musi dotrzeć do subagenta, powtórz w prośbie do Claude.">
+      <h1 class="teza">Zwykły subagent <mark>nie zna Twojej rozmowy</mark>. Zna zadanie, które napisał mu Claude.</h1>
+      <div class="kolumny">
+        <div class="kolumna tak">
+          <p class="glowa">
+            <svg class="znak" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#0e1422"/><path d="M10 17.5 L15 22.5 L24.5 12" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Dostaje
+          </p>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 L10 17.5 L19.5 7"/></svg>
+            <span>swój prompt (instrukcję na start)</span>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 L10 17.5 L19.5 7"/></svg>
+            <span>zadanie, które napisał Claude</span>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 L10 17.5 L19.5 7"/></svg>
+            <span>pliki <code>CLAUDE.md</code><small>(Explore i Plan ich nie dostają)</small></span>
+          </div>
+        </div>
+
+        <div class="kolumna nie">
+          <p class="glowa">
+            <svg class="znak" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14.5" fill="none" stroke="#475569" stroke-width="3"/><path d="M11.5 11.5 L22.5 22.5 M22.5 11.5 L11.5 22.5" fill="none" stroke="#475569" stroke-width="3.4" stroke-linecap="round"/></svg>
+            Nie dostaje
+          </p>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 7 L17 17 M17 7 L7 17"/></svg>
+            <span>historii Twojej rozmowy</span>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 7 L17 17 M17 7 L7 17"/></svg>
+            <span>plików, które Claude już przeczytał</span>
+          </div>
+          <div class="poz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 7 L17 17 M17 7 L7 17"/></svg>
+            <span>pamięci automatycznej (notatek, które Claude zapisuje sam)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fork">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M6 7.2v9.6"/><path d="M18 11.2c0 3.6-3 4.8-6.5 4.8H8"/></svg>
+        <span><b>Wyjątek: fork to subagent, który zna całą rozmowę.</b><br />Claude może uruchomić go sam, bez Twojej prośby.</span>
+      </div>
+
+      <div class="zasada">Zasadę, która musi dotrzeć do subagenta,<br />powtórz w prośbie do Claude.</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+/* Wygląd karty zgody na przepływ w symulatorze aplikacji (strona/aplikacja-przeplyw.js): ramka karty w kolorach okna jak karta zgody przeglądarki, w niej nazwa przepływu, fazy jako punkty, wiersz ostrzeżenia (znak ⚠ i szary pasek bez tekstu) i rząd trzech przycisków w wyglądzie przycisków karty planu. Once jest główny i aktywny, Always i Deny wyszarzone jak inne przyciski bez skutku (D-2026-10-26-54). Po Once zostaje sama ramka z nazwą i fazami. */
+.apl-zgoda-przeplyw .apl-przeplyw-tresc {
+  padding: 11px 12px 12px;
+}
+.apl-przeplyw-nazwa {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.apl-przeplyw-fazy {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  color: #cfcfcf;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.apl-przeplyw-fazy li {
+  margin: 2px 0;
+  overflow-wrap: anywhere;
+}
+.apl-przeplyw-ostrz {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.apl-przeplyw-ostrz svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: #d4a24c;
+}
+.apl-przeplyw-ostrz .apl-szkic {
+  flex: 0 1 auto;
+}
+.apl-zgoda-przeplyw .apl-plan-przyciski {
+  justify-content: flex-start;
+  padding: 8px 10px;
+  border-top: 1px solid var(--a-kreska);
+  background: #222222;
+}
+.apl-zgoda-przeplyw .apl-plan-p[aria-disabled="true"] {
+  opacity: 0.38;
+  cursor: default;
+}
+.apl-zgoda-przeplyw .apl-plan-p[aria-disabled="true"]:hover {
+  filter: none;
+}
+.apl-zgoda-przeplyw .apl-plan-p:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 1px;
+}

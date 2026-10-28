@@ -1,0 +1,232 @@
+{
+  "lekcja": "straznik-zamiast-pytan",
+  "folder_startowy": [
+    "umowa-najmu-2025.pdf",
+    "umowa-najmu-2026.pdf",
+    "protokol-zdawczy-2026.pdf",
+    "roznice-umow.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Wybierz Auto i zobacz pracę bez pytań",
+      "opis": "Ćwiczenie w zakładce Code aplikacji Claude. Twoich plików nie zmieni. Klikaj polecenia nad oknem po kolei albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Przełącznik trybu pod polem wiadomości pokazuje Manual (ręczny). Najpierw wybierz w nim Auto.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Umowy",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Otwórz listę trybów",
+          "opis": "Klikasz przełącznik trybu pod polem wiadomości.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-przelacznik-pod-polem-wiadomosci",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się lista trybów. Kliknij Auto.",
+              "fakt": "aplikacja-dostepne-tryby"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz Auto",
+          "opis": "Przełącznik pokaże nazwę nowego trybu.",
+          "klik": "tryb",
+          "na": "Auto",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Auto. Claude nie będzie pytać o rutynowe kroki, a polecenia sprawdzi w tle strażnik.",
+              "fakt": "auto-aplikacja-opis-trybu"
+            }
+          ]
+        },
+        {
+          "etykieta": "Poproś o różnicę i paczkę",
+          "opis": "Claude dopisze różnicę w czynszu do zestawienia i spakuje umowy dla kancelarii.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do roznice-umow.txt różnicę w czynszu między umowami z 2025 i 2026 i spakuj obie umowy do pliku zip dla kancelarii.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["umowa-najmu-2025.pdf", "umowa-najmu-2026.pdf"],
+              "fakt": "auto-kolejnosc-odczyty-i-edycje-w-folderze"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Czynsz wzrósł z 3 200 zł do 3 500 zł. Dopisuję to do pliku roznice-umow.txt."
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "roznice-umow.txt",
+                  "linijki": [
+                    { "tekst": "Różnice: umowa najmu 2025 i 2026" },
+                    { "tekst": "Czynsz: do uzupełnienia", "zmiana": "usunieta" },
+                    { "tekst": "Czynsz: 3 200 zł → 3 500 zł", "zmiana": "dodana" }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zestawienie zmieniło się bez oceny strażnika.",
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Pakuję obie umowy poleceniem zip do pliku umowy-dla-kancelarii.zip.",
+              "fakt": "polecenie-zip-pakuje-pliki"
+            },
+            {
+              "typ": "folder",
+              "akcja": "nowy",
+              "plik": "umowy-dla-kancelarii.zip",
+              "fakt": "auto-domyslnie-dozwolone-operacje-na-plikach-w-folderze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczka leży w folderze pod oknem. Powstała bez pytania, bo polecenie zip przeszło ocenę strażnika.",
+              "fakt": "auto-aplikacja-opis-trybu"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Gotowe. Paczka dla kancelarii jest w pliku umowy-dla-kancelarii.zip."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Granica w jednym zdaniu",
+      "opis": "W folderze są te same umowy i zestawienie, bez paczki zip. Tryb Auto jest już włączony. W ostatnim zdaniu prośby stawiasz granicę.",
+      "nauczyciel_start": "Ta sama prośba, ale z granicą na końcu. Patrz, czy w folderze pod oknem pojawi się paczka.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Umowy",
+        "tryb": "Auto"
+      },
+      "etapy": [
+        {
+          "etykieta": "Poproś z granicą",
+          "opis": "Claude dopisze różnicę w czynszu. Pakowanie ma poczekać, aż przejrzysz zestawienie.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do roznice-umow.txt różnicę w czynszu i przygotuj paczkę zip dla kancelarii. Nie pakuj niczego, dopóki nie przejrzę zestawienia.",
+              "fakt": "auto-granice-z-rozmowy"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["umowa-najmu-2025.pdf", "umowa-najmu-2026.pdf"],
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Czynsz wzrósł z 3 200 zł do 3 500 zł. Dopisuję to do pliku roznice-umow.txt."
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "roznice-umow.txt",
+                  "linijki": [
+                    { "tekst": "Różnice: umowa najmu 2025 i 2026" },
+                    { "tekst": "Czynsz: do uzupełnienia", "zmiana": "usunieta" },
+                    { "tekst": "Czynsz: 3 200 zł → 3 500 zł", "zmiana": "dodana" }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zestawienie zmieniło się od razu. Strażnik nie ocenia zmian zwykłych plików w folderze.",
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zestawienie sprawdziłem, jest kompletne. Pakuję umowy."
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Strażnik zablokował pakowanie, bo prośba stawia granicę: pakowanie czeka, aż przejrzysz zestawienie. Czekam na Twoją wiadomość.",
+              "fakt": "auto-claude-dostaje-powod-blokady"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczki nie ma w folderze. Claude uznał zestawienie za gotowe, ale jego ocena granicy nie zdjęła. Kliknij następne polecenie.",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zdejmij granicę",
+          "opis": "Piszesz, że zestawienie jest już przejrzane.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zestawienie przejrzane. Spakuj umowy.",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Pakuję obie umowy poleceniem zip do pliku umowy-dla-kancelarii.zip.",
+              "fakt": "polecenie-zip-pakuje-pliki"
+            },
+            {
+              "typ": "folder",
+              "akcja": "nowy",
+              "plik": "umowy-dla-kancelarii.zip",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczka jest w folderze. Granicę zdjęła dopiero Twoja wiadomość.",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Gotowe. Paczka dla kancelarii jest w pliku umowy-dla-kancelarii.zip."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

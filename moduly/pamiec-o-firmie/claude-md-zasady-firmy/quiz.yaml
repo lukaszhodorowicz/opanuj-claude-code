@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prowadzisz biuro rachunkowe. W folderze Klienci leży plik CLAUDE.md, a jedna z zasad brzmi: podpisuj odpowiedzi „Biuro Nowak”. Ustawień aplikacji nikt nie zmieniał. Otwierasz w tym folderze nową rozmowę i prosisz o odpowiedź klientowi w sprawie terminu VAT, bez słowa o podpisie. Odpowiedź kończy się podpisem „Biuro Nowak”. Skąd ten podpis?"
+    odpowiedzi:
+      - "Nowa rozmowa przejęła historię wcześniejszych rozmów w tym folderze."
+      - "Aplikacja korzysta z pliku CLAUDE.md w folderze projektu."
+      - "Plik CLAUDE.md zmienił ustawienia aplikacji dla całego konta."
+    poprawna: 1
+    wyjasnienie: "Aplikacja korzysta z plików CLAUDE.md w folderze projektu. Zasada o podpisie stoi w tym pliku, więc trafiła do odpowiedzi bez słowa w prośbie."
+    fakt: aplikacja-uzywa-claude-md-z-projektu
+
+  - pytanie: "Wczoraj w rozmowie o kampanii na Black Friday padła zasada: posty mają mieć najwyżej trzy zdania. Dziś otwierasz nową rozmowę w tym samym folderze. Czy nowa rozmowa ma historię wczorajszej?"
+    odpowiedzi:
+      - "Tak, bo obie rozmowy są w tym samym folderze."
+      - "Tak, jeśli wczorajsza rozmowa jest nadal na pasku bocznym."
+      - "Nie, każda rozmowa ma własną historię."
+    poprawna: 2
+    wyjasnienie: "W zakładce Code każda rozmowa ma własną historię, niezależną od innych rozmów, także tych w tym samym folderze."
+    fakt: aplikacja-rozmowa-to-sesja-z-wlasna-historia
+
+  - pytanie: "Prowadzisz sklep internetowy z ceramiką. Chcesz, żeby w folderze sklepu powstał plik CLAUDE.md z zasadami odpowiedzi na reklamacje. Pracujesz w aplikacji Claude. Co robisz?"
+    odpowiedzi:
+      - "Piszesz w polu wiadomości prośbę o plik CLAUDE.md z zasadami reklamacji."
+      - "Wpisujesz /init w terminalu, bo w aplikacji tego pliku nie założysz."
+      - "Wgrywasz plik w ustawieniach aplikacji, bo Claude w rozmowie nie tworzy plików."
+    poprawna: 0
+    wyjasnienie: "Dokumentacja aplikacji podaje taki przykład prośby: utwórz plik CLAUDE.md z zasadami dla tego projektu. Wpisujesz ją w polu wiadomości jak każdą inną prośbę."
+    fakt: aplikacja-przyklad-prosby-utworz-claude-md
+
+  - pytanie: "W folderze Twojej agencji reklamowej leży plik CLAUDE.md. Graficzka z zespołu pyta, czy to ustawienia programu. Czym jest ten plik?"
+    odpowiedzi:
+      - "Plikiem, który Claude sam uzupełnia po każdej rozmowie."
+      - "Zwykłym plikiem tekstowym z zasadami, który piszesz Ty."
+      - "Plikiem ustawień, który zmusza Claude do stosowania każdej zasady."
+    poprawna: 1
+    wyjasnienie: "Pliki CLAUDE.md piszesz Ty, zwykłym tekstem. W ćwiczeniu taki plik zapisał Claude na Twoją prośbę."
+    fakt: claude-md-zwykly-tekst-piszesz-ty

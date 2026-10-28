@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jakie trzy przyciski ma karta zgody, gdy Claude pierwszy raz działa na cudzej stronie?"
+    tyl: "Allow once (zezwól raz), Always allow (zezwalaj zawsze) i Deny (odmów). Claude czeka, aż wybierzesz."
+    fakt: aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu
+
+  - przod: "Co robi Allow once (zezwól raz) na karcie zgody?"
+    tyl: "Zezwala na to działanie i niczego nie zapisuje."
+    fakt: aplikacja-browser-allow-once-bez-zapisu
+
+  - przod: "Co robi Always allow (zezwalaj zawsze) i jak tę zgodę cofnąć?"
+    tyl: "Zapisuje zgodę dla tej strony na Twoim komputerze. Cofniesz ją w Settings (ustawieniach aplikacji)."
+    fakt: aplikacja-browser-always-allow-zapisuje-dla-strony
+
+  - przod: "Czego Claude nie zrobi bez Twojego udziału nawet na stronie z Twoją zgodą?"
+    tyl: "Niczego nie kupi, nie założy konta i nie obejdzie CAPTCHA, czyli zabezpieczenia, które sprawdza, czy ze strony korzysta człowiek, a nie program."
+    fakt: aplikacja-browser-bez-zakupow-kont-captcha
+
+  - przod: "Czy w panelu Browser są Twoje zapisane logowania i historia z Twojej przeglądarki?"
+    tyl: "Nie. Panel ma czysty profil, osobny od Twojej przeglądarki."
+    fakt: aplikacja-browser-czysty-profil
+
+  - przod: "W którym trybie strażnik sprawdza klikanie i pisanie Claude na cudzych stronach?"
+    tyl: "W każdym. Gdy oflaguje działanie, zapyta Cię o zgodę bez względu na tryb."
+    fakt: aplikacja-browser-klasyfikator-sprawdza-klikanie-i-pisanie

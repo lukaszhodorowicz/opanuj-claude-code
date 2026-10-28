@@ -1,0 +1,232 @@
+/* Wygląd karty planu w symulatorze aplikacji (D-2026-10-26-54): wiersz „Proposing plan”, karta „Claude proposed a plan” z przyciskami i polem poprawki oraz panel Plan; kolory zmierzone na klatce plan-06 (ciemny motyw), układ jak na plan-11. */
+.apl-plan-proponuje {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--a-szary);
+  font-size: 13.5px;
+}
+.apl-plan-proponuje svg {
+  width: 14px;
+  height: 14px;
+}
+/* karta stoi na dole rozmowy, tuż nad polem wiadomości */
+.apl-rozmowa > .apl-plan-karta {
+  margin-top: auto;
+  animation: apl-wjazd 0.3s ease-out;
+}
+.apl-plan-karta {
+  border: 1px solid var(--a-kreska);
+  border-radius: 12px;
+  background: #262626;
+  padding: 11px 12px 12px;
+}
+.apl-plan-glowa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13.5px;
+}
+.apl-plan-glowa b {
+  font-weight: 600;
+}
+.apl-plan-otworz {
+  flex: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #6aa8ff;
+  font: 400 13px/1.3 var(--a-sans);
+  cursor: pointer;
+}
+.apl-plan-otworz:hover {
+  text-decoration: underline;
+}
+.apl-plan-przyciski {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+.apl-plan-grupa {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.apl-plan-p {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 7px;
+  background: #363636;
+  color: inherit;
+  padding: 5px 9px;
+  font: 400 12.5px/1.2 var(--a-sans);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.apl-plan-p:hover:not([disabled]) {
+  filter: brightness(1.18);
+}
+/* bez źródła skutku albo bez kroków w scenariuszu: wyszarzony, kursor zwykły */
+.apl-plan-p[disabled] {
+  opacity: 0.38;
+  cursor: default;
+}
+.apl-plan-p kbd {
+  border: 0;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+  color: var(--a-szary);
+  font: 400 11px/1 var(--a-sans);
+}
+.apl-plan-glowny {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+.apl-plan-glowny kbd {
+  color: #8a8a8a;
+}
+.apl-plan-para {
+  display: inline-flex;
+  gap: 1px;
+}
+.apl-plan-para > :first-child {
+  border-radius: 7px 0 0 7px;
+}
+.apl-plan-strzalka {
+  border-radius: 0 7px 7px 0;
+  padding: 5px 6px;
+}
+.apl-plan-strzalka svg {
+  width: 14px;
+  height: 14px;
+}
+/* pole poprawki po „Revise…” (plan-skutek-revise-po): niebieska ramka, szara podpowiedź, gdy puste */
+.apl-plan-pole {
+  min-height: 64px;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border: 1px solid #4a8ef0;
+  border-radius: 8px;
+  background: #2e2e2e;
+  font-size: 13.5px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.apl-plan-pole:empty::before {
+  content: attr(data-podpowiedz);
+  color: #7d7d7d;
+}
+
+/* panel Plan po prawej stronie rozmowy, w miejscu panelu i widoku zmian; węższy od rozmowy jak na plan-11, żeby przyciski karty mieściły się w rzędzie */
+.apl-okno.plan-otwarty .apl-uklad {
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+}
+.apl-okno.plan-otwarty .apl-panel,
+.apl-okno.plan-otwarty .apl-widok-zmian {
+  display: none;
+}
+.apl-plan-panel {
+  border-left: 1px solid var(--a-kreska);
+  background: #262626;
+  min-width: 0;
+  animation: apl-wjazd 0.35s ease-out;
+}
+.apl-plan-panel-glowa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px 6px 14px;
+  font-size: 13.5px;
+}
+.apl-plan-panel-glowa b {
+  flex: 1;
+  font-weight: 400;
+  color: #cfcfcf;
+}
+.apl-plan-ikony {
+  display: inline-flex;
+  gap: 10px;
+  color: #b5b5b5;
+}
+.apl-plan-panel svg {
+  width: 16px;
+  height: 16px;
+}
+.apl-plan-zamknij {
+  display: inline-flex;
+  border: 0;
+  background: none;
+  padding: 2px;
+  color: #b5b5b5;
+  cursor: pointer;
+}
+.apl-plan-podp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 4px 14px 8px 22px;
+  color: var(--a-szary);
+  font-size: 12px;
+}
+.apl-plan-podp svg {
+  width: 13px;
+  height: 13px;
+}
+.apl-plan-dok {
+  padding: 4px 22px 22px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.apl-plan-dok h4,
+.apl-plan-dok h5 {
+  font-family: var(--a-sans);
+  letter-spacing: 0;
+}
+.apl-plan-dok h4 {
+  margin: 4px 0 8px;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.apl-plan-dok h5 {
+  margin: 14px 0 4px;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+.apl-plan-dok ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.apl-plan-dok li {
+  margin: 3px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .apl-rozmowa > .apl-plan-karta,
+  .apl-plan-panel {
+    animation: none;
+  }
+}
+/* telefon: panel Plan stoi pod rozmową zamiast karty Changes */
+@media (max-width: 720px) {
+  .apl-okno.plan-otwarty .apl-uklad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .apl-okno.plan-otwarty .apl-panel {
+    display: none;
+  }
+  .apl-plan-panel {
+    border-left: 0;
+    border-top: 1px solid var(--a-kreska);
+  }
+  .apl-plan-przyciski {
+    justify-content: flex-start;
+  }
+}

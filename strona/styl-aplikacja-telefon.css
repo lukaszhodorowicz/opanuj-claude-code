@@ -1,0 +1,323 @@
+/* Wygląd telefonu z Remote Control w symulatorze aplikacji Claude (strona/aplikacja-telefon-widok.js, aplikacja-telefon.js): zaokrąglona ramka (nowy wygląd kursu, nie kopia zdjęcia), pasek stanu bez prawdziwych danych i ekran „Code” z urządzeniem i listą sesji (ekran otwartej rozmowy: strona/styl-aplikacja-telefon-rozmowa.css); kolory i układ według zrzutów telefonu Łukasza z 27.10.2026 (IMG_1056-IMG_1059). Elementy bez skutku mają kursor zwykły; „rękę” dostaje tylko element, w który kursant ma kliknąć (.apl-cel). Obok okna przy szerokości od 1100 px, pod nim na węższym ekranie. */
+
+/* układ: ćwiczenie z telefonem to siatka, w której okno i telefon stoją w jednym rzędzie; reszta (nagłówek, polecenia, podgląd folderu) zajmuje całą szerokość */
+@media (min-width: 1100px) {
+  .cwiczenie-apl.ma-telefon {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 304px;
+    column-gap: 20px;
+  }
+  .cwiczenie-apl.ma-telefon > * {
+    grid-column: 1 / -1;
+  }
+  .cwiczenie-apl.ma-telefon > .apl-okno {
+    grid-column: 1;
+  }
+  .cwiczenie-apl.ma-telefon > .apl-telefon {
+    grid-column: 2;
+  }
+}
+.apl-telefon {
+  box-sizing: border-box;
+  width: 304px;
+  max-width: 100%;
+  margin: 16px auto 0;
+  min-width: 0;
+}
+@media (min-width: 1100px) {
+  .apl-telefon {
+    margin: 0;
+  }
+}
+
+/* ramka telefonu i szkło ekranu */
+.apl-tel-ramka {
+  box-sizing: border-box;
+  padding: 9px;
+  background: #1c1c1c;
+  border: 1px solid #3a3a3a;
+  border-radius: 44px;
+  box-shadow:
+    0 1px 0 rgba(14, 20, 34, 0.08),
+    0 14px 34px -12px rgba(14, 20, 34, 0.45);
+}
+.apl-tel-szklo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 590px;
+  overflow: hidden;
+  border-radius: 36px;
+  background: #0b0b0b;
+  color: #f1f1f1;
+  font: 400 13px/1.4 var(--a-sans);
+}
+.apl-telefon svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.apl-telefon button {
+  font: inherit;
+  color: inherit;
+}
+.apl-tel-podpis {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 8px;
+  margin: 10px 0 0;
+  font: 500 12px/1.4 var(--mono);
+  color: var(--grafit);
+}
+
+/* pasek stanu: czas jako szary pasek, wyspa i trzy ikony; bez liczb */
+.apl-tel-stan {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 8px 22px 0;
+}
+.apl-tel-czas {
+  width: 34px;
+  height: 7px;
+  background: #5a5a5a;
+}
+.apl-tel-wyspa {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 74px;
+  height: 20px;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 0 0 1px #1c1c1c;
+  transform: translateX(-50%);
+}
+.apl-tel-stan-ikony {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #dcdcdc;
+}
+.apl-tel-stan-ikony svg {
+  width: 16px;
+  height: 11px;
+}
+.apl-tel-stan-ikony svg:last-child {
+  width: 24px;
+}
+
+/* ekrany: lista (Code) i rozmowa; ukryty ekran nie zajmuje miejsca */
+.apl-tel-ekran-lista,
+.apl-tel-ekran-rozmowa {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+.apl-tel-ekran-lista[hidden],
+.apl-tel-ekran-rozmowa[hidden] {
+  display: none;
+}
+.apl-tel-gora {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 12px 4px;
+}
+.apl-tel-tytul {
+  font: 600 15px/1.2 var(--a-sans);
+}
+.apl-tel-przycisk {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  gap: 10px;
+  grid-auto-flow: column;
+  border: 1px solid #2b2b2b;
+  border-radius: 999px;
+  background: #151515;
+  cursor: default;
+}
+.apl-tel-przycisk svg {
+  width: 17px;
+  height: 17px;
+}
+.apl-tel-okragly {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+}
+button.apl-tel-przycisk[aria-disabled="true"] {
+  cursor: default;
+}
+
+/* ekran Code: etykiety Devices i Sessions, urządzenie z zieloną kropką, wiersze sesji */
+.apl-tel-tresc {
+  flex: 1;
+  min-height: 0;
+  padding: 8px 16px 0;
+  overflow: hidden;
+}
+.apl-tel-grupa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0 8px;
+  color: #8c8c8c;
+  font-size: 12.5px;
+}
+.apl-tel-plus svg {
+  width: 17px;
+  height: 17px;
+}
+.apl-tel-urzadzenie {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px 8px 11px;
+  border: 1px solid #2b2b2b;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.apl-tel-ikona-ur {
+  position: relative;
+  display: inline-flex;
+}
+.apl-tel-zielona-kropka {
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2fb24f;
+}
+.apl-tel-sesje {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.apl-tel-sesje > li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+.apl-tel-sesja {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  text-align: left;
+  cursor: default;
+}
+.apl-tel-sesja.apl-cel {
+  cursor: pointer;
+}
+.apl-tel-kolo {
+  flex: none;
+  box-sizing: border-box;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #c4c4c4;
+  border-radius: 50%;
+}
+.apl-tel-opis {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.apl-tel-opis b {
+  overflow: hidden;
+  font: 500 14px/1.25 var(--a-sans);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apl-tel-opis small {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+.apl-tel-opis small svg {
+  width: 15px;
+  height: 15px;
+}
+.apl-tel-zielona {
+  display: inline-flex;
+  color: #2fb24f;
+}
+.apl-tel-chmura {
+  display: inline-flex;
+  flex: none;
+}
+.apl-tel-inna .apl-szkic {
+  height: 8px;
+}
+.apl-tel-inna .apl-tel-pasek-tytul {
+  height: 10px;
+  background: #4a4a4a;
+}
+.apl-tel-kropka {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2f74d6;
+}
+/* dół ekranu: lista gaśnie pod przyciskami, jak na zrzucie (wiersze są ucięte) */
+.apl-tel-ekran-lista::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 110px;
+  background: linear-gradient(rgba(11, 11, 11, 0), #0b0b0b 72%);
+  pointer-events: none;
+}
+.apl-tel-dol {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.apl-tel-nowa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 18px 0 14px;
+  border-radius: 999px;
+  background: #f3f0ea;
+  color: #121212;
+  font: 500 14px/1 var(--a-sans);
+}

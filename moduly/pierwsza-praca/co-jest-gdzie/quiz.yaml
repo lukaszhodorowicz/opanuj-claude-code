@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude o nowy układ cennika usług. Chcesz najpierw zobaczyć, jak Claude to zrobi, zanim zmieni jakikolwiek plik. Co klikasz w aplikacji?"
+    odpowiedzi:
+      - "Nic nie klikasz, bo Claude zawsze najpierw pokazuje plan, a dopiero potem zmienia pliki."
+      - "Otwierasz kartę Context w panelu szczegółów, bo tam Claude zapisuje plan."
+      - "Klikasz przełącznik trybu w rzędzie pod polem wiadomości, a na liście wybierasz Plan."
+    poprawna: 2
+    wyjasnienie: "W trybie Plan Claude proponuje, jak zrobić zadanie, i nie zmienia żadnego pliku. Tryb wybierasz przełącznikiem w rzędzie pod polem wiadomości."
+    fakt: plan-aplikacja-bez-zmian-w-plikach
+
+  - pytanie: "Zlecasz Claude długie porządkowanie raportów z kampanii. Nie chcesz zatwierdzać każdego kroku, ale ryzykowne działania mają być zatrzymane. Który tryb wybierasz w przełączniku?"
+    odpowiedzi:
+      - "Wybierasz Auto."
+      - "Wybierasz Manual, bo w nim Claude działa bez pytania o zgodę."
+      - "Wybierasz Plan, bo w nim Claude sam wprowadza wszystkie zmiany w plikach."
+    poprawna: 0
+    wyjasnienie: "W trybie Auto strażnik w tle ocenia działania Claude i blokuje ryzykowne, zamiast pytać Ciebie."
+    fakt: auto-aplikacja-klasyfikator-blokuje-ryzykowne
+
+  - pytanie: "Od rana pracujesz z Claude nad ofertą dla klienta w jednej rozmowie. Chcesz sprawdzić, ile miejsca zajęła już ta rozmowa. Gdzie patrzysz?"
+    odpowiedzi:
+      - "Klikasz New, bo nowa rozmowa pokaże, ile miejsca zajęła poprzednia."
+      - "Patrzysz na procent w nagłówku karty Context."
+      - "Otwierasz Settings na stronie Claude Code, bo tam jest licznik rozmów."
+    poprawna: 1
+    wyjasnienie: "Nagłówek karty Context pokazuje w procentach, jak pełne jest okno kontekstu tej rozmowy. Pierścień obok przycisku modelu pokazuje zużycie abonamentu, wspólne dla wszystkich miejsc, w których używasz Claude Code."
+    fakt: aplikacja-karta-context-procent-w-naglowku
+
+  - pytanie: "Wczoraj w aplikacji powstała rozmowa o ofercie dla nowego klienta. Dziś chcesz dokończyć ofertę w tej samej rozmowie. Co robisz?"
+    odpowiedzi:
+      - "Klikasz New i opisujesz zadanie jeszcze raz, bo wczorajsza rozmowa się zamknęła."
+      - "Otwierasz kartę Context, bo tam jest zapisana historia rozmowy."
+      - "Klikasz tę rozmowę na liście na pasku bocznym."
+    poprawna: 2
+    wyjasnienie: "Do rozmowy z innego dnia wracasz kliknięciem jej na liście na pasku bocznym."
+    fakt: aplikacja-powrot-do-sesji-klik-w-pasku-bocznym

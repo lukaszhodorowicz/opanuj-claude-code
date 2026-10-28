@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Ustawiasz /goal: 8 postów na listopad dla klienta. Idziesz po kawę. Po pierwszej turze gotowych jest 5 postów. Co dzieje się dalej?"
+    odpowiedzi:
+      - "Claude pyta w rozmowie, czy pisać dalej, i czeka, aż wrócisz z kawy i mu odpiszesz."
+      - "Oceniający uznaje warunek za jeszcze niespełniony i Claude zaczyna kolejną turę."
+      - "Claude sam ocenia swoją pracę i kończy, gdy uzna, że wszystkie osiem postów jest gotowe."
+    poprawna: 1
+    wyjasnienie: "Po każdej turze oceniający sprawdza, czy warunek jest spełniony. Gdy uzna, że jeszcze nie, Claude zaczyna kolejną turę, zamiast oddać Ci głos."
+    fakt: goal-ustawia-warunek-i-pracuje-dalej
+
+  - pytanie: "Ustawiasz cel: każdy post dla klientki ma najwyżej 500 znaków. Claude skraca posty i pisze tylko: „Wszystkie posty są już krótsze”. Skąd oceniający wie, czy warunek jest spełniony?"
+    odpowiedzi:
+      - "Otwiera pliki w folderze posty i sam liczy znaki w każdym poście."
+      - "Widzi zmiany w plikach, nawet jeśli Claude nie wypisał liczb w rozmowie."
+      - "Z tego, co Claude pokazał w rozmowie, bo sam plików nie czyta."
+    poprawna: 2
+    wyjasnienie: "Oceniający sprawdza warunek według tego, co Claude pokazał w rozmowie. Sam nie uruchamia poleceń ani nie czyta plików."
+    fakt: goal-ocena-tylko-z-rozmowy
+
+  - pytanie: "Ustawiasz cel do pracy nad raportem z kampanii i na końcu warunku dopisujesz: „albo zatrzymaj się po 5 turach”. Co daje ten dopisek?"
+    odpowiedzi:
+      - "Ogranicza, jak długo trwa cel, a Claude co turę pisze, ile tur minęło."
+      - "Claude pracuje szybciej, bo na cały raport ma do dyspozycji mniej tur."
+      - "Bez takiego dopisku /goal nie przyjąłby warunku i cel nie ruszyłby z miejsca."
+    poprawna: 0
+    wyjasnienie: "Granica tur albo czasu ogranicza, jak długo trwa cel. Claude w każdej turze pisze, jak blisko jest tej granicy, a oceniający sprawdza w rozmowie, czy została osiągnięta."
+    fakt: goal-granica-tur-albo-czasu
+
+  - pytanie: "Chcesz, żeby posty dla klienta powstały, kiedy jesteś na spotkaniu. Nikt nie będzie klikał zgody. W jakim trybie ustawić /goal?"
+    odpowiedzi:
+      - "W dowolnym, bo cel sam przełącza Claude na tryb Auto."
+      - "W trybie Auto, bo cel sam nie przełącza trybu uprawnień."
+      - "W trybie Manual, bo przy celu Claude i tak o nic nie pyta."
+    poprawna: 1
+    wyjasnienie: "Cel nie zmienia trybu uprawnień. Żeby Claude przechodził przez tury celu bez nadzoru, uruchamiasz /goal w trybie Auto."
+    fakt: goal-nie-zmienia-trybu-auto-bez-nadzoru

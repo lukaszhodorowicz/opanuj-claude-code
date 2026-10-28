@@ -1,0 +1,251 @@
+<!doctype html>
+<!-- Rysunek R6 „Zawsze a na żądanie” do lekcji claude-md-czy-skill: przez całą rozmowę w każdym zapytaniu są CLAUDE.md w całości i opisy skilli, a treść skilla opis-produktu dopiero od wywołania. Źródło PNG obrazy/zawsze-a-na-zadanie.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Zawsze a na żądanie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tokeny z identyfikacji kursu, jak w rysunku R1 modułu strona */
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+        /* trzy kolumny osi: znacznik stoi na lewym brzegu kolumny */
+        --kolumny: 224px 248px 1fr;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--papier);
+      }
+      body {
+        width: 760px;
+        color: var(--granat);
+        font-family: var(--sans);
+      }
+      svg {
+        display: block;
+      }
+      .rys {
+        padding: 20px 16px 22px;
+      }
+
+      /* ===== 1. Podpis nad osią ===== */
+      .podpis {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 12px 4px;
+        font: 800 26px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .podpis svg {
+        width: 30px;
+        height: 30px;
+        flex: none;
+      }
+
+      .os {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 20px;
+        padding: 18px 16px 20px;
+      }
+      /* wspólna siatka: znaczniki, linie pomocnicze i pasy liczą się od tych samych kolumn */
+      .tor {
+        position: relative;
+        display: grid;
+        grid-template-columns: var(--kolumny);
+      }
+
+      /* ===== 2. Trzy znaczniki na osi ===== */
+      .znacznik {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0 10px 12px 0;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .znacznik .kod {
+        font: 700 20px/1.3 var(--mono);
+        letter-spacing: 0;
+      }
+      .znacznik small {
+        margin-top: 4px;
+        color: var(--grafit);
+        font: 700 20px/1.2 var(--sans);
+        letter-spacing: -0.01em;
+      }
+      /* linia osi ze strzałką: od znacznika 1 do prawego brzegu */
+      .linia-osi {
+        grid-column: 1 / -1;
+        position: relative;
+        height: 26px;
+      }
+      .linia-osi svg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 26px;
+      }
+      .kropki {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: var(--kolumny);
+        margin-top: -26px;
+        height: 26px;
+        position: relative;
+      }
+      .kropki i {
+        width: 26px;
+        height: 26px;
+        margin-left: -2px;
+        border-radius: 50%;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+      }
+
+      /* linie pomocnicze od znaczników w dół przez pasy */
+      .pomocnicze {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: var(--kolumny);
+        pointer-events: none;
+      }
+      .pomocnicze span {
+        margin-left: 11px;
+        border-left: 3px dashed var(--kreska);
+      }
+
+      /* ===== 3-5. Pasy ===== */
+      .pasy {
+        grid-column: 1 / -1;
+        position: relative;
+        display: grid;
+        grid-template-columns: var(--kolumny);
+        row-gap: 12px;
+        padding-top: 16px;
+      }
+      .pas {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        letter-spacing: -0.02em;
+      }
+      .pas-claude {
+        grid-column: 1 / -1;
+        min-height: 64px;
+        padding: 8px 16px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        font: 800 23px/1.2 var(--sans);
+      }
+      .pas-opisy {
+        grid-column: 1 / -1;
+        min-height: 36px;
+        padding: 4px 16px;
+        background: var(--papier-2);
+        border: 2px solid var(--grafit);
+        font: 800 20px/1.2 var(--sans);
+      }
+      .pas-skill {
+        grid-column: 2 / -1;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 64px;
+        padding: 8px 16px;
+        background: var(--biel);
+        border: 3px solid var(--granat);
+        font: 800 22px/1.2 var(--sans);
+      }
+      .pas-koniec {
+        grid-column: 2 / -1;
+        margin-top: 8px;
+        text-align: right;
+        font: 800 22px/1.2 var(--sans);
+        letter-spacing: -0.02em;
+      }
+
+      /* ===== 6. Szara notka pod osią ===== */
+      .notka {
+        margin-top: 14px;
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: var(--papier-2);
+        border: 2px solid var(--kreska);
+        color: var(--grafit);
+        font: 800 22px/1.25 var(--sans);
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      .wniosek { margin: 0 0 18px; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat, #0e1422); }
+      .wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div
+      class="rys"
+      role="img"
+      aria-label="Jedna rozmowa w folderze Opisy-produktow. Na osi trzy prośby: 1. tytuły posta, gdy rozmowa się zaczyna; 2. /opis-produktu serum-notatki.txt; 3. kolejna prośba. Przez całą oś biegną dwa pasy: CLAUDE.md, cała treść w każdym zapytaniu, i opisy skilli, w każdym zapytaniu. Od prośby 2 do końca biegnie pas: treść skilla opis-produktu od wywołania; zostaje w rozmowie. Skill wchodzi, gdy go wywołasz albo gdy zadanie pasuje do jego opisu."
+    >
+      <p class="wniosek">CLAUDE.md jest w rozmowie zawsze, a <mark>skill dopiero od wywołania</mark>.</p>
+      <!-- 1. Podpis -->
+      <p class="podpis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>
+        Jedna rozmowa w folderze Opisy-produktow
+      </p>
+
+      <div class="os">
+        <div class="tor">
+          <!-- 2. Znaczniki -->
+          <div class="znacznik">1. prośba:<span>tytuły posta</span><small>Rozmowa się zaczyna.</small></div>
+          <div class="znacznik">2. prośba:<span class="kod">/opis-produktu</span><span class="kod">serum-notatki.txt</span></div>
+          <div class="znacznik">3. prośba: następne zadanie</div>
+
+          <div class="linia-osi">
+            <svg viewBox="0 0 680 26" preserveAspectRatio="none" aria-hidden="true"><path d="M12 13 H670" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 680 26" preserveAspectRatio="xMaxYMid meet" aria-hidden="true"><path d="M664 4 L675 13 L664 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="kropki"><i></i><i></i><i></i></div>
+
+          <div class="pasy">
+            <div class="pomocnicze" aria-hidden="true"><span></span><span></span><span></span></div>
+            <!-- 3. Pas górny: zakreślacz -->
+            <div class="pas pas-claude">Cała treść CLAUDE.md jest w każdym zapytaniu.</div>
+            <!-- 4. Pas środkowy, cienki -->
+            <div class="pas pas-opisy">Opisy skilli są w każdym zapytaniu.</div>
+            <!-- 5. Pas dolny od znacznika 2 -->
+            <div class="pas pas-skill"><span>Treść skilla opis-produktu</span><span>wchodzi przy wywołaniu i zostaje w rozmowie.</span></div>
+          </div>
+          <div class="pas-koniec"></div>
+        </div>
+      </div>
+
+      <!-- 6. Notka -->
+      <div class="notka">Skill wchodzi, gdy go wywołasz albo gdy zadanie pasuje do jego opisu.</div>
+    </div>
+  </body>
+</html>

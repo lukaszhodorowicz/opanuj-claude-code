@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8" /><meta name="viewport" content="width=760" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block" rel="stylesheet" />
+<style>
+:root{--granat:#0e1422;--limonka:#a3e635;--zakreslacz:#d9f99d;--papier:#f6f6f1;--papier-2:#eef0e6;--grafit:#475569;--kreska:#e2e4da;--biel:#fff;--pasek:#d6d9cd;--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html,body{margin:0;background:var(--papier)}
+body{width:760px;color:var(--granat);font-family:var(--sans)}
+.rys{padding:18px 16px 20px}
+svg.i{width:30px;height:30px;flex:none}
+.hl{-webkit-box-decoration-break:clone;box-decoration-break:clone;background:var(--zakreslacz);box-shadow:inset 0 0 0 3px var(--limonka);border-radius:8px;padding:2px 8px}
+.mala{font:700 15px/1.25 var(--sans);color:var(--grafit)}
+
+.pas{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin-bottom:10px}
+.et{font:800 17px/1.15 var(--sans);letter-spacing:-.02em}
+.b{height:44px;border:3px solid var(--granat);border-radius:10px;background:var(--pasek)}
+.dl{display:flex;overflow:hidden;background:none}
+.dl span{flex:1;display:flex;align-items:center;justify-content:center;background:var(--papier-2);border-right:3px solid var(--granat)}
+.dl span:last-child{border-right:0}
+.dl svg{width:28px;height:28px}
+.kart{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.k{background:var(--biel);border:3px solid var(--granat);border-radius:16px;padding:14px;font:700 18px/1.3 var(--sans);letter-spacing:-.01em}
+.k small{display:block;margin-top:8px;font:700 15px/1.25 var(--sans);color:var(--grafit)}
+.dol{display:flex;gap:14px;align-items:flex-start;background:var(--papier-2);border:3px solid var(--granat);border-radius:16px;padding:14px;font:700 17px/1.35 var(--sans)}
+.dol svg{width:34px;height:34px;flex:none;margin-top:2px}
+
+      /* ===== Nagłówek z wnioskiem ===== */
+      h1.teza {
+        grid-column: 1 / -1;
+        margin: 0 0 26px 4px;
+        font: 800 28px/1.22 var(--sans, "Plus Jakarta Sans", system-ui, sans-serif);
+        letter-spacing: -0.025em;
+        max-width: 728px;
+        color: var(--granat, #0e1422);
+      }
+      h1.teza mark {
+        color: inherit;
+        background: linear-gradient(transparent 52%, var(--zakreslacz, #d9f99d) 52%, var(--zakreslacz, #d9f99d) 94%, transparent 94%);
+        padding: 0;
+      }
+</style></head><body><svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="ag" viewBox="0 0 32 32"><circle cx="16" cy="10" r="6" fill="#fff" stroke="#0e1422" stroke-width="2.6"/><path d="M5 28c0-6 5-10 11-10s11 4 11 10z" fill="#fff" stroke="#0e1422" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+<symbol id="dok" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" fill="#fff" stroke="#0e1422" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" fill="none" stroke="#0e1422" stroke-width="2" stroke-linecap="round"/></symbol>
+</defs></svg>
+<div class="rys" role="img" aria-label="Przepływ może zużyć wyraźnie więcej tokenów niż ta sama praca w rozmowie, bo każdy agent w przepływie wysyła własne zapytania. Obie drogi liczą się do limitu Twojego planu. Rady: zacznij od jednej oferty i już w prośbie poproś o mniejszy model dla prostszych faz. Na planie Pro Claude domyślnie celuje w mniej niż 5 agentów, a przepływy trzeba najpierw włączyć w /config, w wierszu Dynamic workflows.">
+      <h1 class="teza">Przepływ może zużyć <mark>wyraźnie więcej tokenów</mark> niż ta sama praca w&nbsp;rozmowie</h1>
+<div class="pas"><div class="et">Ta sama praca w&nbsp;rozmowie</div><div class="b" style="width:26%"></div></div>
+<div class="pas"><div class="et">Przepływ</div><div class="b dl"><span><svg><use href="#ag"/></svg></span><span><svg><use href="#ag"/></svg></span><span><svg><use href="#ag"/></svg></span><span><svg><use href="#ag"/></svg></span><span><svg><use href="#ag"/></svg></span></div></div>
+<div class="mala" style="color:var(--granat);font-size:17px;margin:-2px 0 4px 162px">Każdy agent w&nbsp;przepływie wysyła własne zapytania.</div>
+<div class="mala" style="color:var(--granat);font-size:17px;margin-left:2px;margin-top:10px">Obie drogi liczą się do limitu Twojego planu.</div>
+<div class="kart">
+ <div class="k"><span class="hl">Zacznij od małego wycinka: jednej oferty zamiast wszystkich.</span></div>
+ <div class="k">Już w&nbsp;prośbie poproś o&nbsp;mniejszy model dla prostszych faz.</div>
+ <div class="k">Na planie Pro Claude domyślnie celuje w&nbsp;mniej niż 5&nbsp;agentów. To wskazówka, a&nbsp;nie limit.</div>
+</div>
+<div class="dol"><svg viewBox="0 0 24 24" fill="none" stroke="#0e1422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg>
+<span>Na planie Pro przepływy trzeba najpierw włączyć w&nbsp;/config, w&nbsp;wierszu Dynamic workflows. W&nbsp;aplikacji /config otwiera Settings &gt; Claude Code. Sprawdź u&nbsp;siebie, czy ten wiersz tam jest.</span></div>
+</div></body></html>

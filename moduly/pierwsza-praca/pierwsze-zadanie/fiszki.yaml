@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Jakiego planu Claude potrzebujesz, żeby korzystać z Claude Code?"
+    tyl: "Płatnego: Pro, Max, Team albo Enterprise."
+    fakt: plan-platny
+
+  - przod: "Gdzie w aplikacji Claude na komputer jest Claude Code?"
+    tyl: "W zakładce Code u góry paska bocznego."
+    fakt: aplikacja-zakladka-code-u-gory-paska-bocznego
+
+  - przod: "Co znaczy Local w wyborze, gdzie Claude pracuje?"
+    tyl: "Claude pracuje na Twoim komputerze, z bezpośrednim dostępem do Twoich plików."
+    fakt: aplikacja-local-dziala-na-twoim-komputerze
+
+  - przod: "Dlaczego w trybie Accept edits (przyjmowanie zmian) warto dać Claude kopię folderu?"
+    tyl: "Bo w tym trybie Claude stosuje zmiany w plikach bez czekania na Twoją zgodę."
+    fakt: aplikacja-accept-edits-auto-bez-czekania-na-zgode
+
+  - przod: "Kiedy Claude czyta poprawkę wysłaną klawiszem Enter w trakcie pracy?"
+    tyl: "Zaraz po zakończeniu bieżącego kroku. Następny krok robi już według poprawki."
+    fakt: aplikacja-poprawka-enter-claude-czyta-po-biezacym-kroku
+
+  - przod: "Co robi przycisk stop w aplikacji?"
+    tyl: "Przerywa pracę Claude od razu."
+    fakt: aplikacja-przycisk-stop-przerywa-od-razu

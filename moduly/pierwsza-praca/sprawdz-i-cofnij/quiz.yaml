@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Prosisz Claude o nowe stawki w umowie z klientem. Pracujesz w trybie Accept edits (przyjmowanie zmian). Po chwili obok rozmowy pojawiają się liczby +4 -2. Jak sprawdzisz, co Claude zmienił w umowie?"
+    odpowiedzi:
+      - "Czytasz odpowiedź Claude, bo opisuje każdą zmianę w pliku."
+      - "Liczby tylko informują o zmianie, więc zmiany oglądasz w terminalu."
+      - "Klikasz liczby +4 -2 i otwierasz widok zmian."
+    poprawna: 2
+    wyjasnienie: "Po zmianie plików pojawiają się liczby, na przykład +4 -2. Gdy je klikniesz, otworzy się widok zmian."
+    fakt: aplikacja-klikniecie-wskaznika-otwiera-widok-zmian
+
+  - pytanie: "Prosisz Claude o aktualizację raportu z kampanii. Claude zmienia plik i przy okazji usuwa jedną tabelę. Nie pyta przy tym o zgodę. Dlaczego?"
+    odpowiedzi:
+      - "Claude nigdy nie pyta o zgodę przed zmianą pliku, w żadnym trybie."
+      - "Pod polem wiadomości działa tryb Accept edits. W nim Claude sam zmienia pliki."
+      - "Claude uznał usunięcie tabeli za drobną zmianę i sam zdecydował, że nie musi pytać."
+    poprawna: 1
+    wyjasnienie: "W trybie Accept edits Claude bez pytania zmienia pliki i wykonuje typowe polecenia na plikach, na przykład zakłada folder. Zanim uruchomi inne polecenia w terminalu, nadal pyta."
+    fakt: accept-edits-aplikacja-pyta-o-inne-polecenia
+
+  - pytanie: "Claude zmienił stawki w ofercie dla klienta. Nowe stawki się zgadzają, ale Claude usunął też termin płatności, choć nikt o to nie prosił. Co robisz, żeby termin wrócił, a nowe stawki zostały?"
+    odpowiedzi:
+      - "Piszesz: „Przywróć termin płatności. Nowe stawki zostaw”. Naciskasz Enter."
+      - "Piszesz: „Cofnij wszystkie zmiany w ofercie”, bo tylko tak wróci termin płatności."
+      - "Otwierasz terminal, bo w aplikacji nie poprawisz jednej linijki."
+    poprawna: 0
+    wyjasnienie: "W polu wiadomości wpisujesz, co Claude ma zrobić, i wysyłasz to klawiszem Enter. Napisz w prośbie, co ma wrócić, a co zostać."
+    fakt: aplikacja-enter-wysyla-zadanie
+
+  - pytanie: "Claude odpowiada: „Przywróciłem termin płatności w pliku oferta-kowalski.txt”. Jak sprawdzisz, co teraz jest w pliku?"
+    odpowiedzi:
+      - "Nie sprawdzasz, bo odpowiedź Claude mówi, co jest w pliku."
+      - "Klikasz ścieżkę pliku oferta-kowalski.txt w odpowiedzi Claude."
+      - "Otwierasz terminal, bo aplikacja nie otwiera plików."
+    poprawna: 1
+    wyjasnienie: "Plik, o którym Claude wspomina, otwierasz kliknięciem jego ścieżki w rozmowie. Odpowiedź mówi, co Claude zrobił, a plik pokazuje, co w nim jest."
+    fakt: aplikacja-klik-sciezki-w-rozmowie-otwiera-plik

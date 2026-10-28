@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- Rysunek do lekcji sprawdz-i-cofnij (styl R1, D-2026-10-26-58): co Claude zapisuje przed zmianą pliku i co da się cofnąć prośbą; obok działania poza komputerem, które zapisu nie mają. Źródło PNG obrazy/2-co-claude-zapisuje-przed-zmiana.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Co Claude zapisuje przed zmianą</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --granat: #0e1422;
+        --limonka: #a3e635;
+        --zakreslacz: #d9f99d;
+        --papier: #f6f6f1;
+        --papier-2: #eef0e6;
+        --grafit: #475569;
+        --kreska: #e2e4da;
+        --biel: #ffffff;
+        --linia: #d6d9cd;
+        --wyszarz: #9aa1ad;
+        --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--papier); }
+      body { width: 760px; color: var(--granat); font-family: var(--sans); }
+      .rys {
+        padding: 20px 16px 22px;
+        display: grid;
+        grid-template-columns: 1fr 236px;
+        column-gap: 18px;
+        row-gap: 18px;
+      }
+      /* ===== Lewa część: plik przed i po ===== */
+      .plik { display: flex; flex-direction: column; }
+      .nazwa {
+        display: flex; align-items: center; gap: 8px;
+        margin: 0 0 10px 2px;
+        font: 700 23px/1.1 var(--mono);
+      }
+      .nazwa svg { width: 28px; height: 28px; flex: none; }
+      .scena {
+        display: grid;
+        grid-template-columns: 128px 1fr 128px;
+        grid-template-rows: auto auto auto;
+        column-gap: 6px;
+      }
+      .etykieta { margin: 0 0 6px; text-align: center; font: 800 24px/1 var(--sans); letter-spacing: -0.02em; }
+      .karta {
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 14px;
+        padding: 14px 12px;
+        display: flex; flex-direction: column; gap: 10px;
+        height: 150px;
+      }
+      .karta i { display: block; height: 10px; border-radius: 5px; background: var(--linia); }
+      .karta i.mocna { background: var(--granat); }
+      .srodek { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+      /* cień karty: zapis sprzed zmiany */
+      .cien {
+        width: 104px; height: 104px;
+        border: 3px dashed var(--granat);
+        border-radius: 12px;
+        background: var(--zakreslacz);
+        box-shadow: 0 0 0 4px var(--limonka);
+        padding: 11px 10px;
+        display: flex; flex-direction: column; gap: 9px;
+      }
+      .cien i { display: block; height: 7px; border-radius: 4px; background: #9cc15a; }
+      .cien-podpis {
+        margin: 0 0 10px;
+        text-align: center;
+        font: 800 21px/1.12 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .strzalka-podpis { margin: 4px 0 0; text-align: center; font: 700 19px/1.15 var(--sans); }
+      .powrot { grid-column: 1 / -1; margin-top: 6px; }
+      .powrot svg { display: block; width: 100%; height: 58px; }
+      .powrot p { margin: 2px 0 0; text-align: center; font: 700 21px/1.1 var(--sans); }
+      /* ===== Prawa część: wyszarzone działania bez zapisu ===== */
+      .bez {
+        border: 3px dashed var(--wyszarz);
+        border-radius: 18px;
+        padding: 16px 14px;
+        color: var(--wyszarz);
+        display: flex; flex-direction: column; justify-content: center; gap: 22px;
+      }
+      .bez h3 { margin: 0; font: 800 22px/1.15 var(--sans); letter-spacing: -0.02em; color: var(--grafit); }
+      .rzecz { display: flex; align-items: center; gap: 12px; font: 700 20px/1.15 var(--sans); }
+      .rzecz svg { width: 38px; height: 38px; flex: none; }
+      .stopka {
+        grid-column: 1 / -1;
+        margin: 4px 0 0;
+        padding-top: 14px;
+        border-top: 2px solid var(--kreska);
+        font: 600 22px/1.3 var(--sans);
+        color: var(--grafit);
+      }
+
+      h1.wniosek { margin: 0 0 18px; grid-column: 1 / -1; font: 800 30px/1.22 var(--sans); letter-spacing: -0.025em; color: var(--granat); }
+      h1.wniosek mark { color: inherit; background: linear-gradient(transparent 52%, #d9f99d 52%, #d9f99d 94%, transparent 94%); padding: 0 2px; }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Plik oferta-slub.txt przed zmianą i po zmianie. Strzałka Claude zmienia prowadzi od karty przed do karty po, a nad nią leży zapis sprzed zmiany. Strzałka powrotna prośba: cofnij prowadzi od po do przed. Obok, wyszarzone: baza danych, usługa w sieci (API), publikacja strony, bez zapisu sprzed zmiany. Pod spodem: Twoich własnych zmian w pliku, na przykład w Wordzie, Claude Code zwykle nie zapisuje.">
+      <h1 class="wniosek">Zmianę w pliku cofniesz, bo przed zmianą Claude <mark>zachowuje dotychczasową treść pliku</mark></h1>
+      <div class="plik">
+        <div class="nazwa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+          oferta-slub.txt
+        </div>
+        <div class="scena">
+          <!-- wiersz 1: etykiety i cień karty -->
+          <p class="etykieta" style="align-self: end">przed</p>
+          <div class="srodek">
+            <p class="cien-podpis">Zapis sprzed zmiany</p>
+            <div class="cien" aria-hidden="true"><i style="width: 85%"></i><i style="width: 62%"></i><i style="width: 74%"></i><i style="width: 56%"></i><i style="width: 68%"></i></div>
+          </div>
+          <p class="etykieta" style="align-self: end">po</p>
+          <!-- wiersz 2: karty i strzałka -->
+          <div class="karta" aria-hidden="true"><i style="width: 85%"></i><i style="width: 62%"></i><i style="width: 74%"></i><i class="mocna" style="width: 56%"></i><i style="width: 68%"></i></div>
+          <div class="srodek" style="justify-content: center">
+            <svg viewBox="0 0 160 40" width="100%" height="40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 20 H150 M136 8 L152 20 L136 32" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+            <p class="strzalka-podpis">Claude zmienia plik</p>
+          </div>
+          <div class="karta" aria-hidden="true"><i style="width: 85%"></i><i class="mocna" style="width: 74%"></i><i style="width: 74%"></i><i class="mocna" style="width: 48%"></i></div>
+          <!-- wiersz 3: strzałka powrotna -->
+          <div class="powrot">
+            <svg viewBox="0 0 474 58" aria-hidden="true"><path d="M410 4 V42 H64 V10 M52 22 L64 8 L76 22" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+            <p>Prosisz Claude o cofnięcie zmiany.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bez">
+        <h3>Działania poza Twoim komputerem nie mają zapisu sprzed zmiany:</h3>
+        <div class="rzecz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8v-13"/><path d="M4.5 12c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></svg>
+          zmiana w bazie danych
+        </div>
+        <div class="rzecz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5z"/></svg>
+          zmiana w usłudze w sieci (API)
+        </div>
+        <div class="rzecz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 3.8 5.7 3.8 9s-1.2 6.3-3.8 9c-2.6-2.7-3.8-5.7-3.8-9S9.4 5.7 12 3z"/></svg>
+          publikacja strony
+        </div>
+      </div>
+      <p class="stopka">Twoich własnych zmian w pliku, na przykład w Wordzie, Claude Code zwykle nie zapisuje.</p>
+    </div>
+  </body>
+</html>

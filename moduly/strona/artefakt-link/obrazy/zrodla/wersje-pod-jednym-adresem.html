@@ -1,0 +1,304 @@
+<!doctype html>
+<!-- Rysunek R3 „Wersje pod jednym adresem” do lekcji artefakt-link: wersja 1 z linijką o rabacie, prośba w tej samej sesji, wersja 2 bez niej, obie pod tym samym adresem; otwarta strona pokazuje wersję 2, w Share wybierasz wersję dla innych. Źródło PNG obrazy/wersje-pod-jednym-adresem.png. -->
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=760" />
+    <title>Wersje pod jednym adresem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kadry.css" />
+    <style>
+      .glowa {
+        min-height: 0;
+        align-items: center;
+      }
+      .glowa .nr {
+        margin-top: 0;
+      }
+
+      /* wspólny adres nad wersjami */
+      .adres {
+        display: flex;
+        justify-content: center;
+      }
+      .pasek-adresu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 58px;
+        padding: 0 18px;
+        border-radius: 12px;
+        background: var(--zakreslacz);
+        box-shadow: inset 0 0 0 3px var(--limonka);
+        font: 700 22px/1 var(--mono);
+        white-space: nowrap;
+      }
+      .pasek-adresu svg {
+        width: 26px;
+        height: 26px;
+      }
+      .klamra {
+        height: 46px;
+      }
+      .klamra svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      /* oś: wersja 1, prośba, wersja 2 */
+      .os {
+        display: grid;
+        grid-template-columns: 1fr 172px 1fr;
+        align-items: stretch;
+      }
+      .wersja {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .wersja h3 {
+        margin: 0 0 0 4px;
+        font: 800 27px/1 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .kartka {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 12px;
+        background: var(--biel);
+        border: 4px solid var(--granat);
+        border-radius: 16px;
+      }
+      .kartka b {
+        font: 800 20px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+      .kartka .szkic {
+        background: #d6d9cd;
+      }
+      .cena {
+        margin-top: 4px;
+        font: 800 19px/1.2 var(--sans);
+        letter-spacing: -0.015em;
+      }
+      .rabat {
+        padding: 6px 8px;
+        border: 2px dashed var(--grafit);
+        border-radius: 8px;
+        color: var(--grafit);
+        font: 700 18px/1.2 var(--sans);
+      }
+      .pusto {
+        height: 36px;
+      }
+      .wersja.stara .kartka {
+        border-color: var(--grafit);
+      }
+      .wersja.stara h3 {
+        color: var(--grafit);
+      }
+      .prosba {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 40px 10px 0;
+      }
+      .dymek-prosby {
+        padding: 10px 12px;
+        border-radius: 14px 14px 4px 14px;
+        background: var(--okno);
+        color: var(--okno-tekst);
+        font: 700 19px/1.25 var(--sans);
+        text-align: center;
+      }
+      .prosba svg {
+        width: 120px;
+        height: 30px;
+        overflow: visible;
+      }
+      .prosba span {
+        font: 800 21px/1.15 var(--sans);
+        letter-spacing: -0.015em;
+        text-align: center;
+      }
+
+      /* otwarta strona u Ciebie */
+      .w-dol {
+        height: 62px;
+      }
+      .w-dol svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .otwarta {
+        display: grid;
+        grid-template-columns: 1fr 262px;
+        gap: 18px;
+        align-items: start;
+      }
+      .okno-a {
+        background: var(--okno);
+        border-radius: 14px;
+        padding: 0 8px 8px;
+      }
+      .okno-a .gora {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 28px;
+        padding-left: 6px;
+      }
+      .okno-a .gora i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--okno-kreska);
+      }
+      .naglowek {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 56px;
+        padding: 0 10px 0 14px;
+        border-radius: 10px 10px 0 0;
+        background: var(--okno-pasek);
+      }
+      .naglowek .tytul {
+        flex: 1;
+        max-width: 150px;
+        height: 10px;
+        border-radius: 5px;
+        background: var(--okno-szkic);
+      }
+      .share {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 16px;
+        border: 3px solid var(--biel);
+        border-radius: 9px;
+        background: #2f2f33;
+        color: var(--biel);
+        font: 800 21px/1 var(--sans);
+      }
+      .okno-a .kartka {
+        border: 0;
+        border-radius: 0 0 10px 10px;
+        background: var(--papier);
+      }
+      .objasnienie {
+        position: relative;
+        padding: 40px 0 0 34px;
+      }
+      .objasnienie svg {
+        position: absolute;
+        left: -24px;
+        top: 52px;
+        width: 50px;
+        height: 30px;
+        overflow: visible;
+      }
+      .objasnienie p {
+        margin: 0;
+        font: 800 25px/1.15 var(--sans);
+        letter-spacing: -0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rys" role="img" aria-label="Wersja 1 z linijką o rabacie i wersja 2 bez niej są pod tym samym adresem claude.ai/code/artifact/…. Poprawkę zlecasz w tej samej sesji. Strona otwarta u Ciebie sama pokazuje wersję 2. Przyciskiem Share wybierasz, którą wersję widzą inni. Z innej sesji podaj Claude adres.">
+      <p class="wniosek">Pod jednym adresem są <mark>kolejne wersje strony</mark>.</p>
+      <div class="adres">
+        <div class="pasek-adresu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+          claude.ai/code/artifact/…
+        </div>
+      </div>
+      <!-- klamra: ten sam adres nad obiema wersjami -->
+      <div class="klamra">
+        <svg viewBox="0 0 728 46" aria-hidden="true">
+          <path d="M364 0 V12 M140 40 V22 a10 10 0 0 1 10 -10 H578 a10 10 0 0 1 10 10 V40" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="os">
+        <div class="wersja stara">
+          <h3>Wersja 1</h3>
+          <div class="kartka">
+            <b>Rozmowa o cenie bez przepraszania</b>
+            <span class="szkic" style="width: 100%"></span>
+            <span class="szkic" style="width: 70%"></span>
+            <span class="cena">2 600 zł netto za osobę</span>
+            <span class="rabat">Rabat dla klienta: 15%</span>
+          </div>
+        </div>
+        <div class="prosba">
+          <div class="dymek-prosby">Usuń linijkę o&nbsp;rabacie.</div>
+          <svg viewBox="0 0 120 30" aria-hidden="true">
+            <path d="M6 15 H110" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+            <path d="M98 3 L112 15 L98 27" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Prośba w tej samej sesji</span>
+        </div>
+        <div class="wersja">
+          <h3>Wersja 2</h3>
+          <div class="kartka">
+            <b>Rozmowa o cenie bez przepraszania</b>
+            <span class="szkic" style="width: 100%"></span>
+            <span class="szkic" style="width: 70%"></span>
+            <span class="cena">2 600 zł netto za osobę</span>
+            <span class="pusto"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- strzałka: wersja 2 w otwartej stronie -->
+      <div class="w-dol">
+        <svg viewBox="0 0 728 62" aria-hidden="true">
+          <path d="M588 6 V30 a10 10 0 0 1 -10 10 H250 a10 10 0 0 0 -10 10 V56" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M228 46 L240 60 L252 46" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="kadr" style="margin-top: 10px">
+        <p class="glowa">Strona otwarta u Ciebie sama pokazuje wersję 2.</p>
+        <div class="otwarta">
+          <div class="okno-a">
+            <div class="gora"><i></i><i></i><i></i></div>
+            <div class="naglowek">
+              <span class="tytul"></span>
+              <span class="share">Share</span>
+            </div>
+            <div class="kartka">
+              <b>Rozmowa o cenie bez przepraszania</b>
+              <span class="szkic" style="width: 100%"></span>
+              <span class="szkic" style="width: 70%"></span>
+              <span class="cena">2 600 zł netto za osobę</span>
+            </div>
+          </div>
+          <div class="objasnienie">
+            <svg viewBox="0 0 50 30" aria-hidden="true">
+              <path d="M46 15 H8" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18 4 L6 15 L18 26" fill="none" stroke="#0e1422" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p>W Share wybierasz, którą wersję widzą inni.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="wspolny" style="margin-top: 24px">Gdy poprawiasz stronę w innej sesji, podaj Claude jej adres.</p>
+    </div>
+  </body>
+</html>
