@@ -29,6 +29,58 @@
     padding: 0 28px var(--o5);
   }
 }
+/* górny pasek strony startowej: logo stoi przy lewej krawędzi kolumny treści (1200 px minus boczne marginesy 2 × 28 px), przycisk GitHuba przy prawej.
+   Zakres tylko .gora-start: styl-start.css trafia też pod lekcje, gdzie logo wyrównuje reguła z styl-strona.css */
+.gora-start .gora-wnetrze {
+  max-width: 1144px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--o2);
+}
+.gora-start .logo {
+  min-width: 0;
+}
+.gora-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  color: var(--granat);
+  border: 2px solid var(--granat);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font: 700 16px/1 var(--sans);
+  text-decoration: none;
+}
+.gora-github svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.gora-github:hover {
+  background: var(--papier-2);
+}
+@media (max-width: 559px) {
+  /* wąski telefon: sam znak GitHuba, logo trochę mniejsze, żeby oba mieściły się w jednym wierszu */
+  .gora-github-napis {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .gora-github {
+    padding: 8px;
+  }
+  .gora-start .logo svg {
+    width: 32px;
+    height: 32px;
+  }
+  .gora-start .logo-pl {
+    font-size: clamp(14px, 4.3vw, 22px);
+  }
+}
 .start p {
   margin: 0 0 var(--o2);
 }
