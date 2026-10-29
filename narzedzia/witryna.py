@@ -64,6 +64,7 @@ def strona_startowa(moduly: list[Modul], adres: str) -> str:
         "STYL": "\n".join(_plik_strony(p) for p in STYLE_STARTU),
         "ZNAK": _plik_strony("znak.svg").strip(),
         "NAZWA": f'<span class="logo-pl"><span>{html.escape(ramki.NAZWA_KURSU)}</span></span>',
+        "GITHUB": ramki.html_github(),
         "ZAPIS": ramki.html_zapisu("start-gora"),
         "SPIS": html_spisu(moduly),
         "KLOCKI": '<span class="postep-klocek"></span>' * 20,  # jeden klocek = 5% kursu
