@@ -1,0 +1,141 @@
+{
+  "lekcja": "subagent-zbiera-panel-w-tle",
+  "folder_glowny": "Pensjonat-ankiety",
+  "folder_startowy": [
+    "ankiety/ankieta-01.txt",
+    "ankiety/ankieta-02.txt",
+    "ankiety/ankieta-03.txt",
+    "plan-remontu.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zajrzyj, co robi subagent",
+      "nauczyciel_start": "Kliknij polecenie. Gdy subagent ruszy, zajrzysz do jego pracy przez menu ⋮ na pasku tytułu.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Pensjonat-ankiety",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Od listopada pokój 4 nazywamy apartamentem Pod Smrekiem. Tak o nim pisz."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. O pokoju 4 piszę: apartament Pod Smrekiem."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "pokoje-opinie.txt"
+      ],
+      "drogi": [
+        {
+          "id": "panel",
+          "etykieta": "Zleć dwóch subagentów i zajrzyj do panelu",
+          "opis": "Claude odda ankiety dwóm subagentom. Ich pracę zobaczysz w panelu zadań w tle.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj dwóch subagentów: jeden niech sprawdzi w ankietach, które pokoje goście chwalą, a drugi, które krytykują. Pokój 4 nazywaj apartamentem Pod Smrekiem. Wynik zapisz w pokoje-opinie.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zleciłem to dwóm subagentom. Pracują w tle, a wynik zapiszę, gdy skończą.",
+              "w_tle": [
+                {
+                  "rodzaj": "subagent",
+                  "tytul": "Pokoje chwalone w ankietach",
+                  "zadanie": "Przeczytaj ankiety z teczki ankiety i wypisz pokoje, które goście chwalą. Pokój 4 nazywaj apartamentem Pod Smrekiem.",
+                  "wynik": [
+                    "Chwalą: apartament Pod Smrekiem (widok na góry), pokój 2 (cisza)."
+                  ]
+                },
+                {
+                  "rodzaj": "subagent",
+                  "tytul": "Pokoje krytykowane w ankietach",
+                  "zadanie": "Przeczytaj ankiety z teczki ankiety i wypisz pokoje, które goście krytykują. Pokój 4 nazywaj apartamentem Pod Smrekiem.",
+                  "wynik": [
+                    "Krytykują: pokoje 6 i 7 na poddaszu (chłód), pokój 7 (słabe Wi-Fi)."
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-link-running-tasks-w-rozmowie"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Subagenci pracują w tle. Otwórz menu ⋮ na pasku tytułu rozmowy."
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "ankiety/ankieta-01.txt",
+                "ankiety/ankieta-02.txt",
+                "ankiety/ankieta-03.txt"
+              ]
+            },
+            {
+              "typ": "klik",
+              "cel": "menu-paska",
+              "fakt": "aplikacja-menu-paska-panele-bez-przycisku"
+            },
+            {
+              "typ": "klik",
+              "cel": "background-tasks",
+              "fakt": "aplikacja-panel-zadan-w-tle-co-pokazuje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To panel zadań w tle. W grupie Running każdy subagent ma swój wpis. Kliknij pierwszy.",
+              "fakt": "aplikacja-panel-zadan-grupa-running-wpis-agent"
+            },
+            {
+              "typ": "klik",
+              "cel": "wpis-w-tle",
+              "nr": 1,
+              "fakt": "aplikacja-wpis-w-tle-wynik-w-panelu-subagenta"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W szarym polu stoi zadanie, które napisał Claude, a pod nim wynik. Zasada o pokoju 4 doszła.",
+              "fakt": "aplikacja-wiersz-subagenta-i-panel-subagenta"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Subagenci skończyli. Zapisałem opinie o pokojach w pliku pokoje-opinie.txt.",
+              "plik": "pokoje-opinie.txt",
+              "w_tle_koniec": true,
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "pokoje-opinie.txt",
+              "linijki": [
+                "Chwalą: apartament Pod Smrekiem (widok na góry), pokój 2 (cisza).",
+                "Krytykują: pokoje 6 i 7 na poddaszu (chłód), pokój 7 (słabe Wi-Fi)."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał wyniki subagentów w pliku. Ankiety zostały w ich oknach."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "lekcja": "probka-ekrany-b",
+  "folder_startowy": [
+    "notatki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Menu panelu Browser",
+      "opis": "Otworzysz panel Browser i jego menu z trzema kropkami.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem i patrz na panel po prawej.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Prezentacje-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zrób przykładową prezentację z dwoma slajdami w Claude Slides."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Gotowe: przykładowa prezentacja w Claude Slides ma dwa slajdy."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "menu",
+          "etykieta": "Otwórz menu panelu Browser",
+          "opis": "Przycisk Browser, potem trzy kropki.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "przegladarka"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Panel Browser ma pustą kartę. Kliknij trzy kropki w jego nagłówku."
+            },
+            {
+              "typ": "klik",
+              "cel": "przegladarka-menu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Menu panelu ma cztery grupy pozycji. Cztery z nich są szare, bo karta jest pusta."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Edytor prezentacji na całe okno",
+      "opis": "Rozwiniesz edytor prezentacji na całe okno.",
+      "nauczyciel_start": "Prezentacja jest już otwarta. Kliknij polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Cloud",
+        "folder": "Prezentacje-kopia",
+        "tryb": "Auto",
+        "panel": "schowany",
+        "rozmowa": [],
+        "artefakt_otwarty": {
+          "tytul": "Przykładowa prezentacja",
+          "slajdy": [
+            {
+              "nadtytul": "Claude Slides",
+              "tytul": "Prezentacje, które piszą się same",
+              "punkty": [
+                "Przykładowy deck z dwoma slajdami",
+                "Dwa slajdy do obejrzenia"
+              ]
+            },
+            {
+              "tytul": "Trzy rzeczy, które robi za Ciebie",
+              "punkty": [
+                "Pomysł",
+                "Projekt",
+                "Udostępnienie"
+              ]
+            }
+          ]
+        }
+      },
+      "drogi": [
+        {
+          "id": "edytor",
+          "etykieta": "Rozwiń edytor",
+          "opis": "Ikona rozwinięcia w nagłówku edytora.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "edytor-rozwin"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Edytor zajął całe okno. Nad slajdem widzisz Translate, Chat i Share."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw3",
+      "rodzaj": "aplikacja",
+      "tytul": "Widok rozmowy: Normal i Verbose",
+      "opis": "Zmienisz widok rozmowy w menu sesji.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem i patrz na pasek tytułu.",
+      "aplikacja": {
+        "srodowisko": "Cloud",
+        "folder": "Prezentacje-kopia",
+        "tryb": "Auto",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zrób przykładową prezentację z dwoma slajdami w Claude Slides."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Gotowe: przykładowa prezentacja w Claude Slides ma dwa slajdy."
+          }
+        ],
+        "nazwa": "Przykładowa prezentacja w Claude Slides"
+      },
+      "drogi": [
+        {
+          "id": "widok",
+          "etykieta": "Przełącz widok na Verbose",
+          "opis": "Strzałka przy tytule, Transcript view, Verbose.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "strzalka-tytulu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Menu sesji otwiera się strzałką przy tytule. Kliknij Transcript view."
+            },
+            {
+              "typ": "klik",
+              "cel": "transcript-view"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Widok ma dwie pozycje: Normal i Verbose. Przy Normal stoi ptaszek. Kliknij Verbose."
+            },
+            {
+              "typ": "klik",
+              "cel": "widok-transkrypcji",
+              "na": "Verbose"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ptaszek przeszedł na Verbose. Thinking pojawia się dopiero po myśleniu Claude."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

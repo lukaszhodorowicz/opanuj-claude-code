@@ -1,0 +1,91 @@
+{
+  "lekcja": "strona-oferty",
+  "folder_startowy": [
+    "opis-szkolenia.txt",
+    "cennik.txt",
+    "opinie-klientow.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zleć stronę oferty z plików w folderze",
+      "opis": "Symulator wygląda jak zakładka Code w aplikacji Claude. Kliknij polecenie, a potem ścieżkę nowego pliku w odpowiedzi Claude.",
+      "nauczyciel_start": "W folderze leżą trzy pliki z tekstami. Kliknij polecenie nad symulatorem i patrz na rozmowę.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam opis szkolenia, cennik i opinie klientów. Chcę z nich zrobić stronę oferty."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, w jakim pliku mam zapisać stronę i co ma się na niej znaleźć."
+          }
+        ]
+      },
+      "nowe_pliki": ["oferta-szkolenia.html"],
+      "drogi": [
+        {
+          "id": "strona",
+          "etykieta": "Zleć stronę oferty z trzech plików",
+          "opis": "Claude zapisze nowy plik. Potem klikniesz jego ścieżkę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób stronę oferty szkolenia i zapisz ją w jednym pliku oferta-szkolenia.html w tym folderze. Teksty weź z opis-szkolenia.txt, cennik.txt i opinie-klientow.txt. Nic nie instaluj. Kontakt podaj jako zwykły tekst z adresem kontakt@example.com, bez formularza.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem stronę w pliku oferta-szkolenia.html. Teksty wziąłem z opis-szkolenia.txt, cennik.txt i opinie-klientow.txt, a kontakt podałem zwykłym tekstem.",
+              "plik": "oferta-szkolenia.html",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zapisał nowy plik w folderze i nie pokazał okna zgody, bo działa w trybie Accept edits. Kliknij ścieżkę tego pliku w odpowiedzi Claude.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-szkolenia.html",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 400 zł netto za osobę",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              },
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknięcie ścieżki w rozmowie otworzyło plik w panelu Browser. Strona jest przykładem, jak może wyglądać wynik.",
+              "fakt": "aplikacja-klik-sciezki-do-pdf-html-wideo-otwiera-panel-browser"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

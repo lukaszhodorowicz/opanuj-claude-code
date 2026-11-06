@@ -66,12 +66,6 @@ fakty:
     sprawdzono: '2026-10-25'
     wersja: "2.1.310"
 
-  - id: skill-kiedy-tworzyc
-    tresc: "Skill warto zrobić, gdy w kółko wklejasz do rozmowy te same instrukcje, listę kontrolną albo procedurę z kilku kroków."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
   - id: skill-laduje-sie-przy-uzyciu
     tresc: "Claude ma w kontekście listę nazw i opisów skilli. Pełna treść skilla trafia do rozmowy dopiero wtedy, gdy skill zostaje uruchomiony."
     zrodlo: https://code.claude.com/docs/en/skills.md
@@ -107,12 +101,6 @@ fakty:
     sprawdzono: '2026-10-26'
     wersja: "2.1.310"
 
-  - id: skill-osobisty-katalog
-    tresc: "Skill osobisty leży w katalogu ~/.claude/skills/<nazwa>/SKILL.md i działa we wszystkich Twoich projektach na tym komputerze."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
   - id: katalog-domowy-windows
     tresc: "Na Windowsie katalog ~/.claude to %USERPROFILE%\\.claude, czyli folder .claude w Twoim folderze użytkownika."
     zrodlo: https://code.claude.com/docs/en/claude-directory.md
@@ -125,66 +113,6 @@ fakty:
     cytat: 'Writes to a small set of paths are never auto-approved [...] | `default`, `acceptEdits` | Prompted | [...] Protected directories: [...] `.claude`, with a few exceptions, such as:'
     sprawdzono: '2026-10-25'
     wersja: "2.1.310"
-
-  - id: skill-cowork-chmura
-    tresc: "Cowork i sesje w chmurze nie czytają skilli z Twojego komputera. Korzystają ze skilli włączonych na koncie claude.ai, którymi zarządzasz przez Customize w aplikacji."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-zaplanowane-lokalnie
-    tresc: "Zadania zaplanowane w aplikacji na komputer działają na Twoim komputerze, więc widzą skille z ~/.claude/skills/."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-szesc-pol
-    tresc: "Skill wgrywany na claude.ai może mieć w nagłówku tylko sześć pól: name, description, license, compatibility, metadata i allowed-tools. Inne pole kończy wgrywanie błędem."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-nazwa-zasady
-    tresc: "Nazwa skilla ma od 1 do 64 znaków: małe litery, cyfry i myślniki, bez myślnika na początku, na końcu i dwóch pod rząd. Musi być taka sama jak nazwa katalogu."
-    zrodlo: https://agentskills.io/specification.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-opis-limit
-    tresc: "Opis skilla ma od 1 do 1024 znaków."
-    zrodlo: https://agentskills.io/specification.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-naglowek-pierwsza-linia
-    tresc: "Nagłówek skilla stoi między dwiema liniami ---, a pierwsza z nich musi być pierwszą linią pliku. Inaczej Claude Code czyta cały plik jako treść."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-500-linii
-    tresc: "Plik SKILL.md trzymaj poniżej 500 linii, a dłuższe materiały przenieś do osobnych plików w katalogu skilla."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-pliki-pomocnicze
-    tresc: "W katalogu skilla mogą leżeć dodatkowe pliki, na przykład wzory i przykłady. Claude czyta je dopiero, gdy są potrzebne, jeśli SKILL.md mówi, co w nich jest."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-najwazniejsze-na-gorze
-    tresc: "Treść uruchomionego skilla zostaje w rozmowie, a Claude nie czyta pliku ponownie. Po skróceniu długiej rozmowy może zostać tylko początek skilla, więc najważniejsze polecenia pisz na górze."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
-
-  - id: skill-nie-dziala
-    tresc: "Gdy Claude nie używa skilla, sprawdź, czy opis zawiera słowa, których naturalnie używasz, zapytaj Claude, jakie skille są dostępne, albo uruchom go wprost przez /nazwa."
-    zrodlo: https://code.claude.com/docs/en/skills.md
-    sprawdzono: 2026-10-23
-    wersja: "2.1.309"
 
   - id: skill-standard-otwarty
     tresc: "Skille w Claude Code działają według otwartego standardu Agent Skills, z którego korzystają też inne narzędzia AI."

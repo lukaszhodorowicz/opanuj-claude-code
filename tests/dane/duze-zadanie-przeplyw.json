@@ -1,0 +1,129 @@
+{
+  "lekcja": "probka-duze-zadanie-przeplyw",
+  "folder_startowy": [
+    "oferta-aquaklub.txt",
+    "oferta-delfinek.txt",
+    "oferta-fala.txt",
+    "nasza-oferta.txt",
+    "co-porownac.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Przepływ porównuje trzy szkoły",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Zanim przepływ ruszy, Claude pokaże jego plan.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Szkola-plywania-konkurencja",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Porównaj nasze ceny z ofertą Fali."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Fala bierze 240 zł za miesiąc, my 230 zł. Fala nie ma zajęć próbnych."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "porownanie-ofert.txt"
+      ],
+      "drogi": [
+        {
+          "id": "przeplyw",
+          "etykieta": "Poproś o przepływ",
+          "opis": "Claude napisze przepływ i poprosi o zgodę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Użyj przepływu: porównaj oferty trzech szkół z naszą według co-porownac.txt. Niech jedni subagenci czytają oferty, a inni sprawdzą ich ustalenia. Wynik zapisz w porownanie-ofert.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "co-porownac.txt"
+              ],
+              "fakt": "accept-edits-odczyty-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Napisałem przepływ w trzech fazach. Zanim ruszy, potrzebuję Twojej zgody."
+            },
+            {
+              "typ": "przeplyw",
+              "nazwa": "porownanie-ofert-szkol",
+              "fazy": [
+                "Czytanie ofert",
+                "Sprawdzanie ustaleń",
+                "Raport"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na karcie jest nazwa przepływu, jego fazy i ostrzeżenie o zużyciu. Kliknij Once."
+            },
+            {
+              "typ": "klik",
+              "cel": "once"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przepływ ruszył w tle. Raport zapiszę, gdy skończy."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przepływ pracuje w tle. Otwórz menu ⋮ na pasku tytułu rozmowy."
+            },
+            {
+              "typ": "klik",
+              "cel": "menu-paska",
+              "fakt": "aplikacja-menu-paska-panele-bez-przycisku"
+            },
+            {
+              "typ": "klik",
+              "cel": "background-tasks",
+              "fakt": "aplikacja-panel-zadan-w-tle-co-pokazuje"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu widać przepływ, który pracuje w tle. Rozmowa w tym czasie jest wolna."
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przepływ skończył. Raport jest w porownanie-ofert.txt.",
+              "plik": "porownanie-ofert.txt",
+              "w_tle_koniec": true,
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "porownanie-ofert.txt",
+              "linijki": [
+                "Porównanie: AquaKlub, Delfinek, Fala i Kijanka",
+                "Cena za miesiąc: Delfinek 220 zł, Kijanka 230 zł, Fala 240 zł, AquaKlub 260 zł",
+                "Wielkość grupy: Fala do 6 dzieci, Kijanka i AquaKlub do 8, Delfinek do 12",
+                "Wiek dzieci: Delfinek 4-12 lat, Kijanka 4-10, AquaKlub 5-10, Fala 6-14",
+                "Zajęcia próbne: bezpłatne w Kijance i Delfinku, w AquaKlubie 40 zł, w Fali brak",
+                "Przy sprawdzaniu odrzucone: 2 ustalenia"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Do rozmowy wrócił jeden raport. Wyniki pośrednie zostały w przepływie."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

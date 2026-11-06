@@ -1,0 +1,125 @@
+{
+  "lekcja": "probka-aplikacja-drogi",
+  "folder_startowy": [
+    "oferta-slub.txt",
+    "cennik-2026.txt",
+    "mail-od-klientki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Popraw linijkę albo cofnij całą zmianę",
+      "opis": "Ta sama zmiana oferty. Wybierz jedną drogę, a potem drugą i porównaj plik.",
+      "nauczyciel_start": "Nowe ceny są dobre, ale rabat zniknął. Wybierz drogę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klientka-Nowak-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zaktualizuj ofertę dla pani Nowak według cennika 2026 i jej maila."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zmieniłem ceny w pliku oferta-slub.txt według cennika 2026. Usunąłem też linijkę z rabatem, bo w cenniku go nie ma."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "popraw",
+          "etykieta": "Popraw jedną linijkę",
+          "opis": "Prosisz Claude o sam rabat. Nowe ceny zostają.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przywróć rabat 10% dla stałych klientów. Nowe ceny zostaw.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przywróciłem linijkę z rabatem w pliku oferta-slub.txt. Nowe ceny zostały.",
+              "plik": "oferta-slub.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zmienił plik. Kliknij jego nazwę w odpowiedzi, żeby zobaczyć treść.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-slub.txt",
+              "linijki": [
+                "Oferta: reportaż ślubny dla Anny Nowak",
+                "Termin: 12 września 2026",
+                "Pakiet „Cały dzień”: 6 000 zł",
+                "Sesja plenerowa: 1 000 zł",
+                "Rabat 10% dla stałych klientów",
+                "Zaliczka: 30% przy rezerwacji"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rabat wrócił, a nowe ceny zostały. Zmieniła się jedna linijka."
+            }
+          ]
+        },
+        {
+          "id": "cofnij",
+          "etykieta": "Cofnij całą zmianę",
+          "opis": "Prosisz Claude o ofertę sprzed zadania.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Cofnij wszystkie zmiany w ofercie.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Cofnąłem zmiany w pliku oferta-slub.txt. Oferta jest taka jak przed zadaniem.",
+              "plik": "oferta-slub.txt"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude zmienił plik. Kliknij jego nazwę w odpowiedzi, żeby zobaczyć treść.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-slub.txt",
+              "linijki": [
+                "Oferta: reportaż ślubny dla Anny Nowak",
+                "Termin: 12 września 2026",
+                "Pakiet „Cały dzień”: 5 500 zł",
+                "Sesja plenerowa: 900 zł",
+                "Rabat 10% dla stałych klientów",
+                "Zaliczka: 30% przy rezerwacji"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rabat wrócił, ale wróciły też stare ceny. Oferta jest jak przed zadaniem."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

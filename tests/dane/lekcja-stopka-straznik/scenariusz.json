@@ -1,0 +1,230 @@
+{
+  "lekcja": "straznik-zamiast-pytan",
+  "folder_startowy": [
+    "umowa-najmu-2025.pdf",
+    "umowa-najmu-2026.pdf",
+    "protokol-zdawczy-2026.pdf",
+    "roznice-umow.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Wybierz Auto i zobacz pracę bez pytań",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Twoich plików nie zmieni. Klikaj polecenia nad oknem albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Przełącznik pod polem wiadomości pokazuje Manual (tryb ręczny). Kliknij go albo pierwsze polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Umowy",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Wybierz tryb w przełączniku",
+          "opis": "Przełącznik pokazuje Manual, czyli Claude pyta o zgodę przy zmianach.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-przelacznik-pod-polem-wiadomosci",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się lista trybów. Kliknij Auto.",
+              "fakt": "aplikacja-dostepne-tryby"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz Auto",
+          "opis": "Po kliknięciu przełącznik zmienia napis.",
+          "klik": "tryb",
+          "na": "Auto",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Auto. Kliknij trzecie polecenie i patrz na folder pod oknem.",
+              "fakt": "aplikacja-tryb-pod-polem-mowi-czy-claude-czeka-na-zgode"
+            }
+          ]
+        },
+        {
+          "etykieta": "Poproś o wpis do zestawienia i paczkę",
+          "opis": "Claude uzupełni zestawienie różnic i spakuje umowy dla kancelarii.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do zestawienia różnicę w czynszu i spakuj umowy dla kancelarii.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["umowa-najmu-2025.pdf", "umowa-najmu-2026.pdf"],
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "claude",
+              "tekst": "W 2025 roku czynsz wynosił 3 200 zł, a w 2026 wynosi 3 500 zł. Dopisuję to do pliku roznice-umow.txt."
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "roznice-umow.txt",
+                  "linijki": [
+                    { "tekst": "Różnice: umowa najmu 2025 i 2026" },
+                    { "tekst": "Czynsz: do uzupełnienia", "zmiana": "usunieta" },
+                    { "tekst": "Czynsz: 3 200 zł → 3 500 zł", "zmiana": "dodana" }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik roznice-umow.txt pod oknem ma znacznik zmiany. Claude zmienił go bez karty zgody.",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Pakuję obie umowy i zestawienie poleceniem zip do pliku umowy-dla-kancelarii.zip."
+            },
+            {
+              "typ": "folder",
+              "akcja": "nowy",
+              "plik": "umowy-dla-kancelarii.zip",
+              "fakt": "auto-aplikacja-opis-trybu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczka zip leży w folderze. Strażnik sprawdził w tle, że pakowanie pasuje do prośby, więc Claude nie pytał.",
+              "fakt": "auto-aplikacja-opis-trybu"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Gotowe. Paczka dla kancelarii jest w pliku umowy-dla-kancelarii.zip."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Granica w jednym zdaniu",
+      "opis": "W folderze są te same umowy i zestawienie, bez paczki zip. Tryb Auto jest już włączony. W ostatnim zdaniu prośby stawiasz granicę.",
+      "nauczyciel_start": "Przełącznik pokazuje Auto. Kliknij pierwsze polecenie i patrz, czy w folderze pod oknem pojawi się paczka.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Umowy",
+        "tryb": "Auto"
+      },
+      "etapy": [
+        {
+          "etykieta": "Poproś o paczkę dopiero po przeglądzie",
+          "opis": "Claude uzupełni zestawienie. Pakowanie ma poczekać, aż je przejrzysz.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do zestawienia różnicę w okresie wypowiedzenia i przygotuj paczkę zip dla kancelarii. Nie pakuj niczego, dopóki nie przejrzę zestawienia.",
+              "fakt": "auto-granice-z-rozmowy"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": ["umowa-najmu-2025.pdf", "umowa-najmu-2026.pdf"],
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "claude",
+              "tekst": "W 2025 roku wypowiedzenie wynosiło 3 miesiące, a w 2026 wynosi 1 miesiąc. Dopisuję to do pliku roznice-umow.txt."
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "roznice-umow.txt",
+                  "linijki": [
+                    { "tekst": "Różnice: umowa najmu 2025 i 2026" },
+                    { "tekst": "Wypowiedzenie: do uzupełnienia", "zmiana": "usunieta" },
+                    { "tekst": "Wypowiedzenie: 3 miesiące → 1 miesiąc", "zmiana": "dodana" }
+                  ]
+                }
+              ],
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zestawienie zmieniło się od razu. Strażnik nie ocenia zmian zwykłych plików w folderze.",
+              "fakt": "auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zestawienie jest kompletne, sprawdziłem je. Pakuję umowy."
+            },
+            {
+              "typ": "mysli",
+              "ms": 1600
+            },
+            {
+              "typ": "claude",
+              "tekst": "Strażnik zablokował pakowanie. Paczka ma poczekać, aż przejrzysz zestawienie. Daj znać, gdy skończysz.",
+              "fakt": "auto-claude-dostaje-powod-blokady"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczki nie ma w folderze. Claude uznał zestawienie za gotowe, ale granica dalej obowiązuje. Kliknij drugie polecenie.",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zdejmij granicę wiadomością",
+          "opis": "Piszesz, że zestawienie jest już przejrzane.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zestawienie przejrzane. Możesz spakować umowy.",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Pakuję obie umowy i zestawienie do pliku umowy-dla-kancelarii.zip."
+            },
+            {
+              "typ": "folder",
+              "akcja": "nowy",
+              "plik": "umowy-dla-kancelarii.zip",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Paczka jest w folderze. Granicę zdjęła dopiero Twoja wiadomość.",
+              "fakt": "auto-granica-trwa-do-zdjecia-wiadomoscia"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Gotowe. Paczka dla kancelarii jest w pliku umowy-dla-kancelarii.zip."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

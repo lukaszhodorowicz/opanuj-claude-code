@@ -1,0 +1,77 @@
+{
+  "lekcja": "probka-aplikacja",
+  "folder_startowy": [
+    "oferta-slub.txt",
+    "cennik-2026.txt",
+    "mail-od-klientki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zobacz, co Claude zmienił w ofercie",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Klikasz wskazane miejsce, a okno pokazuje skutek.",
+      "nauczyciel_start": "Claude zmienił ofertę. Kliknij liczby +2 -3 na karcie Changes (zmiany), żeby zobaczyć, co dokładnie.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klientka-Nowak-kopia",
+        "tryb": "Accept edits",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Zaktualizuj ofertę dla pani Nowak według cennika 2026 i jej maila."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Zmieniłem ceny w pliku oferta-slub.txt według cennika 2026. Usunąłem też linijkę z rabatem, bo w cenniku go nie ma."
+          }
+        ],
+        "zmiany": [
+          {
+            "plik": "oferta-slub.txt",
+            "linijki": [
+              {
+                "tekst": "Oferta: reportaż ślubny dla Anny Nowak"
+              },
+              {
+                "tekst": "Termin: 12 września 2026"
+              },
+              {
+                "tekst": "Pakiet „Cały dzień”: 5 500 zł",
+                "zmiana": "usunieta"
+              },
+              {
+                "tekst": "Sesja plenerowa: 900 zł",
+                "zmiana": "usunieta"
+              },
+              {
+                "tekst": "Rabat 10% dla stałych klientów",
+                "zmiana": "usunieta"
+              },
+              {
+                "tekst": "Pakiet „Cały dzień”: 6 000 zł",
+                "zmiana": "dodana"
+              },
+              {
+                "tekst": "Sesja plenerowa: 1 000 zł",
+                "zmiana": "dodana"
+              },
+              {
+                "tekst": "Zaliczka: 30% przy rezerwacji"
+              }
+            ]
+          }
+        ]
+      },
+      "kroki": [
+        {
+          "klik": "licznik",
+          "etykieta": "Otwórz widok zmian",
+          "opis": "Klikasz liczby +2 -3. Zobaczysz linijki, które zniknęły, i te, które doszły.",
+          "nauczyciel": "Czerwone linijki zniknęły, zielone doszły. Zniknął też rabat, choć nikt o to nie prosił.",
+          "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+        }
+      ]
+    }
+  ]
+}

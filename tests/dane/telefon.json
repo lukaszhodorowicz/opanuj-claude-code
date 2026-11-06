@@ -1,0 +1,150 @@
+{
+  "lekcja": "probka-telefon",
+  "folder_startowy": [
+    "harmonogram-wesele.txt",
+    "dostawcy.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Napisz do Claude z telefonu",
+      "nauczyciel_start": "Sesja na komputerze ma włączony Remote Control. Kliknij polecenie, a potem sesję na telefonie.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wesele-Kowalskich",
+        "tryb": "Accept edits",
+        "kontekst": 6,
+        "nazwa": "Harmonogram wesela",
+        "telefon": {
+          "urzadzenie": "MacBook-Air",
+          "sesja": "Harmonogram wesela"
+        },
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź harmonogram dnia w pliku harmonogram-wesele.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Harmonogram jest spójny. Obiad zaczyna się o 14:00."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "z-telefonu",
+          "etykieta": "Napisz z telefonu",
+          "opis": "Wiadomość wpisana na telefonie trafia do tej samej rozmowy co na komputerze.",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Na karcie Environment przełącznik Remote Control jest włączony. Kliknij sesję na telefonie."
+            },
+            {
+              "typ": "klik",
+              "cel": "telefon-sesja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Telefon pokazuje tę samą rozmowę co komputer. Teraz napiszesz w niej z telefonu."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Obiad przesuwamy na 14:30. Popraw harmonogram.",
+              "na_telefonie": true
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przesunąłem obiad na 14:30 w pliku harmonogram-wesele.txt.",
+              "plik": "harmonogram-wesele.txt"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "harmonogram-wesele.txt",
+              "linijki": [
+                "Ceremonia: 12:00",
+                "Obiad: 14:30",
+                "Pierwszy taniec: 16:00"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wiadomość z telefonu jest w rozmowie na komputerze, a plik zmienił się na komputerze."
+            }
+          ]
+        },
+        {
+          "id": "wstecz",
+          "etykieta": "Wróć na listę sesji",
+          "opis": "Strzałka na telefonie wraca do listy z urządzeniem i sesjami.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "telefon-sesja"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Sesja z komputera jest otwarta na telefonie. Kliknij strzałkę wstecz."
+            },
+            {
+              "typ": "klik",
+              "cel": "telefon-wstecz"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Znów widzisz listę: urządzenie z zieloną kropką i sesje."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Zajrzyj do ustawienia Remote Control",
+      "nauczyciel_start": "Kliknij polecenie, a potem konto na dole paska bocznego. Otworzą się ustawienia Claude Code.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wesele-Kowalskich",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rc_nowe_sesje": true,
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź harmonogram dnia w pliku harmonogram-wesele.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Harmonogram jest spójny. Obiad zaczyna się o 14:00."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "ustawienia",
+          "etykieta": "Otwórz ustawienia Claude Code",
+          "opis": "Część Remote Control ma przełącznik dla nowych sesji.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "ustawienia-claude-code"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To ustawienia Claude Code. W części Remote Control pierwszy przełącznik dotyczy nowych sesji."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

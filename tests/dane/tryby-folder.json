@@ -1,0 +1,235 @@
+{
+  "lekcja": "probka-tryby-folder",
+  "folder_startowy": [
+    "raport-pazdziernik.txt",
+    "raport-wrzesien.txt",
+    "notatki-ze-spotkania.txt",
+    "stary-cennik.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zmiany w folderze pod oknem",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Klikaj polecenia nad oknem albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Pod oknem stoi folder z plikami. Kliknij pierwsze polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Raporty-sprzedaz-kopia",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Poproś o sumę w raporcie",
+          "opis": "Prośba idzie do Claude, a Claude proponuje zmianę pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Policz sumę sprzedaży w raport-pazdziernik.txt i wpisz ją w linijce Suma.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Suma sprzedaży w październiku to 34 250 zł. Proponuję zmianę w pliku raport-pazdziernik.txt."
+            },
+            {
+              "typ": "zgoda",
+              "plik": "raport-pazdziernik.txt",
+              "linijki": [
+                {
+                  "tekst": "Sklep stacjonarny: 18 400 zł"
+                },
+                {
+                  "tekst": "Sklep internetowy: 9 650 zł"
+                },
+                {
+                  "tekst": "Hurt: 6 200 zł"
+                },
+                {
+                  "tekst": "Suma: do uzupełnienia",
+                  "zmiana": "usunieta"
+                },
+                {
+                  "tekst": "Suma: 34 250 zł",
+                  "zmiana": "dodana"
+                }
+              ],
+              "fakt": "aplikacja-manual-podglad-i-przyciski"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W trybie Manual Claude czeka na Ciebie. Na karcie widać zmianę. Kliknij ptaszek, żeby ją zatwierdzić.",
+              "fakt": "tryb-manual-aplikacja-czeka-na-zatwierdzenie"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zatwierdź zmianę",
+          "opis": "Klikasz przycisk z ptaszkiem na karcie.",
+          "klik": "zatwierdz",
+          "fakt": "aplikacja-manual-przyciski-zatwierdzania",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zmiana trafiła do pliku. Liczby +1 -1 na karcie Changes otwierają widok zmian.",
+              "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+            }
+          ]
+        },
+        {
+          "etykieta": "Otwórz liczby zmian",
+          "opis": "Klikasz liczby na karcie Changes.",
+          "klik": "licznik",
+          "fakt": "aplikacja-klikniecie-wskaznika-otwiera-widok-zmian",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzył się widok zmian z plikiem, który zmieniłeś.",
+              "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz tryb w przełączniku",
+          "opis": "Klikasz przełącznik trybu pod polem wiadomości.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się lista trybów. Kliknij Accept edits.",
+              "fakt": "aplikacja-dostepne-tryby"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz Accept edits",
+          "opis": "Klikasz tryb na liście.",
+          "klik": "tryb",
+          "na": "Accept edits",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Accept edits. Od teraz Claude tworzy i edytuje pliki w tym folderze bez pytania.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            }
+          ]
+        },
+        {
+          "etykieta": "Poproś o przejrzenie plików",
+          "opis": "Claude czyta dwa pliki z folderu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj raport-wrzesien.txt i notatki-ze-spotkania.txt i powiedz, co jest w środku."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "czyta",
+              "pliki": [
+                "raport-wrzesien.txt",
+                "notatki-ze-spotkania.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Raport ze września ma sumę 31 800 zł. Notatki dotyczą spotkania z hurtownią."
+            }
+          ]
+        },
+        {
+          "etykieta": "Zmień nazwę notatek",
+          "opis": "Karta pliku dostaje nową nazwę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zmień nazwę notatki-ze-spotkania.txt na notatki-pazdziernik.txt."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "zmien",
+              "plik": "notatki-ze-spotkania.txt",
+              "nazwa": "notatki-pazdziernik.txt"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zmieniłem nazwę pliku na notatki-pazdziernik.txt."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta notatek ma nową nazwę. Kliknij następne polecenie."
+            }
+          ]
+        },
+        {
+          "etykieta": "Usuń stary cennik",
+          "opis": "Karta pliku zostaje przekreślona.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Usuń stary-cennik.txt."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "folder",
+              "akcja": "usun",
+              "plik": "stary-cennik.txt"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Usunąłem stary-cennik.txt."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Karta starego cennika jest przekreślona. Kliknij następne polecenie."
+            }
+          ]
+        },
+        {
+          "etykieta": "Odłóż wrześniowy raport do teczki",
+          "opis": "Claude zakłada teczkę i przenosi do niej plik.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Załóż teczkę Archiwum i przenieś do niej raport-wrzesien.txt."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zakładam teczkę Archiwum i przenoszę do niej raport-wrzesien.txt."
+            },
+            {
+              "typ": "folder",
+              "akcja": "utworz",
+              "nazwa": "Archiwum"
+            },
+            {
+              "typ": "folder",
+              "akcja": "przenies",
+              "plik": "raport-wrzesien.txt",
+              "do": "Archiwum"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Raport ze września leży w teczce Archiwum."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

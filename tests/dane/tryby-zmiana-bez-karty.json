@@ -1,0 +1,96 @@
+{
+  "lekcja": "probka-zmiana-bez-karty",
+  "folder_startowy": [
+    "raport-pazdziernik.txt",
+    "raport-wrzesien.txt",
+    "notatki-ze-spotkania.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Accept edits zmienia plik bez pytania",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Klikaj polecenia nad oknem albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Przełącznik pod polem wiadomości pokazuje Manual. Kliknij pierwsze polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Raporty-sprzedaz-kopia",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Wybierz tryb w przełączniku",
+          "opis": "Klikasz przełącznik trybu pod polem wiadomości.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się lista trybów. Kliknij Accept edits.",
+              "fakt": "aplikacja-dostepne-tryby"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz Accept edits",
+          "opis": "Klikasz tryb na liście.",
+          "klik": "tryb",
+          "na": "Accept edits",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Accept edits. Kliknij drugie polecenie, żeby poprosić Claude o zmianę.",
+              "fakt": "aplikacja-przelacznik-pod-polem-wiadomosci"
+            }
+          ]
+        },
+        {
+          "etykieta": "Poproś o sumy w raportach",
+          "opis": "Prośba idzie do Claude, a Claude zmienia dwa pliki.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Policz sumę sprzedaży w raport-pazdziernik.txt i raport-wrzesien.txt i wpisz ją w linijce Suma.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Suma w październiku to 34 250 zł, a we wrześniu 31 800 zł. Wpisałem je w obu plikach."
+            },
+            {
+              "typ": "zmiana",
+              "pliki": [
+                {
+                  "plik": "raport-pazdziernik.txt",
+                  "linijki": [
+                    { "tekst": "Hurt: 6 200 zł" },
+                    { "tekst": "Suma: do uzupełnienia", "zmiana": "usunieta" },
+                    { "tekst": "Suma: 34 250 zł", "zmiana": "dodana" }
+                  ]
+                },
+                {
+                  "plik": "raport-wrzesien.txt",
+                  "linijki": [
+                    { "tekst": "Hurt: 5 900 zł" },
+                    { "tekst": "Suma: do uzupełnienia", "zmiana": "usunieta" },
+                    { "tekst": "Suma: 31 800 zł", "zmiana": "dodana" }
+                  ]
+                }
+              ],
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude nie pytał o zgodę: zmienił oba pliki sam. Liczby +2 -2 na karcie Changes otwierają widok zmian.",
+              "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

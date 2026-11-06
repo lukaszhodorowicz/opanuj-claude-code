@@ -1,0 +1,80 @@
+{
+  "lekcja": "probka-nowy-dokument",
+  "folder_startowy": [
+    "faktura-2026-10-orlen.pdf",
+    "faktura-2026-10-biuro.pdf"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zestawienie kosztów z faktur",
+      "opis": "Claude składa nowy plik z dwóch faktur. Kliknij jego nazwę w odpowiedzi.",
+      "nauczyciel_start": "W folderze są dwie faktury. Wybierz polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Koszty-2026-10",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Złóż zestawienie kosztów z października z obu faktur."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Przeczytałem obie faktury i mam wszystkie kwoty."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "zestawienie-kosztow-2026-10.csv"
+      ],
+      "drogi": [
+        {
+          "id": "zestawienie",
+          "etykieta": "Poproś o zestawienie",
+          "opis": "Prosisz o nowy plik, którego nie było w folderze.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz zestawienie kosztów w nowym pliku zestawienie-kosztow-2026-10.csv.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem zestawienie w pliku zestawienie-kosztow-2026-10.csv.",
+              "plik": "zestawienie-kosztow-2026-10.csv",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tego pliku nie było w folderze. Kliknij jego nazwę w odpowiedzi.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "zestawienie-kosztow-2026-10.csv",
+              "linijki": [
+                "Dostawca,Kwota brutto",
+                "Orlen,412 zł",
+                "Biuro Plus,89 zł"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik jest w folderze, Claude utworzył go na twoją prośbę."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

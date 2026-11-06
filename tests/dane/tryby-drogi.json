@@ -1,0 +1,225 @@
+{
+  "lekcja": "probka-tryby-drogi",
+  "folder_startowy": [
+    "faktura-2026-09-orlen.pdf",
+    "faktura-wrzesien-allegro.pdf",
+    "faktura_10_2026_ikea.pdf",
+    "skan_0012.pdf",
+    "notatki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Bez planu i z planem",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Wybierz drogę nad oknem; potem klikaj kolejne polecenia.",
+      "nauczyciel_start": "Wybierz pierwszą drogę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Faktury-kopia",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "id": "bez-planu",
+          "etykieta": "Bez planu",
+          "opis": "Accept edits: Claude od razu zmienia folder.",
+          "tryb": "Accept edits",
+          "etapy": [
+            {
+              "etykieta": "Poproś o uporządkowanie",
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Uporządkuj faktury w teczki według miesięcy.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": [
+                    "faktura-2026-09-orlen.pdf",
+                    "faktura-wrzesien-allegro.pdf",
+                    "faktura_10_2026_ikea.pdf",
+                    "skan_0012.pdf"
+                  ]
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Zakładam teczki 2026-09 i 2026-10 i przenoszę faktury."
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "utworz",
+                  "nazwa": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "utworz",
+                  "nazwa": "2026-10"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "faktura-2026-09-orlen.pdf",
+                  "do": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "faktura-wrzesien-allegro.pdf",
+                  "do": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "faktura_10_2026_ikea.pdf",
+                  "do": "2026-10"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "skan_0012.pdf",
+                  "do": "2026-10",
+                  "uwaga": "zły folder"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Gotowe: faktury leżą w teczkach."
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Claude zmienił folder od razu. Skan trafił do złej teczki i widzisz to dopiero teraz.",
+                  "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "z-planem",
+          "etykieta": "Z planem",
+          "opis": "Plan: najpierw plan, potem zmiana trybu i wykonanie.",
+          "tryb": "Plan",
+          "etapy": [
+            {
+              "etykieta": "Poproś o plan",
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Uporządkuj faktury w teczki według miesięcy. Najpierw przedstaw plan."
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": [
+                    "faktura-2026-09-orlen.pdf",
+                    "faktura-wrzesien-allegro.pdf",
+                    "faktura_10_2026_ikea.pdf",
+                    "skan_0012.pdf"
+                  ]
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Plan: teczki 2026-09 i 2026-10, wrześniowe faktury do pierwszej, październikową do drugiej, skan do pierwszej."
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "W trybie Plan Claude tylko czyta pliki i proponuje plan. Folder stoi bez zmian.",
+                  "fakt": "plan-aplikacja-opis"
+                }
+              ]
+            },
+            {
+              "etykieta": "Otwórz listę trybów",
+              "klik": "przelacznik",
+              "kroki": [
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Tryb wybierasz w przełączniku pod polem wiadomości.",
+                  "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku"
+                }
+              ]
+            },
+            {
+              "etykieta": "Wybierz Accept edits",
+              "klik": "tryb",
+              "na": "Accept edits",
+              "kroki": [
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Po zatwierdzeniu planu przełącz się na Accept edits.",
+                  "fakt": "plan-aplikacja-porada-po-zatwierdzeniu"
+                }
+              ]
+            },
+            {
+              "etykieta": "Poproś o wykonanie planu",
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Wykonaj plan."
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Zakładam teczki i przenoszę faktury zgodnie z planem."
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "utworz",
+                  "nazwa": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "utworz",
+                  "nazwa": "2026-10"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "faktura-2026-09-orlen.pdf",
+                  "do": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "faktura-wrzesien-allegro.pdf",
+                  "do": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "skan_0012.pdf",
+                  "do": "2026-09"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "przenies",
+                  "plik": "faktura_10_2026_ikea.pdf",
+                  "do": "2026-10"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Gotowe: faktury leżą w teczkach."
+                },
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Skan trafił do dobrej teczki, bo błąd w planie dało się zauważyć przed zmianą."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

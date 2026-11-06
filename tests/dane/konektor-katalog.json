@@ -1,0 +1,98 @@
+{
+  "lekcja": "probka-konektor-katalog",
+  "folder_startowy": [
+    "cennik-konsultacji.txt",
+    "pakiety-dla-klientow.txt",
+    "zasady-umawiania.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Podłącz kalendarz z menu +",
+      "opis": "Plus, katalog konektorów, logowanie, pytanie do Claude.",
+      "nauczyciel_start": "Podłączysz kalendarz. Kliknij plus obok pola wiadomości i patrz, co się otworzy.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Gabinet-dietetyczny",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": []
+      },
+      "drogi": [
+        {
+          "id": "podlacz",
+          "etykieta": "Podłącz kalendarz",
+          "opis": "Plus, katalog, logowanie, pytanie do Claude",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Menu plusa zbiera pliki, polecenia, konektory i wtyczki. Kliknij Connectors."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Connectors"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Podmenu stoi obok menu. Kliknij Browse connectors."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse connectors",
+              "fakt": "aplikacja-add-connectors-otwiera-katalog"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To katalog konektorów. Kliknij kafelek Google Calendar.",
+              "fakt": "konektory-google-calendar-gmail-microsoft-365"
+            },
+            {
+              "typ": "klik",
+              "cel": "konektor",
+              "nazwa": "Google Calendar"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu logujesz się do kalendarza. Symulator tego nie rysuje.",
+              "fakt": "konektor-logowanie-w-claude-ai"
+            },
+            {
+              "typ": "katalog_zamknij",
+              "ms": 1600
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kalendarz podłączony. Teraz zapytaj Claude, co ma w tej rozmowie.",
+              "fakt": "aplikacja-zapytaj-claude-o-konektory"
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Jakie konektory masz w tej rozmowie?",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Mam konektor Google Calendar. Mogę czytać Twój kalendarz.",
+              "fakt": "aplikacja-konektor-czyta-kalendarz-wysyla-wiadomosci"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Konektor jest w rozmowie. Claude sam powiedział, co ma."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

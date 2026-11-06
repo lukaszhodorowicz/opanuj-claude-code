@@ -1,0 +1,174 @@
+{
+  "lekcja": "probka-plan-przyciski",
+  "folder_startowy": [
+    "faktura-2026-09-orlen.pdf",
+    "faktura-wrzesien-allegro.pdf",
+    "faktura_10_2026_ikea.pdf",
+    "skan_0012.pdf",
+    "notatki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Z planem i bez planu",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Wybierz drogę nad oknem.",
+      "nauczyciel_start": "Kliknij przycisk „Z planem” nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Faktury",
+        "tryb": "Accept edits"
+      },
+      "etapy": [
+        {
+          "id": "z-planem",
+          "etykieta": "Z planem",
+          "opis": "Tryb Plan: Claude czyta pliki i proponuje plan.",
+          "tryb": "Plan",
+          "fakt": "plan-aplikacja-opis",
+          "etapy": [
+            {
+              "etykieta": "Poproś o uporządkowanie faktur",
+              "kroki": [
+                {
+                  "typ": "nauczyciel",
+                  "tekst": "Przełącznik pokazuje Plan."
+                },
+                {
+                  "typ": "pisz",
+                  "tekst": "Uporządkuj faktury w teczki według miesięcy.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "folder",
+                  "akcja": "czyta",
+                  "pliki": ["skan_0012.pdf"],
+                  "fakt": "plan-aplikacja-opis"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Skan nie ma daty w nazwie, więc zajrzałem do środka: jest tam 28.09.2026."
+                },
+                {
+                  "typ": "plan",
+                  "tytul": "Faktury w teczkach według miesięcy",
+                  "sekcje": [
+                    {
+                      "naglowek": "Teczki",
+                      "punkty": ["Założę teczki 2026-09 i 2026-10."]
+                    },
+                    {
+                      "naglowek": "Przeniesienia",
+                      "punkty": [
+                        "Do 2026-09 przeniosę faktury orlen i allegro oraz skan.",
+                        "Do 2026-10 przeniosę fakturę ikea."
+                      ]
+                    }
+                  ],
+                  "przyciski": {
+                    "auto": {
+                      "kroki": [
+                        {
+                          "typ": "claude",
+                          "tekst": "Zakładam teczki i przenoszę faktury według planu."
+                        },
+                        {
+                          "typ": "folder",
+                          "akcja": "utworz",
+                          "nazwa": "2026-09"
+                        },
+                        {
+                          "typ": "folder",
+                          "akcja": "utworz",
+                          "nazwa": "2026-10"
+                        },
+                        {
+                          "typ": "folder",
+                          "akcja": "przenies",
+                          "plik": "skan_0012.pdf",
+                          "do": "2026-09"
+                        }
+                      ]
+                    },
+                    "accept": {
+                      "kroki": [
+                        {
+                          "typ": "claude",
+                          "tekst": "Zaczynam od teczki 2026-09. Przed każdą zmianą zapytam o zgodę."
+                        }
+                      ]
+                    },
+                    "revise": {
+                      "poprawka": "Skanu nie przenoś, najpierw go sprawdzę.",
+                      "kroki": [
+                        {
+                          "typ": "mysli"
+                        },
+                        {
+                          "typ": "claude",
+                          "tekst": "Dobrze, skan zostaje na miejscu. Oto poprawiony plan."
+                        },
+                        {
+                          "typ": "plan",
+                          "tytul": "Faktury w teczkach, skan zostaje",
+                          "sekcje": [
+                            {
+                              "naglowek": "Przeniesienia",
+                              "punkty": [
+                                "Do 2026-09 przeniosę faktury orlen i allegro.",
+                                "Skan zostawię na miejscu."
+                              ]
+                            }
+                          ],
+                          "przyciski": {
+                            "auto": {
+                              "kroki": [
+                                {
+                                  "typ": "claude",
+                                  "tekst": "Przenoszę faktury z września. Skan zostaje."
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "fakt": "plan-aplikacja-opis"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bez-planu",
+          "etykieta": "Bez planu",
+          "opis": "Tryb Accept edits: Claude od razu działa.",
+          "tryb": "Accept edits",
+          "etapy": [
+            {
+              "etykieta": "Poproś o uporządkowanie faktur",
+              "kroki": [
+                {
+                  "typ": "pisz",
+                  "tekst": "Uporządkuj faktury w teczki według miesięcy.",
+                  "fakt": "aplikacja-enter-wysyla-zadanie"
+                },
+                {
+                  "typ": "mysli"
+                },
+                {
+                  "typ": "claude",
+                  "tekst": "Zakładam teczki 2026-09 i 2026-10."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

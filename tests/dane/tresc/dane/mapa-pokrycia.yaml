@@ -1,0 +1,10 @@
+strony:
+- url: https://code.claude.com/docs/en/skills.md
+  tytul: Skills
+  sekcja: Sekcja
+  status: modul
+  modul: probny
+- url: https://code.claude.com/docs/en/hooks.md
+  tytul: Hooks
+  sekcja: Sekcja
+  status: pomijamy

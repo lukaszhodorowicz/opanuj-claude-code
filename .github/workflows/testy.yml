@@ -1,0 +1,22 @@
+name: testy
+
+# Sprawdza treść kursu przy każdej zmianie: fakty z dokumentacji Claude Code, quizy, fiszki, odwołania i silnik strony.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Fakty i odwołania w lekcjach
+        run: uv run python -m narzedzia.tresc
+      - name: Testy
+        run: uv run pytest -q

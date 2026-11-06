@@ -1,0 +1,5 @@
+fiszki:
+  - przod: "Co robi tryb planowania?"
+    tyl: "Claude czyta i pisze plan, ale nic nie zmienia, dopóki go nie zatwierdzisz."
+  - przod: "Jak go włączyć?"
+    tyl: "Shift + Tab, aż pasek pokaże plan mode on."

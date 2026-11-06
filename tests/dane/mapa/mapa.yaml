@@ -1,0 +1,11 @@
+strony:
+  - url: https://code.claude.com/docs/en/jeden.md
+    tytul: Strona jeden
+    sekcja: Sekcja A
+    status: modul
+    modul: skille
+  - url: https://code.claude.com/docs/en/dwa.md
+    tytul: Strona dwa
+    sekcja: Sekcja A
+    status: pomijamy
+    powod: dla programistów

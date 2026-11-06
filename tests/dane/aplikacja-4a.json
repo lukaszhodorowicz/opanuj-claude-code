@@ -1,0 +1,456 @@
+{
+ "lekcja": "aplikacja-4a",
+ "folder_startowy": [
+  "zakres-projektu.txt",
+  "stawki.txt"
+ ],
+ "cwiczenia": [
+  {
+   "id": "cw1",
+   "rodzaj": "aplikacja",
+   "tytul": "Lista trybów w drogach",
+   "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Wycena-logo",
+    "tryb": "Accept edits",
+    "panel": "schowany",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+     },
+     {
+      "kto": "claude",
+      "tekst": "Sześć tygodni od podpisania umowy."
+     }
+    ],
+    "model": "Sonnet 5.5",
+    "wysilek": "Medium",
+    "bypass_dostepny": true
+   },
+   "drogi": [
+    {
+     "id": "tryb",
+     "etykieta": "Zmień tryb",
+     "opis": "Lista trybów otwarta z przełącznika.",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "tryb-menu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To lista trybów. Wybierz Plan."
+      },
+      {
+       "typ": "klik",
+       "cel": "tryb",
+       "na": "Plan"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Tryb Plan stoi teraz na przełączniku."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw2",
+   "rodzaj": "aplikacja",
+   "tytul": "Karta Context przy innej rozmowie",
+   "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Wycena-logo",
+    "tryb": "Accept edits",
+    "panel": "widoczny",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+     },
+     {
+      "kto": "claude",
+      "tekst": "Sześć tygodni od podpisania umowy."
+     }
+    ],
+    "kontekst": 6,
+    "sesje": [
+     {
+      "id": "stara",
+      "rozmowa": [
+       {
+        "kto": "ty",
+        "tekst": "Wyślij ofertę klientce."
+       },
+       {
+        "kto": "claude",
+        "tekst": "Oferta jest gotowa."
+       }
+      ],
+      "kontekst": 42
+     },
+     {
+      "id": "bez-procentu",
+      "rozmowa": [
+       {
+        "kto": "ty",
+        "tekst": "Zrób listę zadań."
+       },
+       {
+        "kto": "claude",
+        "tekst": "Lista jest gotowa."
+       }
+      ]
+     }
+    ]
+   },
+   "drogi": [
+    {
+     "id": "stara",
+     "etykieta": "Otwórz starą rozmowę",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "sesja",
+       "sesja": "stara"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Karta Context pokazuje procent tej rozmowy."
+      },
+      {
+       "typ": "klik",
+       "cel": "context"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Rozmowa zajmuje 42 procent kontekstu."
+      }
+     ]
+    },
+    {
+     "id": "bez",
+     "etykieta": "Otwórz rozmowę bez procentu",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "sesja",
+       "sesja": "bez-procentu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Ta rozmowa nie podaje procentu."
+      }
+     ]
+    },
+    {
+     "id": "start",
+     "etykieta": "Wróć do pierwszej rozmowy",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "sesja",
+       "sesja": "stara"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To rozmowa z procentem."
+      },
+      {
+       "typ": "kontekst",
+       "procent": 11
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Procent wzrósł."
+      }
+     ]
+    },
+    {
+     "id": "wroc",
+     "etykieta": "Wróć do rozmowy z procentem",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "sesja",
+       "sesja": "stara"
+      },
+      {
+       "typ": "kontekst",
+       "procent": 20
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Procent tej rozmowy wzrósł do 20."
+      },
+      {
+       "typ": "klik",
+       "cel": "sesja",
+       "sesja": "bez-procentu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Ta rozmowa nie ma procentu."
+      },
+      {
+       "typ": "klik",
+       "cel": "sesja",
+       "sesja": "stara"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Powrót przywraca ostatni procent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw3",
+   "rodzaj": "aplikacja",
+   "tytul": "Model i wysiłek z nazwami",
+   "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Wycena-logo",
+    "tryb": "Accept edits",
+    "panel": "schowany",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+     },
+     {
+      "kto": "claude",
+      "tekst": "Sześć tygodni od podpisania umowy."
+     }
+    ],
+    "model": "Sonnet 5.5",
+    "wysilek": "Medium"
+   },
+   "drogi": [
+    {
+     "id": "model",
+     "etykieta": "Wybierz model i wysiłek",
+     "opis": "Menu modelu z nazwami.",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "wybor-modelu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To wybór modelu. Kliknij Effort."
+      },
+      {
+       "typ": "klik",
+       "cel": "effort"
+      },
+      {
+       "typ": "klik",
+       "cel": "poziom",
+       "poziom": 3,
+       "notka": "wysoki wysiłek"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Na przycisku stoi teraz poziom High."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw4",
+   "rodzaj": "aplikacja",
+   "tytul": "Menu środowiska",
+   "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Wycena-logo",
+    "tryb": "Accept edits",
+    "panel": "schowany",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+     },
+     {
+      "kto": "claude",
+      "tekst": "Sześć tygodni od podpisania umowy."
+     }
+    ]
+   },
+   "drogi": [
+    {
+     "id": "srodowisko",
+     "etykieta": "Otwórz menu środowiska",
+     "opis": "Kontrolka This computer.",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "srodowisko-menu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To menu środowiska: Local, Cloud i New environment."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw5",
+   "rodzaj": "aplikacja",
+   "tytul": "Pole podczas pracy Claude",
+   "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Wycena-logo",
+    "tryb": "Accept edits",
+    "panel": "schowany",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+     },
+     {
+      "kto": "claude",
+      "tekst": "Sześć tygodni od podpisania umowy."
+     }
+    ],
+    "model": "Opus 5.5",
+    "wysilek": "High"
+   },
+   "drogi": [
+    {
+     "id": "praca",
+     "etykieta": "Poproś o wycenę",
+     "opis": "Pole podczas pracy Claude.",
+     "kroki": [
+      {
+       "typ": "pisz",
+       "tekst": "Przygotuj wycenę z plików zakres-projektu.txt i stawki.txt.",
+       "fakt": "aplikacja-enter-wysyla-zadanie"
+      },
+      {
+       "typ": "mysli",
+       "ms": 2500,
+       "czyta": [
+        "zakres-projektu.txt",
+        "stawki.txt"
+       ]
+      },
+      {
+       "typ": "claude",
+       "tekst": "Zapisałem wycenę w pliku wycena-zloty-klos.txt: 7 890 zł netto.",
+       "plik": "wycena-zloty-klos.txt",
+       "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+      },
+      {
+       "typ": "klik",
+       "cel": "sciezka"
+      },
+      {
+       "typ": "plik",
+       "nazwa": "wycena-zloty-klos.txt",
+       "linijki": [
+        "Wycena: piekarnia Złoty Kłos",
+        "Razem: 7 890 zł netto"
+       ]
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Tak wygląda wynik."
+      }
+     ]
+    }
+   ],
+   "nowe_pliki": [
+    "wycena-zloty-klos.txt"
+   ]
+  },
+  {
+   "id": "cw6",
+   "rodzaj": "aplikacja",
+   "tytul": "Nowa rozmowa: puste pole",
+   "nauczyciel_start": "Kliknij pierwsze polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Wycena-logo",
+    "tryb": "Accept edits",
+    "panel": "widoczny",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+     },
+     {
+      "kto": "claude",
+      "tekst": "Sześć tygodni od podpisania umowy."
+     }
+    ],
+    "kontekst": 6,
+    "sesje": [
+     {
+      "id": "stara",
+      "rozmowa": [
+       {
+        "kto": "ty",
+        "tekst": "Wyślij ofertę klientce."
+       },
+       {
+        "kto": "claude",
+        "tekst": "Oferta jest gotowa."
+       }
+      ],
+      "kontekst": 42
+     }
+    ]
+   },
+   "drogi": [
+    {
+     "id": "nowa",
+     "etykieta": "Zacznij nową rozmowę",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "nowa-rozmowa"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Nowa rozmowa ma puste pole."
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Pole czeka na pierwszą prośbę."
+      },
+      {
+       "typ": "pisz",
+       "tekst": "Napisz podziękowanie dla klientki."
+      },
+      {
+       "typ": "mysli",
+       "ms": 1500
+      },
+      {
+       "typ": "claude",
+       "tekst": "Podziękowanie jest gotowe."
+      },
+      {
+       "typ": "kontekst",
+       "procent": 9
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Pole zmieniło tekst po pierwszej prośbie."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

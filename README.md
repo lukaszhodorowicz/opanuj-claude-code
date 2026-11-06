@@ -4,9 +4,11 @@
 
 # Opanuj Claude Code w godzinę
 
+[![testy](https://github.com/lukaszhodorowicz/opanuj-claude-code/actions/workflows/testy.yml/badge.svg)](https://github.com/lukaszhodorowicz/opanuj-claude-code/actions/workflows/testy.yml) [![licencja MIT](https://img.shields.io/badge/licencja-MIT-blue)](LICENSE) [![Discord](https://img.shields.io/discord/1501482284682051695?label=Discord&logo=discord)](https://discord.gg/4U348jA9b4)
+
 Darmowy kurs dla przedsiębiorców, marketerów i freelancerów. Po polsku, czyli za darmo, konkretnie i z rozmachem.
 
-**[Zacznij kurs na claudecode.lukaszhodorowicz.pl](https://claudecode.lukaszhodorowicz.pl/)** · [Discord](https://discord.gg/GVyW87DEG3) · [Newsletter](https://lukaszhodorowicz.pl/smartletter/?utm_source=przewodnik-claude-code&utm_medium=github&utm_campaign=link-readme)
+**[Zacznij kurs na claudecode.lukaszhodorowicz.pl](https://claudecode.lukaszhodorowicz.pl/)** · [Discord](https://discord.gg/4U348jA9b4) · [Newsletter](https://lukaszhodorowicz.pl/smartletter/?utm_source=przewodnik-claude-code&utm_medium=github&utm_campaign=link-readme)
 
 Samoaktualizujący się kurs Claude Code. Powstał na podstawie oficjalnej dokumentacji Anthropic. **Naucz się pracy w aplikacji Claude Code w wersji okienkowej.**
 
@@ -93,7 +95,7 @@ Kurs pilnuje aktualności. Każde twierdzenie w lekcjach stoi na fakcie z oficja
 
 ## Pytania i pomoc
 
-Masz pytanie do lekcji albo chcesz pokazać swój efekt? Napisz na [Discordzie](https://discord.gg/GVyW87DEG3).
+Masz pytanie do lekcji albo chcesz pokazać swój efekt? Napisz na [Discordzie](https://discord.gg/4U348jA9b4).
 
 ## Skąd treść
 

@@ -1,0 +1,336 @@
+{
+  "lekcja": "probka-strona-zewnetrzna-zgoda",
+  "folder_startowy": [
+    "cennik-serwis.txt",
+    "dane-firmy.txt",
+    "notatka-konkurencja.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zgoda na wejście Claude na cudzą stronę",
+      "opis": "Trzy decyzje na karcie: Allow once, Deny i Always allow.",
+      "nauczyciel_start": "Wybierz drogę nad oknem i patrz na kartę zgody pod odpowiedzią Claude.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Rowery-serwis",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam cennik serwisu i dane firmy. Chcę porównać ceny z konkurencją."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam sprawdzić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "ceny-konkurencji.txt"
+      ],
+      "drogi": [
+        {
+          "id": "zezwol-raz",
+          "etykieta": "Zezwól raz na wejście na stronę",
+          "opis": "Claude czeka na kartę, wchodzi na stronę i zapisuje ceny do pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Wejdź na stronę Serwisu Rowerowego Zet, spisz ceny przeglądów i zapisz je w ceny-konkurencji.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Wchodzę na stronę Serwisu Rowerowego Zet.",
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "zgoda",
+              "witryna": "Serwis Rowerowy Zet",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude czeka na Twój wybór. Kliknij Allow once (zezwól raz).",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "klik",
+              "cel": "allow_once"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "strona",
+              "witryna": "Serwis Rowerowy Zet",
+              "strona": {
+                "tytul": "Serwis Rowerowy Zet",
+                "opis": "Przeglądy i naprawy rowerów miejskich i górskich w centrum miasta.",
+                "program": [
+                  "Przegląd podstawowy: wymiana smaru, regulacja hamulców",
+                  "Przegląd pełny: sprawdzenie kół, przerzutek i łańcucha",
+                  "Przegląd sezonowy: przygotowanie roweru do zimy"
+                ],
+                "cena": "Przegląd od 90 zł do 240 zł",
+                "opinie": [
+                  "Rower po przeglądzie jeździ ciszej niż nowy. Anna M.",
+                  "Szybko i uczciwie, bez dopisywania napraw. Tomek S."
+                ],
+                "kontakt": "Zapisy telefoniczne: 500 000 000"
+              },
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Strona otworzyła się w panelu Browser obok rozmowy."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Spisałem trzy ceny przeglądów do ceny-konkurencji.txt.",
+              "plik": "ceny-konkurencji.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "ceny-konkurencji.txt",
+              "linijki": [
+                "Przegląd podstawowy: 90 zł",
+                "Przegląd pełny: 240 zł",
+                "Przegląd sezonowy: 150 zł"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ceny ze strony leżą w pliku w Twoim folderze."
+            }
+          ]
+        },
+        {
+          "id": "odmow",
+          "etykieta": "Odmów wejścia na stronę",
+          "opis": "Claude czeka na kartę, dostaje Deny i na stronę nie wchodzi.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Wejdź na stronę Serwisu Rowerowego Zet, spisz ceny przeglądów i zapisz je w ceny-konkurencji.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Wchodzę na stronę Serwisu Rowerowego Zet.",
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "zgoda",
+              "witryna": "Serwis Rowerowy Zet",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tym razem kliknij Deny (odmów).",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "klik",
+              "cel": "deny"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Nie wchodzę na tę stronę. Wklej mi ceny albo zezwól na wejście."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Odmówiłeś. Claude nie wszedł na stronę i nie zapisał pliku."
+            }
+          ]
+        },
+        {
+          "id": "zawsze",
+          "etykieta": "Zezwalaj zawsze na stronę hurtowni",
+          "opis": "Claude wpisuje dane do pól strony; po Always allow druga zmiana strony idzie bez karty.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Na stronie Hurtowni Bike-Pro wpisz w formularz zapytania dane z dane-firmy.txt i prośbę o cennik hurtowy. Nie wysyłaj, pokaż mi.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "dane-firmy.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Wchodzę na stronę Hurtowni Bike-Pro.",
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "zgoda",
+              "witryna": "Hurtownia Bike-Pro",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij Always allow (zezwalaj zawsze). Zgoda zostanie zapisana dla tej strony.",
+              "fakt": "aplikacja-browser-always-allow-zapisuje-dla-strony"
+            },
+            {
+              "typ": "klik",
+              "cel": "always_allow"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "strona",
+              "witryna": "Hurtownia Bike-Pro",
+              "strona": {
+                "tytul": "Hurtownia Bike-Pro",
+                "opis": "Części i akcesoria dla serwisów rowerowych, dostawy w dwa dni robocze.",
+                "program": [
+                  "Łańcuchy, kasety i przerzutki",
+                  "Opony i dętki",
+                  "Klocki hamulcowe i linki"
+                ],
+                "cena": "Cennik hurtowy po zapytaniu",
+                "opinie": [
+                  "Dostawa zawsze w terminie. Serwis Koło",
+                  "Dobre ceny przy stałych zamówieniach. Serwis Szprycha"
+                ],
+                "kontakt": "Zapytania ofertowe: hurt@example.com",
+                "pola": [
+                  {
+                    "etykieta": "Firma",
+                    "wartosc": ""
+                  },
+                  {
+                    "etykieta": "E-mail",
+                    "wartosc": ""
+                  },
+                  {
+                    "etykieta": "Wiadomość",
+                    "wartosc": ""
+                  }
+                ]
+              },
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Strona ma puste pola."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "strona",
+              "witryna": "Hurtownia Bike-Pro",
+              "strona": {
+                "tytul": "Hurtownia Bike-Pro",
+                "opis": "Części i akcesoria dla serwisów rowerowych, dostawy w dwa dni robocze.",
+                "program": [
+                  "Łańcuchy, kasety i przerzutki",
+                  "Opony i dętki",
+                  "Klocki hamulcowe i linki"
+                ],
+                "cena": "Cennik hurtowy po zapytaniu",
+                "opinie": [
+                  "Dostawa zawsze w terminie. Serwis Koło",
+                  "Dobre ceny przy stałych zamówieniach. Serwis Szprycha"
+                ],
+                "kontakt": "Zapytania ofertowe: hurt@example.com",
+                "pola": [
+                  {
+                    "etykieta": "Firma",
+                    "wartosc": "Serwis Rowerowy Dętka"
+                  },
+                  {
+                    "etykieta": "E-mail",
+                    "wartosc": "kontakt@detka.example"
+                  },
+                  {
+                    "etykieta": "Wiadomość",
+                    "wartosc": "Prosimy o cennik hurtowy."
+                  }
+                ]
+              },
+              "fakt": "aplikacja-browser-narzedzia-klikaja-i-wypelniaja-formularze"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Wpisałem dane firmy i prośbę o cennik. Formularza nie wysłałem."
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pisanie na stronie przeszło bez drugiej karty."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz w wiadomości, że zamawiamy części co miesiąc.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "strona",
+              "witryna": "Hurtownia Bike-Pro",
+              "strona": {
+                "tytul": "Hurtownia Bike-Pro",
+                "opis": "Części i akcesoria dla serwisów rowerowych, dostawy w dwa dni robocze.",
+                "program": [
+                  "Łańcuchy, kasety i przerzutki",
+                  "Opony i dętki",
+                  "Klocki hamulcowe i linki"
+                ],
+                "cena": "Cennik hurtowy po zapytaniu",
+                "opinie": [
+                  "Dostawa zawsze w terminie. Serwis Koło",
+                  "Dobre ceny przy stałych zamówieniach. Serwis Szprycha"
+                ],
+                "kontakt": "Zapytania ofertowe: hurt@example.com",
+                "pola": [
+                  {
+                    "etykieta": "Firma",
+                    "wartosc": "Serwis Rowerowy Dętka"
+                  },
+                  {
+                    "etykieta": "E-mail",
+                    "wartosc": "kontakt@detka.example"
+                  },
+                  {
+                    "etykieta": "Wiadomość",
+                    "wartosc": "Prosimy o cennik hurtowy. Zamawiamy części co miesiąc."
+                  }
+                ]
+              },
+              "fakt": "aplikacja-browser-narzedzia-klikaja-i-wypelniaja-formularze"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Znów bez karty."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

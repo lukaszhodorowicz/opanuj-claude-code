@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Auto i prosisz Claude o spakowanie umów dla kancelarii. Claude pakuje je poleceniem zip i nie pyta Cię o zgodę. Dlaczego Claude nie pyta?"
+    odpowiedzi:
+      - "Strażnik w tle sprawdził, czy polecenie zip pasuje do Twojej prośby, i je przepuścił."
+      - "Tryb Auto nie sprawdza poleceń, więc polecenie zip przeszło bez żadnej kontroli."
+      - "Claude sam uznał, że pakowanie jest bezpieczne, i pominął pytanie o zgodę."
+    poprawna: 0
+    wyjasnienie: "W trybie Auto Claude pracuje bez zwykłych pytań o zgodę. Zanim jednak uruchomi polecenie takie jak zip, strażnik w tle sprawdza, czy to polecenie pasuje do Twojej prośby."
+    fakt: auto-aplikacja-opis-trybu
+
+  - pytanie: "W trybie Auto prosisz Claude o dopisanie do zestawienia różnicy w okresie wypowiedzenia. Zestawienie leży w folderze, w którym pracujesz. Claude od razu zmienia plik. Czy strażnik ocenia tę zmianę?"
+    odpowiedzi:
+      - "Tak, strażnik ocenia każdą zmianę pliku, ale tym razem ją przepuścił."
+      - "Nie, strażnik nie ocenia zmian zwykłych plików w folderze, w którym pracujesz."
+      - "Tak, bo zestawienie jest plikiem tekstowym, a takie pliki strażnik zawsze sprawdza."
+    poprawna: 1
+    wyjasnienie: "Strażnik nie ocenia odczytów ani zmian zwykłych plików w folderze. Zestawienie jest takim plikiem."
+    fakt: auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora
+
+  - pytanie: "W trybie Auto piszesz: „Nie pakuj niczego, dopóki nie przejrzę zestawienia”. Claude sam sprawdził zestawienie, uznał je za gotowe i chce spakować umowy. Co się stanie?"
+    odpowiedzi:
+      - "Strażnik przepuści pakowanie, bo Claude sprawdził zestawienie."
+      - "Strażnik zablokuje pakowanie do czasu, gdy zdejmiesz granicę swoją wiadomością."
+      - "Strażnik zapyta Cię o zgodę, a po Twoim „tak” Claude spakuje umowy."
+    poprawna: 1
+    wyjasnienie: "Granica z rozmowy obowiązuje, dopóki nie zdejmiesz jej kolejną wiadomością. To, że Claude sam sprawdził zestawienie i uznał je za gotowe, jej nie zdejmuje."
+    fakt: auto-granica-trwa-do-zdjecia-wiadomoscia
+
+  - pytanie: "Strażnik zablokował pakowanie umów, bo w Twojej prośbie jest granica. Co dostaje wtedy Claude?"
+    odpowiedzi:
+      - "Nic, widzi tylko, że polecenie zip się nie wykonało."
+      - "Powód blokady."
+      - "Polecenie, żeby zapytał Cię o zgodę na pakowanie."
+    poprawna: 1
+    wyjasnienie: "Gdy strażnik coś zablokuje, Claude dostaje powód blokady."
+    fakt: auto-claude-dostaje-powod-blokady

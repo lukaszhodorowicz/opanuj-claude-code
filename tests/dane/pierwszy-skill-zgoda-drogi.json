@@ -1,0 +1,292 @@
+{
+  "lekcja": "probka-pierwszy-skill-zgoda-drogi",
+  "folder_startowy": [
+    "mail-reklamacja-zielinska.txt",
+    "mail-termin-adamski.txt",
+    "jak-odpisuje-klientom.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zapisz zasady jako skill",
+      "opis": "Claude zapisuje skill w folderze .claude. Zwykły plik zapisuje bez pytania.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Patrz na przełącznik trybu i na folder pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klienci-maile",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam maile od klientów i zasady, według których odpisuję."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        ".claude/skills/odpowiedz-klientowi/SKILL.md",
+        "notatka.txt"
+      ],
+      "drogi": [
+        {
+          "id": "zapisz",
+          "etykieta": "Poproś o zapisanie skilla",
+          "opis": "Prośba zwykłymi słowami: zapisz zasady jako skill tego folderu.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz moje zasady z pliku jak-odpisuje-klientom.txt jako skill projektu o nazwie odpowiedz-klientowi.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "jak-odpisuje-klientom.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapiszę Twoje zasady jako skill w pliku .claude/skills/odpowiedz-klientowi/SKILL.md. Folder .claude jest chroniony, więc nawet w trybie Accept edits potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Accept edits nie pyta o zwykłe pliki, ale o folder .claude pyta. Kliknij ptaszek.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem skill w .claude/skills/odpowiedz-klientowi/SKILL.md. Uruchomisz go w nowej rozmowie w tym folderze.",
+              "plik": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze jest nowa teczka .claude z plikiem skilla. Kliknij ścieżkę w odpowiedzi."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "linijki": [
+                "---",
+                "name: odpowiedz-klientowi",
+                "description: Pisze szkic odpowiedzi na mail od klienta sklepu ze świecami. Użyj, gdy proszę o odpowiedź na maila albo reklamację.",
+                "---",
+                "Pierwsze zdanie odpowiada na pytanie klienta. Bez formułek.",
+                "Najwyżej 120 słów.",
+                "Gdy coś obiecujemy, podaj termin. Nie znasz go: wstaw [TERMIN?].",
+                "Oddajesz szkic do akceptacji. Niczego nie wysyłasz."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Między liniami --- są nazwa i opis. Niżej Twoje zasady."
+            }
+          ]
+        },
+        {
+          "id": "zwykly",
+          "etykieta": "Poproś o zwykłą notatkę",
+          "opis": "Zwykły plik w tym samym folderze, bez karty zgody.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz w pliku notatka.txt, że jutro odpisuję na dwa maile.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem notatkę w pliku notatka.txt.",
+              "plik": "notatka.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zwykły plik zapisał się bez pytania. Kliknij ścieżkę w odpowiedzi."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "notatka.txt",
+              "linijki": [
+                "Jutro odpisuję na dwa maile."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik jest w folderze."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Popraw skill w folderze .claude",
+      "opis": "Nowa rozmowa w tym samym folderze. Skill z ćwiczenia 1 leży w folderze .claude.",
+      "nauczyciel_start": "To nowa rozmowa. Kliknij polecenie nad oknem i patrz na karty pod oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Klienci-maile",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Rano przyszły dwa maile od klientów."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ],
+        "folder_startowy_dodatkowe": [
+          ".claude/skills/odpowiedz-klientowi/SKILL.md"
+        ]
+      },
+      "nowe_pliki": [
+        "odpowiedz-zielinska.txt"
+      ],
+      "drogi": [
+        {
+          "id": "popraw",
+          "etykieta": "Poproś o poprawkę skilla",
+          "opis": "Zmiana istniejącego pliku w folderze .claude też wymaga zgody.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Dopisz do skilla odpowiedz-klientowi zasadę: podpisuj się imieniem.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/skills/odpowiedz-klientowi/SKILL.md"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopiszę zasadę do skilla. Plik jest w folderze .claude, więc potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/skills/odpowiedz-klientowi/SKILL.md"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To plik, który już leży w folderze .claude. Kliknij ptaszek."
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Dopisałem zasadę w .claude/skills/odpowiedz-klientowi/SKILL.md.",
+              "plik": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik skilla dostał znacznik zmiany. Kliknij ścieżkę w odpowiedzi."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/skills/odpowiedz-klientowi/SKILL.md",
+              "linijki": [
+                "---",
+                "name: odpowiedz-klientowi",
+                "description: Pisze szkic odpowiedzi na mail od klienta sklepu ze świecami. Użyj, gdy proszę o odpowiedź na maila albo reklamację.",
+                "---",
+                "Pierwsze zdanie odpowiada na pytanie klienta. Bez formułek.",
+                "Najwyżej 120 słów.",
+                "Gdy coś obiecujemy, podaj termin. Nie znasz go: wstaw [TERMIN?].",
+                "Oddajesz szkic do akceptacji. Niczego nie wysyłasz.",
+                "Podpisuj się imieniem."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zasada jest na końcu pliku."
+            }
+          ]
+        },
+        {
+          "id": "odpisz",
+          "etykieta": "Poproś o szkic odpowiedzi",
+          "opis": "Claude czyta skill i mail, szkic zapisuje obok.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Odpisz na mail z pliku mail-reklamacja-zielinska.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                ".claude/skills/odpowiedz-klientowi/SKILL.md",
+                "mail-reklamacja-zielinska.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Szkic odpowiedzi dla pani Zielińskiej zapisałem w odpowiedz-zielinska.txt.",
+              "plik": "odpowiedz-zielinska.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Świeciły karta skilla i karta maila. Kliknij ścieżkę w odpowiedzi."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "odpowiedz-zielinska.txt",
+              "linijki": [
+                "Pani Anno, wymienimy pękniętą świecę lawendową na nową.",
+                "Nową świecę wyślemy [TERMIN?]."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Szkic jest gotowy do akceptacji."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "lekcja": "aplikacja-model",
+  "folder_startowy": [
+    "zakres-projektu.txt",
+    "stawki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Wybierz wysiłek w menu wyboru modelu",
+      "nauczyciel_start": "Wybierz drogę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wycena-logo",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Ile tygodni daje piekarnia na cały projekt?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Sześć tygodni od podpisania umowy."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "wycena-zloty-klos.txt"
+      ],
+      "drogi": [
+        {
+          "id": "niski",
+          "etykieta": "Niski wysiłek",
+          "opis": "Wybór modelu, wysiłek, prośba o wycenę.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "wybor-modelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To wybór modelu. Kliknij Effort."
+            },
+            {
+              "typ": "klik",
+              "cel": "effort"
+            },
+            {
+              "typ": "klik",
+              "cel": "poziom",
+              "poziom": 1,
+              "notka": "niski wysiłek"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wysiłek wybrany. Patrz na rozmowę i na plik."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Przygotuj wycenę z plików zakres-projektu.txt i stawki.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 800,
+              "czyta": [
+                "zakres-projektu.txt",
+                "stawki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wycenę w pliku wycena-zloty-klos.txt: 7 890 zł netto.",
+              "plik": "wycena-zloty-klos.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wycena-zloty-klos.txt",
+              "linijki": [
+                "Wycena: piekarnia Złoty Kłos",
+                "Razem: 7 890 zł netto"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tak wygląda wynik tego wysiłku."
+            }
+          ]
+        },
+        {
+          "id": "wysoki",
+          "etykieta": "Wysoki wysiłek",
+          "opis": "Wybór modelu, wysiłek, prośba o wycenę.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "wybor-modelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To wybór modelu. Kliknij Effort."
+            },
+            {
+              "typ": "klik",
+              "cel": "effort"
+            },
+            {
+              "typ": "klik",
+              "cel": "poziom",
+              "poziom": 3,
+              "notka": "wysoki wysiłek"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wysiłek wybrany. Patrz na rozmowę i na plik."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Przygotuj wycenę z plików zakres-projektu.txt i stawki.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1500,
+              "czyta": [
+                "zakres-projektu.txt",
+                "stawki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wycenę w pliku wycena-zloty-klos.txt: 8 490 zł netto.",
+              "plik": "wycena-zloty-klos.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wycena-zloty-klos.txt",
+              "linijki": [
+                "Wycena: piekarnia Złoty Kłos",
+                "Razem: 8 490 zł netto"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tak wygląda wynik tego wysiłku."
+            }
+          ]
+        },
+        {
+          "id": "najwyzszy",
+          "etykieta": "Najwyższy wysiłek",
+          "opis": "Wybór modelu, wysiłek, prośba o wycenę.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "wybor-modelu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To wybór modelu. Kliknij Effort."
+            },
+            {
+              "typ": "klik",
+              "cel": "effort"
+            },
+            {
+              "typ": "klik",
+              "cel": "poziom",
+              "poziom": 5,
+              "notka": "najwyższy wysiłek, najdłużej"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wysiłek wybrany. Patrz na rozmowę i na plik."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "Przygotuj wycenę z plików zakres-projektu.txt i stawki.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "ms": 1500,
+              "czyta": [
+                "zakres-projektu.txt",
+                "stawki.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wycenę w pliku wycena-zloty-klos.txt: 8 490 zł netto.",
+              "plik": "wycena-zloty-klos.txt",
+              "fakt": "aplikacja-auto-i-accept-edits-stosuja-zmiany"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wycena-zloty-klos.txt",
+              "linijki": [
+                "Wycena: piekarnia Złoty Kłos",
+                "Razem: 8 490 zł netto"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tak wygląda wynik tego wysiłku."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

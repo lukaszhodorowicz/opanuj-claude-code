@@ -1,0 +1,14 @@
+pytania:
+  - pytanie: "Co Claude robi w trybie planowania, zanim zatwierdzisz plan?"
+    odpowiedzi:
+      - "Zmienia pliki, ale da się to cofnąć."
+      - "Czyta pliki i pisze plan, niczego nie zmieniając."
+      - "Nic, czeka na Twoje polecenie."
+    poprawna: 1
+    wyjasnienie: "Claude czyta i planuje, a pliki zmienia dopiero po zatwierdzeniu planu."
+  - pytanie: "Jak przełączasz tryby?"
+    odpowiedzi:
+      - "Klawiszami Shift + Tab."
+      - "Zamykając program."
+    poprawna: 0
+    wyjasnienie: "Shift + Tab przesuwa o jeden tryb dalej."

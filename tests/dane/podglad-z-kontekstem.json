@@ -1,0 +1,154 @@
+{
+  "lekcja": "nowa-czy-ta-sama",
+  "folder_startowy": [
+    "cennik-uslug.txt",
+    "oferta-wzor.txt",
+    "zapytanie-galeria.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Nazwij i odłóż do archiwum",
+      "nauczyciel_start": "Uporządkuj listę rozmów. Wybierz drogę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferty-sprzatanie",
+        "tryb": "Accept edits",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Czy w cennik-uslug.txt są już stawki na 2027?"
+          },
+          {
+            "kto": "claude",
+            "tekst": "Tak. cennik-uslug.txt ma stawki na 2027 dla biur i galerii handlowych."
+          }
+        ],
+        "sesje": [
+          {
+            "id": "galeria",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Galeria Pasaż chce umowy na cały rok. Jaki rabat możemy dać?"
+              },
+              {
+                "kto": "claude",
+                "tekst": "Przy umowie rocznej proponuję 8% od cennika. Przy 4 000 m² to 7 728 zł zamiast 8 400 zł miesięcznie."
+              },
+              {
+                "kto": "ty",
+                "tekst": "Dobrze, dajemy 8% za umowę roczną. Ofertę zrobimy jutro."
+              }
+            ]
+          },
+          {
+            "id": "stare-zapytania",
+            "rozmowa": [
+              {
+                "kto": "ty",
+                "tekst": "Odpisz na zapytanie hotelu Mewa."
+              },
+              {
+                "kto": "claude",
+                "tekst": "Odpowiedź dla hotelu Mewa jest gotowa."
+              }
+            ]
+          }
+        ],
+        "kontekst": 12
+      },
+      "drogi": [
+        {
+          "id": "nazwa",
+          "etykieta": "Nadaj nazwę rozmowie o galerii",
+          "opis": "Poproś Claude o nazwę, potem otwórz tamtą rozmowę.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Nazwij rozmowę o rabacie dla Galerii Pasaż: Oferta Galeria Pasaż 2027.",
+              "fakt": "aplikacja-popros-claude-o-nazwe-lub-archiwum"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zmieniłem nazwę rozmowy o rabacie dla Galerii Pasaż na Oferta Galeria Pasaż 2027.",
+              "nazwa_sesji": {
+                "sesja": "galeria",
+                "nazwa": "Oferta Galeria Pasaż 2027"
+              },
+              "fakt": "aplikacja-popros-claude-o-nazwe-lub-archiwum"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nazwa należy do tamtej rozmowy. Otwórz ją w pasku bocznym.",
+              "fakt": "aplikacja-powrot-do-sesji-klik-w-pasku-bocznym"
+            },
+            {
+              "typ": "klik",
+              "cel": "sesja",
+              "sesja": "galeria"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nazwa stoi w pasku tytułu. Zmienisz ją też sam: kliknij tytuł rozmowy.",
+              "fakt": "aplikacja-zmiana-nazwy-klik-tytulu"
+            }
+          ]
+        },
+        {
+          "id": "archiwum",
+          "etykieta": "Zarchiwizuj stare zapytania",
+          "opis": "Odłóż kwietniową rozmowę do archiwum i znajdź ją.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "menu-sesji",
+              "sesja": "stare-zapytania",
+              "fakt": "aplikacja-archiwizacja-z-menu-w-pasku-bocznym"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu tej rozmowy w pasku bocznym."
+            },
+            {
+              "typ": "klik",
+              "cel": "archive",
+              "fakt": "aplikacja-archiwizacja-z-menu-w-pasku-bocznym"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Rozmowa zniknęła z listy. Nie jest skasowana, trafiła do zarchiwizowanych.",
+              "fakt": "aplikacja-archiwizacja-z-menu-w-pasku-bocznym"
+            },
+            {
+              "typ": "klik",
+              "cel": "group-and-sort",
+              "fakt": "aplikacja-zarchiwizowane-group-and-sort-view-all"
+            },
+            {
+              "typ": "klik",
+              "cel": "view-all"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zarchiwizowane rozmowy są w zakładce Archived."
+            },
+            {
+              "typ": "klik",
+              "cel": "archived",
+              "fakt": "aplikacja-zarchiwizowane-group-and-sort-view-all"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu czeka rozmowa o zapytaniach. Na liście w pasku bocznym jej nie ma."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

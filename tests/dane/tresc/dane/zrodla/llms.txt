@@ -1,0 +1,6 @@
+# Claude Code Docs
+
+## Sekcja
+
+- [Skille](https://code.claude.com/docs/en/skills.md): opis
+- [Hooki](https://code.claude.com/docs/en/hooks.md): opis

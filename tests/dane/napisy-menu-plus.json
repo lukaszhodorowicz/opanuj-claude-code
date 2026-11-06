@@ -1,0 +1,191 @@
+{
+  "lekcja": "probka-napisy-menu-plus",
+  "folder_startowy": [
+    "cennik.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Menu plusa z prawdziwymi napisami",
+      "opis": "Trzy drogi z menu +: konektory, wtyczki i polecenia z listy.",
+      "nauczyciel_start": "Wybierz jedną z trzech dróg nad oknem i kliknij to, co wskaże znacznik.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Gabinet-dietetyczny",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Mam tu cennik konsultacji."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "plan.txt"
+      ],
+      "drogi": [
+        {
+          "id": "konektory",
+          "etykieta": "Przez Connectors",
+          "opis": "Plus, Connectors, Browse connectors, kafelek z katalogu",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu plusa. Kliknij Connectors, żeby otworzyć jego podmenu."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Connectors"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Podmenu stoi obok menu. Kliknij Browse connectors."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse connectors",
+              "fakt": "aplikacja-add-connectors-otwiera-katalog"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To katalog konektorów. Kliknij kafelek Google Calendar.",
+              "fakt": "konektory-google-calendar-gmail-microsoft-365"
+            },
+            {
+              "typ": "klik",
+              "cel": "konektor",
+              "nazwa": "Google Calendar"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu logujesz się do kalendarza. Symulator tego nie rysuje.",
+              "fakt": "konektor-logowanie-w-claude-ai"
+            },
+            {
+              "typ": "katalog_zamknij",
+              "ms": 1600
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kalendarz podłączony. Okno katalogu się zamknęło."
+            }
+          ]
+        },
+        {
+          "id": "wtyczki",
+          "etykieta": "Przez Plugins",
+          "opis": "Plus, Plugins, Browse plugins, przeglądarka wtyczek",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu plusa. Kliknij Plugins, żeby otworzyć jego podmenu."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Plugins"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Podmenu ma wiersze Twoich wtyczek, a pod kreską Manage plugins i Browse plugins. Kliknij Browse plugins."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse plugins",
+              "fakt": "aplikacja-przegladarka-wtyczek-z-twoich-katalogow"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To przeglądarka wtyczek: zakładka Discover z kartą polecaną i listą nowych wtyczek."
+            }
+          ]
+        },
+        {
+          "id": "polecenia",
+          "etykieta": "Przez Slash commands",
+          "opis": "Plus, Slash commands, wiersz listy z nazwą",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu plusa. Kliknij Slash commands.",
+              "fakt": "skill-aplikacja-menu"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Slash commands"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To lista poleceń z nazwami. Kliknij wiersz plan."
+            },
+            {
+              "typ": "klik",
+              "cel": "wiersz",
+              "na": "plan"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Polecenie stoi w polu. Zadanie dopisuje się po nim."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "ułóż plan porządkowania cennika w pliku plan.txt",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "cennik.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Gotowe. Plan zapisałem w pliku plan.txt.",
+              "plik": "plan.txt"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "plan.txt",
+              "linijki": [
+                "1. Połącz pakiety w jedną tabelę",
+                "2. Sprawdź ceny konsultacji",
+                "3. Usuń stare stawki"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plan leży w pliku. Polecenie z listy zadziałało jak zwykła wiadomość."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

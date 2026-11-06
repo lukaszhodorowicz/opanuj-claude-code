@@ -1,0 +1,90 @@
+{
+  "lekcja": "probka-ustawienia-konta",
+  "folder_startowy": [
+    "harmonogram-wesele.txt",
+    "dostawcy.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Ustawienia konta B, karta Connectors zwinięta",
+      "nauczyciel_start": "Kliknij polecenie, a potem konto na dole paska bocznego.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wesele-Kowalskich",
+        "tryb": "Accept edits",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź harmonogram dnia w pliku harmonogram-wesele.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Harmonogram jest spójny. Obiad zaczyna się o 14:00."
+          }
+        ],
+        "kontekst": 9,
+        "konektory_do_polaczenia": 13,
+        "konto_ustawien": "B"
+      },
+      "drogi": [
+        {
+          "id": "ustawienia",
+          "etykieta": "Otwórz ustawienia Claude Code",
+          "opis": "Lewa kolumna konta B.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "ustawienia-claude-code"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To ustawienia Claude Code. Lewa kolumna ma pozycje tego konta."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Ustawienia konta A, strona Connectors",
+      "nauczyciel_start": "Kliknij polecenie, a potem konto na dole paska bocznego.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Wesele-Kowalskich",
+        "tryb": "Accept edits",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Sprawdź harmonogram dnia w pliku harmonogram-wesele.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Harmonogram jest spójny. Obiad zaczyna się o 14:00."
+          }
+        ],
+        "kontekst": 9,
+        "konto_ustawien": "A"
+      },
+      "drogi": [
+        {
+          "id": "konektory",
+          "etykieta": "Otwórz listę konektorów",
+          "opis": "Zakładka Yours.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "ustawienia-connectors"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To lista Twoich konektorów. Ma trzy kolumny: Connector, Type i Status."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
