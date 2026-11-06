@@ -1,0 +1,24 @@
+fiszki:
+  - przod: "Co robi strażnik w trybie Auto w aplikacji Claude?"
+    tyl: "W tle sprawdza, czy polecenie, które Claude chce uruchomić, pasuje do Twojej prośby."
+    fakt: auto-aplikacja-opis-trybu
+
+  - przod: "Gdzie w aplikacji wybierasz tryb, na przykład Auto?"
+    tyl: "W przełączniku trybu pod polem wiadomości w zakładce Code."
+    fakt: aplikacja-przelacznik-pod-polem-wiadomosci
+
+  - przod: "Jakie tryby są w aplikacji Claude na komputer?"
+    tyl: "Manual, Accept edits, Plan i Auto. Auto widać tylko wtedy, gdy ten tryb jest dostępny. Bypass permissions pojawia się na liście dopiero wtedy, gdy go włączysz."
+    fakt: aplikacja-dostepne-tryby
+
+  - przod: "Jak w trybie Auto sprawić, żeby Claude poczekał z jednym krokiem?"
+    tyl: "Napisz to w rozmowie jednym zdaniem, na przykład „Nie pakuj niczego, dopóki nie przejrzę zestawienia”. Strażnik potraktuje takie zdanie jak granicę."
+    fakt: auto-granice-z-rozmowy
+
+  - przod: "Co zdejmuje granicę postawioną w rozmowie?"
+    tyl: "Twoja wiadomość, w której ją zdejmujesz, na przykład „Zestawienie przejrzane. Możesz spakować umowy”. Granica obowiązuje dalej, nawet gdy Claude sam uzna, że warunek jest spełniony."
+    fakt: auto-granica-trwa-do-zdjecia-wiadomoscia
+
+  - przod: "Czy w trybie Auto strażnik ocenia zmiany zwykłych plików w folderze?"
+    tyl: "Nie. Claude czyta i zmienia takie pliki bez oceny strażnika."
+    fakt: auto-odczyty-i-zmiany-w-folderze-bez-klasyfikatora

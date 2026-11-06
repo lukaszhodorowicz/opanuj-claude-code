@@ -1,0 +1,270 @@
+{
+ "lekcja": "aplikacja-plik-ekrany",
+ "folder_startowy": [],
+ "cwiczenia": [
+  {
+   "id": "cw1",
+   "rodzaj": "aplikacja",
+   "tytul": "Plik w panelu i menu „…”",
+   "nauczyciel_start": "Wybierz polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Testowy-plik-info",
+    "tryb": "Auto",
+    "panel": "schowany",
+    "model": "Sonnet 5.5",
+    "wysilek": "High",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Zrób mi testowy plik z datą i opisem sesji."
+     },
+     {
+      "kto": "claude",
+      "tekst": "Gotowe, zaraz go pokażę."
+     }
+    ]
+   },
+   "nowe_pliki": [
+    "info.txt"
+   ],
+   "drogi": [
+    {
+     "id": "plik",
+     "etykieta": "Otwórz plik",
+     "kroki": [
+      {
+       "typ": "pisz",
+       "tekst": "Utwórz plik info.txt z datą i opisem tej sesji."
+      },
+      {
+       "typ": "mysli"
+      },
+      {
+       "typ": "claude",
+       "tekst": "Plik testowy info.txt jest gotowy i przekazany Ci w tej rozmowie. Leży w folderze, który aplikacja utworzyła dla tej sesji.",
+       "plik": "info.txt",
+       "karta_pliku": {
+        "rozmiar": 72
+       }
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Claude utworzył plik i pokazał go kartą. Kliknij nazwę pliku w odpowiedzi."
+      },
+      {
+       "typ": "klik",
+       "cel": "sciezka"
+      },
+      {
+       "typ": "plik",
+       "nazwa": "info.txt",
+       "linijki": [
+        "Data: 2026-10-27",
+        "Sesja: scratch-2026-10-27-dace7b",
+        "To jest plik testowy.",
+        ""
+       ]
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Plik otwiera się w panelu obok rozmowy."
+      }
+     ]
+    },
+    {
+     "id": "menu",
+     "etykieta": "Otwórz menu panelu pliku",
+     "kroki": [
+      {
+       "typ": "pisz",
+       "tekst": "Utwórz plik info.txt z datą i opisem tej sesji."
+      },
+      {
+       "typ": "mysli"
+      },
+      {
+       "typ": "claude",
+       "tekst": "Plik testowy info.txt jest gotowy i przekazany Ci w tej rozmowie. Leży w folderze, który aplikacja utworzyła dla tej sesji.",
+       "plik": "info.txt",
+       "karta_pliku": {
+        "rozmiar": 72
+       }
+      },
+      {
+       "typ": "klik",
+       "cel": "sciezka"
+      },
+      {
+       "typ": "plik",
+       "nazwa": "info.txt",
+       "linijki": [
+        "Data: 2026-10-27",
+        "Sesja: scratch-2026-10-27-dace7b",
+        "To jest plik testowy.",
+        ""
+       ]
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Plik stoi w panelu. Kliknij trzy kropki w jego pasku."
+      },
+      {
+       "typ": "klik",
+       "cel": "plik-menu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To menu panelu pliku. Ma ustawienia edytora, a Auto save jest włączone."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw2",
+   "rodzaj": "aplikacja",
+   "tytul": "Menu karty pliku w rozmowie",
+   "nauczyciel_start": "Wybierz polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Testowy-plik-info",
+    "tryb": "Auto",
+    "panel": "schowany",
+    "model": "Sonnet 5.5",
+    "wysilek": "High",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Zrób mi testowy plik z datą i opisem sesji."
+     },
+     {
+      "kto": "claude",
+      "tekst": "Gotowe, zaraz go pokażę."
+     }
+    ]
+   },
+   "nowe_pliki": [
+    "info.txt"
+   ],
+   "drogi": [
+    {
+     "id": "karta",
+     "etykieta": "Kliknij kartę pliku",
+     "kroki": [
+      {
+       "typ": "pisz",
+       "tekst": "Utwórz plik info.txt z datą i opisem tej sesji."
+      },
+      {
+       "typ": "mysli"
+      },
+      {
+       "typ": "claude",
+       "tekst": "Plik testowy info.txt jest gotowy i przekazany Ci w tej rozmowie. Leży w folderze, który aplikacja utworzyła dla tej sesji.",
+       "plik": "info.txt",
+       "karta_pliku": {
+        "rozmiar": 72
+       }
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Pod odpowiedzią stoi karta pliku. Kliknij ją prawym przyciskiem."
+      },
+      {
+       "typ": "klik",
+       "cel": "plik-karta-menu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To menu karty pliku. Wybierz Show in Finder."
+      },
+      {
+       "typ": "klik",
+       "cel": "plik-karta-pozycja",
+       "pozycja": "Show in Finder"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Show in Finder pokazuje plik w folderze na dysku."
+      }
+     ]
+    },
+    {
+     "id": "samo-menu",
+     "etykieta": "Otwórz tylko menu",
+     "kroki": [
+      {
+       "typ": "pisz",
+       "tekst": "Utwórz plik info.txt z datą i opisem tej sesji."
+      },
+      {
+       "typ": "mysli"
+      },
+      {
+       "typ": "claude",
+       "tekst": "Plik testowy info.txt jest gotowy i przekazany Ci w tej rozmowie. Leży w folderze, który aplikacja utworzyła dla tej sesji.",
+       "plik": "info.txt",
+       "karta_pliku": {
+        "rozmiar": 72
+       }
+      },
+      {
+       "typ": "klik",
+       "cel": "plik-karta-menu"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To menu karty pliku."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw3",
+   "rodzaj": "aplikacja",
+   "tytul": "Dymek ikony na pasku tytułu",
+   "nauczyciel_start": "Wybierz polecenie nad oknem.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Testowy-plik-info",
+    "tryb": "Auto",
+    "panel": "schowany",
+    "model": "Sonnet 5.5",
+    "wysilek": "High",
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Zrób mi testowy plik z datą i opisem sesji."
+     },
+     {
+      "kto": "claude",
+      "tekst": "Gotowe, zaraz go pokażę."
+     }
+    ]
+   },
+   "drogi": [
+    {
+     "id": "dymek",
+     "etykieta": "Pokaż dymek pierwszej ikony",
+     "kroki": [
+      {
+       "typ": "nauczyciel",
+       "tekst": "W prawym górnym rogu okna stoją ikony. Najedź na pierwszą."
+      },
+      {
+       "typ": "klik",
+       "cel": "ikona-tytulu",
+       "nr": 1
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Dymek podaje nazwę ikony."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

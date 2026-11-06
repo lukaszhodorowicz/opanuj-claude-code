@@ -1,0 +1,93 @@
+{
+  "lekcja": "artefakt-link",
+  "folder_startowy": [
+    "opis-szkolenia.txt",
+    "cennik.txt",
+    "opinie-klientow.txt",
+    "notatki-z-rozmowy.txt",
+    "oferta-szkolenia.html"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Opublikuj stronę oferty jako artefakt",
+      "opis": "Symulator wygląda jak zakładka Code w aplikacji Claude. Kliknij polecenie, a potem ścieżkę pliku strony w odpowiedzi Claude.",
+      "nauczyciel_start": "W folderze leży strona oferty i notatki z rozmowy z klientem. Kliknij polecenie nad symulatorem i patrz na rozmowę.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Dopisz do oferta-szkolenia.html informacje z notatki-z-rozmowy.txt."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dopisałem do pliku oferta-szkolenia.html informacje z pliku notatki-z-rozmowy.txt."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "publikuj",
+          "etykieta": "Opublikuj stronę oferty jako artefakt",
+          "opis": "Claude odpowie linkiem. Potem klikniesz ścieżkę pliku strony.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Opublikuj plik oferta-szkolenia.html z tego folderu jako artefakt. Chcę potem wysłać klientowi link do tej strony.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Opublikowałem plik oferta-szkolenia.html jako artefakt. Link: https://claude.ai/code/artifact/…",
+              "plik": "oferta-szkolenia.html",
+              "bez_zmiany": true,
+              "fakt": "artefakt-publikacja-z-prosby-bez-okna-zgody"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Nowy artefakt widzisz tylko Ty. Kliknij ścieżkę pliku strony.",
+              "fakt": "artefakt-nowy-widoczny-tylko-dla-ciebie"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "oferta-szkolenia.html",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Handlowcy uczą się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 600 zł netto za osobę. Klient chce rabat 15%, nie pisać na stronie.",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Zespół zaczął stosować to, co przećwiczyliśmy, już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              },
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik otworzył się w panelu Browser. W pliku jest linijka o rabacie z notatek. Strona jest przykładem, jak może wyglądać wynik.",
+              "fakt": "aplikacja-klik-sciezki-do-pdf-html-wideo-otwiera-panel-browser"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

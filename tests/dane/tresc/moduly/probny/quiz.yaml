@@ -1,0 +1,6 @@
+pytania:
+  - pytanie: "Czy opis skilla ma limit?"
+    odpowiedzi: ["Tak", "Nie", "Zależy"]
+    poprawna: 0
+    wyjasnienie: "Ma limit długości."
+    fakt: skill-opis-limit

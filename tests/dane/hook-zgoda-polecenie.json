@@ -1,0 +1,170 @@
+{
+  "lekcja": "probka-hook-zgoda-polecenie",
+  "folder_startowy": [
+    "opinie-klientow-2026-10.csv",
+    "szablon-wnioskow.txt",
+    "mail-do-zarzadu.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Claude czeka na zgodę na polecenie",
+      "opis": "Claude zapisuje wnioski bez pytania, a do spakowania potrzebuje Twojej zgody. Przez sześć sekund ptaszek jest nieaktywny.",
+      "nauczyciel_start": "Kliknij polecenie nad oknem i patrz na kartę pod odpowiedzią Claude.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Opinie-kluby",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze są opinie klientów z października."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "wnioski-pazdziernik.txt",
+        ".claude/settings.json"
+      ],
+      "drogi": [
+        {
+          "id": "pakuj",
+          "etykieta": "Zleć wnioski i paczkę dla zarządu",
+          "opis": "Claude pisze wnioski, a do spakowania potrzebuje Twojej zgody.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zrób wnioski z opinii według szablonu i zapisz je w wnioski-pazdziernik.txt. Potem spakuj wnioski i mail-do-zarzadu.txt do opinie-pazdziernik.zip.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "opinie-klientow-2026-10.csv",
+                "szablon-wnioskow.txt"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem wnioski w wnioski-pazdziernik.txt.",
+              "plik": "wnioski-pazdziernik.txt",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "wnioski-pazdziernik.txt",
+              "linijki": [
+                "Co chwalą: trenerów i czystość szatni.",
+                "Na co narzekają: kolejki na rowerach wieczorem.",
+                "Co zmienić: zapisy na rowery przez aplikację klubu."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Wnioski zapisały się bez pytania. Teraz Claude chce spakować pliki.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Do spakowania potrzebuję polecenia zip. W trybie Accept edits pytam o takie polecenia.",
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "zgoda",
+              "polecenie": "zip",
+              "odliczanie_ms": 6000,
+              "fakt": "accept-edits-aplikacja-pyta-o-inne-polecenia"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Minęło sześć sekund. Teraz kliknij ptaszek."
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Spakowałem wnioski i mail do opinie-pazdziernik.zip.",
+              "fakt": "polecenie-zip-pakuje-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Claude spakował pliki dopiero po Twojej zgodzie."
+            }
+          ]
+        },
+        {
+          "id": "hook",
+          "etykieta": "Poproś o plik ustawień",
+          "opis": "Zapis w folderze .claude wymaga zgody, ale bez odliczania.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz w ustawieniach tego folderu pusty plik z hookami.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapiszę plik .claude/settings.json. Folder .claude jest chroniony, więc potrzebuję Twojej zgody.",
+              "fakt": "accept-edits-sciezki-chronione-pytaja"
+            },
+            {
+              "typ": "zgoda",
+              "plik": ".claude/settings.json",
+              "fakt": "sciezki-chronione-czym-sa"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Accept edits o folder .claude pyta. Kliknij ptaszek."
+            },
+            {
+              "typ": "klik",
+              "cel": "zatwierdz"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem plik .claude/settings.json.",
+              "plik": ".claude/settings.json",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W folderze jest nowa teczka .claude. Kliknij ścieżkę w odpowiedzi."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": ".claude/settings.json",
+              "linijki": [
+                "{",
+                "  \"hooks\": {}",
+                "}"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To cały plik ustawień."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

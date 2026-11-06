@@ -1,0 +1,13 @@
+zrodla_zewnetrzne:
+  - https://agentskills.io/specification.md
+fakty:
+  - id: skill-opis-limit
+    tresc: "Opis skilla ma ograniczoną długość."
+    zrodlo: https://code.claude.com/docs/en/skills.md#frontmatter-reference
+    sprawdzono: 2026-10-23
+    wersja: "2.1.309"
+  - id: skill-specyfikacja
+    tresc: "Skille opisuje otwarta specyfikacja."
+    zrodlo: https://agentskills.io/specification.md
+    sprawdzono: 2026-10-23
+    wersja: "2.1.309"

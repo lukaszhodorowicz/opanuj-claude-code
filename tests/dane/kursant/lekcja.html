@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Próbka dla narzedzia.kursant</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 16px;
+      }
+      .polecenie[disabled] {
+        opacity: 0.4;
+      }
+      .wyslane {
+        outline: 2px solid green;
+      }
+      .szeroki {
+        width: 700px;
+        height: 40px;
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tekst"><p>Cel ćwiczenia 1: polecenia klikasz po kolei.</p></div>
+    <div class="miejsce-cwiczenia" data-id="cw1">
+      <section class="cwiczenie" id="cw1">
+        <div class="naglowek"><h3>Po kolei</h3></div>
+        <div class="nauczyciel"><p>Kliknij pierwsze polecenie.</p></div>
+        <div class="polecenia">
+          <button class="polecenie"><b>Pierwsze</b></button>
+          <button class="polecenie"><b>Drugie</b></button>
+          <button class="polecenie"><b>Trzecie</b></button>
+        </div>
+        <div class="okno"></div>
+        <div class="pulpit">plik.txt</div>
+        <div class="przycisk-klaw"><button data-od-nowa>Od nowa</button></div>
+      </section>
+    </div>
+    <div class="tekst">
+      <h2>Co tu się stało?</h2>
+      <p>Każde polecenie dopisało linijkę.</p>
+    </div>
+    <div class="miejsce-cwiczenia" data-id="cw2">
+      <section class="cwiczenie" id="cw2">
+        <div class="naglowek"><h3>Bałagan</h3></div>
+        <div class="nauczyciel"><p>Klikaj.</p></div>
+        <div class="polecenia">
+          <button class="polecenie"><b>Raz</b></button>
+          <button class="polecenie"><b>Dwa</b></button>
+          <button class="polecenie"><b>Trzy</b></button>
+        </div>
+        <div class="okno"></div>
+        <div class="szeroki"></div>
+        <div class="przycisk-klaw"><button data-od-nowa>Od nowa</button></div>
+      </section>
+    </div>
+    <div class="tekst"><p>Ćwiczenie 3 gra samo.</p></div>
+    <div class="miejsce-cwiczenia" data-id="cw3">
+      <section class="cwiczenie" id="cw3">
+        <div class="naglowek"><h3>Samo</h3></div>
+        <div class="nauczyciel"><p>Patrz.</p></div>
+        <div class="okno"></div>
+        <div class="pulpit">raport.txt</div>
+        <div class="przycisk-klaw"><button data-od-nowa>Od nowa</button></div>
+      </section>
+    </div>
+    <div class="tekst"><p>Koniec próbki.</p></div>
+    <script>
+      /* cw1: aktywne tylko następne polecenie, wysłane dostają klasę „wyslane”, „Od nowa” wraca do startu */
+      (() => {
+        const sek = document.getElementById("cw1");
+        const okno = sek.querySelector(".okno");
+        const pol = [...sek.querySelectorAll(".polecenie")];
+        let zrobione = 0;
+        const ustaw = () =>
+          pol.forEach((b, i) => {
+            b.disabled = i !== zrobione;
+            b.classList.toggle("wyslane", i < zrobione);
+          });
+        pol.forEach((b, i) =>
+          b.addEventListener("click", () => {
+            zrobione = i + 1;
+            ustaw();
+            setTimeout(
+              () => {
+                okno.insertAdjacentHTML(
+                  "beforeend",
+                  "<p>linijka " + (i + 1) + "</p>",
+                );
+                if (i < 2) return;
+                okno.insertAdjacentHTML(
+                  "beforeend",
+                  '<button class="opcja">Tak</button>',
+                );
+                okno.querySelector(".opcja").addEventListener("click", (e) => {
+                  e.target.remove();
+                  okno.insertAdjacentHTML("beforeend", "<p>efekt końcowy</p>");
+                });
+              },
+              i < 2 ? 300 : 10000,
+            );
+          }),
+        );
+        sek.querySelector("[data-od-nowa]").addEventListener("click", () => {
+          zrobione = 0;
+          okno.innerHTML = "";
+          ustaw();
+        });
+        ustaw();
+      })();
+      /* cw2: wszystkie polecenia aktywne naraz, każde przeskakuje do swojego stanu */
+      (() => {
+        const sek = document.getElementById("cw2");
+        const okno = sek.querySelector(".okno");
+        sek.querySelectorAll(".polecenie").forEach((b, i) =>
+          b.addEventListener("click", () => {
+            setTimeout(() => {
+              okno.textContent = "stan " + (i + 1);
+            }, 300);
+          }),
+        );
+        sek.querySelector("[data-od-nowa]").addEventListener("click", () => {
+          okno.textContent = "";
+        });
+      })();
+      /* cw3: bez poleceń, gra samo po 10 s ciszy; „Od nowa” gra je jeszcze raz */
+      (() => {
+        const sek = document.getElementById("cw3");
+        const okno = sek.querySelector(".okno");
+        const graj = () => {
+          okno.innerHTML = "";
+          setTimeout(() => {
+            okno.innerHTML = '<p>raport gotowy</p><button class="opcja">Pokaż</button>';
+            okno.querySelector(".opcja").addEventListener("click", (e) => {
+              e.target.remove();
+              okno.insertAdjacentHTML("beforeend", "<p>efekt cw3</p>");
+            });
+          }, 10000);
+        };
+        sek.querySelector("[data-od-nowa]").addEventListener("click", graj);
+        graj();
+      })();
+    </script>
+  </body>
+</html>

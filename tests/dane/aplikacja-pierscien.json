@@ -1,0 +1,209 @@
+{
+ "lekcja": "aplikacja-pierscien",
+ "folder_startowy": [
+  "cele-kwartalu.txt",
+  "raport-lipiec.txt",
+  "raport-sierpien.txt"
+ ],
+ "cwiczenia": [
+  {
+   "id": "cw1",
+   "rodzaj": "aplikacja",
+   "tytul": "Gdzie sprawdzić zużycie abonamentu",
+   "nauczyciel_start": "Kliknij polecenie nad oknem. Patrz na pierścień w rzędzie pod polem i na kartę Context.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Kampanie-Q3",
+    "tryb": "Accept edits",
+    "panel": "widoczny",
+    "kontekst": 62,
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Przeczytaj raporty z lipca i sierpnia."
+     },
+     {
+      "kto": "claude",
+      "tekst": "Przeczytałem raporty i mam je w pamięci tej rozmowy."
+     }
+    ]
+   },
+   "drogi": [
+    {
+     "id": "dwa-liczniki",
+     "etykieta": "Sprawdź zużycie i miejsce w rozmowie",
+     "opis": "Najpierw pierścień, potem karta Context.",
+     "kroki": [
+      {
+       "typ": "nauczyciel",
+       "tekst": "Pierścień stoi w rzędzie pod polem wiadomości. Kliknij go."
+      },
+      {
+       "typ": "klik",
+       "cel": "pierscien"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To okienko zużycia abonamentu. Nie zmienia ani rozmowy, ani karty Context."
+      },
+      {
+       "typ": "klik",
+       "cel": "context",
+       "fakt": "aplikacja-karta-context-procent-w-naglowku"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Karta Context to miejsce zajęte w tej jednej rozmowie.",
+       "fakt": "aplikacja-karta-context-procent-w-naglowku"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cw2",
+   "rodzaj": "aplikacja",
+   "tytul": "To samo pytanie w długiej i w nowej rozmowie",
+   "nauczyciel_start": "Rozmowa trwa od rana. Wybierz drogę nad oknem i patrz na kartę Context.",
+   "aplikacja": {
+    "srodowisko": "Local",
+    "folder": "Kampanie-Q3",
+    "tryb": "Accept edits",
+    "panel": "widoczny",
+    "kontekst": 62,
+    "rozmowa": [
+     {
+      "kto": "ty",
+      "tekst": "Przeczytaj raporty z lipca i sierpnia."
+     },
+     {
+      "kto": "claude",
+      "tekst": "Przeczytałem raporty i mam je w pamięci tej rozmowy."
+     }
+    ]
+   },
+   "drogi": [
+    {
+     "id": "dluga",
+     "etykieta": "Zapytaj w tej długiej rozmowie",
+     "opis": "Krótkie pytanie w rozmowie po raportach.",
+     "kroki": [
+      {
+       "typ": "pisz",
+       "tekst": "Jaki budżet reklamowy mamy na ten kwartał? Sprawdź cele-kwartalu.txt.",
+       "fakt": "aplikacja-enter-wysyla-zadanie"
+      },
+      {
+       "typ": "mysli",
+       "ms": 800,
+       "czyta": [
+        "cele-kwartalu.txt"
+       ],
+       "fakt": "accept-edits-odczyty-bez-pytania"
+      },
+      {
+       "typ": "claude",
+       "tekst": "Budżet reklamowy na kwartał to 24 000 zł. Tak jest w cele-kwartalu.txt.",
+       "plik": "cele-kwartalu.txt",
+       "bez_zmiany": true,
+       "fakt": "accept-edits-odczyty-bez-pytania"
+      },
+      {
+       "typ": "kontekst",
+       "procent": 63
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Z krótkim pytaniem poleciała cała rozmowa."
+      },
+      {
+       "typ": "klik",
+       "cel": "sciezka",
+       "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+      },
+      {
+       "typ": "plik",
+       "nazwa": "cele-kwartalu.txt",
+       "linijki": [
+        "Cele kwartalu: kampanie Q3",
+        "Budżet reklamowy: 24 000 zł",
+        "Cel: 120 zapisów na webinar",
+        "Termin raportu: 30 września",
+        "Odpowiedzialna: Marta"
+       ]
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Odpowiedź jest dobra, ale rozmowa jest długa."
+      }
+     ]
+    },
+    {
+     "id": "nowa",
+     "etykieta": "Zapytaj w nowej rozmowie",
+     "opis": "To samo pytanie po kliknięciu + New.",
+     "kroki": [
+      {
+       "typ": "klik",
+       "cel": "nowa-rozmowa",
+       "fakt": "aplikacja-nowa-sesja-new-albo-cmd-n"
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "To nowa rozmowa. Panelu jeszcze nie ma, bo sesja startuje po wysłaniu prośby.",
+       "fakt": "aplikacja-panel-szczegolow-sesji-karty-obok-czatu"
+      },
+      {
+       "typ": "pisz",
+       "tekst": "Jaki budżet reklamowy mamy na ten kwartał? Sprawdź cele-kwartalu.txt.",
+       "fakt": "aplikacja-enter-wysyla-zadanie"
+      },
+      {
+       "typ": "mysli",
+       "ms": 800,
+       "czyta": [
+        "cele-kwartalu.txt"
+       ],
+       "fakt": "accept-edits-odczyty-bez-pytania"
+      },
+      {
+       "typ": "claude",
+       "tekst": "Budżet reklamowy na kwartał to 24 000 zł. Tak jest w cele-kwartalu.txt.",
+       "plik": "cele-kwartalu.txt",
+       "bez_zmiany": true,
+       "fakt": "accept-edits-odczyty-bez-pytania"
+      },
+      {
+       "typ": "kontekst",
+       "procent": 5
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Karta Context pokazuje 5%. Z pytaniem poleciało niewiele."
+      },
+      {
+       "typ": "klik",
+       "cel": "sciezka",
+       "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+      },
+      {
+       "typ": "plik",
+       "nazwa": "cele-kwartalu.txt",
+       "linijki": [
+        "Cele kwartalu: kampanie Q3",
+        "Budżet reklamowy: 24 000 zł",
+        "Cel: 120 zapisów na webinar",
+        "Termin raportu: 30 września",
+        "Odpowiedzialna: Marta"
+       ]
+      },
+      {
+       "typ": "nauczyciel",
+       "tekst": "Do nowego zadania zaczynaj nową rozmowę."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

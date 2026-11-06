@@ -1,0 +1,49 @@
+{
+  "lekcja": "harmonogram",
+  "folder_startowy": ["notatki.txt"],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zadanie, które rusza samo co rano",
+      "nauczyciel_start": "Kliknij polecenie nad oknem. Potem klikaj to, co podświetla kurs.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Poranne-nowosci",
+        "tryb": "Auto",
+        "panel": "schowany",
+        "harmonogram": {
+          "nazwa": "Poranne nowości o AI",
+          "polecenie": "Zbierz najważniejsze wiadomości o sztucznej inteligencji z ostatnich 24 godzin i podsumuj je w pięciu punktach.",
+          "pora": "09:20",
+          "czestotliwosc": "Daily",
+          "folder": "Poranne-nowosci"
+        },
+        "rozmowa": [
+          {"kto": "ty", "tekst": "Co rano chcę dostawać krótkie podsumowanie nowości o sztucznej inteligencji."},
+          {"kto": "claude", "tekst": "Takie zadanie ustawisz w harmonogramie, żeby ruszało samo o stałej porze."}
+        ]
+      },
+      "drogi": [
+        {
+          "id": "ustaw-zadanie",
+          "etykieta": "Ustaw zadanie na każdy ranek",
+          "opis": "Od paska bocznego do pierwszego uruchomienia.",
+          "kroki": [
+            {"typ": "nauczyciel", "tekst": "W pasku bocznym jest pozycja Scheduled. Kliknij ją."},
+            {"typ": "klik", "cel": "scheduled"},
+            {"typ": "nauczyciel", "tekst": "To strona zadań według harmonogramu. Kliknij New task."},
+            {"typ": "klik", "cel": "new-task"},
+            {"typ": "nauczyciel", "tekst": "Okno ma już nazwę, polecenie i porę. Kliknij Advanced settings."},
+            {"typ": "klik", "cel": "advanced-settings"},
+            {"typ": "nauczyciel", "tekst": "Tu są ustawienia komputera, folderu i powiadomień. Kliknij Create."},
+            {"typ": "klik", "cel": "create"},
+            {"typ": "nauczyciel", "tekst": "Zadanie czeka na swoją porę. Możesz je uruchomić od razu. Kliknij Run now."},
+            {"typ": "klik", "cel": "run-now"},
+            {"typ": "nauczyciel", "tekst": "W historii pojawił się pierwszy przebieg."}
+          ]
+        }
+      ]
+    }
+  ]
+}

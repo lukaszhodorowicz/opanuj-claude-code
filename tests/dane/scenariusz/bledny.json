@@ -1,0 +1,20 @@
+{
+  "lekcja": "bledna",
+  "folder_startowy": [],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "pojedynczy",
+      "tytul": "T",
+      "nauczyciel_start": "N",
+      "terminale": [{"id": "t", "podpis": "P", "dopisek": "D", "tryb": "plan"}],
+      "zadania": [
+        {"etykieta": "E", "polecenie": "P", "slowa_kluczowe": [],
+         "przebiegi": {"t": [
+           {"typ": "menu", "pytanie": "Zmyślone pytanie?", "opcje": [
+             {"napis": "Yes", "pl": "Tak", "opis": "O", "dalej": []}]}
+         ]}}
+      ]
+    }
+  ]
+}

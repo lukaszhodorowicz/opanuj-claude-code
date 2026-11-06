@@ -1,0 +1,99 @@
+{
+  "lekcja": "probka-okno-zgody",
+  "folder_startowy": [
+    "raport-pazdziernik.txt",
+    "raport-wrzesien.txt",
+    "notatki-ze-spotkania.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zatwierdź zmianę, potem zmień tryb",
+      "opis": "Symulator zakładki Code w aplikacji Claude. Klikaj polecenia nad oknem albo miejsca ze znacznikiem.",
+      "nauczyciel_start": "Przełącznik pod polem wiadomości pokazuje Manual. Kliknij pierwsze polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Raporty-sprzedaz-kopia",
+        "tryb": "Manual"
+      },
+      "etapy": [
+        {
+          "etykieta": "Poproś o sumę w raporcie",
+          "opis": "Prośba idzie do Claude, a Claude proponuje zmianę pliku.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Policz sumę sprzedaży w raport-pazdziernik.txt i wpisz ją w linijce Suma.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Suma sprzedaży w październiku to 34 250 zł. Proponuję zmianę w pliku raport-pazdziernik.txt."
+            },
+            {
+              "typ": "zgoda",
+              "plik": "raport-pazdziernik.txt",
+              "linijki": [
+                { "tekst": "Sklep stacjonarny: 18 400 zł" },
+                { "tekst": "Sklep internetowy: 9 650 zł" },
+                { "tekst": "Hurt: 6 200 zł" },
+                { "tekst": "Suma: do uzupełnienia", "zmiana": "usunieta" },
+                { "tekst": "Suma: 34 250 zł", "zmiana": "dodana" }
+              ],
+              "fakt": "aplikacja-manual-podglad-i-przyciski"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "W trybie Manual Claude czeka na Ciebie. Na karcie widać zmianę. Kliknij ptaszek, żeby ją zatwierdzić.",
+              "fakt": "tryb-manual-aplikacja-czeka-na-zatwierdzenie"
+            }
+          ]
+        },
+        {
+          "etykieta": "Zatwierdź zmianę",
+          "opis": "Klikasz przycisk z ptaszkiem na karcie.",
+          "klik": "zatwierdz",
+          "fakt": "aplikacja-manual-przyciski-zatwierdzania",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Zmiana trafiła do pliku. Liczby +1 -1 na karcie Changes otwierają widok zmian.",
+              "fakt": "aplikacja-widok-zmian-liczby-na-karcie-changes"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz tryb w przełączniku",
+          "opis": "Klikasz przełącznik trybu pod polem wiadomości.",
+          "klik": "przelacznik",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otworzyła się lista trybów. Kliknij Accept edits.",
+              "fakt": "aplikacja-dostepne-tryby"
+            }
+          ]
+        },
+        {
+          "etykieta": "Wybierz Accept edits",
+          "opis": "Klikasz tryb na liście.",
+          "klik": "tryb",
+          "na": "Accept edits",
+          "fakt": "aplikacja-tryb-wybierasz-w-przelaczniku",
+          "kroki": [
+            {
+              "typ": "nauczyciel",
+              "tekst": "Przełącznik pokazuje Accept edits. Od teraz Claude tworzy i edytuje pliki w tym folderze bez pytania.",
+              "fakt": "accept-edits-edycje-w-folderze-bez-pytania"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

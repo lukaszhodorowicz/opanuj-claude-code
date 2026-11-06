@@ -1,0 +1,53 @@
+{
+  "lekcja": "probna",
+  "folder_startowy": ["faktura.pdf", "notatki.txt"],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "porownanie",
+      "tytul": "Porównanie",
+      "nauczyciel_start": "Wybierz zadanie.",
+      "terminale": [
+        {"id": "bez", "podpis": "Bez planu", "dopisek": "Od razu działa", "tryb": "edycje"},
+        {"id": "z", "podpis": "Z planem", "dopisek": "Najpierw plan", "tryb": "plan"}
+      ],
+      "zadania": [
+        {
+          "etykieta": "Uporządkuj faktury",
+          "polecenie": "Uporządkuj faktury",
+          "slowa_kluczowe": ["faktur"],
+          "przebiegi": {
+            "bez": [
+              {"typ": "pisz", "tekst": "Uporządkuj faktury"},
+              {"typ": "mysli", "ms": 500},
+              {"typ": "narzedzie", "nazwa": "Bash", "arg": "ls", "wynik": ["faktura.pdf", "notatki.txt"]},
+              {"typ": "narzedzie", "nazwa": "Read", "arg": "faktura.pdf", "wynik": ["Read PDF (12KB)"]},
+              {"typ": "folder", "akcja": "utworz", "nazwa": "2026-09"},
+              {"typ": "claude", "tekst": "Gotowe.", "fakt": "plan-platny"}
+            ],
+            "z": [
+              {"typ": "tryb", "na": "plan"},
+              {"typ": "menu", "tytul": "", "pytanie": "Claude has written up a plan and is ready to execute. Would you like to proceed?",
+               "ramka": "plan",
+               "opcje": [
+                 {"napis": "Yes, and use auto mode", "pl": "Tak, tryb auto", "opis": "Zatwierdzasz plan.",
+                  "fakt": "plan-platny", "dalej": [{"typ": "nauczyciel", "tekst": "Plan przyjęty."}]},
+                 {"napis": "No, keep planning", "pl": "Nie, planuj dalej", "opis": "Wracasz do planu.", "dalej": []}
+               ]}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "przelacznik",
+      "tytul": "Shift+Tab",
+      "nauczyciel_start": "Przełączaj tryby.",
+      "terminale": [{"id": "t", "podpis": "Terminal", "dopisek": "Ćwiczenie", "tryb": "manual"}],
+      "cykl": ["manual", "edycje", "plan"],
+      "cel": "plan",
+      "komentarze": {"manual": "Pyta o wszystko.", "edycje": "Edycje bez pytania.", "plan": "Tylko plan."}
+    }
+  ]
+}

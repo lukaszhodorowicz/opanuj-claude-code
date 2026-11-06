@@ -1,0 +1,2086 @@
+{
+  "lekcja": "tryb-planowania",
+  "terminal_tytul": "~/Faktury",
+  "folder_startowy": [
+    "faktura-2026-09-orlen.pdf",
+    "faktura-wrzesien-allegro.pdf",
+    "faktura_10_2026_ikea.pdf",
+    "skan_0012.pdf",
+    "notatki.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "porownanie",
+      "tytul": "Zobacz różnicę",
+      "opis": "Jedno polecenie, dwa okna. Symulator nie zmieni Twoich plików. Napisy są po angielsku, tak jak w programie.",
+      "nauczyciel_start": "Kliknij polecenie i patrz na foldery pod oknami.",
+      "przyklad": "posegreguj faktury",
+      "terminale": [
+        {
+          "id": "bez",
+          "podpis": "Bez planu",
+          "dopisek": "accept edits: Claude od razu działa",
+          "tryb": "edycje"
+        },
+        {
+          "id": "z",
+          "podpis": "Z planem",
+          "dopisek": "plan mode: Claude najpierw pisze plan",
+          "tryb": "plan"
+        }
+      ],
+      "zadania": [
+        {
+          "etykieta": "Uporządkuj faktury według miesięcy",
+          "opis": "Claude dostanie to polecenie w obu oknach naraz.",
+          "polecenie": "Uporządkuj faktury w tym folderze według miesięcy",
+          "slowa_kluczowe": [
+            "faktur",
+            "porząd",
+            "porzad",
+            "segreg",
+            "posortuj",
+            "sortuj",
+            "ułóż",
+            "uloz",
+            "miesi",
+            "folder"
+          ],
+          "przebiegi": {
+            "bez": [
+              {
+                "typ": "mysli",
+                "ms": 900
+              },
+              {
+                "typ": "claude",
+                "tekst": "Sprawdzę, co jest w folderze."
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Bash",
+                "arg": "ls",
+                "wynik": [
+                  "faktura-2026-09-orlen.pdf",
+                  "faktura-wrzesien-allegro.pdf",
+                  "faktura_10_2026_ikea.pdf",
+                  "skan_0012.pdf",
+                  "notatki.txt"
+                ]
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "⏺ to krok Claude, ✻ znaczy, że pracuje. Bash(ls) wypisuje listę plików, wynik jest pod ⎿."
+              },
+              {
+                "typ": "mysli",
+                "ms": 3500
+              },
+              {
+                "typ": "claude",
+                "tekst": "Utworzę foldery miesięcy i przeniosę faktury."
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Bash",
+                "arg": "mkdir 2026-09 2026-10",
+                "wynik": [
+                  "(No content)"
+                ]
+              },
+              {
+                "typ": "folder",
+                "akcja": "utworz",
+                "nazwa": "2026-09"
+              },
+              {
+                "typ": "folder",
+                "akcja": "utworz",
+                "nazwa": "2026-10"
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "mkdir tworzy foldery. Claude zrobił to bez pytania. „(No content)” znaczy, że polecenie nic nie wypisało.",
+                "fakt": "accept-edits-polecenia-na-plikach"
+              },
+              {
+                "typ": "czekaj",
+                "ms": 3800
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Bash",
+                "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf 2026-09/",
+                "wynik": [
+                  "(No content)"
+                ]
+              },
+              {
+                "typ": "folder",
+                "akcja": "przenies",
+                "nazwa": "2026-09",
+                "plik": "faktura-2026-09-orlen.pdf"
+              },
+              {
+                "typ": "folder",
+                "akcja": "przenies",
+                "nazwa": "2026-09",
+                "plik": "faktura-wrzesien-allegro.pdf"
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "mv przenosi pliki. Spójrz na folder pod oknem: faktury z września są już w 2026-09."
+              },
+              {
+                "typ": "czekaj",
+                "ms": 3200
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Bash",
+                "arg": "mv faktura_10_2026_ikea.pdf skan_0012.pdf 2026-10/",
+                "wynik": [
+                  "(No content)"
+                ]
+              },
+              {
+                "typ": "folder",
+                "akcja": "przenies",
+                "nazwa": "2026-10",
+                "plik": "faktura_10_2026_ikea.pdf"
+              },
+              {
+                "typ": "folder",
+                "akcja": "przenies",
+                "nazwa": "2026-10",
+                "plik": "skan_0012.pdf",
+                "uwaga": "zły folder"
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "Skan bez daty w nazwie trafił do października. Widzisz to dopiero po fakcie."
+              },
+              {
+                "typ": "czekaj",
+                "ms": 900
+              },
+              {
+                "typ": "claude",
+                "tekst": "Gotowe. Faktury są w folderach 2026-09 i 2026-10. Skan bez daty w nazwie przeniosłem do 2026-10, bo to bieżący miesiąc."
+              }
+            ],
+            "z": [
+              {
+                "typ": "mysli",
+                "ms": 1000
+              },
+              {
+                "typ": "claude",
+                "tekst": "Sprawdzę, co jest w folderze."
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Bash",
+                "arg": "ls",
+                "wynik": [
+                  "faktura-2026-09-orlen.pdf",
+                  "faktura-wrzesien-allegro.pdf",
+                  "faktura_10_2026_ikea.pdf",
+                  "skan_0012.pdf",
+                  "notatki.txt"
+                ]
+              },
+              {
+                "typ": "mysli",
+                "ms": 2600
+              },
+              {
+                "typ": "claude",
+                "tekst": "Skan nie ma daty w nazwie. Zajrzę do środka."
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Read",
+                "arg": "skan_0012.pdf",
+                "wynik": [
+                  "Read PDF (84KB)"
+                ]
+              },
+              {
+                "typ": "mysli",
+                "ms": 2800
+              },
+              {
+                "typ": "claude",
+                "tekst": "Na skanie jest data 28.09.2026, czyli wrzesień."
+              },
+              {
+                "typ": "mysli",
+                "ms": 8500
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "Claude tylko czytał (Read to czytanie pliku). Pliki pod oknem są nietknięte.",
+                "fakt": "tryb-plan-nie-zmienia-plikow"
+              },
+              {
+                "typ": "czekaj",
+                "ms": 3600
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "Oto plan. Przeczytaj punkt 3. Najpierw kliknij „Yes, manually approve edits”."
+              },
+              {
+                "typ": "menu",
+                "tytul": "Here is Claude's plan:",
+                "tresc": "Porządek w fakturach\n1. Utworzę foldery 2026-09 i 2026-10.\n2. Przeniosę do 2026-09 dwie faktury z września: orlen i allegro.\n3. skan_0012.pdf nie ma daty w nazwie. Na dokumencie jest 28.09.2026, więc też trafi do 2026-09.\n4. Fakturę ikea przeniosę do 2026-10.\n5. notatki.txt zostawię na miejscu, to nie faktura.",
+                "pytanie": "Claude has written up a plan and is ready to execute. Would you like to proceed?",
+                "ramka": "plan",
+                "opcje": [
+                  {
+                    "napis": "Yes, and use auto mode",
+                    "pl": "Tak, wykonaj w trybie auto",
+                    "opis": "Zatwierdzasz plan i Claude od razu go wykonuje w trybie auto. Gdy trybu auto nie masz, ta odpowiedź brzmi „Yes, auto-accept edits”: Claude sam zmienia pliki.",
+                    "fakt": "plan-opcja-yes-and-use-auto-mode",
+                    "dalej": [
+                      {
+                        "typ": "tryb",
+                        "na": "auto"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Pasek pokazuje „auto mode on” (tryb auto). Polecenia w terminalu najpierw ocenia drugi model AI.",
+                        "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mkdir 2026-09 2026-10",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "utworz",
+                        "nazwa": "2026-09"
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "utworz",
+                        "nazwa": "2026-10"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Punkt 1 planu: foldery 2026-09 i 2026-10 są pod oknem. Pliki zmieniają się dopiero teraz.",
+                        "fakt": "plan-edycje-zablokowane-do-zatwierdzenia"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf 2026-09/",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "2026-09",
+                        "plik": "faktura-2026-09-orlen.pdf"
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "2026-09",
+                        "plik": "faktura-wrzesien-allegro.pdf"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Punkt 2 planu: dwie faktury z września są w 2026-09."
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mv skan_0012.pdf 2026-09/",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "2026-09",
+                        "plik": "skan_0012.pdf"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Punkt 3 planu: skan też trafił do 2026-09, tak jak zapowiedział plan."
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "2026-10",
+                        "plik": "faktura_10_2026_ikea.pdf"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "W oknie „Bez planu” skan trafił do października. Tu decyzję o skanie widać było w planie."
+                      },
+                      {
+                        "typ": "claude",
+                        "tekst": "Gotowe, zgodnie z planem. Skan jest w 2026-09, notatki zostały na miejscu."
+                      }
+                    ]
+                  },
+                  {
+                    "napis": "Yes, manually approve edits",
+                    "pl": "Tak, każdą zmianę zatwierdzę osobno",
+                    "opis": "Zatwierdzasz plan, a sesja przechodzi na tryb Manual. Przed każdą zmianą Claude pokaże okno zgody i poczeka na Twoją decyzję.",
+                    "fakt": "plan-reczne-zatwierdzanie-to-tryb-manual",
+                    "dalej": [
+                      {
+                        "typ": "tryb",
+                        "na": "manual"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Pasek pokazuje „manual mode on” (tryb Manual). Plan zatwierdzony, ale każdą zmianę przejrzysz w oknie zgody.",
+                        "fakt": "plan-opcja-yes-manually-approve-edits"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3200
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Okno zgody pyta: „Do you want to proceed?”, czyli „czy wykonać?”.",
+                        "fakt": "okno-zgody-pytanie-do-you-want-to-proceed"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 600
+                      },
+                      {
+                        "typ": "menu",
+                        "tytul": "Bash command",
+                        "tresc": "mkdir 2026-09 2026-10",
+                        "pytanie": "Do you want to proceed?",
+                        "ramka": "zgoda",
+                        "opcje": [
+                          {
+                            "napis": "Yes",
+                            "pl": "Tak",
+                            "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                            "fakt": "tryb-manual-pyta-przed-akcjami",
+                            "dalej": [
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                "fakt": "tryb-manual-pyta-przed-akcjami"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 2000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mkdir 2026-09 2026-10",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "2026-09"
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "2026-10"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 1 planu: foldery 2026-09 i 2026-10 są pod oknem. Pliki zmieniają się dopiero teraz.",
+                                "fakt": "plan-edycje-zablokowane-do-zatwierdzenia"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 1800
+                              },
+                              {
+                                "typ": "menu",
+                                "tytul": "Bash command",
+                                "tresc": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf 2026-09/",
+                                "pytanie": "Do you want to proceed?",
+                                "ramka": "zgoda",
+                                "opcje": [
+                                  {
+                                    "napis": "Yes",
+                                    "pl": "Tak",
+                                    "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                    "fakt": "tryb-manual-pyta-przed-akcjami",
+                                    "dalej": [
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                        "fakt": "tryb-manual-pyta-przed-akcjami"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 2000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf 2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "2026-09",
+                                        "plik": "faktura-2026-09-orlen.pdf"
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "2026-09",
+                                        "plik": "faktura-wrzesien-allegro.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 2 planu: dwie faktury z września są w 2026-09."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 1800
+                                      },
+                                      {
+                                        "typ": "menu",
+                                        "tytul": "Bash command",
+                                        "tresc": "mv skan_0012.pdf 2026-09/",
+                                        "pytanie": "Do you want to proceed?",
+                                        "ramka": "zgoda",
+                                        "opcje": [
+                                          {
+                                            "napis": "Yes",
+                                            "pl": "Tak",
+                                            "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                            "fakt": "tryb-manual-pyta-przed-akcjami",
+                                            "dalej": [
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                                "fakt": "tryb-manual-pyta-przed-akcjami"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 2000
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv skan_0012.pdf 2026-09/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "2026-09",
+                                                "plik": "skan_0012.pdf"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Punkt 3 planu: skan też trafił do 2026-09, tak jak zapowiedział plan."
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 1800
+                                              },
+                                              {
+                                                "typ": "menu",
+                                                "tytul": "Bash command",
+                                                "tresc": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                                                "pytanie": "Do you want to proceed?",
+                                                "ramka": "zgoda",
+                                                "opcje": [
+                                                  {
+                                                    "napis": "Yes",
+                                                    "pl": "Tak",
+                                                    "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                                    "fakt": "tryb-manual-pyta-przed-akcjami",
+                                                    "dalej": [
+                                                      {
+                                                        "typ": "nauczyciel",
+                                                        "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                                        "fakt": "tryb-manual-pyta-przed-akcjami"
+                                                      },
+                                                      {
+                                                        "typ": "czekaj",
+                                                        "ms": 2000
+                                                      },
+                                                      {
+                                                        "typ": "narzedzie",
+                                                        "nazwa": "Bash",
+                                                        "arg": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                                                        "wynik": [
+                                                          "(No content)"
+                                                        ]
+                                                      },
+                                                      {
+                                                        "typ": "folder",
+                                                        "akcja": "przenies",
+                                                        "nazwa": "2026-10",
+                                                        "plik": "faktura_10_2026_ikea.pdf"
+                                                      },
+                                                      {
+                                                        "typ": "nauczyciel",
+                                                        "tekst": "W oknie „Bez planu” skan trafił do października. Tu decyzję o skanie widać było w planie."
+                                                      },
+                                                      {
+                                                        "typ": "claude",
+                                                        "tekst": "Gotowe, zgodnie z planem. Skan jest w 2026-09, notatki zostały na miejscu."
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "napis": "Yes, and switch to auto mode",
+                                                    "pl": "Tak i przełącz na tryb auto",
+                                                    "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                                    "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                                    "dalej": [
+                                                      {
+                                                        "typ": "tryb",
+                                                        "na": "auto"
+                                                      },
+                                                      {
+                                                        "typ": "nauczyciel",
+                                                        "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                                        "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                                      },
+                                                      {
+                                                        "typ": "czekaj",
+                                                        "ms": 3000
+                                                      },
+                                                      {
+                                                        "typ": "nauczyciel",
+                                                        "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                                        "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                                      },
+                                                      {
+                                                        "typ": "czekaj",
+                                                        "ms": 2600
+                                                      },
+                                                      {
+                                                        "typ": "narzedzie",
+                                                        "nazwa": "Bash",
+                                                        "arg": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                                                        "wynik": [
+                                                          "(No content)"
+                                                        ]
+                                                      },
+                                                      {
+                                                        "typ": "folder",
+                                                        "akcja": "przenies",
+                                                        "nazwa": "2026-10",
+                                                        "plik": "faktura_10_2026_ikea.pdf"
+                                                      },
+                                                      {
+                                                        "typ": "nauczyciel",
+                                                        "tekst": "W oknie „Bez planu” skan trafił do października. Tu decyzję o skanie widać było w planie."
+                                                      },
+                                                      {
+                                                        "typ": "claude",
+                                                        "tekst": "Gotowe, zgodnie z planem. Skan jest w 2026-09, notatki zostały na miejscu."
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "napis": "No",
+                                                    "pl": "Nie",
+                                                    "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                                    "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                                    "dalej": [
+                                                      {
+                                                        "typ": "nauczyciel",
+                                                        "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                                        "fakt": "okno-zgody-no-z-komentarzem-powod"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "napis": "Yes, and switch to auto mode",
+                                            "pl": "Tak i przełącz na tryb auto",
+                                            "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                            "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                            "dalej": [
+                                              {
+                                                "typ": "tryb",
+                                                "na": "auto"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                                "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 3000
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                                "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 2600
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv skan_0012.pdf 2026-09/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "2026-09",
+                                                "plik": "skan_0012.pdf"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Punkt 3 planu: skan też trafił do 2026-09, tak jak zapowiedział plan."
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 3000
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "2026-10",
+                                                "plik": "faktura_10_2026_ikea.pdf"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "W oknie „Bez planu” skan trafił do października. Tu decyzję o skanie widać było w planie."
+                                              },
+                                              {
+                                                "typ": "claude",
+                                                "tekst": "Gotowe, zgodnie z planem. Skan jest w 2026-09, notatki zostały na miejscu."
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "napis": "No",
+                                            "pl": "Nie",
+                                            "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                            "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                            "dalej": [
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                                "fakt": "okno-zgody-no-z-komentarzem-powod"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "napis": "Yes, and switch to auto mode",
+                                    "pl": "Tak i przełącz na tryb auto",
+                                    "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                    "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                    "dalej": [
+                                      {
+                                        "typ": "tryb",
+                                        "na": "auto"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                        "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                        "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 2600
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf 2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "2026-09",
+                                        "plik": "faktura-2026-09-orlen.pdf"
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "2026-09",
+                                        "plik": "faktura-wrzesien-allegro.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 2 planu: dwie faktury z września są w 2026-09."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv skan_0012.pdf 2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "2026-09",
+                                        "plik": "skan_0012.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 3 planu: skan też trafił do 2026-09, tak jak zapowiedział plan."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "2026-10",
+                                        "plik": "faktura_10_2026_ikea.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "W oknie „Bez planu” skan trafił do października. Tu decyzję o skanie widać było w planie."
+                                      },
+                                      {
+                                        "typ": "claude",
+                                        "tekst": "Gotowe, zgodnie z planem. Skan jest w 2026-09, notatki zostały na miejscu."
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "napis": "No",
+                                    "pl": "Nie",
+                                    "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                    "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                    "dalej": [
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                        "fakt": "okno-zgody-no-z-komentarzem-powod"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "napis": "Yes, and switch to auto mode",
+                            "pl": "Tak i przełącz na tryb auto",
+                            "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                            "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                            "dalej": [
+                              {
+                                "typ": "tryb",
+                                "na": "auto"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 2600
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mkdir 2026-09 2026-10",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "2026-09"
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "2026-10"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 1 planu: foldery 2026-09 i 2026-10 są pod oknem. Pliki zmieniają się dopiero teraz.",
+                                "fakt": "plan-edycje-zablokowane-do-zatwierdzenia"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf 2026-09/",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "2026-09",
+                                "plik": "faktura-2026-09-orlen.pdf"
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "2026-09",
+                                "plik": "faktura-wrzesien-allegro.pdf"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 2 planu: dwie faktury z września są w 2026-09."
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mv skan_0012.pdf 2026-09/",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "2026-09",
+                                "plik": "skan_0012.pdf"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 3 planu: skan też trafił do 2026-09, tak jak zapowiedział plan."
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mv faktura_10_2026_ikea.pdf 2026-10/",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "2026-10",
+                                "plik": "faktura_10_2026_ikea.pdf"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "W oknie „Bez planu” skan trafił do października. Tu decyzję o skanie widać było w planie."
+                              },
+                              {
+                                "typ": "claude",
+                                "tekst": "Gotowe, zgodnie z planem. Skan jest w 2026-09, notatki zostały na miejscu."
+                              }
+                            ]
+                          },
+                          {
+                            "napis": "No",
+                            "pl": "Nie",
+                            "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                            "fakt": "okno-zgody-tab-otwiera-komentarz",
+                            "dalej": [
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                "fakt": "okno-zgody-no-z-komentarzem-powod"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "napis": "No, keep planning",
+                    "pl": "Nie, planuj dalej",
+                    "opis": "Nic się nie zmienia. Zostajesz w trybie planowania i piszesz Claude, co poprawić w planie.",
+                    "fakt": "plan-opcja-no-keep-planning",
+                    "dalej": [
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "„No, keep planning”: pliki bez zmian, zostajesz w planowaniu. Jak poprawić plan, przećwiczysz w ćwiczeniu 2.",
+                        "fakt": "plan-opcja-no-keep-planning"
+                      },
+                      {
+                        "typ": "claude",
+                        "tekst": "Dobrze. Co zmienić w planie?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "poza_zadaniem": "W tym ćwiczeniu pracujemy na folderze z fakturami. Spróbuj: „uporządkuj faktury według miesięcy”."
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "pojedynczy",
+      "tytul": "Popraw plan, zanim Claude go wykona",
+      "opis": "Twój cel: skan zostaje na miejscu, bo chcesz go najpierw sprawdzić. Odpowiedź klikasz w oknie.",
+      "cele": {
+        "skan_0012.pdf": "ma zostać"
+      },
+      "nauczyciel_start": "Claude pracuje w trybie planowania: przegląda pliki w folderze i za chwilę pokaże plan.",
+      "przycisk": "Pokaż plan jeszcze raz",
+      "terminale": [
+        {
+          "id": "plan",
+          "podpis": "Plan",
+          "dopisek": "Claude czeka na odpowiedź",
+          "tryb": "plan"
+        }
+      ],
+      "zadania": [
+        {
+          "etykieta": "Odłóż faktury z września dla księgowej",
+          "polecenie": "Odłóż faktury z września do osobnego folderu dla księgowej",
+          "start_od_razu": true,
+          "slowa_kluczowe": [],
+          "przebiegi": {
+            "plan": [
+              {
+                "typ": "mysli",
+                "ms": 900
+              },
+              {
+                "typ": "claude",
+                "tekst": "Sprawdzę, co jest w folderze."
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Bash",
+                "arg": "ls",
+                "wynik": [
+                  "faktura-2026-09-orlen.pdf",
+                  "faktura-wrzesien-allegro.pdf",
+                  "faktura_10_2026_ikea.pdf",
+                  "skan_0012.pdf",
+                  "notatki.txt"
+                ]
+              },
+              {
+                "typ": "mysli",
+                "ms": 1200
+              },
+              {
+                "typ": "claude",
+                "tekst": "Skan nie ma daty w nazwie. Zajrzę do środka."
+              },
+              {
+                "typ": "narzedzie",
+                "nazwa": "Read",
+                "arg": "skan_0012.pdf",
+                "wynik": [
+                  "Read PDF (84KB)"
+                ]
+              },
+              {
+                "typ": "mysli",
+                "ms": 1600
+              },
+              {
+                "typ": "nauczyciel",
+                "tekst": "W punkcie 3 Claude planuje przenieść skan, a Ty chcesz go najpierw sprawdzić. Wybierz odpowiedź, która pozwala poprawić plan."
+              },
+              {
+                "typ": "menu",
+                "tytul": "Here is Claude's plan:",
+                "tresc": "Folder dla księgowej: wrzesień 2026\n1. Utworzę folder dla-ksiegowej-2026-09.\n2. Przeniosę do niego dwie faktury z września: orlen i allegro.\n3. skan_0012.pdf nie ma daty w nazwie, ale na dokumencie jest 28.09.2026. Też go przeniosę.\n4. Fakturę ikea (październik) i notatki.txt zostawię na miejscu.",
+                "pytanie": "Claude has written up a plan and is ready to execute. Would you like to proceed?",
+                "ramka": "plan",
+                "opcje": [
+                  {
+                    "napis": "Yes, and use auto mode",
+                    "pl": "Tak, wykonaj w trybie auto",
+                    "opis": "Zatwierdzasz plan i Claude od razu go wykonuje w trybie auto. Gdy trybu auto nie masz, ta odpowiedź brzmi „Yes, auto-accept edits”: Claude sam zmienia pliki.",
+                    "fakt": "plan-opcja-yes-auto-accept-edits",
+                    "dalej": [
+                      {
+                        "typ": "tryb",
+                        "na": "auto"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Pasek pokazuje „auto mode on”. Na kontach firmowych Claude (Team i Enterprise) administrator może wyłączyć tryb auto.",
+                        "fakt": "auto-administrator-wylacza-na-team-i-enterprise"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mkdir dla-ksiegowej-2026-09",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "utworz",
+                        "nazwa": "dla-ksiegowej-2026-09"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Punkt 1 planu: folder dla księgowej jest pod oknem."
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "dla-ksiegowej-2026-09",
+                        "plik": "faktura-2026-09-orlen.pdf"
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "dla-ksiegowej-2026-09",
+                        "plik": "faktura-wrzesien-allegro.pdf"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Punkt 2 planu: dwie faktury z września są w folderze dla księgowej."
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3000
+                      },
+                      {
+                        "typ": "narzedzie",
+                        "nazwa": "Bash",
+                        "arg": "mv skan_0012.pdf dla-ksiegowej-2026-09/",
+                        "wynik": [
+                          "(No content)"
+                        ]
+                      },
+                      {
+                        "typ": "folder",
+                        "akcja": "przenies",
+                        "nazwa": "dla-ksiegowej-2026-09",
+                        "plik": "skan_0012.pdf",
+                        "uwaga": "miał zostać"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Skan trafił do folderu dla księgowej, bo plan to przewidywał. Kliknij „Pokaż plan jeszcze raz” i wybierz „No, keep planning”."
+                      },
+                      {
+                        "typ": "claude",
+                        "tekst": "Gotowe, zgodnie z planem. W folderze dla-ksiegowej-2026-09 są dwie faktury i skan."
+                      }
+                    ]
+                  },
+                  {
+                    "napis": "Yes, manually approve edits",
+                    "pl": "Tak, każdą zmianę zatwierdzę osobno",
+                    "opis": "Zatwierdzasz plan, a sesja przechodzi na tryb Manual. Przed każdą zmianą Claude pokaże okno zgody i poczeka na Twoją decyzję.",
+                    "fakt": "plan-reczne-zatwierdzanie-to-tryb-manual",
+                    "dalej": [
+                      {
+                        "typ": "tryb",
+                        "na": "manual"
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Pasek pokazuje „manual mode on” (tryb Manual). Plan zatwierdzony, ale każdą zmianę przejrzysz w oknie zgody.",
+                        "fakt": "plan-opcja-yes-manually-approve-edits"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 3200
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Okno zgody pyta: „Do you want to proceed?”, czyli „czy wykonać?”.",
+                        "fakt": "okno-zgody-pytanie-do-you-want-to-proceed"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 600
+                      },
+                      {
+                        "typ": "menu",
+                        "tytul": "Bash command",
+                        "tresc": "mkdir dla-ksiegowej-2026-09",
+                        "pytanie": "Do you want to proceed?",
+                        "ramka": "zgoda",
+                        "opcje": [
+                          {
+                            "napis": "Yes",
+                            "pl": "Tak",
+                            "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                            "fakt": "tryb-manual-pyta-przed-akcjami",
+                            "dalej": [
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                "fakt": "tryb-manual-pyta-przed-akcjami"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 2000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mkdir dla-ksiegowej-2026-09",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "dla-ksiegowej-2026-09"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 1 planu: folder dla księgowej jest pod oknem."
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 1800
+                              },
+                              {
+                                "typ": "menu",
+                                "tytul": "Bash command",
+                                "tresc": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                "pytanie": "Do you want to proceed?",
+                                "ramka": "zgoda",
+                                "opcje": [
+                                  {
+                                    "napis": "Yes",
+                                    "pl": "Tak",
+                                    "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                    "fakt": "tryb-manual-pyta-przed-akcjami",
+                                    "dalej": [
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                        "fakt": "tryb-manual-pyta-przed-akcjami"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 2000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "faktura-2026-09-orlen.pdf"
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "faktura-wrzesien-allegro.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 2 planu: dwie faktury z września są w folderze dla księgowej."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 1800
+                                      },
+                                      {
+                                        "typ": "menu",
+                                        "tytul": "Bash command",
+                                        "tresc": "mv skan_0012.pdf dla-ksiegowej-2026-09/",
+                                        "pytanie": "Do you want to proceed?",
+                                        "ramka": "zgoda",
+                                        "opcje": [
+                                          {
+                                            "napis": "Yes",
+                                            "pl": "Tak",
+                                            "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                            "fakt": "tryb-manual-pyta-przed-akcjami",
+                                            "dalej": [
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                                "fakt": "tryb-manual-pyta-przed-akcjami"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 2000
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv skan_0012.pdf dla-ksiegowej-2026-09/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "dla-ksiegowej-2026-09",
+                                                "plik": "skan_0012.pdf",
+                                                "uwaga": "miał zostać"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Skan trafił do folderu dla księgowej, bo plan to przewidywał. Kliknij „Pokaż plan jeszcze raz” i wybierz „No, keep planning”."
+                                              },
+                                              {
+                                                "typ": "claude",
+                                                "tekst": "Gotowe, zgodnie z planem. W folderze dla-ksiegowej-2026-09 są dwie faktury i skan."
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "napis": "Yes, and switch to auto mode",
+                                            "pl": "Tak i przełącz na tryb auto",
+                                            "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                            "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                            "dalej": [
+                                              {
+                                                "typ": "tryb",
+                                                "na": "auto"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                                "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 3000
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                                "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 2600
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv skan_0012.pdf dla-ksiegowej-2026-09/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "dla-ksiegowej-2026-09",
+                                                "plik": "skan_0012.pdf",
+                                                "uwaga": "miał zostać"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Skan trafił do folderu dla księgowej, bo plan to przewidywał. Kliknij „Pokaż plan jeszcze raz” i wybierz „No, keep planning”."
+                                              },
+                                              {
+                                                "typ": "claude",
+                                                "tekst": "Gotowe, zgodnie z planem. W folderze dla-ksiegowej-2026-09 są dwie faktury i skan."
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "napis": "No",
+                                            "pl": "Nie",
+                                            "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                            "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                            "dalej": [
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "„No” (nie): skan zostaje na miejscu. To samo mogłeś zrobić wcześniej, przy planie, odpowiedzią „No, keep planning”.",
+                                                "fakt": "plan-opcja-no-keep-planning"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "napis": "Yes, and switch to auto mode",
+                                    "pl": "Tak i przełącz na tryb auto",
+                                    "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                    "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                    "dalej": [
+                                      {
+                                        "typ": "tryb",
+                                        "na": "auto"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                        "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                        "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 2600
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "faktura-2026-09-orlen.pdf"
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "faktura-wrzesien-allegro.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 2 planu: dwie faktury z września są w folderze dla księgowej."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv skan_0012.pdf dla-ksiegowej-2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "skan_0012.pdf",
+                                        "uwaga": "miał zostać"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Skan trafił do folderu dla księgowej, bo plan to przewidywał. Kliknij „Pokaż plan jeszcze raz” i wybierz „No, keep planning”."
+                                      },
+                                      {
+                                        "typ": "claude",
+                                        "tekst": "Gotowe, zgodnie z planem. W folderze dla-ksiegowej-2026-09 są dwie faktury i skan."
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "napis": "No",
+                                    "pl": "Nie",
+                                    "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                    "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                    "dalej": [
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                        "fakt": "okno-zgody-no-z-komentarzem-powod"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "napis": "Yes, and switch to auto mode",
+                            "pl": "Tak i przełącz na tryb auto",
+                            "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                            "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                            "dalej": [
+                              {
+                                "typ": "tryb",
+                                "na": "auto"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 2600
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mkdir dla-ksiegowej-2026-09",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "dla-ksiegowej-2026-09"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 1 planu: folder dla księgowej jest pod oknem."
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "dla-ksiegowej-2026-09",
+                                "plik": "faktura-2026-09-orlen.pdf"
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "dla-ksiegowej-2026-09",
+                                "plik": "faktura-wrzesien-allegro.pdf"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 2 planu: dwie faktury z września są w folderze dla księgowej."
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mv skan_0012.pdf dla-ksiegowej-2026-09/",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "dla-ksiegowej-2026-09",
+                                "plik": "skan_0012.pdf",
+                                "uwaga": "miał zostać"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Skan trafił do folderu dla księgowej, bo plan to przewidywał. Kliknij „Pokaż plan jeszcze raz” i wybierz „No, keep planning”."
+                              },
+                              {
+                                "typ": "claude",
+                                "tekst": "Gotowe, zgodnie z planem. W folderze dla-ksiegowej-2026-09 są dwie faktury i skan."
+                              }
+                            ]
+                          },
+                          {
+                            "napis": "No",
+                            "pl": "Nie",
+                            "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                            "fakt": "okno-zgody-tab-otwiera-komentarz",
+                            "dalej": [
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                "fakt": "okno-zgody-no-z-komentarzem-powod"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "napis": "No, keep planning",
+                    "pl": "Nie, planuj dalej",
+                    "opis": "Nic się nie zmienia. Zostajesz w trybie planowania i piszesz Claude, co poprawić w planie.",
+                    "fakt": "plan-opcja-no-keep-planning",
+                    "dalej": [
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "„No, keep planning”: pliki bez zmian, zostajesz w planowaniu. Teraz piszesz, co poprawić.",
+                        "fakt": "plan-opcja-no-keep-planning"
+                      },
+                      {
+                        "typ": "czekaj",
+                        "ms": 2200
+                      },
+                      {
+                        "typ": "pisz",
+                        "tekst": "Skanu nie przenoś, najpierw go sprawdzę"
+                      },
+                      {
+                        "typ": "mysli",
+                        "ms": 1600
+                      },
+                      {
+                        "typ": "claude",
+                        "tekst": "Dobrze, skan zostaje na miejscu. Oto poprawiony plan."
+                      },
+                      {
+                        "typ": "nauczyciel",
+                        "tekst": "Zmienił się punkt 3, a pliki pod oknem są nietknięte: to nadal tryb planowania.",
+                        "fakt": "tryb-plan-nie-zmienia-plikow"
+                      },
+                      {
+                        "typ": "menu",
+                        "tytul": "Here is Claude's plan:",
+                        "tresc": "Folder dla księgowej: wrzesień 2026 (poprawiony plan)\n1. Utworzę folder dla-ksiegowej-2026-09.\n2. Przeniosę do niego dwie faktury z września: orlen i allegro.\n3. skan_0012.pdf zostaje na miejscu, najpierw go sprawdzisz.\n4. Fakturę ikea (październik) i notatki.txt zostawię na miejscu.",
+                        "pytanie": "Claude has written up a plan and is ready to execute. Would you like to proceed?",
+                        "ramka": "plan",
+                        "opcje": [
+                          {
+                            "napis": "Yes, and use auto mode",
+                            "pl": "Tak, wykonaj w trybie auto",
+                            "opis": "Zatwierdzasz plan i Claude od razu go wykonuje w trybie auto. Gdy trybu auto nie masz, ta odpowiedź brzmi „Yes, auto-accept edits”: Claude sam zmienia pliki.",
+                            "fakt": "plan-opcja-yes-and-use-auto-mode",
+                            "dalej": [
+                              {
+                                "typ": "tryb",
+                                "na": "auto"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Pasek pokazuje „auto mode on” (tryb auto). Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mkdir dla-ksiegowej-2026-09",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "utworz",
+                                "nazwa": "dla-ksiegowej-2026-09"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Punkt 1 planu: folder dla księgowej jest pod oknem."
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3000
+                              },
+                              {
+                                "typ": "narzedzie",
+                                "nazwa": "Bash",
+                                "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                "wynik": [
+                                  "(No content)"
+                                ]
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "dla-ksiegowej-2026-09",
+                                "plik": "faktura-2026-09-orlen.pdf"
+                              },
+                              {
+                                "typ": "folder",
+                                "akcja": "przenies",
+                                "nazwa": "dla-ksiegowej-2026-09",
+                                "plik": "faktura-wrzesien-allegro.pdf"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Skan został na miejscu: poprawka trafiła do planu, zanim pliki się zmieniły. Tak działa „No, keep planning”."
+                              },
+                              {
+                                "typ": "claude",
+                                "tekst": "Gotowe. W folderze dla-ksiegowej-2026-09 są dwie faktury z września. Skan został na miejscu."
+                              }
+                            ]
+                          },
+                          {
+                            "napis": "Yes, manually approve edits",
+                            "pl": "Tak, każdą zmianę zatwierdzę osobno",
+                            "opis": "Zatwierdzasz plan, a sesja przechodzi na tryb Manual. Przed każdą zmianą Claude pokaże okno zgody i poczeka na Twoją decyzję.",
+                            "fakt": "plan-reczne-zatwierdzanie-to-tryb-manual",
+                            "dalej": [
+                              {
+                                "typ": "tryb",
+                                "na": "manual"
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Pasek pokazuje „manual mode on” (tryb Manual). Plan zatwierdzony, ale każdą zmianę przejrzysz w oknie zgody.",
+                                "fakt": "plan-opcja-yes-manually-approve-edits"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 3200
+                              },
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Okno zgody pyta: „Do you want to proceed?”, czyli „czy wykonać?”.",
+                                "fakt": "okno-zgody-pytanie-do-you-want-to-proceed"
+                              },
+                              {
+                                "typ": "czekaj",
+                                "ms": 600
+                              },
+                              {
+                                "typ": "menu",
+                                "tytul": "Bash command",
+                                "tresc": "mkdir dla-ksiegowej-2026-09",
+                                "pytanie": "Do you want to proceed?",
+                                "ramka": "zgoda",
+                                "opcje": [
+                                  {
+                                    "napis": "Yes",
+                                    "pl": "Tak",
+                                    "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                    "fakt": "tryb-manual-pyta-przed-akcjami",
+                                    "dalej": [
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                        "fakt": "tryb-manual-pyta-przed-akcjami"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 2000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mkdir dla-ksiegowej-2026-09",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "utworz",
+                                        "nazwa": "dla-ksiegowej-2026-09"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 1 planu: folder dla księgowej jest pod oknem."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 1800
+                                      },
+                                      {
+                                        "typ": "menu",
+                                        "tytul": "Bash command",
+                                        "tresc": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                        "pytanie": "Do you want to proceed?",
+                                        "ramka": "zgoda",
+                                        "opcje": [
+                                          {
+                                            "napis": "Yes",
+                                            "pl": "Tak",
+                                            "opis": "Przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                            "fakt": "tryb-manual-pyta-przed-akcjami",
+                                            "dalej": [
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "„Yes” (tak): przy następnym poleceniu Claude zwykle zapyta znowu.",
+                                                "fakt": "tryb-manual-pyta-przed-akcjami"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 2000
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "dla-ksiegowej-2026-09",
+                                                "plik": "faktura-2026-09-orlen.pdf"
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "dla-ksiegowej-2026-09",
+                                                "plik": "faktura-wrzesien-allegro.pdf"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Skan został na miejscu: poprawka trafiła do planu, zanim pliki się zmieniły. Tak działa „No, keep planning”."
+                                              },
+                                              {
+                                                "typ": "claude",
+                                                "tekst": "Gotowe. W folderze dla-ksiegowej-2026-09 są dwie faktury z września. Skan został na miejscu."
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "napis": "Yes, and switch to auto mode",
+                                            "pl": "Tak i przełącz na tryb auto",
+                                            "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                            "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                            "dalej": [
+                                              {
+                                                "typ": "tryb",
+                                                "na": "auto"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                                "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 3000
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                                "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                              },
+                                              {
+                                                "typ": "czekaj",
+                                                "ms": 2600
+                                              },
+                                              {
+                                                "typ": "narzedzie",
+                                                "nazwa": "Bash",
+                                                "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                                "wynik": [
+                                                  "(No content)"
+                                                ]
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "dla-ksiegowej-2026-09",
+                                                "plik": "faktura-2026-09-orlen.pdf"
+                                              },
+                                              {
+                                                "typ": "folder",
+                                                "akcja": "przenies",
+                                                "nazwa": "dla-ksiegowej-2026-09",
+                                                "plik": "faktura-wrzesien-allegro.pdf"
+                                              },
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "Skan został na miejscu: poprawka trafiła do planu, zanim pliki się zmieniły. Tak działa „No, keep planning”."
+                                              },
+                                              {
+                                                "typ": "claude",
+                                                "tekst": "Gotowe. W folderze dla-ksiegowej-2026-09 są dwie faktury z września. Skan został na miejscu."
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "napis": "No",
+                                            "pl": "Nie",
+                                            "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                            "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                            "dalej": [
+                                              {
+                                                "typ": "nauczyciel",
+                                                "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                                "fakt": "okno-zgody-no-z-komentarzem-powod"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "napis": "Yes, and switch to auto mode",
+                                    "pl": "Tak i przełącz na tryb auto",
+                                    "opis": "Zgadzasz się na to polecenie i przełączasz całą sesję na tryb auto. Ta odpowiedź nie pojawia się w każdym oknie zgody.",
+                                    "fakt": "okno-zgody-yes-and-switch-to-auto-mode",
+                                    "dalej": [
+                                      {
+                                        "typ": "tryb",
+                                        "na": "auto"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Pasek pokazuje „auto mode on”: polecenie zatwierdzone, cała sesja jest teraz w trybie auto.",
+                                        "fakt": "okno-zgody-yes-and-switch-to-auto-mode"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Polecenia w terminalu najpierw ocenia drugi model AI.",
+                                        "fakt": "auto-klasyfikator-ocenia-przed-wykonaniem"
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 2600
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mkdir dla-ksiegowej-2026-09",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "utworz",
+                                        "nazwa": "dla-ksiegowej-2026-09"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Punkt 1 planu: folder dla księgowej jest pod oknem."
+                                      },
+                                      {
+                                        "typ": "czekaj",
+                                        "ms": 3000
+                                      },
+                                      {
+                                        "typ": "narzedzie",
+                                        "nazwa": "Bash",
+                                        "arg": "mv faktura-2026-09-orlen.pdf faktura-wrzesien-allegro.pdf dla-ksiegowej-2026-09/",
+                                        "wynik": [
+                                          "(No content)"
+                                        ]
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "faktura-2026-09-orlen.pdf"
+                                      },
+                                      {
+                                        "typ": "folder",
+                                        "akcja": "przenies",
+                                        "nazwa": "dla-ksiegowej-2026-09",
+                                        "plik": "faktura-wrzesien-allegro.pdf"
+                                      },
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "Skan został na miejscu: poprawka trafiła do planu, zanim pliki się zmieniły. Tak działa „No, keep planning”."
+                                      },
+                                      {
+                                        "typ": "claude",
+                                        "tekst": "Gotowe. W folderze dla-ksiegowej-2026-09 są dwie faktury z września. Skan został na miejscu."
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "napis": "No",
+                                    "pl": "Nie",
+                                    "opis": "Claude nie wykona tego polecenia. W prawdziwym oknie zaznacz No i naciśnij Tab, żeby dopisać, co zrobić inaczej.",
+                                    "fakt": "okno-zgody-tab-otwiera-komentarz",
+                                    "dalej": [
+                                      {
+                                        "typ": "nauczyciel",
+                                        "tekst": "„No” (nie): Claude nie wykona polecenia. W prawdziwym programie zaznacz No i naciśnij Tab. Dopisz powód: Claude go dostanie i będzie pracować dalej.",
+                                        "fakt": "okno-zgody-no-z-komentarzem-powod"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "napis": "No, keep planning",
+                            "pl": "Nie, planuj dalej",
+                            "opis": "Nic się nie zmienia. Zostajesz w trybie planowania i piszesz Claude, co poprawić w planie.",
+                            "fakt": "plan-opcja-no-keep-planning",
+                            "dalej": [
+                              {
+                                "typ": "nauczyciel",
+                                "tekst": "Znowu zostajesz w planowaniu. W terminalu plan możesz też poprawić sam: Ctrl+G otwiera go w edytorze tekstu.",
+                                "fakt": "plan-ctrl-g-otwiera-plan-w-edytorze"
+                              },
+                              {
+                                "typ": "claude",
+                                "tekst": "Co jeszcze zmienić w planie?"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+pytania:
+  - pytanie: "Pracujesz w trybie Plan. Prosisz Claude o podwyżkę cen w cenniku dla klientów, a Claude pokazuje kartę „Claude proposed a plan”. Co jest teraz w pliku z cennikiem?"
+    odpowiedzi:
+      - "Nowe ceny, bo Claude zmienia plik od razu, a plan to tylko podsumowanie."
+      - "Stare ceny, bo w trybie Plan Claude nie zmienia żadnego pliku."
+      - "Nowe ceny, ale dopiero po minucie, gdy plan sam się wykona."
+    poprawna: 1
+    wyjasnienie: "W trybie Plan Claude proponuje podejście bez edytowania jakichkolwiek plików. Cennik zmieni się dopiero po zatwierdzeniu planu."
+    fakt: plan-aplikacja-bez-zmian-w-plikach
+
+  - pytanie: "Plan podwyżki w cenniku Ci odpowiada. Klikasz Accept and auto mode. Co pokaże przełącznik pod polem wiadomości?"
+    odpowiedzi:
+      - "Auto, a karta planu zniknie."
+      - "Plan, bo przełącznik zmieniasz zawsze sam."
+      - "Manual, a Claude zapyta o każdą zmianę."
+    poprawna: 0
+    wyjasnienie: "Po kliknięciu Accept and auto mode karta planu znika, a przełącznik pod polem wiadomości pokazuje Auto."
+    fakt: aplikacja-plan-accept-and-auto-mode-karta-znika-auto
+
+  - pytanie: "W planie zmian w cenniku Claude chce usunąć konsultację, a Ty chcesz ją zostawić. Klikasz Revise…, wpisujesz poprawkę i klikasz Revise. Co się stanie?"
+    odpowiedzi:
+      - "Claude wykona plan z Twoją poprawką i od razu zmieni cennik."
+      - "Przełącznik przejdzie na Manual i Claude zapyta o każdą zmianę."
+      - "Poprawka trafi do rozmowy, a przełącznik dalej pokaże Plan."
+    poprawna: 2
+    wyjasnienie: "Po wysłaniu poprawki karta znika, poprawka staje w rozmowie jako Twoja wiadomość, a przełącznik dalej pokazuje tryb Plan. Claude odpowiada nowym planem."
+    fakt: aplikacja-plan-revise-dymek-tryb-plan
+
+  - pytanie: "Chcesz obejrzeć każdą zmianę w cenniku, zanim trafi do pliku. Plan Ci odpowiada. Który przycisk karty planu wybierasz?"
+    odpowiedzi:
+      - "Accept and auto mode, bo wtedy Claude pokaże każdą zmianę do zatwierdzenia."
+      - "Accept, bo wtedy każdą zmianę zatwierdzasz potem ręcznie."
+      - "Revise…, bo wtedy Claude wykonuje plan po jednej zmianie."
+    poprawna: 1
+    wyjasnienie: "Po Accept zmiany zatwierdzasz potem ręcznie. W symulatorze przełącznik pokazał wtedy Manual."
+    fakt: aplikacja-plan-accept-potem-zmiany-recznie

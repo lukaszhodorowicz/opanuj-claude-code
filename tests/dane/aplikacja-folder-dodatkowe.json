@@ -1,0 +1,212 @@
+{
+  "lekcja": "probka-folder-dodatkowe",
+  "folder_startowy": [
+    "cennik.txt",
+    "opis-szkolenia.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Zapisz zasady firmy",
+      "opis": "Claude zapisuje albo czyta plik z folderu. Kliknij jego nazwę w odpowiedzi.",
+      "nauczyciel_start": "W folderze leżą pliki z tekstami. Wybierz polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Firma-szkolenia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam cennik i opis szkolenia."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "CLAUDE.md"
+      ],
+      "drogi": [
+        {
+          "id": "zasady",
+          "etykieta": "Poproś o plik",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Zapisz zasady firmy w pliku CLAUDE.md.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Zapisałem zasady w pliku CLAUDE.md.",
+              "plik": "CLAUDE.md",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij nazwę pliku w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady firmy",
+                "Ceny podajemy netto."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik jest w folderze."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Nowa rozmowa z zasadami",
+      "opis": "Claude zapisuje albo czyta plik z folderu. Kliknij jego nazwę w odpowiedzi.",
+      "nauczyciel_start": "W folderze leżą pliki z tekstami. Wybierz polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Firma-szkolenia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam cennik i opis szkolenia."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ],
+        "folder_startowy_dodatkowe": [
+          "CLAUDE.md"
+        ]
+      },
+      "drogi": [
+        {
+          "id": "zasady",
+          "etykieta": "Poproś o plik",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj CLAUDE.md i napisz, jak podajemy ceny.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem CLAUDE.md: ceny podajemy netto.",
+              "plik": "CLAUDE.md",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij nazwę pliku w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "CLAUDE.md",
+              "linijki": [
+                "Zasady firmy",
+                "Ceny podajemy netto."
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik jest w folderze."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw3",
+      "rodzaj": "aplikacja",
+      "tytul": "Bez zasad w folderze",
+      "opis": "Claude zapisuje albo czyta plik z folderu. Kliknij jego nazwę w odpowiedzi.",
+      "nauczyciel_start": "W folderze leżą pliki z tekstami. Wybierz polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Firma-szkolenia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam cennik i opis szkolenia."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "zasady",
+          "etykieta": "Poproś o plik",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Przeczytaj cennik.txt i podaj cenę.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Przeczytałem cennik.txt: 2 400 zł netto.",
+              "plik": "cennik.txt",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij nazwę pliku w odpowiedzi Claude.",
+              "fakt": "aplikacja-klik-sciezki-w-rozmowie-otwiera-plik"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "cennik.txt",
+              "linijki": [
+                "Cena: 2 400 zł netto"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik jest w folderze."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

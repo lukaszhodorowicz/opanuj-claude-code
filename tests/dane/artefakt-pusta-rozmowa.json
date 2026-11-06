@@ -1,0 +1,87 @@
+{
+  "lekcja": "probka-artefakt-pusta-rozmowa",
+  "folder_startowy": [
+    "oferta-szkolenia.html",
+    "notatki-wewnetrzne.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Strona oferty otwarta od startu, bez rozmowy",
+      "opis": "Artefakt jest już otwarty. Poprosisz o poprawkę i zobaczysz, jak strona zmienia się sama.",
+      "nauczyciel_start": "Strona oferty jest już otwarta obok rozmowy. Wybierz polecenie nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Oferta-szkolenia-kopia",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [],
+        "artefakt_otwarty": {
+          "tytul": "Oferta szkolenia: rozmowa o cenie",
+          "strona": {
+            "tytul": "Rozmowa o cenie bez przepraszania",
+            "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Uczysz się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+            "program": [
+              "Jak podać cenę jednym zdaniem",
+              "Co odpowiedzieć na „to za drogo”",
+              "Ćwiczenia na prawdziwych rozmowach zespołu"
+            ],
+            "cena": "2 400 zł netto za osobę. Rabat dla stałych klientów: 15% (z notatek wewnętrznych)",
+            "opinie": [
+              "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+              "Konkretne ćwiczenia, które zespół zastosował już następnego dnia. Piotr W."
+            ],
+            "kontakt": "Pytania o termin: kontakt@example.com"
+          }
+        }
+      },
+      "drogi": [
+        {
+          "id": "popraw",
+          "etykieta": "Usuń rabat i opublikuj jeszcze raz",
+          "opis": "Poprawka trafia pod ten sam adres.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Usuń ze strony linijkę o rabacie i opublikuj ją jeszcze raz.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Usunąłem linijkę o rabacie w pliku oferta-szkolenia.html i opublikowałem nową wersję pod tym samym adresem.",
+              "plik": "oferta-szkolenia.html"
+            },
+            {
+              "typ": "artefakt",
+              "tytul": "Oferta szkolenia: rozmowa o cenie",
+              "strona": {
+                "tytul": "Rozmowa o cenie bez przepraszania",
+                "opis": "Jednodniowy warsztat dla zespołów sprzedaży. Uczysz się mówić o cenie spokojnie i nie schodzić z niej przy pierwszym sprzeciwie.",
+                "program": [
+                  "Jak podać cenę jednym zdaniem",
+                  "Co odpowiedzieć na „to za drogo”",
+                  "Ćwiczenia na prawdziwych rozmowach zespołu"
+                ],
+                "cena": "2 400 zł netto za osobę",
+                "opinie": [
+                  "Po warsztacie przestaliśmy dawać rabat przy pierwszym pytaniu o cenę. Marta K.",
+                  "Konkretne ćwiczenia, które zespół zastosował już następnego dnia. Piotr W."
+                ],
+                "kontakt": "Pytania o termin: kontakt@example.com"
+              }
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Otwarta strona zmieniła się sama, bez klikania. Sprawdź jeszcze widok klienta.",
+              "fakt": "artefakt-gosc-publicznego-linku-widzi-napis-zamiast-imienia"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

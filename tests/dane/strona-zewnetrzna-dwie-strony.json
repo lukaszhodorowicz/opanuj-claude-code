@@ -1,0 +1,142 @@
+{
+  "lekcja": "probka-strona-zewnetrzna-dwie-strony",
+  "folder_startowy": [
+    "oferta-firmy.txt",
+    "dane-firmy.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Dwie karty zgody dla dwóch stron",
+      "opis": "Allow once dla jednej strony, Deny dla drugiej.",
+      "nauczyciel_start": "Wybierz drogę nad oknem i patrz na kartę zgody pod odpowiedzią Claude.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Marketing-firmy",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "W tym folderze mam cennik serwisu i dane firmy. Chcę porównać ceny z konkurencją."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam sprawdzić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "ceny-druku.txt"
+      ],
+      "drogi": [
+        {
+          "id": "dwie-strony",
+          "etykieta": "Sprawdź dwie drukarnie",
+          "opis": "Allow once dla pierwszej strony, Deny dla drugiej; po odmowie nowy plik zajmuje panel.",
+          "kroki": [
+            {
+              "typ": "pisz",
+              "tekst": "Sprawdź ceny ulotek w Drukarni Kolor i w Rabaty-Druk, a wynik zapisz w ceny-druku.txt.",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Wchodzę na stronę Drukarni Kolor.",
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "zgoda",
+              "witryna": "Drukarnia Kolor",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Kliknij Allow once.",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "klik",
+              "cel": "allow_once"
+            },
+            {
+              "typ": "strona",
+              "witryna": "Drukarnia Kolor",
+              "strona": {
+                "tytul": "Drukarnia Kolor",
+                "opis": "Ulotki, wizytówki i plakaty w małych nakładach.",
+                "program": [
+                  "Ulotki A5 od 100 sztuk",
+                  "Wizytówki na papierze kredowym",
+                  "Plakaty A2 i A1"
+                ],
+                "cena": "Ulotki A5, 500 sztuk: 190 zł",
+                "opinie": [
+                  "Termin dotrzymany co do dnia. Ewa P.",
+                  "Kolory zgodne z projektem. Jan R."
+                ],
+                "kontakt": "Zamówienia: druk@example.com"
+              },
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Pierwsza strona otwarta."
+            },
+            {
+              "typ": "mysli"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Teraz sprawdzę drugą stronę, Rabaty-Druk.",
+              "fakt": "aplikacja-browser-claude-czyta-i-dziala-na-cudzych-stronach"
+            },
+            {
+              "typ": "zgoda",
+              "witryna": "Rabaty-Druk",
+              "fakt": "aplikacja-browser-karta-zgody-przy-pierwszym-dzialaniu"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To inna strona, więc ma własną kartę. Kliknij Deny.",
+              "fakt": "aplikacja-browser-osobna-zgoda-dla-kazdej-strony"
+            },
+            {
+              "typ": "klik",
+              "cel": "deny"
+            },
+            {
+              "typ": "claude",
+              "tekst": "Nie wchodzę na Rabaty-Druk. Zapisałem ceny z Drukarni Kolor w ceny-druku.txt.",
+              "plik": "ceny-druku.txt",
+              "fakt": "claude-code-tworzy-nowe-pliki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Odmowa nie zamyka pierwszej strony. Kliknij ścieżkę."
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "ceny-druku.txt",
+              "linijki": [
+                "Ulotki A5, 500 sztuk: 190 zł"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Plik zajął miejsce strony w panelu."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

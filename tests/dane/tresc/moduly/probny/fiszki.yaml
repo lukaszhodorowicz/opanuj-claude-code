@@ -1,0 +1,7 @@
+fiszki:
+  - przod: "Co opisuje specyfikacja skilli?"
+    tyl: "Format skilla."
+    fakt: skill-specyfikacja
+  - przod: "Czy opis ma limit?"
+    tyl: "Tak."
+    fakt: skill-opis-limit

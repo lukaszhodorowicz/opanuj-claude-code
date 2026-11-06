@@ -1,0 +1,168 @@
+{
+  "lekcja": "probka-gotowe-skille",
+  "folder_startowy": [
+    "sprzedaz-wrzesien.xlsx",
+    "sprzedaz-sierpien.xlsx",
+    "cennik.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw2",
+      "rodzaj": "aplikacja",
+      "tytul": "Wybierz skill z listy poleceń",
+      "opis": "Dwie drogi do tej samej listy: przycisk + albo znak /.",
+      "nauczyciel_start": "Teraz Ty wskażesz skill. Kliknij pierwszą drogę nad oknem.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Sklep-sprzedaz",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "folder_startowy_dodatkowe": [
+          "wnioski-wrzesien.txt"
+        ],
+        "rozmowa": [
+          {
+            "kto": "ty",
+            "tekst": "Mam tu eksporty sprzedaży za sierpień i wrzesień. Chcę je porównać."
+          },
+          {
+            "kto": "claude",
+            "tekst": "Dobrze. Napisz, co mam zrobić."
+          }
+        ]
+      },
+      "nowe_pliki": [
+        "porownanie.txt"
+      ],
+      "drogi": [
+        {
+          "id": "plus",
+          "etykieta": "Przez przycisk +",
+          "opis": "Menu przycisku + ma pozycję z listą poleceń.",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To menu przycisku +. Kliknij Slash commands (polecenia z ukośnikiem).",
+              "fakt": "skill-aplikacja-menu"
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Slash commands"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Tu są polecenia i skille. Kliknij zaznaczony wiersz."
+            },
+            {
+              "typ": "klik",
+              "cel": "wiersz",
+              "bez_napisu": true
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skill stoi podświetlony w polu. Zadanie dopisuje się po nim."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "porównaj sprzedaż z plików sprzedaz-wrzesien.xlsx i sprzedaz-sierpien.xlsx i zapisz wynik w porownanie.txt",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "sprzedaz-wrzesien.xlsx",
+                "sprzedaz-sierpien.xlsx"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Porównałem oba arkusze i zapisałem wynik w porownanie.txt. Wrzesień był lepszy o 2 270 zł.",
+              "plik": "porownanie.txt"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "porownanie.txt",
+              "linijki": [
+                "Wrzesień: 18 470 zł",
+                "Sierpień: 16 200 zł",
+                "Różnica: +2 270 zł (+14%)",
+                "Najbardziej urosła: Kawa Etiopia 250 g"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten sam rodzaj wyniku co w ćwiczeniu 1. Tym razem skill wskazała Twoja wiadomość."
+            }
+          ]
+        },
+        {
+          "id": "ukosnik",
+          "etykieta": "Przez znak /",
+          "opis": "Znak / w polu otwiera tę samą listę od razu.",
+          "kroki": [
+            {
+              "typ": "ukosnik"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ta sama lista, bez menu. Kliknij zaznaczony wiersz."
+            },
+            {
+              "typ": "klik",
+              "cel": "wiersz",
+              "bez_napisu": true
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Skill stoi podświetlony w polu. Zadanie dopisuje się po nim."
+            },
+            {
+              "typ": "pisz",
+              "tekst": "porównaj sprzedaż z plików sprzedaz-wrzesien.xlsx i sprzedaz-sierpien.xlsx i zapisz wynik w porownanie.txt",
+              "fakt": "aplikacja-enter-wysyla-zadanie"
+            },
+            {
+              "typ": "mysli",
+              "czyta": [
+                "sprzedaz-wrzesien.xlsx",
+                "sprzedaz-sierpien.xlsx"
+              ]
+            },
+            {
+              "typ": "claude",
+              "tekst": "Porównałem oba arkusze i zapisałem wynik w porownanie.txt. Wrzesień był lepszy o 2 270 zł.",
+              "plik": "porownanie.txt"
+            },
+            {
+              "typ": "klik",
+              "cel": "sciezka"
+            },
+            {
+              "typ": "plik",
+              "nazwa": "porownanie.txt",
+              "linijki": [
+                "Wrzesień: 18 470 zł",
+                "Sierpień: 16 200 zł",
+                "Różnica: +2 270 zł (+14%)",
+                "Najbardziej urosła: Kawa Etiopia 250 g"
+              ]
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Ten sam rodzaj wyniku co w ćwiczeniu 1. Tym razem skill wskazała Twoja wiadomość."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "lekcja": "probka-wtyczki-przegladarka",
+  "folder_startowy": [
+    "cennik-konsultacji.txt",
+    "pakiety-dla-klientow.txt",
+    "zasady-umawiania.txt"
+  ],
+  "cwiczenia": [
+    {
+      "id": "cw1",
+      "rodzaj": "aplikacja",
+      "tytul": "Otwórz przeglądarkę wtyczek z menu +",
+      "opis": "Plus, Plugins, Browse plugins, przeglądarka wtyczek.",
+      "nauczyciel_start": "Otworzysz przeglądarkę wtyczek. Kliknij plus obok pola wiadomości.",
+      "aplikacja": {
+        "srodowisko": "Local",
+        "folder": "Gabinet-dietetyczny",
+        "tryb": "Accept edits",
+        "panel": "schowany",
+        "rozmowa": [
+          { "kto": "ty", "tekst": "Cześć." },
+          { "kto": "claude", "tekst": "Dzień dobry. W czym pomóc?" }
+        ]
+      },
+      "drogi": [
+        {
+          "id": "przegladarka",
+          "etykieta": "Otwórz przeglądarkę wtyczek",
+          "opis": "Plus, Plugins, Browse plugins, otwarta przeglądarka",
+          "kroki": [
+            {
+              "typ": "klik",
+              "cel": "plus",
+              "fakt": "aplikacja-plus-menu-pliki-skille-konektory-wtyczki"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Menu plusa zbiera też wtyczki. Kliknij Plugins."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Plugins"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "Podmenu stoi obok menu. Kliknij Browse plugins."
+            },
+            {
+              "typ": "klik",
+              "cel": "pozycja",
+              "na": "Browse plugins",
+              "fakt": "aplikacja-add-plugins-otwiera-przegladarke-wtyczek"
+            },
+            {
+              "typ": "nauczyciel",
+              "tekst": "To przeglądarka wtyczek z Twoich katalogów: zakładka Discover z kartą polecaną i listą nowych wtyczek.",
+              "fakt": "aplikacja-przegladarka-wtyczek-z-twoich-katalogow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
